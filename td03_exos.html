@@ -1,0 +1,526 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TD 03 — Ensembles et applications (MPSI)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<style>
+  :root{--fg:#111827;--muted:#6b7280;--border:#e5e7eb}
+  html,body{margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,sans-serif;line-height:1.55;color:var(--fg);padding:24px;max-width:980px}
+  h1,h2,h3{margin:0 0 .5rem 0}
+  h1{font-size:1.85rem}
+  h2{font-size:1.25rem;margin-top:1.25rem}
+  h3{font-size:1.05rem;margin-top:.75rem}
+  p{margin:.25rem 0}
+  ol,ul{margin:.25rem 0 .25rem 1.25rem;padding:0}
+  section{border:1px solid var(--border);border-radius:10px;padding:12px;margin-top:8px}
+  .meta{color:var(--muted);font-size:.95rem}
+  .group-title{margin-top:.5rem}
+</style>
+</head>
+<body>
+<h1>TD 03 — Ensembles et applications</h1>
+<p class="meta">MPSI — Ensembles, opérations, produits cartésiens, applications</p>
+
+<h2>Ensembles — Opérations booléennes</h2>
+<section id="autoA">
+  <h3>Autocorrection A.</h3>
+  <p>Soient $E$ et $F$ deux ensembles. En revenant aux définitions de l’égalité et de l’inclusion, écrire des assertions quantifiées équivalentes à $E\not\subseteq F$ et à $E\ne F$.</p>
+</section>
+
+<section id="autoB">
+  <h3>Autocorrection B.</h3>
+  <p>Décrire explicitement $\mathcal{P}(\{1,2,3\})$. Exprimer chacun de ses éléments à partir de $A=\{1,2\}$ et $B=\{2,3\}$ en utilisant les opérations $\cup$, $\cap$ et $\setminus$.</p>
+</section>
+
+<section id="autoC">
+  <h3>Autocorrection C.</h3>
+  <p>Soit $E$ un ensemble et $A,B,C\in \mathcal{P}(E)$. Montrer :</p>
+  <ol>
+    <li>$A\cup(E\setminus A)=E$ ;</li>
+    <li>$(A\cap B)\cup(A\setminus B)=A$ ;</li>
+    <li>$(A\subseteq B\ \text{et}\ B\subseteq C)\Rightarrow A\subseteq C$ ;</li>
+    <li>$A\subseteq B\iff E\setminus B\subseteq E\setminus A$.</li>
+  </ol>
+</section>
+
+<section id="ex1">
+  <h3>Exercice 1.</h3>
+  <p>Soient $a\lt b\lt c\lt d$ quatre réels. En faisant des dessins, décrire (sans démonstration) les ensembles suivants :</p>
+  <ol>
+    <li>$[a,c]\cup[b,d]$</li>
+    <li>$[a,c]\cap[b,d]$</li>
+    <li>$[a,b]\cap[c,d]$</li>
+    <li>$[a,c]\setminus[b,d]$</li>
+    <li>$[a,d]\setminus[b,c]$</li>
+    <li>$[b,c]\setminus[a,d]$</li>
+  </ol>
+</section>
+
+<section id="ex2">
+  <h3>Exercice 2.</h3>
+  <p>Soit $\Omega$ un ensemble et $A,B,C\subseteq\Omega$. On note $\overline{A}=\Omega\setminus A$ (et de même pour $B,C$). Simplifier :</p>
+  <ol>
+    <li>$(\overline{A}\cap B)\cup(A\cap\overline{B})\cup(A\cap B)\cup(\overline{A}\cap\overline{B})$</li>
+    <li>$A\cup(A\cap B)\cup(A\cap B\cap C)$</li>
+  </ol>
+</section>
+
+<section id="ex3">
+  <h3>Exercice 3 — Différence symétrique.</h3>
+  <p>Pour $A,B\in\mathcal{P}(\Omega)$, on définit $A\triangle B=(A\setminus B)\cup(B\setminus A)$.</p>
+  <ol>
+    <li>Illustrer sur un diagramme de Venn.</li>
+    <li>Montrer $\forall A,B,\;A\triangle B=(A\cup B)\setminus(A\cap B)$.</li>
+    <li>Montrer : (i) $A\triangle A=\varnothing$ ; (ii) $\exists E:\ \forall A,\ A\triangle E=A$ ; (iii) $\forall A,\exists B:\ A\triangle B=\varnothing$.</li>
+  </ol>
+</section>
+
+<h2>Familles d’ensembles</h2>
+<section id="autoD">
+  <h3>Autocorrection D.</h3>
+  <ol>
+    <li>Montrer $\bigcup\limits_{x\in[0,1]}\,]x-1,x+1[\;=\;]-1,2[$.</li>
+    <li>Que vaut $\bigcap\limits_{x\in[0,1]}\,]x-1,x+1[$ ?</li>
+  </ol>
+</section>
+
+<section id="ex4">
+  <h3>Exercice 4 — Tout ensemble est union de singletons.</h3>
+  <p>Soit $E$ un ensemble. Montrer $E=\displaystyle\bigcup_{x\in E}\{x\}$.</p>
+</section>
+
+<section id="ex5">
+  <h3>Exercice 5.</h3>
+  <p>Soit $(E_n)_{n\in\mathbb{N}}$ une famille de parties de $\mathbb{R}$. On définit</p>
+  <p>$\displaystyle \liminf_{n\to\infty}E_n=\bigcup_{n\in\mathbb{N}}\bigcap_{k\gt n}E_k\quad\text{et}\quad \limsup_{n\to\infty}E_n=\bigcap_{n\in\mathbb{N}}\bigcup_{k\gt n}E_k$.</p>
+  <ol>
+    <li>Montrer $\liminf E_n\subseteq\limsup E_n$.</li>
+    <li>Calculer $\liminf E_n$ et $\limsup E_n$ pour $E_n=[n,+\infty[$.</li>
+    <li>Même question pour $E_n=[(-1)^n n,+\infty[$.</li>
+  </ol>
+</section>
+
+<h2>Produit cartésien</h2>
+<section id="ex6">
+  <h3>Exercice 6.</h3>
+  <p>Soient $A,B,C$ trois ensembles non vides tels que $A\times B\subseteq B\times C$. Montrer $A\subseteq C$.</p>
+</section>
+
+<section id="ex7">
+  <h3>Exercice 7+.</h3>
+  <p>Soit $\Omega$ un ensemble et $E,F\in\mathcal{P}(\Omega)$ tels que $E\times F\subseteq(F\times\Omega)\cup(\Omega\times E)$. Montrer $E\subseteq F$ ou $F\subseteq E$.</p>
+</section>
+
+<h2>Ensemble des parties</h2>
+<section id="ex8">
+  <h3>Exercice 8.</h3>
+  <p>Soit $E=\{0,1,2\}$. Les assertions suivantes sont-elles vraies ?</p>
+  <ol>
+    <li>$E\in\mathbb{N}$ ;</li>
+    <li>$E\subseteq\mathbb{N}$ ;</li>
+    <li>$E\in\mathcal{P}(\mathbb{N})$ ;</li>
+    <li>$E\subseteq\mathcal{P}(\mathbb{N})$ ;</li>
+    <li>$1\in E$ ;</li>
+    <li>$1\subseteq E$ ;</li>
+    <li>$\{1\}\in E$ ;</li>
+    <li>$\{1\}\subseteq E$ ;</li>
+    <li>$\varnothing\in E$ ;</li>
+    <li>$\varnothing\subseteq E$ ;</li>
+    <li>$\varnothing\in\mathcal{P}(E)$ ;</li>
+    <li>$\{\varnothing\}\subseteq E$.</li>
+  </ol>
+</section>
+
+<section id="ex9">
+  <h3>Exercice 9.</h3>
+  <p>Soit $\Omega$ un ensemble et $A,B\subseteq\Omega$. Les ensembles $\mathcal{P}(A\cap B)$ et $\mathcal{P}(A)\cap\mathcal{P}(B)$ sont-ils égaux ? Même question pour $\mathcal{P}(A\cup B)$ et $\mathcal{P}(A)\cup\mathcal{P}(B)$.</p>
+</section>
+
+<section id="ex10">
+  <h3>Exercice 10+.</h3>
+  <p>Deux parties de $[[1,n]]$ sont dites adjacentes si l’on passe de l’une à l’autre en ajoutant ou en supprimant un unique élément.</p>
+  <ol>
+    <li>Montrer qu’il est possible de lister les parties de $[[1,n]]$ sous la forme $A_0,\ldots,A_{2^n-1}$ de sorte que, pour tout $k\in[[1,2^n-1]]$, $A_{k-1}$ et $A_k$ soient adjacentes, et qu’en outre $A_{2^n-1}$ et $A_0$ soient adjacentes.</li>
+    <li>Montrer qu’on peut imposer en outre $A_0=\varnothing$ et $\forall k\in[[1,n]],\ A_k=[[1,k]]$.</li>
+  </ol>
+</section>
+
+<h2>Implications et équivalences</h2>
+<section id="autoE">
+  <h3>Autocorrection E.</h3>
+  <p>Soit $\Omega$ un ensemble et $A,B\subseteq\Omega$. Donner des assertions simples équivalentes à :</p>
+  <ol>
+    <li>$\forall x\in\Omega,\ x\in A\ \text{et}\ x\in B$ ;</li>
+    <li>$\forall x\in\Omega,\ x\in A\ \text{ou}\ x\in B$ ;</li>
+    <li>$\forall x\in\Omega,\ x\in A\Rightarrow x\in B$ ;</li>
+    <li>$\forall x\in\Omega,\ x\in A\Leftrightarrow x\in B$ ;</li>
+    <li>$\forall x\in\Omega,\ x\in A\Rightarrow x\notin B$ ;</li>
+    <li>$\forall x\in\Omega,\ x\in A\ \text{ou}\ x\notin B$ ;</li>
+    <li>$\exists X\in\mathcal{P}(\Omega)\setminus\{\varnothing\}$ tel que $A\cap X=\varnothing$ ;</li>
+    <li>$\forall X\in\mathcal{P}(\Omega),\ X\cap A\ne\varnothing\Rightarrow X\cap B\ne\varnothing$.</li>
+  </ol>
+</section>
+
+<section id="ex11">
+  <h3>Exercice 11.</h3>
+  <p>Soit $X$ un ensemble et $P(x)$ une assertion dépendant de $x\in X$. Donner une assertion équivalente à $\forall x\in\{z\in X\mid P(z)\},\ Q(x)$.</p>
+</section>
+
+<section id="ex12">
+  <h3>Exercice 12.</h3>
+  <p>Soit $X$ un ensemble. Montrer $\forall x,y\in X,\;\big(x=y\iff(\forall A\in\mathcal{P}(X),\ x\in A\Rightarrow y\in A)\big)$.</p>
+</section>
+
+<section id="ex13">
+  <h3>Exercice 13.</h3>
+  <p>Soit $\Omega$ un ensemble et $A,B,C\subseteq\Omega$. Avec $\overline{A}=\Omega\setminus A$ (etc.), montrer :</p>
+  <ol>
+    <li>$A=B\iff A\cap B=A\cup B$ ;</li>
+    <li>$B\subseteq C\iff(A\cup B\subseteq A\cup C\ \text{et}\ A\cap B\subseteq A\cap C)$ ;</li>
+    <li>$B=C\iff(A\cup B=A\cup C\ \text{et}\ A\cap B=A\cap C)$ ;</li>
+    <li>$A\subseteq B\subseteq C\iff A\cup B=B\cap C$ ;</li>
+    <li>$A\cap B=A\cap C\iff \overline{A}\cup B=\overline{A}\cup C$ ;</li>
+    <li>$A\subseteq B\iff \forall X\in\mathcal{P}(\Omega),\ A\cap X\subseteq B\cap X$.</li>
+  </ol>
+</section>
+
+<section id="ex14">
+  <h3>Exercice 14.</h3>
+  <p>Soient $A,B\subseteq\mathbb{N}$. Montrer :</p>
+  <ol>
+    <li>$A=(A\cap\{2n\mid n\in\mathbb{N}\})\cup(A\cap\{2n+1\mid n\in\mathbb{N}\})$ ;</li>
+    <li>$A=B\iff(\forall n\in\mathbb{N},\ A\cup\{n\}=B\cup\{n\})$ ;</li>
+    <li>$A=B\iff(\forall n\in\mathbb{N},\ A\cap[[0,n]]=B\cap[[0,n]])$.</li>
+  </ol>
+  <p>La dernière assertion reste-t-elle vraie si l’on remplace les deux intersections par des unions ?</p>
+</section>
+
+<h2>Mélange</h2>
+<section id="ex15">
+  <h3>Exercice 15.</h3>
+  <p>Soit $A\subseteq\mathbb{Z}$ non vide telle que $\forall n\in\mathbb{Z},\ n\in A\Rightarrow(n-1\in A\ \text{et}\ n+1\in A)$. Montrer $A=\mathbb{Z}$.</p>
+</section>
+
+<h2>Applications</h2>
+<section id="ex20">
+  <h3>Exercice 20.</h3>
+  <p>Soient $E,F$ deux ensembles et $f,g:E\to F$. On suppose que $\forall x,y\in E$, on a $\big(f(x)=f(y)\ \text{ou}\ g(x)=g(y)\big)$. Montrer qu’au moins l’une des deux applications $f$ et $g$ est constante.</p>
+</section>
+
+<section id="ex21">
+  <h3>Exercice 21.</h3>
+  <p>Soit $\Omega$ un ensemble et $A,B\subseteq\Omega$. Montrer que les fonctions suivantes sont des fonctions indicatrices de parties (à préciser) de $\Omega$ :</p>
+  <ol>
+    <li>$\min(\mathbf{1}_A,\mathbf{1}_B)$ ;</li>
+    <li>$\max(\mathbf{1}_A,\mathbf{1}_B)$ ;</li>
+    <li>$\mathbf{1}_A\cdot\mathbf{1}_B$ ;</li>
+    <li>$1-\mathbf{1}_A$ ;</li>
+    <li>$\mathbf{1}_A+\mathbf{1}_B-\mathbf{1}_A\cdot\mathbf{1}_B$ ;</li>
+    <li>$(\mathbf{1}_A-\mathbf{1}_B)^2$.</li>
+  </ol>
+</section>
+
+<h2>Injectivité, surjectivité, bijectivité — Exemples</h2>
+<section id="autoF">
+  <h3>Autocorrection F.</h3>
+  <ol>
+    <li>L’application $f:\mathbb{N}\to\mathbb{N},\ n\mapsto 2n$ est-elle injective ? surjective ?</li>
+    <li>Mêmes questions pour $g:\mathbb{N}\to\mathbb{N}$, $g(n)=\begin{cases}n/2&\text{si }n\text{ est pair}\ n&\text{si }n\text{ est impair}\ \end{cases}$.</li>
+    <li>Déterminer $g\circ f$ et $f\circ g$. Sont-elles injectives ? surjectives ?</li>
+  </ol>
+</section>
+
+<section id="autoG">
+  <h3>Autocorrection G.</h3>
+  <p>Soit $f:\mathbb{N}\to\mathbb{N},\ x\mapsto x^2$.</p>
+  <ol>
+    <li>$f$ est-elle injective ? surjective ?</li>
+    <li>Existe-t-il $g:\mathbb{N}\to\mathbb{N}$ telle que $f\circ g=\mathrm{id}_{\mathbb{N}}$ ? Existe-t-il $h:\mathbb{N}\to\mathbb{N}$ telle que $h\circ f=\mathrm{id}_{\mathbb{N}}$ ?</li>
+  </ol>
+</section>
+
+<section id="ex22">
+  <h3>Exercice 22.</h3>
+  <p>Déterminer, pour chaque application ci-dessous, si elle est injective / surjective / bijective :</p>
+  <ol>
+    <li>$\mathbb{N}\to\mathbb{N},\ n\mapsto n+1$</li>
+    <li>$\mathbb{Z}\to\mathbb{Z},\ n\mapsto n+1$</li>
+    <li>$\mathbb{R}^2\to\mathbb{R}^2,\ (x,y)\mapsto(y,x)$</li>
+    <li>$\mathbb{R}^2\to\mathbb{R},\ (x,y)\mapsto 3y$</li>
+    <li>$\mathbb{R}^2\to\mathbb{R}^3,\ (x,y)\mapsto(x,y,\,y-x)$</li>
+    <li>$\mathbb{R}\to\mathbb{R},\ z\mapsto z^2+z+1$</li>
+    <li>$\mathbb{C}\to\mathbb{C},\ z\mapsto z^2+z+1$</li>
+    <li>$\mathbb{R}^2\to\mathbb{R}^2,\ (x,y)\mapsto(x+y,xy)$</li>
+    <li>$\mathbb{C}^2\to\mathbb{C}^2,\ (x,y)\mapsto(x+y,xy)$</li>
+    <li>$\mathbb{Z}\to\mathbb{Z},\ n\mapsto n+(-1)^n$</li>
+    <li>$\mathbb{R}^{\mathbb{R}}\to\mathbb{R},\ f\mapsto f(0)$</li>
+    <li>$\mathbb{R}^{\mathbb{R}}\to\mathbb{R},\ f\mapsto f(0)$ (même question, autre contexte si utile)</li>
+    <li>$\mathcal{P}(\mathbb{R})\to\mathcal{P}(\mathbb{R}_+),\ X\mapsto X\cap\mathbb{R}_+$</li>
+  </ol>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded",function(){
+    renderMathInElement(document.body,{
+      delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}],
+      throwOnError:false
+    });
+  });
+</script>
+
+<section id="ex23">
+  <h3>Exercice 23.</h3>
+  <p>Soit $f:\mathbb{N}\to\mathbb{N}$, $n\mapsto n+1$ et $g:\mathbb{N}\to\mathbb{N}$, $n\mapsto \max(0,n-1)$.</p>
+  <ol>
+    <li>Montrer que $g\circ f=\mathrm{id}_{\mathbb{N}}$.</li>
+    <li>Peut-on en déduire que l’application $g$ est la réciproque de $f$ ?</li>
+  </ol>
+</section>
+
+<section id="ex24">
+  <h3>Exercice 24.</h3>
+  <p>On note $\pi:\mathbb{N}^\ast\to\mathbb{N}$ la fonction qui associe à tout entier $n$ le nombre de nombres premiers appartenant à l’intervalle entier $[[1,n]]$.</p>
+  <p>La fonction $\pi$ est-elle injective ? surjective ? bijective ?</p>
+</section>
+
+<section id="ex25">
+  <h3>Exercice 25+.</h3>
+  <p>Déterminer si la fonction $\sin:\mathbb{Q}\to[-1,1]$ est injective et/ou surjective.</p>
+</section>
+
+<section id="ex26">
+  <h3>Exercice 26.</h3>
+  <p>Soit $E$ et $F$ deux ensembles non vides et $G$ un ensemble ayant au moins deux éléments. Soit $f:E\to F$.</p>
+  <p>On considère l’application $\varphi:G^F\to G^E$, $g\mapsto g\circ f$.</p>
+  <ol>
+    <li>Montrer que $\varphi$ est injective si et seulement si $f$ est surjective.</li>
+    <li>Montrer que $\varphi$ est surjective si et seulement si $f$ est injective.</li>
+  </ol>
+</section>
+
+<section id="ex27">
+  <h3>Exercice 27.</h3>
+  <p>Soit $\Omega$ un ensemble et $X,Y\subseteq\Omega$. On considère l’application $\psi:\mathcal{P}(\Omega)\to\mathcal{P}(X)\times\mathcal{P}(Y)$, $A\mapsto (X\cap A,\,Y\cap A)$.</p>
+  <p>Donner des conditions nécessaires et suffisantes sur $X$ et $Y$ pour que $\psi$ soit injective (resp. surjective). Quand $\psi$ est bijective, exhiber sa réciproque.</p>
+</section>
+
+<section id="ex28">
+  <h3>Exercice 28++.</h3>
+  <ol>
+    <li>Soit $f,g:\mathbb{Z}\to\mathbb{Z}$ deux bijections. Montrer que $\big\{\,\mathbb{Z}\to\mathbb{Z},\ k\mapsto f(k)\,g(k)\,\big\}$ n’est pas bijective.</li>
+    <li>Peut-elle être injective ?</li>
+  </ol>
+</section>
+
+<h2>Injectivité, surjectivité, bijectivité — théorie</h2>
+
+<section id="ex29">
+  <h3>Exercice 29.</h3>
+  <p>Soit $E$ et $F$ deux ensembles, et $A\subseteq E$. Soit $f:E\to F$. Dire si les assertions suivantes sont vraies ou fausses (on justifiera par une preuve ou un contre-exemple).</p>
+  <ul>
+    <li>Si $f$ est injective, alors $f_{\mid A}$ est injective.</li>
+    <li>Si $f$ est surjective, alors $f_{\mid A}$ est surjective.</li>
+    <li>Si $f_{\mid A}$ est injective, alors $f$ est injective.</li>
+    <li>Si $f_{\mid A}$ est surjective, alors $f$ est surjective.</li>
+  </ul>
+</section>
+
+<section id="ex30">
+  <h3>Exercice 30.</h3>
+  <p>Soit $f:\mathbb{R}\to\mathbb{R}$. Montrer que si $f$ est strictement monotone, alors $f$ est injective. La réciproque est-elle vraie ?</p>
+</section>
+
+<section id="ex31">
+  <h3>Exercice 31.</h3>
+  <p>Soit $f:\mathbb{R}\to\mathbb{R}$ bijective.</p>
+  <ol>
+    <li>Montrer que $f$ est impaire si et seulement si $f^{-1}$ l’est.</li>
+    <li>A-t-on le même résultat pour la parité ?</li>
+  </ol>
+</section>
+
+<section id="ex32">
+  <h3>Exercice 32.</h3>
+  <p>Soit $E,F,G,H$ quatre ensembles et $f:E\to F$, $g:F\to G$ et $h:G\to H$ trois applications. Montrer que si $g\circ f$ et $h\circ g$ sont bijectives, alors $f$, $g$ et $h$ sont bijectives.</p>
+</section>
+
+<section id="ex33">
+  <h3>Exercice 33+.</h3>
+  <p>Soit $E$ un ensemble, $n>1$ un entier et $f:E\to E$ telle que $f^{\circ n}=\underbrace{f\circ f\circ\cdots\circ f}_{n\ \text{fois}}$ soit égale à $f$.</p>
+  <ol>
+    <li>Montrer que $f$ est injective si et seulement si elle est surjective.</li>
+    <li>On fixe $n=2$. À quelle condition $f$ est-elle injective ?</li>
+  </ol>
+</section>
+
+<section id="ex34">
+  <h3>Exercice 34+.</h3>
+  <p>Soit $X$ et $Y$ deux ensembles non vides et $f:X\to Y$.</p>
+  <ol>
+    <li>Montrer que $f$ est injective si et seulement s’il existe $g:Y\to X$ telle que $g\circ f=\mathrm{id}_X$.</li>
+    <li>Montrer que $f$ est surjective si et seulement s’il existe $h:Y\to X$ telle que $f\circ h=\mathrm{id}_Y$.</li>
+  </ol>
+</section>
+
+<section id="ex35">
+  <h3>Exercice 35+.</h3>
+  <p>Soit $f,g:\mathbb{N}\to\mathbb{N}$ deux applications telles que $f$ soit injective, $g$ soit surjective et $\forall n\in\mathbb{N},\ f(n)\le g(n)$. Montrer que $f=g$.</p>
+</section>
+
+<h2>Images directe et réciproque</h2>
+
+<section id="ex36">
+  <h3>Exercice 36.</h3>
+  <ol>
+    <li>Déterminer $\sin[A]$, dans les cas $A\in\{\mathbb{R},\mathbb{R}_+,[0,2\pi],[-\pi,\pi],[0,\pi/2],[-\pi,\pi/2]\}$.</li>
+    <li>Déterminer $\sin^{-1}[B]$ dans les cas $B\in\{[-1,1],[0,1],[3,4],\mathbb{R},\{1\},\{-1,1\}\}$.</li>
+  </ol>
+</section>
+
+<section id="ex37">
+  <h3>Exercice 37.</h3>
+  <p>Soit $f:\mathbb{R}\to\mathbb{R}$, $x\mapsto 2x^2-4x+1$.</p>
+  <ol>
+    <li>La fonction $f$ est-elle injective ? surjective ?</li>
+    <li>Montrer que $f$ est injective sur $[1,+\infty[$. En déduire que $f$ induit une bijection de $[1,+\infty[$ sur son image (que l’on précisera) et déterminer son application réciproque.</li>
+    <li>Déterminer $f\big[[0,1]\big],\ f\big[\mathbb{R}_-\big],\ f\big[\mathbb{R}_+\big],\ f^{-1}\!\big[\{1\}\big],\ f^{-1}\!\big[[{-}1,1]\big],\ f^{-1}\!\big[[0,1]\big],\ f^{-1}\!\big[[{-}2,1]\big].</li>
+  </ol>
+</section>
+
+<section id="ex38">
+  <h3>Exercice 38.</h3>
+  <p>Soit $f:\mathbb{C}^\ast\to\mathbb{C}$, $z\mapsto z+\dfrac{1}{z}$.</p>
+  <ol>
+    <li>L’application $f$ est-elle injective ? surjective ?</li>
+    <li>Déterminer $f\big[\mathbb{R}^\ast\big]$ et $f\big[\mathbb{U}\big]$.</li>
+  </ol>
+</section>
+
+<section id="ex39">
+  <h3>Exercice 39.</h3>
+  <p>Soit $X$ et $Y$ deux ensembles et $f:X\to Y$ une application. Pour tout $y\in Y$, on définit $A_y=f^{-1}[\{y\}]\subseteq X$. Montrer que la famille $(A_y)_{y\in Y}$ est un recouvrement disjoint de $E$.</p>
+  <p>Expliciter (et dessiner) ce recouvrement dans les cas $m:\mathbb{C}\to\mathbb{R},\ z\mapsto|z|$, $\ \alpha:\mathbb{C}^\ast\to\mathbb{C},\ z\mapsto \dfrac{z}{|z|}$, et $\operatorname{Re}:\mathbb{C}\to\mathbb{R}$.</p>
+</section>
+
+<section id="ex40">
+  <h3>Exercice 40.</h3>
+  <p>Soit $f:\mathbb{N}\to\mathbb{N}$, $n\mapsto n+1$. Déterminer les parties $A\in\mathcal{P}(\mathbb{N})$ stables sous $f$.</p>
+</section>
+
+<section id="ex41">
+  <h3>Exercice 41.</h3>
+  <p>Soit $X$ un ensemble et $f:X\to X$ une application. Soit $(A_i)_{i\in I}$ une famille de parties de $X$.</p>
+  <ol>
+    <li>Montrer que si, pour tout $i\in I$, $A_i$ est stable sous $f$, il en va de même de $\bigcap_{i=1}^n A_i$ et $\bigcup_{i=1}^n A_i$.</li>
+    <li>Est-il vrai en général que si $A\subseteq X$ est stable sous $f$, alors $X\setminus A$ l’est également ?</li>
+  </ol>
+</section>
+
+<section id="ex42">
+  <h3>Exercice 42.</h3>
+  <p>Soit $E$ et $F$ deux ensembles et $f:E\to F$.</p>
+  <ol>
+    <li>Montrer que $f$ est injective si et seulement si $\forall(A,B)\in\mathcal{P}(E)^2,\ f[A\cap B]=f[A]\cap f[B]$.</li>
+    <li>Montrer que $f$ est bijective si et seulement si $\forall A\in\mathcal{P}(E),\ f[E\setminus A]=F\setminus f[A]$.</li>
+  </ol>
+</section>
+
+<section id="ex43">
+  <h3>Exercice 43+.</h3>
+  <p>Soit $E$ et $F$ deux ensembles et $f:E\to F$.</p>
+  <ol>
+    <li>Soit $A\subseteq E$. Montrer que $A\subseteq f^{-1}[f[A]]$ et donner un exemple prouvant qu’il n’y a pas toujours égalité.</li>
+    <li>Montrer que $f$ est injective si et seulement si $\forall A\in\mathcal{P}(E),\ f^{-1}[f[A]]=A$.</li>
+    <li>Soit $B\subseteq F$. Montrer que $f\big[f^{-1}[B]\big]\subseteq B$ et donner un exemple prouvant qu’il n’y a pas toujours égalité.</li>
+    <li>Montrer que $f$ est surjective si et seulement si $\forall B\in\mathcal{P}(F),\ f\big[f^{-1}[B]\big]=B$.</li>
+  </ol>
+</section>
+
+<section id="ex44">
+  <h3>Exercice 44+.</h3>
+  <p>Soit $E$ et $F$ deux ensembles et $f:E\to F$. On considère les applications $\varphi:\mathcal{P}(E)\to\mathcal{P}(F)$, $X\mapsto f[X]$ et $\psi:\mathcal{P}(F)\to\mathcal{P}(E)$, $Y\mapsto f^{-1}[Y]$.</p>
+  <ol>
+    <li>Montrer les équivalences « $f$ injective $\Leftrightarrow$ $\varphi$ injective $\Leftrightarrow$ $\psi$ surjective ».</li>
+    <li>Montrer les équivalences « $f$ surjective $\Leftrightarrow$ $\varphi$ surjective $\Leftrightarrow$ $\psi$ injective ».</li>
+  </ol>
+</section>
+
+<h2>Ensembles finis, équipotence</h2>
+<h3>Ensembles finis (et infinis)</h3>
+
+<section id="ex45">
+  <h3>Exercice 45.</h3>
+  <p>Montrer que toute suite décroissante d’entiers naturels est stationnaire.</p>
+</section>
+
+<section id="ex46">
+  <h3>Exercice 46.</h3>
+  <p>Soit $A_1,\dots,A_r\in\mathcal{P}(\mathbb{N}^\ast)$. Pour tout $j\in[[1,r]]$ et tout $n\in\mathbb{N}$, on note $a_j(n)=|A_j\cap[[0,n]]|$. Montrer que $(A_1,\dots,A_r)$ est un recouvrement disjoint de $\mathbb{N}^\ast$ si et seulement si $\forall n\in\mathbb{N},\ a_1(n)+\cdots+a_r(n)=n$.</p>
+</section>
+
+<section id="ex47">
+  <h3>Exercice 47+ (Quelques propriétés du maximum, et principe des tiroirs).</h3>
+  <ol>
+    <li>Montrer que si $n\ge 1$ est un entier et que $x_1,\dots,x_n$ sont des réels, on a l’inégalité $\min(x_1,\dots,x_n)\le\dfrac{x_1+\cdots+x_n}{n}\le \max(x_1,\dots,x_n)$.</li>
+    <li>Soit $m>n$ deux entiers et $f:[[1,m]]\to[[1,n]]$. En considérant la famille $(x_j)_{j=1}^n=\big(f^{-1}[\{j\}]\big)$, montrer que $f$ ne peut pas être injective.</li>
+    <li>Sur un réseau social, chaque inscrit peut être ami avec tout autre inscrit (mais pas avec lui-même). La relation d’amitié est symétrique. Montrer qu’il existe deux inscrits ayant le même nombre d’amis.</li>
+  </ol>
+</section>
+
+<section id="ex48">
+  <h3>Exercice 48++.</h3>
+  <p>Soit $X$ un ensemble. Montrer que $X$ est infini si et seulement si $\forall f\in X^X,\ \exists A\in\mathcal{P}(X)\setminus\{\varnothing,X\},\ f[A]\subseteq A$.</p>
+</section>
+
+<section id="ex49">
+  <h3>Exercice 49+.</h3>
+  <p>Soit $(A_n)_{n\in\mathbb{N}}$ une suite d’ensembles telle que $A_0\subseteq A_1\subseteq A_2\subseteq\cdots$ et $\bigcup_{i\in\mathbb{N}}A_i=\mathbb{N}$. En notant $\mathcal{P}_\infty(\mathbb{N})$ l’ensemble des parties infinies de $\mathbb{N}$, on suppose $\forall X\in\mathcal{P}_\infty(\mathbb{N}),\ \exists n\in\mathbb{N}:\ X\cap A_n\in\mathcal{P}_\infty(\mathbb{N})$. Montrer $\exists n\in\mathbb{N}:\ A_n=\mathbb{N}$.</p>
+</section>
+
+<h3>Équipotence</h3>
+
+<section id="ex50">
+  <h3>Exercice 50+.</h3>
+  <ol>
+    <li>Montrer que $\varphi:\mathbb{N}^2\to\mathbb{N}$, $(a,b)\mapsto 2^a(2b+1)-1$ est une bijection.</li>
+    <li>Trouver une formule pour la bijection $\psi:\mathbb{N}\to\mathbb{N}^2$ illustrée (et montrer précisément sa bijectivité).</li>
+    <li>Pour tout $r\in\mathbb{N}^\ast$, montrer que $\mathbb{N}^r$ est équipotent à $\mathbb{N}$.</li>
+    <li>On note $\mathbb{N}^{(\mathbb{N})}$ l’ensemble des suites $(u_n)_{n\in\mathbb{N}}$ à valeurs dans $\mathbb{N}$ qui sont presque nulles (ou nulles à partir d’un certain rang), c’est-à-dire telles que $\exists N\in\mathbb{N}:\ \forall n\ge N,\ u_n=0$. Montrer que $\mathbb{N}^{(\mathbb{N})}$ est équipotent à $\mathbb{N}$.</li>
+    <li>Montrer que l’ensemble $\mathbb{N}^{\mathbb{N}}$ de toutes les suites à valeurs dans $\mathbb{N}$ n’est pas équipotent à $\mathbb{N}$.</li>
+  </ol>
+</section>
+
+<section id="ex51">
+  <h3>Exercice 51+.</h3>
+  <ol>
+    <li>Construire une bijection $]0,1[\to]0,1]$.</li>
+    <li>Soit $\Omega$ un ensemble, $\omega\in\Omega$ et $A\in\mathcal{P}(\Omega)$. Montrer que $A$ est équipotent à $A\cup\{\omega\}$ si et seulement si $A$ est infini ou $\omega\in A$.</li>
+  </ol>
+</section>
+
+<section id="ex52">
+  <h3>Exercice 52+.</h3>
+  <p>Soit $E,F,G$ trois ensembles.</p>
+  <ol>
+    <li><strong>Curryfication.</strong> (a) Pour toute application $\varphi:F\times G\to E$ et tout $x\in F$, on peut considérer l’application « partielle » $\varphi(x,\cdot):G\to E$, $y\mapsto \varphi(x,y)$. Utiliser cette idée pour définir une bijection $E^{F\times G}\to (E^G)^F$. (b) En « passant au cardinal », quelle formule sur les puissances retrouve-t-on ainsi ?</li>
+    <li><strong>Propriété universelle du produit.</strong> (a) Construire une bijection entre $F^E\times G^E$ et $(F\times G)^E$. (b) En « passant au cardinal », quelle formule sur les puissances retrouve-t-on ainsi ?</li>
+  </ol>
+</section>
+
+<section id="ex53">
+  <h3>Exercice 53+++.</h3>
+  <ol>
+    <li>Trouver une suite $(A_n)_{n\in\mathbb{N}}$ d’éléments de $\mathcal{P}(\mathbb{N})$ telle que $\forall n,m\in\mathbb{N},\ A_n\subseteq A_m\Rightarrow n=m$.</li>
+    <li>Trouver une famille $(B_X)_{X\in\mathcal{P}(\mathbb{N})}$ d’éléments de $\mathcal{P}(\mathbb{N})$ telle que $\forall X,Y\in\mathcal{P}(\mathbb{N}),\ A_X\subseteq A_Y\Rightarrow X=Y$.</li>
+    <li>Trouver une famille $(C_X)_{X\in\mathcal{P}(\mathbb{N})}$ d’éléments de $\mathcal{P}(\mathbb{N})$ telle que, pour tous $X,Y\in\mathcal{P}(\mathbb{N})$, si la différence symétrique $C_X\triangle C_Y=(C_X\setminus C_Y)\cup(C_Y\setminus C_X)$ est finie, alors $X=Y$.</li>
+  </ol>
+</section>
+
+</body>
+</html>
