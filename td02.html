@@ -225,5 +225,281 @@ Déterminer si chacune des assertions suivantes est vraie ou fausse (en le démo
 </div>
 </div>
 
+<section id="ex13">
+  <h3>Exercice 13+.</h3>
+  <p>Soient $A,B\in\mathbb{R}$. Montrer que $(\forall\varepsilon>0,\ A\le B+\varepsilon)\Rightarrow A\le B$.</p>
+</section>
+
+<h3>✅ Exercice 13⁺.</h3>
+<p><strong>Soit $A, B \in \mathbb{R}$. Montrer que $(\forall \epsilon > 0, A \le B + \epsilon) \Rightarrow A \le B$.</strong></p>
+
+<div>
+<p>Ce résultat exprime qu'un nombre $A$ qui est "infiniment proche" de $B$ par au-dessus (ou égal) ne peut pas être strictement plus grand que $B$. La méthode de démonstration la plus naturelle est le raisonnement par l'absurde.</p>
+
+code
+Code
+download
+content_copy
+expand_less
+<p><strong>Démonstration par l'absurde :</strong></p>
+<p>Nous supposons l'hypothèse vraie et la négation de la conclusion vraie, et nous cherchons une contradiction.</p>
+<ul>
+    <li><strong>Hypothèse :</strong> On suppose que pour tout $\epsilon > 0$, on a $A \le B + \epsilon$.</li>
+    <li><strong>Négation de la conclusion :</strong> On suppose par l'absurde que $A > B$.</li>
+</ul>
+
+<p>De l'hypothèse, on peut isoler la différence $A-B$ :</p>
+$$ \forall \epsilon > 0, \quad A - B \le \epsilon $$
+
+<p>De la négation de la conclusion ($A > B$), on déduit que la différence $A-B$ est un nombre réel strictement positif.</p>
+<p>Posons $C = A - B$. On a donc $C > 0$.</p>
+
+<p>Notre hypothèse se réécrit alors :</p>
+$$ \forall \epsilon > 0, \quad C \le \epsilon $$
+
+<p>Nous avons donc un nombre $C$ strictement positif qui doit être inférieur ou égal à <strong>n'importe quel</strong> nombre $\epsilon$ strictement positif que l'on pourrait choisir.</p>
+<p>C'est ici que la contradiction apparaît. Puisque $C$ est lui-même un nombre strictement positif, nous pouvons choisir une valeur pour $\epsilon$ qui est plus petite que $C$.</p>
+
+<p>Choisissons, par exemple, $\epsilon = \frac{C}{2}$.</p>
+<p>Puisque $C > 0$, on a bien $\frac{C}{2} > 0$, donc notre choix d'$\epsilon$ est valide.</p>
+
+<p>L'hypothèse doit donc s'appliquer pour cette valeur d'$\epsilon$ :</p>
+$$ C \le \epsilon \quad \text{devient} \quad C \le \frac{C}{2} $$
+
+<p>Or, comme $C > 0$, on peut simplifier cette inégalité :</p>
+$$ C - \frac{C}{2} \le 0 \implies \frac{C}{2} \le 0 $$
+<p>Ce qui implique $C \le 0$.</p>
+
+<p>Nous avons atteint une contradiction : nous avions établi que $C > 0$ et nous venons de prouver que $C \le 0$. Un nombre ne peut pas être à la fois strictement positif et négatif ou nul.</p>
+
+<p>L'hypothèse "par l'absurde" ($A>B$) est donc fausse.</p>
+
+<p><strong>Conclusion :</strong> On a bien $A \le B$.</p>
+
+<hr>
+<p><em><strong>Remarque :</strong> Ce résultat est un pilier de l'analyse réelle. Il est souvent utilisé pour prouver une égalité $A=B$ en montrant séparément les deux inégalités $A \le B$ et $B \le A$. Pour prouver $A \le B$, il est parfois plus simple de montrer que pour n'importe quel "petit jeu" $\epsilon>0$, on a $A \le B+\epsilon$.</em></p>
+</div>
+
+
+
+  <h2>Preuve des équivalences (dont analyse-synthèse)</h2>
+<section id="ex14">
+  <h3>Exercice 14+.</h3>
+  <p>Soit $(u_n)_{n\gt 0}$ une suite réelle. Montrer l’équivalence des assertions suivantes :</p>
+  <ol>
+    <li>$\forall A\in\mathbb{R},\ \exists n\in\mathbb{N}:\ u_n>A$</li>
+    <li>$\forall A\in\mathbb{R},\ \exists n\in\mathbb{N}:\ u_n>A$</li>
+  </ol>
+</section>
+Parfait, voici la correction de cet exercice de logique et de manipulation des quantificateurs, qui est un excellent entraînement pour la rigueur attendue en MPSI.
+
+<hr>
+
+<h3>✅ Exercice 14⁺.</h3>
+<p><strong>Soit $(u_n)_{n \ge 0}$ une suite de nombres réels. Montrer que les assertions suivantes sont équivalentes.</strong></p>
+<p>(i) $\forall A \in \mathbb{R}, \exists n \in \mathbb{N} : u_n \ge A$ ;</p>
+<p>(ii) $\forall A \in \mathbb{R}, \exists n \in \mathbb{N} : u_n > A$.</p>
+
+<div>
+<p>Pour montrer que les assertions (i) et (ii) sont équivalentes, nous devons prouver la double implication : $(i) \Rightarrow (ii)$ et $(ii) \Rightarrow (i)$.</p>
+<p>Ces deux assertions traduisent le fait que la suite $(u_n)$ n'est pas majorée. Cet exercice montre que l'utilisation d'une inégalité large ou stricte ne change pas la nature de cette définition.</p>
+
+code
+Code
+download
+content_copy
+expand_less
+<hr>
+
+<p><strong>Démonstration de $(i) \Rightarrow (ii)$</strong></p>
+<p>On suppose que l'assertion (i) est vraie :</p>
+$$ \forall A' \in \mathbb{R}, \exists n \in \mathbb{N} : u_n \ge A' $$
+<p>On veut montrer que l'assertion (ii) est vraie. Soit $A \in \mathbb{R}$ un réel quelconque. Nous devons trouver un entier $n \in \mathbb{N}$ tel que $u_n > A$.</p>
+<p>L'idée est d'utiliser l'hypothèse (i) avec un nombre judicieusement choisi, qui soit plus grand que $A$.</p>
+<p>Posons $A' = A + 1$. Puisque $A \in \mathbb{R}$, on a bien $A' \in \mathbb{R}$.</p>
+<p>En appliquant l'hypothèse (i) à ce réel $A'$, on sait qu'il existe un entier $n \in \mathbb{N}$ tel que :</p>
+$$ u_n \ge A' $$
+<p>En remplaçant $A'$ par sa valeur, on obtient :</p>
+$$ u_n \ge A + 1 $$
+<p>Or, on sait que $A+1 > A$. Par transitivité de la relation d'ordre, on a donc :</p>
+$$ u_n > A $$
+<p>Nous avons donc montré que pour un $A$ quelconque, il existe bien un entier $n$ tel que $u_n > A$. Ceci étant vrai pour tout $A \in \mathbb{R}$, l'assertion (ii) est démontrée.</p>
+
+<hr>
+
+<p><strong>Démonstration de $(ii) \Rightarrow (i)$</strong></p>
+<p>Cette implication est plus directe.</p>
+<p>On suppose que l'assertion (ii) est vraie :</p>
+$$ \forall A \in \mathbb{R}, \exists n \in \mathbb{N} : u_n > A $$
+<p>On veut montrer que l'assertion (i) est vraie. Soit $A \in \mathbb{R}$ un réel quelconque. Nous devons trouver un entier $n \in \mathbb{N}$ tel que $u_n \ge A$.</p>
+<p>On applique l'hypothèse (ii) à ce même réel $A$. On sait qu'il existe un entier $n \in \mathbb{N}$ tel que :</p>
+$$ u_n > A $$
+<p>Par définition de la relation d'ordre sur $\mathbb{R}$, si un nombre est strictement supérieur à un autre, il lui est a fortiori supérieur ou égal. C'est-à-dire que pour tous réels $x, y$ :</p>
+$$ x > y \implies x \ge y $$
+<p>Ainsi, l'entier $n$ que nous avons trouvé vérifie également :</p>
+$$ u_n \ge A $$
+<p>Nous avons donc montré que pour un $A$ quelconque, il existe bien un entier $n$ tel que $u_n \ge A$. Ceci étant vrai pour tout $A \in \mathbb{R}$, l'assertion (i) est démontrée.</p>
+
+<hr>
+
+<p><strong>Conclusion</strong></p>
+<p>Puisque nous avons montré $(i) \Rightarrow (ii)$ et $(ii) \Rightarrow (i)$, les deux assertions sont bien équivalentes.</p>
+</div>
+
+<section id="ex17">
+  <h3>Exercice 17+.</h3>
+  <p>Soient $a,b\in\mathbb{R}$. Montrer que l’assertion $\forall x\in\,]0,1[,\ ax+b>0$ est équivalente à $(b>0\ \text{et}\ a+b>0)$.</p>
+</section>
+
+
+<h3>✅ Exercice 17⁺.</h3>
+<p><strong>Soit $a, b \in \mathbb{R}$.<br>Montrer que l'assertion $\forall x \in [0, 1[, ax + b \ge 0$ est équivalente à $(b \ge 0 \text{ et } a + b \ge 0)$.</strong></p>
+
+<div>
+<p>Pour démontrer cette équivalence, nous allons procéder par double implication.</p>
+<p>Posons la fonction affine $f(x) = ax + b$. L'assertion de gauche se réécrit : $\forall x \in [0, 1[, f(x) \ge 0$.</p>
+
+
+
+<p><strong>1. Sens direct : $(\forall x \in [0, 1[, ax + b \ge 0) \implies (b \ge 0 \text{ et } a + b \ge 0)$</strong></p>
+<p>Nous supposons que pour tout $x$ dans l'intervalle $[0, 1[$, on a $ax + b \ge 0$.</p>
+
+<ul>
+    <li>
+        <strong>Pour montrer que $b \ge 0$ :</strong><br>
+        L'hypothèse est vraie pour toutes les valeurs de $x$ dans $[0, 1[$. En particulier, elle est vraie pour $x=0$, qui appartient bien à cet intervalle.
+        En remplaçant $x$ par $0$ dans l'inégalité, on obtient :
+        $$ a(0) + b \ge 0 \implies b \ge 0 $$
+        La première partie de la conclusion est donc démontrée.
+    </li>
+    <li>
+        <strong>Pour montrer que $a+b \ge 0$ :</strong><br>
+        L'inégalité $ax+b \ge 0$ est vraie pour tout $x \in [0, 1[$. Cela signifie que la fonction $f(x) = ax+b$ reste positive ou nulle quand $x$ s'approche de $1$ par valeurs inférieures.<br>
+        En passant à la limite lorsque $x$ tend vers $1^{-}$ (ce qui est possible car $f$ est une fonction continue), on conserve l'inégalité large (théorème de passage à la limite dans les inégalités) :
+        $$ \lim_{x \to 1^{-}} (ax+b) \ge 0 $$
+        La limite de cette fonction affine est simplement sa valeur en $1$ :
+        $$ a(1) + b \ge 0 \implies a+b \ge 0 $$
+        La seconde partie de la conclusion est également démontrée.
+    </li>
+</ul>
+
+<p>Ainsi, le sens direct est prouvé.</p>
+
+<hr>
+
+<p><strong>2. Sens réciproque : $(b \ge 0 \text{ et } a + b \ge 0) \implies (\forall x \in [0, 1[, ax + b \ge 0)$</strong></p>
+<p>Nous supposons que $b \ge 0$ et $a + b \ge 0$. Soit $x \in [0, 1[$. Nous voulons montrer que $ax+b \ge 0$.</p>
+<p>La fonction $f(x) = ax+b$ est une fonction affine. Sa valeur en un point $x$ de l'intervalle $[0, 1]$ peut être exprimée comme une combinaison barycentrique (ou convexe) de ses valeurs aux bornes $0$ et $1$.</p>
+<p>Pour tout $x \in [0, 1]$, on peut écrire $x = (1-x) \cdot 0 + x \cdot 1$.</p>
+<p>Par "affinité" de la fonction $f$, on a :</p>
+$$ f(x) = f((1-x) \cdot 0 + x \cdot 1) = (1-x)f(0) + xf(1) $$
+<p>Utilisons nos hypothèses :</p>
+<ul>
+    <li>$f(0) = a(0) + b = b \ge 0$.</li>
+    <li>$f(1) = a(1) + b = a+b \ge 0$.</li>
+</ul>
+<p>De plus, pour $x \in [0, 1[$, les coefficients de la combinaison sont positifs :</p>
+<ul>
+    <li>$x \ge 0$.</li>
+    <li>$1-x > 0$ (car $x < 1$).</li>
+</ul>
+<p>On peut maintenant analyser le signe de $f(x)$ :</p>
+$$ f(x) = \underbrace{(1-x)}_{> 0} \underbrace{f(0)}_{\ge 0} + \underbrace{x}_{\ge 0} \underbrace{f(1)}_{\ge 0} $$
+<p>$f(x)$ est la somme de deux termes, chacun étant le produit de deux nombres positifs ou nuls. Chaque terme est donc positif ou nul.</p>
+$$ (1-x)f(0) \ge 0 \quad \text{et} \quad xf(1) \ge 0 $$
+<p>La somme de deux nombres positifs ou nuls est elle-même positive ou nulle. Donc :</p>
+$$ f(x) \ge 0 \implies ax+b \ge 0 $$
+<p>Ceci étant vrai pour n'importe quel $x \in [0, 1[$, le sens réciproque est prouvé.</p>
+
+<hr>
+
+<p><strong>Conclusion :</strong></p>
+<p>Ayant démontré les deux implications, nous pouvons conclure que les deux assertions sont bien équivalentes.</p>
+</div>
+
+
+  <section id="ex20">
+  <h3>Exercice 20+.</h3>
+  <p>Déterminer les $x\in\mathbb{R}$ tels que $\forall n\in\mathbb{N},\ x^{n+2}\le x^{n+1}+x^n$.</p>
+</section>
+
+
+<h3>✅ Exercice 20⁺.</h3>
+<p><strong>Déterminer les $x \in \mathbb{R}$ tels que $\forall n \in \mathbb{N}, x^{n+2} \le x^{n+1} + x^n$.</strong></p>
+
+<div>
+<p>La condition doit être vraie pour tout entier naturel $n$, y compris pour $n=0$.</p>
+<p><strong>Condition nécessaire pour $n=0$ :</strong></p>
+<p>Pour $n=0$, l'inégalité s'écrit :</p>
+$$ x^2 \le x^1 + x^0 $$
+$$ x^2 \le x + 1 $$
+$$ x^2 - x - 1 \le 0 $$
+<p>Ceci est une inéquation du second degré. Cherchons les racines du polynôme $P(x) = x^2 - x - 1$. Le discriminant est $\Delta = (-1)^2 - 4(1)(-1) = 5$.</p>
+<p>Les racines sont :</p>
+$$ x_1 = \frac{1 - \sqrt{5}}{2} \quad \text{et} \quad x_2 = \frac{1 + \sqrt{5}}{2} $$
+<p>La parabole $y=x^2-x-1$ est ouverte vers le haut, donc le polynôme est négatif ou nul entre ses racines.</p>
+<p>Ainsi, une condition <strong>nécessaire</strong> pour que $x$ soit solution est que $x$ appartienne à l'intervalle :</p>
+$$ x \in \left[ \frac{1 - \sqrt{5}}{2}, \frac{1 + \sqrt{5}}{2} \right] $$
+<p>Nous allons maintenant vérifier pour quels $x$ de cet intervalle la condition est suffisante, c'est-à-dire vraie pour tous les entiers $n \ge 1$. Pour cela, nous allons discuter selon le signe de $x$.</p>
+
+
+
+<p><strong>Analyse par cas :</strong></p>
+
+<p>L'inégalité $x^{n+2} \le x^{n+1} + x^n$ est équivalente à $x^{n+2} - x^{n+1} - x^n \le 0$, ce qui peut se factoriser en :</p>
+$$ x^n(x^2 - x - 1) \le 0 $$
+
+<p><strong>Cas 1 : $x > 0$</strong></p>
+<p>Dans ce cas, $x^n > 0$ pour tout $n \in \mathbb{N}$. On peut diviser l'inégalité par $x^n$ sans changer le sens :</p>
+$$ x^2 - x - 1 \le 0 $$
+<p>Ceci est exactement la condition que nous avons trouvée pour $n=0$. Les solutions positives sont donc les $x$ qui vérifient cette inéquation. L'intersection de notre intervalle de solutions nécessaires avec $]0, +\infty[$ est :</p>
+$$ x \in \left] 0, \frac{1 + \sqrt{5}}{2} \right] $$
+
+<p><strong>Cas 2 : $x = 0$</strong></p>
+<p>L'inégalité devient $0 \le 0+0$, ce qui est vrai. Donc $x=0$ est une solution.</p>
+
+<p><strong>Cas 3 : $x < 0$</strong></p>
+<p>Nous cherchons les solutions dans l'intervalle $\left[ \frac{1-\sqrt{5}}{2}, 0 \right)$. Dans cet intervalle, nous avons $x^2 - x - 1 \le 0$.</p>
+<p>L'inégalité à vérifier est $x^n(x^2 - x - 1) \le 0$.</p>
+<p>Le signe de $x^n$ dépend de la parité de $n$ :</p>
+<ul>
+    <li><strong>Si $n$ est pair :</strong> $x^n > 0$ (car $x \neq 0$). L'inégalité devient $\underbrace{(x^n)}_{>0} \underbrace{(x^2 - x - 1)}_{\le 0} \le 0$. Le produit d'un nombre positif par un nombre négatif ou nul est bien négatif ou nul. L'inégalité est donc toujours vérifiée pour $n$ pair.</li>
+    <li><strong>Si $n$ est impair :</strong> $x^n < 0$. L'inégalité devient $\underbrace{(x^n)}_{<0} \underbrace{(x^2 - x - 1)}_{\le 0} \le 0$. Le produit d'un nombre négatif par un nombre négatif ou nul est <strong>positif ou nul</strong>. Pour que l'inégalité soit satisfaite, il faut que le produit soit nul (puisqu'il ne peut pas être strictement négatif).</li>
+</ul>
+<p>Le produit $x^n(x^2 - x - 1)$ est nul si et seulement si l'un de ses facteurs est nul. Comme $x \neq 0$, il faut nécessairement que :</p>
+$$ x^2 - x - 1 = 0 $$
+<p>La seule racine de ce polynôme dans l'intervalle $\left[ \frac{1-\sqrt{5}}{2}, 0 \right)$ est $x = \frac{1 - \sqrt{5}}{2}$.</p>
+<p>Donc, pour que la condition soit vérifiée pour tous les $n$ (pairs et impairs), il faut que $x = \frac{1 - \sqrt{5}}{2}$. Si $x$ est une autre valeur de cet intervalle, la condition échoue pour les $n$ impairs.</p>
+
+<hr>
+
+<p><strong>Conclusion :</strong></p>
+<p>En rassemblant les résultats des différents cas, l'ensemble des solutions est :</p>
+<ul>
+    <li>Le cas $x>0$ donne l'intervalle $\left] 0, \frac{1 + \sqrt{5}}{2} \right]$.</li>
+    <li>Le cas $x=0$ donne le point $\{0\}$.</li>
+    <li>Le cas $x<0$ donne le point $\left\{ \frac{1 - \sqrt{5}}{2} \right\}$.</li>
+</ul>
+<p>L'ensemble des solutions $S$ est donc la réunion de ces ensembles :</p>
+$$ S = \left\{ \frac{1 - \sqrt{5}}{2} \right\} \cup \left[ 0, \frac{1 + \sqrt{5}}{2} \right] $$
+</div>
+
+  
+<section id="ex26">
+  <h3>Exercice 26+.</h3>
+  <p>Montrer que tout entier $>12$ peut s’écrire $4a+5b$ avec $a,b\in\mathbb{N}$.</p>
+</section>
+
+<section id="ex27">
+  <h3>Exercice 27+.</h3>
+  <ol>
+    <li>Avant de répondre, comprendre pourquoi les deux questions suivantes ne sont pas les mêmes. Y a-t-il un lien logique ?
+      <ol>
+        <li>Pour tout $n>1$, montrer qu’il existe $a_1,\dots,a_n\in\mathbb{N}^\*$ tels que $a_1^2+\cdots+a_n^2$ soit un carré parfait.</li>
+        <li>Montrer qu’il existe une suite $(a_n)_{n>1}$ d’entiers strictement positifs telle que, pour tout $n\in\mathbb{N}$, $a_1^2+\cdots+a_n^2$ soit un carré parfait.</li>
+      </ol>
+    </li>
+  </ol>
+</section>
 </body>
 </html>
