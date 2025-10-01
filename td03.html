@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Corrigé TD 03 - Ensembles et applications</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<style>
+body { font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; margin: 2em; color: #333; }
+h1, h2, h3 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 5px; }
+h1 { text-align: center; }
+.exercice { background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 20px; margin-bottom: 25px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+.enonce { font-style: italic; color: #555; margin-bottom: 15px; }
+.corrige { margin-top: 15px; border-left: 4px solid #28a745; padding-left: 15px; }
+.corrige h4 { color: #28a745; margin-top: 0; }
+.remarque { font-size: 0.9em; color: #888; border-left: 3px solid #f0ad4e; padding-left: 10px; margin-top: 10px; }
+code { background-color: #e9ecef; padding: 2px 5px; border-radius: 4px; font-family: 'Courier New', Courier, monospace; }
+</style>
+</head>
+<body>
+
+<h1>Corrigé du TD 03 : Ensembles et applications</h1>
+
+<div class="exercice">
+<h2>Autocorrection A</h2>
+<div class="enonce">
+Soit E et F deux ensembles. En revenant aux définitions de l'égalité et de l'inclusion, écrire des assertions quantifiées équivalentes à \(E \not\subseteq F\) et à \(E \neq F\).
+</div>
+<div class="corrige">
+<h4>Corrigé</h4>
+<p>Par définition, l'inclusion \(E \subseteq F\) s'écrit : \(\forall x, (x \in E \Rightarrow x \in F)\).</p>
+<p>La négation de cette assertion, \(E \not\subseteq F\), est donc :
+\[ \text{non}(\forall x, (x \in E \Rightarrow x \in F)) \iff \exists x, \text{non}(x \in E \Rightarrow x \in F) \]
+Rappelons que la négation de \(P \Rightarrow Q\) est \(P \text{ et non}(Q)\). On a donc :
+\[ E \not\subseteq F \iff \exists x, (x \in E \text{ et } x \notin F) \]
+En français : "Il existe au moins un élément de E qui n'est pas dans F".
+</p>
+<p>
+L'égalité \(E = F\) est définie par la double inclusion : \((E \subseteq F) \text{ et } (F \subseteq E)\).
+Sa négation, \(E \neq F\), est donc :
+\[ \text{non}((E \subseteq F) \text{ et } (F \subseteq E)) \iff (\text{non}(E \subseteq F)) \text{ ou } (\text{non}(F \subseteq E)) \]
+Ce qui signifie \( (E \not\subseteq F) \text{ ou } (F \not\subseteq E) \). En utilisant le résultat précédent, on obtient :
+\[ E \neq F \iff (\exists x, x \in E \text{ et } x \notin F) \text{ ou } (\exists y, y \in F \text{ et } y \notin E) \]
+</p>
+</div>
+</div>
+
+<div class="exercice">
+<h2>Autocorrection B</h2>
+<div class="enonce">
+Décrire explicitement \(\mathcal{P}(\{1, 2, 3\})\). Exprimer chacun de ses éléments à partir de \(A = \{1, 2\}\) et \(B = \{2, 3\}\) en utilisant les opérations \(\cup, \cap\) et \(\setminus\).
+</div>
+<div class="corrige">
+<h4>Corrigé</h4>
+<p>
+L'ensemble \(\{1, 2, 3\}\) a 3 éléments, donc son ensemble des parties \(\mathcal{P}(\{1, 2, 3\})\) a \(2^3 = 8\) éléments.
+\[ \mathcal{P}(\{1, 2, 3\}) = \{ \emptyset, \{1\}, \{2\}, \{3\}, \{1, 2\}, \{1, 3\}, \{2, 3\}, \{1, 2, 3\} \} \]
+</p>
+<p>
+Exprimons ces 8 ensembles en fonction de \(A=\{1, 2\}\) et \(B=\{2, 3\}\) :
+<ul>
+<li>\(\emptyset = A \setminus A\)</li>
+<li>\(\{1\} = A \setminus B\)</li>
+<li>\(\{2\} = A \cap B\)</li>
+<li>\(\{3\} = B \setminus A\)</li>
+<li>\(\{1, 2\} = A\)</li>
+<li>\(\{1, 3\} = (A \setminus B) \cup (B \setminus A)\) (c'est la différence symétrique \(A \Delta B\))</li>
+<li>\(\{2, 3\} = B\)</li>
+<li>\(\{1, 2, 3\} = A \cup B\)</li>
+</ul>
+</p>
+</div>
+</div>
+
+<div class="exercice">
+<h2>Autocorrection C</h2>
+<div class="enonce">
+Soit E un ensemble et \(A, B, C \in \mathcal{P}(E)\) des parties de cet ensemble. Montrer les assertions suivantes.
+<ol type="i">
+<li>\(A \cup (E \setminus A) = E\)</li>
+<li>\((A \cap B) \cup (A \setminus B) = A\)</li>
+<li>\((A \subseteq B \text{ et } B \subseteq C) \Rightarrow A \subseteq C\)</li>
+<li>\(A \subseteq B \iff E \setminus B \subseteq E \setminus A\)</li>
+</ol>
+</div>
+<div class="corrige">
+<h4>Corrigé</h4>
+<p>Pour démontrer une égalité d'ensembles \(X=Y\), on procède généralement par double inclusion (\(X \subseteq Y\) et \(Y \subseteq X\)).</p>
+<ol type="i">
+<li><b>\(A \cup (E \setminus A) = E\)</b><br>
+(\(\subseteq\)) Soit \(x \in A \cup (E \setminus A)\). Alors \(x \in A\) ou \(x \in E \setminus A\). Dans les deux cas, \(x\) est un élément de \(E\). Donc \(A \cup (E \setminus A) \subseteq E\). (Cette inclusion est toujours triviale quand on travaille avec des parties de E).<br>
+(\(\supseteq\)) Soit \(x \in E\). Il y a deux cas possibles : soit \(x \in A\), soit \(x \notin A\).
+<ul>
+<li>Si \(x \in A\), alors \(x \in A \cup (E \setminus A)\).</li>
+<li>Si \(x \notin A\), alors par définition \(x \in E \setminus A\), et donc \(x \in A \cup (E \setminus A)\).</li>
+</ul>
+Dans tous les cas, \(x \in A \cup (E \setminus A)\). Donc \(E \subseteq A \cup (E \setminus A)\).<br>
+Par double inclusion, l'égalité est démontrée.
+</li>
+
+code
+Code
+download
+content_copy
+expand_less
+<li><b>\((A \cap B) \cup (A \setminus B) = A\)</b><br>
+        On peut aussi utiliser les propriétés des opérations :
+        \[ (A \cap B) \cup (A \setminus B) = (A \cap B) \cup (A \cap \bar{B}) = A \cap (B \cup \bar{B}) = A \cap E = A \]
+        en utilisant la distributivité de \(\cap\) sur \(\cup\).
+        </li>
+
+        <li><b>\((A \subseteq B \text{ et } B \subseteq C) \Rightarrow A \subseteq C\) (Transitivité de l'inclusion)</b><br>
+        Supposons que \(A \subseteq B\) et \(B \subseteq C\). Montrons que \(A \subseteq C\).<br>
+        Soit \(x \in A\).
+        Puisque \(A \subseteq B\), on a \(x \in B\).
+        Puisque \(B \subseteq C\), on a \(x \in C\).
+        Donc, pour tout \(x \in A\), on a \(x \in C\). C'est la définition de \(A \subseteq C\).
+        </li>
+
+        <li><b>\(A \subseteq B \iff E \setminus B \subseteq E \setminus A\)</b><br>
+        Ceci est une propriété fondamentale sur le passage au complémentaire.
+        (\(\Rightarrow\)) Supposons \(A \subseteq B\). Montrons que \(E \setminus B \subseteq E \setminus A\).<br>
+        Soit \(x \in E \setminus B\). Cela signifie que \(x \notin B\).
+        On veut montrer que \(x \in E \setminus A\), c'est-à-dire \(x \notin A\).
+        Raisonnons par l'absurde : si on avait \(x \in A\), alors comme \(A \subseteq B\), on aurait \(x \in B\). Ceci contredit notre hypothèse \(x \notin B\).
+        Donc, l'hypothèse \(x \in A\) est fausse. On a bien \(x \notin A\). D'où \(E \setminus B \subseteq E \setminus A\).<br>
+        (\(\Leftarrow\)) Supposons \(E \setminus B \subseteq E \setminus A\). Montrons que \(A \subseteq B\).<br>
+        On peut appliquer le résultat du sens direct à cette nouvelle inclusion. En posant \(A' = E \setminus B\) et \(B' = E \setminus A\), l'hypothèse est \(A' \subseteq B'\).
+        Le sens direct nous dit que \(E \setminus B' \subseteq E \setminus A'\).
+        Or, \(E \setminus B' = E \setminus (E \setminus A) = A\) et \(E \setminus A' = E \setminus (E \setminus B) = B\).
+        On a donc bien \(A \subseteq B\).
+        </li>
+    </ol>
+</div>
+</div>
+
+<div class="exercice">
+<h2>Exercice 1</h2>
+<div class="enonce">
+Soit \(a < b < c < d\) quatre réels. En faisant des dessins, décrire sans démonstration les ensembles suivants.
+</div>
+<div class="corrige">
+<h4>Corrigé</h4>
+<p>Un dessin sur la droite réelle est le meilleur moyen de visualiser ces résultats.</p>
+<ol type="i">
+<li>\([a, c] \cup [b, d] = [a, d]\) (On "comble le trou" entre \(b\) et \(c\)).</li>
+<li>\([a, c] \cap [b, d] = [b, c]\) (C'est la partie commune aux deux intervalles).</li>
+<li>\([a, b] \cap [c, d] = \emptyset\) (Les intervalles sont disjoints car \(b<c\)).</li>
+<li>\([a, c] \setminus [b, d] = [a, b[\) (On prend \([a, c]\) et on enlève la partie qui est dans \([b, d]\), c'est-à-dire \([b, c]\)).</li>
+<li>\([a, d] \setminus [b, c] = [a, b) \cup (c, d]\) (On prend un grand intervalle et on lui retire un segment au milieu).</li>
+<li>\([b, c] \setminus [a, d] = \emptyset\) (L'intervalle \([b,c]\) est entièrement contenu dans \([a,d]\), donc il ne reste rien).</li>
+</ol>
+</div>
+</div>
+
+<div class="exercice">
+<h2>Exercice 8</h2>
+<div class="enonce">
+Soit \(E = \{0, 1, 2\}\). Les assertions suivantes sont-elles vraies ?
+</div>
+<div class="corrige">
+<h4>Corrigé</h4>
+<p>C'est un exercice fondamental pour bien distinguer l'appartenance (\(\in\)) de l'inclusion (\(\subseteq\)).</p>
+<ul>
+<li>(i) \(E \in \mathbb{N}\) : <b>Faux</b>. \(E\) est un ensemble, pas un entier.</li>
+<li>(ii) \(E \subseteq \mathbb{N}\) : <b>Vrai</b>. Chaque élément de \(E\) (0, 1, 2) est un entier naturel.</li>
+<li>(iii) \(E \in \mathcal{P}(\mathbb{N})\) : <b>Vrai</b>. C'est la définition même de (ii). Être un élément de l'ensemble des parties de \(\mathbb{N}\), c'est être un sous-ensemble de \(\mathbb{N}\).</li>
+<li>(iv) \(E \subseteq \mathcal{P}(\mathbb{N})\) : <b>Faux</b>. Les éléments de \(E\) sont 0, 1, 2, qui sont des nombres, pas des ensembles de nombres (qui sont les éléments de \(\mathcal{P}(\mathbb{N})\)).</li>
+<li>(v) \(1 \in E\) : <b>Vrai</b>. 1 est bien un des éléments listés dans \(E\).</li>
+<li>(vi) \(1 \subseteq E\) : <b>Faux</b>. On ne peut utiliser le symbole \(\subseteq\) qu'entre deux ensembles. 1 n'est pas un ensemble.</li>
+<li>(vii) \(\{1\} \in E\) : <b>Faux</b>. Les éléments de \(E\) sont 0, 1, 2. L'ensemble \(\{1\}\) n'est pas l'un d'eux.</li>
+<li>(viii) \(\{1\} \subseteq E\) : <b>Vrai</b>. Pour que \(\{1\}\) soit inclus dans \(E\), il faut que tous ses éléments soient dans \(E\). Le seul élément de \(\{1\}\) est 1, qui est bien dans \(E\).</li>
+<li>(ix) \(\emptyset \in E\) : <b>Faux</b>. L'ensemble vide n'est pas un des trois éléments 0, 1, 2.</li>
+<li>(x) \(\emptyset \subseteq E\) : <b>Vrai</b>. L'ensemble vide est un sous-ensemble de n'importe quel ensemble.</li>
+<li>(xi) \(\emptyset \in \mathcal{P}(E)\) : <b>Vrai</b>. C'est la même chose que (x).</li>
+<li>(xii) \(\{\emptyset\} \subseteq E\) : <b>Faux</b>. L'unique élément de \(\{\emptyset\}\) est \(\emptyset\). Pour que l'inclusion soit vraie, il faudrait que \(\emptyset \in E\), ce qui est faux (voir ix).</li>
+</ul>
+<div class="remarque">
+<strong>À retenir :</strong> La relation \(\in\) se lit "est un élément de" et relie un élément à un ensemble. La relation \(\subseteq\) se lit "est inclus dans" et ne relie que des ensembles entre eux. L'assertion \(A \subseteq B\) est équivalente à \(\forall x, (x \in A \Rightarrow x \in B)\).
+</div>
+</div>
+</div>
+
+</body>
+</html>
