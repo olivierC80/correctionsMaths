@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TD 04 — Sommes et produits (MPSI)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<style>
+  :root{--fg:#111827;--muted:#6b7280;--border:#e5e7eb}
+  html,body{margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,sans-serif;line-height:1.55;color:var(--fg);padding:24px;max-width:980px}
+  h1,h2,h3{margin:0 0 .5rem 0}
+  h1{font-size:1.85rem}
+  h2{font-size:1.25rem;margin-top:1.25rem}
+  h3{font-size:1.05rem;margin-top:.75rem}
+  p{margin:.25rem 0}
+  ol,ul{margin:.25rem 0 .25rem 1.25rem;padding:0}
+  section{border:1px solid var(--border);border-radius:10px;padding:12px;margin-top:8px}
+  .meta{color:var(--muted);font-size:.95rem}
+  .group-title{margin-top:.5rem}
+  .note{background:#fffbe6;border:1px solid #f5e5a0;border-radius:8px;padding:8px;margin:.5rem 0}
+</style>
+</head>
+<body>
+<h1>TD 04 — Sommes et produits</h1>
+<p class="meta">MPSI — Sommes finies, produits finis, manipulations algébriques, télescopages, identités remarquables, recours à la récurrence</p>
+
+<div class="note">
+<p><strong>Note de transcription.</strong> Ce fichier HTML reprend fidèlement le contenu pédagogique du TD « Sommes et produits » (énoncés, structures, notations), avec les mathématiques en $\LaTeX$ (rendus via KaTeX) et une hiérarchie sobre (h1/h2/h3, sections). Les signes « &lt; » en contexte mathématique sont écrits comme $\lt$.</p>
+</div>
+
+<h2>Autocorrections</h2>
+
+<section id="autoA">
+  <h3>Autocorrection A.</h3>
+  <p>Écrire et simplifier les expressions suivantes :</p>
+  <ol>
+    <li>$\displaystyle \sum_{k=1}^n (2k-1)$</li>
+    <li>$\displaystyle \sum_{k=0}^n (a+bk)$ pour $a,b\in\mathbb{R}$</li>
+    <li>$\displaystyle \sum_{k=1}^n k(k+1)$</li>
+    <li>$\displaystyle \prod_{k=1}^n \frac{k+1}{k}$</li>
+  </ol>
+</section>
+
+<section id="autoB">
+  <h3>Autocorrection B.</h3>
+  <p>Montrer par récurrence les identités suivantes :</p>
+  <ol>
+    <li>$\displaystyle \sum_{k=1}^n k=\frac{n(n+1)}{2}$</li>
+    <li>$\displaystyle \sum_{k=1}^n k^2=\frac{n(n+1)(2n+1)}{6}$</li>
+    <li>$\displaystyle \prod_{k=1}^n \left(1+\frac{1}{k}\right)=n+1$</li>
+  </ol>
+</section>
+
+<h2>Sommes finies</h2>
+
+<section id="ex1">
+  <h3>Exercice 1.</h3>
+  <p>Écrire sous forme fermée :</p>
+  <ol>
+    <li>$\displaystyle S_n=\sum_{k=0}^n r^k$ pour $r\ne 1$</li>
+    <li>$\displaystyle T_n=\sum_{k=0}^n k r^k$ pour $r\ne 1$</li>
+    <li>$\displaystyle U_n=\sum_{k=0}^n (2k+1)$</li>
+  </ol>
+</section>
+
+<section id="ex2">
+  <h3>Exercice 2 — Télescopage.</h3>
+  <p>Calculer :</p>
+  <ol>
+    <li>$\displaystyle \sum_{k=1}^n \left(\frac{1}{k}-\frac{1}{k+1}\right)$</li>
+    <li>$\displaystyle \sum_{k=1}^n \left(\sqrt{k+1}-\sqrt{k}\right)$</li>
+    <li>$\displaystyle \sum_{k=1}^n \frac{1}{k(k+1)}$</li>
+  </ol>
+</section>
+
+<section id="ex3">
+  <h3>Exercice 3 — Identités classiques.</h3>
+  <p>Montrer :</p>
+  <ol>
+    <li>$\displaystyle \sum_{k=1}^n (2k-1)^2=\frac{n(2n-1)(2n+1)}{3}$</li>
+    <li>$\displaystyle \sum_{k=1}^n (k^3)=\left(\frac{n(n+1)}{2}\right)^2$</li>
+  </ol>
+</section>
+
+<section id="ex4">
+  <h3>Exercice 4 — Fraction rationnelle.</h3>
+  <p>Montrer que $\displaystyle \sum_{k=1}^n \frac{1}{k(k+1)}=1-\frac{1}{n+1}$ et en déduire $\displaystyle \sum_{k=1}^n \frac{1}{k(k+2)}$.</p>
+</section>
+
+<section id="ex5">
+  <h3>Exercice 5 — Échanges d’indices.</h3>
+  <p>Évaluer $\displaystyle \sum_{i=1}^n\sum_{j=1}^i 1$ et $\displaystyle \sum_{i=1}^n\sum_{j=i}^n 1$.</p>
+</section>
+
+<h2>Produits</h2>
+
+<section id="ex6">
+  <h3>Exercice 6 — Produits télescopiques.</h3>
+  <p>Calculer :</p>
+  <ol>
+    <li>$\displaystyle P_n=\prod_{k=1}^n \frac{k+1}{k}$</li>
+    <li>$\displaystyle Q_n=\prod_{k=1}^n \frac{k^2-1}{k^2}$</li>
+    <li>$\displaystyle R_n=\prod_{k=1}^n \left(1+\frac{1}{k}\right)\left(1-\frac{1}{k}\right)$ quand c’est défini</li>
+  </ol>
+</section>
+
+<section id="ex7">
+  <h3>Exercice 7 — Factorisations.</h3>
+  <p>Montrer :</p>
+  <ol>
+    <li>$\displaystyle \prod_{k=1}^n (1+a)= (1+a)^n$</li>
+    <li>$\displaystyle \prod_{k=1}^n (k+a) = \frac{\Gamma(n+a+1)}{\Gamma(a+1)}$ (admis si besoin)</li>
+  </ol>
+</section>
+
+<h2>Applications et inégalités</h2>
+
+<section id="ex8">
+  <h3>Exercice 8 — Moyennes.</h3>
+  <p>Montrer que pour $a_1,\dots,a_n\in\mathbb{R}_+$, on a $\displaystyle \frac{a_1+\cdots+a_n}{n}\ge \sqrt[n]{a_1\cdots a_n}$.</p>
+</section>
+
+<section id="ex9">
+  <h3>Exercice 9 — Majorations.</h3>
+  <p>Établir une majoration simple de $\displaystyle H_n=\sum_{k=1}^n \frac{1}{k}$ par comparaison à une intégrale.</p>
+</section>
+
+<h2>Exercices divers</h2>
+
+<section id="ex10">
+  <h3>Exercice 10 — Combinaisons linéaires.</h3>
+  <p>Exprimer $\displaystyle \sum_{k=1}^n k^2$ et $\displaystyle \sum_{k=1}^n k^3$ comme combinaisons de $n$, $n(n+1)/2$ et $n(n+1)(2n+1)/6$.</p>
+</section>
+
+<section id="ex11">
+  <h3>Exercice 11 — Variantes.</h3>
+  <p>Donner une expression fermée de $\displaystyle \sum_{k=0}^n (ak+b)r^k$ pour $r\ne 1$.</p>
+</section>
+
+<section id="ex12">
+  <h3>Exercice 12 — Récurrence.</h3>
+  <p>Pour $n\ge 1$, montrer par récurrence :</p>
+  <ol>
+    <li>$\displaystyle \sum_{k=1}^n k(2k-1)=\frac{n(n+1)(2n-1)}{3}$</li>
+    <li>$\displaystyle \prod_{k=2}^n \left(1-\frac{1}{k^2}\right)=\frac{n+1}{2n}$</li>
+  </ol>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded",function(){
+    renderMathInElement(document.body,{
+      delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false}],
+      throwOnError:false
+    });
+  });
+</script>
+</body>
+</html>
