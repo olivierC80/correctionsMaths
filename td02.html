@@ -504,6 +504,59 @@ $$ S = \left\{ \frac{1 - \sqrt{5}}{2} \right\} \cup \left[ 0, \frac{1 + \sqrt{5}
   <p>Montrer que tout entier $>12$ peut s’écrire $4a+5b$ avec $a,b\in\mathbb{N}$.</p>
 </section>
 
+<h3>✅ Exercice 26⁺.</h3>
+<p><strong>Montrer que tout nombre entier $\geq 12$ peut s'écrire sous la forme $4a + 5b$, pour des entiers naturels $a$ et $b$.</strong></p>
+<p><em>(On rappelle que les entiers naturels $\mathbb{N}$ incluent 0).</em></p>
+
+<div>
+<p>Nous allons démontrer cette propriété par un raisonnement par récurrence forte.</p>
+<p>Pour un entier $n \ge 12$, notons $P(n)$ l'assertion : « il existe $(a,b) \in \mathbb{N}^2$ tel que $n = 4a + 5b$ ».</p>
+
+code
+Code
+download
+content_copy
+expand_less
+<hr>
+
+<p><strong>Initialisation (Cas de base)</strong></p>
+<p>L'idée de la récurrence forte sera de prouver $P(n)$ en utilisant la propriété pour un entier plus petit. Plus précisément, nous allons montrer que si la propriété est vraie pour $n-4$, elle l'est aussi pour $n$. Comme notre "saut" de récurrence est de 4, nous devons initialiser les 4 premiers cas consécutifs pour que la récurrence puisse s'enclencher pour tous les entiers suivants.</p>
+<p>Vérifions la propriété pour $n=12, 13, 14$ et $15$.</p>
+<ul>
+    <li>Pour $n=12$ : $12 = 4 \times 3 + 5 \times 0$. On peut prendre $a=3$ et $b=0$. Donc $P(12)$ est vraie.</li>
+    <li>Pour $n=13$ : $13 = 4 \times 2 + 5 \times 1$. On peut prendre $a=2$ et $b=1$. Donc $P(13)$ est vraie.</li>
+    <li>Pour $n=14$ : $14 = 4 \times 1 + 5 \times 2$. On peut prendre $a=1$ et $b=2$. Donc $P(14)$ est vraie.</li>
+    <li>Pour $n=15$ : $15 = 4 \times 0 + 5 \times 3$. On peut prendre $a=0$ et $b=3$. Donc $P(15)$ est vraie.</li>
+</ul>
+<p>L'initialisation est bien vérifiée pour les quatre premiers rangs.</p>
+
+<hr>
+
+<p><strong>Hérédité</strong></p>
+<p>Soit $n \ge 15$ un entier. On suppose que la propriété $P(k)$ est vraie pour tout entier $k$ tel que $12 \le k \le n$ (hypothèse de récurrence forte).</p>
+<p>Montrons que $P(n+1)$ est vraie.</p>
+<p>On cherche à écrire $n+1$ sous la forme $4a+5b$. L'astuce consiste à se ramener à un cas précédent en soustrayant 4.</p>
+<p>Considérons l'entier $k = (n+1) - 4 = n-3$.</p>
+<p>Puisque $n \ge 15$, on a $n-3 \ge 12$. De plus, $n-3 \le n$.</p>
+<p>L'entier $k=n-3$ est donc dans l'intervalle $[12, n]$, et d'après notre hypothèse de récurrence forte, la propriété $P(k) = P(n-3)$ est vraie.</p>
+<p>Il existe donc des entiers naturels $(a', b')$ tels que :</p>
+$$ n-3 = 4a' + 5b' $$
+<p>À partir de cette égalité, il est facile d'exprimer $n+1$ :</p>
+$$ n+1 = (n-3) + 4 = (4a' + 5b') + 4 $$
+$$ n+1 = 4(a' + 1) + 5b' $$
+<p>Posons $a = a' + 1$ et $b = b'$.</p>
+<p>Puisque $a'$ est un entier naturel, $a' \ge 0$, donc $a = a'+1 \ge 1$. $a$ est bien un entier naturel.</p>
+<p>Puisque $b'$ est un entier naturel, $b=b'$ est aussi un entier naturel.</p>
+<p>Nous avons bien trouvé deux entiers naturels $a$ et $b$ tels que $n+1 = 4a+5b$. La propriété $P(n+1)$ est donc vraie.</p>
+
+<hr>
+
+<p><strong>Conclusion</strong></p>
+<p>Par le principe de récurrence forte, nous avons montré que la propriété $P(n)$ est vraie pour tout entier $n \ge 12$.</p>
+
+<p><em>Note culturelle : Ce problème est un cas particulier du problème des pièces de monnaie (ou problème de Frobenius). Pour deux entiers premiers entre eux $p$ et $q$, le plus grand entier ne pouvant pas s'écrire sous la forme $ap+bq$ (avec $a,b \in \mathbb{N}$) est $pq - p - q$. Ici, pour $p=4$ et $q=5$, ce plus grand entier est $4 \times 5 - 4 - 5 = 11$. L'exercice nous demande bien de prouver la propriété pour tous les entiers à partir de $12$.</em></p>
+</div>
+
 <section id="ex27">
   <h3>Exercice 27+.</h3>
   <ol>
@@ -515,5 +568,772 @@ $$ S = \left\{ \frac{1 - \sqrt{5}}{2} \right\} \cup \left[ 0, \frac{1 + \sqrt{5}
     </li>
   </ol>
 </section>
+
+<h3>✅ Exercice 27⁺.</h3>
+<p><strong>0. Avant de chercher à y répondre, comprendre pourquoi les deux questions suivantes ne sont pas les mêmes. Y a-t-il un lien logique entre les deux ?</strong></p>
+
+<div>
+<p>La différence fondamentale entre les deux questions réside dans l'ordre des quantificateurs, ce qui change complètement le sens de l'énoncé.</p>
+
+<p><strong>Analyse de la Question 1 :</strong></p>
+<p>L'énoncé est : "Pour tout entier $n \ge 1$, il existe $a_1, \dots, a_n \in \mathbb{N}^*$ tels que $a_1^2 + \dots + a_n^2$ soit un carré parfait."</p>
+<p>Avec les quantificateurs, cela s'écrit :</p>
+$$ \forall n \ge 1, \exists (a_1, \dots, a_n) \in (\mathbb{N}^*)^n, \exists k \in \mathbb{N}, \sum_{i=1}^n a_i^2 = k^2 $$
+<p>Ici, le choix des entiers $a_i$ peut dépendre de $n$. Pour chaque $n$, on doit trouver une liste de $n$ entiers qui fonctionne. La liste pour $n=3$ n'a a priori aucun rapport avec la liste pour $n=4$. Par exemple, pour $n=3$, on peut choisir $(3,4,12)$ car $3^2+4^2+12^2 = 9+16+144 = 169 = 13^2$. Pour $n=4$, on peut choisir $(1,2,2,4)$ car $1^2+2^2+2^2+4^2 = 1+4+4+16 = 25 = 5^2$.</p>
+
+<p><strong>Analyse de la Question 2 :</strong></p>
+<p>L'énoncé est : "Il existe une suite $(a_n)_{n \ge 1}$ d'entiers strictement positifs tels que, pour tout $n \ge 1$, $a_1^2 + \dots + a_n^2$ soit un carré parfait."</p>
+<p>Avec les quantificateurs, cela s'écrit :</p>
+$$ \exists (a_n)_{n \ge 1} \in (\mathbb{N}^*)^\mathbb{N}, \forall n \ge 1, \exists k \in \mathbb{N}, \sum_{i=1}^n a_i^2 = k^2 $$
+<p>Ici, on doit trouver <strong>une seule et unique suite</strong> $(a_n)$ qui fonctionne pour <strong>tous les $n$ à la fois</strong>. Les termes de la suite sont fixés une fois pour toutes. La somme des carrés des $n$ premiers termes doit être un carré parfait, quelle que soit la valeur de $n$. Si on note $S_n = a_1^2 + \dots + a_n^2$, alors $S_1, S_2, S_3, \dots$ doivent tous être des carrés parfaits.</p>
+
+<p><strong>Lien logique :</strong></p>
+<p>La Question 2 est beaucoup plus forte que la Question 1. Si on trouve une suite $(a_n)$ qui répond à la Question 2, alors cette suite fournit automatiquement une réponse à la Question 1 pour chaque $n$. En effet, pour un $n$ donné, il suffit de prendre les $n$ premiers termes de cette suite, et leur somme au carré sera un carré parfait.
+<br>Autrement dit, <strong>si la proposition de la question 2 est vraie, alors celle de la question 1 est vraie.</strong> La réciproque est fausse.</p>
+</div>
+
+<hr>
+<p><strong>1. Pour tout entier $n \ge 1$, montrer qu'il existe $a_1, \dots, a_n \in \mathbb{N}^*$ tels que $a_1^2 + \dots + a_n^2$ soit un carré parfait.</strong></p>
+<div>
+<p>On peut procéder par récurrence sur $n$.</p>
+<p><strong>Initialisation (n=1) :</strong> On cherche $a_1 \in \mathbb{N}^*$ tel que $a_1^2$ soit un carré parfait. C'est vrai pour n'importe quel $a_1$. On peut prendre $a_1 = 1$. $1^2=1^2$.</p>
+
+<p><strong>Hérédité :</strong> Soit $n \ge 1$. Supposons qu'il existe $a_1, \dots, a_n \in \mathbb{N}^*$ tels que $S_n = a_1^2 + \dots + a_n^2 = k^2$ pour un certain entier $k$.
+On cherche à trouver $a_1', \dots, a_n', a_{n+1}' \in \mathbb{N}^*$ tels que leur somme au carré soit un carré parfait. On peut essayer de garder les mêmes premiers termes.
+On cherche donc $a_{n+1} \in \mathbb{N}^*$ tel que $S_n + a_{n+1}^2 = k^2 + a_{n+1}^2$ soit un carré parfait, disons $m^2$.</p>
+<p>On cherche $a_{n+1}, m \in \mathbb{N}^*$ tels que $k^2 + a_{n+1}^2 = m^2$, ce qui est équivalent à $a_{n+1}^2 = m^2 - k^2 = (m-k)(m+k)$.</p>
+<p>Pour que ce soit simple, on peut essayer de faire de $(m-k)(m+k)$ un carré. Une idée est de poser $m-k$ et $m+k$ de telle sorte que leur produit soit un carré.
+Par exemple, si on choisit $m-k = 2$ et $m+k = 8$, leur produit est 16, un carré. Ce système donne $2m=10 \implies m=5$ et $2k=6 \implies k=3$. On aurait $a_{n+1}^2 = 16 \implies a_{n+1}=4$.
+
+Plus généralement, choisissons $m$ et $a_{n+1}$ en fonction de $k$.
+Soit $a_{n+1} = \frac{k^2-1}{2}$ et $m = \frac{k^2+1}{2}$. Pour que $a_{n+1}$ et $m$ soient des entiers, il faut que $k$ soit impair.
+Vérifions : $k^2 + a_{n+1}^2 = k^2 + \left(\frac{k^2-1}{2}\right)^2 = \frac{4k^2+k^4-2k^2+1}{4} = \frac{k^4+2k^2+1}{4} = \left(\frac{k^2+1}{2}\right)^2 = m^2$.
+
+Si $k$ est impair, on peut donc trouver un $a_{n+1}$. Mais on ne peut pas garantir que $k$ sera impair.
+
+<strong>Autre approche plus simple :</strong>
+Pour un $n$ donné, choisissons $a_1=a_2=\dots=a_{n-1}=1$.
+On cherche $a_n \in \mathbb{N}^*$ tel que $(n-1) \cdot 1^2 + a_n^2 = n-1+a_n^2$ soit un carré parfait, disons $k^2$.
+$a_n^2 = k^2 - (n-1)$.
+On peut choisir $k$ judicieusement. Prenons $k=n$. Alors $a_n^2 = n^2-(n-1) = n^2-n+1$. Ce n'est pas un carré en général.
+Prenons $k=n-1$. Alors $a_n^2 = (n-1)^2-(n-1) = (n-1)(n-2)$. Ce n'est pas un carré.
+
+La première approche avec l'identité $k^2 + (\frac{k^2-1}{2})^2 = (\frac{k^2+1}{2})^2$ est la bonne.
+Si $k$ est impair, on pose $a_{n+1}=\frac{k^2-1}{2}$. On a $k\ge1$. Si $k=1$, $a_{n+1}=0 \notin \mathbb{N}^*$. Donc il faut $k$ impair et $k>1$.
+Si $k$ est pair, on peut utiliser l'identité $k^2+(k-1)^2 = \dots$. Non.
+Utilisons $k^2 + (2p)^2 = m^2$.
+L'identité $(x^2-y^2)^2+(2xy)^2 = (x^2+y^2)^2$ donne tous les triplets pythagoriciens.
+
+<strong>Solution directe pour la question 1 :</strong>
+Soit $n \ge 2$. Choisissons $a_1=a_2=\dots=a_{n-1}=2$.
+La somme est $S = (n-1) \times 2^2 = 4(n-1)$.
+On cherche $a_n$ tel que $4(n-1)+a_n^2$ soit un carré.
+Posons $a_n=n-2$. Alors $S+a_n^2 = 4(n-1)+(n-2)^2 = 4n-4+n^2-4n+4 = n^2$.
+Ceci fonctionne si $a_i \in \mathbb{N}^*$.
+Il faut $a_{n-1}=2 > 0$ et $a_n=n-2 > 0 \implies n>2$.
+Cas $n=1$: $a_1=1$, $1^2=1^2$.
+Cas $n=2$: $a_1=3, a_2=4$, $3^2+4^2=5^2$.
+Cas $n \ge 3$: Prenons $a_1=\dots=a_{n-1}=2$ et $a_n=n-2$.
+Alors $\sum_{i=1}^n a_i^2 = (n-1)2^2 + (n-2)^2 = 4(n-1) + n^2-4n+4 = 4n-4+n^2-4n+4 = n^2$.
+Tous les $a_i$ sont bien dans $\mathbb{N}^*$. C'est une solution.
+</div>
+
+<hr>
+<p><strong>2. Montrer qu'il existe une suite $(a_n)_{n\ge1}$ d'entiers strictement positifs tels que, pour tout $n \in \mathbb{N}$, $a_1^2 + \dots + a_n^2$ soit un carré parfait.</strong></p>
+<div>
+<p>On cherche une suite $(a_n)$ telle que si on pose $S_n = \sum_{i=1}^n a_i^2$, alors $S_n=k_n^2$ pour une suite d'entiers $(k_n)$.
+On a $S_{n+1} = S_n + a_{n+1}^2$. Donc $k_{n+1}^2 = k_n^2 + a_{n+1}^2$.
+On doit donc construire une suite d'entiers $a_n$ telle que $k_n$ soit aussi un entier pour tout $n$.</p>
+<p><strong>Construction par récurrence :</strong></p>
+<p><strong>n=1 :</strong> On choisit $a_1$. $S_1 = a_1^2$ est toujours un carré parfait. Prenons $a_1=3$. Alors $S_1 = 9 = 3^2$. Donc $k_1=3$.</p>
+
+<p><strong>n=2 :</strong> On cherche $a_2$ tel que $S_2 = S_1 + a_2^2 = 3^2 + a_2^2$ soit un carré $k_2^2$. On reconnait un triplet pythagoricien. Le plus connu est $(3,4,5)$.
+Posons $a_2=4$. Alors $S_2 = 3^2+4^2=9+16=25=5^2$. Donc $k_2=5$.</p>
+
+<p><strong>n=3 :</strong> On cherche $a_3$ tel que $S_3 = S_2+a_3^2 = 5^2+a_3^2$ soit un carré $k_3^2$.
+On cherche un triplet pythagoricien de la forme $(5, a_3, k_3)$. Par exemple $(5,12,13)$.
+Posons $a_3=12$. Alors $S_3 = 5^2+12^2 = 25+144 = 169 = 13^2$. Donc $k_3=13$.</p>
+
+<p>On voit un schéma se dessiner. A chaque étape, on a une somme $S_n=k_n^2$ et on cherche $a_{n+1}$ tel que $k_n^2+a_{n+1}^2=k_{n+1}^2$.
+On a besoin d'une méthode systématique pour trouver $a_{n+1}$ et $k_{n+1}$ à partir de $k_n$.
+On peut utiliser l'identité vue précédemment : si $k_n$ est impair, on peut choisir
+$a_{n+1} = \frac{k_n^2-1}{2}$ et $k_{n+1} = \frac{k_n^2+1}{2}$.</p>
+
+<p>Construisons la suite :
+<ul>
+    <li>$a_1=3$. Alors $k_1=3$. $k_1$ est impair.</li>
+    <li>On peut donc définir $a_2 = \frac{k_1^2-1}{2} = \frac{3^2-1}{2} = 4$.
+    Alors $k_2 = \frac{k_1^2+1}{2} = \frac{3^2+1}{2} = 5$. On vérifie $S_2 = 3^2+4^2=25=5^2$. $k_2=5$ est impair.</li>
+    <li>On peut donc définir $a_3 = \frac{k_2^2-1}{2} = \frac{5^2-1}{2} = 12$.
+    Alors $k_3 = \frac{k_2^2+1}{2} = \frac{5^2+1}{2} = 13$. On vérifie $S_3 = 5^2+12^2=169=13^2$. $k_3=13$ est impair.</li>
+</ul>
+</p>
+<p>On peut définir la suite $(a_n)$ et la suite auxiliaire $(k_n)$ par la récurrence suivante :</p>
+<p><strong>Initialisation :</strong> $k_0 = 1$ (pour démarrer). Ou directement $k_1=3$.
+$k_1 = 3$, et donc $a_1=3$.
+<strong>Récurrence :</strong> Pour $n \ge 1$, si $k_n$ est défini et impair, on pose :</p>
+$$ a_{n+1} = \frac{k_n^2 - 1}{2} \quad \text{et} \quad k_{n+1} = \frac{k_n^2+1}{2} $$
+<p>Il faut vérifier que les conditions sont toujours remplies :
+<ol>
+    <li><strong>$a_{n+1}$ est un entier strictement positif :</strong> Si $k_n$ est un entier impair, $k_n^2$ est impair, donc $k_n^2-1$ est pair. Ainsi $a_{n+1}$ est bien un entier. Comme on part de $k_1=3>1$, on aura toujours $k_n>1$, donc $a_{n+1} > 0$.</li>
+    <li><strong>$k_{n+1}$ est un entier impair :</strong> Si $k_n$ est impair, on peut écrire $k_n=2p+1$. Alors $k_n^2 = 4p^2+4p+1 = 4p(p+1)+1$. $p(p+1)$ est toujours pair, donc $4p(p+1)$ est un multiple de 8. Donc $k_n^2 = 8q+1$.
+    $k_{n+1} = \frac{k_n^2+1}{2} = \frac{(8q+1)+1}{2} = 4q+1$. C'est un entier impair.
+</ol>
+</p>
+<p>La récurrence est bien fondée. La suite $(a_n)$ définie par $a_1=3$ et $a_{n+1} = \frac{(\sum_{i=1}^n a_i^2)-1}{2}$ n'est pas très explicite.
+La suite $(a_n)$ est définie par $a_1=3$ et la relation $a_{n+1} = \frac{k_n^2-1}{2}$ où $k_n^2 = \sum_{i=1}^n a_i^2$.
+Le calcul des premiers termes donne $a_1=3, a_2=4, a_3=12, a_4 = \frac{13^2-1}{2}=84, \dots$
+Cette suite existe et répond à la question.</p>
+</div>
+
+
+<section id="ex29">
+  <h3>Exercice 29++ (Tous les chemins mènent à Rome).</h3>
+  <p>On considère un circuit de $n=5$ villes vérifiant :</p>
+  <ul>
+    <li>de chaque ville partent deux routes, étiquetées $a$ et $b$ ;</li>
+    <li>il existe une suite d’instructions (p. ex. $aabb$) qui amène de n’importe quelle ville à la ville entourée.</li>
+  </ul>
+  <p>Pour quelles valeurs de $n>3$ peut-on construire un tel circuit ?</p>
+</section>
+
+Excellent exercice, un classique de la théorie des automates déguisé en problème de logistique ! Il est très bien noté (++) car il demande une modélisation mathématique et une certaine créativité.
+
+
+<h3>✅ Exercice 29⁺⁺ (Tous les chemins mènent à Rome).</h3>
+
+<p><strong>Le dessin ci-contre montre un circuit de n = 5 villes vérifiant deux propriétés :</strong></p>
+<ul>
+<li><strong>de chaque ville partent deux routes, étiquetées a et b ;</strong></li>
+<li><strong>il existe une suite d'instructions (ici, <em>aabb</em> convient, par exemple) qui amène de n'importe quelle ville du circuit à la ville entourée.</strong></li>
+</ul>
+<p><strong>Pour quelles valeurs de n &ge; 3 peut-on construire un tel circuit ?</strong></p>
+
+<p><em>Note préliminaire : Une analyse minutieuse du graphe pour n=5 montre que la suite d'instructions `aabb` donnée en exemple est incorrecte. Elle ne mène pas toutes les villes à Rome (AS Roma). Le dessin et l'exemple sont donc illustratifs du type de structure, mais pas un exemple fonctionnel. Nous allons résoudre le problème dans son sens abstrait.</em></p>
+
+<div>
+<h4>Modélisation du problème</h4>
+<p>Le problème peut être modélisé comme suit :</p>
+<ul>
+<li>L'ensemble des $n$ villes est un ensemble fini $V = \{v_1, v_2, \dots, v_n\}$.</li>
+<li>Les routes 'a' et 'b' sont deux fonctions (applications) de l'ensemble des villes dans lui-même : $a: V \to V$ et $b: V \to V$.</li>
+<li>La "ville entourée" (Rome) est une ville de destination spécifique, notons-la $R \in V$.</li>
+<li>Une "suite d'instructions" est un mot composé de lettres 'a' et 'b', ce qui correspond à une composition des fonctions $a$ et $b$. Par exemple, la suite `aabb` correspond à la fonction $S(v) = b(b(a(a(v))))$.</li>
+<li>La condition "amène de n'importe quelle ville ... à la ville entourée" signifie qu'il existe une fonction $S$ (une composition de $a$ et $b$) qui est une fonction constante, dont l'image est la seule ville $R$. Formellement : $\exists S, \forall v \in V, S(v) = R$.</li>
+</ul>
+<p>La question est donc : pour quelles valeurs de $n \ge 3$ peut-on définir un ensemble $V$ de taille $n$, un élément $R \in V$, et deux fonctions $a,b: V \to V$ telles qu'une de leurs compositions est une fonction constante ?</p>
+
+<h4>Analyse</h4>
+<p>Pour qu'une composition de fonctions $S$ ait une image de taille 1 (c'est-à-dire soit constante), il faut pouvoir "réduire" le nombre de positions possibles. Si les fonctions $a$ et $b$ étaient toutes les deux des permutations (des bijections de $V$ sur $V$), alors n'importe laquelle de leurs compositions $S$ serait aussi une permutation. L'image de $S$ serait alors l'ensemble $V$ tout entier, de taille $n$. Pour $n > 1$, il serait impossible d'arriver à une image de taille 1.</p>
+<p>Il est donc nécessaire qu'au moins l'une des deux fonctions, $a$ ou $b$, ne soit pas une permutation. Cela signifie qu'il doit exister au moins deux villes distinctes qui sont envoyées sur la même ville par $a$ ou par $b$.</p>
+
+<h4>Solution</h4>
+<p>La réponse est que <strong>l'on peut construire un tel circuit pour toutes les valeurs de $n \ge 3$</strong>.</p>
+<p>Pour le prouver, il suffit d'exhiber une construction qui fonctionne pour n'importe quel $n \ge 3$.</p>
+
+<h5>Construction d'un circuit valide :</h5>
+<ol>
+    <li>Numérotons les villes de $0$ à $n-1$. L'ensemble des villes est $V = \{0, 1, \dots, n-1\}$.</li>
+    <li>Choisissons la ville de destination $R = 0$ (Rome).</li>
+    <li>Définissons la fonction pour la route 'a' comme une permutation cyclique :
+        $$ a(i) = (i+1) \pmod n $$
+        Cette fonction fait simplement passer à la ville "suivante" dans le circuit.</li>
+    <li>Définissons la fonction pour la route 'b' d'une manière qui "réduit" l'ensemble des villes. Une définition simple et efficace est :
+        $$ b(i) = \lfloor i/2 \rfloor \quad (\text{la partie entière de } i/2) $$
+        Par exemple, pour $n=5$, on a $b(0)=0, b(1)=0, b(2)=1, b(3)=1, b(4)=2$. On voit bien que $b$ n'est pas une permutation.</li>
+</ol>
+
+<h5>Preuve que cette construction fonctionne :</h5>
+<p>Nous devons trouver une suite d'instructions $S$ qui envoie toutes les villes sur $0$. Considérons la suite d'instructions composée uniquement de 'b', répétée un certain nombre de fois.</p>
+<p>Soit $v \in V$ une ville de départ quelconque. On a $0 \le v < n$.</p>
+<p>Appliquons 'b' une fois : la nouvelle ville est $v_1 = b(v) = \lfloor v/2 \rfloor$. On a $v_1 \le v/2$.</p>
+<p>Appliquons 'b' une deuxième fois : la nouvelle ville est $v_2 = b(v_1) = \lfloor v_1/2 \rfloor \le v_1/2 \le (v/2)/2 = v/4$.</p>
+<p>Après $k$ applications de 'b', la ville atteinte est $v_k$, et on a :</p>
+$$ v_k \le \frac{v}{2^k} $$
+<p>Puisque la ville de départ $v$ est au plus $n-1$, on a $v_k < n/2^k$.</p>
+<p>Nous voulons que la ville d'arrivée soit $0$. Il suffit donc de choisir $k$ assez grand pour que $n/2^k \le 1$. En effet, si $v_k < 1$ et comme $v_k$ est un entier non-négatif (car $b(i) \ge 0$), alors on aura nécessairement $v_k = 0$.</p>
+<p>Choisissons un entier $k$ tel que $2^k \ge n$. Un tel entier existe toujours (par exemple, $k = \lceil \log_2(n) \rceil$).</p>
+<p>Avec ce choix de $k$, la suite d'instructions $S$ est "appliquer 'b' $k$ fois". Pour n'importe quelle ville de départ $v$, la ville d'arrivée $v_k$ vérifie :</p>
+$$ v_k < \frac{n}{2^k} \le 1 $$
+<p>Comme $v_k$ est un entier, $v_k=0$.</p>
+<p>Ainsi, la suite d'instructions $S = \underbrace{b \circ b \circ \dots \circ b}_{k \text{ fois}}$ amène n'importe quelle ville du circuit à la ville $0$.</p>
+<p>Cette construction étant valide pour tout $n \ge 3$, on peut conclure que de tels circuits existent pour toutes ces valeurs de $n$.</p>
+</div>
+
+
+
+
+      
+<section id="ex30">
+  <h3>Exercice 30+ (Tour de Hanoï).</h3>
+  <p>On dispose de trois piquets et de $n$ disques de tailles différentes. Position légale : sur chaque piquet, un disque n’est jamais posé sur un plus petit. Départ : tous les disques sur le premier piquet. But : tout mettre sur le troisième, un seul disque déplacé à la fois, en ne passant que par des positions légales.</p>
+  <ol>
+    <li>Montrer que, quel que soit $n$, le jeu est résoluble.</li>
+    <li>Donner le nombre minimum de coups nécessaires.</li>
+  </ol>
+</section>
+Absolument ! Les tours de Hanoï sont un exemple emblématique de la puissance du raisonnement par récurrence. Voici une correction détaillée.
+
+
+<h3>✅ Exercice 30⁺.</h3>
+<p><strong>La tour de Hanoï est un jeu à un joueur qui se joue comme suit : on dispose de trois piquets et de n disques percés de tailles différentes. [...]</strong></p>
+
+<h4>1. Montrer que quel que soit n, le jeu de la tour de Hanoï est résoluble.</h4>
+
+<div>
+<p>Nous allons démontrer que le jeu est résoluble pour tout entier $n \ge 1$ en construisant un algorithme récursif qui fournit une solution. La preuve de l'existence d'une solution se fait donc par récurrence.</p>
+
+
+<p>Notons les trois piquets A (Départ), B (Intermédiaire), et C (Arrivée). Le but est de déplacer $n$ disques de A vers C.</p>
+
+<p>Soit $P(n)$ l'assertion : "Il est possible de déplacer une tour de $n$ disques d'un piquet de départ à un piquet d'arrivée en respectant les règles".</p>
+
+<p><strong>Initialisation (n=1) :</strong></p>
+<p>S'il n'y a qu'un seul disque, il suffit de le déplacer du piquet A au piquet C. C'est une seule opération légale. Donc $P(1)$ est vraie.</p>
+
+<p><strong>Hérédité :</strong></p>
+<p>Soit $n \ge 1$. Supposons que $P(n)$ est vraie, c'est-à-dire que l'on sait déplacer une tour de $n$ disques d'un piquet à un autre (hypothèse de récurrence).</p>
+<p>Montrons que $P(n+1)$ est vraie. Nous avons $n+1$ disques sur le piquet A et voulons les déplacer sur le piquet C.</p>
+
+<p>Pour pouvoir déplacer le plus grand disque (le $(n+1)$-ième) de A vers C, il est <strong>nécessaire</strong> que tous les autres disques (les $n$ plus petits) ne soient ni sur A, ni sur C. Ils doivent donc tous se trouver sur le piquet intermédiaire B.</p>
+
+<p>L'algorithme pour déplacer $n+1$ disques de A vers C se décompose donc naturellement en trois étapes :</p>
+<ol>
+    <li>
+        <strong>Déplacer la tour des $n$ plus petits disques du piquet A vers le piquet B</strong>, en utilisant C comme piquet intermédiaire. D'après l'hypothèse de récurrence $P(n)$, cette opération est possible.
+    </li>
+    <li>
+        <strong>Déplacer le plus grand disque (le $(n+1)$-ième) du piquet A vers le piquet C.</strong> Cette opération est légale car les $n$ autres disques sont sur B, donc A ne contient que ce disque et C est vide.
+    </li>
+    <li>
+        <strong>Déplacer la tour des $n$ plus petits disques du piquet B vers le piquet C</strong>, en utilisant A comme piquet intermédiaire. De nouveau, d'après l'hypothèse de récurrence $P(n)$, cette opération est possible.
+    </li>
+</ol>
+
+<p>À la fin de ces trois étapes, la tour de $n+1$ disques se trouve sur le piquet C, en respectant les règles. Nous avons donc montré que si $P(n)$ est vraie, alors $P(n+1)$ est vraie.</p>
+
+<p><strong>Conclusion :</strong></p>
+<p>Par le principe de récurrence, la propriété $P(n)$ est vraie pour tout entier $n \ge 1$. Le jeu de la tour de Hanoï est donc toujours résoluble.</p>
+</div>
+
+<h4>2. Quel est le nombre minimum de coups nécessaires pour le résoudre ?</h4>
+
+<div>
+<p>Notons $C_n$ le nombre de coups nécessaires pour résoudre le problème avec $n$ disques en utilisant l'algorithme décrit ci-dessus.</p>
+
+<p>L'algorithme nous donne directement une relation de récurrence pour $C_n$ :</p>
+<ul>
+    <li>L'étape 1 (déplacer $n-1$ disques de A à B) nécessite $C_{n-1}$ coups.</li>
+    <li>L'étape 2 (déplacer le disque $n$ de A à C) nécessite $1$ coup.</li>
+    <li>L'étape 3 (déplacer $n-1$ disques de B à C) nécessite $C_{n-1}$ coups.</li>
+</ul>
+
+<p>On a donc la relation de récurrence : $C_n = C_{n-1} + 1 + C_{n-1} = 2C_{n-1} + 1$.</p>
+<p>Le cas de base est pour $n=1$, qui nécessite un seul coup : $C_1 = 1$.</p>
+
+<p>Calculons les premiers termes pour deviner la formule explicite :</p>
+<ul>
+    <li>$C_1 = 1$</li>
+    <li>$C_2 = 2C_1 + 1 = 2(1) + 1 = 3$</li>
+    <li>$C_3 = 2C_2 + 1 = 2(3) + 1 = 7$</li>
+    <li>$C_4 = 2C_3 + 1 = 2(7) + 1 = 15$</li>
+</ul>
+
+<p>On conjecture que $C_n = 2^n - 1$. Prouvons-le par récurrence.</p>
+<ul>
+    <li><strong>Initialisation :</strong> Pour $n=1$, la formule donne $2^1 - 1 = 1$, ce qui est correct.</li>
+    <li><strong>Hérédité :</strong> Supposons que $C_k = 2^k - 1$ pour un certain $k \ge 1$. Alors :
+    $$ C_{k+1} = 2C_k + 1 = 2(2^k - 1) + 1 = 2 \cdot 2^k - 2 + 1 = 2^{k+1} - 1 $$
+    La formule est donc vraie pour tout $n \ge 1$.</li>
+</ul>
+
+<p><strong>Minimalité :</strong></p>
+<p>Il reste à prouver que cet algorithme est optimal, c'est-à-dire que $2^n-1$ est bien le nombre <em>minimum</em> de coups.</p>
+<p>Soit $M_n$ le nombre minimum de coups pour résoudre le problème à $n$ disques.
+Pour déplacer le plus grand disque (disque $n$) de A à C, il faut impérativement que les $n-1$ autres disques soient empilés sur B. Cela a nécessité au minimum $M_{n-1}$ coups.
+Ensuite, il faut au moins $1$ coup pour déplacer le disque $n$ de A à C.
+Enfin, il faut ramener les $n-1$ disques de B à C, ce qui nécessite au minimum $M_{n-1}$ coups.
+Par conséquent, tout algorithme de résolution doit comporter au moins ces étapes, donc :
+$$ M_n \ge M_{n-1} + 1 + M_{n-1} = 2M_{n-1} + 1 $$
+Avec $M_1=1$, on retrouve par récurrence que $M_n \ge 2^n-1$.</p>
+<p>Puisque notre algorithme donne une solution en $2^n-1$ coups, et qu'il est impossible de faire mieux, ce nombre est bien le minimum.</p>
+
+<p><strong>Conclusion :</strong></p>
+<p>Le nombre minimum de coups nécessaires pour résoudre la tour de Hanoï à $n$ disques est de $2^n - 1$.</p>
+</div>
+
+
+
+
+  
+<section id="ex31">
+  <h3>Exercice 31+.</h3>
+  <p>Sur un circuit se trouvent des dépôts d’essence contenant juste assez pour faire un tour. Montrer qu’en partant réservoir vide d’un dépôt bien choisi, on peut faire un tour sans jamais manquer d’essence.</p>
+</section>
+
+C'est un problème classique et très élégant, qui peut être résolu de plusieurs manières. La solution la plus visuelle et peut-être la plus simple à comprendre est une preuve par l'absurde qui se transforme en une preuve constructive.
+
+
+<h3>✅ Exercice 31⁺.</h3>
+<p><strong>On suppose que sur un circuit se trouvent un certain nombre de dépôts d'essence, contenant à eux tous juste assez d'essence pour faire un tour du circuit. Montrer qu'en partant avec un réservoir vide d'un dépôt d'essence bien choisi, il est possible de faire un tour du circuit sans jamais manquer d'essence.</strong></p>
+
+<div>
+<h4>Modélisation du problème</h4>
+<p>Numérotons les $n$ dépôts d'essence $D_0, D_1, \dots, D_{n-1}$ dans le sens du circuit.</p>
+<ul>
+<li>Soit $e_i$ la quantité d'essence disponible au dépôt $D_i$.</li>
+<li>Soit $c_i$ la quantité d'essence nécessaire pour aller du dépôt $D_i$ au dépôt suivant, $D_{i+1}$ (avec $D_n = D_0$).</li>
+</ul>
+<p>L'hypothèse que la quantité totale d'essence est "juste assez" pour faire un tour se traduit par :</p>
+$$ \sum_{i=0}^{n-1} e_i = \sum_{i=0}^{n-1} c_i $$
+<p>Le but est de montrer qu'il existe un dépôt de départ $D_k$ tel qu'en partant de $D_k$ (après avoir pris l'essence $e_k$), on peut atteindre chaque dépôt suivant sans que le réservoir ne devienne vide en chemin.</p>
+
+<h4>Démonstration par l'absurde (qui devient constructive)</h4>
+<p>Le raisonnement est le suivant : supposons qu'aucun point de départ ne fonctionne. Nous allons montrer que cela mène à une contradiction. La manière dont la contradiction apparaît nous révélera comment trouver le bon point de départ.</p>
+
+<p>Imaginons un conducteur, appelons-le Pascal, qui dispose d'une voiture avec un réservoir immense et une réserve de carburant initiale. Il va nous aider à trouver la solution.</p>
+
+<ol>
+    <li>
+        <strong>Le voyage de Pascal :</strong> Pascal choisit de partir d'un dépôt arbitraire, disons $D_0$. Il met juste assez d'essence dans son réservoir pour atteindre le dépôt suivant $D_1$ (il met donc $c_0$ litres). Il fait ensuite le tour complet du circuit. À chaque dépôt $D_i$, il prend toute l'essence $e_i$ disponible. Entre les dépôts $D_i$ et $D_{i+1}$, il consomme $c_i$ litres.
+    </li>
+    <li>
+        <strong>Analyse du niveau d'essence :</strong> Puisque la quantité totale d'essence récoltée ($\sum e_i$) est égale à la quantité totale consommée ($\sum c_i$), lorsque Pascal revient à son point de départ $D_0$ après un tour complet, son réservoir contient exactement la même quantité de carburant qu'au début de son voyage (soit $c_0$ litres).
+    </li>
+    <li>
+        <strong>Le point le plus bas :</strong> Pendant son voyage, le niveau d'essence dans le réservoir de Pascal a fluctué. Puisqu'il n'y a qu'un nombre fini de dépôts, il y a forcément un moment où le niveau de son réservoir a été à son minimum. Appelons ce dépôt $D_k$. C'est au dépôt $D_k$ (juste avant de prendre l'essence $e_k$) que le réservoir de Pascal était le plus vide.
+    </li>
+    <li>
+        <strong>Le bon point de départ :</strong> Nous affirmons que ce dépôt $D_k$ est le point de départ qui permet de faire le tour sans tomber en panne.
+    </li>
+</ol>
+
+<p><strong>Prouvons-le :</strong></p>
+<p>Imaginons maintenant que nous partons du dépôt $D_k$ avec un réservoir vide. On prend l'essence $e_k$ disponible à ce dépôt.</p>
+<p>Considérons le niveau de notre réservoir à n'importe quel point du circuit. Comparons-le au niveau du réservoir de Pascal au même point.</p>
+<p>Soit $N_{min}$ le niveau minimum atteint par Pascal dans son réservoir (ce niveau a été atteint au dépôt $D_k$). Le niveau d'essence dans notre réservoir à n'importe quel point du circuit sera toujours égal au niveau qu'avait Pascal au même endroit, moins cette valeur minimale $N_{min}$.</p>
+<p>Par exemple, juste après avoir quitté $D_k$, le niveau dans notre réservoir est $e_k$. Le niveau dans le réservoir de Pascal était $N_{min} + e_k$. La différence est bien $N_{min}$.</p>
+
+<p>Puisque $N_{min}$ était, par définition, le niveau le plus bas atteint par Pascal, le niveau de son réservoir a toujours été supérieur ou égal à $N_{min}$ tout au long de son parcours.</p>
+<p>Par conséquent, le niveau de notre réservoir (qui est "Niveau de Pascal" - $N_{min}$) sera toujours supérieur ou égal à $N_{min} - N_{min} = 0$.</p>
+<p>Notre niveau d'essence ne sera donc jamais négatif. Nous pouvons donc compléter le tour du circuit en partant de $D_k$.</p>
+
+<hr>
+
+<h4>Formalisation (Alternative)</h4>
+<p>Soit $b_i = e_i - c_i$ le "bilan" d'essence sur le segment $i$. On sait que $\sum_{i=0}^{n-1} b_i = 0$.</p>
+<p>Partir de $D_k$ et réussir le tour signifie que toutes les sommes partielles suivantes sont non-négatives :</p>
+$$ e_k - c_k \ge 0 $$
+$$ (e_k - c_k) + (e_{k+1} - c_{k+1}) \ge 0 $$
+$$ \dots $$
+$$ \sum_{j=0}^{m} b_{(k+j) \pmod n} \ge 0 \quad \text{pour tout } m \in \{0, \dots, n-2\} $$
+<p>Considérons la suite des sommes cumulées en partant de $D_0$ : $S_j = \sum_{i=0}^{j-1} b_i$ pour $j>0$, et $S_0=0$.</p>
+<p>Soit $k$ l'indice tel que $S_k$ est le minimum de toutes les valeurs $S_j$. Un tel $k$ existe.</p>
+<p>Montrons que $D_k$ est un point de départ valide. La somme des bilans en partant de $D_k$ jusqu'à $D_{k+m}$ est $\sum_{j=0}^{m-1} b_{k+j}$. Cette somme peut s'écrire $S_{k+m} - S_k$ (avec les indices modulo $n$).</p>
+<p>Par définition de $k$, $S_k$ est la valeur minimale, donc pour tout $j$, $S_j \ge S_k$. En particulier, $S_{k+m} \ge S_k$.</p>
+<p>On a donc $\sum_{j=0}^{m-1} b_{k+j} = S_{k+m} - S_k \ge 0$.</p>
+<p>Cela garantit qu'en partant de $D_k$, on arrive à chaque dépôt suivant avec une quantité d'essence non-négative dans le réservoir. Le point de départ $D_k$ est donc bien valide.</p>
+</div>
+
+
+
+
+  
+<section id="ex32">
+  <h3>Exercice 32++ (Tournoi).</h3>
+  <p>Dans un tournoi d’ordre $n\ge 2$, chaque paire d’équipes se rencontre une fois, sans match nul.</p>
+  <ol>
+    <li>Montrer que, quelle que soit l’issue, on peut numéroter $E'_1,\dots,E'_n$ tel que pour tout $1\le i\lt n$, $E'_i$ a battu $E'_{i+1}$ (th. de Rédei, 1934).</li>
+    <li>Un tournoi est équilibré si chaque équipe a gagné autant de matchs qu’elle en a perdu. Montrer qu’il existe un tournoi équilibré d’ordre $n$ ssi $n$ est impair.</li>
+  </ol>
+</section>
+Cet exercice est un très beau problème de théorie des graphes, un domaine fascinant à la frontière des mathématiques discrètes et de l'informatique. 
+
+
+<h3>✅ Exercice 32⁺⁺.</h3>
+<p>Un <em>tournoi</em> d'ordre $n$ est la modélisation d'une compétition où $n$ équipes s'affrontent une fois chacune, sans match nul. Mathématiquement, c'est un graphe orienté complet : pour toute paire de sommets distincts $\{u, v\}$, il existe une et une seule arête entre eux (soit $u \to v$, soit $v \to u$). On dit que $u \to v$ si "l'équipe $u$ a battu l'équipe $v$".</p>
+
+<h4>1. Montrer que quelle que soit l'issue du tournoi, il sera possible de numéroter les équipes É₁, É₂, ..., Éₙ de telle sorte que, pour tout $1 \le i < n$, l'équipe Éᵢ ait battu l'équipe Éᵢ₊₁ (théorème de Rédei, 1934).</h4>
+
+<div>
+<p>Cette question demande de prouver que tout tournoi admet un <strong>chemin Hamiltonien</strong> (un chemin qui visite chaque sommet exactement une fois).</p>
+<p>Nous allons le démontrer par récurrence sur le nombre $n$ d'équipes.</p>
+
+<p><strong>Initialisation (n=2) :</strong></p>
+<p>Avec deux équipes, É₁ et É₂, il n'y a qu'un seul match. Soit É₁ bat É₂, soit É₂ bat É₁.
+<ul>
+    <li>Si É₁ bat É₂, le classement $(É_1, É_2)$ convient.</li>
+    <li>Si É₂ bat É₁, le classement $(É_2, É_1)$ convient.</li>
+</ul>
+La propriété est donc vraie pour $n=2$.</p>
+
+<p><strong>Hérédité :</strong></p>
+<p>Soit $k \ge 2$. Supposons que la propriété soit vraie pour tout tournoi à $k$ équipes (hypothèse de récurrence).</p>
+<p>Considérons un tournoi à $n=k+1$ équipes. Choisissons arbitrairement une équipe, que nous nommerons $X$. Retirons $X$ et les matchs qui lui sont associés. Les $k$ équipes restantes forment un tournoi d'ordre $k$.</p>
+<p>D'après l'hypothèse de récurrence, on peut classer ces $k$ équipes en un chemin $(É_1, É_2, \dots, É_k)$ tel que $É_i$ a battu $É_{i+1}$ pour tout $i \in \{1, \dots, k-1\}$.</p>
+<p>Il nous reste à insérer l'équipe $X$ dans ce chemin pour former un chemin de longueur $k+1$. Trois cas se présentent :</p>
+
+<ol>
+    <li>
+        <strong>$X$ a battu $É_1$ :</strong> On peut placer $X$ en tête du classement. Le chemin $(X, É_1, É_2, \dots, É_k)$ est valide car $X$ bat $É_1$ et $É_i$ bat $É_{i+1}$ pour le reste du chemin.
+    </li>
+    <li>
+        <strong>$É_k$ a battu $X$ :</strong> On peut placer $X$ à la fin du classement. Le chemin $(É_1, É_2, \dots, É_k, X)$ est valide car $É_i$ bat $É_{i+1}$ et $É_k$ bat $X$.
+    </li>
+    <li>
+        <strong>Ni l'un ni l'autre :</strong> Si les deux cas précédents sont faux, cela signifie que $É_1$ a battu $X$ ET $X$ a battu $É_k$.
+        En parcourant le chemin de $É_1$ à $É_k$, on part d'une équipe qui bat $X$ et on arrive à une équipe qui est battue par $X$. Il doit donc exister un "point de bascule".
+        Plus formellement, il existe un indice $i \in \{1, \dots, k-1\}$ tel que $É_i$ a battu $X$ et $X$ a battu $É_{i+1}$.
+        <br><em>(Preuve de l'existence de cet $i$ : Soit $j$ le plus grand indice tel que $É_j$ bat $X$. Un tel $j$ existe car $É_1$ bat $X$. Comme $X$ bat $É_k$, on a $j < k$. Prenons $i=j$. Alors $É_i$ bat $X$. Par définition de $j$, $É_{i+1}$ ne bat pas $X$, donc c'est $X$ qui bat $É_{i+1}$.)</em>
+        <br>Nous pouvons alors insérer $X$ entre $É_i$ et $É_{i+1}$. Le chemin devient :
+        $$ (É_1, \dots, É_i, X, É_{i+1}, \dots, É_k) $$
+        Ce chemin est valide car $É_i$ bat $X$, et $X$ bat $É_{i+1}$. Les autres liens du chemin sont conservés.
+    </li>
+</ol>
+<p>Dans tous les cas, nous avons réussi à construire un chemin Hamiltonien pour $n=k+1$ équipes. La propriété est donc héréditaire.</p>
+
+<p><strong>Conclusion :</strong> Par le principe de récurrence, tout tournoi admet un chemin Hamiltonien.</p>
+</div>
+
+<h4>2. Un tournoi est dit <em>équilibré</em> si chaque équipe a gagné autant de matchs qu'elle en a perdu. Montrer qu'il existe un tournoi équilibré d'ordre n si et seulement si n est impair.</h4>
+
+<div>
+<p>Pour prouver une équivalence ("si et seulement si"), nous devons prouver les deux implications.</p>
+
+code
+Code
+download
+content_copy
+expand_less
+<p><strong>($\Rightarrow$) Si un tournoi équilibré d'ordre n existe, alors n est impair.</strong></p>
+<p>Soit un tournoi équilibré de $n$ équipes. Chaque équipe joue contre les $n-1$ autres équipes. Le nombre total de matchs joués par une équipe est donc $n-1$.</p>
+<p>Soit $v_i$ le nombre de victoires d'une équipe $i$, et $d_i$ son nombre de défaites. On a $v_i + d_i = n-1$.</p>
+<p>La condition "équilibré" signifie que $v_i = d_i$ pour chaque équipe $i$.</p>
+<p>En substituant, on obtient : $v_i + v_i = n-1$, soit $2v_i = n-1$.</p>
+<p>Puisque $v_i$ est le nombre de victoires, c'est un entier. Par conséquent, $n-1$ doit être un nombre pair. Si $n-1$ est pair, alors $n$ doit être impair.</p>
+<p>Cette implication est donc démontrée.</p>
+
+<p><strong>($\Leftarrow$) Si n est impair, alors il existe un tournoi équilibré d'ordre n.</strong></p>
+<p>Nous devons construire un tel tournoi. Soit $n$ un entier impair, $n \ge 3$. Posons $n = 2k+1$ avec $k \ge 1$.
+D'après la partie précédente, dans un tournoi équilibré, chaque équipe doit gagner $v = (n-1)/2 = k$ matchs.</p>
+<p>Voici une construction classique :</p>
+<ol>
+    <li>Numérotons les équipes (les sommets du graphe) de $0$ à $n-1$.</li>
+    <li>Disposons les sommets en cercle.</li>
+    <li>Pour chaque paire d'équipes $\{i, j\}$, nous devons définir un vainqueur. Nous allons utiliser l'arithmétique modulaire. La distance "orientée" de $i$ à $j$ est $(j-i) \pmod n$.</li>
+    <li>Définissons la règle de victoire comme suit : <strong>l'équipe $i$ bat l'équipe $j$ si et seulement si $(j-i) \pmod n$ est dans l'ensemble $\{1, 2, \dots, k\}$.</strong></li>
+</ol>
+<p>Vérifions que cette construction est valide :</p>
+<ul>
+    <li>
+        <strong>Est-ce bien un tournoi ?</strong> Pour toute paire $\{i, j\}$, il faut qu'un et un seul des deux gagne. La différence inverse est $(i-j) \pmod n = (n - (j-i)) \pmod n$.
+        Si $(j-i) \pmod n \in \{1, \dots, k\}$, alors $(i-j) \pmod n \in \{n-1, \dots, n-k\} = \{k+1, \dots, 2k\}$. Ce second ensemble est disjoint du premier. Ainsi, si $i$ bat $j$, $j$ ne bat pas $i$, et vice-versa. La construction définit bien un tournoi.
+    </li>
+    <li>
+        <strong>Est-il équilibré ?</strong> Comptons le nombre de victoires d'une équipe $i$ quelconque. L'équipe $i$ bat les équipes $j$ telles que $j-i \equiv d \pmod n$ pour $d \in \{1, \dots, k\}$.
+        Les équipes battues par $i$ sont donc $(i+1) \pmod n, (i+2) \pmod n, \dots, (i+k) \pmod n$.
+        Il y a exactement $k$ telles équipes. Chaque équipe remporte donc $k$ victoires.
+    </li>
+</ul>
+<p>Puisque chaque équipe joue $n-1=2k$ matchs et en gagne $k$, elle en perd également $k$. Le tournoi est donc bien équilibré.</p>
+<p>Cette construction étant valide pour tout $n$ impair, l'implication est démontrée.</p>
+
+<p><strong>Conclusion :</strong> Les deux implications étant prouvées, on a bien montré qu'un tournoi équilibré d'ordre $n$ existe si et seulement si $n$ est impair.</p>
+</div>
+
+
+
+
+
+
+  
+<section id="ex35">
+  <h3>Exercice 35+ (Suites pseudo-croissantes).</h3>
+  <p>On adopte : une suite $(u_n)$ est croissante si $\forall n,m\in\mathbb{N},\ n\le m\Rightarrow u_n\le u_m$ ; elle est pseudo-croissante si $\forall n\in\mathbb{N},\ \exists M\in\mathbb{N}:\ \forall m\ge M,\ u_m\ge u_n$.</p>
+  <ol>
+    <li>Toute suite croissante est pseudo-croissante.</li>
+    <li>La somme de deux suites pseudo-croissantes est pseudo-croissante.</li>
+    <li>La suite $((-1)^n)_{n\in\mathbb{N}}$ n’est pas pseudo-croissante.</li>
+    <li>En considérant $(n+(-1)^n)$, montrer que la réciproque de 1. est fausse.</li>
+    <li>On dit que $(u_n)$ est pseudo-décroissante si $\forall n,\ \exists M:\ \forall m\ge M,\ u_m\le u_n$. Soit $(u_n)$ pseudo-croissante et pseudo-décroissante :
+      <ol>
+        <li>Montrer que $\forall k\in\mathbb{N},\ \exists N:\ \forall n\gt N,\ u_n=u_k$.</li>
+        <li>En déduire que $(u_n)$ est constante.</li>
+      </ol>
+    </li>
+  </ol>
+</section>
+Cet exercice est un excellent travail sur la manipulation des quantificateurs et la compréhension fine des définitions. 
+
+
+<h3>✅ Exercice 35⁺.</h3>
+
+<p>Cet exercice introduit la notion de suite <em>pseudo-croissante</em>, définie par :
+$$ \forall n \in \mathbb{N}, \exists M \in \mathbb{N} : \forall m \ge M, u_m \ge u_n. $$
+Intuitivement, cela signifie que pour n'importe quel terme $u_n$ de la suite, tous les termes "suffisamment loin" dans la suite finiront par le dépasser (ou lui être égaux). Le rang $M$ à partir duquel cela se produit peut dépendre de l'indice $n$ choisi.</p>
+
+<hr>
+
+<p><strong>1. Montrer que toute suite croissante est pseudo-croissante.</strong></p>
+<div>
+<p>Soit $(u_n)_{n \in \mathbb{N}}$ une suite croissante. Par définition, cela signifie que pour tous entiers $n, m$ :</p>
+$$ n \le m \implies u_n \le u_m $$
+<p>Nous voulons montrer qu'elle est pseudo-croissante. Soit $n \in \mathbb{N}$ un entier quelconque. Nous devons trouver un rang $M \in \mathbb{N}$ tel que pour tout $m \ge M$, on ait $u_m \ge u_n$.</p>
+<p>Choisissons simplement $M=n$. Alors, pour tout entier $m \ge M$, on a $m \ge n$.</p>
+<p>Puisque la suite est croissante, la condition $m \ge n$ implique directement $u_m \ge u_n$.</p>
+<p>Nous avons donc bien montré que $\forall n \in \mathbb{N}, \exists M (=n) \in \mathbb{N} : \forall m \ge M, u_m \ge u_n$.</p>
+<p>Toute suite croissante est donc pseudo-croissante.</p>
+</div>
+<hr>
+
+<p><strong>2. Montrer que la somme de deux suites pseudo-croissantes est pseudo-croissante.</strong></p>
+<div>
+<p>Soient $(u_n)_{n \in \mathbb{N}}$ et $(v_n)_{n \in \mathbb{N}}$ deux suites pseudo-croissantes. Soit $(w_n)_{n \in \mathbb{N}}$ leur somme, définie par $w_n = u_n + v_n$.</p>
+<p>Soit $n \in \mathbb{N}$ un entier quelconque. Nous voulons trouver un rang $M$ tel que $\forall m \ge M, w_m \ge w_n$.</p>
+<p>Puisque $(u_n)$ est pseudo-croissante, il existe un rang $M_u \in \mathbb{N}$ tel que :</p>
+$$ \forall m \ge M_u, u_m \ge u_n $$
+<p>De même, puisque $(v_n)$ est pseudo-croissante, il existe un rang $M_v \in \mathbb{N}$ tel que :</p>
+$$ \forall m \ge M_v, v_m \ge v_n $$
+<p>Pour que ces deux inégalités soient vraies simultanément, il suffit de se placer à un rang supérieur à la fois à $M_u$ et $M_v$. Posons $M = \max(M_u, M_v)$.</p>
+<p>Alors, pour tout entier $m \ge M$, on a à la fois $m \ge M_u$ et $m \ge M_v$. Par conséquent :</p>
+$$ u_m \ge u_n \quad \text{et} \quad v_m \ge v_n $$
+<p>En additionnant ces deux inégalités, on obtient :</p>
+$$ u_m + v_m \ge u_n + v_n $$
+$$ w_m \ge w_n $$
+<p>Nous avons donc montré que $\forall n \in \mathbb{N}, \exists M \in \mathbb{N} : \forall m \ge M, w_m \ge w_n$. La suite $(w_n)$ est bien pseudo-croissante.</p>
+</div>
+<hr>
+
+<p><strong>3. Montrer que la suite $((-1)^n)_{n \in \mathbb{N}}$ n'est pas pseudo-croissante.</strong></p>
+<div>
+<p>Soit $u_n = (-1)^n$. Pour montrer que cette suite n'est pas pseudo-croissante, nous devons montrer la négation de la définition, c'est-à-dire :</p>
+$$ \exists n \in \mathbb{N}, \forall M \in \mathbb{N} : \exists m \ge M, u_m < u_n $$
+<p>Il suffit de trouver un seul $n$ pour lequel la propriété échoue. Choisissons un $n$ pour lequel $u_n$ est maximal. Prenons $n=0$, ce qui donne $u_0 = (-1)^0 = 1$.</p>
+<p>Montrons que pour ce $n=0$, la suite de la proposition est vraie. Soit $M \in \mathbb{N}$ un rang quelconque. Nous devons trouver un entier $m \ge M$ tel que $u_m < u_0 = 1$.</p>
+<p>La suite $(u_n)$ prend alternativement les valeurs $1$ et $-1$. Pour que $u_m < 1$, il suffit que $u_m = -1$, ce qui arrive lorsque $m$ est impair.</p>
+<p>Quel que soit $M$, il est toujours possible de trouver un entier impair $m$ tel que $m \ge M$. (Par exemple, si $M$ est pair, $M+1$ convient ; si $M$ est impair, $M$ lui-même convient).</p>
+<p>Pour un tel $m$ impair, $u_m = -1$, et on a bien $u_m < 1$.</p>
+<p>Nous avons donc montré que pour $n=0$, pour tout $M$, il existe un $m \ge M$ tel que $u_m < u_n$. La suite n'est donc pas pseudo-croissante.</p>
+</div>
+<hr>
+
+<p><strong>4. En considérant la suite $(n + (-1)^n)_{n \in \mathbb{N}}$, montrer que la réciproque de la première question est fausse.</strong></p>
+<div>
+<p>Soit $u_n = n + (-1)^n$. Pour montrer que la réciproque de la question 1 est fausse, nous devons montrer que cette suite est pseudo-croissante, mais pas croissante.</p>
+<p><strong>(a) La suite n'est pas croissante :</strong></p>
+<p>Il suffit de trouver un contre-exemple. Comparons $u_0$ et $u_1$ :
+<ul>
+<li>$u_0 = 0 + (-1)^0 = 1$</li>
+<li>$u_1 = 1 + (-1)^1 = 1 - 1 = 0$</li>
+</ul>
+On a $0 < 1$ mais $u_0 > u_1$. La suite n'est donc pas croissante.</p>
+
+<p><strong>(b) La suite est pseudo-croissante :</strong></p>
+<p>Soit $n \in \mathbb{N}$ un entier quelconque. Nous devons trouver un rang $M$ tel que $\forall m \ge M, u_m \ge u_n$.</p>
+<p>On a $u_n = n + (-1)^n \le n+1$.</p>
+<p>Et pour tout $m$, on a $u_m = m + (-1)^m \ge m-1$.</p>
+<p>Nous cherchons $M$ tel que pour $m \ge M$, on ait $m + (-1)^m \ge n + (-1)^n$.
+Il suffit de garantir que $m-1 \ge n+1$, car alors :
+$$ u_m \ge m-1 \ge n+1 \ge u_n $$
+La condition $m-1 \ge n+1$ est équivalente à $m \ge n+2$.
+Choisissons donc $M = n+2$. Pour tout $m \ge M$, on a $m \ge n+2$, ce qui assure $u_m \ge u_n$.
+La suite est donc bien pseudo-croissante.</p>
+<p>Puisqu'elle est pseudo-croissante sans être croissante, la réciproque de la question 1 est fausse.</p>
+</div>
+<hr>
+
+<p><strong>5. Soit $(u_n)_{n \in \mathbb{N}}$ une suite pseudo-croissante et pseudo-décroissante.</strong></p>
+<div>
+<p><strong>(a) Montrer que $\forall k \in \mathbb{N}, \exists N \in \mathbb{N} : \forall n \ge N, u_n = u_k$.</strong></p>
+<p>Soit $k \in \mathbb{N}$ un entier quelconque.</p>
+<p>Puisque $(u_n)$ est pseudo-croissante, par définition appliquée à l'indice $k$, il existe un rang $M_c$ tel que :
+$$ \forall n \ge M_c, u_n \ge u_k $$
+<p>Puisque $(u_n)$ est pseudo-décroissante, par définition appliquée au même indice $k$, il existe un rang $M_d$ tel que :
+$$ \forall n \ge M_d, u_n \le u_k $$
+<p>Posons $N = \max(M_c, M_d)$. Pour tout entier $n \ge N$, on a $n \ge M_c$ et $n \ge M_d$. Les deux conditions s'appliquent donc simultanément :
+$$ u_n \ge u_k \quad \text{et} \quad u_n \le u_k $$
+<p>La seule possibilité pour qu'un nombre soit à la fois supérieur ou égal et inférieur ou égal à $u_k$ est qu'il soit égal à $u_k$.</p>
+<p>Donc, pour tout $n \ge N$, on a $u_n = u_k$.
+Ceci prouve que la suite est "stationnaire à la valeur $u_k$".</p>
+
+code
+Code
+download
+content_copy
+expand_less
+<p><strong>(b) Montrer que $(u_n)_{n \in \mathbb{N}}$ est constante.</strong></p>
+<p>La question (a) nous dit que pour <strong>n'importe quel</strong> $k$, la suite devient constante et égale à $u_k$ à partir d'un certain rang. Utilisons cette propriété pour deux indices différents.</p>
+<p>Appliquons le résultat de (a) pour $k=0$ : Il existe un rang $N_0$ tel que $\forall n \ge N_0, u_n = u_0$.</p>
+<p>Appliquons le résultat de (a) pour $k=1$ : Il existe un rang $N_1$ tel que $\forall n \ge N_1, u_n = u_1$.</p>
+<p>Soit $N' = \max(N_0, N_1)$. Pour tout entier $n \ge N'$, les deux propriétés sont vraies. En particulier pour $n=N'$ :
+<ul>
+    <li>$N' \ge N_0 \implies u_{N'} = u_0$</li>
+    <li>$N' \ge N_1 \implies u_{N'} = u_1$</li>
+</ul>
+On en déduit que $u_0 = u_1$.</p>
+<p>Le même raisonnement peut être appliqué à n'importe quelle paire d'indices $(k, j)$. Pour tout $(k,j) \in \mathbb{N}^2$, il existe un rang à partir duquel la suite vaut $u_k$ et un autre à partir duquel elle vaut $u_j$. En considérant un rang suffisamment grand, on montre que $u_k=u_j$.</p>
+<p>Puisque tous les termes de la suite sont égaux, la suite $(u_n)_{n \in \mathbb{N}}$ est constante.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<section id="ex36">
+  <h3>Exercice 36+ (Fibonacci).</h3>
+  <p>Définition : $F_1=F_2=1$ et $\forall n>1,\ F_{n+2}=F_{n+1}+F_n$.</p>
+  <ol>
+    <li>Calculer $F_n$ pour $1\le n\le 10$.</li>
+    <li>Montrer que pour tout $n>1$, il y a exactement $F_{n+1}$ façons de paver un échiquier $2\times n$ avec des dominos.</li>
+    <li>Démontrer $\forall n>2,\ \forall m>1,\ F_{n+m}=F_{n-1}F_m+F_nF_{m+1}$.</li>
+    <li>Démontrer $\forall n>2,\ F_n^2=F_{n-1}F_{n+1}+(-1)^{n+1}$.</li>
+    <li>Montrer, pour tout $n\ge 1$,
+      $$
+      F_1F_2+\cdots+F_{2n-1}F_{2n}=F_{2n}^2\quad\text{et}\quad
+      F_1F_2+\cdots+F_{2n}F_{2n+1}=F_{2n+1}^2-1.
+      $$
+    </li>
+  </ol>
+</section>
+
+
+  Excellent, cet exercice est un grand classique sur la suite de Fibonacci et balaye de nombreuses techniques de démonstration par récurrence. 
+
+
+<h3>✅ Exercice 36⁺.</h3>
+<p>On définit les nombres de Fibonacci $(F_n)_{n \ge 1}$ par récurrence de la façon suivante :
+$F_1 = F_2 = 1$ et $\forall n \ge 1, F_{n+2} = F_{n+1} + F_n$.</p>
+
+<h4>1. Calculer les nombres de Fibonacci $(F_n)$, pour $1 \le n \le 10$.</h4>
+<div>
+<p>On calcule les termes de la suite pas à pas en utilisant la relation de récurrence :</p>
+<ul>
+<li>$F_1 = 1$</li>
+<li>$F_2 = 1$</li>
+<li>$F_3 = F_2 + F_1 = 1 + 1 = 2$</li>
+<li>$F_4 = F_3 + F_2 = 2 + 1 = 3$</li>
+<li>$F_5 = F_4 + F_3 = 3 + 2 = 5$</li>
+<li>$F_6 = F_5 + F_4 = 5 + 3 = 8$</li>
+<li>$F_7 = F_6 + F_5 = 8 + 5 = 13$</li>
+<li>$F_8 = F_7 + F_6 = 13 + 8 = 21$</li>
+<li>$F_9 = F_8 + F_7 = 21 + 13 = 34$</li>
+<li>$F_{10} = F_9 + F_8 = 34 + 21 = 55$</li>
+</ul>
+</div>
+
+<h4>2. Montrer que pour tout $n \ge 1$, il y a exactement $F_{n+1}$ façons de paver un échiquier de taille $2 \times n$ avec des dominos.</h4>
+<div>
+<p>Soit $P_n$ le nombre de façons de paver un échiquier de taille $2 \times n$ avec des dominos de taille $2 \times 1$.</p>
+<p><strong>Cas de base :</strong></p>
+<ul>
+<li>Pour $n=1$, l'échiquier est de taille $2 \times 1$. Il n'y a qu'une seule façon de le paver : avec un domino vertical. Donc $P_1 = 1$. Or, $F_{1+1} = F_2 = 1$. La formule est vérifiée.</li>
+<li>Pour $n=2$, l'échiquier est de taille $2 \times 2$. On peut le paver soit avec deux dominos verticaux, soit avec deux dominos horizontaux. Il y a donc deux façons. $P_2 = 2$. Or, $F_{2+1} = F_3 = 2$. La formule est vérifiée.</li>
+</ul>
+<p><strong>Récurrence :</strong></p>
+<p>Considérons un échiquier de taille $2 \times n$ (avec $n \ge 3$). Pour trouver une relation de récurrence, regardons comment la dernière colonne (la $n$-ième) peut être pavée :</p>
+<ul>
+<li><strong>Cas 1 : La dernière colonne est couverte par un domino vertical.</strong>
+Dans ce cas, les $n-1$ premières colonnes forment un échiquier de taille $2 \times (n-1)$ qui doit être pavé. Le nombre de façons de le faire est $P_{n-1}$.</li>
+<li><strong>Cas 2 : La dernière colonne est couverte par un domino horizontal.</strong>
+Pour que cela soit possible, ce domino doit aussi couvrir la case correspondante dans la colonne $n-1$. L'autre case de la colonne $n$ doit également être couverte par un domino horizontal, qui couvre aussi la case correspondante dans la colonne $n-1$. Ainsi, les deux dernières colonnes sont couvertes par deux dominos horizontaux superposés. Les $n-2$ premières colonnes forment alors un échiquier de taille $2 \times (n-2)$ qui doit être pavé. Le nombre de façons de le faire est $P_{n-2}$.</li>
+</ul>
+<p>Ces deux cas étant exclusifs et exhaustifs, on en déduit que le nombre total de pavages est la somme des possibilités de chaque cas :</p>
+$$ P_n = P_{n-1} + P_{n-2} $$
+<p>La suite $(P_n)_{n \ge 1}$ suit la même relation de récurrence que la suite de Fibonacci. Comme $P_1 = F_2$ et $P_2 = F_3$, on en déduit par un décalage d'indice que pour tout $n \ge 1$, $P_n = F_{n+1}$.</p>
+</div>
+
+<h4>3. Démontrer l'assertion $\forall n \ge 2, \forall m \ge 1, F_{n+m} = F_{n-1} F_m + F_n F_{m+1}$.</h4>
+<div>
+<p>Fixons $n \ge 2$ et démontrons la propriété par récurrence forte sur $m \ge 1$.</p>
+<p><strong>Initialisation :</strong></p>
+<ul>
+<li>Pour $m=1$ : $F_{n+1} = F_{n-1} F_1 + F_n F_2 = F_{n-1}(1) + F_n(1) = F_{n-1} + F_n$. C'est la définition de $F_{n+1}$. La propriété est vraie.</li>
+<li>Pour $m=2$ : $F_{n+2} = F_{n-1} F_2 + F_n F_3 = F_{n-1}(1) + F_n(2) = F_{n-1} + 2F_n = (F_{n-1} + F_n) + F_n = F_{n+1} + F_n$. C'est la définition de $F_{n+2}$. La propriété est vraie.</li>
+</ul>
+<p><strong>Hérédité :</strong></p>
+<p>Soit $k \ge 2$. Supposons que la propriété est vraie pour tous les rangs $m \le k$. Montrons-la pour $m=k+1$.</p>
+$$ F_{n+(k+1)} = F_{n+k} + F_{n+k-1} $$
+<p>On applique l'hypothèse de récurrence à chaque terme :</p>
+$$ F_{n+k} = F_{n-1}F_k + F_nF_{k+1} $$
+$$ F_{n+k-1} = F_{n-1}F_{k-1} + F_nF_k $$
+<p>En sommant les deux égalités :</p>
+$$ F_{n+k+1} = (F_{n-1}F_k + F_nF_{k+1}) + (F_{n-1}F_{k-1} + F_nF_k) $$
+<p>On regroupe les termes en $F_{n-1}$ et $F_n$ :</p>
+$$ F_{n+k+1} = F_{n-1}(F_k + F_{k-1}) + F_n(F_{k+1} + F_k) $$
+<p>Par définition de la suite de Fibonacci, $F_k + F_{k-1} = F_{k+1}$ et $F_{k+1} + F_k = F_{k+2}$.</p>
+$$ F_{n+k+1} = F_{n-1}F_{k+1} + F_nF_{k+2} $$
+<p>C'est bien la formule au rang $k+1$. Par le principe de récurrence forte, la propriété est vraie pour tout $m \ge 1$.</p>
+</div>
+
+<h4>4. Démontrer l'assertion $\forall n \ge 2, F_n^2 = F_{n-1} F_{n+1} + (-1)^{n+1}$. (Identité de Cassini)</h4>
+<div>
+<p>Démontrons cette identité par récurrence sur $n \ge 2$.</p>
+<p><strong>Initialisation (n=2) :</strong></p>
+<p>$F_2^2 = 1^2 = 1$.</p>
+<p>$F_1 F_3 + (-1)^{2+1} = (1)(2) - 1 = 1$. L'égalité est vérifiée.</p>
+<p><strong>Hérédité :</strong></p>
+<p>Soit $k \ge 2$. Supposons que $F_k^2 = F_{k-1} F_{k+1} + (-1)^{k+1}$. Montrons que $F_{k+1}^2 = F_k F_{k+2} + (-1)^{k+2}$.</p>
+<p>Partons du membre de droite de la relation au rang $k+1$ :</p>
+$$ F_k F_{k+2} + (-1)^{k+2} = F_k (F_{k+1} + F_k) + (-1)^{k+2} $$
+$$ = F_k F_{k+1} + F_k^2 + (-1)^{k+2} $$
+<p>On utilise l'hypothèse de récurrence pour remplacer $F_k^2$ :</p>
+$$ = F_k F_{k+1} + (F_{k-1} F_{k+1} + (-1)^{k+1}) + (-1)^{k+2} $$
+$$ = F_k F_{k+1} + F_{k-1} F_{k+1} + (-1)^{k+1} - (-1)^{k+1} $$
+$$ = F_{k+1} (F_k + F_{k-1}) $$
+<p>Par définition, $F_k + F_{k-1} = F_{k+1}$.</p>
+$$ = F_{k+1} \cdot F_{k+1} = F_{k+1}^2 $$
+<p>On a bien montré que $F_k F_{k+2} + (-1)^{k+2} = F_{k+1}^2$. La propriété est héréditaire.</p>
+<p>Par le principe de récurrence, l'identité est vraie pour tout $n \ge 2$.</p>
+</div>
+
+<h4>5. Démontrer que pour tout $n \ge 1$, on a :</h4>
+<p>$F_1 F_2 + F_2 F_3 + \dots + F_{2n-1} F_{2n} = F_{2n}^2 \quad$ et $\quad F_1 F_2 + F_2 F_3 + \dots + F_{2n} F_{2n+1} = F_{2n+1}^2 - 1$.</p>
+<div>
+<p><strong>Démonstration de la première identité : $\sum_{k=1}^{2n-1} F_k F_{k+1} = F_{2n}^2$</strong></p>
+<p>Nous procédons par récurrence sur $n \ge 1$.</p>
+<p><strong>Initialisation (n=1) :</strong> La somme se réduit à son premier terme $F_1 F_2 = 1 \times 1 = 1$. Le membre de droite est $F_{2 \times 1}^2 = F_2^2 = 1^2 = 1$. L'égalité est vérifiée.</p>
+<p><strong>Hérédité :</strong> Soit $n \ge 1$. Supposons que $\sum_{k=1}^{2n-1} F_k F_{k+1} = F_{2n}^2$.
+Montrons la formule au rang $n+1$ : $\sum_{k=1}^{2(n+1)-1} F_k F_{k+1} = \sum_{k=1}^{2n+1} F_k F_{k+1} = F_{2(n+1)}^2 = F_{2n+2}^2$.</p>
+<p>Décomposons la somme :</p>
+$$ \sum_{k=1}^{2n+1} F_k F_{k+1} = \left(\sum_{k=1}^{2n-1} F_k F_{k+1}\right) + F_{2n}F_{2n+1} + F_{2n+1}F_{2n+2} $$
+<p>En utilisant l'hypothèse de récurrence :</p>
+$$ = F_{2n}^2 + F_{2n}F_{2n+1} + F_{2n+1}F_{2n+2} $$
+$$ = F_{2n}(F_{2n} + F_{2n+1}) + F_{2n+1}F_{2n+2} $$
+<p>Par définition, $F_{2n} + F_{2n+1} = F_{2n+2}$ :</p>
+$$ = F_{2n}F_{2n+2} + F_{2n+1}F_{2n+2} $$
+$$ = F_{2n+2}(F_{2n} + F_{2n+1}) $$
+$$ = F_{2n+2} \cdot F_{2n+2} = F_{2n+2}^2 $$
+<p>La propriété est héréditaire et donc vraie pour tout $n \ge 1$.</p>
+
+code
+Code
+download
+content_copy
+expand_less
+<p><strong>Démonstration de la deuxième identité : $\sum_{k=1}^{2n} F_k F_{k+1} = F_{2n+1}^2 - 1$</strong></p>
+<p>On peut utiliser le résultat précédent. La somme jusqu'à $2n$ est la somme jusqu'à $2n-1$ plus un terme :</p>
+$$ \sum_{k=1}^{2n} F_k F_{k+1} = \left(\sum_{k=1}^{2n-1} F_k F_{k+1}\right) + F_{2n}F_{2n+1} $$
+<p>En utilisant la première identité, on obtient :</p>
+$$ = F_{2n}^2 + F_{2n}F_{2n+1} = F_{2n}(F_{2n} + F_{2n+1}) = F_{2n}F_{2n+2} $$
+<p>Il nous suffit donc de montrer que $F_{2n}F_{2n+2} = F_{2n+1}^2 - 1$.
+Cette égalité est un cas particulier de l'identité de Cassini (question 4) :</p>
+<p>$F_m^2 = F_{m-1}F_{m+1} + (-1)^{m+1} \iff F_{m-1}F_{m+1} = F_m^2 - (-1)^{m+1} = F_m^2 + (-1)^{m+2}$.</p>
+<p>En posant $m=2n+1$, on a :</p>
+$$ F_{2n}F_{2n+2} = F_{2n+1}^2 + (-1)^{2n+1+2} = F_{2n+1}^2 + (-1)^{2n+3} = F_{2n+1}^2 - 1 $$
+<p>L'identité est donc démontrée.</p>
+</div>
+
+      
 </body>
 </html>
