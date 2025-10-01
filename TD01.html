@@ -442,8 +442,140 @@ $$ S \ge \frac{3}{2} $$
 </div>
 
 
+<h3>✅ Exercice 13⁺.</h3>
+<p><strong>Soit $a, b, c \in \mathbb{R}$. Montrer que $|a| + |b| + |c| - |a + b| - |a + c| - |b + c| + |a + b + c| \ge 0$.</strong></p>
 
+<div>
+<p>Soit $E(a,b,c) = |a| + |b| + |c| - |a + b| - |b + c| - |c + a| + |a + b + c|$. Nous voulons montrer que $E(a,b,c) \ge 0$.</p>
+
+<p>Remarquons quelques propriétés de l'expression $E(a,b,c)$ :</p>
+<ul>
+    <li><strong>Symétrie :</strong> L'expression est symétrique par rapport à $a, b, c$. C'est-à-dire que si on permute deux variables, la valeur de l'expression ne change pas. Par exemple, $E(a,b,c) = E(b,a,c)$.</li>
+    <li><strong>Signe global :</strong> Si on change les signes de $a, b, c$ simultanément, l'expression reste la même. En effet, $E(-a,-b,-c) = |-a|+|-b|+|-c| - |-a-b| - \dots = E(a,b,c)$.</li>
+</ul>
+
+<p>Grâce à ces propriétés, nous pouvons simplifier l'étude en ne considérant que certains cas pour les signes de $a, b, c$. Si l'un des nombres est nul (par exemple $c=0$), l'expression devient :</p>
+$$ E(a,b,0) = |a|+|b|+|0| - |a+b| - |b| - |a| + |a+b| = 0 $$
+L'inégalité est donc vraie si l'un des réels est nul. Supposons maintenant que $a,b,c$ sont non nuls.
+
+Le nombre de réels négatifs parmi $\{a,b,c\}$ peut être 0, 1, 2 ou 3.
+<ul>
+    <li>Le cas "3 négatifs" ($a,b,c<0$) se ramène au cas "0 négatif" ($a,b,c>0$) grâce à la propriété $E(-a,-b,-c)=E(a,b,c)$.</li>
+    <li>De même, le cas "2 négatifs" se ramène au cas "1 négatif".</li>
+</ul>
+<p>Nous n'avons donc que deux cas principaux à étudier :</p>
+<ol>
+    <li>Aucun des nombres n'est négatif.</li>
+    <li>Un seul des nombres est négatif.</li>
+</ol>
+
+<p><strong>Cas 1 : $a, b, c > 0$.</strong></p>
+<p>Dans ce cas, $|x|=x$ pour toutes les expressions.
+$$ E(a,b,c) = (a+b+c) - (a+b) - (b+c) - (c+a) + (a+b+c) $$
+$$ E(a,b,c) = a+b+c - a-b - b-c - c-a + a+b+c $$
+$$ E(a,b,c) = (a-a-a+a) + (b-b-b+b) + (c-c-c+c) = 0 $$
+L'inégalité est donc vérifiée (c'est une égalité).
+
+<p><strong>Cas 2 : Deux nombres sont positifs, un est négatif.</strong></p>
+<p>Par symétrie, supposons sans perte de généralité que $a > 0$, $b > 0$ et $c < 0$. Posons $c = -d$ avec $d > 0$.</p>
+<p>L'expression devient :</p>
+$$ E(a,b,-d) = |a|+|b|+|-d| - |a+b| - |b-d| - |a-d| + |a+b-d| $$
+<p>Comme $a>0$, $b>0$, $d>0$ et $a+b>0$ :</p>
+$$ E(a,b,-d) = a+b+d - (a+b) - |b-d| - |a-d| + |a+b-d| $$
+$$ E(a,b,-d) = d - |a-d| - |b-d| + |a+b-d| $$
+<p>Nous devons donc montrer que $d + |a+b-d| \ge |a-d| + |b-d|$.</p>
+<p>Cette inégalité est une forme de l'inégalité de Hlawka en dimension 1. Prouvons-la par disjonction de cas sur la position de $d$ par rapport à $a$, $b$ et $a+b$. Sans perte de généralité, supposons $a \le b$.</p>
+
+<ul>
+    <li><strong>Si $0 < d \le a$ (et donc $d \le b$ et $d \le a+b$) :</strong><br>
+    L'inégalité à prouver est $d + (a+b-d) \ge (a-d) + (b-d)$.<br>
+    $a+b \ge a-d+b-d \iff 0 \ge -2d$, ce qui est vrai.</li>
     
+    <li><strong>Si $a < d \le b$ (et donc $d \le a+b$) :</strong><br>
+    L'inégalité à prouver est $d + (a+b-d) \ge (d-a) + (b-d)$.<br>
+    $a+b \ge d-a+b-d \iff a+b \ge b-a \iff 2a \ge 0$, ce qui est vrai.</li>
+    
+    <li><strong>Si $b < d \le a+b$ :</strong><br>
+    L'inégalité à prouver est $d + (a+b-d) \ge (d-a) + (d-b)$.<br>
+    $a+b \ge 2d - a - b \iff 2(a+b) \ge 2d \iff a+b \ge d$, ce qui est vrai par hypothèse pour ce cas.</li>
+    
+    <li><strong>Si $d > a+b$ :</strong><br>
+    L'inégalité à prouver est $d + (d-(a+b)) \ge (d-a) + (d-b)$.<br>
+    $2d - a - b \ge 2d - a - b$, ce qui est une égalité.</li>
+</ul>
+
+<p>Dans tous les sous-cas, l'inégalité est vérifiée. Donc, $E(a,b,c) \ge 0$ est vrai quand exactement un des nombres est négatif.</p>
+
+<p><strong>Conclusion :</strong></p>
+<p>L'inégalité a été prouvée pour les cas où 0, 1, 2 ou 3 des réels $a,b,c$ sont négatifs. Elle est donc vraie pour tous $a, b, c \in \mathbb{R}$.</p>
+</div>
+
+
+
+
+<h3>✅ Exercice 14⁺.</h3>
+<p><strong>Question 1. Soit $a, b \in \mathbb{R}$. Montrer $\max(a^2 + b, b^2 + a) \ge -\frac{1}{4}$.</strong></p>
+
+<div>
+<p>Nous allons effectuer un raisonnement par l'absurde.</p>
+<p>Supposons que la proposition est fausse, c'est-à-dire que $\max(a^2 + b, b^2 + a) < -\frac{1}{4}$.</p>
+<p>Cela implique que les deux termes sont strictement inférieurs à $-\frac{1}{4}$ :</p>
+$$ a^2 + b < -\frac{1}{4} \quad \text{et} \quad b^2 + a < -\frac{1}{4} $$
+<p>En additionnant ces deux inégalités, on obtient :</p>
+$$ (a^2 + b) + (b^2 + a) < -\frac{1}{4} - \frac{1}{4} $$
+$$ a^2 + a + b^2 + b < -\frac{1}{2} $$
+<p>Nous allons maintenant utiliser la mise sous forme canonique pour faire apparaître des carrés. Rappelons que $x^2 + x = \left(x + \frac{1}{2}\right)^2 - \frac{1}{4}$.</p>
+<p>En appliquant cette transformation à nos termes en $a$ et $b$ :</p>
+$$ \left( \left(a + \frac{1}{2}\right)^2 - \frac{1}{4} \right) + \left( \left(b + \frac{1}{2}\right)^2 - \frac{1}{4} \right) < -\frac{1}{2} $$
+$$ \left(a + \frac{1}{2}\right)^2 + \left(b + \frac{1}{2}\right)^2 - \frac{1}{2} < -\frac{1}{2} $$
+$$ \left(a + \frac{1}{2}\right)^2 + \left(b + \frac{1}{2}\right)^2 < 0 $$
+<p>Cette dernière inégalité est une contradiction. La somme de deux carrés de nombres réels est toujours positive ou nulle, et ne peut donc pas être strictement négative.</p>
+<p>Notre hypothèse de départ était donc fausse. On conclut que :</p>
+$$ \max(a^2 + b, b^2 + a) \ge -\frac{1}{4} $$
+</div>
+
+<hr>
+
+<p><strong>Question 2. Soit $a, b, c \in [0, 1]$. Montrer $\max(a(1-b), b(1-c), c(1-a)) \ge \frac{1}{4}$.</strong></p>
+
+<div>
+<p><strong>Remarque préliminaire :</strong> Il y a très probablement une erreur dans l'énoncé de cet exercice. L'inégalité $\max(a(1-b), b(1-c), c(1-a)) \ge \frac{1}{4}$ est en réalité <strong>fausse</strong>. Pour s'en convaincre, il suffit de prendre un contre-exemple :</p>
+<p>Soit $a=b=c=0,6$. Ces valeurs sont bien dans l'intervalle $[0, 1]$. Calculons les termes :</p>
+<ul>
+<li>$a(1-b) = 0,6 \times (1 - 0,6) = 0,6 \times 0,4 = 0,24$.</li>
+<li>$b(1-c) = 0,6 \times (1 - 0,6) = 0,6 \times 0,4 = 0,24$.</li>
+<li>$c(1-a) = 0,6 \times (1 - 0,6) = 0,6 \times 0,4 = 0,24$.</li>
+</ul>
+<p>Le maximum de ces trois valeurs est $0,24$. Or, $\frac{1}{4} = 0,25$. On a bien $0,24 < 0,25$. Le contre-exemple invalide l'inégalité de l'énoncé.</p>
+
+code
+Code
+download
+content_copy
+expand_less
+<p>Le problème classique, probablement visé par cet exercice, est de montrer que le <strong>minimum</strong> est inférieur ou égal à $\frac{1}{4}$ :</p>
+<p><strong>Correction de l'exercice probable : Montrer que $\min(a(1-b), b(1-c), c(1-a)) \le \frac{1}{4}$.</strong></p>
+<p>Cela revient à montrer qu'il est impossible que les trois termes soient simultanément strictement supérieurs à $\frac{1}{4}$. Procédons par l'absurde.</p>
+<p>Supposons que :</p>
+$$ a(1-b) > \frac{1}{4} \quad (1)$$
+$$ b(1-c) > \frac{1}{4} \quad (2)$$
+$$ c(1-a) > \frac{1}{4} \quad (3)$$
+<p>Puisque $a,b,c \in [0,1]$, tous les termes $a, (1-b), b, (1-c), c, (1-a)$ sont positifs. Nous pouvons donc multiplier ces trois inégalités membre à membre :</p>
+$$ a(1-b) \cdot b(1-c) \cdot c(1-a) > \left(\frac{1}{4}\right)^3 $$
+<p>En réarrangeant les termes du produit à gauche, on obtient :</p>
+$$ [a(1-a)] \cdot [b(1-b)] \cdot [c(1-c)] > \frac{1}{64} \quad (*) $$
+<p>Cependant, étudions la fonction $f(x) = x(1-x)$ sur l'intervalle $[0, 1]$. Il s'agit d'un polynôme du second degré dont la parabole est tournée vers le bas. Son maximum est atteint en $x = \frac{1}{2}$ et vaut $f(\frac{1}{2}) = \frac{1}{2}(1-\frac{1}{2}) = \frac{1}{4}$.</p>
+<p>Ainsi, pour tout $x \in [0, 1]$, on a $x(1-x) \le \frac{1}{4}$.</p>
+<p>En appliquant cette propriété à $a, b$ et $c$, on obtient :</p>
+$$ a(1-a) \le \frac{1}{4}, \quad b(1-b) \le \frac{1}{4}, \quad c(1-c) \le \frac{1}{4} $$
+<p>En multipliant ces trois inégalités (tous les termes étant positifs), il vient :</p>
+$$ [a(1-a)] \cdot [b(1-b)] \cdot [c(1-c)] \le \left(\frac{1}{4}\right)^3 = \frac{1}{64} \quad (**) $$
+<p>Les inégalités $(*)$ et $(**)$ sont en contradiction directe : le produit ne peut pas être à la fois strictement supérieur à $\frac{1}{64}$ et inférieur ou égal à $\frac{1}{64}$.</p>
+<p>L'hypothèse initiale est donc fausse. Il n'est pas possible que les trois termes soient tous strictement supérieurs à $\frac{1}{4}$. Cela signifie qu'au moins l'un d'entre eux est inférieur ou égal à $\frac{1}{4}$. On a donc bien :</p>
+$$ \min(a(1-b), b(1-c), c(1-a)) \le \frac{1}{4} $$
+</div>
+
+        
 <hr>
 <h2>Quatre exercices (« pour enfants de 5 à 15 ans ») de Vladimir Arnol'd</h2>
 
