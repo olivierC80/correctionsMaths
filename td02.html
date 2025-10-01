@@ -254,11 +254,6 @@ Déterminer si chacune des assertions suivantes est vraie ou fausse (en le démo
 <div>
 <p>Ce résultat exprime qu'un nombre $A$ qui est "infiniment proche" de $B$ par au-dessus (ou égal) ne peut pas être strictement plus grand que $B$. La méthode de démonstration la plus naturelle est le raisonnement par l'absurde.</p>
 
-code
-Code
-download
-content_copy
-expand_less
 <p><strong>Démonstration par l'absurde :</strong></p>
 <p>Nous supposons l'hypothèse vraie et la négation de la conclusion vraie, et nous cherchons une contradiction.</p>
 <ul>
@@ -322,12 +317,6 @@ Parfait, voici la correction de cet exercice de logique et de manipulation des q
 <p>Pour montrer que les assertions (i) et (ii) sont équivalentes, nous devons prouver la double implication : $(i) \Rightarrow (ii)$ et $(ii) \Rightarrow (i)$.</p>
 <p>Ces deux assertions traduisent le fait que la suite $(u_n)$ n'est pas majorée. Cet exercice montre que l'utilisation d'une inégalité large ou stricte ne change pas la nature de cette définition.</p>
 
-code
-Code
-download
-content_copy
-expand_less
-<hr>
 
 <p><strong>Démonstration de $(i) \Rightarrow (ii)$</strong></p>
 <p>On suppose que l'assertion (i) est vraie :</p>
@@ -516,12 +505,6 @@ $$ S = \left\{ \frac{1 - \sqrt{5}}{2} \right\} \cup \left[ 0, \frac{1 + \sqrt{5}
 <p>Nous allons démontrer cette propriété par un raisonnement par récurrence forte.</p>
 <p>Pour un entier $n \ge 12$, notons $P(n)$ l'assertion : « il existe $(a,b) \in \mathbb{N}^2$ tel que $n = 4a + 5b$ ».</p>
 
-code
-Code
-download
-content_copy
-expand_less
-<hr>
 
 <p><strong>Initialisation (Cas de base)</strong></p>
 <p>L'idée de la récurrence forte sera de prouver $P(n)$ en utilisant la propriété pour un entier plus petit. Plus précisément, nous allons montrer que si la propriété est vraie pour $n-4$, elle l'est aussi pour $n$. Comme notre "saut" de récurrence est de 4, nous devons initialiser les 4 premiers cas consécutifs pour que la récurrence puisse s'enclencher pour tous les entiers suivants.</p>
@@ -1004,11 +987,6 @@ La propriété est donc vraie pour $n=2$.</p>
 <div>
 <p>Pour prouver une équivalence ("si et seulement si"), nous devons prouver les deux implications.</p>
 
-code
-Code
-download
-content_copy
-expand_less
 <p><strong>($\Rightarrow$) Si un tournoi équilibré d'ordre n existe, alors n est impair.</strong></p>
 <p>Soit un tournoi équilibré de $n$ équipes. Chaque équipe joue contre les $n-1$ autres équipes. Le nombre total de matchs joués par une équipe est donc $n-1$.</p>
 <p>Soit $v_i$ le nombre de victoires d'une équipe $i$, et $d_i$ son nombre de défaites. On a $v_i + d_i = n-1$.</p>
@@ -1160,11 +1138,6 @@ $$ u_n \ge u_k \quad \text{et} \quad u_n \le u_k $$
 <p>Donc, pour tout $n \ge N$, on a $u_n = u_k$.
 Ceci prouve que la suite est "stationnaire à la valeur $u_k$".</p>
 
-code
-Code
-download
-content_copy
-expand_less
 <p><strong>(b) Montrer que $(u_n)_{n \in \mathbb{N}}$ est constante.</strong></p>
 <p>La question (a) nous dit que pour <strong>n'importe quel</strong> $k$, la suite devient constante et égale à $u_k$ à partir d'un certain rang. Utilisons cette propriété pour deux indices différents.</p>
 <p>Appliquons le résultat de (a) pour $k=0$ : Il existe un rang $N_0$ tel que $\forall n \ge N_0, u_n = u_0$.</p>
