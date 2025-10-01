@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corrigé TD 01 - Révisions calculatoires</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"  crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"  crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h1, h2, h3 {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .tip, .warning, .note {
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 5px solid;
+            border-radius: 4px;
+        }
+        .tip {
+            background-color: #e7f3fe;
+            border-color: #2196F3;
+        }
+        .warning {
+            background-color: #fff4e5;
+            border-color: #ff9800;
+        }
+        .note {
+            background-color: #f3e5f5;
+            border-color: #9c27b0;
+        }
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<h1>TD 01 : Révisions calculatoires - Corrigé</h1>
+
+<h2>Manipulation d'expressions</h2>
+
+<h3>✅ Autocorrection A.</h3>
+
+<div class="tip">
+<strong>Objectif</strong><br>
+L'objectif ici est de bien distinguer l'égalité algébrique de l'égalité de fonctions. Deux expressions ne sont "synonymes" (égales) que si elles sont définies pour les mêmes valeurs (même domaine de définition) et prennent les mêmes valeurs sur ce domaine.
+</div>
+
+<p><b>(i) $\sqrt{xy}$ et $\sqrt{x} \sqrt{y}$</b></p>
+<ul>
+    <li><b>Domaines de définition :</b>
+        <ul>
+            <li><code>$\sqrt{xy}$</code> est définie si $xy \ge 0$. Cela signifie que $x$ et $y$ sont de même signe (ou l'un est nul). ($x\ge0$ et $y\ge0$) OU ($x\le0$ et $y\le0$).</li>
+            <li><code>$\sqrt{x} \sqrt{y}$</code> est définie si $x \ge 0$ et $y \ge 0$.</li>
+        </ul>
+    </li>
+    <li><b>Conclusion :</b> Le domaine de $\sqrt{x} \sqrt{y}$ est inclus dans celui de $\sqrt{xy}$. On ne peut remplacer l'une par l'autre que si l'on sait que <b>$x \ge 0$ et $y \ge 0$</b>. Dans ce cas, l'égalité $\sqrt{xy} = \sqrt{x} \sqrt{y}$ est vraie.</li>
+</ul>
+
+<p><b>(ii) $\ln(xy)$ et $\ln(x) + \ln(y)$</b></p>
+<ul>
+    <li><b>Domaines de définition :</b>
+        <ul>
+            <li><code>$\ln(xy)$</code> est définie si $xy > 0$. Cela signifie que $x$ et $y$ sont de même signe et non nuls. ($x>0$ et $y>0$) OU ($x<0$ et $y<0$).</li>
+            <li><code>$\ln(x) + \ln(y)$</code> est définie si $x > 0$ et $y > 0$.</li>
+        </ul>
+    </li>
+    <li><b>Conclusion :</b> Comme pour la racine carrée, on ne peut remplacer l'une par l'autre que si l'on sait que <b>$x > 0$ et $y > 0$</b>.</li>
+</ul>
+
+<p><b>(iii) $x^2/x$ et $x$</b></p>
+<ul>
+    <li><b>Domaines de définition :</b>
+        <ul>
+            <li><code>$x^2/x$</code> est définie si $x \ne 0$.</li>
+            <li><code>$x$</code> est définie pour tout $x \in \mathbb{R}$.</li>
+        </ul>
+    </li>
+    <li><b>Conclusion :</b> Les expressions sont égales pour tout $x \ne 0$. On ne peut pas les considérer comme synonymes car elles n'ont pas le même domaine de définition.</li>
+</ul>
+
+<p><b>(iv) $\frac{xy}{x+y}$ et $\frac{1}{\frac{1}{x} + \frac{1}{y}}$</b></p>
+<ul>
+    <li><b>Analyse algébrique :</b> $\frac{1}{\frac{1}{x} + \frac{1}{y}} = \frac{1}{\frac{y+x}{xy}} = \frac{xy}{x+y}$. Les formes algébriques sont identiques.</li>
+    <li><b>Domaines de définition :</b>
+        <ul>
+            <li><code>$\frac{xy}{x+y}$</code> est définie si $x+y \ne 0$.</li>
+            <li><code>$\frac{1}{\frac{1}{x} + \frac{1}{y}}$</code> est définie si $x \ne 0$, $y \ne 0$ et $\frac{1}{x} + \frac{1}{y} \ne 0$ (ce qui équivaut à $x+y \ne 0$).</li>
+        </ul>
+    </li>
+    <li><b>Conclusion :</b> Le domaine de la seconde expression ($x\ne0, y\ne0, x+y\ne0$) est plus restrictif que celui de la première ($x+y\ne0$). On ne peut les remplacer que si <b>$x \ne 0$ et $y \ne 0$</b>.</li>
+</ul>
+
+<p><b>(v) $x$ et $\sqrt{x^2}$</b></p>
+<ul>
+    <li><b>Analyse :</b> La définition de la racine carrée implique que $\sqrt{A}$ est toujours un nombre positif. $\sqrt{x^2}$ est le nombre positif dont le carré est $x^2$. Ce nombre est $|x|$.</li>
+    <li><b>Conclusion :</b> $\sqrt{x^2} = |x|$. Les expressions $x$ et $\sqrt{x^2}$ ne sont égales que si <b>$x \ge 0$</b>.</li>
+</ul>
+
+<p><b>(vi) $x$ et $(\sqrt{x})^2$</b></p>
+<ul>
+    <li><b>Domaines de définition :</b>
+        <ul>
+            <li><code>$x$</code> est définie pour tout $x \in \mathbb{R}$.</li>
+            <li><code>$(\sqrt{x})^2$</code> est définie si $x \ge 0$.</li>
+        </ul>
+    </li>
+    <li><b>Conclusion :</b> Sur le domaine de définition de $(\sqrt{x})^2$, c'est-à-dire pour $x \ge 0$, on a bien $(\sqrt{x})^2 = x$. Le remplacement n'est donc possible que pour <b>$x \ge 0$</b>.</li>
+</ul>
+
+<hr>
+
+<h3>✅ Exercice 1.</h3>
+
+<p><b>1. Définition de $\sqrt{x}$</b></p>
+<ul>
+    <li>La quantité $\sqrt{x}$ est définie pour tout nombre réel <b>$x \ge 0$</b>.</li>
+    <li><b>Définition :</b> Si $x \ge 0$, $\sqrt{x}$ est l'<b>unique nombre réel positif ou nul</b> $y$ tel que $y^2 = x$.</li>
+</ul>
+<div class="warning"><b>Piège classique</b><br>L'unicité vient de la condition $y \ge 0$. Par exemple, $(-3)^2 = 9$, mais $\sqrt{9} = 3$ et non $-3$.</div>
+
+<p><b>2. Calcul de $\sqrt{\sqrt{\sqrt{256}}}$</b></p>
+<p>On procède de l'intérieur vers l'extérieur :</p>
+<ul>
+    <li>$\sqrt{256} = 16$ (car $16^2 = 256$)</li>
+    <li>$\sqrt{16} = 4$ (car $4^2 = 16$)</li>
+    <li>$\sqrt{4} = 2$ (car $2^2 = 4$)</li>
+</ul>
+<p>Donc, $\sqrt{\sqrt{\sqrt{256}}} = 2$.</p>
+
+<p><b>3. $x^2 = y^2$</b></p>
+<p>Si $x, y \in \mathbb{R}$ sont tels que $x^2 = y^2$, alors $x^2 - y^2 = 0$.<br>
+En factorisant (identité remarquable), on obtient $(x - y)(x + y) = 0$.<br>
+Un produit est nul si et seulement si l'un de ses facteurs est nul, donc :<br>
+$x - y = 0$ ou $x + y = 0$.<br>
+On peut en déduire que <b>$x = y$ ou $x = -y$</b>.</p>
+
+<p><b>4. Montrer que $\sqrt{7+4\sqrt{3}} = 2+\sqrt{3}$</b></p>
+<p>Pour montrer que $A = B$ avec $A, B$ positifs, il suffit de montrer que $A^2 = B^2$.</p>
+<ul>
+    <li>Le nombre $2+\sqrt{3}$ est positif.</li>
+    <li>Calculons son carré : $(2+\sqrt{3})^2 = 2^2 + 2 \times 2 \times \sqrt{3} + (\sqrt{3})^2 = 4 + 4\sqrt{3} + 3 = 7 + 4\sqrt{3}$.</li>
+    <li>Puisque $2+\sqrt{3} > 0$ et que son carré est $7+4\sqrt{3}$, il est par définition la racine carrée de $7+4\sqrt{3}$.</li>
+</ul>
+<p>Donc, $\sqrt{7+4\sqrt{3}} = 2+\sqrt{3}$.</p>
+
+<p><b>5. Expression de $1/(a+b\sqrt{5})$</b></p>
+<div class="tip"><b>Méthode : la quantité conjuguée</b><br>Pour éliminer une racine au dénominateur dans une expression de la forme $A + B\sqrt{D}$, on multiplie le numérateur et le dénominateur par son "conjugué" $A - B\sqrt{D}$.</div>
+<p>Soit $a, b \in \mathbb{Q}^*$. On multiplie par la quantité conjuguée $a - b\sqrt{5}$ :
+$$ \frac{1}{a+b\sqrt{5}} = \frac{1 \times (a-b\sqrt{5})}{(a+b\sqrt{5})(a-b\sqrt{5})} = \frac{a-b\sqrt{5}}{a^2 - (b\sqrt{5})^2} = \frac{a-b\sqrt{5}}{a^2 - 5b^2} $$
+On nous dit que $a+b\sqrt{5} \ne 0$. Comme $a,b$ sont rationnels et $\sqrt{5}$ est irrationnel, $a^2-5b^2 \ne 0$.
+On peut donc écrire :
+$$ \frac{1}{a+b\sqrt{5}} = \frac{a}{a^2 - 5b^2} + \frac{-b}{a^2 - 5b^2}\sqrt{5} $$
+Par identification, on a $x + y\sqrt{5}$, avec :
+$x = \frac{a}{a^2 - 5b^2}$ et $y = \frac{-b}{a^2 - 5b^2}$. $x$ et $y$ sont bien des nombres rationnels.</p>
+
+<p><b>6. Limite de $\sqrt{x+1} - \sqrt{x-1}$ en $+\infty$</b></p>
+<p>C'est une forme indéterminée de type $\infty - \infty$. On utilise à nouveau la quantité conjuguée :
+$$ \sqrt{x+1} - \sqrt{x-1} = \frac{(\sqrt{x+1} - \sqrt{x-1})(\sqrt{x+1} + \sqrt{x-1})}{\sqrt{x+1} + \sqrt{x-1}} $$
+$$ = \frac{(x+1) - (x-1)}{\sqrt{x+1} + \sqrt{x-1}} = \frac{2}{\sqrt{x+1} + \sqrt{x-1}} $$
+Quand $x \to +\infty$, le dénominateur $\sqrt{x+1} + \sqrt{x-1}$ tend vers $+\infty$. Par conséquent, la limite de l'expression est <b>0</b>.</p>
+
+<hr>
+
+<h3>✅ Exercice 2.</h3>
+<p><b>1. Factoriser</b></p>
+<p><b>(i) $x^2 + 18x + 81$ :</b> Identité remarquable $a^2+2ab+b^2 = (a+b)^2$.
+    $x^2 + 2(x)(9) + 9^2 = (x+9)^2$.</p>
+<p><b>(ii) $x^4 + 4x^3 - 12x^2$ :</b> On factorise par $x^2$.
+    $x^2(x^2 + 4x - 12)$.
+    On factorise le trinôme $x^2 + 4x - 12$. Les racines sont $x_1 = 2$ et $x_2 = -6$.
+    Donc $x^2 + 4x - 12 = (x-2)(x+6)$. L'expression complète est $x^2(x-2)(x+6)$.</p>
+<p><b>(iii) $(x^2+1)^2 - 4x^2$ :</b> Identité remarquable $a^2-b^2 = (a-b)(a+b)$ avec $a = x^2+1$ et $b=2x$.
+    $((x^2+1) - 2x)((x^2+1) + 2x) = (x^2 - 2x + 1)(x^2 + 2x + 1)$.
+    On reconnaît deux autres identités remarquables : $(x-1)^2(x+1)^2$.</p>
+
+<p><b>2. Simplifier</b></p>
+<p><b>(i) $\frac{x^2-x-6}{x^2-9}$</b></p>
+<ul>
+    <li><b>Domaine de définition :</b> $x^2-9 \ne 0$, donc $x \ne 3$ et $x \ne -3$. $D = \mathbb{R} \setminus \{-3, 3\}$.</li>
+    <li><b>Factorisation :</b> Numérateur $x^2-x-6 = (x-3)(x+2)$. Dénominateur $x^2-9 = (x-3)(x+3)$.</li>
+    <li><b>Simplification :</b> Pour $x \in D$, l'expression est $\frac{(x-3)(x+2)}{(x-3)(x+3)} = \frac{x+2}{x+3}$.</li>
+    <li><b>Signe :</b> Tableau de signes pour $\frac{x+2}{x+3}$.
+        <table>
+            <thead><tr><th>x</th><th>$-\infty$</th><th>-3</th><th>-2</th><th>$+\infty$</th></tr></thead>
+            <tbody>
+                <tr><td>$x+2$</td><td>-</td><td>-</td><td>0</td><td>+</td></tr>
+                <tr><td>$x+3$</td><td>-</td><td>0</td><td>+</td><td>+</td></tr>
+                <tr><td>$(x+2)/(x+3)$</td><td>+</td><td>||</td><td>-</td><td>0</td><td>+</td></tr>
+            </tbody>
+        </table>
+        L'expression est positive sur $]-\infty, -3[ \cup [-2, +\infty[$ et négative sur $]-3, -2[$.
+    </li>
+</ul>
+
+<p><b>(iii) $\frac{1}{2x^2-2x+1} - \frac{1}{2x^2+2x+1}$</b></p>
+<ul>
+    <li><b>Domaine de définition :</b> Pour $2x^2-2x+1$, $\Delta < 0$. Pour $2x^2+2x+1$, $\Delta < 0$. Les deux trinômes sont toujours positifs. Le domaine est $\mathbb{R}$.</li>
+    <li><b>Simplification :</b> On met au même dénominateur.
+    $$ \frac{(2x^2+2x+1) - (2x^2-2x+1)}{(2x^2-2x+1)(2x^2+2x+1)} = \frac{4x}{(2x^2-2x+1)(2x^2+2x+1)} $$</li>
+    <li><b>Signe :</b> Le dénominateur est un produit de deux termes strictement positifs, il est donc strictement positif. Le signe de l'expression est le signe du numérateur, $4x$.
+    L'expression est <b>positive pour $x>0$</b>, <b>négative pour $x<0$</b> et <b>nulle pour $x=0$</b>.</li>
+</ul>
+
+<p><b>3. Applications de la factorisation</b></p>
+<p><b>(a) 91 n'est pas premier :</b> On peut écrire $91 = 100 - 9 = 10^2 - 3^2$.
+En utilisant $a^2-b^2 = (a-b)(a+b)$, on a : $91 = (10-3)(10+3) = 7 \times 13$.
+Comme 91 admet des diviseurs autres que 1 et lui-même, il n'est pas premier.</p>
+<p><b>(b) Factoriser $xy + \alpha x + \beta y + \alpha\beta$ :</b> On regroupe les termes :
+$x(y+\alpha) + \beta(y+\alpha) = (x+\beta)(y+\alpha)$.</p>
+<p><b>(c) Trouver les couples $(x,y)$ d'entiers naturels :</b> L'équation est $3x^2y^2 + y^2 = 27x^2 + 100$.
+On réarrange : $3x^2y^2 - 27x^2 + y^2 - 9 = 100 - 9$.
+$3x^2(y^2-9) + (y^2-9) = 91$.
+On factorise : $(3x^2+1)(y^2-9) = 91$.
+Puisque $x, y$ sont des entiers naturels, $3x^2+1 \ge 1$. Les diviseurs de $91$ sont $1, 7, 13, 91$. Comme $3x^2+1$ est positif, $y^2-9$ doit l'être aussi. On teste les paires de diviseurs positifs :
+</p>
+<ul>
+    <li><b>Cas 1: $(3x^2+1, y^2-9) = (1, 91)$</b> $\implies 3x^2=0 \implies x=0$. Et $y^2=100 \implies y=10$. Solution : <b>(0, 10)</b>.</li>
+    <li><b>Cas 2: $(3x^2+1, y^2-9) = (7, 13)$</b> $\implies 3x^2=6 \implies x^2=2$. Pas de solution entière.</li>
+    <li><b>Cas 3: $(3x^2+1, y^2-9) = (13, 7)$</b> $\implies 3x^2=12 \implies x^2=4 \implies x=2$. Et $y^2=16 \implies y=4$. Solution : <b>(2, 4)</b>.</li>
+    <li><b>Cas 4: $(3x^2+1, y^2-9) = (91, 1)$</b> $\implies 3x^2=90 \implies x^2=30$. Pas de solution entière.</li>
+</ul>
+<p>Les couples solutions sont <b>(0, 10)</b> et <b>(2, 4)</b>.</p>
+
+<hr>
+
+<h2>Inégalités</h2>
+
+<h3>✅ Exercice 4.</h3>
+<p>On a $\frac{a}{b} > 1$. Peut-on en déduire $\frac{a+1}{b+1} > 1$ ?</p>
+<p>Étudions le signe de $\frac{a+1}{b+1} - 1 = \frac{a+1 - (b+1)}{b+1} = \frac{a-b}{b+1}$.</p>
+<ul>
+    <li><b>Cas 1 : $b > 0$.</b> L'hypothèse $\frac{a}{b}>1$ implique $a>b$, donc $a-b>0$. De plus $b+1>0$. Le quotient $\frac{a-b}{b+1}$ est donc positif. La conclusion est <b>vraie</b>.</li>
+    <li><b>Cas 2 : $b < 0$.</b> L'hypothèse $\frac{a}{b}>1$ implique $a<b$ (on inverse l'inégalité), donc $a-b<0$. Le signe de $b+1$ est inconnu.
+        <ul>
+            <li>Si $b < -1$, alors $b+1<0$. Le quotient $\frac{a-b}{b+1}$ est (négatif)/(négatif) $\implies$ positif. La conclusion est vraie.</li>
+            <li>Si $-1 < b < 0$, alors $b+1>0$. Le quotient $\frac{a-b}{b+1}$ est (négatif)/(positif) $\implies$ négatif. La conclusion est fausse.</li>
+        </ul>
+    </li>
+</ul>
+<p><b>Conclusion :</b> On ne peut pas en déduire la conclusion dans le cas général.</p>
+<div class="note">
+<b>Contre-exemple</b><br>
+Prenons $b=-0.5$. On a besoin de $a<b$, par exemple $a=-0.6$.
+L'hypothèse est vérifiée : $\frac{a}{b} = \frac{-0.6}{-0.5} = 1.2 > 1$.
+Mais $\frac{a+1}{b+1} = \frac{-0.6+1}{-0.5+1} = \frac{0.4}{0.5} = 0.8 < 1$.
+La déduction est donc <b>fausse</b>.
+</div>
+
+<hr>
+<h2>Inégalité arithmético-géométrique</h2>
+
+<h3>✅ Autocorrection C.</h3>
+<p><b>1. $ab \le \frac{a^2+b^2}{2}$</b></p>
+<p>On part de l'inégalité $(a-b)^2 \ge 0$, qui est toujours vraie pour $a, b \in \mathbb{R}$.<br>
+$a^2 - 2ab + b^2 \ge 0 \implies a^2 + b^2 \ge 2ab$.<br>
+En divisant par 2, on obtient : $\frac{a^2+b^2}{2} \ge ab$.</p>
+
+<p><b>2. Inégalité arithmético-géométrique ($a, b \in \mathbb{R}_+$)</b></p>
+<p>On veut montrer $\sqrt{ab} \le \frac{a+b}{2}$. Comme les deux membres sont positifs, l'inégalité est équivalente à celle obtenue en élevant au carré :<br>
+$ab \le \left(\frac{a+b}{2}\right)^2 \implies ab \le \frac{a^2+2ab+b^2}{4}$<br>
+$4ab \le a^2+2ab+b^2 \implies 0 \le a^2-2ab+b^2 \implies 0 \le (a-b)^2$.<br>
+Cette dernière inégalité est toujours vraie.</p>
+
+<p><b>3. Cas d'égalité</b></p>
+<p>Dans les deux démonstrations, le cas d'égalité a lieu si et seulement si $(a-b)^2 = 0$, ce qui est équivalent à $a-b=0$, soit <b>$a=b$</b>.</p>
+
+<hr>
+<h2>Valeur absolue, minimum et maximum</h2>
+
+<h3>✅ Autocorrection D.</h3>
+<p><b>1. Inégalité triangulaire : $|a+b| \le |a|+|b|$</b></p>
+<p>Comme les deux membres sont positifs, on peut comparer leurs carrés :<br>
+$|a+b|^2 = (a+b)^2 = a^2 + 2ab + b^2$.<br>
+$(|a|+|b|)^2 = |a|^2 + 2|a||b| + |b|^2 = a^2 + 2|ab| + b^2$.<br>
+L'inégalité $|a+b|^2 \le (|a|+|b|)^2$ est donc équivalente à $a^2 + 2ab + b^2 \le a^2 + 2|ab| + b^2$, qui se simplifie en $ab \le |ab|$. Cette dernière inégalité est toujours vraie.</p>
+
+<p><b>2. Cas d'égalité</b></p>
+<p>L'égalité $|a+b| = |a|+|b|$ a lieu si et seulement si $ab = |ab|$, ce qui est vrai si et seulement si <b>$ab \ge 0$</b> (c'est-à-dire $a$ et $b$ sont de même signe ou l'un est nul).</p>
+
+<p><b>3. Résoudre $\sqrt{x^2} + \sqrt{(x-1)^2} = 1$</b></p>
+<p>L'équation se réécrit $|x| + |x-1| = 1$.<br>
+On peut la voir comme $|a| + |b|$ avec $a=x$ et $b=1-x$. On a $|x| + |1-x| = 1$.<br>
+Or, $a+b = x + (1-x) = 1$, donc $|a+b|=|1|=1$.<br>
+L'équation est donc $|a| + |b| = |a+b|$.<br>
+D'après la question 2, c'est le cas d'égalité de l'inégalité triangulaire. Cela se produit si et seulement si $ab \ge 0$.<br>
+Donc $x(1-x) \ge 0$.<br>
+C'est un trinôme du second degré $(-x^2+x)$ dont les racines sont $0$ et $1$. Il est positif entre ses racines.<br>
+La condition est donc $0 \le x \le 1$. L'ensemble des solutions est l'intervalle <b>$[0, 1]$</b>.</p>
+
+<hr>
+<h2>Quatre exercices (« pour enfants de 5 à 15 ans ») de Vladimir Arnol'd</h2>
+
+<h3>Exercice 15.</h3>
+<div class="note"><b>L'astuce</b><br>Le chemin le plus court entre deux points est la ligne droite. La chenille ne volant pas, cette ligne droite doit être tracée sur une surface. Il faut donc "déplier" le cube.</div>
+<p>Imaginons un cube de côté $L$. La chenille part d'un sommet et veut atteindre le sommet opposé. Le chemin le plus simple consiste à traverser une face puis une autre. Déplions ces deux faces pour former un rectangle de dimensions $L \times 2L$. Le point de départ est un coin de ce rectangle, et le point d'arrivée est le coin opposé en diagonale. La distance est la longueur de l'hypoténuse :
+$$ d = \sqrt{L^2 + (2L)^2} = \sqrt{L^2 + 4L^2} = \sqrt{5L^2} = L\sqrt{5} $$
+Le chemin le plus court est de longueur <b>$L\sqrt{5}$</b>.</p>
+
+<h3>Exercice 16.</h3>
+<div class="tip"><b>Somme télescopique</b><br>L'astuce est de décomposer la fraction en éléments simples.</div>
+<p>On remarque que pour tout $k \ge 1$, $\frac{1}{k(k+1)} = \frac{1}{k} - \frac{1}{k+1}$.
+La somme $S$ peut donc s'écrire :
+$$ S = \left(\frac{1}{1} - \frac{1}{2}\right) + \left(\frac{1}{2} - \frac{1}{3}\right) + \left(\frac{1}{3} - \frac{1}{4}\right) + \dots + \left(\frac{1}{99} - \frac{1}{100}\right) $$
+Les termes intermédiaires s'annulent deux à deux. Il ne reste que le premier et le dernier terme :
+$$ S = 1 - \frac{1}{100} = \frac{99}{100} = 0.99 $$
+Le résultat est <b>0.99</b>.</p>
+
+<h3>Exercice 17+.</h3>
+<div class="warning"><b>Piège de lecture</b><br>La clé est de visualiser précisément la position des pages mentionnées.</div>
+<p>Les deux volumes sont posés côte à côte (Tome 1 à gauche, Tome 2 à droite).
+<ul>
+    <li>Le ver part de la <b>première page du Tome 1</b>. Cette page se trouve physiquement juste derrière la couverture avant (droite) du Tome 1.</li>
+    <li>Le ver va jusqu'à la <b>dernière page du Tome 2</b>. Cette page se trouve physiquement juste devant la couverture arrière (gauche) du Tome 2.</li>
+</ul>
+Quand les livres sont sur l'étagère, la couverture avant du Tome 1 touche la couverture arrière du Tome 2. Le ver n'a donc qu'à traverser ces deux couvertures.
+<br>Longueur du trajet = (épaisseur couverture T1) + (épaisseur couverture T2) = $2\text{mm} + 2\text{mm} = \mathbf{4\text{mm}}$.</p>
+
+<h3>Exercice 18+.</h3>
+<div class="note"><b>Le diable est dans les détails (géométriques)</b><br>Avant de calculer, il faut s'assurer que l'objet décrit peut exister.</div>
+<p>La réponse "attendue" est de calculer l'aire $A = \frac{\text{base} \times \text{hauteur}}{2}$.
+Ici, $A = \frac{10 \times 6}{2} = 30$ pouces carrés.</p>
+<p><b>Pourquoi les étudiants russes ne peuvent-ils pas répondre ?</b><br>
+Parce qu'<b>un tel triangle n'existe pas</b>.
+Dans un triangle rectangle, le sommet de l'angle droit (A) se trouve sur le cercle dont le diamètre est l'hypoténuse ([BC]).
+<ul>
+    <li>Le rayon de ce cercle est la moitié de l'hypoténuse : $10 / 2 = 5$.</li>
+    <li>La hauteur issue de A est la distance du point A à la droite (BC). La distance maximale d'un point d'un cercle à son diamètre est égale au rayon.</li>
+</ul>
+La hauteur maximale possible est donc de 5 pouces. Or, l'énoncé donne une hauteur de 6 pouces. Comme $6 > 5$, il est géométriquement impossible de construire un tel triangle. Le problème est sans objet.</p>
+
+
+</body>
+</html>
