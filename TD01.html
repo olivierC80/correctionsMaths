@@ -331,6 +331,119 @@ Donc $x(1-x) \ge 0$.<br>
 C'est un trinôme du second degré $(-x^2+x)$ dont les racines sont $0$ et $1$. Il est positif entre ses racines.<br>
 La condition est donc $0 \le x \le 1$. L'ensemble des solutions est l'intervalle <b>$[0, 1]$</b>.</p>
 
+
+<h3>✅ Exercice 8⁺.</h3>
+<p><strong>Question 1. En appliquant l'inégalité arithmético-géométrique, montrer que pour tous $x, y > 0$, on a $\frac{x}{x^4 + y^2} \le \frac{1}{2xy}$.</strong></p>
+<div>
+<p>L'inégalité arithmético-géométrique (IAG) pour deux nombres réels positifs $a$ et $b$ s'écrit :</p>
+$$ \frac{a+b}{2} \ge \sqrt{ab} \quad \Leftrightarrow \quad a+b \ge 2\sqrt{ab} $$
+<p>L'idée est d'appliquer cette inégalité aux termes du dénominateur, $x^4$ et $y^2$. Posons $a = x^4$ et $b = y^2$. Puisque $x, y > 0$, on a bien $a > 0$ et $b > 0$.</p>
+<p>En appliquant l'IAG, on obtient :</p>
+$$ x^4 + y^2 \ge 2\sqrt{x^4 y^2} $$
+<p>Simplifions le terme de droite :</p>
+$$ \sqrt{x^4 y^2} = \sqrt{(x^2y)^2} = |x^2y| $$
+<p>Comme $x > 0$ et $y > 0$, on a $x^2y > 0$, donc $|x^2y| = x^2y$. L'inégalité devient :</p>
+$$ x^4 + y^2 \ge 2x^2y $$
+<p>Puisque tous les termes sont strictement positifs, nous pouvons passer à l'inverse, ce qui a pour effet de changer le sens de l'inégalité :</p>
+$$ \frac{1}{x^4 + y^2} \le \frac{1}{2x^2y} $$
+<p>Enfin, on multiplie les deux membres de l'inégalité par $x$. Comme $x > 0$, le sens de l'inégalité est conservé :</p>
+$$ \frac{x}{x^4 + y^2} \le \frac{x}{2x^2y} $$
+<p>En simplifiant la fraction de droite, on obtient le résultat souhaité :</p>
+$$ \frac{x}{x^4 + y^2} \le \frac{1}{2xy} $$
+</div>
+<hr>
+<p><strong>Question 2. En déduire que pour tous $x, y > 0$, on a $\frac{x}{x^4 + y^2} + \frac{y}{x^2 + y^4} \le \frac{1}{xy}$.</strong></p>
+<div>
+<p>L'expression "En déduire" nous invite à utiliser le résultat de la question précédente. Nous avons déjà établi que :</p>
+$$ \frac{x}{x^4 + y^2} \le \frac{1}{2xy} \quad (*)$$
+<p>Observons le second terme de la somme : $\frac{y}{x^2 + y^4}$. On remarque qu'il a une structure symétrique par rapport au premier terme. On peut l'obtenir en permutant les rôles de $x$ et $y$ dans l'expression $\frac{x}{x^4 + y^2}$.</p>
+<p>L'inégalité $(*)$ étant vraie pour tous $x, y > 0$, elle reste vraie si on remplace $x$ par $y$ et $y$ par $x$. Effectuons cette substitution :</p>
+$$ \frac{y}{y^4 + x^2} \le \frac{1}{2yx} $$
+<p>Ce qui s'écrit aussi :</p>
+$$ \frac{y}{x^2 + y^4} \le \frac{1}{2xy} \quad (**) $$
+<p>Il ne nous reste plus qu'à sommer les deux inégalités $(*)$ et $(**)$ membre à membre :</p>
+$$ \frac{x}{x^4 + y^2} + \frac{y}{x^2 + y^4} \le \frac{1}{2xy} + \frac{1}{2xy} $$
+<p>En simplifiant le membre de droite, on conclut :</p>
+$$ \frac{x}{x^4 + y^2} + \frac{y}{x^2 + y^4} \le \frac{2}{2xy} = \frac{1}{xy} $$
+<p>Ce qui achève la démonstration.</p>
+</div>
+
+
+<h3>✅ Exercice 9⁺⁺.</h3>
+<p><strong>Question 1. Démontrer que pour tous $x, y > 0$, on a $\frac{x}{y} + \frac{y}{x} \ge 2$.</strong></p>
+
+<div>
+<p>Cette inégalité est un résultat fondamental qui peut être démontré de plusieurs manières.</p>
+
+<p><strong>Méthode 1 : Étude de signe</strong></p>
+<p>Nous voulons montrer que $\frac{x}{y} + \frac{y}{x} - 2 \ge 0$.</p>
+<p>Mettons l'expression au même dénominateur (qui est $xy$). Comme $x>0$ et $y>0$, on a $xy > 0$, donc le signe de l'expression sera le signe du numérateur.</p>
+$$ \frac{x}{y} + \frac{y}{x} - 2 = \frac{x^2}{xy} + \frac{y^2}{xy} - \frac{2xy}{xy} = \frac{x^2 - 2xy + y^2}{xy} $$
+<p>On reconnaît au numérateur une identité remarquable : $x^2 - 2xy + y^2 = (x-y)^2$.</p>
+<p>L'expression devient donc :</p>
+$$ \frac{(x-y)^2}{xy} $$
+<p>Analysons le signe de cette fraction :</p>
+<ul>
+    <li>Le numérateur, $(x-y)^2$, est un carré, donc il est toujours positif ou nul. $(x-y)^2 \ge 0$.</li>
+    <li>Le dénominateur, $xy$, est le produit de deux nombres strictement positifs, donc $xy > 0$.</li>
+</ul>
+<p>Le quotient d'un nombre positif ou nul par un nombre strictement positif est positif ou nul. Ainsi :</p>
+$$ \frac{(x-y)^2}{xy} \ge 0 $$
+<p>Ce qui prouve que $\frac{x}{y} + \frac{y}{x} \ge 2$. Le cas d'égalité a lieu si et seulement si $(x-y)^2=0$, c'est-à-dire $x=y$.</p>
+
+<p><strong>Méthode 2 : Utilisation de l'inégalité arithmético-géométrique (IAG)</strong></p>
+<p>Soient deux réels positifs $A$ et $B$. L'IAG nous dit que $\frac{A+B}{2} \ge \sqrt{AB}$.</p>
+<p>Posons $A = \frac{x}{y}$ et $B = \frac{y}{x}$. Puisque $x, y > 0$, $A$ et $B$ sont bien positifs.</p>
+<p>Appliquons l'IAG :</p>
+$$ \frac{\frac{x}{y} + \frac{y}{x}}{2} \ge \sqrt{\frac{x}{y} \cdot \frac{y}{x}} $$
+<p>Le terme sous la racine se simplifie :</p>
+$$ \sqrt{\frac{xy}{yx}} = \sqrt{1} = 1 $$
+<p>L'inégalité devient :</p>
+$$ \frac{\frac{x}{y} + \frac{y}{x}}{2} \ge 1 $$
+<p>En multipliant par 2, on obtient le résultat souhaité :</p>
+$$ \frac{x}{y} + \frac{y}{x} \ge 2 $$
+</div>
+
+<hr>
+
+<p><strong>Question 2. En déduire l'inégalité de Nesbitt : pour tous $a, b, c > 0$, on a $\frac{a}{b+c} + \frac{b}{c+a} + \frac{c}{a+b} \ge \frac{3}{2}$.</strong></p>
+
+<div>
+<p>C'est une inégalité célèbre et assez difficile si l'on ne connaît pas l'astuce. L'indication "En déduire" nous force à utiliser le résultat de la question 1. La stratégie consiste à effectuer un changement de variable judicieux.</p>
+<p>Posons :</p>
+$$ x = b+c, \quad y = c+a, \quad z = a+b $$
+<p>Puisque $a, b, c > 0$, on a bien $x, y, z > 0$.</p>
+<p>Nous devons maintenant exprimer $a, b, c$ en fonction de $x, y, z$.</p>
+<p>On a le système :</p>
+$$ \begin{cases} b+c = x \\ c+a = y \\ a+b = z \end{cases} $$
+<p>En sommant les trois lignes, on obtient $2(a+b+c) = x+y+z$.</p>
+<p>Pour trouver $a$, on peut faire $(a+b+c) - (b+c) = \frac{x+y+z}{2} - x = \frac{y+z-x}{2}$.</p>
+<p>On obtient ainsi :</p>
+$$ a = \frac{y+z-x}{2}, \quad b = \frac{x+z-y}{2}, \quad c = \frac{x+y-z}{2} $$
+<p>Maintenant, substituons ces expressions dans la somme de gauche, que nous noterons $S$ :</p>
+$$ S = \frac{a}{b+c} + \frac{b}{c+a} + \frac{c}{a+b} = \frac{a}{x} + \frac{b}{y} + \frac{c}{z} $$
+$$ S = \frac{y+z-x}{2x} + \frac{x+z-y}{2y} + \frac{x+y-z}{2z} $$
+<p>On peut séparer chaque fraction en plusieurs termes :</p>
+$$ S = \frac{1}{2} \left( \left(\frac{y}{x} + \frac{z}{x} - 1\right) + \left(\frac{x}{y} + \frac{z}{y} - 1\right) + \left(\frac{x}{z} + \frac{y}{z} - 1\right) \right) $$
+<p>Regroupons les termes de manière astucieuse pour faire apparaître les expressions de la question 1 :</p>
+$$ S = \frac{1}{2} \left( \left(\frac{x}{y} + \frac{y}{x}\right) + \left(\frac{x}{z} + \frac{z}{x}\right) + \left(\frac{y}{z} + \frac{z}{y}\right) - 3 \right) $$
+<p>D'après la question 1, nous savons que pour tous réels positifs (ici $x, y, z$) :</p>
+<ul>
+<li>$\frac{x}{y} + \frac{y}{x} \ge 2$</li>
+<li>$\frac{x}{z} + \frac{z}{x} \ge 2$</li>
+<li>$\frac{y}{z} + \frac{z}{y} \ge 2$</li>
+</ul>
+<p>En sommant ces trois inégalités, on obtient :</p>
+$$ \left(\frac{x}{y} + \frac{y}{x}\right) + \left(\frac{x}{z} + \frac{z}{x}\right) + \left(\frac{y}{z} + \frac{z}{y}\right) \ge 2 + 2 + 2 = 6 $$
+<p>En injectant ce résultat dans notre expression de $S$ :</p>
+$$ S \ge \frac{1}{2} (6 - 3) $$
+$$ S \ge \frac{3}{2} $$
+<p>Nous avons ainsi démontré l'inégalité de Nesbitt.</p>
+</div>
+
+
+
+    
 <hr>
 <h2>Quatre exercices (« pour enfants de 5 à 15 ans ») de Vladimir Arnol'd</h2>
 
