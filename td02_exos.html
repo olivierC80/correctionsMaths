@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TD 02 — Logique (MPSI)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<style>
+  :root{--fg:#111827;--muted:#6b7280;--border:#e5e7eb}
+  html,body{margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;line-height:1.55;color:var(--fg);padding:24px;max-width:980px}
+  h1,h2,h3{margin:0 0 .5rem 0}
+  h1{font-size:1.85rem}
+  h2{font-size:1.25rem;margin-top:1.25rem}
+  h3{font-size:1.05rem;margin-top:.75rem}
+  p{margin:.25rem 0}
+  ol,ul{margin:.25rem 0 .25rem 1.25rem;padding:0}
+  section{border:1px solid var(--border);border-radius:10px;padding:12px;margin-top:8px}
+  .meta{color:var(--muted);font-size:.95rem}
+  .group-title{margin-top:.5rem}
+</style>
+</head>
+<body>
+<h1>TD 02 — Logique</h1>
+<p class="meta">Lycée Louis-le-Grand (MPSI 3) — Assertions, connecteurs, quantificateurs</p>
+
+<h2>Autocorrection A.</h2>
+<section id="autoA">
+  <p>Soient $a,b,c\in\mathbb{R}$ et $P,Q,R$ trois assertions. Écrire la négation des assertions suivantes.</p>
+  <ol>
+    <li>$P$ et non($Q$)</li>
+    <li>$(P\Rightarrow Q)$ et $R$</li>
+    <li>$\exists x\in[1,+\infty[\,:\,a>b+x$</li>
+    <li>$a=b=c$</li>
+  </ol>
+</section>
+
+<h2>Autocorrection B.</h2>
+<section id="autoB">
+  <p>Écrire une assertion quantifiée traduisant le fait que tout réel positif est le carré d’un nombre réel.</p>
+</section>
+
+<h2 class="group-title">Calcul propositionnel, tables de vérité</h2>
+<section id="ex2">
+  <h3>Exercice 2.</h3>
+  <p>Soient $P,Q,R,H_1,H_2$ des assertions. Montrer à l’aide de tables de vérité que les assertions suivantes sont toujours vraies (tautologies).</p>
+  <ol>
+    <li>$(\neg P\Rightarrow P)\Leftrightarrow P$</li>
+    <li>$P\Rightarrow(Q\Rightarrow P)$</li>
+    <li>$(P\Rightarrow Q)\Leftrightarrow(\neg Q\Rightarrow\neg P)$</li>
+    <li>$[(P\Rightarrow Q)\ \text{et}\ (Q\Rightarrow P)]\Leftrightarrow(P\Leftrightarrow Q)$</li>
+    <li>$[(H_1\Rightarrow P)\ \text{et}\ (H_2\Rightarrow P)\ \text{et}\ (H_1\ \text{ou}\ H_2)]\Rightarrow P$</li>
+    <li>$(P\Rightarrow(Q\Rightarrow R))\Rightarrow[(P\Rightarrow Q)\Rightarrow(P\Rightarrow R)]$</li>
+  </ol>
+</section>
+
+<section id="ex3">
+  <h3>Exercice 3.</h3>
+  <ol>
+    <li>Construire à l’aide des assertions « $P$ », « $Q$ » et des connecteurs « non » et « et » une proposition équivalente à « $P$ ou $Q$ ».</li>
+    <li>Même question pour « $P\Rightarrow Q$ » et pour « $P\Leftrightarrow Q$ ».</li>
+  </ol>
+</section>
+
+<section id="ex4">
+  <h3>Exercice 4 (Barre de Sheffer).</h3>
+  <p>Si $P$ et $Q$ sont deux assertions, on note $P\uparrow Q$ l’assertion $\neg(P\ \text{et}\ Q)$. À l’aide de $P$, $Q$ et du seul connecteur « barre de Sheffer », construire des assertions équivalentes à :</p>
+  <ol>
+    <li>$\neg P$</li>
+    <li>$P\ \text{et}\ Q$</li>
+    <li>$P\ \text{ou}\ Q$</li>
+    <li>$P\Rightarrow Q$</li>
+    <li>$P\Leftrightarrow Q$</li>
+  </ol>
+</section>
+
+<h2>Logique extra-mathématique</h2>
+<section id="ex5">
+  <h3>Exercice 5 (Tâche de sélection de Wason).</h3>
+  <p>Quatre cartes ont un nombre d’un côté et une lettre de l’autre. On voit : A — B — 1 — 2. Quelles cartes retourner pour tester la règle : « au dos de chaque voyelle se trouve un nombre pair » ?</p>
+</section>
+
+<section id="ex6">
+  <h3>Exercice 6 (Godement, <em>Cours d’algèbre</em>).</h3>
+  <p>À la suite d’une représentation de <em>Pelléas et Mélisande</em>, un journaliste hésite entre deux rédactions :</p>
+  <ol>
+    <li>« Jamais le rôle de Mélisande n’a été si bien chanté. »</li>
+    <li>« Jamais si jeune cantatrice, aux si beaux cheveux, n’a si bien chanté Mélisande. »</li>
+  </ol>
+  <p>Lequel de ces compliments est le plus fort ?</p>
+</section>
+
+<h2>Modes de raisonnement</h2>
+<section id="autoC">
+  <h3>Autocorrection C.</h3>
+  <p>Montrer $\forall x\in\mathbb{R},\ \exists y\in\mathbb{R}:\ y\lt x$.</p>
+</section>
+
+<section id="autoD">
+  <h3>Autocorrection D.</h3>
+  <p>Soit $I=[0,1]$. Montrer $\exists x\in I:\ \forall y\in I,\ x\le y$.</p>
+</section>
+
+<section id="ex1">
+  <h3>Exercice 1.</h3>
+  <p>Soit $(u_n)_{n\gt 0}$ une suite réelle. Traduire à l’aide de quantificateurs et donner aussi la négation.</p>
+  <ol>
+    <li>La suite $(u_n)_{n\gt 0}$ est nulle.</li>
+    <li>La suite $(u_n)_{n\gt 0}$ est croissante.</li>
+    <li>La suite $(u_n)_{n\gt 0}$ est strictement décroissante.</li>
+    <li>La suite $(u_n)_{n\gt 0}$ ne prend que des valeurs $\,\lt 2$.</li>
+    <li>La suite $(u_n)_{n\gt 0}$ ne prend que des valeurs strictement inférieures à une certaine constante.</li>
+    <li>La suite $(u_n)_{n\gt 0}$ est stationnaire (constante à partir d’un certain rang).</li>
+    <li>La suite $(u_n)_{n\gt 0}$ est bornée.</li>
+    <li>La suite $(u_n)_{n\gt 0}$ s’annule au moins une fois.</li>
+    <li>La suite $(u_n)_{n\gt 0}$ s’annule au plus une fois.</li>
+  </ol>
+</section>
+
+<section id="ex2b">
+  <h3>Exercice 2 (rappel énoncé).</h3>
+  <p>Voir la section « Calcul propositionnel » ci-dessus.</p>
+</section>
+
+<section id="ex3b">
+  <h3>Exercice 3 (rappel énoncé).</h3>
+  <p>Voir la construction avec « non » et « et ».</p>
+</section>
+
+<section id="ex4b">
+  <h3>Exercice 4 (rappel énoncé).</h3>
+  <p>Barre de Sheffer $\,\uparrow\,$.</p>
+</section>
+
+<section id="ex7">
+  <h3>Exercice 7.</h3>
+  <p>Déterminer si chacune des assertions suivantes est vraie ou fausse (en le démontrant).</p>
+  <ol>
+    <li>$1+1=2\Rightarrow 1+1=3$</li>
+    <li>$1+1=3\Rightarrow 1+1=2$</li>
+    <li>$1=0\Rightarrow \exists p,q,r\in\mathbb{Z}: p^3+q^3+r^3=114$</li>
+    <li>$\forall x\in\mathbb{R},\ x>2\Rightarrow x>3$</li>
+    <li>$\forall x,y\in\mathbb{R}^\*,\ x\lt y\Rightarrow \dfrac1x>\dfrac1y$</li>
+    <li>$\forall n\in\mathbb{N},\ n^3-n$ est pair</li>
+    <li>$\exists x\in\mathbb{R}^+:\ x\lt\sqrt{x}$</li>
+    <li>$\exists!z\in\mathbb{R}:\ \cos z=0$</li>
+    <li>$\exists x\in\mathbb{R}:\ (x\le x^2\ \text{et}\ x=e^{-x})$</li>
+    <li>$\forall n\in\mathbb{N},\ \exists m\in\mathbb{N}:\ n+m$ est impair</li>
+    <li>$\forall n\in\mathbb{N},\ \exists m\in\mathbb{N}:\ nm$ est impair</li>
+    <li>$\exists \eta>0:\ \forall x\in\mathbb{R},\ x\le \eta\Rightarrow x^2\le 1$</li>
+    <li>$\exists \eta>0:\ \forall x\in\mathbb{R},\ |x|\le \eta\Rightarrow x^2\le 1$</li>
+    <li>$\exists \eta>0:\ \forall x\in\mathbb{R},\ |x|\le \eta\Rightarrow x^2\le 10^{-18}$</li>
+    <li>$\forall \varepsilon>0,\ \exists \eta>0:\ \forall x\in\mathbb{R},\ |x|\le \eta\Rightarrow x^2\le \varepsilon$</li>
+  </ol>
+</section>
+
+<section id="ex8">
+  <h3>Exercice 8.</h3>
+  <p>Déterminer si chacune des assertions suivantes est vraie ou fausse (en le démontrant). On énoncera la négation des assertions fausses.</p>
+  <ol>
+    <li>$\forall x\in\mathbb{R},\ \forall y\in\mathbb{R},\ x+y>0$</li>
+    <li>$\forall x\in\mathbb{R},\ \exists y\in\mathbb{R},\ x+y>0$</li>
+    <li>$\exists x\in\mathbb{R},\ \forall y\in\mathbb{R},\ x+y>0$</li>
+    <li>$\exists x\in\mathbb{R},\ \exists y\in\mathbb{R},\ x+y>0$</li>
+    <li>$\forall n\in\mathbb{N},\ \exists m\in\mathbb{N}:\ n+m$ est pair</li>
+    <li>$\exists n\in\mathbb{N}:\ \forall m\in\mathbb{N},\ n+m$ est pair</li>
+    <li>$\forall y\in\mathbb{R}_+^\*,\ \exists x\in\mathbb{R}:\ y=e^x$</li>
+    <li>$\exists y\in\mathbb{R}_+^\*:\ \forall x\in\mathbb{R},\ y=e^x$</li>
+  </ol>
+</section>
+
+<section id="ex9">
+  <h3>Exercice 9.</h3>
+  <p>Déterminer si chacune des assertions suivantes est vraie ou fausse (en le démontrant). On énoncera la négation des assertions fausses.</p>
+  <ol>
+    <li>$\forall x\in\mathbb{R},\ \forall y\in\mathbb{R},\ (xy=0)\Rightarrow x=0$</li>
+    <li>$\forall x\in\mathbb{R},\ \forall y\in\mathbb{R},\ xy=0\Rightarrow x=0$</li>
+    <li>$\forall n\in\mathbb{Z},\ (n>0\ \text{ou}\ n\le 0)$</li>
+    <li>$(\forall n\in\mathbb{Z},\ n>0)\ \text{ou}\ (\forall n\in\mathbb{Z},\ n\le 0)$</li>
+  </ol>
+</section>
+
+<h2>Preuve des implications (dont contraposée)</h2>
+<section id="ex11">
+  <h3>Exercice 11.</h3>
+  <p>La conjecture de Goldbach forte affirme que tout nombre pair $>4$ est la somme de deux nombres premiers. La conjecture faible affirme que tout nombre impair $>7$ est la somme de trois nombres premiers.</p>
+  <ol>
+    <li>Montrer que la conjecture forte implique la conjecture faible.</li>
+    <li>En 2013, Harald Helfgott a démontré la conjecture faible. Que peut-on en déduire sur la conjecture forte ?</li>
+  </ol>
+</section>
+
+<section id="ex12">
+  <h3>Exercice 12.</h3>
+  <p>Montrer l’assertion $\forall x,y\in\mathbb{R},\ x+y>2\Rightarrow (x>1\ \text{ou}\ y>1)$. Énoncer précisément la réciproque et dire si elle est vraie ou fausse.</p>
+</section>
+
+<section id="ex13">
+  <h3>Exercice 13+.</h3>
+  <p>Soient $A,B\in\mathbb{R}$. Montrer que $(\forall\varepsilon>0,\ A\le B+\varepsilon)\Rightarrow A\le B$.</p>
+</section>
+
+<h2>Preuve des équivalences (dont analyse-synthèse)</h2>
+<section id="ex14">
+  <h3>Exercice 14+.</h3>
+  <p>Soit $(u_n)_{n\gt 0}$ une suite réelle. Montrer l’équivalence des assertions suivantes :</p>
+  <ol>
+    <li>$\forall A\in\mathbb{R},\ \exists n\in\mathbb{N}:\ u_n>A$</li>
+    <li>$\forall A\in\mathbb{R},\ \exists n\in\mathbb{N}:\ u_n>A$</li>
+  </ol>
+</section>
+
+<section id="ex15">
+  <h3>Exercice 15.</h3>
+  <p>Soit $f:\mathbb{R}\to\mathbb{R}$. On dit que $f$ est strictement croissante si $\forall x,y\in\mathbb{R},\ x\lt y\Rightarrow f(x)\lt f(y)$. Montrer que $f$ est strictement croissante ssi $\forall a,b\in\mathbb{R},\ a\le b\Leftrightarrow f(a)\le f(b)$.</p>
+</section>
+
+<section id="ex16">
+  <h3>Exercice 16.</h3>
+  <ol>
+    <li>Soit $f:\mathbb{R}\to\mathbb{R}$. Montrer l’équivalence des assertions suivantes :
+      <ol>
+        <li>$\exists y_0\in\mathbb{R}:\ \forall t\in\mathbb{R},\ f(t)=y_0$</li>
+        <li>$\forall x_1,x_2\in\mathbb{R},\ f(x_1)=f(x_2)$</li>
+      </ol>
+      <p>Quelle propriété de $f$ traduisent-elles ?</p>
+    </li>
+    <li>Montrer que si $f$ est à la fois croissante et décroissante, elle vérifie (i). Idem avec (ii) (sans utiliser la question précédente).</li>
+  </ol>
+</section>
+
+<section id="ex17">
+  <h3>Exercice 17+.</h3>
+  <p>Soient $a,b\in\mathbb{R}$. Montrer que l’assertion $\forall x\in\,]0,1[,\ ax+b>0$ est équivalente à $(b>0\ \text{et}\ a+b>0)$.</p>
+</section>
+
+<section id="ex18">
+  <h3>Exercice 18.</h3>
+  <p>Déterminer toutes les fonctions $f:\mathbb{R}\to\mathbb{R}$ telles que $\forall x,y\in\mathbb{R},\ x\,f(x)+y^2+f(xy)=f(x+y)^2-f(x)f(y)$.</p>
+  <ol>
+    <li>Soit $f$ vérifiant (z).
+      <ol>
+        <li>En appliquant judicieusement (z), déterminer $f(0)$.</li>
+        <li>Montrer que $\forall y\in\mathbb{R},\ f(y)^2=y^2$. Que peut-on en déduire sur $f$ ?</li>
+        <li>Montrer que $\forall x\in\mathbb{R},\ f(x)=x$.</li>
+      </ol>
+    </li>
+    <li>Conclure.</li>
+  </ol>
+</section>
+
+<section id="ex19">
+  <h3>Exercice 19.</h3>
+  <p>Déterminer les fonctions $f:\mathbb{R}\to\mathbb{R}$ telles que $\forall x,y\in\mathbb{R},\ f(xy)=f(x)+f(y)$.</p>
+</section>
+
+<section id="ex20">
+  <h3>Exercice 20+.</h3>
+  <p>Déterminer les $x\in\mathbb{R}$ tels que $\forall n\in\mathbb{N},\ x^{n+2}\le x^{n+1}+x^n$.</p>
+</section>
+
+<h2>Disjonction de cas et preuves des disjonctions</h2>
+<section id="ex21">
+  <h3>Exercice 21.</h3>
+  <p>Soit $n\in\mathbb{N}$. Montrer qu’il existe $m\in\mathbb{N}$ tel que la somme $n+m$ soit impaire et le produit $nm$ soit pair.</p>
+</section>
+
+<section id="ex22">
+  <h3>Exercice 22.</h3>
+  <p>Soit $x\in\mathbb{R}$ tel que $x^2>x$. Montrer que $x\le 0$ ou $x>1$.</p>
+</section>
+
+<section id="ex23">
+  <h3>Exercice 23.</h3>
+  <p>Montrer $\forall x\in\mathbb{R},\ \big(x\notin\mathbb{Q}\ \text{ou}\ \exists n\in\mathbb{N}^\*:\ nx\in\mathbb{Z}\big)$.</p>
+</section>
+
+<h2>Récurrence</h2>
+<section id="autoE">
+  <h3>Autocorrection E.</h3>
+  <p>En calculant les premières valeurs, conjecturer une formule pour la somme $1+3+5+\cdots+(2n-1)$ des premiers nombres impairs, puis la démontrer par récurrence.</p>
+</section>
+
+<section id="autoF">
+  <h3>Autocorrection F.</h3>
+  <p>On définit une suite $(u_n)_{n\in\mathbb{N}}$ par $u_0=0$, $u_1=1$, et $\forall n>0,\ u_{n+2}=5u_{n+1}-6u_n$. Montrer que $\forall n\in\mathbb{N},\ u_n=3^n-2^n$.</p>
+</section>
+
+<section id="ex24">
+  <h3>Exercice 24 (Inégalité de Bernoulli).</h3>
+  <p>Montrer $\forall x>0,\ \forall n\in\mathbb{N}^\*,\ (1+x)^n\ge 1+nx$.</p>
+</section>
+
+<section id="ex25">
+  <h3>Exercice 25 (Équation de Pell-Fermat).</h3>
+  <ol>
+    <li>Montrer que, pour tout $n\in\mathbb{N}$, il existe des entiers naturels $a_n,b_n$ tels que $(3+2\sqrt{2})^n=a_n+b_n\sqrt{2}$.</li>
+    <li>Que dire de $(3-2\sqrt{2})^n$ ?</li>
+    <li>En déduire qu’il existe une infinité de couples $(x,y)\in\mathbb{N}^2$ tels que $x^2-2y^2=1$.</li>
+  </ol>
+</section>
+
+<section id="ex26">
+  <h3>Exercice 26+.</h3>
+  <p>Montrer que tout entier $>12$ peut s’écrire $4a+5b$ avec $a,b\in\mathbb{N}$.</p>
+</section>
+
+<section id="ex27">
+  <h3>Exercice 27+.</h3>
+  <ol>
+    <li>Avant de répondre, comprendre pourquoi les deux questions suivantes ne sont pas les mêmes. Y a-t-il un lien logique ?
+      <ol>
+        <li>Pour tout $n>1$, montrer qu’il existe $a_1,\dots,a_n\in\mathbb{N}^\*$ tels que $a_1^2+\cdots+a_n^2$ soit un carré parfait.</li>
+        <li>Montrer qu’il existe une suite $(a_n)_{n>1}$ d’entiers strictement positifs telle que, pour tout $n\in\mathbb{N}$, $a_1^2+\cdots+a_n^2$ soit un carré parfait.</li>
+      </ol>
+    </li>
+  </ol>
+</section>
+
+<section id="ex28">
+  <h3>Exercice 28.</h3>
+  <p>La « preuve » suivante prétend montrer par récurrence sur $n>1$ qu’étant donnés $n$ réels $u_1,\dots,u_n$, ils sont tous égaux.</p>
+  <p>Pour $n\in\mathbb{N}^\*$, on note $P(n)$ : « quels que soient $u_1,\dots,u_n\in\mathbb{R}$, on a $u_1=\cdots=u_n$ ».</p>
+  <p>Montrons $\forall n\in\mathbb{N}^\*,\ P(n)$ par récurrence.</p>
+  <p><strong>Initialisation.</strong> Pour $n=1$, rien à montrer, donc $P(1)$.</p>
+  <p><strong>Hérédité.</strong> Soit $n>1$ tel que $P(n)$. Montrons $P(n+1)$. Soient $u_1,\dots,u_n,u_{n+1}\in\mathbb{R}$. D’après $P(n)$, $u_1=\cdots=u_n$. En posant $u_1'=u_2,\ u_2'=u_3,\ \dots,\ u_n'=u_{n+1}$ et en appliquant $P(n)$ à $(u_1',\dots,u_n')$, on obtient $u_1'=\cdots=u_n'$, i.e. $u_2=\cdots=u_n=u_{n+1}$. Donc $u_1=\cdots=u_{n+1}$.</p>
+  <p>Le résultat est évidemment faux. Où est le problème ?</p>
+</section>
+
+<section id="ex29">
+  <h3>Exercice 29++ (Tous les chemins mènent à Rome).</h3>
+  <p>On considère un circuit de $n=5$ villes vérifiant :</p>
+  <ul>
+    <li>de chaque ville partent deux routes, étiquetées $a$ et $b$ ;</li>
+    <li>il existe une suite d’instructions (p. ex. $aabb$) qui amène de n’importe quelle ville à la ville entourée.</li>
+  </ul>
+  <p>Pour quelles valeurs de $n>3$ peut-on construire un tel circuit ?</p>
+</section>
+
+<section id="ex30">
+  <h3>Exercice 30+ (Tour de Hanoï).</h3>
+  <p>On dispose de trois piquets et de $n$ disques de tailles différentes. Position légale : sur chaque piquet, un disque n’est jamais posé sur un plus petit. Départ : tous les disques sur le premier piquet. But : tout mettre sur le troisième, un seul disque déplacé à la fois, en ne passant que par des positions légales.</p>
+  <ol>
+    <li>Montrer que, quel que soit $n$, le jeu est résoluble.</li>
+    <li>Donner le nombre minimum de coups nécessaires.</li>
+  </ol>
+</section>
+
+<section id="ex31">
+  <h3>Exercice 31+.</h3>
+  <p>Sur un circuit se trouvent des dépôts d’essence contenant juste assez pour faire un tour. Montrer qu’en partant réservoir vide d’un dépôt bien choisi, on peut faire un tour sans jamais manquer d’essence.</p>
+</section>
+
+<section id="ex32">
+  <h3>Exercice 32++ (Tournoi).</h3>
+  <p>Dans un tournoi d’ordre $n\ge 2$, chaque paire d’équipes se rencontre une fois, sans match nul.</p>
+  <ol>
+    <li>Montrer que, quelle que soit l’issue, on peut numéroter $E'_1,\dots,E'_n$ tel que pour tout $1\le i\lt n$, $E'_i$ a battu $E'_{i+1}$ (th. de Rédei, 1934).</li>
+    <li>Un tournoi est équilibré si chaque équipe a gagné autant de matchs qu’elle en a perdu. Montrer qu’il existe un tournoi équilibré d’ordre $n$ ssi $n$ est impair.</li>
+  </ol>
+</section>
+
+<h2>Petits problèmes</h2>
+<section id="ex33">
+  <h3>Exercice 33.</h3>
+  <p>Soit $f:\mathbb{R}\to\mathbb{R}$. On dit que $f$ est bornée si $\exists M\in\mathbb{R}:\ \forall x\in\mathbb{R},\ |f(x)|\le M$.</p>
+  <ol>
+    <li>Écrire avec des quantificateurs « $f$ n’est pas bornée ».</li>
+    <li>Donner un exemple de fonction bornée et un exemple qui ne l’est pas (avec preuve).</li>
+    <li>Quelles sont les fonctions vérifiant la propriété obtenue en échangeant les deux quantificateurs : $\forall x\in\mathbb{R},\ \exists M\in\mathbb{R}:\ |f(x)|\le M$ ?</li>
+    <li>Montrer que $f$ est bornée sur $\mathbb{R}$ ssi $\exists a,b\in\mathbb{R}:\ \forall x\in\mathbb{R},\ a\le f(x)\le b$.</li>
+    <li>Montrer que $f$ est bornée sur $\mathbb{R}$ ssi $\exists a,b\in\mathbb{R}:\ \forall x,y\in\mathbb{R},\ a\le f(x)-f(y)\le b$.</li>
+  </ol>
+</section>
+
+<section id="ex34">
+  <h3>Exercice 34 (Fonctions périodiques).</h3>
+  <p>Soit $T\in\mathbb{R}_+^\*$. On dit que $f:\mathbb{R}\to\mathbb{R}$ est $T$-périodique si $\forall x\in\mathbb{R},\ f(x+T)=f(x)$.</p>
+  <ol>
+    <li>Montrer que la somme de deux fonctions $T$-périodiques est $T$-périodique.</li>
+    <li>Montrer qu’il existe une fonction $T$-périodique non constante.</li>
+    <li>Montrer que toute fonction $T$-périodique est aussi $2T$-périodique (puis $nT$-périodique pour $n\in\mathbb{N}^\*$).</li>
+    <li>Soit $f$ $T$-périodique et croissante.
+      <ol>
+        <li>Montrer que $f$ est constante sur $[0,T]$ (i.e. $\exists y\in\mathbb{R}:\ \forall x\in[0,T],\ f(x)=y$).</li>
+        <li>En déduire qu’elle est constante sur $[0,nT]$ pour tout $n\in\mathbb{N}^\*$.</li>
+        <li>Conclure que $f$ est constante.</li>
+      </ol>
+    </li>
+  </ol>
+</section>
+
+<section id="ex35">
+  <h3>Exercice 35+ (Suites pseudo-croissantes).</h3>
+  <p>On adopte : une suite $(u_n)$ est croissante si $\forall n,m\in\mathbb{N},\ n\le m\Rightarrow u_n\le u_m$ ; elle est pseudo-croissante si $\forall n\in\mathbb{N},\ \exists M\in\mathbb{N}:\ \forall m\ge M,\ u_m\ge u_n$.</p>
+  <ol>
+    <li>Toute suite croissante est pseudo-croissante.</li>
+    <li>La somme de deux suites pseudo-croissantes est pseudo-croissante.</li>
+    <li>La suite $((-1)^n)_{n\in\mathbb{N}}$ n’est pas pseudo-croissante.</li>
+    <li>En considérant $(n+(-1)^n)$, montrer que la réciproque de 1. est fausse.</li>
+    <li>On dit que $(u_n)$ est pseudo-décroissante si $\forall n,\ \exists M:\ \forall m\ge M,\ u_m\le u_n$. Soit $(u_n)$ pseudo-croissante et pseudo-décroissante :
+      <ol>
+        <li>Montrer que $\forall k\in\mathbb{N},\ \exists N:\ \forall n\gt N,\ u_n=u_k$.</li>
+        <li>En déduire que $(u_n)$ est constante.</li>
+      </ol>
+    </li>
+  </ol>
+</section>
+
+<section id="ex36">
+  <h3>Exercice 36+ (Fibonacci).</h3>
+  <p>Définition : $F_1=F_2=1$ et $\forall n>1,\ F_{n+2}=F_{n+1}+F_n$.</p>
+  <ol>
+    <li>Calculer $F_n$ pour $1\le n\le 10$.</li>
+    <li>Montrer que pour tout $n>1$, il y a exactement $F_{n+1}$ façons de paver un échiquier $2\times n$ avec des dominos.</li>
+    <li>Démontrer $\forall n>2,\ \forall m>1,\ F_{n+m}=F_{n-1}F_m+F_nF_{m+1}$.</li>
+    <li>Démontrer $\forall n>2,\ F_n^2=F_{n-1}F_{n+1}+(-1)^{n+1}$.</li>
+    <li>Montrer, pour tout $n\ge 1$,
+      $$
+      F_1F_2+\cdots+F_{2n-1}F_{2n}=F_{2n}^2\quad\text{et}\quad
+      F_1F_2+\cdots+F_{2n}F_{2n+1}=F_{2n+1}^2-1.
+      $$
+    </li>
+  </ol>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded",function(){
+    renderMathInElement(document.body,{
+      delimiters:[
+        {left:"$$",right:"$$",display:true},
+        {left:"$",right:"$",display:false}
+      ],
+      throwOnError:false
+    });
+  });
+</script>
+</body>
+</html>
