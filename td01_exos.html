@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TD 01 — Calcul (HTML + KaTeX)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"  crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"  crossorigin="anonymous"
+onload="renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}]});"></script>
+<style>
+  body{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;margin:0;padding:24px;line-height:1.4}
+  h1,h2,h3{margin:0 0 8px 0}
+  section{margin-bottom:14px}
+  ol,ul{margin:0 0 6px 18px;padding:0}
+  li{margin:2px 0}
+  .sub{font-weight:600;margin-top:8px}
+  .meta{font-size:12px;color:#555}
+</style>
+</head>
+<body>
+<h1>TD 01 — Révisions calculatoires</h1>
+<div class="meta">Conversion en HTML avec formules en LaTeX pour KaTeX. Contenu réécrit sans modification mathématique.</div>
+
+<section>
+<h2>Manipulation d’expressions — Autocorrection A.</h2>
+<p>Les expressions suivantes (nombres réels $x,y$) ne sont pas tout à fait synonymes. Pour chacune, préciser le domaine de définition et quand on peut remplacer l’une par l’autre.</p>
+<ol>
+<li>$\sqrt{xy}$ et $\sqrt{x}\,\sqrt{y}$</li>
+<li>$\ln(xy)$ et $\ln x+\ln y$</li>
+<li>$\dfrac{x^2}{x}$ et $x$</li>
+<li>$\dfrac{xy}{x+y}$ et $\dfrac{1}{\dfrac{1}{x}+\dfrac{1}{y}}$</li>
+<li>$x$ et $\sqrt{x^2}$</li>
+<li>$x$ et $\sqrt{x^{\;2}}$</li>
+</ol>
+</section>
+
+<section>
+<h3>Exercice 1</h3>
+<ol>
+<li>Pour quelles valeurs de $x$ la quantité $\sqrt{x}$ est-elle définie ? Quelle est sa définition ?</li>
+<li>Combien vaut $\sqrt[4]{256}$ ?</li>
+<li>Soient $x,y\in\mathbb{R}$ tels que $x^2=y^2$. Que peut-on en déduire ?</li>
+<li>Montrer que $\sqrt{7+4\sqrt{3}}=2+\sqrt{3}$.</li>
+<li>Soient $a,b\in\mathbb{Q}$ non nuls. En admettant que $a+b\sqrt{5}\ne 0$, trouver $x,y\in\mathbb{Q}$ tels que $\dfrac{1}{a+b\sqrt{5}}=x+y\sqrt{5}$.</li>
+<li>Quelle est la limite de $x\mapsto \sqrt{x+1}-\sqrt{x-1}$ quand $x\to +\infty$ ?</li>
+</ol>
+</section>
+
+<section>
+<h3>Exercice 2</h3>
+<ol>
+<li>Factoriser (pour $x\in\mathbb{R}$) :
+<ol type="i">
+<li>$x^2+18x+81$</li>
+<li>$x^4+4x^3-12x^2$</li>
+<li>$(x^2+1)^2-4x^2$</li>
+</ol>
+</li>
+<li>Simplifier (en précisant les domaines de définition) et donner le signe selon les valeurs :
+<ol type="i">
+<li>$\dfrac{x^2-x-6}{2xy}\cdot\dfrac{x^2-9}{2x^2y}$</li>
+<li>$\dfrac{x^2+x^{-2}-2}{x^2-x^{-2}}$</li>
+<li>$\dfrac{1}{2x^2-2x+1}-\dfrac{1}{2x^2+2x+1}$</li>
+</ol>
+</li>
+<li>
+<ol type="a">
+<li>À l’aide de l’identité remarquable factorisant $x^2-y^2$, expliquer pourquoi $91$ n’est pas premier.</li>
+<li>Pour $\alpha,\beta,x,y\in\mathbb{R}$, factoriser $xy+\alpha x+\beta y+\alpha\beta$.</li>
+<li>Trouver tous les couples $(x,y)\in\mathbb{N}^2$ tels que $3x^2y^2+y^2=27x^2+100$.</li>
+</ol>
+</li>
+</ol>
+</section>
+
+<section>
+<h3>Exercice 3</h3>
+<p>Réduire au même dénominateur (d’abord déterminer le domaine de définition) :</p>
+<ol>
+<li>$\dfrac{1}{60}+\dfrac{1}{48}$</li>
+<li>$\dfrac{1}{x}-\dfrac{1}{x+1}$</li>
+<li>$\dfrac{2}{(x+1)\,2(x+3)}-\dfrac{1}{(x+1)(x+2)(x+3)}$</li>
+<li>$\dfrac{1}{x^2-y^2}+\dfrac{1}{x^2+y^2-2xy}$</li>
+<li>$\dfrac{x+1}{x-1}-\dfrac{2x+1}{2x-1}\cdot\dfrac{2x+1}{x-1}-\dfrac{x+1}{2x-1}$</li>
+</ol>
+</section>
+
+<section>
+<h2>Inégalités — Autocorrection B.</h2>
+<p>En utilisant uniquement les propriétés (a) à (h) de l’ordre sur $\mathbb{R}$, montrer :</p>
+<ol>
+<li>si $a\le b$ et $c\le d$, alors $a+c\le b+d$</li>
+<li>si $a\le b$ et $c<d$, alors $a+c<b+d$</li>
+<li>si $a\le 0$ et $b\ge 0$, alors $ab\le 0$</li>
+<li>si $a\le 0$ et $b\le 0$, alors $ab\ge 0$</li>
+<li>si $a\ge 0$ et $b\ge 0$, alors $ab\ge 0$</li>
+<li>si $a<0$ et $b>0$, alors $ab<0$</li>
+<li>si $a<0$ et $b<0$, alors $ab>0$</li>
+<li>quel que soit $a\in\mathbb{R}$, $a^2\ge 0$</li>
+<li>si $a\le b$ et $\lambda>0$, alors $\lambda a\le \lambda b$</li>
+<li>si $a\le b$ et $\lambda\le 0$, alors $\lambda a\ge \lambda b$</li>
+<li>si $a<b$ et $\lambda>0$, alors $\lambda a<\lambda b$</li>
+<li>si $a<b$ et $\lambda<0$, alors $\lambda a>\lambda b$</li>
+<li>si $0\le a\le b$ et $0\le c\le d$, alors $ac\le bd$</li>
+<li>si $0<a<b$ et $0<c<d$, alors $ac<bd$</li>
+<li>si $0<a$, alors $0<\dfrac{1}{a}$</li>
+<li>si $0<a\le b$, alors $\dfrac{1}{b}\le \dfrac{1}{a}$</li>
+<li>si $0<a<b$, alors $\dfrac{1}{b}<\dfrac{1}{a}$</li>
+</ol>
+</section>
+
+<section>
+<h3>Exercice 4</h3>
+<p>Deux nombres vérifient $\dfrac{a}{b}>1$. Peut-on en déduire $\dfrac{a+1}{b+1}>1$ ?</p>
+</section>
+
+<section>
+<h3>Exercice 5</h3>
+<ol>
+<li>Avec $m_1\le x\le M_1$ et $m_2\le y\le M_2$, donner des encadrements pour :
+<ol type="i">
+<li>$\lambda y$</li>
+<li>$x+y$</li>
+<li>$x-y$</li>
+<li>$|x|$</li>
+</ol>
+On suppose en plus $m_1>0$ et $m_2>0$. Donner des encadrements pour :
+<ol type="v">
+<li>$\ln x$</li>
+<li>$\dfrac{1}{y}$</li>
+<li>$xy$</li>
+<li>$\dfrac{x}{y}$</li>
+</ol>
+</li>
+<li>Pour $x\in[1,4]$, encadrer grossièrement $\dfrac{x^2+x+1}{3x+2}$.</li>
+<li>Pour $x\in\mathbb{R}$ :
+<ol type="a">
+<li>Encadrer grossièrement $\cos x+\sin x$.</li>
+<li>Trouver $A>0$ et $\varphi\in\mathbb{R}$ tels que $\cos x+\sin x=A\cos(x+\varphi)$, puis en déduire un meilleur encadrement.</li>
+</ol>
+</li>
+<li>Pour $x\in[0,2]$, $x\ne 1$ :
+<ol type="a">
+<li>Montrer $\dfrac{x^2-3x+2}{x+\sqrt{x}-2}=\dfrac{(\sqrt{x}+1)(x-2)}{\sqrt{x}+2}$.</li>
+<li>En déduire $\left|\dfrac{x^2-3x+2}{x+\sqrt{x}-2}\right|\le 2$.</li>
+</ol>
+</li>
+</ol>
+</section>
+
+<section>
+<h3>Exercice 6</h3>
+<p>Soient $a,b\in(-1,1)$. Montrer $\dfrac{a+b}{1+ab}\in(-1,1)$.</p>
+</section>
+
+<section>
+<h2>Inégalité arithmético-géométrique, variantes et conséquences — Autocorrection C.</h2>
+<ol>
+<li>Pour $a,b\in\mathbb{R}$, à l’aide d’une identité remarquable, montrer $ab\le \dfrac{a^2+b^2}{2}$.</li>
+<li>Pour $a,b\in\mathbb{R}_+$, montrer $\sqrt{ab}\le \dfrac{a+b}{2}$.</li>
+<li>Dans chaque question précédente, déterminer les cas d’égalité.</li>
+</ol>
+</section>
+
+<section>
+<h3>Exercice 7 ★</h3>
+<ol>
+<li>Montrer que pour tout $x>0$, $x+\dfrac{1}{x}\ge 2$. En déduire que pour $x,y,z>0$ de somme $s$, on a $\dfrac{1}{x}+\dfrac{1}{y}+\dfrac{1}{z}\ge 6-s$.</li>
+<li>En utilisant l’IAG, montrer que pour $x,y,z>0$, $(x+y)(y+z)(x+z)\ge 8xyz$. En déduire que pour $x,y,z>0$ de somme $s$, on a $\dfrac{1}{x}+\dfrac{1}{y}+\dfrac{1}{z}\ge \dfrac{9}{s}$.</li>
+<li>Entre les inégalités obtenues en 1.(b) et 2.(b), laquelle est meilleure ?</li>
+</ol>
+</section>
+
+<section>
+<h3>Exercice 8 ★★</h3>
+<ol>
+<li>En appliquant l’IAG, montrer que pour $x,y>0$, $\dfrac{x}{x^4+y^2}\le \dfrac{1}{2xy}$.</li>
+<li>En déduire que pour $x,y>0$, $\dfrac{x}{x^4+y^2}+\dfrac{y}{x^2+y^4}\le \dfrac{1}{xy}$.</li>
+</ol>
+</section>
+
+<section>
+<h3>Exercice 9 ★★</h3>
+<ol>
+<li>Montrer que pour $x,y>0$, $\dfrac{x}{y}+\dfrac{y}{x}\ge 2$.</li>
+<li>En déduire l’inégalité de Nesbitt : pour $a,b,c>0$, $\dfrac{a}{b+c}+\dfrac{b}{c+a}+\dfrac{c}{a+b}\ge \dfrac{3}{2}$.</li>
+</ol>
+</section>
+
+<section>
+<h2>Valeur absolue, minimum et maximum — Autocorrection D.</h2>
+<ol>
+<li>Pour $a,b\in\mathbb{R}$, montrer l’inégalité triangulaire $|a+b|\le |a|+|b|$.</li>
+<li>Montrer que l’égalité a lieu ssi $a$ et $b$ sont de même signe.</li>
+<li>Résoudre l’équation $\sqrt{x^2}+\sqrt{(x-1)^2}=1$.</li>
+</ol>
+</section>
+
+<section>
+<h2>Autocorrection E.</h2>
+<ol>
+<li>Pour $a,b\in\mathbb{R}$ :
+<ol type="a">
+<li>Combien vaut $\min(a,b)+\max(a,b)$ ?</li>
+<li>Montrer $\max(a,b)=\dfrac{a+b+|a-b|}{2}$.</li>
+<li>Énoncer et démontrer une formule analogue pour $\min(a,b)$.</li>
+</ol>
+</li>
+<li>Soient $x_1,\dots,x_n,\alpha\in\mathbb{R}$. Reformuler à l’aide de connecteurs/quantificateurs :
+<ol type="i">
+<li>$\min(x_1,\dots,x_n)\le \alpha$</li>
+<li>$\min(x_1,\dots,x_n)>\alpha$</li>
+<li>$\max(x_1,\dots,x_n)\le \alpha$</li>
+<li>$\max(x_1,\dots,x_n)>\alpha$</li>
+</ol>
+</li>
+</ol>
+</section>
+
+<section>
+<h2>Autocorrection F.</h2>
+<p>Résoudre dans $\mathbb{R}$ (présenter si pertinent comme union d’intervalles) :</p>
+<ol>
+<li>$|x|-2\le 4$</li>
+<li>$|x-2|\le 4$</li>
+<li>$|x-2|\le -4$</li>
+<li>$|x^2-4|=2$</li>
+<li>$|x^2-8x+11|=4$</li>
+<li>$|x^2-8x+11|<4$</li>
+<li>$|x+1|=|2x-3|$</li>
+<li>$|1-2x|=x+1$</li>
+<li>$|x^2-3x-3|=x+2$</li>
+<li>$|x^2+5x+3|<x+2$</li>
+<li>$2-x<|x+1|$</li>
+<li>$|x|+|x+1|=2$</li>
+<li>$|x-7|+|x-2|\le 3$</li>
+<li>$(4x+7)^{20}(2x+8)<0$</li>
+</ol>
+</section>
+
+<section>
+<h3>Exercice 10</h3>
+<p>Montrer $\forall x,y\in\mathbb{R},\ \sin x\cdot \cos y>-1$.</p>
+</section>
+
+<section>
+<h3>Exercice 11</h3>
+<ol>
+<li>En appliquant l’inégalité triangulaire, montrer $|a-b|\ge |a|-|b|$. Puis, en remarquant la symétrie $a\leftrightarrow b$, proposer un meilleur encadrement.</li>
+<li>Montrer $|a|+|b|\le |a+b|+|a-b|$.</li>
+</ol>
+</section>
+
+<section>
+<h3>Exercice 12</h3>
+<ol>
+<li>Montrer $1+|ab-1|\le (1+|a-1|)(1+|b-1|)$.</li>
+<li>Montrer $\dfrac{|a+b|}{1+|a+b|}\le \dfrac{|a|}{1+|a|}+\dfrac{|b|}{1+|b|}$.</li>
+</ol>
+</section>
+
+<section>
+<h3>Exercice 13 ★★</h3>
+<p>Pour $a,b,c\in\mathbb{R}$, montrer $|a|+|b|+|c|-|a+b|-|a+c|-|b+c|+|a+b+c|\ge 0$.</p>
+</section>
+
+<section>
+<h3>Exercice 14 ★★</h3>
+<ol>
+<li>Pour $a,b\in\mathbb{R}$, montrer $\max(a^2+b,b^2+a)\ge -\dfrac{1}{4}$.</li>
+<li>Pour $a,b,c\in[0,1]$, montrer $\max\{a(1-b),\,b(1-c),\,c(1-a)\}\ge \dfrac{1}{4}$.</li>
+</ol>
+</section>
+
+<section>
+<h2>Quatre exercices de Vladimir Arnol’d</h2>
+<ol>
+<li>Une chenille est dans un coin d’une salle cubique et veut ramper jusqu’au coin opposé. Quels sont les chemins les plus courts ?</li>
+<li>Calculer la somme $\sum_{k=1}^{99}\dfrac{1}{k(k+1)}$ à la main, à $1\%$ près.</li>
+<li>Deux volumes de Pouchkine (tomes 1 et 2) posés côte à côte. Un ver perce perpendiculairement aux pages, de la première page du premier volume à la dernière page du second. Chaque couverture a $2\,\mathrm{mm}$ d’épaisseur, chaque bloc de pages $2\,\mathrm{cm}$. Quelle est la longueur du trajet du ver ?</li>
+<li>Triangle rectangle $ABC$ en $A$, hypoténuse $[BC]$ de $10$ pouces, hauteur issue de $A$ de $6$ pouces. Calculer l’aire de $ABC$. Les étudiants américains répondent $30$ pouces carrés, mais les étudiants russes en visite ne peuvent pas répondre. Pourquoi ?</li>
+</ol>
+</section>
+
+</body>
+</html>
