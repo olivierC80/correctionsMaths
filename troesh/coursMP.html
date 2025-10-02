@@ -6,11 +6,11 @@
     <title>Cours de mathématiques MP - Alain TROESCH</title>
     
     <!-- KaTeX CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"  crossorigin="anonymous">
 
     <!-- KaTeX JS -->
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpodmnMeremgOE2QCk7saifbeb" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"  crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"  crossorigin="anonymous"></script>
 
     <style>
         body {
@@ -395,7 +395,294 @@
             </section>
         </section>
         
-        <!-- The content of the PDF would continue to be translated here, following the same pattern -->
+      <div class="box remark-box" id="rem1.1.3">
+    <p><strong>Remarques 1.1.3</strong></p>
+    <ol>
+        <li>Cette propriété est spécifique à \(\mathbb{R}\). Par exemple, elle est fausse dans \(\mathbb{Q}\) (avec \(a, b \in \mathbb{Q}\)).</li>
+        <li>La définition et le théorème s’étendent à \(\overline{\mathbb{R}}\). Puisque \(+\infty\) et \(-\infty\) sont des éléments particuliers de \(\overline{\mathbb{R}}\), on a besoin de moins de cas pour décrire tous les intervalles : \([a, b]\), \(]a, b]\), \([a, b[\) et \(]a, b[\), avec \(a, b \in \overline{\mathbb{R}}\). L’ensemble vide est par exemple obtenu en considérant \(]0, 0[\), alors que \(\mathbb{R} = ]-\infty, +\infty[\) et \(\overline{\mathbb{R}} = [-\infty, +\infty]\).
+        <br>La seule différence avec les intervalles de \(\mathbb{R}\) est la possibilité d’inclure les bornes infinies.</li>
+    </ol>
+</div>
+</section>
+<section id="chap1-secI.2">
+    <h3>I.2 Voisinages</h3>
+    <p>On note \(\mathbb{K} = \mathbb{R}\) ou \(\mathbb{C}\). La notation \(|z|\) désignera donc suivant le cas soit la valeur absolue dans \(\mathbb{R}\), soit le module dans \(\mathbb{C}\).</p>
+
+    <div class="box definition-box" id="def1.1.4">
+        <p><strong>Définition 1.1.4 – Voisinage dans \(\mathbb{K} = \mathbb{R}\) ou \(\mathbb{C}\)</strong></p>
+        <p>Soit \(a \in \mathbb{K}\), et \(V \subset \mathbb{K}\). On dit que \(V\) est un voisinage de \(a\) s’il existe \(\varepsilon > 0\) tel que :</p>
+        <div class="formula-box">
+            \[\forall y \in \mathbb{K}, |y - a| < \varepsilon \implies y \in V,\]
+        </div>
+        <p>c’est-à-dire \(B(a, \varepsilon) \subset V\), où \(B(a, \varepsilon) = \{y \in \mathbb{K} \mid |y - a| < \varepsilon\}\) (boule ouverte de centre a et de rayon \(\varepsilon\).
+        <br>On note \(\mathcal{V}(a) \subset \mathcal{P}(\mathbb{K})\) l’ensemble des voisinages de \(a\).</p>
+    </div>
+
+    <div class="box definition-box" id="def1.1.5">
+        <p><strong>Définition 1.1.5 – Voisinage de \(\pm\infty\) dans \(\overline{\mathbb{R}}\)</strong></p>
+        <p>Soit \(V \in \mathcal{P}(\mathbb{R})\).</p>
+        <ul>
+            <li>On dit que \(V\) est un voisinage de \(+\infty\) si et seulement s’il existe \(b\) tel que \(]b, +\infty[ \subset V\).</li>
+            <li>On dit que \(V\) est un voisinage de \(-\infty\) si et seulement s’il existe \(b\) tel que \(]-\infty, b[ \subset V\).</li>
+        </ul>
+        <p>On note \(\mathcal{V}(+\infty)\) et \(\mathcal{V}(-\infty)\) l’ensemble des voisinages de \(+\infty\) et \(-\infty\) respectivement.</p>
+    </div>
+
+    <div class="box proposition-box" id="prop1.1.6">
+        <p><strong>Proposition 1.1.6 – Caractérisation des voisinages de \(\overline{\mathbb{R}}\)</strong></p>
+        <p>Soit \(a \in \overline{\mathbb{R}}\) et \(V \subset \mathbb{R}\). Alors \(V \in \mathcal{V}(a)\) si et seulement s’il existe un intervalle ouvert \(I\) tel que</p>
+        <div class="formula-box">
+            \[a \in I \subset V.\]
+        </div>
+    </div>
+
+    <div class="box proposition-box" id="prop1.1.7">
+        <p><strong>Proposition 1.1.7 – Union et intersection de voisinages</strong></p>
+        <p>Soit \(a \in \mathbb{R}\) ou \(a \in \mathbb{C}\). Soit \(I \neq \emptyset\), et \((V_i)_{i \in I}\) une famille de voisinages de \(a\) (dans \(\mathbb{R}\) ou \(\mathbb{C}\) selon le cas). Alors :</p>
+        <ol>
+            <li>\(\bigcup_{i \in I} V_i\) est un voisinage de \(a\)</li>
+            <li>Si \(I\) est fini, \(\bigcap_{i \in I} V_i\) est un voisinage de \(a\).</li>
+        </ol>
+    </div>
+
+    <div class="box example-box" id="ex1.1.8">
+        <p><strong>Exemple 1.1.8</strong></p>
+        <p>Donner un exemple de famille de voisinages de 0 dans \(\mathbb{R}\) dont l’intersection n’est pas un voisinage de 0.</p>
+    </div>
+    
+    <div class="box definition-box" id="term1.1.9">
+         <p><strong>Terminologie 1.1.9 – Propriété au voisinage de \(a\)</strong></p>
+        <p>On dit qu’une propriété \(P(x)\) dépendant d’un élément \(x \in \mathbb{K}\) est vérifiée au voisinage de \(a\) s’il existe \(V \in \mathcal{V}(a)\) telle que pour tout \(x \in V\), \(P(x)\) est vraie.</p>
+    </div>
+    <p>Par exemple, dire qu’une fonction \(f\) est continue au voisinage de \(a\) signifie qu’il existe un voisinage \(V\) de \(a\) tel que pour tout \(x \in V\), \(f\) soit continue en \(x\), donc tel que \(f\) soit continue sur \(V\).</p>
+</section>
+</section>
+
+<section id="chap1-secII">
+<h2>II Convergence</h2>
+<section id="chap1-secII.1">
+    <h3>II.1 Convergence, réexpression topologique</h3>
+    <p>On rappelle les définitions suivantes :</p>
+    <div class="box definition-box" id="def1.2.1">
+        <p><strong>Définition 1.2.1 – limite d’une suite, convergence, divergence</strong></p>
+        <ul>
+            <li>Une suite \((u_n)_{n \in \mathbb{N}}\) à valeurs dans \(\mathbb{K} = \mathbb{R}\) ou \(\mathbb{C}\) admet une limite \(\ell \in \mathbb{K}\) si et seulement si :
+            \[\forall \varepsilon > 0, \exists N \in \mathbb{N}, \forall n \ge N, u_n \in B(\ell, \varepsilon).\]
+            </li>
+            <li>Si \((u_n)_{n \in \mathbb{N}}\) admet une limite \(\ell \in \mathbb{K}\), on dit qu’elle est convergente.</li>
+            <li>Si \((u_n)_{n \in \mathbb{N}}\) n’admet aucun \(\ell\) de \(\mathbb{K}\) comme limite, alors on dit que \((u_n)_{n \in \mathbb{N}}\) est divergente (dans \(\mathbb{K}\)).</li>
+        </ul>
+    </div>
+    <p>Si \((u_n)\) admet une limite \(\ell\), on dit aussi que \((u_n)\) tend vers \(\ell\) lorsque \(n\) tend vers \(+\infty\), et on écrira
+    \[\ell = \lim_{n\to\infty} u_n, \quad \text{ou} \quad u_n \xrightarrow{n\to\infty} \ell.\]
+    On pourra omettre \(n \to \infty\) s’il n’y a pas d’ambiguïté sur la variable.</p>
+
+    <div class="box definition-box" id="def1.2.2">
+        <p><strong>Définition 1.2.2 – Limite infinie d’une suite réelle</strong></p>
+        <p>Soit une suite \((u_n)_{n \in \mathbb{N}}\) réelle.</p>
+        <ul>
+            <li>\((u_n)\) admet la limite \(+\infty\) si :
+            \[\forall A \in \mathbb{R}, \exists N \in \mathbb{N}, \forall n \ge N, u_n \ge A.\]
+            </li>
+            <li>\((u_n)\) admet la limite \(-\infty\) si :
+            \[\forall A \in \mathbb{R}, \exists N \in \mathbb{N}, \forall n \ge N, u_n \le A.\]
+            </li>
+        </ul>
+        <p>On note respectivement \(\lim u_n = +\infty\) et \(\lim u_n = -\infty\).</p>
+    </div>
+    
+    <p>On rappelle le résultat suivant, qui permet de donner un sens à la notation \(\lim u_n\).</p>
+
+    <div class="box theorem-box" id="th1.2.3">
+        <p><strong>Théorème 1.2.3 – Unicité de la limite</strong></p>
+        <p>Soit \((u_n)\) une suite réelle ou complexe. Si elle existe, la limite de \((u_n)\) est unique.</p>
+    </div>
+    <div class="proof">
+        <p>Ÿ <strong>Éléments de preuve.</strong></p>
+        <p>Si \(\ell_1\) et \(\ell_2\) sont deux limites (non infinies) distinctes de \((u_n)\), considérer \(\varepsilon = |\ell_2 - \ell_1|\) dans les définitions pour obtenir une contradiction.
+        Discuter les cas infinis de façon similaire.</p>
+    </div>
+
+    <p>Pour ne pas avoir constamment à traiter le cas d’une limite infinie de façon particulière, on donne une traduction topologique de la définition de la limite d’une suite, valide tout aussi bien pour des limites finies ou infinies.</p>
+    
+    <div class="box proposition-box" id="prop1.2.4">
+        <p><strong>Proposition 1.2.4 – Caractérisation topologique de la limite</strong></p>
+        <p>Soit \((u_n)_{n \in \mathbb{N}}\) une suite d’éléments de \(\mathbb{K} = \mathbb{R}\) ou \(\mathbb{C}\), et \(a \in \mathbb{K}\) (ou éventuellement \(a = \pm\infty\) si \(\mathbb{K} = \mathbb{R}\)). Alors les propositions suivantes sont équivalentes:</p>
+        <ol style="list-style-type: lower-roman;">
+            <li>\(u_n \xrightarrow{n\to\infty} a\)</li>
+            <li>\(\forall V \in \mathcal{V}(a), \exists N \in \mathbb{N}, \forall n \ge N, u_n \in V\).</li>
+        </ol>
+    </div>
+    
+    <p>On termine cette section par une propriété importante des suites d’entiers.</p>
+    <div class="box proposition-box" id="prop1.2.5">
+        <p><strong>Proposition 1.2.5 – Suites convergentes à valeurs entières</strong></p>
+        <p>Soit \((u_n)_{n \in \mathbb{N}}\) une suite à valeurs dans \(\mathbb{Z}\). La suite \((u_n)\) est convergente si et seulement si elle est stationnaire (i.e. constante à partir d’un certain rang).</p>
+    </div>
+    <div class="proof">
+        <p>Ÿ <strong>Éléments de preuve.</strong></p>
+        <p>Réciproque évidente. Sens direct : considérer \(\varepsilon < \frac{1}{2}\).</p>
+    </div>
+
+</section>
+<section id="chap1-secII.2">
+    <h3>II.2 Rappel des propriétés opératoires relatives à la convergence</h3>
+    <p>Les règles opératoires usuelles sur les limites vous sont en général bien connues :</p>
+    
+    <div class="box theorem-box" id="th1.2.6">
+        <p><strong>Théorème 1.2.6 – Opérations sur les limites finies</strong></p>
+        <p>Soit \((u_n)_{n \in \mathbb{N}}\) et \((v_n)_{n \in \mathbb{N}}\) deux suites réelles ou complexes convergentes, et \(\lambda\) et \(\mu\) deux scalaires (réels ou complexes). Alors :</p>
+        <ol>
+            <li>\((|u_n|)_{n \in \mathbb{N}}\) est convergente, et \(\lim |u_n| = |\lim u_n|\) ;</li>
+            <li>\((\lambda u_n + \mu v_n)_{n \in \mathbb{N}}\) est convergente, et \(\lim(\lambda u_n + \mu v_n) = \lambda \lim u_n + \mu \lim v_n\) ;</li>
+            <li>\((u_n v_n)_{n \in \mathbb{N}}\) est convergente, et \(\lim(u_n v_n) = \lim u_n \cdot \lim v_n\) ;</li>
+            <li>si \(\lim v_n \neq 0\), alors \(v_n \neq 0\) à partir d’un certain rang ; ainsi, \(\left(\frac{u_n}{v_n}\right)\) est définie à partir d’un certain rang, est convergente, et \(\lim \frac{u_n}{v_n} = \frac{\lim u_n}{\lim v_n}\).</li>
+        </ol>
+    </div>
+
+    <div class="box theorem-box" id="th1.2.7">
+        <p><strong>Théorème 1.2.7 – Opérations impliquant des limites infinies</strong></p>
+        <p>Dans le cas où \((u_n)_{n \in \mathbb{N}}\) et \((v_n)_{n \in \mathbb{N}}\) sont des suites réelles, les résultats ci-dessus restent vrais si la limite de \((u_n)_{n \in \mathbb{N}}\) et/ou de \((v_n)_{n \in \mathbb{N}}\) est infinie, avec les règles arithmétiques suivantes (règles usuelles dans \(\overline{\mathbb{R}}\)) :</p>
+        <div class="formula-box">
+        \[ a + \infty = +\infty; \quad +\infty + \infty = +\infty; \quad a \cdot (+\infty) = (\mathrm{sg}(a))\infty \ (\text{pour } a \neq 0); \]
+        \[ (\pm\infty) \cdot (\pm\infty) = \pm\infty; \quad \frac{1}{\pm\infty} = 0, \quad \frac{1}{0^+} = +\infty, \quad \frac{1}{0^-} = -\infty. \]
+        </div>
+    </div>
+    
+    <div class="box avertissement-box" id="av1.2.8">
+        <p><strong>Avertissement 1.2.8 – Formes indéterminées</strong></p>
+        <p>En revanche, les opérations arithmétiques suivantes ne sont pas définies, et donnent des formes indéterminées (ayez des exemples en tête) :</p>
+        <div class="formula-box">
+        \[ \infty - \infty; \quad 0 \cdot \infty; \quad \frac{\infty}{\infty}; \quad \frac{0}{0} \]
+        </div>
+    </div>
+    
+    <p>Aux règles précédentes, nous ajoutons la suivante :</p>
+
+    <div class="box proposition-box" id="prop1.2.9">
+        <p><strong>Proposition 1.2.9 – Produit \(0 \times\) borné</strong></p>
+        <p>Soit \((u_n)_{n \in \mathbb{N}}\) et \((v_n)_{n \in \mathbb{N}}\) deux suites réelles ou complexes telles que \((u_n)_{n \in \mathbb{N}}\) tende vers 0 et \((v_n)_{n \in \mathbb{N}}\) soit bornée. Alors \((u_n v_n)_{n \in \mathbb{N}}\) tend vers 0.</p>
+    </div>
+
+    <p>La continuité de l’exponentielle et du logarithme (ou une propriété de composition des limites, pour les cas infinis non indéterminés) permet d’obtenir les règles d’exponentiation :</p>
+</section>
+</section>
+<section id="chap1-secII.3">
+    <h3>II.3 Comportement des limites vis-à-vis des inégalités</h3>
+    <p>Les suites considérées dans cette section sont réelles. Pour les suites complexes, l’utilisation de résultats de ce type nécessite de séparer les études de la partie réelle et de la partie imaginaire.</p>
+
+    <div class="box proposition-box" id="prop1.2.10">
+        <p><strong>Proposition 1.2.10 – Passage à la limite pour les puissances</strong></p>
+        <p>Soit \((u_n)_{n \in \mathbb{N}}\) et \((v_n)_{n \in \mathbb{N}}\) deux suites réelles, \((u_n)\) étant de plus strictement positive. On suppose que \(u_n \to \ell\) et \(v_n \to \ell'\), et que \((\ell, \ell') \notin \{ (+\infty, 0), (0, 0), (1, +\infty), (1, -\infty) \}\). Alors :</p>
+        \[ u_n^{v_n} \to \ell^{\ell'}. \]
+        <p>Dans cette proposition, les règles d’exponentiation ont été étendues par les opérations suivantes dans \(\overline{\mathbb{R}}\) :</p>
+        <ul>
+            <li>\(a^{+\infty} = 0\) si \(a \in [0, 1[\),</li>
+            <li>\(a^{+\infty} = +\infty\) si \(a \in ]1, +\infty]\)</li>
+            <li>\(a^{-\infty} = +\infty\) si \(a \in [0, 1[\),</li>
+            <li>\(a^{-\infty} = 0\) si \(a \in ]1, +\infty]\),</li>
+            <li>\(0^b = 0\) si \(b \in ]0, +\infty]\).</li>
+        </ul>
+    </div>
+
+    <div class="box avertissement-box" id="av1.2.11">
+        <p><strong>Avertissement 1.2.11 – Formes indéterminées pour les puissances</strong></p>
+        <p>On notera les formes indéterminées relatives aux exponentiations :</p>
+        \[ \infty^0, \quad 0^0 \quad \text{et} \quad 1^\infty. \]
+    </div>
+
+    <div class="box theorem-box" id="th1.2.12">
+        <p><strong>Théorème 1.2.12 – Conservation des inégalités larges</strong></p>
+        <p>Soit \((u_n)_{n \in \mathbb{N}}\) et \((v_n)_{n \in \mathbb{N}}\) deux suites réelles, et \(N \in \mathbb{N}\) tels que : \(\forall n \ge N, u_n \le v_n\). Alors, si \((u_n)_{n \in \mathbb{N}}\) et \((v_n)_{n \in \mathbb{N}}\) admettent des limites dans \(\overline{\mathbb{R}}\), \(\lim_{n\to\infty} u_n \le \lim_{n\to\infty} v_n\).</p>
+    </div>
+    <div class="proof">
+        <p>Ÿ <strong>Éléments de preuve.</strong></p>
+        <p>Par l’absurde.</p>
+    </div>
+
+    <div class="box avertissement-box" id="av1.2.13">
+        <p><strong>Avertissement 1.2.13</strong></p>
+        <p>Les inégalités strictes ne se conservent pas !</p>
+    </div>
+
+    <div class="box theorem-box" id="th1.2.14">
+        <p><strong>Théorème 1.2.14 – Théorème de convergence par encadrement</strong></p>
+        <p>Soit \((u_n)_{n \in \mathbb{N}}, (v_n)_{n \in \mathbb{N}}\) et \((w_n)_{n \in \mathbb{N}}\), trois suites réelles, et \(N \in \mathbb{N}\), tels que : \(\forall n \ge N, u_n \le v_n \le w_n\). Si \((u_n)_{n \in \mathbb{N}}\) et \((w_n)_{n \in \mathbb{N}}\) convergent toutes deux vers une même limite finie, alors \((v_n)_{n \in \mathbb{N}}\) converge aussi, et</p>
+        \[ \lim v_n = \lim u_n = \lim w_n. \]
+    </div>
+
+    <div class="box remark-box" id="rem1.2.15">
+        <p><strong>Remarque 1.2.15</strong></p>
+        <p>C’est avant tout un théorème d’existence de la limite. La valeur vient en bonus. Ne pas le rédiger comme un double passage à la limite dans les deux inégalités, qui ne justifie pas correctement cette existence.</p>
+    </div>
+
+    <div class="box theorem-box" id="th1.2.16">
+        <p><strong>Théorème 1.2.16 – Théorème de divergence par minoration ou majoration</strong></p>
+        <p>Soit \((u_n)_n \in \mathbb{N}, (v_n)_{n \in \mathbb{N}}\) et \(N \in \mathbb{N}\) tels que pour tout \(n \ge N, u_n \le v_n\).</p>
+        <ol>
+            <li>Si \((u_n)_{n \in \mathbb{N}}\) tend vers \(+\infty\), alors \((v_n)_{n \in \mathbb{N}}\) tend vers \(+\infty\).</li>
+            <li>Si \((v_n)_{n \in \mathbb{N}}\) tend vers \(-\infty\), alors \((u_n)_{n \in \mathbb{N}}\) tend vers \(-\infty\).</li>
+        </ol>
+    </div>
+
+    <p>Le théorème de minoration s’utilise parfois en comparant à des suites dont on connaît bien la nature, par exemple les suites géométriques. La divergence ou la convergence des suites géométriques étant rapide, cela ne s’applique toutefois que pour des suites ayant un comportement assez marqué.</p>
+    <p>Voici une façon assez commode de faire une comparaison à une suite géométrique. Elle permet également de comparer les séries associées (critère de d’Alembert).</p>
+
+    <div class="box method-box" id="meth1.2.17">
+        <p><strong>Méthode 1.2.17 – Comparaison à une suite géométrique</strong></p>
+        <ul>
+            <li>Étudier l’existence et le cas échéant la valeur de \(\lim \left|\frac{u_{n+1}}{u_n}\right|\).</li>
+            <li>En cas d’existence, notons \(\ell = \lim \left|\frac{u_{n+1}}{u_n}\right|\).
+                <ul>
+                    <li>Si \(\ell < 1\), on peut majorer à partir d’un certain rang \((|u_n|)_{n \in \mathbb{N}}\) par une suite géométrique de raison \(r \in ]\ell, 1[\), et on en déduit que \((u_n)_{n \in \mathbb{N}}\) tend vers 0.</li>
+                    <li>Si \(\ell > 1\), on peut minorer à partir d’un certain rang \((|u_n|)_{n \in \mathbb{N}}\) par une suite géométrique de raison \(r \in ]1, \ell[\), donc \((|u_n|)_{n \in \mathbb{N}}\) tend vers \(+\infty\).</li>
+                    <li>Si \(\ell = 1\), on ne peut pas conclure.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="box example-box" id="ex1.2.18">
+        <p><strong>Exemples 1.2.18</strong></p>
+        <p>Limite de \(\frac{a^n}{n!}\), \(a \in \mathbb{C}\).</p>
+    </div>
+</section>
+
+<section id="chap1-secII.4">
+    <h3>II.4 Propriétés des suites monotones</h3>
+    <div class="box theorem-box" id="th1.2.19">
+        <p><strong>Théorème 1.2.19 – Théorème de la convergence monotone</strong></p>
+        <p>Soit \((u_n)_{n \in \mathbb{N}}\) une suite réelle.</p>
+        <ol>
+            <li>Si \((u_n)_{n \in \mathbb{N}}\) est croissante et majorée, alors \((u_n)_{n \in \mathbb{N}}\) converge dans \(\mathbb{R}\).</li>
+            <li>Si \((u_n)_{n \in \mathbb{N}}\) est croissante et non majorée, alors \((u_n)_{n \in \mathbb{N}}\) diverge vers \(+\infty\).</li>
+            <li>Si \((u_n)_{n \in \mathbb{N}}\) est décroissante et minorée, alors \((u_n)_{n \in \mathbb{N}}\) converge dans \(\mathbb{R}\).</li>
+            <li>Si \((u_n)_{n \in \mathbb{N}}\) est décroissante et non minorée, alors \((u_n)_{n \in \mathbb{N}}\) diverge vers \(-\infty\)</li>
+        </ol>
+        <p>De plus, dans le cas croissant, on a alors \(\lim_{n\to\infty} u_n = \sup_{n \in \mathbb{N}} u_n\).</p>
+    </div>
+
+    <div class="box definition-box" id="def1.2.20">
+        <p><strong>Définition 1.2.20 – Suites adjacentes</strong></p>
+        <p>Soit \((u_n)_{n \in \mathbb{N}}\) et \((v_n)_{n \in \mathbb{N}}\) deux suites réelles. On dit qu’elles sont adjacentes si et seulement si :</p>
+        <ol>
+            <li>l’une est croissante et l’autre décroissante ;</li>
+            <li>\((v_n - u_n)_{n \in \mathbb{N}}\) tend vers 0.</li>
+        </ol>
+    </div>
+
+    <div class="box theorem-box" id="th1.2.21">
+        <p><strong>Théorème 1.2.21 – Théorème des suites adjacentes</strong></p>
+        <p>Soit \((u_n)_{n \in \mathbb{N}}\) et \((v_n)_{n \in \mathbb{N}}\) deux suites réelles adjacentes. Alors :</p>
+        <ol style="list-style-type: lower-roman;">
+            <li>\((u_n)_{n \in \mathbb{N}}\) et \((v_n)_{n \in \mathbb{N}}\) convergent, et \(\lim_{n\to\infty} u_n = \lim_{n\to\infty} v_n\),</li>
+            <li>Pour tout \(n \in \mathbb{N}\), \(|v_n - \ell| \le |v_n - u_n|\).</li>
+        </ol>
+    </div>
+</section>
+</section>
+
+<!-- Arrêt de la conversion ici. La suite commence avec la section III sur les Comparaisons Asymptotiques. -->
         
     </section>
     
