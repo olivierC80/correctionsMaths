@@ -2603,6 +2603,2579 @@
     </section>
 </section>
 <!-- Fin du chapitre 4 -->
+
+
+<section id="chap5">
+    <div class="chapter-heading">
+        <span class="chapter-number">5</span>
+        <div class="chapter-title">
+            <h1>Fonctions continues sur un e.v.n.</h1>
+        </div>
+    </div>
+    
+    <p>Le but de ce chapitre est d’étendre la notion de continuité aux applications d’un e.v.n. dans un autre. Certains résultats d’analyse réelle se généralisent dans ce cadre : le théorème de Heine, le théorème des bornes atteintes (à juste titre aussi appelé théorème de compacité), et le théorème des valeurs intermédiaires, qui nécessite, pour sa généralisation, d’introduire la notion de connexité par arcs. Nous étudierons pour terminer la continuité des applications linéaires.</p>
+
+    <section id="chap5-secI">
+        <h2>I Limites dans un e.v.n.</h2>
+        <section id="chap5-secI.1">
+            <h3>I.1 Limites finies</h3>
+            <div class="box definition-box" id="def5.1.1">
+                <p><strong>Définition 5.1.1 – Limite finie en un point adhérent au domaine, définition métrique</strong></p>
+                <p>Soit \((E, \Vert \cdot \Vert_E)\) et \((F, \Vert \cdot \Vert_F)\) deux e.v.n., et \(A \subset E\) une partie de \(E\). Soit \(f : A \to F\), et \(a \in \overline{A}\), et \(b \in F\). On dit que \(f(x)\) tend vers \(b\) lorsque \(x\) tend vers \(a\) si :</p>
+                \[ \forall \varepsilon > 0, \exists \eta > 0, \forall x \in A, \Vert x - a \Vert_E \le \eta \implies \Vert f(x) - b \Vert_F \le \varepsilon. \]
+            </div>
+            
+            <div class="box remark-box" id="rem5.1.3">
+                <p><strong>Remarques 5.1.3</strong></p>
+                <ol>
+                    <li>L’hypothèse \(a \in \overline{A}\) est nécessaire pour pouvoir considérer des points aussi proches qu’on veut de \(a\).</li>
+                    <li>L’inégalité à obtenir est d’autant plus contraignante que \(\varepsilon\) est petit. On peut se contenter d’étudier le cas de valeurs de \(\varepsilon\) inférieures à une valeur \(\varepsilon_0\) donnée.</li>
+                    <li>On peut généraliser cette définition à des fonctions définies entre deux espaces métriques. La continuité en \(a\) s’exprime alors de la manière suivante :
+                    \[ \forall \varepsilon > 0, \exists \eta > 0, \forall x \in A, d_E(x, a) < \eta \implies d_F(f(x), b) < \varepsilon, \]
+                    où \(d_E\) et \(d_F\) sont les distances sur \(E\) et \(F\) respectivement.</li>
+                </ol>
+            </div>
+            
+            <div class="box proposition-box" id="prop5.1.5">
+                <p><strong>Proposition 5.1.5 – Limite en un point du domaine</strong></p>
+                <p>Si \(a \in A\), et si \(f(x)\) admet une limite en \(a\), alors cette limite est nécessairement égale à \(f(a)\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop5.1.6">
+                <p><strong>Proposition 5.1.6 – Réexpression de la définition métrique de la limite</strong></p>
+                <p>Soit \((E, \Vert \cdot \Vert_E)\) et \((F, \Vert \cdot \Vert_F)\) deux e.v.n., et \(A \subset E\) une partie de \(E\). Soit \(f : A \to F\), et \(a \in \overline{A}\), et \(b \in F\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(f(x)\) tend vers \(b\) lorsque \(x\) tend vers \(a\) ;</li>
+                    <li>\(\forall \varepsilon > 0, \exists \eta > 0, f(B(a, \eta)) \subset B(b, \varepsilon)\).</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="chap5-secI.2">
+            <h3>I.2 Limites infinies lorsque \(F = \mathbb{R}\)</h3>
+            <div class="box definition-box" id="def5.1.7">
+                <p><strong>Définition 5.1.7 – Limite infinie en un point adhérent au domaine, définition métrique</strong></p>
+                <p>Soit \((E, \Vert \cdot \Vert_E)\) un e.v.n., et \(A \subset E\) une partie de \(E\). Soit \(f : A \to \mathbb{R}\), et \(a \in \overline{A}\). On dit que :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(f(x)\) tend vers \(+\infty\) lorsque \(x\) tend vers \(a\) si :
+                    \[ \forall M \in \mathbb{R}, \exists \eta > 0, \forall x \in A, \Vert x - a \Vert_E \le \eta \implies f(x) \ge M; \]
+                    </li>
+                    <li>\(f(x)\) tend vers \(-\infty\) lorsque \(x\) tend vers \(a\) si :
+                    \[ \forall M \in \mathbb{R}, \exists \eta > 0, \forall x \in A, \Vert x - a \Vert_E \le \eta \implies f(x) \le M; \]
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="chap5-secI.3">
+            <h3>I.3 Limite en l’infini</h3>
+             <div class="box definition-box" id="def5.1.10">
+                <p><strong>Définition 5.1.10 – Limites en \(\pm\infty\) lorsque \(E = \mathbb{R}\)</strong></p>
+                <p>Soit \((F, \Vert \cdot \Vert_F)\) un e.v.n., et \(A \subset \mathbb{R}\) une partie non majorée de \(\mathbb{R}\). Soit \(f : A \to F\), et \(b \in F\). On dit que \(f(x)\) tend vers \(b\) lorsque \(x\) tend vers \(+\infty\) si :
+                \[ \forall \varepsilon > 0, \exists \lambda > 0, \forall x \in A, x \ge \lambda \implies \Vert f(x) - b \Vert_F < \varepsilon; \]
+                ou, de façon équivalente, si : \(\forall \varepsilon > 0, \exists \lambda > 0, f(]\lambda, +\infty[) \subset B(b, \varepsilon)\).</p>
+            </div>
+            <div class="box definition-box" id="def5.1.13">
+                <p><strong>Définition 5.1.13 – Limite lorsque \(\Vert x \Vert \to +\infty\)</strong></p>
+                <p>Soit \((E, \Vert \cdot \Vert_E)\) et \((F, \Vert \cdot \Vert_F)\) deux e.v.n., et \(A \subset E\) une partie de \(E\). Soit \(f : A \to F\). On suppose que \(A\) n’est pas borné. On dit que \(f(x)\) tend vers \(b \in F\) lorsque \(\Vert x \Vert\) tend vers \(+\infty\) si
+                \[ \forall \varepsilon > 0, \exists \lambda > 0, \forall x \in A, \Vert x \Vert_E > \lambda \implies \Vert f(x) - b \Vert_F \le \varepsilon. \]
+                On note parfois \(\lim_{x \to \infty} f(x) = b\).</p>
+            </div>
+        </section>
+
+        <section id="chap5-secI.4">
+            <h3>I.4 Limites : point de vue topologique</h3>
+            <p>On peut donner une définition globale à l’aide de la notion de voisinage.</p>
+             <div class="box definition-box" id="def5.1.17">
+                <p><strong>Définition 5.1.17 – Voisinage de \(+\infty\)</strong></p>
+                <p>Soit \(E = \overline{\mathbb{R}}\).</p>
+                <ul>
+                    <li>On convient d’appeler voisinage de \(+\infty\) un sous-ensemble \(V \subset \mathbb{R}\) tel qu’il existe \(\alpha \in \mathbb{R}\) tel que \(]\alpha, +\infty[ \subset V\).</li>
+                    <li>On note \(\mathcal{V}(+\infty)\) l’ensemble des voisinages de \(+\infty\).</li>
+                    <li>On définit de même \(\mathcal{V}(-\infty)\).</li>
+                </ul>
+            </div>
+             <div class="box definition-box" id="def5.1.18">
+                <p><strong>Définition 5.1.18 – Voisinage de \(\infty\)</strong></p>
+                <p>Soit \((E, \Vert \cdot \Vert_E)\) un e.v.n..</p>
+                <ul>
+                    <li>On convient d’appeler voisinage de \(\infty\) un sous-ensemble \(V \subset E\) tel qu’il existe \(\alpha \in \mathbb{R}\) tel que \(C_E \overline{B}(0, \alpha) \subset V\).</li>
+                    <li>On note \(\mathcal{V}(\infty)\) l’ensemble des voisinages de l’infini.</li>
+                </ul>
+            </div>
+
+            <div class="box theorem-box" id="th5.1.20">
+                <p><strong>Théorème 5.1.20 – Caractérisation topologique des limites</strong></p>
+                <p>Soit \((E, \Vert \cdot \Vert_E)\) et \((F, \Vert \cdot \Vert_F)\) deux e.v.n., \(A \subset E\) et \(f : A \to F\). Soit \(a \in \overline{A}\), ou \(a \in \{\infty, \pm\infty\}\), et \(b \in F\), ou \(b = \pm\infty\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(f(x)\) tend vers \(b\) lorsque \(x\) tend vers \(a\)</li>
+                    <li>\(\forall W \in \mathcal{V}(b), \exists U \in \mathcal{V}(a), f(U \cap A) \subset W\).</li>
+                </ol>
+            </div>
+            <div class="box theorem-box" id="th5.1.22">
+                <p><strong>Théorème 5.1.22 – Unicité de la limite</strong></p>
+                <p>La limite de \(f\) en \(a\), si elle existe, est unique. On la note \(\lim_{x \to a} f(x)\).</p>
+            </div>
+            <div class="box theorem-box" id="th5.1.24">
+                <p><strong>Théorème 5.1.24 – Caractérisation séquentielle</strong></p>
+                <p>Soit \((E, \Vert \cdot \Vert_E), (F, \Vert \cdot \Vert_F)\) deux e.v.n., \(A \subset E\) et \(a \in \overline{A}\) (éventuellement \(a = \infty\), ou \(\pm\infty\)), et \(b \in F\) ou \(b \in \overline{\mathbb{R}}\) (si \(F = \mathbb{R}\)). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(\lim_{x \to a} f(x) = b\)</li>
+                    <li>\(\forall (x_n) \in A^\mathbb{N}, (x_n \to a) \implies (f(x_n) \to b)\).</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="chap5-secI.5">
+            <h3>I.5 Opérations sur les limites</h3>
+            <div class="box theorem-box" id="th5.1.29">
+                <p><strong>Théorème 5.1.29 – Limite d’une CL</strong></p>
+                <p>Soit \((E, \Vert \cdot \Vert_E), (F, \Vert \cdot \Vert_F)\) deux e.v.n., \(A \subset E\) et \(a \in \overline{A}\). Soit \(f, g : A \to F\) et \(\lambda \in \mathbb{K}\). Si \(f\) et \(g\) admettent une limite en \(a\), alors \(\lambda f + g\) aussi, et</p>
+                \[ \lim_{x \to a} (\lambda f + g)(x) = \lambda \lim_{x \to a} f(x) + \lim_{x \to a} g(x). \]
+            </div>
+            
+            <div class="box theorem-box" id="th5.1.30">
+                <p><strong>Théorème 5.1.30 – Limite d’une composée</strong></p>
+                <p>Soit \((E, \Vert \cdot \Vert_E), (F, \Vert \cdot \Vert_F)\) et \((G, \Vert \cdot \Vert_G)\) trois e.v.n., \(A \subset E\) et \(B \subset F\), et \(f : A \to F\) et \(g : B \to G\) tels que \(f(A) \subset B\). Soit \(a \in \overline{A}\), tel que \(f\) admette une limite \(b\) en \(a\) et \(g\) admette une limite \(c\) en \(b\). Alors \(g \circ f\) admet une limite en \(a\), et</p>
+                \[ \lim_{x \to a} g \circ f(x) = \lim_{y \to b} g(y) = \lim_{y \to \lim_{x \to a} f(x)} g(y). \]
+            </div>
+            
+            <div class="box proposition-box" id="prop5.1.32">
+                <p><strong>Proposition 5.1.32 – Limite d’une fonction à valeurs dans un produit cartésien</strong></p>
+                <p>Soit \((E, \Vert \cdot \Vert_E)\) un e.v.n., et \((F_1, \Vert \cdot \Vert_{F_1}), \dots, (F_p, \Vert \cdot \Vert_{F_p})\) une famille finie d’e.v.n.. Soit \(f : A \to F_1 \times \dots \times F_p\) une application définie sur une partie de \(A\). On note, pour \(x \in A\), \(f(x) = (f_1(x), \dots, f_p(x))\).
+                <br>Soit \(a \in \overline{A}\) (ou éventuellement \(a = \pm\infty\) ou \(a = \infty\)). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(f(x) \xrightarrow{x \to a} b = (b_1, \dots, b_p)\) (pour la norme produit)</li>
+                    <li>\(\forall k \in \llbracket 1, p \rrbracket, f_k(x) \xrightarrow{x \to a} b_k\)</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="chap5-secI.6">
+            <h3>I.6 Limites partielles</h3>
+            <div class="box definition-box" id="def5.1.35">
+                <p><strong>Définition 5.1.35 – Limite de \(f\) selon \(X\)</strong></p>
+                <p>Soit \(E\) et \(F\) deux e.v.n. et \(A, X \subset E\) deux parties de \(E\). Soit \(f : A \to F\). Soit \(a \in \overline{A \cap X}\). La limite de \(f\) selon \(X\) est, si elle existe,</p>
+                \[ \lim_{\substack{x \to a \\ x \in X}} f(x) = \lim_{x \to a} f_{|X}. \]
+            </div>
+        </section>
+    </section>
+
+    <section id="chap5-secII">
+        <h2>II Continuité</h2>
+        <section id="chap5-secII.1">
+            <h3>II.1 Continuité en un point</h3>
+            <div class="box definition-box" id="def5.2.1">
+                <p><strong>Définition 5.2.1 – Continuité</strong></p>
+                <p>Soit \(f : A \to F\) et \(a \in A\). On dit que \(f\) est continue en \(a\) si \(f\) admet une limite (dans \(F\)) en \(a\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop5.2.3">
+                <p><strong>Proposition 5.2.3 – Réexpression métrique et topologique</strong></p>
+                <p>Soit \(f : A \to F\), et \(a \in A\). Les propriétés suivantes sont équivalentes :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(f\) est continue en \(a\) ;</li>
+                    <li>\(\forall \varepsilon > 0, \exists \eta > 0, \forall x \in A, \Vert x - a \Vert_E \le \eta \implies \Vert f(x) - f(a) \Vert_F \le \varepsilon\) ;</li>
+                    <li>pour tout \(W \in \mathcal{V}(f(a))\), il existe un voisinage \(V \in \mathcal{V}(a)\) tel que \(f(V \cap A) \subset W\).</li>
+                </ol>
+            </div>
+            
+            <div class="box proposition-box" id="prop5.2.10">
+                <p><strong>Proposition 5.2.10 – Caractérisation séquentielle de la continuité</strong></p>
+                <p>Soit \(f : A \to F\) une application définie sur une partie \(A\) d’un e.v.n. \(E\), et \(a \in A\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(f\) est continue en \(a\) ;</li>
+                    <li>pour tout \((u_n) \in A^\mathbb{N}\), \((u_n \to a) \implies (f(u_n) \to f(a))\).</li>
+                </ol>
+            </div>
+        </section>
+        <section id="chap5-secII.2">
+            <h3>II.2 Opérations sur les fonctions continues</h3>
+            <p>Les opérations sur les limites ont pour corollaire immédiat les opérations similaires sur les fonctions continues.</p>
+        </section>
+        
+        <section id="chap5-secII.3">
+            <h3>II.3 Continuité uniforme, fonctions lipschitziennes</h3>
+            <div class="box definition-box" id="def5.2.16">
+                <p><strong>Définition 5.2.16 – Continuité uniforme</strong></p>
+                <p>Soit \(f : A \to F\) une fonction définie sur une partie \(A\) d’un e.v.n. \(E\). Soit \(B \subset A\). On dit que \(f\) est uniformément continue sur \(B\) si</p>
+                \[ \forall \varepsilon > 0, \exists \eta > 0, \forall (x, y) \in B^2, \Vert x - y \Vert_E < \eta \implies \Vert f(x) - f(y) \Vert_F < \varepsilon. \]
+            </div>
+            
+            <div class="box definition-box" id="def5.2.19">
+                <p><strong>Définition 5.2.19 – Applications lipschitziennes</strong></p>
+                <p>Soit \(f : A \to F\) une application définie sur une partie \(A\) d’un e.v.n. \(E\). Soit \(B \subset A\). Soit \(k \in \mathbb{R}^+\).</p>
+                <ul>
+                    <li>On dit que \(f\) est k-lipschitzienne sur \(B\) si \(\forall (x, y) \in B^2, \Vert f(x) - f(y) \Vert_F \le k \Vert x - y \Vert_E\).</li>
+                    <li>On dit que \(f\) est lipschitzienne sur \(B\) s’il existe \(k \in \mathbb{R}^+\) tel que \(f\) soit k-lipschitzienne.</li>
+                </ul>
+            </div>
+            
+            <div class="box proposition-box" id="prop5.2.20">
+                <p><strong>Proposition 5.2.20 – Lipschitz implique u.c.</strong></p>
+                <p>Une application lipschitzienne sur \(B\) est uniformément continue sur \(B\).</p>
+            </div>
+        </section>
+        
+        <section id="chap5-secII.4">
+            <h3>II.4 Exemples importants de fonctions continues</h3>
+            <div class="box proposition-box" id="prop5.2.21">
+                <p><strong>Proposition 5.2.21 – Continuité de la norme</strong></p>
+                <p>Soit \((E, \Vert \cdot \Vert_E)\) un e.v.n.. L’application \(x \mapsto \Vert x \Vert_E\) de \(E\) dans \(\mathbb{K}\) est 1-lipschitzienne, donc uniformément continue sur \(E\).</p>
+            </div>
+        </section>
+        
+        <section id="chap5-secII.5">
+            <h3>II.5 Prolongements</h3>
+            <div class="box proposition-box" id="propdef5.2.27">
+                <p><strong>Proposition/Définition 5.2.27 – Prolongement par continuité</strong></p>
+                <p>Soit \(f : A \to F\) définie sur une partie \(A\) d’un e.v.n., et continue sur \(A\). Soit \(a \in \overline{A} \setminus A\) tel que \(f(x)\) admette une limite \(b \in F\) lorsque \(x\) tend vers \(a\). Alors il existe une unique fonction \(\tilde{f} : A \cup \{a\} \to F\), coïncidant avec \(f\) sur \(A\) et continue sur \(A \cup \{a\}\). Elle est définie par :</p>
+                \[ \tilde{f}(x) = \begin{cases} f(x) & \text{si } x \in A \\ \lim_{y \to a} f(y) & \text{si } x = a. \end{cases} \]
+                <p>La fonction \(\tilde{f}\) est appelée prolongement par continuité de \(f\) en \(a\).</p>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap5-secIII">
+        <h2>III Continuité et topologie</h2>
+        <section id="chap5-secIII.1">
+            <h3>III.1 Images réciproques d’ouverts et fermés</h3>
+            <div class="box theorem-box" id="th5.3.1">
+                <p><strong>Théorème 5.3.1 – Image réciproque d’un ouvert, d’un fermé</strong></p>
+                <p>Soit \(f : A \to F\) une application continue sur \(A\), partie d’un e.v.n. \(E\).</p>
+                <ol>
+                    <li>Pour tout \(U\) ouvert de \(F, f^{-1}(U)\) est un ouvert relatif de \(A\).</li>
+                    <li>Pour tout \(C\) fermé de \(F, f^{-1}(C)\) est un fermé relatif de \(A\).</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="chap5-secIII.2">
+            <h3>III.2 Fonction continue sur compact</h3>
+            <div class="box theorem-box" id="th5.3.6">
+                <p><strong>Théorème 5.3.6 – Théorème de compacité</strong></p>
+                <p>L’image par une fonction continue \(f : A \to F\) d’une partie compacte \(K \subset A\) est une partie compacte de \(F\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="cor5.3.7">
+                <p><strong>Corollaire 5.3.7 – Théorème des bornes atteintes</strong></p>
+                <p>Soit \(f : K \to \mathbb{R}\) continue sur une partie \(K\) compacte d’un e.v.n. \(E\). Alors \(f\) est bornée et atteint ses bornes.</p>
+            </div>
+            
+            <div class="box theorem-box" id="th5.3.10">
+                <p><strong>Théorème 5.3.10 – Heine</strong></p>
+                <p>Une fonction continue sur un compact \(K\) est uniformément continue sur \(K\).</p>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap5-secIV">
+        <h2>IV Connexité</h2>
+        <section id="chap5-secIV.1">
+            <h3>IV.1 Parties connexes par arcs</h3>
+            <div class="box definition-box" id="def5.4.1">
+                <p><strong>Définition 5.4.1 – Arc, ou chemin continu</strong></p>
+                <p>Soit \((E, \Vert \cdot \Vert_E)\) un e.v.n., et \((a, b) \in E^2\). Un arc continu (ou chemin continu) de \(a\) à \(b\) est une application continue \(\gamma : [0, 1] \to E\) telle que \(\gamma(0) = a\) et \(\gamma(1) = b\).</p>
+            </div>
+            
+            <div class="box definition-box" id="def5.4.4">
+                <p><strong>Définition 5.4.4 – Partie connexe par arcs</strong></p>
+                <p>Soit \(A\) une partie d’un e.v.n. \(E\). On dit que \(A\) est connexe par arcs si \(A\) ne possède qu’une seule composante connexe, donc si pour tout \((a, b) \in A^2\), il existe un arc continu \(\gamma\) reliant \(a\) à \(b\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop5.4.8">
+                <p><strong>Proposition 5.4.8 – Étoilé implique connexe</strong></p>
+                <p>Soit \(A\) une partie d’un e.v.n. \(E\).</p>
+                <ul>
+                    <li>Si \(A\) est étoilée, alors \(A\) est connexe par arcs.</li>
+                    <li>En particulier, toute partie convexe est connexe par arcs.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="chap5-secIV.2">
+            <h3>IV.2 Image continue d’une partie connexe par arcs</h3>
+            <div class="box theorem-box" id="th5.4.11">
+                <p><strong>Théorème 5.4.11 – Image continue d’un connexe par arcs</strong></p>
+                <p>Soit \(f : A \to F\) une fonction continue sur une partie connexe par arcs \(A\) de \(E\). Alors \(f(A)\) est aussi connexe par arcs.</p>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap5-secV">
+        <h2>V Continuité des applications linéaires</h2>
+        <div class="box theorem-box" id="th5.5.1">
+            <p><strong>Théorème 5.5.1 – Caractérisation de la continuité d’une AL</strong></p>
+            <p>Soit \((E, \Vert \cdot \Vert_E)\) et \((F, \Vert \cdot \Vert_F)\) deux e.v.n., et \(u \in \mathcal{L}(E, F)\). Les propriétés suivantes sont équivalentes.</p>
+            <ol style="list-style-type: lower-roman;">
+                <li>\(u\) est continue sur \(E\) ;</li>
+                <li>\(u\) est continue en \(0\) ;</li>
+                <li>il existe \(k \in \mathbb{R}^+\) tel que pour tout \(x \in E, \Vert u(x) \Vert_F \le k \Vert x \Vert_E\)</li>
+                <li>\(u(B(0, 1))\) est borné.</li>
+                <li>\(u(S(0, 1))\) est borné.</li>
+            </ol>
+        </div>
+        
+        <div class="box definition-box" id="def5.5.2">
+            <p><strong>Définition 5.5.2 – Norme subordonnée</strong></p>
+            <p>Soit \(u \in \mathcal{L}_c(E, F)\) une application linéaire continue. On définit</p>
+            \[ \Vert u \Vert = \sup_{x \in S(0,1)} \Vert u(x) \Vert_F = \sup_{x \in E \setminus \{0\}} \frac{\Vert u(x) \Vert_F}{\Vert x \Vert_E} \]
+            <p>On dit que \(\Vert u \Vert\) est la norme subordonnée (aux normes \(\Vert \cdot \Vert_E\) et \(\Vert \cdot \Vert_F\)) de l’application linéaire continue \(u\).</p>
+        </div>
+        
+        <div class="box proposition-box" id="prop5.5.4">
+            <p><strong>Proposition 5.5.4 – L’e.v.n. \(\mathcal{L}_c(E, F)\)</strong></p>
+            <p>Soit \(\mathcal{L}_c(E, F)\) l’ensemble des applications linéaires continues de \(E\) dans \(F\). Alors \(\mathcal{L}_c(E, F)\) est un \(\mathbb{K}\)-ev, et \(\Vert \cdot \Vert\) est une norme sur \(\mathcal{L}_c(E, F)\).</p>
+        </div>
+    </section>
+
+    <section id="chap5-secVI">
+        <h2>VI E.v.n. de dimension finie, et conséquences sur la continuité</h2>
+        <section id="chap5-secVI.1">
+            <h3>VI.1 Équivalence des normes</h3>
+            <div class="box theorem-box" id="th5.6.1">
+                <p><strong>Théorème 5.6.1 – Équivalence des normes en dimension finie</strong></p>
+                <p>Soit \(E\) un espace vectoriel de dimension finie. Toutes les normes définies sur \(E\) sont équivalentes</p>
+            </div>
+        </section>
+        
+        <section id="chap5-secVI.2">
+            <h3>VI.2 Conséquences topologiques</h3>
+            <div class="box theorem-box" id="th5.6.5">
+                <p><strong>Théorème 5.6.5 – Bolzano-Weierstrass en dimension finie</strong></p>
+                <p>Soit \((E, \Vert \cdot \Vert)\) un e.v.n. de dimension finie. Alors toute suite bornée de vecteurs de \(E\) admet une valeur d’adhérence.</p>
+            </div>
+            
+            <div class="box theorem-box" id="cor5.6.6">
+                <p><strong>Corollaire 5.6.6 – Caractérisation des compacts en dimension finie</strong></p>
+                <p>Soit \(E\) un e.v.n. de dimension finie, et \(K \subset E\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(K\) est compact ;</li>
+                    <li>\(K\) est fermé et borné.</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="chap5-secVI.3">
+            <h3>VI.3 Conséquences sur la continuité des applications linéaires</h3>
+            <div class="box theorem-box" id="th5.6.11">
+                <p><strong>Théorème 5.6.11 – Continuité des AL en dimension finie</strong></p>
+                <p>Soit \(E, F\) deux e.v.n.. Si \(E\) est de dimension finie, toute application linéaire \(u \in \mathcal{L}(E, F)\) est continue, donc \(\mathcal{L}_c(E, F) = \mathcal{L}(E, F)\).</p>
+            </div>
+        </section>
+        
+        <section id="chap5-secVI.4">
+            <h3>VI.4 Applications polynomiales</h3>
+            <div class="box definition-box" id="def5.6.16">
+                <p><strong>Définition 5.6.16 – Application polynomiale de n variables</strong></p>
+                <p>Soit \(A \subset \mathbb{K}^n\) et \(f : A \to \mathbb{K}\). On dit que \(f\) est une application polynomiale si \(f\) est une combinaison linéaire d’applications \((x_1, \dots, x_n) \mapsto x_1^{a_1} \dots x_n^{a_n}\), où \((a_1, \dots, a_n) \in \mathbb{N}^n\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop5.6.18">
+                <p><strong>Proposition 5.6.18</strong></p>
+                <p>Les applications polynomiales sont continues sur leur domaine de définition, et ceci indépendamment des normes choisies.</p>
+            </div>
+        </section>
+    </section>
+
+</section>
+<!-- Fin du chapitre 5 -->
+                    <section id="chap6">
+    <div class="chapter-heading">
+        <span class="chapter-number">6</span>
+        <div class="chapter-title">
+            <h1>Séries numériques et vectorielles</h1>
+            <h2>– rappels et compléments</h2>
+        </div>
+    </div>
+
+    <section id="chap6-secI">
+        <h2>I Rappels et compléments sur les séries numériques</h2>
+        <p>Toutes les séries de cette section sont à terme général dans \(\mathbb{K} = \mathbb{R}\) ou \(\mathbb{C}\).
+        On rappelle rapidement les définitions et propriétés principales.</p>
+        <section id="chap6-secI.1">
+            <h3>I.1 Convergences</h3>
+            <div class="box definition-box" id="def6.1.1">
+                <p><strong>Définition 6.1.1 – Convergence d’une série</strong></p>
+                <p>Soit \((u_n)\) une suite de réels ou complexes.</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>Les sommes partielles \(S_n\) de la série de terme général \(u_n\) sont :
+                    \[ \forall n \in \mathbb{N}, S_n = \sum_{k=0}^n u_k. \]
+                    </li>
+                    <li>On dit que la série \(\sum u_n\) de terme général \(u_n\) converge si la suite \((S_n)_{n \in \mathbb{N}}\) de ses sommes partielles admet une limite finie.</li>
+                    <li>On note alors
+                    \[ \sum_{n=0}^\infty u_n = \lim_{n \to \infty} S_n = \lim_{n \to \infty} \sum_{k=0}^n u_k. \]
+                    Cette quantité est appelée somme de la série de terme général \(u_n\).</li>
+                    <li>Une série non convergente est dite divergente.</li>
+                    <li>Si \(\sum_{n \in \mathbb{N}} u_n\) converge, on définit les restes de la série par
+                    \[ \forall n \in \mathbb{N}, R_n = \sum_{k=n+1}^\infty u_k = \sum_{k=0}^\infty u_k - S_n. \]
+                    </li>
+                </ol>
+            </div>
+
+            <div class="box proposition-box" id="propdef6.1.2">
+                <p><strong>Proposition/Définition 6.1.2 – Divergence grossière</strong></p>
+                <p>Si \((u_n)\) ne tend pas vers 0, alors \(\sum u_n\) diverge. On dit que la divergence est grossière.</p>
+            </div>
+
+            <div class="box avertissement-box" id="av6.1.3">
+                <p><strong>Avertissement 6.1.3 – Divergence non grossière</strong></p>
+                <p>La réciproque est fausse. Autrement dit, il existe des divergences non grossières, comme la série harmonique \(\sum \frac{1}{n}\).</p>
+            </div>
+
+            <div class="box theorem-box" id="th6.1.4">
+                <p><strong>Théorème 6.1.4 – Théorème de comparaison des séries à termes positifs, TCSTP</strong></p>
+                <p>Si pour tout \(n \in \mathbb{N}, 0 \le u_n \le v_n\) et \(\sum v_n\) est convergente, alors \(\sum u_n\) est convergente.</p>
+            </div>
+
+            <div class="box definition-box" id="def6.1.5">
+                <p><strong>Définition 6.1.5 – Convergence absolue</strong></p>
+                <p>On dit que \(\sum u_n\) converge absolument si \(\sum |u_n|\) converge.</p>
+            </div>
+
+            <div class="box theorem-box" id="th6.1.6">
+                <p><strong>Théorème 6.1.6 – CVA implique CV</strong></p>
+                <p>Toute série (réelle ou complexe) absolument convergente est convergente.</p>
+            </div>
+            
+        </section>
+        <section id="chap6-secI.2">
+            <h3>I.2 Comparaisons séries-intégrales</h3>
+            <div class="box theorem-box" id="lem6.1.8">
+                <p><strong>Lemme 6.1.8 – Caractérisation discrète de la convergence de \(\int_a^{+\infty} f(t) dt, f \ge 0\)</strong></p>
+                <p>Soit \(f\) une application positive, continue par morceaux sur \([a, +\infty[\), et \(n_0 \ge a\). L’intégrale \(\int_a^{+\infty} f(t) dt\) converge si et seulement si la série de terme général \(\left(\int_n^{n+1} f(t) dt\right)_{n \ge n_0}\) converge.</p>
+            </div>
+
+            <div class="box theorem-box" id="th6.1.9">
+                <p><strong>Théorème 6.1.9 – Théorème de comparaison entre série et intégrale</strong></p>
+                <p>Soit \(a \in \mathbb{R}^+\) et soit \(f : [a, +\infty[ \to \mathbb{R}\) une fonction décroissante continue par morceaux et positive. Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(\sum_{n \ge a} f(n)\) converge ;</li>
+                    <li>\(\int_a^{+\infty} f(t) dt\) converge ;</li>
+                    <li>\(f\) est intégrable sur \([a, +\infty[\).</li>
+                </ol>
+            </div>
+            
+            <div class="box theorem-box" id="th6.1.10">
+                <p><strong>Théorème 6.1.10 – Nature des séries de Riemann</strong></p>
+                <p>Soit \(\alpha \in \mathbb{R}\). La série de Riemann \(\sum_{n \ge 1} \frac{1}{n^\alpha}\) converge si et seulement si \(\alpha > 1\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th6.1.11">
+                <p><strong>Théorème 6.1.11 – Nature des séries de Bertrand, HP</strong></p>
+                <p>Soit \((\alpha, \beta) \in \mathbb{R}^2\). La série de Bertrand \(\sum_{n \ge 2} \frac{1}{n^\alpha (\ln n)^\beta}\) de paramètre \((\alpha, \beta)\) converge si et seulement si \((\alpha, \beta) > (1, 1)\) (pour l’ordre lexicographique).</p>
+            </div>
+            
+            <div class="box example-box" id="ex6.1.12">
+                <p><strong>Exemples 6.1.12</strong></p>
+                <ol>
+                    <li>Trouver un équivalent de \(\sum_{k=1}^n \frac{1}{k^\alpha}\) pour \(\alpha \le 1\), de \(\sum_{k=n+1}^\infty \frac{1}{k^\alpha}\) pour \(\alpha > 1\).</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="chap6-secI.3">
+            <h3>I.3 Théorèmes de comparaison pour la convergence absolue</h3>
+            <div class="box theorem-box" id="th6.1.13">
+                <p><strong>Théorème 6.1.13 – Théorème de comparaison des séries par \(o, O, \sim\)</strong></p>
+                <p>Soit \((u_n)\) et \((v_n)\) des suites réelles ou complexes.</p>
+                <ol>
+                    <li>Si \(u_n = O(v_n)\) (et a fortiori si \(u_n = o(v_n)\)), et si \(\sum v_n\) converge absolument, alors \(\sum u_n\) converge absolument.</li>
+                    <li>Si \(u_n \sim_{+\infty} v_n\) alors \(\sum u_n\) CVA si et seulement si \(\sum v_n\) CVA.</li>
+                </ol>
+            </div>
+
+            <div class="box proposition-box" id="prop6.1.15">
+                <p><strong>Proposition 6.1.15 – Règle de d’Alembert</strong></p>
+                <p>Soit \(\sum u_n\) une série réelle ou complexe telle que pour tout \(n \in \mathbb{N}, u_n \neq 0\). On suppose que \(\left|\frac{u_{n+1}}{u_n}\right| \to \ell \in \mathbb{R}^+\).</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>Si \(0 \le \ell < 1\), alors \(\sum u_n\) converge absolument.</li>
+                    <li>Si \(\ell > 1\), alors \(\sum u_n\) diverge grossièrement.</li>
+                    <li>Le cas \(\ell = 1\) est indéterminé.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="chap6-secI.4">
+            <h3>I.4 Semi-convergence</h3>
+            <div class="box definition-box" id="def6.1.18">
+                <p><strong>Définition 6.1.18 – Semi-convergence</strong></p>
+                <p>Une série semi-convergente est une série convergente, mais pas absolument convergente.</p>
+            </div>
+            <p>Le seul outil au programme est :</p>
+            <div class="box theorem-box" id="th6.1.19">
+                <p><strong>Théorème 6.1.19 – Critère spécial de convergence des séries alternées</strong></p>
+                <p>Soit \((a_n)\) une suite décroissante de limite nulle. Alors \(\sum (-1)^n a_n\) est appelée série alternée, et est convergente.</p>
+            </div>
+        </section>
+
+        <section id="chap6-secI.5">
+            <h3>I.5 Techniques asymptotiques</h3>
+            <div class="box theorem-box" id="th6.1.23">
+                <p><strong>Théorème 6.1.23 – Sommation des relations de comparaison</strong></p>
+                <p>Soit \(\sum u_n\) et \(\sum v_n\) deux séries numériques. On suppose que \(\sum v_n\) est à termes réels de signe constant (au moins àpcr).</p>
+                <ol>
+                    <li>Si \(\sum v_n\) converge,
+                        <ul>
+                            <li>si \(u_n = O(v_n)\), alors \(\sum u_n\) converge, et \(R_n(u) = O(R_n(v))\);</li>
+                            <li>si \(u_n = o(v_n)\), alors \(\sum u_n\) converge, et \(R_n(u) = o(R_n(v))\);</li>
+                            <li>si \(u_n \sim v_n\), alors \(\sum u_n\) converge, et \(R_n(u) \sim R_n(v)\);</li>
+                        </ul>
+                    </li>
+                    <li>Si \(\sum v_n\) diverge,
+                        <ul>
+                            <li>si \(u_n = O(v_n)\), alors \(S_n(u) = O(S_n(v))\);</li>
+                            <li>si \(u_n = o(v_n)\), alors \(S_n(u) = o(S_n(v))\);</li>
+                            <li>si \(u_n \sim v_n\), alors \(S_n(u) \sim S_n(v)\).</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+            
+            <div class="box theorem-box" id="cor6.1.24">
+                <p><strong>Corollaire 6.1.24 – Théorème de Cesàro</strong></p>
+                <p>Soit \(u_n \to \ell \in \mathbb{C}\) (ou \(\overline{\mathbb{R}}\) si \(u_n \in \mathbb{R}^\mathbb{N}\)). Alors la suite des moyennes a la même limite :</p>
+                \[ \frac{1}{n+1} \sum_{k=0}^n u_k \to \ell. \]
+            </div>
+        </section>
+    </section>
+
+    <section id="chap6-secII">
+        <h2>II Séries dans un e.v.n.</h2>
+        <section id="chap6-secII.1">
+            <h3>II.1 Définitions et propriétés générales</h3>
+            <div class="box definition-box" id="def6.2.1">
+                <p><strong>Définition 6.2.1 – Convergence d’une série dans un e.v.n.</strong></p>
+                <p>Soit \((E, \Vert \cdot \Vert)\) un e.v.n., et \((u_n)_{n \in \mathbb{N}} \in E^\mathbb{N}\). On dit que la série \(\sum u_n\) converge dans \(E\) si la suite des sommes partielles \(\sum_{k=0}^n u_k\) admet une limite \(S \in E\) (au sens de la norme \(\Vert \cdot \Vert\)). Le vecteur \(S\) est alors appelé somme de la série \(\sum u_n\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="propdef6.2.3">
+                <p><strong>Proposition/Définition 6.2.3 – Divergence grossière</strong></p>
+                <ol>
+                    <li>Soit \(\sum u_n\) une série convergente dans un e.v.n. \(E\). Alors \(u_n \to 0_E\).</li>
+                    <li>Par contraposée, une série dont le terme général ne tend pas vers 0 est divergente. On dit dans ce cas que la série est grossièrement divergente.</li>
+                </ol>
+            </div>
+            
+            <div class="box theorem-box" id="th6.2.6">
+                <p><strong>Théorème 6.2.6 – Lien suite-série</strong></p>
+                <p>Soit \(E\) un e.v.n. et \((u_n)_{n \in \mathbb{N}} \in E^\mathbb{N}\). La suite \((u_n)_{n \in \mathbb{N}}\) est de même nature que la série télescopique \(\sum (u_{n+1} - u_n)\).</p>
+            </div>
+        </section>
+
+        <section id="chap6-secII.2">
+            <h3>II.2 Séries à valeurs dans un e.v.n. de dimension finie</h3>
+            <p>Dans le cadre de la dimension finie, on peut souvent se ramener au cas de séries réelles positives, comme ce qu’on fait en étudiant la convergence absolue de séries numériques. On remarquera que dans ce cas, la propriété de convergence est indépendante du choix de la norme.</p>
+            <div class="box definition-box" id="def6.2.7">
+                <p><strong>Définition 6.2.7 – Convergence absolue, CVA</strong></p>
+                <p>Soit \((E, \Vert \cdot \Vert)\) un e.v.n. et \((u_n)_{n \in \mathbb{N}} \in E^\mathbb{N}\). On dit que \(\sum u_n\) converge absolument (ou normalement) si la série numérique \(\sum \Vert u_n \Vert\) est convergente.</p>
+            </div>
+            <p>Attention en revanche à l’hypothèse de finitude de la dimension dans le théorème suivant.</p>
+            <div class="box theorem-box" id="th6.2.8">
+                <p><strong>Théorème 6.2.8 – CVA implique CV</strong></p>
+                <p>Soit \(E\) un e.v.n. de dimension finie, et \((u_n)_{n \in \mathbb{N}} \in E^\mathbb{N}\). Si \(\sum u_n\) converge absolument, alors \(\sum u_n\) converge.</p>
+            </div>
+            
+            <div class="box definition-box" id="def6.2.10">
+                <p><strong>Définition 6.2.10 – Exponentielle matricielle</strong></p>
+                <p>Soit \(n \in \mathbb{N}^*\), et \(A \in M_n(\mathbb{K})\). On définit</p>
+                \[ \exp(A) = \sum_{n=0}^\infty \frac{A^n}{n!}. \]
+                <p>De même, si \(E\) est un e.v.n. de dimension finie, on définit, pour \(u \in \mathcal{L}(E)\) :</p>
+                \[ \exp(u) = \sum_{n=0}^\infty \frac{u^n}{n!}. \]
+            </div>
+            <p>L’exponentielle matricielle est notamment l’outil adéquat pour la résolution des systèmes différentiels, généralisant ainsi la résolution connue en dimension 1. Nous étudierons plus en détail les propriétés de l’exponentielle matricielle dans un chapitre ultérieur.</p>
+        </section>
+    </section>
+</section>
+<!-- Fin du chapitre 6 -->
+                    <section id="chap7">
+    <div class="chapter-heading">
+        <span class="chapter-number">7</span>
+        <div class="chapter-title">
+            <h1>Structures algébriques</h1>
+        </div>
+    </div>
+    
+    <p>Ce chapitre a pour but de compléter l’étude des structures algébriques vues en MPSI, en approfondissant notamment les propriétés combinatoires, algébriques et arithmétiques.</p>
+
+    <section id="chap7-secI">
+        <h2>I Groupes</h2>
+        <section id="chap7-secI.1">
+            <h3>I.1 Rappels</h3>
+            <div class="box definition-box" id="def7.1.1">
+                <p><strong>Définition 7.1.1 – Groupe</strong></p>
+                <p>On rappelle qu’un groupe \(G\) est un ensemble muni d’une loi de composition interne \(\star\) telle que :</p>
+                <ul>
+                    <li>\(\star\) est associative ;</li>
+                    <li>il existe un élément neutre \(e\) pour la loi \(\star\) ;</li>
+                    <li>tout élément \(x\) admet un symétrique \(x'\).</li>
+                </ul>
+                <p>Le neutre est alors unique, ainsi que le symétrique d’un élément \(x\) donné.</p>
+            </div>
+            
+            <div class="box definition-box" id="def7.1.2">
+                <p><strong>Définition 7.1.2 – Groupe abélien ou commutatif</strong></p>
+                <p>On dit qu’un groupe \((G, \star)\) est abélien (ou commutatif) si la loi de \(G\) est commutative.</p>
+            </div>
+            
+            <div class="box definition-box" id="def7.1.4">
+                <p><strong>Définition 7.1.4 – Homomorphisme de groupes</strong></p>
+                <p>Soit \((G, \star)\) et \((H, \bullet)\) deux groupes.</p>
+                <ul>
+                    <li>On dit qu’une application \(f : G \to H\) est un homomorphisme de groupes (ou plus simplement morphisme de groupes) si pour tout \((x, y) \in G^2, f(x \star y) = f(x) \bullet f(y)\).</li>
+                    <li>On note \(\text{Hom}(G, H)\) l’ensemble des homomorphismes de \(G\) dans \(H\).</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="chap7-secI.2">
+            <h3>I.2 Sous-groupes</h3>
+            <div class="box definition-box" id="def7.1.8">
+                <p><strong>Définition 7.1.8 – Sous-groupe</strong></p>
+                <p>Soit \((G, \star)\) un groupe. Un sous-ensemble \(H\) de \(G\) est appelé sous-groupe de \(G\) si \(H\) est stable pour la loi de \(G\) et si la loi induite définit sur \(H\) une structure de groupe.</p>
+            </div>
+            
+            <div class="box theorem-box" id="th7.1.10">
+                <p><strong>Théorème 7.1.10 – Caractérisation des sous-groupes, version condensée</strong></p>
+                <p>Un sous-ensemble \(H\) d’un groupe \((G, \star)\) (de neutre \(e_G\)) est un sous-groupe de \(G\) si et seulement si :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(H\) est non vide,</li>
+                    <li>\(\forall (x, y) \in H^2, x \star y' \in H\).</li>
+                </ol>
+            </div>
+            
+            <div class="box proposition-box" id="prop7.1.11">
+                <p><strong>Proposition 7.1.11 – Image directe et réciproque de sous-groupes par un homomorphisme</strong></p>
+                <p>Soit \(G\) et \(H\) deux groupes, et soit \(f \in \text{Hom}(G, H)\) un morphisme de groupes.</p>
+                <ol>
+                    <li>Soit \(G'\) un sous-groupe de \(G\). Alors \(f(G')\) est un sous-groupe de \(H\).</li>
+                    <li>Soit \(H'\) un sous-groupe de \(H\). Alors \(f^{-1}(H')\) est un sous-groupe de \(G\).</li>
+                </ol>
+            </div>
+            
+            <div class="box definition-box" id="def7.1.12">
+                <p><strong>Définition 7.1.12 – Noyau</strong></p>
+                <p>Soit \(G\) et \(H\) deux groupes et \(f \in \text{Hom}(G, H)\) un morphisme de groupes. Le noyau de \(f\) est le sous-groupe de \(G\) défini par :</p>
+                \[ \text{Ker}(f) = f^{-1}(\{e_H\}) = \{y \in G \mid f(y) = e_H\}. \]
+            </div>
+            
+            <div class="box theorem-box" id="th7.1.13">
+                <p><strong>Théorème 7.1.13 – Caractérisation de l’injectivité</strong></p>
+                <p>Soit \(f \in \text{Hom}(G, H)\). Le morphisme \(f\) est injectif si et seulement si \(\text{Ker}(f) = \{e_G\}\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="propdef7.1.15">
+                <p><strong>Proposition/Définition 7.1.15 – Sous-groupe engendré par une partie</strong></p>
+                <p>Soit \((G, \cdot)\) un groupe, et \(X\) une partie de \(G\). Le sous-groupe \(\langle X \rangle\) de \(G\) engendré par \(X\) est le plus petit sous-groupe de \(G\) contenant \(X\). Ce sous-groupe est défini explicitement par</p>
+                \[ \langle X \rangle = \bigcap_{X \subset H} H, \]
+                <p>l’intersection étant prise sur tous les sous-groupes \(H\) de \(G\).</p>
+            </div>
+        </section>
+
+        <section id="chap7-secI.3">
+            <h3>I.3 Le groupe \((\mathbb{Z}/n\mathbb{Z}, +)\)</h3>
+            <p>Soit \(n \in \mathbb{N}^*\).</p>
+            <div class="box definition-box" id="def7.1.19">
+                <p><strong>Définition 7.1.19 – Classe de congruence, représentant</strong></p>
+                <ul>
+                    <li>Pour \(a \in \mathbb{Z}\), on note \(\bar{a}\) la classe de congruence de \(a\) modulo \(n\), c’est-à-dire la classe d’équivalence de \(a\) pour la relation de congruence modulo \(n\).</li>
+                    <li>Explicitement, \(\bar{a} = a + n\mathbb{Z}\).</li>
+                    <li>Étant donné \(c\) une classe de congruence, tout élément \(a \in c\) est appelé représentant de la classe \(c\). On a alors \(c = \bar{a}\).</li>
+                </ul>
+            </div>
+            
+            <div class="box proposition-box" id="prop7.1.22">
+                <p><strong>Proposition 7.1.22 – Le groupe \((\mathbb{Z}/n\mathbb{Z}, +)\)</strong></p>
+                <ul>
+                    <li>\((\mathbb{Z}/n\mathbb{Z}, +)\) est un groupe abélien d’ordre \(n\).</li>
+                    <li>L’application \(\pi : \mathbb{Z} \to \mathbb{Z}/n\mathbb{Z}\) définie par \(\pi(a) = \bar{a}\) est un morphisme de groupe, et \(\text{Ker}(\pi) = n\mathbb{Z}\).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="chap7-secI.4">
+            <h3>I.4 Groupes monogènes</h3>
+            <div class="box definition-box" id="def7.1.26">
+                <p><strong>Définition 7.1.26 – Groupe monogène</strong></p>
+                <ol>
+                    <li>Un groupe \(G\) est monogène s’il existe \(x \in G\) tel que \(G = \langle x \rangle\).</li>
+                    <li>Si \(G\) est fini et monogène, on dit que \(G\) est un groupe cyclique.</li>
+                    <li>Un générateur d’un groupe monogène est un élément \(x\) tel que \(G = \langle x \rangle\).</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="chap7-secI.5">
+            <h3>I.5 Ordre d’un élément</h3>
+            <div class="box definition-box" id="def7.1.30">
+                <p><strong>Définition 7.1.30 – Ordre d’un élément</strong></p>
+                <p>Soit \((G, \cdot)\) un groupe, de neutre \(e\), et \(x \in G\). L’ordre de \(x\) est</p>
+                <ul>
+                    <li>\(\text{ord}(x) = +\infty\) si pour tout \(n \in \mathbb{N}^*, x^n \neq e\) ;</li>
+                    <li>\(\text{ord}(x) = \min\{n \in \mathbb{N}^* \mid x^n = e\}\) sinon.</li>
+                </ul>
+                <p>On dit que \(x\) admet un ordre fini si \(\text{ord}(x) \neq +\infty\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop7.1.33">
+                <p><strong>Proposition 7.1.33 – Description de \(\text{ord}(x)\) par le groupe engendré</strong></p>
+                <p>Soit \((G, \cdot)\) un groupe, et \(x \in G\). Alors \(\text{ord}(x) = |\langle x \rangle|\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th7.1.36">
+                <p><strong>Théorème 7.1.36 – Lagrange, admis sauf dans le cas abélien</strong></p>
+                <p>Soit \(G\) un groupe fini, et \(x \in G\). Alors \(\text{ord}(x)\) divise \(\text{Card}(G)\).</p>
+            </div>
+        </section>
+
+        <section id="chap7-secI.6">
+            <h3>I.6 Un deuxième théorème de Lagrange, HP</h3>
+             <div class="box theorem-box" id="th7.1.40">
+                <p><strong>Théorème 7.1.40 – Lagrange pour les sous-groupes</strong></p>
+                <p>Soit \(G\) un groupe fini et \(H\) un sous-groupe de \(G\). Alors l’ordre de \(H\) divise l’ordre de \(G\).</p>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap7-secII">
+        <h2>II Anneaux et idéaux</h2>
+        <section id="chap7-secII.1">
+            <h3>II.1 Rappels</h3>
+            <div class="box definition-box" id="def7.2.1">
+                <p><strong>Définition 7.2.1 – Anneau</strong></p>
+                <p>\((A, +, \times)\) (ou plus simplement \(A\)) est un anneau si :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\((A, +)\) est un groupe abélien ; le neutre est noté \(0_A\) ou 0 ;</li>
+                    <li>\(\times\) est associative, et admet un neutre \(1_A\) ;</li>
+                    <li>\(\times\) est distributive sur \(+\).</li>
+                </ol>
+            </div>
+            <div class="box definition-box" id="def7.2.2">
+                <p><strong>Définition 7.2.2 – Corps</strong></p>
+                <p>\((\mathbb{K}, +, \times)\) est un corps si c’est un anneau commutatif, tel que tout \(x \neq 0\) de \(\mathbb{K}\) admet un inverse pour \(\times\).</p>
+            </div>
+        </section>
+        
+        <section id="chap7-secII.2">
+            <h3>II.2 Idéaux</h3>
+            <div class="box definition-box" id="def7.2.14">
+                <p><strong>Définition 7.2.14 – Idéal d’un anneau commutatif</strong></p>
+                <p>Soit \(A\) un anneau commutatif. Un idéal de \(A\) est une partie \(I \subset A\) telle que :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(I\) est un sous-groupe de \((A, +)\)</li>
+                    <li>\(I\) est fortement stable par produit : \(A \cdot I \subset I\), c’est-à-dire : \(\forall a \in A, \forall x \in I, ax \in I\).</li>
+                </ol>
+            </div>
+             <div class="box definition-box" id="def7.2.17">
+                <p><strong>Définition 7.2.17 – Idéal principal</strong></p>
+                <p>Soit \(A\) un anneau commutatif et \(I\) un idéal de \(A\). On dit que \(I\) est un idéal principal, s’il existe \(x\) tel que \(I = xA\).</p>
+            </div>
+        </section>
+        
+        <section id="chap7-secII.3">
+            <h3>II.3 Idéaux de \(\mathbb{Z}\) et arithmétique</h3>
+            <div class="box theorem-box" id="th7.2.23">
+                <p><strong>Théorème 7.2.23 – Les idéaux de \(\mathbb{Z}\)</strong></p>
+                <p>\(\mathbb{Z}\) est un anneau principal, dont les idéaux sont exactement les \(a\mathbb{Z}\), \(a \in \mathbb{N}\).</p>
+            </div>
+            
+            <div class="box definition-box" id="def7.2.24">
+                <p><strong>Définition 7.2.24 – (Re)définition du pgcd d’un nombre fini d’entiers</strong></p>
+                <p>Soit \(n \ge 2\) et \(a_1, \dots, a_n\) des entiers naturels, non tous nuls, et \(m\) un entier naturel. Le pgcd \(m = a_1 \wedge a_2 \wedge \dots \wedge a_n\) de \(a_1, \dots, a_n\) est l’unique entier positif engendrant l’idéal \(a_1\mathbb{Z} + a_2\mathbb{Z} + \dots + a_n\mathbb{Z}\).</p>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap7-secIII">
+        <h2>III Anneau \(\mathbb{Z}/n\mathbb{Z}\)</h2>
+        <section id="chap7-secIII.1">
+            <h3>III.1 Propriétés d’inversibilité</h3>
+            <p>Nous avons déjà justifié plus haut, au cours d’un exemple que \((\mathbb{Z}/n\mathbb{Z}, +, \times)\) est un anneau commutatif.</p>
+            <div class="box proposition-box" id="prop7.3.1">
+                <p><strong>Proposition 7.3.1 – Inversibles de \(\mathbb{Z}/n\mathbb{Z}\)</strong></p>
+                <p>Soit \(n \in \mathbb{N}^*\) et \(\bar{k} \in \mathbb{Z}/n\mathbb{Z}\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(\bar{k}\) est inversible ;</li>
+                    <li>il existe \(u\) et \(v\) dans \(\mathbb{Z}\) tels que \(uk + vn = 1\) ;</li>
+                    <li>\(k \wedge n = 1\)</li>
+                </ol>
+            </div>
+            
+            <div class="box theorem-box" id="cor7.3.3">
+                <p><strong>Corollaire 7.3.3 – Le corps \(\mathbb{F}_p\)</strong></p>
+                <p>En particulier, pour \(p \in \mathbb{N}^*, (\mathbb{Z}/p\mathbb{Z}, +, \times)\) est un corps si et seulement si \(p\) est premier. Ce corps est noté \(\mathbb{F}_p\).</p>
+            </div>
+        </section>
+
+        <section id="chap7-secIII.2">
+            <h3>III.2 Théorème chinois, et systèmes de congruences</h3>
+            <div class="box theorem-box" id="th7.3.5">
+                <p><strong>Théorème 7.3.5 – Théorème chinois</strong></p>
+                <p>Soit \(m\) et \(n\) dans \(\mathbb{N}^*\), tels que \(m \wedge n = 1\). L’application \(\varphi : \mathbb{Z}/mn\mathbb{Z} \to \mathbb{Z}/m\mathbb{Z} \times \mathbb{Z}/n\mathbb{Z}\) définie par \(\varphi(\bar{k}) = (\tilde{k}, \hat{k})\) est bien définie, et est un isomorphisme d’anneaux.</p>
+            </div>
+        </section>
+
+        <section id="chap7-secIII.3">
+            <h3>III.3 L’indicatrice d’Euler</h3>
+            <div class="box definition-box" id="def7.3.11">
+                <p><strong>Définition 7.3.11 – Indicatrice d’Euler \(\varphi\)</strong></p>
+                <p>Soit \(n \in \mathbb{N}^*\). L’indicatrice d’Euler est définie par</p>
+                \[ \varphi(n) = \text{Card}(\{k \in \llbracket 1, n \rrbracket, k \wedge n = 1\}). \]
+            </div>
+            
+            <div class="box theorem-box" id="th7.3.13">
+                <p><strong>Théorème 7.3.13 – Théorème d’Euler</strong></p>
+                <p>Soit \((x, n) \in \mathbb{Z} \times \mathbb{N}^*\) tels que \(n \wedge x = 1\). Alors \(x^{\varphi(n)} \equiv 1 \pmod{n}\).</p>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap7-secIV">
+        <h2>IV Arithmétique dans l’anneau \(\mathbb{K}[X]\)</h2>
+        <section id="chap7-secIV.1">
+            <h3>IV.1 Idéaux de \(\mathbb{K}[X]\)</h3>
+            <div class="box theorem-box" id="th7.4.1">
+                <p><strong>Théorème 7.4.1 – Description des idéaux de \(\mathbb{K}[X]\)</strong></p>
+                <p>Soit \(\mathbb{K}\) un corps. Alors :</p>
+                <ol>
+                    <li>\(\mathbb{K}[X]\) est un anneau principal.</li>
+                    <li>De plus, deux polynômes \(P\) et \(Q\) engendrent le même idéal si et seulement s’il existe un \(\lambda \in \mathbb{K}^*\) tel que \(Q = \lambda P\).</li>
+                    <li>En particulier, tout idéal non nul \(I\) de \(\mathbb{K}[X]\) s’écrit de manière unique sous la forme \(I = P \cdot \mathbb{K}[X]\), où \(P\) est un polynôme unitaire.</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="chap7-secIV.2">
+            <h3>IV.2 Décomposition en facteurs irréductibles</h3>
+            <div class="box definition-box" id="def7.4.6">
+                <p><strong>Définition 7.4.6 – Polynôme irréductible</strong></p>
+                <p>Un polynôme non constant \(P\) de \(\mathbb{K}[X]\) est irréductible si et seulement s’il n’est, à une constante multiplicative non nulle près, divisible que par lui-même et par 1.</p>
+            </div>
+
+            <div class="box theorem-box" id="th7.4.8">
+                <p><strong>Théorème 7.4.8 – Polynômes irréductibles de \(\mathbb{C}[X]\) et \(\mathbb{R}[X]\)</strong></p>
+                <ol>
+                    <li>Les polynômes irréductibles de \(\mathbb{C}[X]\) sont exactement les polynômes de degré 1 (théorème de d’Alembert-Gauss).</li>
+                    <li>Les polynômes irréductibles de \(\mathbb{R}[X]\) sont les polynômes de degré 1 et les polynômes de degré 2 à discriminant strictement négatif.</li>
+                </ol>
+            </div>
+
+            <div class="box theorem-box" id="th7.4.11">
+                <p><strong>Théorème 7.4.11 – Décomposition en facteurs irréductibles</strong></p>
+                <p>Soit \(P\) un polynôme non nul de \(\mathbb{K}[X]\). Il existe un unique élément \(\lambda \in \mathbb{K}^*\) et des polynômes irréductibles unitaires \(P_1, \dots, P_k\), uniques à permutation près, tels que</p>
+                \[ P = \lambda P_1 \dots P_k. \]
+            </div>
+        </section>
+    </section>
+</section>
+<!-- Fin du chapitre 7 -->
+                    <section id="chap8">
+    <div class="chapter-heading">
+        <span class="chapter-number">8</span>
+        <div class="chapter-title">
+            <h1>Compléments d’algèbre linéaire</h1>
+        </div>
+    </div>
+    
+    <p>On admet que toute l’algèbre linéaire vue en MPSI reste valide lorsque \(\mathbb{K}\), le corps de base, est un corps quelconque. En particulier, les coefficients peuvent, par exemple, être pris sur \(\mathbb{K} = \mathbb{F}_p, p \in \mathbb{P}\). Cependant, lorsque des polynômes interviendront, il convient de faire un peu plus attention, car des choses particulières peuvent se produire. Par exemple, les règles sur les degrés peuvent ne pas être les mêmes. Dans \(\mathbb{F}_p[X]\), la dérivée de \(X^p\) n’est pas de degré \(p-1\). Pour éviter ce type de problème, dès lors que des polynômes interviendront dans notre étude, nous supposerons que \(\mathbb{K}\) est un sous-corps de \(\mathbb{C}\).</p>
+
+    <section id="chap8-secI">
+        <h2>I Sommes directes et blocs</h2>
+        <section id="chap8-secI.1">
+            <h3>I.1 Somme directe de n sous-espaces vectoriels</h3>
+            <div class="box definition-box" id="def8.1.1">
+                <p><strong>Définition 8.1.1 – Somme d’un nombre fini de sous-espaces</strong></p>
+                <p>Soit \(n \ge 1\), et \(F_1, \dots, F_n\) des sous-espaces vectoriels de \(E\). On définit</p>
+                \[ \sum_{i=1}^n F_i = F_1 + \dots + F_n = \left\{ \sum_{i=1}^n x_i \mid x_1 \in F_1, \dots, x_n \in F_n \right\}. \]
+            </div>
+
+            <div class="box proposition-box" id="propdef8.1.3">
+                <p><strong>Proposition/Définition 8.1.3 – Somme directe</strong></p>
+                <p>Soit \(F_1, \dots, F_n\) des sev de \(E\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>Pour tout \(x \in F_1 + \dots + F_n\), il existe un unique n-uplet \((x_1, \dots, x_n) \in F_1 \times \dots \times F_n\) tel que \(x = x_1 + \dots + x_n\).</li>
+                    <li>Pour tout \((x_1, \dots, x_n) \in F_1 \times \dots \times F_n\), tel que \((x_1, \dots, x_n) \neq (0, \dots, 0)\), \(x_1 + \dots + x_n \neq 0\).</li>
+                    <li>Pour tout \(i \in \llbracket 1, n \rrbracket, F_i \cap \sum_{j \in \llbracket 1, n \rrbracket \setminus \{i\}} F_j = \{0\}\).</li>
+                    <li>Pour tout \(i \in \llbracket 2, n \rrbracket, F_i \cap \sum_{j=1}^{i-1} F_j = \{0\}\).</li>
+                </ol>
+                <p>Dans ce cas, on dit que la somme \(F_1 + \dots + F_n\) est directe, et pour indiquer cette propriété, on note :</p>
+                \[ F_1 + \dots + F_n = F_1 \oplus \dots \oplus F_n = \bigoplus_{i=1}^n F_i \]
+            </div>
+            
+            <div class="box proposition-box" id="prop8.1.6">
+                <p><strong>Proposition 8.1.6 – Dimension d’une somme</strong></p>
+                <p>Soit \(F_1, \dots, F_n\) des sous-espaces de dimension finie de \(E\). Alors :</p>
+                <ol>
+                    <li>\(F_1 + \dots + F_n\) est aussi de dimension finie ;</li>
+                    <li>\(\dim(F_1 + \dots + F_n) \le \sum_{i=1}^n \dim(F_i)\);</li>
+                    <li>si la somme est directe, \(\dim\left(\bigoplus_{i=1}^n F_i\right) = \sum_{i=1}^n \dim(F_i)\).</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="chap8-secI.2">
+            <h3>I.2 Détermination d’une application linéaire</h3>
+            <div class="box proposition-box" id="prop8.1.10">
+                <p><strong>Proposition 8.1.10 – Détermination d’une AL sur une décomposition en somme directe</strong></p>
+                <p>Soit \(E\) et \(F\) deux \(\mathbb{K}\)-ev. Soit \(E = \bigoplus_{j=1}^n E_j\) une décomposition de \(E\) en somme directe, et pour tout \(j \in \llbracket 1, n \rrbracket, u_j \in \mathcal{L}(E_j, F)\). Alors il existe une et une seule application linéaire \(u \in \mathcal{L}(E, F)\) telle que pour tout \(j \in \llbracket 1, n \rrbracket, u_{|E_j} = u_j\).</p>
+            </div>
+        </section>
+
+        <section id="chap8-secI.3">
+            <h3>I.3 Calcul matriciel par blocs</h3>
+            <p>Les descriptions précédentes vont permettre d’établir assez facilement les règles de calcul matriciel par blocs.</p>
+            <div class="box theorem-box" id="th8.1.18">
+                <p><strong>Théorème 8.1.18 – Produit matriciel par blocs</strong></p>
+                <p>Soit \(A \in M_{q,r}(\mathbb{K})\) et \(B \in M_{r,s}(\mathbb{K})\) deux matrices, munies de découpages par blocs
+                \[ A = (A_{i,j})_{(i,j) \in \llbracket 1,m \rrbracket \times \llbracket 1,n \rrbracket} \quad \text{et} \quad B = (B_{j,k})_{(j,k) \in \llbracket 1,n \rrbracket \times \llbracket 1,p \rrbracket}. \]
+                de tailles compatibles. Alors le produit \(AB\) peut se calculer par blocs :
+                \[ AB = \left( \sum_{j=1}^n A_{i,j} B_{j,k} \right)_{(i,k) \in \llbracket 1,m \rrbracket \times \llbracket 1,p \rrbracket}. \]
+                </p>
+            </div>
+        </section>
+
+        <section id="chap8-secI.4">
+            <h3>I.4 Déterminants par blocs</h3>
+            <p>Le but de ce paragraphe est de donner quelques outils supplémentaires sur le calcul des déterminants, notamment lorsqu’on dispose d’un découpage par blocs de la matrice.</p>
+            <div class="box theorem-box" id="th8.1.25">
+                <p><strong>Théorème 8.1.25 – Déterminant d’une matrice triangulaire par blocs</strong></p>
+                <p>Soit \(T\) une matrice triangulaire par blocs, c’est-à-dire de la forme</p>
+                \[ T = \begin{pmatrix} A_1 & \star & \dots & \star \\ 0 & \ddots & \ddots & \vdots \\ \vdots & \ddots & \ddots & \star \\ 0 & \dots & 0 & A_k \end{pmatrix} \]
+                <p>où les \(A_k\) sont des matrices carrées. Alors</p>
+                \[ \det(T) = \det(A_1) \dots \det(A_k). \]
+            </div>
+        </section>
+    </section>
+
+    <section id="chap8-secII">
+        <h2>II Algèbres</h2>
+        <section id="chap8-secII.1">
+            <h3>II.1 Définitions générales</h3>
+            <div class="box definition-box" id="def8.2.1">
+                <p><strong>Définition 8.2.1 – Algèbre</strong></p>
+                <p>Soit \((A, +, \cdot, \times)\) un ensemble muni de 2 l.c.i. \(+\) et \(\times\) et d’une l.c.e. \(\cdot\) sur le corps \(\mathbb{K}\). On dit que \(A\) est une algèbre sur \(\mathbb{K}\) si :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\((A, +, \cdot)\) est un espace vectoriel sur \(\mathbb{K}\)</li>
+                    <li>\((A, +, \times)\) est un anneau</li>
+                    <li>Pour tout \((\lambda, x, y) \in \mathbb{K} \times A \times A, (\lambda \cdot x) \times y = \lambda \cdot (x \times y) = x \times (\lambda \cdot y)\).</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="chap8-secII.2">
+            <h3>II.2 Spécialisation d’un polynôme</h3>
+            <div class="box definition-box" id="def8.2.11">
+                <p><strong>Définition 8.2.11 – Spécialisation d’un polynôme sur une algèbre</strong></p>
+                <p>Soit \(A\) une \(\mathbb{K}\)-algèbre, et soit \(P \in \mathbb{K}[X]\), décrit par \(P = \sum_{k=0}^d a_k X^k\). La spécialisation de \(P\) en \(x \in A\) est définie par</p>
+                \[ P(x) = \sum_{k=0}^d a_k x^k. \]
+            </div>
+            
+            <div class="box proposition-box" id="prop8.2.14">
+                <p><strong>Proposition 8.2.14 – Morphisme de spécialisation</strong></p>
+                <p>Pour \(x \in A\), l’application \(S_x : \mathbb{K}[X] \to A\) définie par \(S_x(P) = P(x)\) est un morphisme d’algèbre.</p>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap8-secIII">
+        <h2>III Polynômes d’endomorphismes</h2>
+        <section id="chap8-secIII.1">
+            <h3>III.1 Polynômes annulateurs et polynôme minimal</h3>
+            <p>On rappelle que pour \(E\) un \(\mathbb{K}\)-espace vectoriel et \(u \in \mathcal{L}(E)\), l’application \(S_u : \mathbb{K}[X] \to \mathcal{L}(E)\) est un morphisme d’algèbre. En particulier, c’est un morphisme d’anneaux. On en déduit la structure de son noyau.</p>
+            
+            <div class="box proposition-box" id="propdef8.3.1">
+                <p><strong>Proposition/Définition 8.3.1 – Idéal des polynômes annulateurs</strong></p>
+                <ul>
+                    <li>Le noyau \(\text{Ker}(S_u)\) de \(S_u : P \mapsto P(u)\) est un idéal, constitué de tous les polynômes \(P \in \mathbb{K}[X]\) tels que \(P(u) = 0_{\mathcal{L}(E)}\).</li>
+                    <li>Un polynôme vérifiant \(P(u) = 0_{\mathcal{L}(E)}\) est appelé polynôme annulateur de \(u\).</li>
+                </ul>
+            </div>
+            
+            <div class="box proposition-box" id="prop8.3.2">
+                <p><strong>Proposition 8.3.2 – Existence d’un polynôme annulateur non nul en dimension finie</strong></p>
+                <p>Soit \(E\) un \(\mathbb{K}\)-espace vectoriel de dimension finie, et \(u \in \mathcal{L}(E)\). Alors \(u\) admet au moins un polynôme annulateur non nul.</p>
+            </div>
+            
+            <div class="box definition-box" id="def8.3.3">
+                <p><strong>Définition 8.3.3 – Polynôme minimal</strong></p>
+                <p>Le polynôme minimal de \(u \in \mathcal{L}(E)\) est l’unique polynôme unitaire engendrant l’idéal principal \(\text{Ker}(S_u)\) des polynômes annulateurs de \(u\). Il est souvent noté \(\mu_u\) ou \(\pi_u\).</p>
+            </div>
+        </section>
+        
+        <section id="chap8-secIII.2">
+            <h3>III.2 Lemme de décomposition des noyaux</h3>
+            <p>On termine cette section par un résultat qui sera d’une importance capitale pour les problèmes de diagonalisation.</p>
+            <div class="box theorem-box" id="th8.3.9">
+                <p><strong>Théorème 8.3.9 – Lemme de décomposition des noyaux</strong></p>
+                <p>Soit \(r \in \mathbb{N}^*\), et \(P_1, \dots, P_r\) des éléments de \(\mathbb{K}[X]\) deux à deux premiers entre eux. Alors</p>
+                \[ \text{Ker}(P(u)) = \bigoplus_{i=1}^r \text{Ker}(P_i(u)). \]
+                où \(P = P_1 \dots P_r\).
+            </div>
+            
+            <div class="box theorem-box" id="cor8.3.10">
+                <p><strong>Corollaire 8.3.10 – Décomposition de \(E\) issue d’un polynôme annulateur</strong></p>
+                <p>Soit \(P\) un polynôme annulateur de \(u\), tel que \(P = P_1 \dots P_r\), où les \(P_i\) sont 2 à 2 premiers entre eux. Alors</p>
+                \[ E = \bigoplus_{i=1}^r \text{Ker}(P_i(u)). \]
+            </div>
+            
+            <div class="box theorem-box" id="th8.3.12">
+                <p><strong>Théorème 8.3.12 – Caractérisation de la diagonalisabilité par polynômes annulateurs</strong></p>
+                <p>Soit \(E\) de dimension finie, et \(u \in \mathcal{L}(E)\) admettant un polynôme annulateur scindé à racines simples. Alors \(u\) est diagonalisable.</p>
+            </div>
+        </section>
+    </section>
+</section>
+<!-- Fin du chapitre 8 -->
+                    <section id="chap9">
+    <div class="chapter-heading">
+        <span class="chapter-number">9</span>
+        <div class="chapter-title">
+            <h1>Réduction des endomorphismes</h1>
+        </div>
+    </div>
+    
+    <p>Le problème de la réduction des endomorphismes consiste à trouver une base dans laquelle la forme de la matrice associée sera suffisamment simple pour être propice aux calculs. L’idéal est par exemple de trouver une base dans laquelle la matrice est diagonale. C’est le principe de la diagonalisation. Ce n’est pas toujours possible, c’est pourquoi on recherche parfois des formes un peu plus générales, comme des matrices triangulaires par exemple.</p>
+    <p>Lorsqu’on adapte la situation aux matrices, il s’agit donc de travailler sur l’endomorphisme \(f\) de \(\mathbb{K}^n\) canoniquement associé à une matrice \(M\), et de trouver une base dans laquelle la nouvelle matrice \(N\) de \(f\) sera d’une forme particulière, par exemple diagonale ou triangulaire. Par la formule de changement de base, on a donc une relation du type \(M = PNP^{-1}\), où \(P \in \text{GL}_n(\mathbb{K})\).</p>
+
+    <div class="box definition-box" id="def9.0.1">
+        <p><strong>Définition 9.0.1 – Matrices semblables</strong></p>
+        <p>On dit que deux matrices \(M\) et \(N\) de \(M_n(\mathbb{K})\) sont semblables s’il existe \(P \in \text{GL}_n(\mathbb{K})\) telle que \(M = PNP^{-1}\). Cela définit une relation binaire sur \(M_n(\mathbb{K})\), appelée relation de similitude.</p>
+    </div>
+    
+    <p>Ainsi, le problème de la réduction des endomorphismes se ramène donc à la recherche de représentants simples dans une classe de similitude donnée.</p>
+
+    <section id="chap9-secI">
+        <h2>I Élements propres d’un endomorphisme</h2>
+        <p>On suppose que \(E\) est un espace vectoriel sur \(\mathbb{K}\). Le corps \(\mathbb{K}\) est supposé être un sous-corps de \(\mathbb{C}\), conformément au programme.</p>
+        
+        <section id="chap9-secI.1">
+            <h3>I.1 Valeurs propres, vecteurs propres, sous-espaces propres</h3>
+            <p>Le problème de la diagonalisation est très lié à la recherche des droites stables. Une droite \(\mathbb{K}b\) est stable si et seulement si \(u(b) \in \mathbb{K}b\), donc s’il existe \(\lambda \in \mathbb{K}\) tel que \(u(b) = \lambda b\), c’est-à-dire \((u - \lambda \text{id})(b) = 0\).</p>
+            
+            <div class="box definition-box" id="def9.1.1">
+                <p><strong>Définition 9.1.1 – Valeurs propres, vecteurs propres, sev propres</strong></p>
+                <p>Soit \(u \in \mathcal{L}(E)\).</p>
+                <ol>
+                    <li>Une valeur propre de \(u\) est un élément \(\lambda \in \mathbb{K}\) tel que \(\text{Ker}(u - \lambda \text{id}) \neq \{0\}\), donc tel que \(u - \lambda \text{id}\) ne soit pas injectif.</li>
+                    <li>Soit \(\lambda\) une valeur propre de \(u\). Le sous-espace propre associé à \(\lambda\) est : \(E_\lambda(u) = \text{Ker}(u - \lambda \text{id}_E)\).</li>
+                    <li>Les éléments non nuls de \(E_\lambda(u)\) sont alors appelés vecteurs propres associés à la valeur propre \(\lambda\).</li>
+                </ol>
+            </div>
+            
+            <div class="box definition-box" id="def9.1.4">
+                <p><strong>Définition 9.1.4 – Spectre</strong></p>
+                <p>Lorsque \(E\) est de dimension finie, on note \(\text{Sp}(u)\) l’ensemble des valeurs propres de \(u\). L’ensemble \(\text{Sp}(u)\) est appelé spectre de \(u\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop9.1.6">
+                <p><strong>Proposition 9.1.6 – Somme directe des s.e.p.</strong></p>
+                <p>Soit \(\lambda_1, \dots, \lambda_p\) des valeurs propres distinctes. Alors la somme \(\bigoplus_{i=1}^p E_{\lambda_i}(u)\) est directe.</p>
+            </div>
+            
+            <div class="box theorem-box" id="th9.1.11">
+                <p><strong>Théorème 9.1.11 – Valeurs propres et racines d’un polynôme annulateur</strong></p>
+                <p>Soit \(u \in \mathcal{L}(E)\).</p>
+                <ol>
+                    <li>Soit \(P\) un polynôme annulateur de \(u\). Alors toute valeur propre est racine de \(P\).</li>
+                    <li>Si \(u\) admet un polynôme minimal \(\mu_u\), alors les racines de \(\mu_u\) sont exactement les valeurs propres de \(u\).</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="chap9-secI.2">
+            <h3>I.2 Éléments propres d’une matrice carrée</h3>
+            <p>Le dernier exemple suggère qu’on peut adapter toutes les définitions et propriétés au cas des matrices.</p>
+             <div class="box proposition-box" id="prop9.1.14">
+                <p><strong>Proposition 9.1.14 – Spectre de matrices semblables</strong></p>
+                <p>Deux matrices semblables ont même spectre.</p>
+            </div>
+        </section>
+
+        <section id="chap9-secI.3">
+            <h3>I.3 Polynôme caractéristique d’un endomorphisme en dimension finie</h3>
+            <div class="box definition-box" id="def9.1.19">
+                <p><strong>Définition 9.1.19 – Polynôme caractéristique d’une matrice</strong></p>
+                <p>Soit \(M \in M_n(\mathbb{K})\). Le polynôme caractéristique \(\chi_M\) de \(M\) est le polynôme défini par</p>
+                \[ \chi_M(X) = \det(X I_n - M) \in \mathbb{K}[X] \]
+            </div>
+            
+             <div class="box proposition-box" id="prop9.1.21">
+                <p><strong>Proposition 9.1.21 – Racines du polynôme caractéristique</strong></p>
+                <p>\(\text{Rac}(\chi_M) = \text{Sp}(M)\).</p>
+            </div>
+             <div class="box proposition-box" id="prop9.1.23">
+                <p><strong>Proposition 9.1.23 – Polynôme caractéristique de matrices semblables</strong></p>
+                <p>Soit \(M\) et \(N\) deux matrices semblables. Alors \(\chi_M = \chi_N\).</p>
+            </div>
+             <div class="box definition-box" id="def9.1.24">
+                <p><strong>Définition 9.1.24 – Polynôme caractéristique de \(u \in \mathcal{L}(E)\)</strong></p>
+                <p>Soit \(u\) un endomorphisme d’un espace vectoriel \(E\) de dimension finie. Alors le polynôme caractéristique de \(u\) est défini par \(\chi_u = \chi_{\text{Mat}_{\mathcal{B}}(u)}\), où \(\mathcal{B}\) est une base de \(E\). Cette définition est indépendante du choix de la base.</p>
+            </div>
+        </section>
+        
+        <section id="chap9-secI.4">
+            <h3>I.4 Recherche de valeurs propres</h3>
+             <div class="box method-box" id="meth9.1.26">
+                <p><strong>Méthode 9.1.26 – Recherche de valeurs propres</strong></p>
+                <ol>
+                    <li>Résoudre l’équation aux éléments propres \(u(x) = \lambda x\).</li>
+                    <li>Rechercher un polynôme annulateur, si possible de petit degré.</li>
+                    <li>Calculer le polynôme caractéristique et chercher ses racines.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="chap9-secI.5">
+            <h3>I.5 Multiplicité géométrique et algébrique d’une valeur propre</h3>
+             <div class="box definition-box" id="def9.1.29">
+                <p><strong>Définition 9.1.29 – Multiplicités d’une valeur propre</strong></p>
+                <p>Soit \(E\) un espace vectoriel de dimension finie, et \(u \in \mathcal{L}(E)\). Soit \(\lambda \in \text{Sp}(u)\).</p>
+                <ol>
+                    <li>La multiplicité géométrique de \(\lambda\) est la dimension de \(E_\lambda(u)\).</li>
+                    <li>La multiplicité algébrique de \(\lambda\) est la multiplicité de \(\lambda\) en tant que racine de \(\chi_u\).</li>
+                </ol>
+            </div>
+             <div class="box proposition-box" id="prop9.1.31">
+                <p><strong>Proposition 9.1.31 – Comparaison des multiplicités géométrique et algébrique</strong></p>
+                <p>Soit \(E\) un espace vectoriel de dimension finie, et \(u \in \mathcal{L}(E)\). Alors la multiplicité géométrique est inférieure à la multiplicité algébrique.</p>
+            </div>
+        </section>
+
+        <section id="chap9-secI.6">
+            <h3>I.6 Théorème de Cayley-Hamilton</h3>
+             <div class="box theorem-box" id="th9.1.33">
+                <p><strong>Théorème 9.1.33 – Cayley-Hamilton</strong></p>
+                <ol>
+                    <li>Soit \(M\) une matrice de \(M_n(\mathbb{K})\). Alors \(\chi_M\) est un polynôme annulateur de \(M\).</li>
+                    <li>Soit \(u\) un endomorphisme d’un espace vectoriel \(E\) de dimension finie. Alors \(\chi_u\) est un polynôme annulateur de \(u\).</li>
+                </ol>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap9-secII">
+        <h2>II Diagonalisation</h2>
+        <section id="chap9-secII.1">
+            <h3>II.1 Diagonalisation d’un endomorphisme, point de vue géométrique</h3>
+             <div class="box definition-box" id="def9.2.1">
+                <p><strong>Définition 9.2.1 – Endomorphisme diagonalisable</strong></p>
+                <p>Un endomorphisme \(u \in \mathcal{L}(E)\) est diagonalisable s’il existe une base \(\mathcal{B}\) telle que \(\text{Mat}_{\mathcal{B}}(u)\) soit diagonale.</p>
+            </div>
+             <div class="box theorem-box" id="th9.2.2">
+                <p><strong>Théorème 9.2.2 – Caractérisation de la diagonalisabilité par les sev propres</strong></p>
+                <p>Soit \(u \in \mathcal{L}(E)\) et \(\chi_u\) son polynôme caractéristique. Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(u\) est diagonalisable ;</li>
+                    <li>\(\bigoplus_{\lambda \in \text{Sp}(u)} E_\lambda(u) = E\) ;</li>
+                    <li>\(\sum_{\lambda \in \text{Sp}(u)} \dim(E_\lambda(u)) = \dim(E)\);</li>
+                    <li>\(\chi_u\) est scindé, et pour tout \(\lambda \in \text{Sp}(E)\), la multiplicité algébrique de \(\lambda\) est égale à la multiplicité géométrique de \(\lambda\).</li>
+                </ol>
+            </div>
+        </section>
+        <section id="chap9-secII.2">
+            <h3>II.2 Diagonalisation d’un endomorphisme, point de vue algébrique</h3>
+             <div class="box theorem-box" id="th9.2.4">
+                <p><strong>Théorème 9.2.4 – Caractérisation de la diagonalisabilité par polynômes annulateurs</strong></p>
+                <p>Soit \(u\) un endomorphisme de \(E\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(u\) est diagonalisable ;</li>
+                    <li>\(u\) admet un polynôme annulateur (non nul) simplement scindé ;</li>
+                    <li>le polynôme minimal de \(u\) est simplement scindé.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="chap9-secII.3">
+            <h3>II.3 Diagonalisation d’une matrice</h3>
+            <div class="box proposition-box" id="propdef9.2.9">
+                <p><strong>Proposition/Définition 9.2.9 – Diagonalisabilité d’une matrice</strong></p>
+                <p>Soit \(M \in M_n(\mathbb{K})\) une matrice carrée. Les propositions suivantes sont équivalentes:</p>
+                <ul>
+                    <li>L’endomorphisme canonique associé à \(M\) est diagonalisable ;</li>
+                    <li>Il existe une matrice \(D\) diagonale et une matrice \(P \in \text{GL}_n(\mathbb{K})\) telle que \(M = PDP^{-1}\) ;</li>
+                    <li>\(M\) est semblable à une matrice diagonale ;</li>
+                </ul>
+                <p>On dit qu’une matrice vérifiant ces propriétés équivalentes est diagonalisable.</p>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap9-secIII">
+        <h2>III Trigonalisation</h2>
+        <section id="chap9-secIII.1">
+            <h3>III.1 Trigonalisabilité et caractérisations algébriques</h3>
+            <div class="box definition-box" id="def9.3.1">
+                <p><strong>Définition 9.3.1 – Trigonalisabilité</strong></p>
+                <ol>
+                    <li>On dit qu’un endomorphisme \(u \in \mathcal{L}(E)\) s’il existe une base \(\mathcal{B}\) de \(E\) telle que \(\text{Mat}_{\mathcal{B}}(u) \in T_n^+(\mathbb{K})\).</li>
+                    <li>On dit qu’une matrice \(M \in M_n(\mathbb{K})\) est trigonalisable s’il existe une matrice \(P \in \text{GL}_n(\mathbb{K})\) telle que \(P^{-1}MP \in T_n^+(\mathbb{K})\).</li>
+                </ol>
+            </div>
+            
+            <div class="box theorem-box" id="th9.3.4">
+                <p><strong>Théorème 9.3.4 – CNS de trigonalisabilité</strong></p>
+                <p>Soit \(u \in \mathcal{L}(E)\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(u\) est trigonalisable ;</li>
+                    <li>Le polynôme caractéristique \(\chi_u\) de \(u\) est scindé ;</li>
+                    <li>\(u\) admet un polynôme annulateur (non nul) scindé ;</li>
+                    <li>le polynôme minimal de \(u\) est scindé.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="chap9-secIII.2">
+            <h3>III.2 Endomorphismes nilpotents</h3>
+            <div class="box theorem-box" id="th9.3.7">
+                <p><strong>Théorème 9.3.7 – Caractérisation des endomorphismes nilpotents</strong></p>
+                <p>Soit \(u \in \mathcal{L}(E)\) un endomorphisme. Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(u\) est nilpotent</li>
+                    <li>\(u\) admet un polynôme annulateur de la forme \(X^k\)</li>
+                    <li>\(\mu_u\) est de la forme \(X^d\), \(d\) étant alors l’indice de nilpotence</li>
+                    <li>\(u\) est trigonalisable, et \(\text{Sp}(u) = \{0\}\)</li>
+                    <li>il existe une base \(\mathcal{B}\) de \(E\) dans laquelle \(\text{Mat}_{\mathcal{B}}(u)\) est triangulaire supérieure stricte.</li>
+                    <li>\(\chi_u = X^n\), où \(n = \dim(E)\)</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="chap9-secIII.3">
+            <h3>III.3 Sous-espaces caractéristiques</h3>
+            <div class="box proposition-box" id="prop9.3.9">
+                <p><strong>Proposition 9.3.9 – Décomposition de \(E\) en somme de sous-espaces caractéristiques</strong></p>
+                <p>Soit \(u \in \mathcal{L}(E)\) tel que \(\chi_u\) soit scindé. On note \(\chi_u = \prod_{\lambda \in \text{Sp}(u)} (X - \lambda)^{m_\lambda}\), où \(m_\lambda\) est la multiplicité algébrique de la valeur propre \(\lambda\). Alors,
+                \[ E = \bigoplus_{\lambda \in \text{Sp}(u)} N_\lambda(u), \quad \text{où} \quad N_\lambda(u) = \text{Ker}((u - \lambda \text{id})^{m_\lambda}). \]
+                Le sous-espace \(N_\lambda(u)\) est appelé sous-espace caractéristique associé à la valeur propre \(\lambda\) de \(u\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th9.3.13">
+                <p><strong>Théorème 9.3.13 – Décomposition de Dunford, HP</strong></p>
+                <p>Soit \(u \in \mathcal{L}(E)\) un endomorphisme à polynôme caractéristique scindé. Alors il existe deux endomorphismes \(n\) et \(d\) de \(E\) tels que :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(u = n + d\)</li>
+                    <li>\(n\) est nilpotent</li>
+                    <li>\(d\) est diagonalisable</li>
+                    <li>\(n \circ d = d \circ n\).</li>
+                </ol>
+            </div>
+        </section>
+    </section>
+</section>
+<!-- Fin du chapitre 9 -->
+                    <section id="chap10">
+    <div class="chapter-heading">
+        <span class="chapter-number">10</span>
+        <div class="chapter-title">
+            <h1>Suites et séries de fonctions</h1>
+        </div>
+    </div>
+    
+    <p>Dans ce chapitre, on étudie les suites et séries de fonctions. De façon naturelle, on peut définir, si elle existe, la valeur point par point (c’est-à-dire la limite de \(f_n(x)\) à \(x\) fixé, pour une suite \((f_n)\)). On peut alors se poser la question de savoir si certaines propriétés des suites \(f_n\) passent bien à la limite (par exemple la continuité, la dérivabilité etc) et si cela revient au même de faire certaines opérations terme à terme ou sur la somme totale, par exemple si la somme des intégrales est égale à l’intégrale de la somme (ou de même pour les limites). Il s’agit donc de propriété d’interversion de certains symboles, définis à base de limites. En général ces interversions ne seront pas possibles et il faudra des modes de convergence plus contraignants.</p>
+
+    <section id="chap10-secI">
+        <h2>I Modes de convergences</h2>
+        <section id="chap10-secI.1">
+            <h3>I.1 Convergence simple</h3>
+            <p>Soit \(E\) et \(F\) deux espaces vectoriels de dimension finie. On munit \(F\) de sa topologie naturelle d’e.v.n., associée à une norme quelconque \(\Vert \cdot \Vert_F\). Soit \(A \subset E\). On considère une suite d’applications \((f_n)_{n \in \mathbb{N}}\) de \(A\) dans \(F\).</p>
+            
+            <div class="box definition-box" id="def10.1.1">
+                <p><strong>Définition 10.1.1 – Convergence simple</strong></p>
+                <p>La suite \((f_n)\) converge simplement vers une fonction \(f : A \to F\) si pour tout \(x \in A\), la suite \((f_n(x))_{n \in \mathbb{N}} \in A^\mathbb{N}\) converge vers \(f(x)\). Autrement dit :</p>
+                \[ \forall x \in A, \forall \varepsilon > 0, \exists N_x \in \mathbb{N}, \forall n \in \mathbb{N}, n \ge N_x \implies \Vert f_n(x) - f(x) \Vert_F \le \varepsilon. \]
+            </div>
+        </section>
+
+        <section id="chap10-secI.2">
+            <h3>I.2 Convergence uniforme</h3>
+            <div class="box definition-box" id="def10.1.6">
+                <p><strong>Définition 10.1.6 – Convergence uniforme</strong></p>
+                <ol>
+                    <li>On dit que \((f_n)_{n \in \mathbb{N}}\) converge uniformément vers \(f\) (sur \(A\)) si :
+                    \[ \forall \varepsilon > 0, \exists N \in \mathbb{N}, \forall x \in A, \forall n \in \mathbb{N}, n \ge N \implies \Vert f_n(x) - f(x) \Vert_F \le \varepsilon. \]
+                    </li>
+                    <li>Soit \(B \subset A\). On dit que \((f_n)\) converge uniformément sur \(B\) si \(((f_n)_{|B})\) converge uniformément.</li>
+                </ol>
+            </div>
+            
+            <div class="box remark-box" id="rem10.1.7">
+                <p><strong>Remarque 10.1.7</strong></p>
+                <ol>
+                    <li>La différence essentielle avec la convergence simple est l’indépendance de \(N\) par rapport à \(x\).</li>
+                    <li>Graphiquement, pour des fonctions réelles, cela signifie qu’à partir d'un certain rang, la courbe de \(f_n\) est dans un « tube » de rayon \(\varepsilon\) autour de la courbe de \(f\).</li>
+                    <li>La définition peut se réexprimer de la façon suivante : \(\Vert f_n - f \Vert_\infty \xrightarrow{n \to \infty} 0\).</li>
+                </ol>
+            </div>
+            
+            <div class="box proposition-box" id="prop10.1.9">
+                <p><strong>Proposition 10.1.9 – Limite simple / limite uniforme</strong></p>
+                <p>Si \((f_n)\) converge uniformément vers \(f\), alors elle converge aussi simplement vers \(f\).</p>
+            </div>
+        </section>
+
+        <section id="chap10-secI.3">
+            <h3>I.3 Convergence uniforme locale</h3>
+            <p>La convergence uniforme permet de conserver les propriétés de continuité. Comme la continuité n’est qu’une propriété locale, et non globale, il n’est pas nécessaire d’avoir la convergence uniforme sur tout le domaine, mais de l’avoir au voisinage de tout point en lequel on veut établir la continuité.</p>
+            
+            <div class="box definition-box" id="def10.1.16">
+                <p><strong>Définition 10.1.16 – Convergence uniforme locale</strong></p>
+                <p>Soit \(a \in A\). On dit que \((f_n)\) converge uniformément vers \(f\) au voisinage du point \(a\) s’il existe un voisinage \(V \in \mathcal{V}(a)\) tel que \((f_n)\) converge uniformément vers \(f\) sur \(V \cap A\).</p>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap10-secII">
+        <h2>II Régularité des limites de suites de fonctions</h2>
+        <section id="chap10-secII.1">
+            <h3>II.1 Continuité d’une limite uniforme</h3>
+            <div class="box theorem-box" id="th10.2.1">
+                <p><strong>Théorème 10.2.1 – Préservation de la continuité par CVU</strong></p>
+                <p>Soit \((f_n)\) une suite de fonctions \(A \to F\).</p>
+                <ol>
+                    <li>Soit \(a \in A\). Si \((f_n)\) converge uniformément vers \(f\) au voisinage de \(a\), et si les \((f_n)\) sont continues en \(a\), alors \(f\) est continue en \(a\).</li>
+                    <li>Soit \(B\) un ouvert relatif de \(A\). Si \((f_n)\) converge uniformément vers \(f\) sur \(B\) et si les \(f_n\) sont continues sur \(B\), alors \(f\) est continue sur \(B\).</li>
+                </ol>
+            </div>
+        </section>
+        <section id="chap10-secII.2">
+            <h3>II.2 Double-limite</h3>
+            <div class="box theorem-box" id="th10.2.6">
+                <p><strong>Théorème 10.2.6 – Théorème de la double-limite</strong></p>
+                <p>Soit \(f_n : A \to F\) convergeant uniformément vers \(f\), et \(a \in \overline{A}\). On suppose que pour tout \(n \in \mathbb{N}, f_n(x) \xrightarrow{x \to a} \ell_n\). Alors \((\ell_n)\) admet une limite \(\ell \in F\), et \(\lim_{x \to a} f(x) = \ell\). En d'autres termes :</p>
+                \[ \lim_{n \to \infty} \lim_{x \to a} f_n(x) = \lim_{x \to a} \lim_{n \to \infty} f_n(x). \]
+            </div>
+        </section>
+        <section id="chap10-secII.3">
+            <h3>II.3 Interversion limite-intégrale</h3>
+            <div class="box theorem-box" id="cor10.2.10">
+                <p><strong>Corollaire 10.2.10 – Interversion limite uniforme/intégrale</strong></p>
+                <p>Soit \((f_n)\) une suite de fonctions d’un segment \([a, b]\) dans un e.v.n. \(E\) de dimension finie. On suppose que :</p>
+                <ul>
+                    <li>les \(f_n\) sont continues ;</li>
+                    <li>\((f_n)\) converge uniformément vers \(f\) sur \([a, b]\).</li>
+                </ul>
+                <p>Alors, \(f\) est intégrable sur \([a, b]\) et</p>
+                \[ \int_a^b f(t) dt = \lim_{n \to \infty} \int_a^b f_n(t) dt. \]
+            </div>
+        </section>
+        <section id="chap10-secII.4">
+            <h3>II.4 Dérivabilité et dérivée d’une limite uniforme</h3>
+            <div class="box theorem-box" id="th10.2.17">
+                <p><strong>Théorème 10.2.17 – Dérivation d’une suite de fonctions</strong></p>
+                <p>Soit \((f_n)\) une suite de fonctions définies d’un intervalle \(I \subset \mathbb{R}\) dans un e.v.n. \(F\) de dimension finie. On suppose que :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>les \(f_n\) sont de classe \(C^1\) sur \(I\) ;</li>
+                    <li>la suite \((f_n)\) converge simplement vers \(f\)</li>
+                    <li>la suite \((f'_n)\) converge uniformément sur \(I\) vers une application \(g : I \to F\).</li>
+                </ol>
+                <p>Alors \(f\) est de classe \(C^1\) sur \(I\), et pour tout \(x \in I\),</p>
+                \[ f'(x) = g(x) = \lim_{n \to \infty} f'_n(x). \]
+            </div>
+        </section>
+    </section>
+
+    <section id="chap10-secIII">
+        <h2>III Séries de fonctions</h2>
+        <section id="chap10-secIII.1">
+            <h3>III.1 Modes de convergence</h3>
+            <div class="box definition-box" id="def10.3.1">
+                <p><strong>Définition 10.3.1 – Convergence simple, convergence uniforme</strong></p>
+                <ul>
+                    <li>La série \(\sum f_n\) converge simplement si la suite des sommes partielles \((S_n)_{n \in \mathbb{N}}\) converge simplement.</li>
+                    <li>La série \(\sum f_n\) converge uniformément sur \(B\) si la suite des sommes partielles \((S_n)_{n \in \mathbb{N}}\) converge uniformément sur \(B\).</li>
+                </ul>
+            </div>
+            
+            <div class="box definition-box" id="def10.3.3">
+                <p><strong>Définition 10.3.3 – Convergence normale</strong></p>
+                <p>La série \(\sum f_n\) converge normalement (sur \(A\)) si pour tout \(n \in \mathbb{N}\), \(f_n\) est bornée, et si \(\sum \Vert f_n \Vert_\infty\) converge.</p>
+            </div>
+        </section>
+        
+        <section id="chap10-secIII.2">
+            <h3>III.2 Régularité et interversions sur des sommes uniformes</h3>
+            <div class="box theorem-box" id="th10.3.5">
+                <p><strong>Théorème 10.3.5 – CVN implique CVU</strong></p>
+                <p>On suppose que les \(f_n\) sont bornées sur \(A\). Alors si \(\sum f_n\) converge normalement sur \(A\), elle converge uniformément sur \(A\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th10.3.13">
+                <p><strong>Théorème 10.3.13 – Continuité d’une somme infinie</strong></p>
+                <p>Soit \(\sum f_n\) une série uniformément convergente sur \(A\). Si pour tout \(n \in \mathbb{N}\), \(f_n\) est continue sur \(A\), alors \(\sum_{n=0}^\infty f_n\) est continue sur \(A\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th10.3.16">
+                <p><strong>Théorème 10.3.16 – Intégration terme à terme sur un segment</strong></p>
+                <p>Soit \((f_n)\) une suite de fonctions d’un intervalle \(I\) à valeurs dans un e.v.n. \(F\) de dimension finie, et soit \(a \in I\). Si \(\sum f_n\) est uniformément convergente sur \([a,b]\),</p>
+                \[ \int_a^b \sum_{n=0}^\infty f_n(t) dt = \sum_{n=0}^\infty \int_a^b f_n(t) dt. \]
+            </div>
+            
+            <div class="box theorem-box" id="th10.3.18">
+                <p><strong>Théorème 10.3.18 – Dérivation terme à terme</strong></p>
+                <p>Soit \((f_n)\) une suite de fonctions d’un intervalle \(I\) dans \(F\), telles que :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>les \(f_n\) sont de classe \(C^1\) sur \(I\) ;</li>
+                    <li>la série \(\sum f_n\) converge simplement ;</li>
+                    <li>la série \(\sum f'_n\) converge uniformément sur \(I\).</li>
+                </ol>
+                <p>Alors \(S = \sum f_n\) est de classe \(C^1\) sur \(I\), et pour tout \(x \in I\), \(S'(x) = \sum_{n=0}^\infty f'_n(x)\).</p>
+            </div>
+        </section>
+
+        <section id="chap10-secIII.3">
+            <h3>III.3 Techniques asymptotiques</h3>
+            <p>Dans ce paragraphe, nous donnons quelques pistes, non exhaustives, pour l’étude asymptotique des sommes de séries de fonctions, au bord de leur domaine.</p>
+        </section>
+    </section>
+
+    <section id="chap10-secIV">
+        <h2>IV Approximations uniformes</h2>
+        <section id="chap10-secIV.1">
+            <h3>IV.1 Principes généraux</h3>
+            <div class="box definition-box" id="def10.4.1">
+                <p><strong>Définition 10.4.1 – Approximation uniforme à \(\varepsilon\) près</strong></p>
+                <p>Soit \(f : A \to F\) une application d’une partie \(A\) de \(E\) dans l’e.v.n. de dimension finie \(F\). On dit que \(g : A \to F\) est une approximation uniforme de \(f\) à \(\varepsilon\) près si \(\Vert g - f \Vert_\infty \le \varepsilon\).</p>
+            </div>
+        </section>
+
+        <section id="chap10-secIV.2">
+            <h3>IV.2 Approximations uniformes classiques</h3>
+            <div class="box definition-box" id="def10.4.8">
+                <p><strong>Définition 10.4.8 – Fonctions en escalier</strong></p>
+                <p>La fonction \(f : [a, b] \to F\) est une fonction en escalier s’il existe une subdivision \(\sigma_0 < \dots < \sigma_n\) de \([a, b]\) telle que \(f\) est constante sur chaque intervalle \(]\sigma_i, \sigma_{i+1}[\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th10.4.9">
+                <p><strong>Théorème 10.4.9 – Approximation uniforme de \(C^0\) par Esc</strong></p>
+                <p>Les fonctions continues sur un segment \([a, b]\) à valeurs dans un e.v.n. \(F\) de dimension finie peuvent être approchées uniformément par des fonctions en escalier sur \([a, b]\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th10.4.11">
+                <p><strong>Théorème 10.4.11 – théorème d’approximation uniforme de Weierstrass</strong></p>
+                <p>Toute fonction \(f\) continue sur un segment \([a, b]\) peut être approchée uniformément par des fonctions polynomiales à coefficients dans \(\mathbb{K}\), définies sur ce segment.</p>
+            </div>
+        </section>
+    </section>
+</section>
+<!-- Fin du chapitre 10 -->
+                    <section id="chap11">
+    <div class="chapter-heading">
+        <span class="chapter-number">11</span>
+        <div class="chapter-title">
+            <h1>Intégrales à paramètres</h1>
+        </div>
+    </div>
+    
+    <p>Le but de ce chapitre est d’étudier le comportement d’intégrales à paramètres. Il s’agit donc d’étudier une famille de fonctions \((f_\lambda)_{\lambda \in \Lambda}\) intégrables sur un intervalle \(I\), à valeurs dans \(\mathbb{K} = \mathbb{R}\) ou \(\mathbb{C}\). Leurs intégrales définissent une famille \(\left(\int_I f_\lambda(t) dt\right)_{\lambda \in \Lambda}\), dont on cherche à étudier le comportement par rapport au paramètre \(\lambda\).</p>
+    <p>Le contexte initial concerne un paramètre entier (\(\Lambda = \mathbb{N}\)). On dispose d’une suite de fonctions \((f_n)_{n \in \mathbb{N}}\) intégrables sur \(I\), et on s’intéresse à la limite de la suite \(\left(\int_I f_n(t) dt\right)_{n \in \mathbb{N}}\).</p>
+    <p>Nous nous intéresserons ensuite au cas où le paramètre \(\lambda\) est pris dans une partie \(\Lambda\) d’un e.v.n. de dimension finie, via une application \(f : \Lambda \times I \to \mathbb{K}\). Leurs intégrales définissent une application \(g : \Lambda \to \mathbb{K}\) par \(g(x) = \int_I f(x, t) dt\).</p>
+
+    <section id="chap11-secI">
+        <h2>I Suites et séries d’intégrales</h2>
+        <section id="chap11-secI.1">
+            <h3>I.1 Interversion limite/intégrale</h3>
+            <div class="box theorem-box" id="th11.1.1">
+                <p><strong>Théorème 11.1.1 – interversion lim/intégrale en cas de CVU</strong></p>
+                <p>On suppose que :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(I\) est un segment ;</li>
+                    <li>les applications \((f_n)\) sont continues ;</li>
+                    <li>la suite \((f_n)\) converge uniformément vers \(f\) sur \(I\).</li>
+                </ol>
+                <p>Alors, \(\lim_{n \to \infty} \int_I f_n(t) dt = \int_I \lim_{n \to \infty} f_n(t) dt\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th11.1.6">
+                <p><strong>Théorème 11.1.6 – Théorème de convergence dominée, TCD</strong></p>
+                <p>Soit \((f_n)\) une suite de fonctions de \(I\) dans \(\mathbb{K} = \mathbb{R}\) ou \(\mathbb{C}\). On suppose que :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>pour tout \(n \in \mathbb{N}\), \(f_n\) est c.p.m.</li>
+                    <li>\((f_n)\) converge simplement vers une fonction \(f\)</li>
+                    <li>(hyp. de domination) il existe \(\varphi : I \to \mathbb{R}\) intégrable sur \(I\) telle que : \(\forall n \in \mathbb{N}, \forall x \in I, |f_n(x)| \le \varphi(x)\).</li>
+                </ol>
+                <p>Alors les \((f_n)\) et \(f\) sont intégrables sur \(I\) et \(\int_I f_n \xrightarrow{n\to\infty} \int_I f\).</p>
+            </div>
+        </section>
+
+        <section id="chap11-secI.2">
+            <h3>I.2 Intégration terme à terme</h3>
+            <div class="box theorem-box" id="th11.1.9">
+                <p><strong>Théorème 11.1.9 – interversion \(\sum / \int\) par CVU sur un segment</strong></p>
+                <p>Soit \((f_n)\) une suite de fonctions d’un intervalle \(I\) à valeurs dans un e.v.n. \(F\) de dimension finie, et soit \(a \in I\).</p>
+                <ol>
+                    <li>Si \(\sum f_n\) est uniformément convergente sur \(I\), alors \(x \mapsto \sum_{n=0}^\infty \int_a^x f_n(t) dt\) converge uniformément sur \(I\) vers \(x \mapsto \int_a^x \sum_{n=0}^\infty f_n(t) dt\).</li>
+                    <li>En particulier, si \(\sum f_n\) est uniformément convergente sur \([a,b]\),
+                    \[ \int_a^b \sum_{n=0}^\infty f_n(t) dt = \sum_{n=0}^\infty \int_a^b f_n(t) dt. \]
+                    </li>
+                </ol>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap11-secII">
+        <h2>II Limite et continuité d’intégrales à paramètre dans un e.v.n.</h2>
+        <div class="box theorem-box" id="th11.2.1">
+            <p><strong>Théorème 11.2.1 – Théorème de convergence dominée, version continue réelle</strong></p>
+            <p>Soit \(I\) et \(J\) deux intervalles de \(\mathbb{R}\) et \((f_\lambda)_{\lambda \in J}\) une famille de fonctions de \(I\) dans \(\mathbb{K}\). Soit \(f \in \mathbb{K}^I\) et \(a \in \overline{J}\). On suppose que :</p>
+            <ol style="list-style-type: lower-roman;">
+                <li>pour tout \(\lambda \in J\), \(f_\lambda\) est c.p.m. ;</li>
+                <li>pour tout \(t \in I, f_\lambda(t) \xrightarrow{\lambda \to a} f(t)\), et \(f\) est c.p.m. ;</li>
+                <li>il existe \(\varphi\) telle que pour tout \(\lambda \in J, |f_\lambda| \le \varphi\), et \(\varphi\) est intégrable.</li>
+            </ol>
+            <p>Alors \(\lim_{\lambda \to a} \int_I f_\lambda(t) dt = \int_I f(t) dt = \int_I \lim_{\lambda \to a} f_\lambda(t) dt\).</p>
+        </div>
+        
+        <div class="box theorem-box" id="th11.2.4">
+            <p><strong>Théorème 11.2.4 – Continuité ponctuelle d’une intégrale à paramètre dans un e.v.n.</strong></p>
+            <p>Soit \(I\) un intervalle de \(\mathbb{R}\), \(E\) un e.v.n. de dimension finie, et \(A\) une partie de \(E\). Soit \(f : A \times I \to \mathbb{K}\) et \(a \in A\). On suppose que :</p>
+            <ol style="list-style-type: lower-roman;">
+                <li>pour tout \(x \in A, f(x, \cdot)\) est c.p.m. ;</li>
+                <li>pour tout \(t \in I, f(\cdot, t)\) est continue en \(a\) ;</li>
+                <li>(domination) il existe \(\varphi\) telle que pour tout \(x \in A, |f(x, \cdot)| \le \varphi\), et \(\varphi\) est intégrable.</li>
+            </ol>
+            <p>Alors la fonction \(F : x \mapsto \int_I f(x, t) dt\) est continue en \(a\).</p>
+        </div>
+    </section>
+    
+    <section id="chap11-secIII">
+        <h2>III Dérivation d’intégrales à paramètre réel</h2>
+        <div class="box theorem-box" id="th11.3.1">
+            <p><strong>Théorème 11.3.1 – Dérivation d’une intégrale à paramètre réel</strong></p>
+            <p>Soit \(I\) et \(A\) deux intervalles de \(\mathbb{R}\) et \(f : A \times I \to \mathbb{K}\) une application telle que :</p>
+            <ol style="list-style-type: lower-roman;">
+                <li>pour tout \(t \in I, f(\cdot, t)\) est de classe \(C^1\) sur \(I\) ;</li>
+                <li>pour tout \(x \in A, f(x, \cdot)\) est intégrable sur \(I\) ;</li>
+                <li>pour tout \(x \in A, \frac{\partial f}{\partial x}(x, \cdot)\) est c.p.m. sur \(I\) ;</li>
+                <li>(domination de la dérivée) il existe \(\varphi\) intégrable sur \(I\) telle que \(\forall x \in A, \left| \frac{\partial f}{\partial x}(x, \cdot) \right| \le \varphi\).</li>
+            </ol>
+            <p>Alors la fonction \(g : x \mapsto \int_I f(x, t) dt\) est de classe \(C^1\) sur \(A\), et :</p>
+            \[ \forall x \in A, g'(x) = \int_I \frac{\partial f}{\partial x}(x, t) dt. \]
+        </div>
+        
+        <div class="box proposition-box" id="prop11.3.3">
+            <p><strong>Proposition 11.3.3 – Intégrale de Gauss, HP classique</strong></p>
+            \[ \int_{-\infty}^{+\infty} e^{-t^2} dt = \sqrt{\pi}. \]
+        </div>
+        
+        <div class="box theorem-box" id="th11.3.4">
+            <p><strong>Théorème 11.3.4 – Classe \(C^k\) d’une intégrale à paramètre réel</strong></p>
+            <p>Soit \(I\) et \(A\) deux intervalles de \(\mathbb{R}\) et \(f : A \times I \to \mathbb{K}\) une application telle que :</p>
+            <ol style="list-style-type: lower-roman;">
+                <li>pour tout \(t \in I, f(\cdot, t)\) est de classe \(C^k\) sur \(I\) ;</li>
+                <li>pour tout \(x \in A\) et tout \(j \in \llbracket 0, k-1 \rrbracket, \frac{\partial^j f}{\partial x^j}(x, \cdot)\) est intégrable sur \(I\) ;</li>
+                <li>(domination de la dérivée k-ième) il existe \(\varphi\) intégrable sur \(I\) telle que \(\forall x \in A, \left| \frac{\partial^k f}{\partial x^k}(x, \cdot) \right| \le \varphi\).</li>
+            </ol>
+            <p>Alors la fonction \(g : x \mapsto \int_I f(x, t) dt\) est de classe \(C^k\) sur \(A\), et \(\forall j \in \llbracket 0, k \rrbracket, \forall x \in A, g^{(k)}(x) = \int_I \frac{\partial^j f}{\partial x^j}(x, t) dt\).</p>
+        </div>
+    </section>
+
+    <section id="chap11-secIV">
+        <h2>IV La fonction \(\Gamma\) (HP mais classique)</h2>
+        <div class="box definition-box" id="def11.4.1">
+            <p><strong>Définition 11.4.1 – Fonction \(\Gamma\), Euler</strong></p>
+            <p>La fonction \(\Gamma\) est définie, pour tout \(z \in \mathbb{C}\) telle que l’intégrale converge, par :</p>
+            \[ \Gamma(z) = \int_0^{+\infty} t^{z-1} e^{-t} dt. \]
+        </div>
+        
+        <div class="box proposition-box" id="prop11.4.2">
+            <p><strong>Proposition 11.4.2 – Domaine de définition</strong></p>
+            <p>La fonction \(\Gamma\) est définie sur \(P = \{z \in \mathbb{C} \mid \text{Re}(z) > 0\}\).</p>
+        </div>
+        
+        <div class="box proposition-box" id="prop11.4.3">
+            <p><strong>Proposition 11.4.3 – Identité remarquable</strong></p>
+            <p>Pour tout \(z \in P, \Gamma(z+1) = z\Gamma(z)\).</p>
+        </div>
+        
+        <div class="box proposition-box" id="prop11.4.4">
+            <p><strong>Proposition 11.4.4 – Valeurs remarquables</strong></p>
+            <ol>
+                <li>Pour tout \(n \in \mathbb{N}^*, \Gamma(n) = (n-1)!\).</li>
+                <li>\(\Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}\).</li>
+            </ol>
+        </div>
+        
+        <div class="box proposition-box" id="prop11.4.5">
+            <p><strong>Proposition 11.4.5 – Continuité sur \(P\)</strong></p>
+            <p>La fonction \(\Gamma\) est continue sur \(P\).</p>
+        </div>
+        
+        <div class="box proposition-box" id="prop11.4.6">
+            <p><strong>Proposition 11.4.6 – Régularité sur \(\mathbb{R}_+^*\)</strong></p>
+            <p>La fonction \(\Gamma\) est de classe \(C^\infty\) sur \(\mathbb{R}_+^*\), et pour tout \(n \in \mathbb{N}\), et tout \(x \in \mathbb{R}_+^*\),</p>
+            \[ \Gamma^{(n)}(x) = \int_0^{+\infty} (\ln(t))^n t^{x-1} e^{-t} dt. \]
+        </div>
+    </section>
+</section>
+<!-- Fin du chapitre 11 -->
+                    <section id="chap12">
+    <div class="chapter-heading">
+        <span class="chapter-number">12</span>
+        <div class="chapter-title">
+            <h1>Endomorphismes d’un espace euclidien</h1>
+        </div>
+    </div>
+    
+    <p>Le but de ce chapitre est d’étudier certains types d’endomorphismes d’un espace euclidien. On s’intéresse en particulier aux isométries vectorielles (les endomorphismes conservant les distances) et aux endomorphismes autoadjoints, dont la matrice dans une base orthonormale est symétrique.</p>
+    <p>On montrera notamment que, dans une base orthonormale bien choisie, les isométries \(f\) ont une matrice diagonale par blocs, chaque bloc étant de taille 1 ou 2, et correspondant à une direction stable sur laquelle \(f\) agit comme une symétrie ou l’identité (pour les blocs de taille 1), ou a un plan stable sur lequel \(f\) agit comme une rotation.</p>
+    <p>On montrera également que les endomorphismes autoadjoints (ou symétriques) sont diagonalisables en base orthonormale, ce qui se réexprime en disant que toute matrice symétrique réelle est diagonalisable. C’est le théorème spectral. Enfin, nous caractériserons, pour un endomorphisme autoadjoint \(u\), la positivité de la forme quadratique \(x \mapsto \langle x, u(x) \rangle\) (ou matriciellement \(X \mapsto X^T A X\)) par la positivité du spectre. Cette propriété sera utile en particulier pour l’étude des points critiques des fonctions de plusieurs variables, en vue de faire de l’optimisation (recherche d’extrema).</p>
+
+    <section id="chap12-secI">
+        <h2>I Rappels sur les espaces euclidiens</h2>
+        <p>Ce survol rapide des définitions et propriétés essentielles du cours de première année ne remplace pas une révision complète et en profondeur de votre cours de première année. Il n’a pas vocation à être complet, et ne fait que réintroduire rapidement les notions que nous aurons à utiliser par la suite.</p>
+        
+        <section id="chap12-secI.1">
+            <h3>I.1 Formes bilinéaires et produit scalaire</h3>
+            <div class="box definition-box" id="def12.1.1">
+                <p><strong>Définition 12.1.1 – Forme bilinéaire</strong></p>
+                <p>Soit \(E\) un espace vectoriel sur \(\mathbb{R}\). Une forme bilinéaire \(\varphi\) sur \(E\) est une application \(\varphi : E \times E \to \mathbb{R}\), linéaire par rapport à chaque facteur, l’autre étant fixé, c’est-à-dire :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(\forall (x, y, z) \in E^3, \forall \lambda \in \mathbb{R}, \varphi(\lambda x + y, z) = \lambda \varphi(x, z) + \varphi(y, z)\)</li>
+                    <li>\(\forall (x, y, z) \in E^3, \forall \lambda \in \mathbb{R}, \varphi(x, \lambda y + z) = \lambda \varphi(x, y) + \varphi(x, z)\).</li>
+                </ol>
+            </div>
+            
+            <div class="box definition-box" id="def12.1.3">
+                <p><strong>Définition 12.1.3 – Matrice associée à une forme bilinéaire</strong></p>
+                <p>Soit \(\varphi\) une forme bilinéaire sur \(E\) de dimension finie, et \(\mathcal{B} = (e_1, \dots, e_n)\) une base de \(E\). Alors on définit la matrice de \(\varphi\) relativement à la base \(\mathcal{B}\) par :</p>
+                \[ \text{Mat}_{\mathcal{B}}(\varphi) = (\varphi(e_i, e_j))_{1 \le i, j \le n}. \]
+            </div>
+            
+            <div class="box theorem-box" id="th12.1.4">
+                <p><strong>Théorème 12.1.4 – Caractérisation de \(\text{Mat}_{\mathcal{B}}(\varphi)\) par la relation \(\varphi(x, y) = X^T M Y\)</strong></p>
+                <p>Soit \(M \in M_n(\mathbb{K})\). La matrice \(M\) est la matrice de \(\varphi\) relativement à la base \(\mathcal{B}\) si et seulement si pour tout \((x, y) \in E^2\), dont les matrices colonnes coordonnées dans \(\mathcal{B}\) sont \(X\) et \(Y\), \(\varphi(x, y) = X^T M Y\).</p>
+            </div>
+            
+            <div class="box definition-box" id="def12.1.6">
+                <p><strong>Définition 12.1.6 – Produit scalaire</strong></p>
+                <p>Un produit scalaire \(\varphi\) sur \(E\) est une forme bilinéaire telle que :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>(positivité) : pour tout \(x \in E, \varphi(x, x) \ge 0\)</li>
+                    <li>(caractère défini) : pour tout \(x \in E, \varphi(x, x) = 0 \iff x = 0\)</li>
+                    <li>(Symétrie) : pour tout \((x, y) \in E^2, \varphi(x, y) = \varphi(y, x)\).</li>
+                </ol>
+                <p>On note souvent \(\langle x, y \rangle\) ou \((x|y)\).</p>
+            </div>
+            
+            <div class="box definition-box" id="def12.1.9">
+                <p><strong>Définition 12.1.9 – Espace euclidien</strong></p>
+                <p>Un espace euclidien est un espace préhilbertien réel de dimension finie.</p>
+            </div>
+        </section>
+        
+        <section id="chap12-secI.2">
+            <h3>I.2 Orthogonalité</h3>
+            <div class="box definition-box" id="def12.1.10">
+                <p><strong>Définition 12.1.10 – Famille orthogonale, orthonormale</strong></p>
+                <ol>
+                    <li>Une famille \((x_i)_{i \in I}\) est orthogonale si pour tout \(i \neq j\) de \(I\), \(x_i \perp x_j\).</li>
+                    <li>On dit que la famille \((x_i)_{i \in I}\) est orthonormale (ou orthonormée) si et seulement si elle est orthogonale, et que pour tout \(i \in I, \Vert x_i \Vert = 1\).</li>
+                </ol>
+            </div>
+            
+            <div class="box proposition-box" id="prop12.1.11">
+                <p><strong>Proposition 12.1.11 – Liberté des familles orthogonales</strong></p>
+                <ol>
+                    <li>Une famille orthogonale ne contenant pas le vecteur nul est libre.</li>
+                    <li>Une famille orthonormale est libre.</li>
+                </ol>
+            </div>
+            
+            <div class="box theorem-box" id="th12.1.12">
+                <p><strong>Théorème 12.1.12 – Existence d’une base orthonormale</strong></p>
+                <p>Soit \(E\) un espace euclidien. Alors \(E\) admet une b.o.n.</p>
+            </div>
+            
+            <div class="box definition-box" id="def12.1.14">
+                <p><strong>Définition 12.1.14 – Sous-espaces orthogonaux</strong></p>
+                <p>Les sous-espaces \(F\) et \(G\) de \(E\) sont orthogonaux si pour tout \((x, y) \in F \times G, x \perp y\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="propdef12.1.16">
+                <p><strong>Proposition/Définition 12.1.16 – Supplémentaire orthogonal</strong></p>
+                <p>Soit \(E\) un espace euclidien, et \(F\) un sous-espace vectoriel de \(E\). L’ensemble \(F^\perp = \{y \in E, y \perp F\}\) est un supplémentaire de \(E\), orthogonal à \(F\). Il est appelé supplémentaire orthogonal de \(F\).</p>
+            </div>
+        </section>
+        
+        <section id="chap12-secI.3">
+            <h3>I.3 Projection orthogonale</h3>
+            <div class="box definition-box" id="def12.1.18">
+                <p><strong>Définition 12.1.18 – Projeté orthogonal sur un sev</strong></p>
+                <p>Soit \(F\) un sous-espace vectoriel de \(E\), et \(y \in E\). On dit que \(z \in E\) est le projeté orthogonal de \(y\) sur \(F\) si et seulement si :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(z \in F\)</li>
+                    <li>\((y - z) \perp F\).</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="chap12-secI.4">
+            <h3>I.4 Coordonnées en base orthonormale</h3>
+            <div class="box theorem-box" id="th12.1.21">
+                <p><strong>Théorème 12.1.21 – Coordonnées d’un vecteur dans une b.o.n. et norme</strong></p>
+                <p>Soit \(E\) un espace euclidien, et \(\mathcal{B} = (b_1, \dots, b_n)\) une b.o.n. de \(E\). Soit \(x, y \in E\). Alors :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(x = \sum_{i=1}^n \langle x, b_i \rangle b_i\), c’est-à-dire \([x]_{\mathcal{B}} = \begin{pmatrix} \langle x, b_1 \rangle \\ \vdots \\ \langle x, b_n \rangle \end{pmatrix}\).</li>
+                    <li>\(\langle x, y \rangle = \sum_{i=1}^n \langle x, b_i \rangle \langle y, b_i \rangle\)</li>
+                    <li>\(\Vert x \Vert^2 = \sum_{i=1}^n \langle x, b_i \rangle^2\)</li>
+                </ol>
+            </div>
+            
+            <div class="box theorem-box" id="th12.1.22">
+                <p><strong>Théorème 12.1.22 – Matrice d’un endomorphisme relativement à une b.o.n.</strong></p>
+                <p>Soit \(E\) un espace euclidien muni d’une b.o.n. \(\mathcal{B} = (b_1, \dots, b_n)\). Soit \(u \in \mathcal{L}(E)\). Alors :</p>
+                \[ \text{Mat}_{\mathcal{B}}(u) = (\langle b_i, u(b_j) \rangle)_{1 \le i, j \le n} = \begin{pmatrix} \langle b_1, u(b_1) \rangle & \dots & \langle b_1, u(b_n) \rangle \\ \vdots & & \vdots \\ \langle b_n, u(b_1) \rangle & \dots & \langle b_n, u(b_n) \rangle \end{pmatrix}. \]
+            </div>
+        </section>
+        
+        <section id="chap12-secI.5">
+            <h3>I.5 Changements de base orthonormales, matrices orthogonales</h3>
+            <div class="box theorem-box" id="th12.1.23">
+                <p><strong>Théorème 12.1.23 – propriété des matrices de passage d’une b.o.n. à une autre</strong></p>
+                <p>Soit \(\mathcal{B}\) et \(\mathcal{C}\) deux bases de \(E\). Soit \(P = P^{\mathcal{C}}_{\mathcal{B}}\) la matrice de passage de la base \(\mathcal{B}\) à la base \(\mathcal{C}\). Alors :</p>
+                \[ P^T P = I_n = P P^T, \quad \text{donc:} \quad P^{-1} = P^T. \]
+            </div>
+            
+            <div class="box definition-box" id="def12.1.24">
+                <p><strong>Définition 12.1.24 – Matrice orthogonale</strong></p>
+                <p>Soit \(P \in M_n(\mathbb{R})\) une matrice carrée d’ordre \(n\). On dit que \(P\) est une matrice orthogonale si et seulement si \(P^T P = I_n\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th12.1.27">
+                <p><strong>Théorème 12.1.27 – Caractérisation d’une matrice orthogonale par ses colonnes ou lignes</strong></p>
+                <p>Soit \(P \in M_n(\mathbb{R})\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(P\) est orthogonale</li>
+                    <li>\(P^T\) est orthogonale</li>
+                    <li>Les colonnes de \(P\) forment une base orthonormale de \(\mathbb{R}^n \simeq M_{n,1}(\mathbb{R})\)</li>
+                    <li>Les lignes de \(P\) forment une base orthonormale de \(\mathbb{R}^n \simeq M_{1,n}(\mathbb{R})\).</li>
+                </ol>
+            </div>
+            
+            <div class="box theorem-box" id="th12.1.28">
+                <p><strong>Théorème 12.1.28 – Caractérisation des matrices de passage entre b.o.n. par orthogonalité</strong></p>
+                <p>Soit \(E\) un espace euclidien.</p>
+                <ol>
+                    <li>Toute matrice de passage d’une b.o.n. de \(E\) à une autre b.o.n. de \(E\) est une matrice orthogonale.</li>
+                    <li>Réciproquement, soit \(\mathcal{B}\) une b.o.n. de \(E\), et \(P\) une matrice orthogonale. Alors il existe une unique base \(\mathcal{C}\) telle que \(P\) soit la matrice de passage de \(\mathcal{B}\) à \(\mathcal{C}\), et cette base \(\mathcal{C}\) est une b.o.n. de \(E\).</li>
+                </ol>
+            </div>
+            
+            <div class="box definition-box" id="def12.1.29">
+                <p><strong>Définition 12.1.29 – Groupe orthogonal</strong></p>
+                <p>On note \(O_n(\mathbb{R})\), ou \(O(n)\) l’ensemble des matrices orthogonales de \(M_n(\mathbb{R})\). Cet ensemble \(O_n(\mathbb{R})\) est appelé groupe orthogonal.</p>
+            </div>
+            
+            <div class="box theorem-box" id="th12.1.31">
+                <p><strong>Théorème 12.1.31 – Déterminant d’une matrice orthogonale</strong></p>
+                <p>Soit \(P \in O_n(\mathbb{R})\). Alors \(\det(P) \in \{-1, 1\}\). Plus précisément, \(\det\) est un morphisme de groupe de \(O_n(\mathbb{R})\) dans \(\{ -1, 1\}, \times\).</p>
+            </div>
+            
+            <div class="box definition-box" id="def12.1.32">
+                <p><strong>Définition 12.1.32 – Groupe spécial orthogonal</strong></p>
+                <p>Le noyau du déterminant défini sur \(O_n(\mathbb{R})\) est appelé groupe spécial orthogonal, et noté \(SO_n(\mathbb{R})\) ou \(SO(n)\). Ainsi, les éléments de \(SO_n(\mathbb{R})\) sont les matrices orthogonales \(P\) telles que \(\det(P) = 1\).</p>
+            </div>
+        </section>
+        
+        <section id="chap12-secI.6">
+            <h3>I.6 Orientation d’un espace</h3>
+            <div class="box proposition-box" id="propdef12.1.37">
+                <p><strong>Proposition/Définition 12.1.37 – Orientation d’un espace</strong></p>
+                <p>Soit \(E\) un espace vectoriel sur \(\mathbb{R}\).</p>
+                <ol>
+                    <li>La relation \(\mathcal{B} \mathcal{R} \mathcal{B}' \iff \det_{\mathcal{B}}(\mathcal{B}') > 0\) est une relation d’équivalence sur l’ensemble des bases de \(E\).</li>
+                    <li>Cette relation d’équivalence possède exactement deux classes d’équivalence.</li>
+                    <li>On dira que \(\mathcal{B}\) et \(\mathcal{B}'\) ont même orientation si elles appartiennent à la même classe d’équivalence.</li>
+                    <li>Une orientation de \(E\) est alors le choix arbitraire d’une de ces deux classes d’équivalence, qu’on fait généralement en se donnant une base de référence \(\mathcal{B}_0\).</li>
+                    <li>Ainsi, étant donné une base de référence \(\mathcal{B}_0\), une base \(\mathcal{B}\) est directe si \(\det_{\mathcal{B}_0}(\mathcal{B}) > 0\), et indirecte si \(\det_{\mathcal{B}_0}(\mathcal{B}) < 0\).</li>
+                </ol>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap12-secII">
+        <h2>II Endomorphismes autoadjoints</h2>
+        <section id="chap12-secII.1">
+            <h3>II.1 Adjoint d’un endomorphisme</h3>
+            <div class="box theorem-box" id="th12.2.1">
+                <p><strong>Théorème 12.2.1 – Théorème de représentation de Riesz</strong></p>
+                <p>Soit \(E\) un espace euclidien, et \(\varphi \in E^*\) une forme linéaire sur \(E\). Il existe un unique vecteur \(a \in E\) tel que \(\varphi = \langle a, \cdot \rangle\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="propdef12.2.2">
+                <p><strong>Proposition/Définition 12.2.2 – Adjoint d’un endomorphisme</strong></p>
+                <p>Soit \(E\) un espace euclidien, et \(u \in \mathcal{L}(E)\). Il existe un unique endomorphisme \(u^* \in \mathcal{L}(E)\) tel que :</p>
+                \[ \forall(x, y) \in E^2, \quad \langle x, u(y) \rangle = \langle u^*(x), y \rangle. \]
+                <p>L’endomorphisme \(u^* \in \mathcal{L}(E)\) est appelé adjoint de l’endomorphisme \(u\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop12.2.8">
+                <p><strong>Proposition 12.2.8 – Représentation matricielle d’un adjoint</strong></p>
+                <p>Soit \(E\) un espace euclidien, muni d’une base orthonormale \(\mathcal{B}\), et \(u \in \mathcal{L}(E)\). Alors \(\text{Mat}_{\mathcal{B}}(u^*) = \text{Mat}_{\mathcal{B}}(u)^T\).</p>
+            </div>
+        </section>
+        
+        <section id="chap12-secII.2">
+            <h3>II.2 Endomorphismes autoadjoints</h3>
+            <div class="box definition-box" id="def12.2.10">
+                <p><strong>Définition 12.2.10 – Endomorphisme autoadjoint</strong></p>
+                <p>Soit \(E\) un espace euclidien, et \(u \in \mathcal{L}(E)\). On dit que \(u\) est un endomorphisme autoadjoint (ou endomorphisme symétrique) si \(u = u^*\).</p>
+                <p>On note \(\mathcal{S}(E)\) l’ensemble des automorphismes auto-adjoints de \(E\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop12.2.13">
+                <p><strong>Proposition 12.2.13 – Caractérisation des endomorphismes auto-adjoints</strong></p>
+                <p>Soit \(E\) un espace euclidien et \(u \in \mathcal{L}(E)\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(u\) est un endomorphisme autoadjoint ;</li>
+                    <li>\(\forall (x, y) \in E^2, \langle u(x), y \rangle = \langle x, u(y) \rangle\) ;</li>
+                    <li>pour toute b.o.n. \(\mathcal{B}\) de \(E, \text{Mat}_{\mathcal{B}}(u) \in \mathcal{S}_n(\mathbb{R})\) ;</li>
+                    <li>il existe une b.o.n. \(\mathcal{B}\) de \(E\) telle que \(\text{Mat}_{\mathcal{B}}(u) \in \mathcal{S}_n(\mathbb{R})\).</li>
+                </ol>
+            </div>
+            
+            <div class="box proposition-box" id="prop12.2.14">
+                <p><strong>Proposition 12.2.14 – Caractérisation des projecteurs orthogonaux parmi les projecteurs</strong></p>
+                <p>Soit \(E\) un espace euclidien, et \(p \in \mathcal{L}(E)\) un projecteur de \(E\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(p\) est un projecteur orthogonal</li>
+                    <li>\(p\) est un endomorphisme autoadjoint (et un projecteur par hypothèse)</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="chap12-secII.3">
+            <h3>II.3 Théorème spectral</h3>
+            <div class="box theorem-box" id="lem12.2.15">
+                <p><strong>Lemme 12.2.15 – Spectre d’une matrice symétrique réelle</strong></p>
+                <p>Soit \(M \in \mathcal{S}_n(\mathbb{R})\). Alors \(\text{Sp}(M) \neq \emptyset\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th12.2.17">
+                <p><strong>Théorème 12.2.17 – Théorème spectral</strong></p>
+                <p>Soit \(E\) un espace euclidien, et \(u \in \mathcal{L}(E)\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(u \in \mathcal{S}(E)\)</li>
+                    <li>\(E = \bigoplus_{\lambda \in \text{Sp}(u)} E_\lambda(u)\)</li>
+                    <li>\(u\) est diagonalisable en b.o.n.</li>
+                    <li>il existe une b.o.n. \(\mathcal{B}\) telle que \(\text{Mat}_{\mathcal{B}}(u) \in D_n(\mathbb{R})\).</li>
+                </ol>
+            </div>
+            
+            <div class="box theorem-box" id="cor12.2.18">
+                <p><strong>Corollaire 12.2.18 – Diagonalisabilité des matrices symétriques réelles</strong></p>
+                <p>Soit \(M \in M_n(\mathbb{R})\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(M \in \mathcal{S}_n(\mathbb{R})\)</li>
+                    <li>\(M\) est orthogonalement semblable à une matrice orthogonale.</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="chap12-secII.4">
+            <h3>II.4 Endomorphismes autoadjoints positifs</h3>
+            <div class="box definition-box" id="def12.2.20">
+                <p><strong>Définition 12.2.20 – Endomorphismes autoadjoints (définis) positifs</strong></p>
+                <p>Soit \(E\) un espace euclidien, et \(u \in \mathcal{S}(E)\).</p>
+                <ol>
+                    <li>On dit que \(u\) est un endomorphisme autoadjoint positif si \(\forall x \in E, \langle x, u(x) \rangle \ge 0\). On note \(\mathcal{S}^+(E)\) l’ensemble des automorphismes autoadjoints positifs.</li>
+                    <li>On dit que \(u\) est un endomorphisme autoadjoint défini positif si \(\forall x \in E \setminus \{0\}, \langle x, u(x) \rangle > 0\). On note \(\mathcal{S}^{++}(E)\) l’ensemble des automorphismes autoadjoints définis positifs.</li>
+                </ol>
+            </div>
+            
+            <div class="box proposition-box" id="prop12.2.21">
+                <p><strong>Proposition 12.2.21 – Caract. spectrale des endomorphismes autoadjoints positifs</strong></p>
+                <p>Soit \(u \in \mathcal{S}(E)\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(u\) est autoadjoint positif</li>
+                    <li>\(\text{Sp}(u) \subset \mathbb{R}^+\)</li>
+                </ol>
+            </div>
+            
+            <div class="box proposition-box" id="prop12.2.22">
+                <p><strong>Proposition 12.2.22 – Caract. spectrale des endomorphismes autoadjoints définis positifs</strong></p>
+                <p>Soit \(u \in \mathcal{S}(E)\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(u\) est autoadjoint défini positif</li>
+                    <li>\(\text{Sp}(u) \subset \mathbb{R}_+^*\)</li>
+                </ol>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap12-secIII">
+        <h2>III Isométries vectorielles</h2>
+        <section id="chap12-secIII.1">
+            <h3>III.1 Définitions</h3>
+            <div class="box definition-box" id="def12.3.1">
+                <p><strong>Définition 12.3.1 – Isométrie vectorielle</strong></p>
+                <ul>
+                    <li>Soit \(E\) un espace euclidien. Une isométrie vectorielle est un endomorphisme \(u \in \mathcal{L}(E)\) conservant la norme, c’est-à-dire tel que \(\forall x \in E, \Vert u(x) \Vert = \Vert x \Vert\).</li>
+                    <li>On note \(O(E)\) l’ensemble des isométries vectorielles de \(E\).</li>
+                </ul>
+            </div>
+            
+            <div class="box proposition-box" id="prop12.3.7">
+                <p><strong>Proposition 12.3.7 – Caractérisations des isométries</strong></p>
+                <p>Soit \(u \in \mathcal{L}(E)\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(u \in O(n)\)</li>
+                    <li>\(\forall (x, y) \in E^2, \langle u(x), u(y) \rangle = \langle x, y \rangle\) (conservation du produit scalaire)</li>
+                    <li>pour toute b.o.n. \(\mathcal{B}\), la famille \(u(\mathcal{B})\) est encore une b.o.n.</li>
+                    <li>il existe une b.o.n. \(\mathcal{B}\) telle que \(u(\mathcal{B})\) soit encore une b.o.n.</li>
+                    <li>pour toute b.o.n. \(\mathcal{B}\), \(\text{Mat}_{\mathcal{B}}(u) \in O_n(\mathbb{R})\)</li>
+                    <li>\(u^* = u^{-1}\) (caractérisation par l’adjoint)</li>
+                </ol>
+            </div>
+            
+            <div class="box proposition-box" id="prop12.3.11">
+                <p><strong>Proposition 12.3.11 – Isométries directes et indirectes</strong></p>
+                <p>Soit \(u \in O(E)\). Alors \(\det(u) \in \{-1, 1\}\).</p>
+                <ul>
+                    <li>Si \(\det(u) = 1\), on dit que \(u\) est une isométrie directe.</li>
+                    <li>Si \(\det(u) = -1\), on dit que \(u\) est une isométrie indirecte.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="chap12-secIII.2">
+            <h3>III.2 Matrices orthogonales de \(M_2(\mathbb{R})\)</h3>
+            <div class="box proposition-box" id="prop12.3.15">
+                <p><strong>Proposition 12.3.15 – Matrices orthogonales de \(M_2(\mathbb{R})\)</strong></p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>Soit \(M \in SO(2)\), alors il existe \(\theta \in \mathbb{R}\) tel que \(M = \begin{pmatrix} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta) \end{pmatrix}\) ;</li>
+                    <li>Soit \(M \in O(2) \setminus SO(2)\), alors il existe \(\theta \in \mathbb{R}\) tel que \(M = \begin{pmatrix} \cos(\theta) & \sin(\theta) \\ \sin(\theta) & -\cos(\theta) \end{pmatrix}\) ;</li>
+                </ol>
+                <p>Ces descriptions sont uniques modulo \(2\pi\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th12.3.17">
+                <p><strong>Théorème 12.3.17 – \(SO(2)\) est isomorphe à \(\mathbb{U}\)</strong></p>
+                <p>L’application qui à \(R(\theta)\) associe \(e^{i\theta}\) est un isomorphisme de groupe entre \(SO(2)\) et \(\mathbb{U}\). En particulier, \(SO(2)\) est commutatif.</p>
+            </div>
+        </section>
+        
+        <section id="chap12-secIII.3">
+            <h3>III.3 Isométries en dimension 2</h3>
+            <div class="box theorem-box" id="th12.3.20">
+                <p><strong>Théorème 12.3.20 – Classification des isométries en dimension 2</strong></p>
+                <p>Soit \(E\) un espace euclidien de dimension 2.</p>
+                <ol>
+                    <li>Les éléments de \(SO(2)\) sont exactement les rotations</li>
+                    <li>Les éléments de \(O(2) \setminus SO(2)\) sont exactement les réflexions.</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="chap12-secIII.4">
+            <h3>III.4 Réduction des isométries</h3>
+            <div class="box theorem-box" id="th12.3.27">
+                <p><strong>Théorème 12.3.27 – Réduction des isométries</strong></p>
+                <p>Soit \(u\) une isométrie. Il existe une b.o.n. \(\mathcal{B}\), des entiers naturels \(p, q\) et \(k\), et des réels \(\theta_1, \dots, \theta_k \in \mathbb{R} \setminus \pi\mathbb{Z}\) tels que \(\text{Mat}_{\mathcal{B}}(u)\) soit diagonale par blocs de la forme</p>
+                \[ \text{Mat}_{\mathcal{B}}(u) = \begin{pmatrix} I_p & 0 & \dots & 0 \\ 0 & -I_q & \ddots & \vdots \\ \vdots & \ddots & R(\theta_1) & 0 \\ 0 & \dots & 0 & R(\theta_k) \end{pmatrix} \]
+                <p>Réciproquement, tout endomorphisme se réduisant ainsi en base orthonormale est une isométrie.</p>
+            </div>
+        </section>
+    </section>
+</section>
+<!-- Fin du chapitre 12 -->
+                    <section id="chap13">
+    <div class="chapter-heading">
+        <span class="chapter-number">13</span>
+        <div class="chapter-title">
+            <h1>Séries entières</h1>
+        </div>
+    </div>
+    
+    <p>On étudie dans ce chapitre un cas particulier important de séries de fonctions : les séries entières, de la forme \(\sum a_n x^n\). Ces séries apparaissent notamment de façon naturelle comme prolongement à l’infini de développements limités en 0, et on peut donc légitimement se demander si une fonction \(f\) de classe \(C^\infty\) peut s’écrire, au moins localement, sous forme d’une série entière, qui correspondrait au prolongement infini de ses développements limités (donc de la formule de Taylor-Young), c’est-à-dire à sa série de Taylor. Nous nous intéresserons à cette question en fin de chapitre, après avoir donné les définitions et les propriétés générales liées à la convergence, ainsi qu’à la régularité de la somme.
+    <br>Dans tout ce chapitre, \(\mathbb{K} = \mathbb{R}\) ou \(\mathbb{C}\).</p>
+
+    <section id="chap13-secI">
+        <h2>I Définitions, convergence</h2>
+        <section id="chap13-secI.1">
+            <h3>I.1 Définition</h3>
+            <div class="box definition-box" id="def13.1.1">
+                <p><strong>Définition 13.1.1 – Série entière</strong></p>
+                <ul>
+                    <li>Une série entière est une série de fonctions \(\sum f_n\) où \((f_n)\) est de la forme \(f_n : x \mapsto a_n x^n\), avec \((a_n) \in \mathbb{K}^\mathbb{N}\).</li>
+                    <li>On note \(\sum a_n z^n\) la série entière associée à la suite \((a_n)\).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="chap13-secI.2">
+            <h3>I.2 Domaine de convergence, rayon de convergence</h3>
+            <p>Nous allons montrer dans ce paragraphe que les séries entières ont un domaine de convergence d’une forme très précise : il s’agit de disques centrés en 0. Le point clé pour obtenir cette description est le lemme d’Abel.</p>
+
+            <div class="box theorem-box" id="lem13.1.5">
+                <p><strong>Lemme 13.1.5 – Abel</strong></p>
+                <p>Soit \(z_0 \in \mathbb{K}\). Si la suite \((a_n z_0^n)_{n \in \mathbb{N}}\) est bornée, alors pour tout \(z \in B^\circ(0, |z_0|)\), \(\sum a_n z^n\) converge absolument.</p>
+            </div>
+            
+            <div class="box definition-box" id="def13.1.7">
+                <p><strong>Définition 13.1.7 – Rayon de convergence</strong></p>
+                <p>On appelle rayon de convergence de la série \(\sum a_n z^n\) l’élément suivant, bien défini dans \(\mathbb{R}_+ \cup \{+\infty\}\) :</p>
+                \[ R = \sup\{r \in \mathbb{R}^+, (|a_n| r^n)_{n \in \mathbb{N}} \text{ bornée}\}. \]
+            </div>
+            
+            <div class="box theorem-box" id="th13.1.10">
+                <p><strong>Théorème 13.1.10 – Domaine de convergence d’une série entière</strong></p>
+                <p>Soit \(\sum a_n z^n\) une série entière de rayon de convergence \(R\).</p>
+                <ol>
+                    <li>La série \(\sum a_n z^n\) converge absolument sur \(B^\circ(0, R)\) (i.e. si \(|z| < R\)).</li>
+                    <li>La série \(\sum a_n z^n\) diverge grossièrement sur \(\mathbb{K} \setminus \overline{B}(0, R)\) (i.e. si \(|z| > R\)).</li>
+                    <li>La convergence pour \(|z| = R\) peut varier suivant les séries et suivant la valeur de \(z\).</li>
+                </ol>
+                <p>\(B^\circ(0, R)\) est appelé disque ouvert (ou intervalle ouvert dans \(\mathbb{R}\)) de convergence de la série entière.</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop13.1.15">
+                <p><strong>Proposition 13.1.15 – Règle de d’Alembert</strong></p>
+                <p>Soit \(\sum a_n z^n\) une série entière telle que \(\frac{|a_{n+1}|}{|a_n|} \to \ell \in \overline{\mathbb{R}}^+\). Alors le rayon de convergence de \(\sum a_n z^n\) est \(R = \frac{1}{\ell} \in \overline{\mathbb{R}}^+\).</p>
+            </div>
+        </section>
+
+        <section id="chap13-secI.3">
+            <h3>I.3 Opérations sur les séries entières</h3>
+            <div class="box proposition-box" id="prop13.1.24">
+                <p><strong>Proposition 13.1.24 – Somme de deux séries entières</strong></p>
+                <p>Soit \(\sum a_n z^n\) et \(\sum b_n z^n\) deux séries entières de rayons \(R_a\) et \(R_b\).</p>
+                <ol>
+                    <li>Le rayon de convergence \(R\) de \(\sum (a_n + b_n) z^n\) vérifie \(R \ge \min(R_a, R_b)\).</li>
+                    <li>Si \(R_a \neq R_b\), le rayon de convergence \(R\) de \(\sum (a_n + b_n) z^n\) vérifie l’égalité \(R = \min(R_a, R_b)\).</li>
+                </ol>
+            </div>
+
+            <div class="box proposition-box" id="prop13.1.25">
+                <p><strong>Proposition 13.1.25 – Produit de Cauchy de deux séries entières</strong></p>
+                <p>Soit \(\sum a_n z^n\) et \(\sum b_n z^n\) deux séries entières de rayons \(R_a\) et \(R_b\). Soit, pour tout \(n \in \mathbb{N}\), \(c_n = \sum_{k=0}^n a_k b_{n-k}\). Alors le rayon de convergence \(R_c\) de \(\sum c_n z^n\) vérifie \(R_c \ge \min(R_a, R_b)\), et pour tout \(z\) tel que \(|z| < \min(R_a, R_b)\),</p>
+                \[ \sum_{n=0}^\infty c_n z^n = \left(\sum_{n=0}^\infty a_n z^n\right) \left(\sum_{n=0}^\infty b_n z^n\right). \]
+            </div>
+        </section>
+    </section>
+
+    <section id="chap13-secII">
+        <h2>II Régularité de la somme d’une série entière</h2>
+        <section id="chap13-secII.1">
+            <h3>II.1 Convergence uniforme</h3>
+            <div class="box theorem-box" id="th13.2.1">
+                <p><strong>Théorème 13.2.1 – Convergence uniforme locale sur le disque ouvert de convergence</strong></p>
+                <p>Soit \(\sum a_n z^n\) une série entière de rayon de convergence \(R\). Alors \(\sum a_n z^n\) est normalement, donc aussi uniformément convergente sur tout disque \(\overline{B}(0, r)\), avec \(r < R\).</p>
+            </div>
+        </section>
+
+        <section id="chap13-secII.2">
+            <h3>II.2 Continuité et limite radiale</h3>
+            <div class="box theorem-box" id="th13.2.5">
+                <p><strong>Théorème 13.2.5 – Continuité d’une série entière</strong></p>
+                <p>Soit \(\sum a_n z^n\) une série entière de rayon de convergence \(R\), et de somme \(A(z)\), pour \(z \in B^\circ(0, R)\). Alors la fonction \(A\) est continue sur \(B^\circ(0, R)\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th13.2.7">
+                <p><strong>Théorème 13.2.7 – Théorème radial d’Abel</strong></p>
+                <p>Soit \(\sum a_n z^n\) une série entière de rayon de convergence \(R\), et de somme \(A(z)\), pour \(z \in B^\circ(0, R)\). Si \(\sum a_n R^n\) converge, alors
+                \[ \lim_{\substack{x \to R \\ x \in \mathbb{R}}} \sum a_n x^n = \sum a_n R^n. \]
+                </p>
+            </div>
+        </section>
+
+        <section id="chap13-secII.3">
+            <h3>II.3 Dérivabilité et classe \(C^\infty\)</h3>
+            <div class="box proposition-box" id="prop13.2.10">
+                <p><strong>Proposition 13.2.10 – Rayon de convergence des séries dérivées</strong></p>
+                <p>Soit \(\sum a_n z^n\) une série entière de rayon \(R\). Alors, pour tout \(p \in \mathbb{N}\), la série \(\sum_{n \ge p} n(n-1)\dots(n-p+1)z^{n-p}\) est de rayon de convergence \(R\).</p>
+            </div>
+
+            <div class="box theorem-box" id="th13.2.11">
+                <p><strong>Théorème 13.2.11 – Régularité de la somme d’une série entière</strong></p>
+                <p>Soit \(\sum a_n x^n\) une série entière de la variable réelle \(x\), de rayon de convergence \(R > 0\), et de somme égale à \(A(x)\), pour \(x \in ]-R, R[\). Alors \(A\) est de classe \(C^\infty\) sur \(]-R, R[\), et pour tout \(p \in \mathbb{N}\), et tout \(x \in ]-R, R[\),</p>
+                \[ A^{(p)}(x) = \sum_{n=p}^\infty n(n-1)\dots(n-p+1)a_n x^{n-p}. \]
+            </div>
+            
+            <div class="box theorem-box" id="cor13.2.13">
+                <p><strong>Corollaire 13.2.13 – Expression des coefficients d’une série entière</strong></p>
+                <p>Soit \(\sum a_n x^n\) une série entière de la variable réelle \(x\), de rayon de convergence \(R > 0\), et de somme égale à \(A(x)\), pour \(x \in ]-R, R[\). Alors pour tout \(n \in \mathbb{N}\),</p>
+                \[ a_n = \frac{A^{(n)}(0)}{n!}. \]
+            </div>
+        </section>
+    </section>
+
+    <section id="chap13-secIII">
+        <h2>III Développements en séries entières</h2>
+        <section id="chap13-secIII.1">
+            <h3>III.1 Généralités sur les fonctions développables en séries entières</h3>
+            <div class="box definition-box" id="def13.3.1">
+                <p><strong>Définition 13.3.1 – Fonction développable en série entière</strong></p>
+                <p>Soit \(f\) une fonction définie au voisinage de 0 (dans \(\mathbb{K}\)). On dit que \(f\) est développable en série entière au voisinage de 0, s’il existe \(r > 0\) et une suite \((a_n)_{n \in \mathbb{N}} \in \mathbb{C}^\mathbb{N}\) tel que pour tout \(z \in B^\circ(0, r)\),</p>
+                \[ f(z) = \sum_{n \in \mathbb{N}} a_n z^n. \]
+            </div>
+        </section>
+        
+        <section id="chap13-secIII.2">
+            <h3>III.2 DSE de l’exponentielle</h3>
+            <div class="box proposition-box" id="propdef13.3.6">
+                <p><strong>Proposition/Définition 13.3.6 – Définition de l’exponentielle réelle</strong></p>
+                <p>Il existe une unique fonction \(f\) développable en série entière sur \(\mathbb{R}\), vérifiant \(f' = f\) et \(f(0) = 1\). Cette fonction est appelée exponentielle, notée \(\exp(x)\), et vérifie</p>
+                \[ \forall x \in \mathbb{R}, \exp(x) = \sum_{n=0}^\infty \frac{x^n}{n!}. \]
+            </div>
+        </section>
+        
+        <section id="chap13-secIII.3">
+            <h3>III.3 DSE usuels</h3>
+            <div class="box proposition-box" id="prop13.3.13">
+                <p><strong>Proposition 13.3.13 – DSE usuels</strong></p>
+                <ol>
+                    <li>\(e^z = \sum_{n=0}^\infty \frac{z^n}{n!}\) pour \(z \in \mathbb{C}\) ;</li>
+                    <li>\(\frac{1}{1-z} = \sum_{n=0}^\infty z^n\) pour \(z \in \mathbb{C}, |z| < 1\)</li>
+                    <li>\((1+x)^\alpha = \sum_{n=0}^\infty \binom{\alpha}{n} x^n\) pour \(x \in ]-1, 1[, \alpha \in \mathbb{C}\).</li>
+                    <li>\(\ln(1+x) = \sum_{n=1}^\infty \frac{(-1)^{n+1}}{n} x^n\), pour \(x \in ]-1, 1]\),</li>
+                    <li>\(\cos(x) = \sum_{n=0}^\infty (-1)^n \frac{x^{2n}}{(2n)!}\), pour \(x \in \mathbb{R}\) ;</li>
+                    <li>\(\sin(x) = \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{(2n+1)!}\), pour \(x \in \mathbb{R}\) ;</li>
+                    <li>\(\text{Arctan}(x) = \sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{2n+1}\), pour \(x \in [-1, 1]\).</li>
+                </ol>
+            </div>
+        </section>
+    </section>
+</section>
+<!-- Fin du chapitre 13 -->
+                    <section id="chap14">
+    <div class="chapter-heading">
+        <span class="chapter-number">14</span>
+        <div class="chapter-title">
+            <h1>Espaces probabilisés</h1>
+        </div>
+    </div>
+    
+    <p>Le cours de probabilité de première année se construit entièrement dans le cadre d’un univers \(\Omega\) fini. Dans ce cadre, une expérience d’univers des possibles \(\Omega\) est un processus aléatoire amenant un résultat (une issue) \(\omega\) appartenant à \(\Omega\). Un événement \(A\) est alors un sous-ensemble de \(\Omega\). Dire que \(A\) a lieu lors d’une expérience signifie que l’expérience débouche sur une issue \(\omega\) appartenant à \(A\).</p>
+    <p>Nous voyons dans ce chapitre comment élargir ce cadre, en acceptant notamment des univers infinis. Ce cadre formel un peu abstrait est indispensable pour pouvoir définir de façon rigoureuse une mesure de probabilité.</p>
+
+    <section id="chap14-secI">
+        <h2>I Espaces probabilisés</h2>
+        <p>Dans cette section, \(\Omega\) désigne un ensemble quelconque, fini ou infini.</p>
+        <section id="chap14-secI.1">
+            <h3>I.1 Tribus et espaces probabilisables</h3>
+            <p>Souvent, la définition de la mesure de probabilité sur tous les sous-ensembles de \(\Omega\), n’est pas pertinente, ou peut poser des problèmes techniques. Pour cette raison, il peut être intéressant de pouvoir ne définir la mesure de probabilité que sur une classe particulière de sous-ensembles de \(\Omega\). Voici nos exigences pour la construction d’une telle classe :</p>
+            <ul>
+                <li>L’événement certain \(\Omega\) et l’événement impossible ont une probabilité, donc appartiennent à la classe ;</li>
+                <li>Pour tout événement \(A\) dont on sait calculer la probabilité, on voudrait pouvoir calculer la probabilité de l’événement contraire \(\overline{A}\) ;</li>
+                <li>Si on dispose d’une probabilité sur \(A\) et \(B\), on voudrait disposer d’une probabilité de \(A \cup B\).</li>
+                <li>Plus généralement, on souhaite pouvoir calculer la probabilité d’une union infinie dénombrable d’événements.</li>
+            </ul>
+            
+            <div class="box definition-box" id="def14.1.2">
+                <p><strong>Définition 14.1.2 – \(\sigma\)-algèbre, ou tribu</strong></p>
+                <p>Soit \(\Omega\) un univers (fini ou non). Une \(\sigma\)-algèbre \(\mathcal{T}\) d’événements sur \(\Omega\) (ou tribu) est un sous-ensemble \(\mathcal{T}\) de \(\mathcal{P}(\Omega)\) telle que :</p>
+                <ol>
+                    <li>\(\Omega \in \mathcal{T}\) ;</li>
+                    <li>\(\forall A \in \mathcal{P}(\Omega), A \in \mathcal{T} \implies \overline{A} \in \mathcal{T}\) (stabilité par complémentation) ;</li>
+                    <li>Pour toute famille dénombrable \((A_i)_{i \in I}\) d’éléments de \(\mathcal{T}\), \(\bigcup_{i \in I} A_i\) est dans \(\mathcal{T}\) (stabilité par union dénombrable).</li>
+                </ol>
+            </div>
+            
+            <div class="box definition-box" id="def14.1.4">
+                <p><strong>Définition 14.1.4 – Espace probabilisable et événements</strong></p>
+                <ul>
+                    <li>Un espace probabilisable est un couple \((\Omega, \mathcal{T})\), où \(\Omega\) est un ensemble quelconque, appelé univers, et \(\mathcal{T}\) une \(\sigma\)-algèbre d’événements sur \(\Omega\).</li>
+                    <li>Les éléments de \(\mathcal{T}\) sont appelés événements (de l’espace probabilisable \((\Omega, \mathcal{T})\)).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="chap14-secI.2">
+            <h3>I.2 Mesures de probabilité, espaces probabilisés</h3>
+            <div class="box definition-box" id="def14.1.9">
+                <p><strong>Définition 14.1.9 – Mesure de probabilité</strong></p>
+                <p>Soit \((\Omega, \mathcal{T})\) un espace probabilisable. Une mesure de probabilité (ou simplement une probabilité) sur \((\Omega, \mathcal{T})\) est une application \(P : \mathcal{T} \to \mathbb{R}\) telle que :</p>
+                <ol>
+                    <li>\(\forall A \in \mathcal{T}, 0 \le P(A) \le 1\) ;</li>
+                    <li>\(P(\Omega) = 1\)</li>
+                    <li>(propriété de \(\sigma\)-additivité) Pour toute famille dénombrable \((A_i)_{i \in I}\) d’événements deux à deux incompatibles, \((P(A_i))_{i \in I}\) est sommable, et on a : \(P\left(\bigcup_{i \in I} A_i\right) = \sum_{i \in I} P(A_i)\).</li>
+                </ol>
+            </div>
+            
+            <div class="box definition-box" id="def14.1.11">
+                <p><strong>Définition 14.1.11 – Espace probabilisé, ou modèle probabiliste de Kolmogorov</strong></p>
+                <p>Un espace probabilisé est un triplet \((\Omega, \mathcal{T}, P)\) où \((\Omega, \mathcal{T})\) est un espace probabilisable, et \(P\) une mesure de probabilité sur \((\Omega, \mathcal{T})\).</p>
+            </div>
+        </section>
+
+        <section id="chap14-secI.3">
+            <h3>I.3 Espaces probabilisés discrets</h3>
+            <div class="box definition-box" id="def14.1.15">
+                <p><strong>Définition 14.1.15 – Espace probabilisé discret</strong></p>
+                <p>Soit \((\Omega, \mathcal{T}, P)\) un espace probabilisé tel que \(\mathcal{T}\) contienne tous les singletons. On dit que \((\Omega, \mathcal{T}, P)\) est discret si la famille \((P(\{\omega\}))_{\omega \in \Omega}\) est sommable de somme égale à 1.</p>
+            </div>
+        </section>
+
+        <section id="chap14-secI.4">
+            <h3>I.4 Continuité monotone</h3>
+            <div class="box theorem-box" id="th14.1.21">
+                <p><strong>Théorème 14.1.21 – Propriété de limite monotone, ou continuité monotone de \(P\)</strong></p>
+                <p>Soit \((\Omega, \mathcal{T}, P)\) un espace probabilisé.</p>
+                <ol>
+                    <li>Soit \((A_n)_{n \in \mathbb{N}}\) une suite croissante d’événements (pour l’inclusion). Alors : \(P\left(\bigcup_{n \in \mathbb{N}} A_n\right) = \lim_{n \to \infty} P(A_n)\).</li>
+                    <li>Soit \((A_n)_{n \in \mathbb{N}}\) une suite décroissante d’événements. Alors : \(P\left(\bigcap_{n \in \mathbb{N}} A_n\right) = \lim_{n \to \infty} P(A_n)\).</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="chap14-secI.5">
+            <h3>I.5 Événements négligeables, presque sûrs</h3>
+            <div class="box definition-box" id="def14.1.29">
+                <p><strong>Définition 14.1.29 – Ensembles négligeables</strong></p>
+                <p>Soit \((\Omega, \mathcal{T}, P)\) un espace probabilisé, et soit \(A \in \mathcal{T}\).</p>
+                <ol>
+                    <li>On dit que \(A\) est négligeable, ou presque-impossible, si \(P(A) = 0\).</li>
+                    <li>On dit que \(A\) est presque sûr, ou presque-certain, si \(P(A) = 1\).</li>
+                    <li>Une propriété est vraie presque sûrement si l’événement « la propriété est satisfaite » est presque-certain.</li>
+                </ol>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap14-secII">
+        <h2>II Conditionnement et indépendance</h2>
+        <section id="chap14-secII.1">
+            <h3>II.1 Probabilités conditionnelles</h3>
+            <div class="box definition-box" id="def14.2.1">
+                <p><strong>Définition 14.2.1 – Probabilités conditionnelles</strong></p>
+                <p>Soit \((\Omega, \mathcal{T}, P)\) un espace probabilisé, \(A\) et \(B\) deux événements de \(\mathcal{T}\) tels que \(B\) ne soit pas presque-impossible. Alors, la probabilité conditionnelle de \(A\) en \(B\) (ou la probabilité de \(A\) sachant \(B\)) est :</p>
+                \[ P_B(A) = P(A|B) = \frac{P(A \cap B)}{P(B)}. \]
+            </div>
+        </section>
+
+        <section id="chap14-secII.2">
+            <h3>II.2 Formules liées aux probabilités conditionnelles</h3>
+            <div class="box theorem-box" id="th14.2.4">
+                <p><strong>Théorème 14.2.4 – Formule des probabilités totales</strong></p>
+                <p>Soit \((A_i)_{i \in I}\) un système quasi-complet fini ou dénombrable, tels que les événements \(A_i\) ne sont pas presque-impossibles, et soit \(B \in \mathcal{T}\). Alors la famille \((P(B|A_i)P(A_i))_{i \in I}\) est sommable, et :</p>
+                \[ P(B) = \sum_{i \in I} P(B|A_i)P(A_i). \]
+            </div>
+            
+            <div class="box theorem-box" id="th14.2.8">
+                <p><strong>Théorème 14.2.8 – Formule de Bayes simple</strong></p>
+                <p>Soit \(A\) et \(B\) deux événements tels que \(P(A) > 0\) et \(P(B) > 0\). Alors</p>
+                \[ P(A|B) = \frac{P(B|A)P(A)}{P(B)}. \]
+            </div>
+        </section>
+
+        <section id="chap14-secII.3">
+            <h3>II.3 Indépendance</h3>
+            <div class="box definition-box" id="def14.2.12">
+                <p><strong>Définition 14.2.12 – Événements indépendants</strong></p>
+                <p>Soit \((\Omega, \mathcal{T}, P)\) un espace probabilisé, et \((A, B) \in \mathcal{T}^2\). Les événements \(A\) et \(B\) sont indépendants si \(P(A \cap B) = P(A)P(B)\).</p>
+            </div>
+            
+            <div class="box definition-box" id="def14.2.14">
+                <p><strong>Définition 14.2.14 – Indépendance d’une famille</strong></p>
+                <p>Soit \((\Omega, \mathcal{T}, P)\) un espace probabilisé, et \((A_i)_{i \in I}\) une famille d’événements. On dit que les \(A_i\), \(i \in I\), sont indépendants (ou mutuellement indépendants), si et seulement si pour tout \(J \in \mathcal{P}_f(I)\),</p>
+                \[ P\left(\bigcap_{j \in J} A_j\right) = \prod_{j \in J} P(A_j). \]
+            </div>
+        </section>
+    </section>
+
+    <section id="chap14-secIII">
+        <h2>III Bilan des méthodes calculatoires en probabilités</h2>
+        <div class="box method-box" id="meth14.3.1">
+            <p><strong>Méthode 14.3.1 – Comment aborder un calcul de probabilité</strong></p>
+            <ol>
+                <li>Si on est dans une situation d’équiprobabilité, on peut se diriger vers un argument combinatoire (et utiliser la formule de Laplace). Dans les autres cas, la démarche générale est indiquée ci-dessous.</li>
+                <li>Définir des événements simples issus de l’expérience décrite.</li>
+                <li>Décrire à l’aide d’une phrase l’événement \(A\) dont on recherche la probabilité.</li>
+                <li>Traduire cette description dans le langage ensembliste (union, intersection, complémentaires).</li>
+                <li>Calcul de la probabilité \(P(A)\) en se servant de la décomposition ensembliste et des règles de calcul.</li>
+            </ol>
+        </div>
+        
+        <div class="box method-box" id="meth14.3.3">
+            <p><strong>Méthode 14.3.3 – Calcul de la probabilité d’une intersection</strong></p>
+            <p>Suivant les cas :</p>
+            <ul>
+                <li>Intersection dénombrable d’événements décroissants : théorème de la limite monotone.</li>
+                <li>Intersection d’événements mutuellement indépendants : produit des probabilités.</li>
+                <li>Intersection d’événements non nécessairement indépendants : formule des probabilités composées.</li>
+            </ul>
+        </div>
+        
+        <div class="box method-box" id="meth14.3.4">
+            <p><strong>Méthode 14.3.4 – Calcul de la probabilité d’une union</strong></p>
+            <ul>
+                <li>Union dénombrable d’événements croissants : théorème de la limite monotone.</li>
+                <li>Union d’événements 2 à 2 incompatibles : somme des probabilités.</li>
+                <li>Union d’événements mutuellement indépendants : passer au complémentaire.</li>
+                <li>Union d’événements avec informations sur les intersections : formule du crible de Poincaré.</li>
+            </ul>
+        </div>
+    </section>
+</section>
+<!-- Fin du chapitre 14 -->
+                    <section id="chap15">
+    <div class="chapter-heading">
+        <span class="chapter-number">15</span>
+        <div class="chapter-title">
+            <h1>Variables aléatoires discrètes</h1>
+        </div>
+    </div>
+
+    <p>Dans ce chapitre, sauf mention contraire, \((\Omega, \mathcal{T}, P)\) désigne un espace probabilisé quelconque.</p>
+
+    <section id="chap15-secI">
+        <h2>I Loi d’une variable aléatoire discrète</h2>
+        <section id="chap15-secI.1">
+            <h3>I.1 Généralités sur les variables aléatoires discrètes</h3>
+            <div class="box definition-box" id="def15.1.1">
+                <p><strong>Définition 15.1.1 – Variable aléatoire discrète</strong></p>
+                <p>Soit \((\Omega, \mathcal{T})\) un espace probabilisable. Une variable aléatoire discrète \(X\) à valeurs dans \(E\) est une application \(X : \Omega \to E\) telle que :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(X(\Omega)\) (l’ensemble des valeurs possibles de \(X\)) est au plus dénombrable ;</li>
+                    <li>pour tout \(x \in X(\Omega), X^{-1}(\{x\}) \in \mathcal{T}\).</li>
+                </ol>
+            </div>
+            
+            <div class="box proposition-box" id="prop15.1.3">
+                <p><strong>Proposition 15.1.3 – Image réciproque des parties de \(E\)</strong></p>
+                <p>Soit \((\Omega, \mathcal{T})\) un espace probabilisable, et \(X : \Omega \to E\) une variable aléatoire discrète. Alors, \(\forall A \in \mathcal{P}(E), X^{-1}(A) \in \mathcal{T}\).</p>
+            </div>
+        </section>
+
+        <section id="chap15-secI.2">
+            <h3>I.2 Loi d’une variable aléatoire discrète</h3>
+            <p>Soit \(X\) une variable aléatoire discrète sur \((\Omega, \mathcal{T}, P)\), à valeurs dans \(E\). Par définition, \(\{X=x\}\) est un événement, donc \(P(X=x)\) est bien défini.</p>
+            <div class="box proposition-box" id="prop15.1.10">
+                <p><strong>Proposition 15.1.10</strong></p>
+                <p>Soit \(X\) une variable aléatoire discrète sur \((\Omega, \mathcal{T}, P)\) à valeurs dans \(E\). Alors</p>
+                <ul>
+                    <li>la famille \((\{X=x\})_{x \in X(\Omega)}\) est un SCE d’événements ;</li>
+                    <li>la famille \((P(X=x))_{x \in X(\Omega)}\) est une distribution de probabilités.</li>
+                </ul>
+            </div>
+            
+            <div class="box definition-box" id="def15.1.11">
+                <p><strong>Définition 15.1.11 – Loi d’une variable aléatoire discrète</strong></p>
+                <p>Soit \((\Omega, \mathcal{T}, P)\) un espace probabilisé, et \(X : \Omega \to E\) une variable aléatoire. La loi de \(X\) est la mesure de probabilité définie sur \((X(\Omega), \mathcal{P}(X(\Omega)))\) par la distribution de probabilités \((P(X=x))_{x \in X(\Omega)}\).</p>
+            </div>
+        </section>
+
+        <section id="chap15-secI.3">
+            <h3>I.3 Loi de \(f(X)\)</h3>
+            <div class="box proposition-box" id="prop15.1.18">
+                <p><strong>Proposition 15.1.18 – Loi de \(f(X)\)</strong></p>
+                <p>Soit \(X\) une variable aléatoire discrète sur \((\Omega, \mathcal{T}, P)\), à valeurs dans \(E\), et \(f : E \to F\). La loi de \(f(X)\) est donnée par</p>
+                \[ \forall x \in f(X(\Omega)), \quad P(f(X)=x) = \sum_{\substack{y \in X(\Omega) \\ f(y)=x}} P(X=y). \]
+            </div>
+        </section>
+
+        <section id="chap15-secI.4">
+            <h3>I.4 Loi d’un vecteur aléatoire réel discret</h3>
+            <div class="box definition-box" id="def15.1.23">
+                <p><strong>Définition 15.1.23 – Loi conjointe, lois marginales</strong></p>
+                <p>Soit \((X, Y)\) un couple de variables aléatoires réelles discrètes.</p>
+                <ul>
+                    <li>La loi conjointe du couple \((X, Y)\) est la loi du vecteur aléatoire \(V=(X,Y)\).</li>
+                    <li>La première loi marginale du couple \((X, Y)\) est la loi de \(X\).</li>
+                    <li>La seconde loi marginale du couple \((X, Y)\) est la loi de \(Y\).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="chap15-secI.5">
+            <h3>I.5 Variables indépendantes</h3>
+            <div class="box proposition-box" id="propdef15.1.27">
+                <p><strong>Proposition/Définition 15.1.27 – Variables aléatoires discrètes indépendantes</strong></p>
+                <p>Soit \(X\) et \(Y\) deux variables aléatoires discrètes. Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>Pour tout \((A, B) \in \mathcal{P}(E_1) \times \mathcal{P}(E_2)\), les événements \(\{X \in A\}\) et \(\{Y \in B\}\) sont indépendants.</li>
+                    <li>Pour tout \((x, y) \in X(\Omega) \times Y(\Omega)\), les événements \(\{X=x\}\) et \(\{Y=y\}\) sont indépendants.</li>
+                </ol>
+                <p>Dans ce cas, on dit que \(X\) et \(Y\) sont indépendantes, et on note \(X \perp \!\!\! \perp Y\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th15.1.35">
+                <p><strong>Théorème 15.1.35 – Lemme des coalitions</strong></p>
+                <p>Soit \((X_k)_{k \in K}\) une famille de variables aléatoires discrètes indépendantes, et \((K_i)_{i \in I}\) une famille de sous-ensembles finis deux à deux disjoints de \(K\). Soit \((Y_i)_{i \in I}\) une famille de variables aléatoires, telle que pour tout \(i \in I\), \(Y_i\) s’écrive comme fonction des \(X_k, k \in K_i\). Alors \((Y_i)_{i \in I}\) est une famille de variables aléatoires discrètes indépendantes.</p>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap15-secII">
+        <h2>II Espérance et variance</h2>
+        <section id="chap15-secII.1">
+            <h3>II.1 Espérance d’une variable positive</h3>
+            <div class="box definition-box" id="def15.2.1">
+                <p><strong>Définition 15.2.1 – Espérance d’une variable positive</strong></p>
+                <p>Soit \(X\) une variable aléatoire à valeurs dans \(\mathbb{R}_+\). L’espérance de \(X\) est définie par</p>
+                \[ E(X) = \sum_{x \in X(\Omega)} x P(X=x), \]
+                <p>où, par convention, \(+\infty \times 0 = 0\). L’espérance est toujours bien définie dans \(\overline{\mathbb{R}}_+\).</p>
+            </div>
+        </section>
+
+        <section id="chap15-secII.2">
+            <h3>II.2 Espérance d’une variable complexe</h3>
+            <div class="box definition-box" id="def15.2.8">
+                <p><strong>Définition 15.2.8 – Espérance</strong></p>
+                <p>Soit \(X\) une variable aléatoire discrète à valeurs dans \(\mathbb{C}\). On dit que \(X\) admet une espérance finie si la famille \((x P(X=x))_{x \in X(\Omega)}\) est sommable, et dans ce cas :</p>
+                \[ E(X) = \sum_{x \in X(\Omega)} x P(X=x). \]
+            </div>
+        </section>
+
+        <section id="chap15-secII.3">
+            <h3>II.3 Formule de transfert et conséquences</h3>
+            <div class="box theorem-box" id="th15.2.13">
+                <p><strong>Théorème 15.2.13 – Formule de transfert, version positive</strong></p>
+                <p>Soit \(X\) une variable aléatoire à valeurs dans \(E\) et \(f : X(\Omega) \to \mathbb{R}_+\). Alors, dans \(\overline{\mathbb{R}}_+\), l’égalité suivante est toujours valide :</p>
+                \[ E(f(X)) = \sum_{x \in X(\Omega)} f(x) P(X=x). \]
+            </div>
+            
+            <div class="box proposition-box" id="prop15.2.17">
+                <p><strong>Proposition 15.2.17 – Inégalité triangulaire</strong></p>
+                <p>Soit \(X\) une variable aléatoire à valeurs complexes. Alors \(X \in L^1 \iff E(|X|) < +\infty\), et dans ce cas, \(|E(X)| \le E(|X|)\).</p>
+            </div>
+        </section>
+
+        <section id="chap15-secII.4">
+            <h3>II.4 Moment d’ordre 2 et variance d’une variable réelle</h3>
+            <div class="box definition-box" id="def15.2.23">
+                <p><strong>Définition 15.2.23 – Moment d’ordre 2</strong></p>
+                <p>Soit \(X\) une variable aléatoire réelle discrète. Le moment d’ordre 2 de \(X\) est l’espérance de \(X^2\).</p>
+            </div>
+            
+            <div class="box definition-box" id="def15.2.28">
+                <p><strong>Définition 15.2.28 – Variance et écart-type d’une variable aléatoire</strong></p>
+                <p>Soit \(X \in L^2\). On définit alors :</p>
+                <ul>
+                    <li>la variance de \(X\) : \(V(X) = E((X - E(X))^2)\).</li>
+                    <li>l’écart type de \(X\) : \(\sigma(X) = \sqrt{V(X)}\).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="chap15-secII.5">
+            <h3>II.5 Covariance</h3>
+            <div class="box definition-box" id="def15.2.34">
+                <p><strong>Définition 15.2.34 – Covariance</strong></p>
+                <p>Soit \(X\) et \(Y\) deux variables \(L^2\). On définit la covariance de \(X\) et \(Y\) par :</p>
+                \[ \text{cov}(X, Y) = E((X - E(X))(Y - E(Y))). \]
+            </div>
+            
+            <div class="box proposition-box" id="prop15.2.37">
+                <p><strong>Propriétés de la covariance</strong></p>
+                <p>Soit \(X, Y \in L^2\).</p>
+                <ol>
+                    <li>\(\text{cov}(X, Y) = E(XY) - E(X)E(Y)\);</li>
+                    <li>\(\text{cov}(X, Y) = \text{cov}(Y, X)\) (symétrie)</li>
+                    <li>\(\text{cov}\) est bilinéaire.</li>
+                    <li>\(\text{cov}(X, X) = V(X)\).</li>
+                    <li>Si \(X\) et \(Y\) sont indépendantes, \(\text{cov}(X, Y) = 0\).</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="chap15-secII.6">
+            <h3>II.6 Variance d’une somme</h3>
+            <div class="box proposition-box" id="prop15.2.42">
+                <p><strong>Proposition 15.2.42 – Variance d’une somme</strong></p>
+                <ol>
+                    <li>Si \(X, Y \in L^2\), alors \(X+Y \in L^2\), et : \(V(X+Y) = V(X) + V(Y) + 2 \cdot \text{cov}(X,Y)\).</li>
+                    <li>Si de plus \(X \perp \!\!\! \perp Y\), alors \(V(X+Y) = V(X) + V(Y)\).</li>
+                </ol>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap15-secIII">
+        <h2>III Variables aléatoires à valeurs dans \(\mathbb{N}\), lois usuelles</h2>
+        <section id="chap15-secIII.1">
+            <h3>III.1 Fonction génératrice d’une variable à valeurs dans \(\mathbb{N}\)</h3>
+            <div class="box definition-box" id="def15.3.1">
+                <p><strong>Définition 15.3.1 – Série et fonction génératrice</strong></p>
+                <ul>
+                    <li>Soit \(X\) une variable aléatoire à valeurs dans \(\mathbb{N}\). La série génératrice de \(X\) est la série entière \(\sum_{n=0}^\infty P(X=n)t^n\).</li>
+                    <li>La fonction génératrice de \(X\) est la somme de la série génératrice et est notée \(G_X\).</li>
+                </ul>
+            </div>
+            
+            <div class="box theorem-box" id="th15.3.6">
+                <p><strong>Théorème 15.3.6 – Détermination de la loi de \(X\) par sa fonction génératrice</strong></p>
+                <p>Soit \(X\) et \(Y\) deux variables aléatoires à valeurs dans \(\mathbb{N}\). Si \(G_X = G_Y\), alors \(X \sim Y\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th15.3.7">
+                <p><strong>Théorème 15.3.7 – Expression de l’espérance à l’aide de la fonction génératrice</strong></p>
+                <p>Soit \(X\) une v.a. à valeurs dans \(\mathbb{N}\). \(X \in L^1 \iff G_X\) est dérivable en 1. Dans ce cas, on a \(E(X) = G'_X(1)\).</p>
+            </div>
+        </section>
+        
+        <section id="chap15-secIII.2">
+            <h3>III.2 Rappels sur les lois usuelles finies</h3>
+            <p>On rappelle rapidement les lois usuelles finies classiques.</p>
+        </section>
+        
+        <section id="chap15-secIII.3">
+            <h3>III.3 Loi géométrique</h3>
+            <div class="box definition-box" id="def15.3.22">
+                <p><strong>Définition 15.3.22 – Loi géométrique</strong></p>
+                <p>On dit que \(X\) suit une loi géométrique de paramètre \(p \in ]0, 1]\), si \(P(X \in \mathbb{N}^*) = 1\), et \(\forall n \in \mathbb{N}^*, P(X=n) = pq^{n-1}\), avec \(q=1-p\). On note \(X \sim \mathcal{G}(p)\).</p>
+            </div>
+        </section>
+        
+        <section id="chap15-secIII.4">
+            <h3>III.4 Loi de Poisson</h3>
+            <div class="box definition-box" id="def15.3.25">
+                <p><strong>Définition 15.3.25 – Loi de Poisson</strong></p>
+                <p>Soit \(\lambda \in \mathbb{R}_+\) et \(X\) une v.a.r.. On dit que \(X\) suit la loi de Poisson de paramètre \(\lambda\), et on note \(X \sim \mathcal{P}(\lambda)\), si : \(X(\Omega) = \mathbb{N}\) et \(\forall n \in \mathbb{N}, P(X=n) = e^{-\lambda} \frac{\lambda^n}{n!}\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop15.3.27">
+                <p><strong>Proposition 15.3.27 – Limite en loi de variables binomiales</strong></p>
+                <p>Soit \((X_n)\) une suite de variables binomiales de paramètres \((n, p_n)\), telles que \(p_n \sim_{+\infty} \frac{\lambda}{n}\). Alors \(\forall k \in \mathbb{N}, P(X_n=k) \to e^{-\lambda} \frac{\lambda^k}{k!}\).</p>
+            </div>
+        </section>
+        
+        <section id="chap15-secIII.5">
+            <h3>III.5 Stabilités (HP classique)</h3>
+            <div class="box proposition-box" id="prop15.3.29">
+                <p><strong>Proposition 15.3.29 – Stabilité des lois binomiales</strong></p>
+                <p>Soit \((m, n) \in (\mathbb{N}^*)^2\) et \(p \in ]0, 1[\). Si \(X \sim \mathcal{B}(n, p)\) et \(Y \sim \mathcal{B}(m, p)\) sont indépendantes, alors \(X+Y \sim \mathcal{B}(n+m, p)\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop15.3.31">
+                <p><strong>Proposition 15.3.31 – Stabilité des lois de Poisson</strong></p>
+                <p>Soit \((\lambda, \mu) \in (\mathbb{R}_+)^2\). Si \(X \sim \mathcal{P}(\lambda)\) et \(Y \sim \mathcal{P}(\mu)\) sont indépendantes, alors \(X+Y \sim \mathcal{P}(\lambda+\mu)\).</p>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap15-secIV">
+        <h2>IV Inégalités probabilistes</h2>
+        <section id="chap15-secIV.1">
+            <h3>IV.1 Inégalités de Markov et de Bienaymé-Tchebychev</h3>
+            <div class="box theorem-box" id="th15.4.1">
+                <p><strong>Théorème 15.4.1 – Inégalité de Markov</strong></p>
+                <p>Soit \(X\) une variable aléatoire réelle discrète dans \(L^1\). Alors, pour tout \(a > 0\), \(P(|X| \ge a) \le \frac{E(|X|)}{a}\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th15.4.3">
+                <p><strong>Théorème 15.4.3 – Inégalité de Bienaymé-Tchebychev</strong></p>
+                <p>Soit \(Y\) une variable aléatoire réelle discrète dans \(L^2\), d’espérance \(m\) et de variance \(\sigma^2\). Alors : \(\forall \varepsilon > 0, P(|Y - m| \ge \varepsilon) \le \frac{\sigma^2}{\varepsilon^2}\).</p>
+            </div>
+        </section>
+
+        <section id="chap15-secIV.2">
+            <h3>IV.2 Loi faible des grands nombres</h3>
+            <div class="box definition-box" id="def15.4.4">
+                <p><strong>Définition 15.4.4 – Convergence en probabilités</strong></p>
+                <p>Soit \((X_n)\) une suite de variables aléatoires \(L^1\) et \(X\) une variable \(L^1\). On dit que \((X_n)\) converge en probabilités vers \(X\) si \(\forall \varepsilon > 0, \lim_{n \to \infty} P(|X_n - X| \ge \varepsilon) = 0\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th15.4.5">
+                <p><strong>Théorème 15.4.5 – Loi faible des grands nombres, HP</strong></p>
+                <p>Soit \((X_n)_{n \in \mathbb{N}^*}\) une suite de variables aléatoires réelles discrètes \(L^2\), i.i.d, d’espérance \(m\) et de variance \(\sigma^2\). Soit \((Z_n)_{n \in \mathbb{N}^*}\) définie par : \(\forall n \in \mathbb{N}, Z_n = \frac{X_1 + \dots + X_n}{n}\). Alors \((Z_n)_{n \in \mathbb{N}^*}\) converge en probabilité vers la variable certaine égale à \(m\).</p>
+            </div>
+        </section>
+    </section>
+</section>
+<!-- Fin du chapitre 15 -->
+                
 </main>
 
 <script>
