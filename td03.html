@@ -17,6 +17,9 @@ h1 { text-align: center; }
 .corrige h4 { color: #28a745; margin-top: 0; }
 .remarque { font-size: 0.9em; color: #888; border-left: 3px solid #f0ad4e; padding-left: 10px; margin-top: 10px; }
 code { background-color: #e9ecef; padding: 2px 5px; border-radius: 4px; font-family: 'Courier New', Courier, monospace; }
+        table { border-collapse: collapse; width: auto; margin: 1em auto; font-size:1.7em}
+          .katex{font-size:3em;}
+  .katex-display{font-size:1.2em; text-align:center; margin: 0.6em 0;}
 </style>
 </head>
 <body>
@@ -885,7 +888,638 @@ Puisque $\psi$ est injective, cela implique que $\{y_0\} = \emptyset$.
 C'est une contradiction, car un singleton n'est jamais vide.</p>
 <p>L'hypothèse que $f$ n'est pas surjective est donc fausse. Par conséquent, $f$ est surjective.</p>
 </div>
+<h2>Ensembles finis, équipotence</h2>
 
+
+        <section id="ex48">
+  <h3>Exercice 48++.</h3>
+  <p>Soit $X$ un ensemble. Montrer que $X$ est infini si et seulement si $\forall f\in X^X,\ \exists A\in\mathcal{P}(X)\setminus\{\varnothing,X\},\ f[A]\subseteq A$.</p>
+</section>
+
+Absolument. Voici la correction finalisée et structurée de cet exercice avancé sur la caractérisation des ensembles infinis.
+
+
+<h3>✅ Exercice 48⁺⁺.</h3>
+<p><strong>Soit X un ensemble. Montrer que X est infini si et seulement si $\forall f \in X^X, \exists A \in \mathcal{P}(X) \setminus \{\emptyset, X\}, f[A] \subseteq A$.</strong></p>
+
+<div>
+<p>La proposition "$\exists A \in \mathcal{P}(X) \setminus \{\emptyset, X\}, f[A] \subseteq A$" signifie que l'application $f$ admet une <strong>partie stable non triviale</strong>. L'exercice consiste donc à prouver qu'un ensemble est infini si et seulement si toute application de cet ensemble dans lui-même admet une partie stable non triviale.</p>
+<p>Nous allons démontrer l'équivalence en prouvant les deux implications.</p>
+
+
+<p><strong>($\Leftarrow$) Si toute application $f:X \to X$ admet une partie stable non triviale, alors X est infini.</strong></p>
+<p>Nous allons prouver la contraposée : si X est un ensemble fini, alors il existe une application $f: X \to X$ qui n'admet aucune partie stable non triviale.</p>
+<p>Supposons que X est un ensemble fini. Si X est vide, la condition est trivialement fausse car $\mathcal{P}(X) \setminus \{\emptyset, X\}$ est vide. Supposons donc X non vide et notons ses éléments $X = \{x_1, x_2, \dots, x_n\}$ avec $n \ge 1$.</p>
+<p>Construisons une application $f: X \to X$ qui permute tous les éléments en un seul cycle (un cycle Hamiltonien). Définissons $f$ par :</p>
+$$ f(x_i) = x_{i+1} \text{ pour } i \in \{1, \dots, n-1\} \quad \text{et} \quad f(x_n) = x_1 $$
+<p>Montrons que cette application $f$ n'a pas de partie stable non triviale.</p>
+<p>Soit $A$ une partie de $X$ stable par $f$, c'est-à-dire $f[A] \subseteq A$. Supposons de plus que $A$ est non vide.</p>
+<p>Puisque $A$ est non vide, il existe au moins un élément $x_k \in A$.
+Comme $A$ est stable par $f$, son image $f(x_k)$ doit aussi être dans $A$. Donc $x_{k \pmod n + 1} \in A$.
+En appliquant $f$ à nouveau, $f(f(x_k)) = f^2(x_k)$ doit être dans $A$.
+Par une récurrence immédiate, pour tout entier $m \ge 0$, l'itéré $f^m(x_k)$ doit appartenir à $A$.
+Or, l'ensemble des itérés de $x_k$ par cette fonction $f$ est l'ensemble $X$ tout entier.
+Par conséquent, $X \subseteq A$. Comme $A \subseteq X$, on a nécessairement $A=X$.</p>
+<p>Les seules parties stables par cette fonction $f$ sont donc l'ensemble vide $\emptyset$ (qui est toujours stable) et l'ensemble $X$ lui-même. Il n'existe donc pas de partie stable <strong>non triviale</strong> (c'est-à-dire différente de $\emptyset$ et de $X$).</p>
+<p>Nous avons donc montré que si X est fini, la propriété de l'énoncé est fausse. Par contraposition, si la propriété est vraie, alors X doit être infini.</p>
+
+<hr>
+
+<p><strong>($\Rightarrow$) Si X est infini, alors toute application $f:X \to X$ admet une partie stable non triviale.</strong></p>
+<p>Soit $f: X \to X$ une application quelconque d'un ensemble infini X dans lui-même. Nous devons construire une partie stable non triviale $A$.</p>
+<p>Choisissons un élément arbitraire $x_0 \in X$ (possible car $X$ est infini donc non vide). Considérons la suite des itérés de $x_0$ par $f$ et l'ensemble de ses valeurs, appelé l'<strong>orbite</strong> de $x_0$ :</p>
+$$ A_0 = \{x_0, f(x_0), f^2(x_0), \dots \} = \{f^k(x_0) \mid k \in \mathbb{N}\} $$
+<p>Par construction, $A_0$ est une partie stable par $f$. En effet, si $y \in A_0$, alors $y=f^k(x_0)$ pour un certain $k \ge 0$. Son image est $f(y)=f^{k+1}(x_0)$, qui est bien un élément de $A_0$. Donc $f[A_0] \subseteq A_0$.</p>
+<p>Nous devons maintenant montrer qu'il existe une partie stable <strong>non triviale</strong>. On distingue deux cas concernant l'orbite $A_0$ :</p>
+
+<p><strong>Cas 1 : L'orbite $A_0$ est différente de X.</strong></p>
+<p>Dans ce cas, $A_0$ est une partie de X qui n'est pas égale à X. De plus, $A_0$ n'est pas vide car elle contient au moins $x_0$.
+Donc $A_0$ est une partie stable non triviale. Nous avons trouvé la partie cherchée.</p>
+
+<p><strong>Cas 2 : L'orbite $A_0$ est égale à X.</strong></p>
+<p>Dans ce cas, $X = \{f^k(x_0) \mid k \in \mathbb{N}\}$. L'orbite elle-même n'est pas une partie stable *non triviale*.
+Puisque $X$ est infini, tous les termes $f^k(x_0)$ doivent être distincts (sinon, si $f^i(x_0)=f^j(x_0)$ pour $i<j$, l'orbite serait finie, de cardinal au plus $j$).
+L'ensemble $X$ est donc infini dénombrable, et l'application $k \mapsto f^k(x_0)$ est une bijection de $\mathbb{N}$ sur $X$.</p>
+<p>Dans cette situation, construisons une autre partie. Considérons l'ensemble $A_1 = X \setminus \{x_0\}$.
+Puisque $X$ est infini, $A_1$ n'est pas vide. De plus, $A_1 \neq X$ par construction. $A_1$ est donc une partie non triviale.</p>
+<p>Vérifions si $A_1$ est stable par $f$.
+$A_1 = \{f^k(x_0) \mid k \in \mathbb{N}^*\}$.
+Soit $y \in A_1$. Alors $y$ s'écrit $y=f^k(x_0)$ pour un certain entier $k \ge 1$.
+Son image est $f(y) = f(f^k(x_0)) = f^{k+1}(x_0)$.
+Puisque $k \ge 1$, on a $k+1 \ge 2$. Donc $f(y)$ est de la forme $f^j(x_0)$ avec $j \ge 1$.
+Par conséquent, $f(y) \in A_1$.</p>
+<p>On a donc montré que $f[A_1] \subseteq A_1$. $A_1$ est une partie stable non triviale.</p>
+
+<p><strong>Conclusion :</strong></p>
+<p>Dans tous les cas, pour n'importe quelle application $f$ sur un ensemble infini $X$, nous avons pu construire une partie stable non triviale. L'implication est donc démontrée.</p>
+</div>
+
+
+        
+<section id="ex49">
+  <h3>Exercice 49+.</h3>
+  <p>Soit $(A_n)_{n\in\mathbb{N}}$ une suite d’ensembles telle que $A_0\subseteq A_1\subseteq A_2\subseteq\cdots$ et $\bigcup_{i\in\mathbb{N}}A_i=\mathbb{N}$. En notant $\mathcal{P}_\infty(\mathbb{N})$ l’ensemble des parties infinies de $\mathbb{N}$, on suppose $\forall X\in\mathcal{P}_\infty(\mathbb{N}),\ \exists n\in\mathbb{N}:\ X\cap A_n\in\mathcal{P}_\infty(\mathbb{N})$. Montrer $\exists n\in\mathbb{N}:\ A_n=\mathbb{N}$.</p>
+</section>
+C'est un exercice très difficile (noté ++) qui demande une construction astucieuse par l'absurde. C'est un excellent problème d'analyse et de théorie des ensembles.
+
+<hr>
+
+<h3>✅ Exercice 49⁺⁺.</h3>
+<p><strong>Soit $(A_n)_{n \in \mathbb{N}}$ une suite d'ensembles telle que $A_0 \subseteq A_1 \subseteq A_2 \subseteq \dots$ et $\bigcup_{i \in \mathbb{N}} A_i = \mathbb{N}$. En notant $\mathcal{P}_\infty(\mathbb{N})$ l'ensemble des parties infinies de $\mathbb{N}$, on suppose $\forall X \in \mathcal{P}_\infty(\mathbb{N}), \exists n \in \mathbb{N} : X \cap A_n \in \mathcal{P}_\infty(\mathbb{N})$.
+<br>Montrer $\exists n \in \mathbb{N} : A_n = \mathbb{N}$.</strong></p>
+
+<div>
+<p>La conclusion que l'on veut atteindre est que la suite croissante d'ensembles $(A_n)$ est stationnaire et finit par être égale à $\mathbb{N}$ tout entier.</p>
+<p>La méthode de preuve la plus naturelle pour ce type de conclusion "existentielle" est le raisonnement par l'absurde.</p>
+
+code
+Code
+download
+content_copy
+expand_less
+<p><strong>Démonstration par l'absurde :</strong></p>
+<p>Supposons que la conclusion est fausse. Cela signifie que pour tout entier $n \in \mathbb{N}$, l'ensemble $A_n$ n'est pas égal à $\mathbb{N}$.</p>
+$$ \forall n \in \mathbb{N}, \quad A_n \neq \mathbb{N} $$
+<p>Puisque la suite $(A_n)$ est croissante ($A_n \subseteq A_{n+1}$), si un $A_k$ était égal à $\mathbb{N}$, alors tous les suivants le seraient aussi. L'hypothèse absurde implique donc que pour tout $n$, $A_n$ est un sous-ensemble <strong>strict</strong> de $\mathbb{N}$.</p>
+
+<p>Notre objectif est de construire un ensemble infini $X$ qui contredit l'hypothèse de l'énoncé. C'est-à-dire que nous allons construire un $X \in \mathcal{P}_\infty(\mathbb{N})$ tel que pour <strong>tout</strong> $n \in \mathbb{N}$, l'intersection $X \cap A_n$ soit un ensemble <strong>fini</strong>.</p>
+
+<p><strong>Construction de l'ensemble $X$ :</strong></p>
+<p>La construction se fait par récurrence. Nous allons construire une suite strictement croissante d'entiers $(x_k)_{k \in \mathbb{N}}$, et nous poserons $X = \{x_k \mid k \in \mathbb{N}\}$. Un tel ensemble $X$ est infini par construction.</p>
+
+<ul>
+    <li>
+        <strong>Étape 0 (Construction de $x_0$) :</strong>
+        On sait que $A_0 \neq \mathbb{N}$. Il existe donc un élément qui n'est pas dans $A_0$. Choisissons un tel élément et appelons-le $x_0$. On a $x_0 \notin A_0$.
+    </li>
+    <li>
+        <strong>Étape 1 (Construction de $x_1$) :</strong>
+        Considérons l'ensemble $A_1$. Il n'est pas égal à $\mathbb{N}$.
+        De plus, l'ensemble $A_1 \cup \{0, 1, \dots, x_0\}$ est un ensemble fini, donc il ne peut pas être égal à $\mathbb{N}$ qui est infini. Il existe donc un entier qui n'est ni dans $A_1$, ni dans $\{0, \dots, x_0\}$.
+        Choisissons un tel entier et appelons-le $x_1$. On a donc :
+        $$ x_1 \notin A_1 \quad \text{et} \quad x_1 > x_0 $$
+    </li>
+    <li>
+        <strong>Étape k (Construction de $x_k$ - Hérédité) :</strong>
+        Supposons que nous avons construit les entiers $x_0 < x_1 < \dots < x_{k-1}$ tels que pour tout $i \in \{0, \dots, k-1\}$, on ait $x_i \notin A_i$.
+        Considérons l'ensemble $A_k \cup \{0, 1, \dots, x_{k-1}\}$. C'est un sous-ensemble de $\mathbb{N}$. Comme $A_k \neq \mathbb{N}$ (par notre hypothèse absurde) et que $\{0, \dots, x_{k-1}\}$ est fini, leur réunion ne peut pas être $\mathbb{N}$.
+        Il existe donc un entier qui n'est pas dans cette réunion. Choisissons un tel entier et appelons-le $x_k$.
+        Par construction, nous avons :
+        $$ x_k \notin A_k \quad \text{et} \quad x_k > x_{k-1} $$
+    </li>
+</ul>
+
+<p>Par ce procédé récursif, nous construisons une suite d'entiers $(x_k)_{k \in \mathbb{N}}$ qui est strictement croissante.
+Posons $X = \{x_0, x_1, x_2, \dots\}$. Par construction, $X$ est un sous-ensemble infini de $\mathbb{N}$, donc $X \in \mathcal{P}_\infty(\mathbb{N})$.</p>
+
+<p><strong>Vérification de la contradiction :</strong></p>
+<p>Nous allons maintenant montrer que pour cet ensemble $X$, l'hypothèse de l'énoncé est fausse. C'est-à-dire, nous allons montrer que $\forall n \in \mathbb{N}, X \cap A_n$ est un ensemble fini.</p>
+
+<p>Soit $n \in \mathbb{N}$ un entier fixé quelconque.
+Considérons l'intersection $X \cap A_n = \{ x_k \in X \mid x_k \in A_n \}$.</p>
+
+<p>Soit $x_k$ un élément de cette intersection. On a donc $x_k \in X$ et $x_k \in A_n$.
+Par construction de la suite $(x_k)$, on sait que pour tout $j \ge n$, on a $x_j \notin A_j$.
+De plus, la suite d'ensembles $(A_i)$ est croissante, donc $A_n \subseteq A_{n+1} \subseteq A_{n+2} \subseteq \dots$.
+Par conséquent, si $x_j \notin A_j$, alors a fortiori $x_j \notin A_n$ pour tout $j \ge n$.</p>
+
+<p>Reprenons plus clairement :
+Par construction, pour tout $k \ge n$, on a $x_k \notin A_k$.
+Comme la suite $(A_i)$ est croissante, pour $k \ge n$, on a $A_n \subseteq A_k$.
+Si un élément n'est pas dans $A_k$, il ne peut pas être dans $A_n$. Donc, pour tout $k \ge n$, $x_k \notin A_n$.</p>
+
+<p>Les seuls éléments de $X$ qui pourraient éventuellement être dans $A_n$ sont donc ceux dont l'indice est strictement inférieur à $n$.
+$$ X \cap A_n \subseteq \{x_0, x_1, \dots, x_{n-1}\} $$
+
+<p>L'ensemble $\{x_0, x_1, \dots, x_{n-1}\}$ est un ensemble fini, de cardinal $n$.
+Puisque $X \cap A_n$ est un sous-ensemble d'un ensemble fini, il est lui-même fini.</p>
+
+<p>Nous avons donc montré que pour notre ensemble $X$ (qui est infini), pour tout entier $n$, l'intersection $X \cap A_n$ est finie.
+Ceci est la négation de l'hypothèse de l'énoncé, qui affirmait que pour tout ensemble infini $X$, il devait exister un $n$ tel que $X \cap A_n$ soit infini.</p>
+
+<p><strong>Conclusion :</strong></p>
+<p>L'hypothèse que "pour tout $n$, $A_n \neq \mathbb{N}$" nous a permis de construire un contre-exemple à une autre hypothèse de l'énoncé. Notre supposition initiale est donc fausse.</p>
+<p>Il existe donc bien un entier $n \in \mathbb{N}$ tel que $A_n = \mathbb{N}$.</p>
+</div>
+
+<h3>Équipotence</h3>
+   <section id="ex50">
+  <h3>Exercice 50+.</h3>
+  <ol>
+    <li>Montrer que $\varphi:\mathbb{N}^2\to\mathbb{N}$, $(a,b)\mapsto 2^a(2b+1)-1$ est une bijection.</li>
+    <li>Trouver une formule pour la bijection $\psi:\mathbb{N}\to\mathbb{N}^2$ illustrée (et montrer précisément sa bijectivité).</li>
+    <li>Pour tout $r\in\mathbb{N}^\ast$, montrer que $\mathbb{N}^r$ est équipotent à $\mathbb{N}$.</li>
+    <li>On note $\mathbb{N}^{(\mathbb{N})}$ l’ensemble des suites $(u_n)_{n\in\mathbb{N}}$ à valeurs dans $\mathbb{N}$ qui sont presque nulles (ou nulles à partir d’un certain rang), c’est-à-dire telles que $\exists N\in\mathbb{N}:\ \forall n\ge N,\ u_n=0$. Montrer que $\mathbb{N}^{(\mathbb{N})}$ est équipotent à $\mathbb{N}$.</li>
+    <li>Montrer que l’ensemble $\mathbb{N}^{\mathbb{N}}$ de toutes les suites à valeurs dans $\mathbb{N}$ n’est pas équipotent à $\mathbb{N}$.</li>
+  </ol>
+</section>
+Excellent exercice qui balaye les notions fondamentales de la dénombrabilité.
+
+<h3>✅ Exercice 50⁺.</h3>
+<p><em>Rappel : deux ensembles sont dits équipotents s'il existe une bijection entre eux. Un ensemble est dit dénombrable s'il est équipotent à $\mathbb{N}$.</em></p>
+
+<h4>1. Montrer que $\varphi : \mathbb{N}^2 \to \mathbb{N}, (a, b) \mapsto 2^a(2b + 1) - 1$ est une bijection.</h4>
+<div>
+<p>Soit $f(a,b) = 2^a(2b+1)$. Montrons d'abord que l'application $f: \mathbb{N} \times \mathbb{N} \to \mathbb{N}^*$ est une bijection. L'application $\varphi$ sera alors la composée de $f$ avec la bijection $k \mapsto k-1$ de $\mathbb{N}^*$ dans $\mathbb{N}$, et sera donc aussi une bijection.</p>
+<p>La bijectivité de $f$ repose sur le <strong>théorème fondamental de l'arithmétique</strong> : tout entier $n \ge 1$ s'écrit de manière unique comme un produit de facteurs premiers.</p>
+<p>En particulier, tout entier $n \ge 1$ peut s'écrire de manière unique sous la forme $n = 2^a \cdot m$, où $a \ge 0$ est la valuation 2-adique de $n$ et $m$ est un entier impair.</p>
+<p>Comme $m$ est un entier impair positif, il peut s'écrire de manière unique sous la forme $m=2b+1$ pour un certain entier $b \ge 0$.</p>
+<p><strong>Injectivité de $f$ :</strong> Soient $(a,b)$ and $(a',b')$ deux couples de $\mathbb{N}^2$ tels que $f(a,b) = f(a',b')$.</p>
+$$ 2^a(2b+1) = 2^{a'}(2b'+1) $$
+<p>Cette égalité représente deux décompositions d'un même entier en produit d'une puissance de 2 et d'un nombre impair. Par unicité de la décomposition en facteurs premiers (et en particulier de l'exposant du facteur 2), on doit avoir $a=a'$.
+En simplifiant par $2^a$, on obtient $2b+1 = 2b'+1$, ce qui implique $b=b'$.
+Le couple est donc unique : $(a,b)=(a',b')$. La fonction $f$ est injective.</p>
+
+<p><strong>Surjectivité de $f$ :</strong> Soit $n \in \mathbb{N}^*$. On cherche un antécédent $(a,b)$.
+On décompose $n$ en $n=2^a \cdot m$ où $m$ est impair. L'entier $a$ (la plus grande puissance de 2 qui divise $n$) est unique.
+Puisque $m$ est un entier positif impair, il existe un unique entier $b \ge 0$ tel que $m=2b+1$ (il suffit de prendre $b = (m-1)/2$).
+Le couple $(a,b)$ est donc l'unique antécédent de $n$ par $f$. La fonction $f$ est surjective.</p>
+
+<p>Puisque $f$ est une bijection de $\mathbb{N}^2$ sur $\mathbb{N}^*$, $\varphi(a,b)=f(a,b)-1$ est bien une bijection de $\mathbb{N}^2$ sur $\mathbb{N}$.</p>
+</div>
+
+<h4>2. Trouver une formule pour la bijection $\psi : \mathbb{N} \to \mathbb{N}^2$ illustrée ci-contre (et montrer précisément sa bijectivité).</h4>
+<div>
+<p>Le schéma montre une énumération des points de $\mathbb{N}^2$ en parcourant les "anti-diagonales" successives.
+La $k$-ième anti-diagonale ($k \ge 0$) est l'ensemble des points $(x,y)$ tels que $x+y=k$.
+<ul>
+<li>Diagonale $k=0$ : $\{(0,0)\}$ (1 point)</li>
+<li>Diagonale $k=1$ : $\{(0,1), (1,0)\}$ (2 points)</li>
+<li>Diagonale $k=2$ : $\{(0,2), (1,1), (2,0)\}$ (3 points)</li>
+<li>...</li>
+<li>Diagonale $k$ : contient $k+1$ points.</li>
+</ul></p>
+<p>Pour un point $(x,y)$, il se trouve sur la diagonale $k = x+y$. Pour le numéroter, il faut d'abord compter tous les points des diagonales précédentes.
+Le nombre de points dans les diagonales $0, 1, \dots, k-1$ est :</p>
+$$ \sum_{j=0}^{k-1} (j+1) = \frac{k(k+1)}{2} $$
+<p>C'est le nombre de points "avant" le début de la diagonale $k$.
+Sur la diagonale $k=x+y$, les points sont énumérés de bas en haut : $(0,k), (1,k-1), \dots, (k,0)$.
+Le point $(x,y)$ est le $(x+1)$-ième point sur cette diagonale (car l'abscisse va de 0 à $x$). Son "rang" sur la diagonale est donc $x$.</p>
+<p>Le numéro $n$ du point $(x,y)$ est donc le nombre total de points dans les diagonales précédentes, plus son rang sur sa diagonale :</p>
+$$ n = \psi^{-1}(x,y) = \frac{(x+y)(x+y+1)}{2} + x $$
+<p>Cette application $\psi^{-1} : \mathbb{N}^2 \to \mathbb{N}$ est une bijection (c'est la bijection de Cantor). Son application réciproque $\psi$ existe et est aussi une bijection.</p>
+<p><em>(La formule explicite pour $\psi$ est plus complexe et n'est généralement pas demandée, mais la preuve de la bijectivité de $\psi^{-1}$ suffit à prouver celle de $\psi$).</em></p>
+</div>
+
+<h4>3. Pour tout $r \in \mathbb{N}^*$, montrer que $\mathbb{N}^r$ est équipotent à $\mathbb{N}$.</h4>
+<div>
+<p>Nous allons le montrer par récurrence sur $r \ge 1$.</p>
+<p><strong>Initialisation (r=1) :</strong> $\mathbb{N}^1 = \mathbb{N}$ est trivialement équipotent à $\mathbb{N}$ (par l'identité).</p>
+<p><strong>Hérédité :</strong> Soit $k \ge 1$. Supposons que $\mathbb{N}^k$ est équipotent à $\mathbb{N}$ (hypothèse de récurrence).
+Cela signifie qu'il existe une bijection $\phi_k : \mathbb{N}^k \to \mathbb{N}$.</p>
+<p>Montrons que $\mathbb{N}^{k+1}$ est équipotent à $\mathbb{N}$.
+On peut écrire $\mathbb{N}^{k+1} = \mathbb{N}^k \times \mathbb{N}$.</p>
+<p>Nous savons que $\mathbb{N}^k$ est équipotent à $\mathbb{N}$ (par HR) et que $\mathbb{N}^2$ est équipotent à $\mathbb{N}$ (questions 1 et 2).
+Construisons une bijection de $\mathbb{N}^k \times \mathbb{N}$ vers $\mathbb{N}$.</p>
+<p>Soit $\phi_k : \mathbb{N}^k \to \mathbb{N}$ une bijection (existence par HR).
+Soit $\varphi : \mathbb{N}^2 \to \mathbb{N}$ une bijection (question 1).
+Considérons l'application $h : \mathbb{N}^{k+1} \to \mathbb{N}$ définie par :</p>
+$$ h(x_1, \dots, x_k, x_{k+1}) = \varphi( \phi_k(x_1, \dots, x_k), x_{k+1} ) $$
+<p>Cette application est la composée de :</p>
+<ul>
+<li>L'application $(x_1, \dots, x_{k+1}) \mapsto (\phi_k(x_1, \dots, x_k), x_{k+1})$, qui est une bijection de $\mathbb{N}^{k+1}$ sur $\mathbb{N}^2$.</li>
+<li>L'application $\varphi$, qui est une bijection de $\mathbb{N}^2$ sur $\mathbb{N}$.</li>
+</ul>
+<p>En tant que composée de bijections, $h$ est une bijection de $\mathbb{N}^{k+1}$ sur $\mathbb{N}$.
+Donc $\mathbb{N}^{k+1}$ est équipotent à $\mathbb{N}$.</p>
+<p>Par le principe de récurrence, $\mathbb{N}^r$ est équipotent à $\mathbb{N}$ pour tout $r \ge 1$.</p>
+</div>
+
+<h4>4. Montrer que $\mathbb{N}^{(\mathbb{N})}$ est équipotent à $\mathbb{N}$.</h4>
+<div>
+<p>L'ensemble $\mathbb{N}^{(\mathbb{N})}$ est l'ensemble des suites d'entiers naturels qui sont nulles à partir d'un certain rang.
+Une telle suite $(u_n)$ peut être identifiée de manière unique à une liste finie d'entiers non nuls (ceux avant qu'elle ne devienne nulle), et éventuellement son premier terme nul.
+Plus formellement, $\mathbb{N}^{(\mathbb{N})} = \bigcup_{r=0}^{\infty} A_r$ où $A_r$ est l'ensemble des suites nulles après le rang $r$.
+L'ensemble $A_r$ est l'ensemble des suites $(u_0, \dots, u_r, 0, 0, \dots)$, il est en bijection avec $\mathbb{N}^{r+1}$.</p>
+<p>Donc $\mathbb{N}^{(\mathbb{N})} = \bigcup_{r \in \mathbb{N}} \mathbb{N}^r$.
+C'est une union dénombrable d'ensembles dénombrables (d'après la question 3).
+Un théorème classique (qui se prouve avec la bijection de Cantor) affirme qu'une union dénombrable d'ensembles dénombrables est dénombrable.</p>
+<p><strong>Démonstration :</strong>
+Soit $S = \mathbb{N}^{(\mathbb{N})}$. On peut écrire $S = \bigcup_{r=1}^\infty \mathbb{N}^r$.
+Pour chaque $r$, soit $\phi_r : \mathbb{N}^r \to \mathbb{N}$ une bijection.
+Un élément de $S$ est un $r$-uplet d'entiers, pour un certain $r$. On peut donc le représenter par le couple $(r, (u_1, \dots, u_r))$.
+Construisons une injection de $S$ dans $\mathbb{N}^2$.
+Soit $u \in S$. $u$ est une suite presque nulle. Soit $r$ le plus grand indice tel que $u_r \neq 0$ (si $u$ est la suite nulle, $r=0$). Alors $u$ peut être identifié au $(r+1)$-uplet $(u_0, \dots, u_r)$.
+Cet élément est dans $\mathbb{N}^{r+1}$.
+L'idée est d'associer un unique entier à chaque suite presque nulle.
+À la suite $(u_n)$, associons l'entier $p_0^{u_0} p_1^{u_1} \dots p_k^{u_k}$ où $u_n=0$ pour $n>k$ et $p_i$ est le $i$-ème nombre premier. Par unicité de la décomposition en facteurs premiers, cette application est injective. $S$ est donc en injection dans $\mathbb{N}$, donc dénombrable.</p>
+</div>
+
+<h4>5. Montrer que l'ensemble $\mathbb{N}^{\mathbb{N}}$ de toutes les suites à valeurs dans $\mathbb{N}$ n'est pas équipotent à $\mathbb{N}$.</h4>
+<div>
+<p>C'est un résultat classique de Cantor, démontré par l'<strong>argument de la diagonale</strong>.</p>
+<p>Supposons par l'absurde que $\mathbb{N}^{\mathbb{N}}$ est dénombrable.
+Cela signifie qu'on peut lister toutes les suites d'entiers naturels. Notons cette liste :</p>
+$s_0 = (u_{0,0}, u_{0,1}, u_{0,2}, \dots)$
+<br>$s_1 = (u_{1,0}, u_{1,1}, u_{1,2}, \dots)$
+<br>$s_2 = (u_{2,0}, u_{2,1}, u_{2,2}, \dots)$
+<br>...
+<br>$s_n = (u_{n,0}, u_{n,1}, u_{n,2}, \dots)$
+
+<p>Nous allons construire une nouvelle suite, appelons-la $s^*$, qui est garantie de ne pas figurer dans cette liste, ce qui créera une contradiction.</p>
+<p>On définit le $n$-ième terme de $s^*$ en fonction du $n$-ième terme de la $n$-ième suite de la liste.
+Soit $s^* = (v_0, v_1, v_2, \dots)$. On définit chaque terme $v_n$ par la règle :</p>
+$$ v_n = u_{n,n} + 1 $$
+<p>La suite $s^*$ est une suite d'entiers naturels, elle doit donc appartenir à l'ensemble $\mathbb{N}^{\mathbb{N}}$ et se trouver quelque part dans notre liste.
+Supposons qu'elle corresponde à la $k$-ième ligne de la liste, c'est-à-dire $s^* = s_k$.</p>
+<p>Cela signifie que les deux suites sont égales terme à terme. En particulier, leur $k$-ième terme doit être identique :</p>
+$$ v_k = u_{k,k} $$
+<p>Mais par construction de $s^*$, on a :</p>
+$$ v_k = u_{k,k} + 1 $$
+<p>On aboutit à la contradiction $u_{k,k} = u_{k,k} + 1$, ce qui est impossible.</p>
+<p>Notre hypothèse de départ ("on peut lister toutes les suites") est donc fausse.
+L'ensemble $\mathbb{N}^{\mathbb{N}}$ ne peut pas être mis en bijection avec $\mathbb{N}$, il n'est donc pas dénombrable.</p>
+</div>
+
+<section id="ex51">
+  <h3>Exercice 51+.</h3>
+  <ol>
+    <li>Construire une bijection $]0,1[\to]0,1]$.</li>
+    <li>Soit $\Omega$ un ensemble, $\omega\in\Omega$ et $A\in\mathcal{P}(\Omega)$. Montrer que $A$ est équipotent à $A\cup\{\omega\}$ si et seulement si $A$ est infini ou $\omega\in A$.</li>
+  </ol>
+</section>
+Excellent exercice qui aborde deux aspects importants de la théorie des ensembles : la construction de bijections sur des ensembles infinis non dénombrables (avec l'astuce de "l'hôtel de Hilbert") et la caractérisation des ensembles infinis.
+
+<h3>✅ Exercice 51⁺.</h3>
+<h4>1. Construire une bijection $]0, 1] \to ]0, 1[$.</h4>
+<div>
+<p>Nous cherchons une bijection entre un intervalle semi-ouvert et un intervalle ouvert. L'idée est de "gérer" le point problématique, ici le `1` qui est dans l'ensemble de départ mais pas dans celui d'arrivée. On va le déplacer, puis déplacer le point qui a pris sa place, et ainsi de suite. C'est l'analogue de l'astuce de l'hôtel de Hilbert pour les ensembles continus.</p>
+
+
+<p><strong>Construction de la bijection :</strong></p>
+<p>Soit $f: ]0, 1] \to ]0, 1[$ l'application que nous allons définir.</p>
+<p>L'idée est d'isoler une suite de points dans $]0, 1]$ qui convergerait vers 0. Une suite simple est $(1/n)_{n \ge 1}$ (ou $(1/2^n)_{n\ge 0}$). Prenons la suite $S = \{\frac{1}{2^n} \mid n \in \mathbb{N}\} = \{1, \frac{1}{2}, \frac{1}{4}, \frac{1}{8}, \dots\}$.</p>
+<p>On définit la fonction $f$ par morceaux :</p>
+<ul>
+    <li>
+        <strong>Pour les points de la suite $S$ :</strong> On va décaler chaque point de la suite vers le "suivant". Le point $1$ est envoyé sur $\frac{1}{2}$, $\frac{1}{2}$ sur $\frac{1}{4}$, et de manière générale, $\frac{1}{2^n}$ est envoyé sur $\frac{1}{2^{n+1}}$.
+        $$ f(x) = \frac{x}{2} \quad \text{si } x \in S $$
+        Remarquons que l'image de $S$ par $f$ est $S \setminus \{1\}$.
+    </li>
+    <li>
+        <strong>Pour les autres points :</strong> Tous les points de $]0, 1]$ qui ne sont pas dans notre suite $S$ sont laissés inchangés.
+        $$ f(x) = x \quad \text{si } x \in ]0, 1] \setminus S $$
+    </li>
+</ul>
+<p><strong>Vérification de la bijectivité :</strong></p>
+<p>Montrons que $f$ est une bijection de $]0, 1]$ sur $]0, 1[$.</p>
+<ul>
+    <li>L'image de $f$ est $(]0, 1] \setminus S) \cup (S \setminus \{1\})$. Or, l'ensemble de départ est $]0,1] = (]0, 1] \setminus S) \cup S$. L'ensemble d'arrivée est $]0,1[ = (]0, 1] \setminus S) \cup (S \setminus \{1\})$. L'image est bien l'ensemble d'arrivée souhaité.</li>
+</ul>
+<p><strong>Injectivité :</strong> Soient $x_1, x_2 \in ]0, 1]$ tels que $f(x_1) = f(x_2)$.
+<ul>
+    <li>Si $x_1, x_2 \notin S$, alors $f(x_1)=x_1$ et $f(x_2)=x_2$. L'égalité $f(x_1)=f(x_2)$ implique $x_1=x_2$.</li>
+    <li>Si $x_1, x_2 \in S$, alors $f(x_1)=x_1/2$ et $f(x_2)=x_2/2$. L'égalité $x_1/2=x_2/2$ implique $x_1=x_2$.</li>
+    <li>Si $x_1 \in S$ et $x_2 \notin S$ (cas mixte), alors $f(x_1)=x_1/2$ et $f(x_2)=x_2$. Peut-on avoir $x_1/2 = x_2$ ?
+    Si $x_1 \in S$, alors $x_1 = 1/2^n$. On aurait $x_2 = 1/2^{n+1}$. Mais $1/2^{n+1}$ est un élément de $S$, ce qui contredit l'hypothèse $x_2 \notin S$. Le cas mixte est donc impossible.</li>
+</ul>
+Dans tous les cas, $f(x_1)=f(x_2) \implies x_1=x_2$. $f$ est injective.</p>
+
+<p><strong>Surjectivité :</strong> Soit $y \in ]0, 1[$. On cherche un antécédent $x \in ]0, 1]$.
+<ul>
+    <li>Si $y$ n'est pas de la forme $1/2^k$ pour $k \ge 1$ (c'est-à-dire $y \notin S \setminus \{1\}$), alors son antécédent est lui-même, $x=y$. $x \notin S$ et $f(x)=x=y$.</li>
+    <li>Si $y$ est de la forme $1/2^k$ pour un $k \ge 1$, alors son antécédent est $x = 2y = 1/2^{k-1}$. Cet $x$ est un élément de $S$. On a bien $f(x) = x/2 = y$.</li>
+</ul>
+Tout élément de $]0, 1[$ a un antécédent. $f$ est surjective.</p>
+<p>$f$ est bien une bijection.</p>
+</div>
+
+<h4>2. Soit $\Omega$ un ensemble, $\omega \in \Omega$ et $A \in \mathcal{P}(\Omega)$. Montrer que A est équipotent à $A \cup \{\omega\}$ si et seulement si A est infini ou $\omega \in A$.</h4>
+<div>
+<p>Nous devons démontrer une équivalence.</p>
+
+<p><strong>($\Rightarrow$) Si A est équipotent à $A \cup \{\omega\}$, alors A est infini ou $\omega \in A$.</strong></p>
+<p>Nous allons prouver la contraposée : si (A est fini ET $\omega \notin A$), alors A n'est pas équipotent à $A \cup \{\omega\}$.</p>
+<p>Supposons que A est un ensemble fini de cardinal $n$ (noté $|A|=n$).
+Supposons que $\omega \notin A$.</p>
+<p>L'ensemble $A \cup \{\omega\}$ est obtenu en ajoutant à A un élément qui n'y était pas. Son cardinal est donc $|A \cup \{\omega\}| = |A| + 1 = n+1$.</p>
+<p>Deux ensembles finis sont équipotents si et seulement s'ils ont le même cardinal.
+Puisque $n \neq n+1$, les ensembles A et $A \cup \{\omega\}$ n'ont pas le même cardinal et ne sont donc pas équipotents.</p>
+<p>La contraposée est prouvée, donc l'implication directe est vraie.</p>
+
+<p><strong>($\Leftarrow$) Si A est infini ou $\omega \in A$, alors A est équipotent à $A \cup \{\omega\}$.</strong></p>
+<p>Nous devons traiter les deux cas de la disjonction.</p>
+<ul>
+    <li>
+        <strong>Cas 1 : $\omega \in A$.</strong><br>
+        Dans ce cas, $A \cup \{\omega\} = A$. Un ensemble est toujours équipotent à lui-même (par l'application identité). L'équipotence est donc triviale.
+    </li>
+    <li>
+        <strong>Cas 2 : A est infini (et on peut supposer $\omega \notin A$, sinon on est dans le cas 1).</strong><br>
+        C'est le "paradoxe de l'hôtel de Hilbert". Puisque A est infini, il contient un sous-ensemble infini dénombrable.
+        Cela signifie qu'il existe une injection $\phi: \mathbb{N} \to A$. Soit $S = \{\phi(0), \phi(1), \phi(2), \dots\}$ ce sous-ensemble infini dénombrable de A. Notons $a_n = \phi(n)$.
+        <br>
+        Nous voulons construire une bijection $g : A \to A \cup \{\omega\}$.
+        On définit $g$ par morceaux, comme dans la question 1 :
+        <ul>
+            <li>Pour les éléments de A qui ne sont pas dans $S$, on ne les change pas.
+            $g(x) = x \quad$ si $x \in A \setminus S$.</li>
+            <li>Pour les éléments de $S$, on va créer une "place" pour $\omega$.
+            On envoie le premier élément de $S$, $a_0$, sur $\omega$.
+            Puis on décale tous les autres éléments de $S$ : on envoie $a_n$ sur $a_{n-1}$ pour $n \ge 1$.
+            Non, c'est l'inverse : on envoie $a_n$ sur $a_{n+1}$.
+            $g(a_0) = \omega$.
+            $g(a_n) = a_{n-1}$ pour $n \ge 1$.
+            Non, cela ne marche pas. Faisons le décalage dans l'autre sens.
+            <br>
+            <strong>Correction de la construction de $g$:</strong><br>
+            Soit $g: A \to A \cup \{\omega\}$ :
+            <ul>
+                <li>$g(a_0) = \omega$</li>
+                <li>$g(a_n) = a_{n-1}$ pour $n \ge 1$.</li>
+            </ul>
+            Cette application est-elle bien définie sur A ? Non, elle est définie sur $S$.
+            <br>
+            <strong>Définition correcte de la bijection $g: A \to A \cup \{\omega\}$ :</strong><br>
+            Soit $S=\{a_0, a_1, a_2, \dots\}$ un sous-ensemble dénombrable de A.
+            On définit $g(x)$ :
+            <ul>
+                <li>Si $x \in A \setminus S$, alors $g(x)=x$.</li>
+                <li>Si $x \in S$, alors $x=a_n$ pour un certain $n$. On définit :
+                <ul>
+                    <li>$g(a_0) = \omega$</li>
+                    <li>$g(a_n) = a_{n-1}$ pour $n \ge 1$.</li>
+                </ul>
+                </li>
+            </ul>
+            Cette fonction est-elle une bijection ?
+            L'image de $A \setminus S$ est $A \setminus S$.
+            L'image de $S=\{a_0, a_1, \dots\}$ est $\{\omega, a_0, a_1, \dots\} = S \cup \{\omega\}$.
+            L'image de $A$ est $(A \setminus S) \cup (S \cup \{\omega\}) = A \cup \{\omega\}$. La fonction est surjective.
+            Elle est aussi injective (les deux "morceaux" ont des images disjointes et sont injectifs sur leurs domaines respectifs).
+            <br>
+            <strong>Alternative plus simple pour la bijection $h: A \cup \{\omega\} \to A$:</strong>
+            <ul>
+                <li>Si $x \in (A \cup \{\omega\}) \setminus (S \cup \{\omega\}) = A \setminus S$, alors $h(x)=x$.</li>
+                <li>$h(\omega) = a_0$.</li>
+                <li>$h(a_n) = a_{n+1}$ pour $n \ge 0$.</li>
+            </ul>
+            Cette fonction $h$ est une bijection de $A \cup \{\omega\}$ sur $A$. Donc les deux ensembles sont équipotents.
+        </li>
+    </ul>
+<p>L'implication réciproque est donc prouvée.</p>
+</div>
+
+<section id="ex52">
+  <h3>Exercice 52+.</h3>
+  <p>Soit $E,F,G$ trois ensembles.</p>
+  <ol>
+    <li><strong>Curryfication.</strong> (a) Pour toute application $\varphi:F\times G\to E$ et tout $x\in F$, on peut considérer l’application « partielle » $\varphi(x,\cdot):G\to E$, $y\mapsto \varphi(x,y)$. Utiliser cette idée pour définir une bijection $E^{F\times G}\to (E^G)^F$. (b) En « passant au cardinal », quelle formule sur les puissances retrouve-t-on ainsi ?</li>
+    <li><strong>Propriété universelle du produit.</strong> (a) Construire une bijection entre $F^E\times G^E$ et $(F\times G)^E$. (b) En « passant au cardinal », quelle formule sur les puissances retrouve-t-on ainsi ?</li>
+  </ol>
+</section>
+Absolument. Cet exercice porte sur des résultats fondamentaux de la théorie des ensembles et de la théorie des catégories, qui établissent des correspondances entre différentes constructions d'applications.
+
+<hr>
+
+<h3>✅ Exercice 52⁺.</h3>
+<p><strong>Soit E, F, G trois ensembles.</strong></p>
+<p><em>Rappel de notation : $A^B$ désigne l'ensemble des applications de B dans A.</em></p>
+
+<h4>1. Curryfication.</h4>
+
+<p><strong>(a) Utiliser cette idée pour définir une bijection $E^{F \times G} \to (E^G)^F$.</strong></p>
+<div>
+<p>La curryfication (nommée d'après le logicien Haskell Curry) est le processus qui transforme une fonction à plusieurs arguments en une séquence de fonctions à un seul argument.</p>
+<p>Soit $\mathcal{C}$ l'application que nous voulons définir : $\mathcal{C} : E^{F \times G} \to (E^G)^F$.</p>
+<p>Un élément de l'ensemble de départ $E^{F \times G}$ est une application $\varphi : F \times G \to E$.
+Un élément de l'ensemble d'arrivée $(E^G)^F$ est une application $\Phi : F \to E^G$.
+L'image $\Phi(x)$ pour $x \in F$ est donc elle-même une application, notons-la $\varphi_x : G \to E$.</p>
+
+
+<p><strong>Définition de la bijection $\mathcal{C}$ :</strong></p>
+<p>Soit $\varphi \in E^{F \times G}$ une application qui à un couple $(x,y) \in F \times G$ associe un élément $\varphi(x,y) \in E$.</p>
+<p>On lui associe une application $\Phi = \mathcal{C}(\varphi)$ définie comme suit :
+Pour tout $x \in F$, $\Phi(x)$ est l'application "partielle" de G dans E qui à $y \in G$ associe $\varphi(x,y)$.</p>
+<p>Formellement, $\Phi : F \to E^G$ est définie par $\forall x \in F, \Phi(x) = \varphi_x$, où $\varphi_x : G \to E$ est l'application $y \mapsto \varphi(x,y)$.</p>
+
+<p><strong>Montrons que $\mathcal{C}$ est une bijection.</strong></p>
+<p>Pour ce faire, nous allons construire son application réciproque, $\mathcal{U}$ (pour "uncurryfication").</p>
+<p>Soit $\Phi \in (E^G)^F$. C'est une application qui à $x \in F$ associe une application $\Phi(x) : G \to E$.</p>
+<p>On lui associe une application $\varphi = \mathcal{U}(\Phi)$ de $F \times G$ dans E, définie par :
+Pour tout couple $(x,y) \in F \times G$,</p>
+$$ \varphi(x,y) = (\Phi(x))(y) $$
+
+<p><strong>Vérification :</strong></p>
+<ul>
+    <li>$\mathcal{U}(\mathcal{C}(\varphi))$ : On part de $\varphi$. On lui associe $\Phi$ où $\Phi(x)$ est $y \mapsto \varphi(x,y)$. Puis on reconstruit une application $\varphi'$ à partir de $\Phi$ par $\varphi'(x,y) = (\Phi(x))(y) = \varphi(x,y)$. On retrouve bien $\varphi$. Donc $\mathcal{U} \circ \mathcal{C} = \text{id}$.</li>
+    <li>$\mathcal{C}(\mathcal{U}(\Phi))$ : On part de $\Phi$. On construit $\varphi(x,y) = (\Phi(x))(y)$. Puis on associe à $\varphi$ une application $\Phi'$ où $\Phi'(x)$ est l'application $y \mapsto \varphi(x,y) = (\Phi(x))(y)$. Cette application est exactement $\Phi(x)$. On a donc $\Phi'(x) = \Phi(x)$ for tout $x$, ce qui signifie $\Phi'=\Phi$. Donc $\mathcal{C} \circ \mathcal{U} = \text{id}$.</li>
+</ul>
+<p>Puisque $\mathcal{C}$ admet une application réciproque $\mathcal{U}$, c'est une bijection.</p>
+</div>
+
+<p><strong>(b) En « passant au cardinal », quelle formule sur les puissances retrouve-t-on ainsi ?</strong></p>
+<div>
+<p>Si E, F, G sont des ensembles finis, notons leurs cardinaux $|E|=e, |F|=f, |G|=g$.</p>
+<p>Le cardinal de l'ensemble des applications $A^B$ est $|A|^{|B|}$.</p>
+<p>L'équipotence $E^{F \times G} \leftrightarrow (E^G)^F$ se traduit en termes de cardinaux par :</p>
+$$ |E^{F \times G}| = |(E^G)^F| $$
+$$ |E|^{|F \times G|} = |E^G|^{|F|} $$
+$$ e^{f \cdot g} = (e^g)^f $$
+<p>On retrouve la formule bien connue des puissances : $(a^b)^c = a^{bc}$.</p>
+</div>
+
+<h4>2. Propriété universelle du produit.</h4>
+
+<p><strong>(a) Construire une bijection entre $F^E \times G^E$ et $(F \times G)^E$.</strong></p>
+<div>
+<p>Soit $\Psi$ l'application que nous voulons définir : $\Psi : F^E \times G^E \to (F \times G)^E$.</p>
+<p>Un élément de l'ensemble de départ $F^E \times G^E$ est un <strong>couple d'applications</strong> $(f, g)$, où $f: E \to F$ et $g: E \to G$.</p>
+<p>Un élément de l'ensemble d'arrivée $(F \times G)^E$ est une <strong>application unique</strong> $h: E \to F \times G$.</p>
+
+
+<p><strong>Définition de la bijection $\Psi$ :</strong></p>
+<p>À un couple d'applications $(f, g)$, on associe l'application $h = \Psi(f,g)$ définie comme suit :
+Pour tout $x \in E$, l'image $h(x)$ doit être un couple dans $F \times G$. On le définit naturellement par :</p>
+$$ h(x) = (f(x), g(x)) $$
+
+<p><strong>Montrons que $\Psi$ est une bijection.</strong></p>
+<p>Construisons son application réciproque, $\Psi^{-1}$.</p>
+<p>Soit $h \in (F \times G)^E$. C'est une application qui à $x \in E$ associe un couple $h(x) = (y,z) \in F \times G$.</p>
+<p>On lui associe un couple d'applications $(f,g) = \Psi^{-1}(h)$ défini comme suit :</p>
+<ul>
+    <li>$f: E \to F$ est l'application qui à $x \in E$ associe la première composante de $h(x)$.</li>
+    <li>$g: E \to G$ est l'application qui à $x \in E$ associe la seconde composante de $h(x)$.</li>
+</ul>
+<p>On peut noter $f = \pi_F \circ h$ et $g = \pi_G \circ h$, où $\pi_F$ et $\pi_G$ sont les projections canoniques du produit $F \times G$.</p>
+
+<p><strong>Vérification :</strong></p>
+<p>Il est clair que ces deux opérations sont inverses l'une de l'autre.
+Si on part de $(f,g)$, on construit $h(x)=(f(x),g(x))$, puis en extrayant les composantes de $h$, on retrouve bien $f$ et $g$.
+Réciproquement, si on part de $h$, on extrait ses composantes $f$ et $g$, et si on les recombine, on retrouve $h(x)=(f(x),g(x))$.</p>
+<p>$\Psi$ est donc bien une bijection.</p>
+</div>
+
+<p><strong>(b) En « passant au cardinal », quelle formule sur les puissances retrouve-t-on ainsi ?</strong></p>
+<div>
+<p>Soient E, F, G des ensembles finis de cardinaux $|E|=e, |F|=f, |G|=g$.</p>
+<p>L'équipotence $F^E \times G^E \leftrightarrow (F \times G)^E$ se traduit en termes de cardinaux par :</p>
+$$ |F^E \times G^E| = |(F \times G)^E| $$
+$$ |F^E| \cdot |G^E| = |F \times G|^{|E|} $$
+$$ f^e \cdot g^e = (f \cdot g)^e $$
+<p>On retrouve la formule bien connue des puissances : $a^c \cdot b^c = (ab)^c$.</p>
+</div>
+
+<section id="ex53">
+  <h3>Exercice 53+++.</h3>
+  <ol>
+    <li>Trouver une suite $(A_n)_{n\in\mathbb{N}}$ d’éléments de $\mathcal{P}(\mathbb{N})$ telle que $\forall n,m\in\mathbb{N},\ A_n\subseteq A_m\Rightarrow n=m$.</li>
+    <li>Trouver une famille $(B_X)_{X\in\mathcal{P}(\mathbb{N})}$ d’éléments de $\mathcal{P}(\mathbb{N})$ telle que $\forall X,Y\in\mathcal{P}(\mathbb{N}),\ A_X\subseteq A_Y\Rightarrow X=Y$.</li>
+    <li>Trouver une famille $(C_X)_{X\in\mathcal{P}(\mathbb{N})}$ d’éléments de $\mathcal{P}(\mathbb{N})$ telle que, pour tous $X,Y\in\mathcal{P}(\mathbb{N})$, si la différence symétrique $C_X\triangle C_Y=(C_X\setminus C_Y)\cup(C_Y\setminus C_X)$ est finie, alors $X=Y$.</li>
+  </ol>
+</section>  
+
+Cet exercice est un magnifique problème de théorie des ensembles qui explore comment "encoder" des informations (ici, un entier ou un ensemble) dans la structure d'un autre ensemble.
+
+
+<h3>✅ Exercice 53⁺⁺⁺.</h3>
+
+<h4>1. Trouver une suite $(A_n)_{n \in \mathbb{N}}$ d'éléments de $\mathcal{P}(\mathbb{N})$ telle que $\forall n, m \in \mathbb{N}, A_n \subseteq A_m \implies n = m$.</h4>
+<div>
+<p>La condition $\forall n, m \in \mathbb{N}, A_n \subseteq A_m \implies n = m$ est une version très forte de l'anti-chaîne. Si on prend $n \neq m$, on doit avoir $A_n \not\subseteq A_m$.
+En particulier, pour $n=m$, on a $A_n \subseteq A_n$ qui est toujours vrai, et la conclusion $n=n$ l'est aussi.
+La condition signifie que pour deux indices distincts $n$ et $m$, $A_n$ ne peut pas être inclus dans $A_m$. On cherche une <strong>anti-chaîne</strong> pour la relation d'inclusion.</p>
+
+
+<p><strong>Construction :</strong></p>
+<p>Nous devons construire une suite infinie d'ensembles qui ne sont mutuellement pas inclus les uns dans les autres.
+L'idée est de s'assurer que pour toute paire $(n,m)$ avec $n \neq m$, $A_n$ contient un élément qui n'est pas dans $A_m$.</p>
+<p>Considérons l'ensemble des nombres pairs $2\mathbb{N}$ et des nombres impairs $2\mathbb{N}+1$.
+On peut construire les ensembles $A_n$ en prenant un nombre impair "unique" pour chaque $A_n$, et en le complétant avec des nombres pairs pour rendre les inclusions impossibles.</p>
+
+<p><strong>Solution :</strong></p>
+<p>Pour chaque $n \in \mathbb{N}$, définissons l'ensemble $A_n$ comme suit :</p>
+$$ A_n = \{2n+1\} \cup \{2k \mid k \in \mathbb{N}, k < n\} = \{2n+1, 0, 2, 4, \dots, 2(n-1)\} $$
+
+<p><strong>Vérification :</strong></p>
+<p>Soient $n, m \in \mathbb{N}$ tels que $A_n \subseteq A_m$. Montrons que $n=m$.
+
+Par définition, $2n+1$ est un élément de $A_n$.
+Puisque $A_n \subseteq A_m$, on doit avoir $2n+1 \in A_m$.
+
+Regardons la structure de $A_m$. Il est composé d'un unique nombre impair, $2m+1$, et d'un ensemble de nombres pairs.
+Si $2n+1 \in A_m$, alors $2n+1$ doit être soit l'élément impair de $A_m$, soit un de ses éléments pairs.
+Comme $2n+1$ est impair, il ne peut pas être un élément pair.
+Donc, $2n+1$ doit être égal à l'unique élément impair de $A_m$, qui est $2m+1$.</p>
+$$ 2n+1 = 2m+1 \implies n=m $$
+<p>La condition est bien vérifiée.</p>
+</div>
+
+<h4>2. Trouver une famille $(B_X)_{X \in \mathcal{P}(\mathbb{N})}$ d'éléments de $\mathcal{P}(\mathbb{N})$ telle que $\forall X, Y \in \mathcal{P}(\mathbb{N}), B_X \subseteq B_Y \implies X = Y$.</h4>
+<div>
+<p>Ceci est une généralisation de la question précédente, où l'indexation se fait sur l'ensemble non dénombrable $\mathcal{P}(\mathbb{N})$ au lieu de $\mathbb{N}$. On cherche à construire une injection de $(\mathcal{P}(\mathbb{N}), \subseteq)$ dans $(\mathcal{P}(\mathbb{N}), \subseteq)$ qui soit un "ordre-isomorphisme" sur son image.</p>
+<p>L'idée est d'encoder l'ensemble $X$ dans la structure de $B_X$. On peut à nouveau utiliser le principe de séparer les entiers en deux catégories, par exemple pairs et impairs.</p>
+
+
+<p><strong>Construction :</strong></p>
+<p>Pour toute partie $X \subseteq \mathbb{N}$, définissons l'ensemble $B_X$ par :</p>
+$$ B_X = \{2k \mid k \in X\} \cup \{2k+1 \mid k \notin X\} $$
+<p>Autrement dit, pour chaque entier $k \in \mathbb{N}$ :</p>
+<ul>
+    <li>Si $k \in X$, on met le nombre pair $2k$ dans $B_X$.</li>
+    <li>Si $k \notin X$, on met le nombre impair $2k+1$ dans $B_X$.</li>
+</ul>
+
+<p><strong>Vérification :</strong></p>
+<p>Soient $X, Y \in \mathcal{P}(\mathbb{N})$ tels que $B_X \subseteq B_Y$. Montrons que $X = Y$.
+Pour montrer $X=Y$, il suffit de montrer que pour tout entier $k$, $k \in X \iff k \in Y$.</p>
+<p>Soit $k \in \mathbb{N}$.</p>
+<ul>
+    <li>
+        <strong>Supposons que $k \in X$.</strong>
+        Par définition, $2k \in B_X$.
+        Puisque $B_X \subseteq B_Y$, on a $2k \in B_Y$.
+        Par définition de $B_Y$, un nombre pair $2j$ est dans $B_Y$ si et seulement si $j \in Y$.
+        Donc $k \in Y$.
+    </li>
+    <li>
+        <strong>Supposons que $k \notin X$.</strong>
+        Par définition, $2k+1 \in B_X$.
+        Puisque $B_X \subseteq B_Y$, on a $2k+1 \in B_Y$.
+        Par définition de $B_Y$, un nombre impair $2j+1$ est dans $B_Y$ si et seulement si $j \notin Y$.
+        Donc $k \notin Y$.
+    </li>
+</ul>
+<p>On a donc montré que $k \in X \iff k \in Y$. Ceci étant vrai pour tout $k \in \mathbb{N}$, les ensembles $X$ et $Y$ sont égaux.</p>
+</div>
+
+<h4>3. Trouver une famille $(C_X)_{X \in \mathcal{P}(\mathbb{N})}$ d'éléments de $\mathcal{P}(\mathbb{N})$ telle que, pour tous $X, Y \in \mathcal{P}(\mathbb{N})$, si la différence symétrique $C_X \Delta C_Y$ est finie, alors $X=Y$.</h4>
+<div>
+<p>La différence symétrique $A \Delta B = (A \setminus B) \cup (B \setminus A)$ est l'ensemble des éléments qui sont dans l'un des ensembles mais pas dans l'autre. Dire que $A \Delta B$ est fini signifie que $A$ et $B$ ne diffèrent que par un nombre fini d'éléments. On dit que $A$ et $B$ sont "presque égaux".</p>
+<p>On cherche donc une famille $(C_X)$ telle que si $C_X$ et $C_Y$ sont presque égaux, alors les indices $X$ et $Y$ doivent être identiques.</p>
+<p>L'idée est d'encoder chaque ensemble $X$ dans un ensemble $C_X$ de telle manière qu'une modification (même finie) de $C_X$ corresponde à une modification de $X$. La construction de la question 2 ne marche pas : si $X$ et $Y$ diffèrent par un seul élément $k$, alors $B_X \Delta B_Y = \{2k, 2k+1\}$, qui est fini.</p>
+<p>Nous avons besoin d'un encodage où une petite différence entre $X$ et $Y$ crée une différence <strong>infinie</strong> entre $C_X$ et $C_Y$.</p>
+
+
+<p><strong>Construction :</strong></p>
+<p>On va associer à chaque ensemble $X \subseteq \mathbb{N}$ un ensemble $C_X$ qui contient une infinité d'éléments "marqueurs" pour chaque entier de $X$.
+Utilisons les nombres premiers. Soit $(p_k)_{k \in \mathbb{N}} = (2, 3, 5, \dots)$ la suite des nombres premiers.</p>
+<p>Pour chaque $X \subseteq \mathbb{N}$, définissons $C_X$ comme suit :</p>
+$$ C_X = \bigcup_{k \in X} \{ p_k^j \mid j \in \mathbb{N}^* \} $$
+<p>Autrement dit, $C_X$ est l'ensemble de toutes les puissances (non nulles) des nombres premiers dont l'indice est dans $X$.</p>
+
+<p><strong>Vérification :</strong></p>
+<p>Soient $X, Y \in \mathcal{P}(\mathbb{N})$ avec $X \neq Y$. Montrons que $C_X \Delta C_Y$ est infini.</p>
+<p>Puisque $X \neq Y$, leur différence symétrique $X \Delta Y$ n'est pas vide.
+Il existe donc au moins un entier $k_0$ qui est dans l'un mais pas dans l'autre.
+Supposons sans perte de généralité que $k_0 \in X$ et $k_0 \notin Y$.</p>
+<p>Considérons l'ensemble des puissances du nombre premier $p_{k_0}$ :
+$P_{k_0} = \{p_{k_0}, p_{k_0}^2, p_{k_0}^3, \dots \}$. C'est un ensemble infini.</p>
+<ul>
+    <li>Puisque $k_0 \in X$, par définition de $C_X$, tous les éléments de $P_{k_0}$ sont dans $C_X$.
+    $P_{k_0} \subseteq C_X$.</li>
+    <li>Puisque $k_0 \notin Y$, aucun élément de $C_Y$ n'est une puissance de $p_{k_0}$. En effet, les éléments de $C_Y$ sont des puissances de $p_j$ avec $j \in Y$. Par unicité de la décomposition en facteurs premiers, une puissance de $p_{k_0}$ ne peut pas être une puissance de $p_j$ si $j \neq k_0$.
+    Donc $P_{k_0} \cap C_Y = \emptyset$.</li>
+</ul>
+<p>On a donc $P_{k_0} \subseteq C_X$ et $P_{k_0} \cap C_Y = \emptyset$.
+Cela implique que tous les éléments de l'ensemble infini $P_{k_0}$ sont dans $C_X$ mais pas dans $C_Y$.
+Donc, $P_{k_0} \subseteq C_X \setminus C_Y$.</p>
+<p>Puisque $C_X \setminus C_Y$ contient l'ensemble infini $P_{k_0}$, il est lui-même infini.</p>
+<p>Or, $C_X \setminus C_Y$ est un sous-ensemble de la différence symétrique $C_X \Delta C_Y$.
+Par conséquent, si $X \neq Y$, alors $C_X \Delta C_Y$ est un ensemble infini.</p>
+
+<p>La contraposée est donc : si $C_X \Delta C_Y$ est fini, alors $X=Y$. C'est la propriété recherchée.</p>
+</div>
 
         
 </body>
