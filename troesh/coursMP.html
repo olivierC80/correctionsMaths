@@ -5175,7 +5175,405 @@
     </section>
 </section>
 <!-- Fin du chapitre 15 -->
-                
+     <section id="chap16">
+    <div class="chapter-heading">
+        <span class="chapter-number">16</span>
+        <div class="chapter-title">
+            <h1>Calcul différentiel et optimisation</h1>
+        </div>
+    </div>
+    
+    <p>L’objectif de ce chapitre est l’étude de propriétés généralisant la dérivation, dans le cadre de fonctions définies sur un e.v.n. de dimension finie \(E\). En MPSI, vous avez par exemple étudié le cas de fonctions de 2 variables, c’est-à-dire de fonctions \(f : \Omega \to \mathbb{K}\) où \(\mathbb{K} = \mathbb{R}\) ou \(\mathbb{C}\), et \(\Omega\) est un ouvert de \(\mathbb{R}^2\). Dans ce but, nous définirons la notion de différentielle en un point \(a\), qui est un objet qui regroupe toutes les dérivées directionnelles en un point.</p>
+    <p>Dans tout le chapitre, \(\mathbb{K}\) désigne le corps \(\mathbb{R}\) ou \(\mathbb{C}\), \(E\) est un \(\mathbb{R}\)-e.v.n. de dimension finie, \(F\) un \(\mathbb{K}\)-e.v.n. de dimension finie, et \(\Omega\) un ouvert de \(E\).</p>
+
+    <section id="chap16-secI">
+        <h2>I Compléments sur les fonctions vectorielles</h2>
+        <section id="chap16-secI.1">
+            <h3>I.1 Extension des notations \(o\) et \(O\)</h3>
+            <div class="box definition-box" id="def16.1.1">
+                <p><strong>Définition 16.1.1 – Extension des notations \(o\) et \(O\)</strong></p>
+                <p>Soit \(f\) une application de \(D\) dans \(F\) et \(g : D \to \mathbb{R}\). Soit \(x_0 \in \overline{D}\). On dira que</p>
+                <ul>
+                    <li>\(f(x) = o_{x_0}(g(x))\) s’il existe \(\alpha : D \to F\) tel que \(\exists V \in \mathcal{V}(x_0), \forall x \in V \cap D, f(x) = g(x)\alpha(x)\), et \(\lim_{x \to x_0} \alpha(x) = 0\);</li>
+                    <li>\(f(x) = O_{x_0}(g(x))\) s’il existe \(\alpha : D \to F\) tel que \(\exists V \in \mathcal{V}(x_0), \forall x \in V \cap D, f(x) = g(x)\alpha(x)\), et \(\alpha\) bornée sur \(V \cap D\).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="chap16-secI.2">
+            <h3>I.2 Dérivation de fonctions vectorielles d’une variable réelle</h3>
+            <div class="box definition-box" id="def16.1.9">
+                <p><strong>Définition 16.1.9 – Fonction dérivable en \(a\)</strong></p>
+                <p>Soit \(f : I \to F\) et \(a \in I\). On dit que \(f\) est dérivable en \(a\) si le taux d’accroissement \(\tau_a f(x) = \frac{f(x)-f(a)}{x-a}\) admet une limite finie \(\ell \in F\) lorsque \(x\) tend vers \(a\). Le vecteur dérivé en \(a\) est alors défini par :</p>
+                \[ f'(a) = \lim_{x \to a} \frac{f(x)-f(a)}{x-a} = \lim_{h \to 0} \frac{f(a+h)-f(a)}{h}. \]
+            </div>
+            
+            <div class="box proposition-box" id="prop16.1.12">
+                <p><strong>Proposition 16.1.12 – Caractérisation de la dérivabilité par les coordonnées</strong></p>
+                <p>Soit \(f : I \to F, x_0 \in I\), et \(\mathcal{B}\) une base de \(F\). On note, pour tout \(x \in I, f(x) = \sum_{i=1}^n f_i(x)b_i\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(f\) est dérivable en \(x_0\) ;</li>
+                    <li>pour tout \(i \in \llbracket 1, n \rrbracket, f_i\) est dérivable en \(x_0\).</li>
+                </ol>
+                <p>Dans ce cas, on a \(f'(x_0) = \sum_{i=1}^n f'_i(x_0)b_i\).</p>
+            </div>
+        </section>
+        
+        <section id="chap16-secI.3">
+            <h3>I.3 Fonctions vectorielles de classe \(C^k\)</h3>
+            <div class="box definition-box" id="def16.1.22">
+                <p><strong>Définition 16.1.22 – Fonction de classe \(C^k\)</strong></p>
+                <p>La fonction \(f : I \to F\) est de classe \(C^k\) si elle est \(k\) fois dérivable et si \(f^{(k)} : I \to F\) est continue.</p>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap16-secII">
+        <h2>II Dérivées partielles et différentielles</h2>
+        <section id="chap16-secII.1">
+            <h3>II.1 Dérivées selon un vecteur</h3>
+            <div class="box definition-box" id="def16.2.3">
+                <p><strong>Définition 16.2.3 – Dérivée selon un vecteur</strong></p>
+                <p>Soit \(f : \Omega \to F, a \in \Omega\), et \(\vec{u} \in E \setminus \{0\}\).</p>
+                <ol>
+                    <li>La fonction \(f\) est dérivable selon le vecteur \(\vec{u}\) si la fonction partielle \(f_{a,\vec{u}}\) est dérivable en 0.</li>
+                    <li>La dérivée de \(f\) en \(a\) selon \(\vec{u}\) est alors défini par \(D_{\vec{u}}f(a) = f'_{a,\vec{u}}(0) = \lim_{t \to 0} \frac{f(a+t\vec{u})-f(a)}{t} \in F\).</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="chap16-secII.2">
+            <h3>II.2 Différentielles</h3>
+            <div class="box definition-box" id="def16.2.20">
+                <p><strong>Définition 16.2.20 – Différentiabilité et différentielle de \(f\)</strong></p>
+                <ol>
+                    <li>On dit que \(f\) est différentiable en \(a\) s’il existe une application linéaire \(u \in \mathcal{L}(E, F)\) telle que au voisinage de \(a\), \(f(x) = f(a) + u(x-a) + o(\Vert x-a \Vert)\).</li>
+                    <li>Dans ce cas, l’application linéaire \(u\) est notée \(df(a)\), et est appelée différentielle de \(f\) au point \(a\).</li>
+                </ol>
+            </div>
+            
+            <div class="box proposition-box" id="prop16.2.25">
+                <p><strong>Proposition 16.2.25 – Différentiable implique continu</strong></p>
+                <p>Soit \(f : \Omega \to F\) une application différentiable en \(a\). Alors \(f\) est continue en \(a\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop16.2.26">
+                <p><strong>Proposition 16.2.26 – Différentielle et dérivées directionnelles</strong></p>
+                <p>Soit \(f : \Omega \to F\) une application différentiable en \(a\). Alors \(f\) admet en \(a\) des dérivées selon toute direction \(u \in E\), et \(D_u f(a) = df(a) \cdot u\).</p>
+            </div>
+        </section>
+
+        <section id="chap16-secII.3">
+            <h3>II.3 Gradient</h3>
+            <div class="box proposition-box" id="propdef16.2.38">
+                <p><strong>Proposition/Définition 16.2.38 – Gradient d’une application numérique</strong></p>
+                <p>Soit \((E, \langle \cdot, \cdot \rangle)\) un espace euclidien, et \(\Omega\) un ouvert de \(E\). Soit \(f : \Omega \to \mathbb{R}\), et \(a \in \Omega\) tel que \(f\) soit différentiable en \(a\). On définit alors le gradient de \(f\) en \(a\) comme étant l’unique vecteur \(\nabla f(a) \in E\) tel que \(\forall h \in E, df(a) \cdot h = \langle \nabla f(a), h \rangle\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th16.2.39">
+                <p><strong>Théorème 16.2.39 – Expression du gradient en b.o.n.</strong></p>
+                <p>Soit \((E, \langle \cdot, \cdot \rangle)\) un espace euclidien, et \(\mathcal{B}=(b_1, \dots, b_n)\) une base orthonormale de \(E\). Alors \(\nabla f(a) = \sum_{k=1}^n \partial_k f(a) b_k\).</p>
+            </div>
+        </section>
+
+        <section id="chap16-secII.4">
+            <h3>II.4 Opérations sur les applications différentiables</h3>
+            <div class="box proposition-box" id="prop16.2.43">
+                <p><strong>Proposition 16.2.43 – Linéarité</strong></p>
+                <p>Soit \(f\) et \(g : \Omega \to F\) différentiables en \(a\), et \(\lambda, \mu \in \mathbb{K}\). Alors \(f + \lambda g\) est différentiable en \(a\) et \(d(f + \lambda g)(a) = df(a) + \lambda dg(a)\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop16.2.51">
+                <p><strong>Proposition 16.2.51 – Différentielle d’une composée</strong></p>
+                <p>Soit \(E, F, G\) des e.v.n. de dim finie, \(\Omega \subset E, \Omega' \subset F\) ouverts. Soit \(f : \Omega \to F\) et \(g : \Omega' \to G\). Soit \(a \in \Omega\) tel que \(f(a) \in \Omega'\). Si \(f\) est différentiable en \(a\) et \(g\) en \(f(a)\), alors \(g \circ f\) est différentiable en \(a\), et \(d(g \circ f)(a) = dg(f(a)) \circ df(a)\).</p>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap16-secIII">
+        <h2>III Applications de classe \(C^n\)</h2>
+        <section id="chap16-secIII.1">
+            <h3>III.1 Applications de classe \(C^1\)</h3>
+            <div class="box definition-box" id="def16.3.1">
+                <p><strong>Définition 16.3.1 – Application de classe \(C^1\)</strong></p>
+                <p>Soit \(f : \Omega \to F\). On dit que \(f\) est de classe \(C^1\) sur \(\Omega\) si :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(f\) est différentiable en tout point de \(\Omega\).</li>
+                    <li>\(d : \Omega \to \mathcal{L}(E, F)\) est continue.</li>
+                </ol>
+            </div>
+            
+            <div class="box theorem-box" id="th16.3.5">
+                <p><strong>Théorème 16.3.5 – Caractérisation de la classe \(C^1\) par les dérivées partielles</strong></p>
+                <p>Soit \(f : \Omega \to F\) et \(\mathcal{B}=(b_1, \dots, b_n)\) une base de \(E\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(f\) est de classe \(C^1\) sur \(\Omega\) ;</li>
+                    <li>\(f\) admet des dérivées partielles en tout point selon la base \(\mathcal{B}\), et pour tout \(k \in \llbracket 1, n \rrbracket, \partial_k f : \Omega \to F\) est continue.</li>
+                </ol>
+            </div>
+            
+            <div class="box theorem-box" id="th16.3.9">
+                <p><strong>Théorème 16.3.9 – Intégrale de la différentielle le long d’un arc</strong></p>
+                <p>Soit \(f : \Omega \to F\) une application de classe \(C^1\), et \(\gamma : [0, 1] \to \Omega\) un chemin de classe \(C^1\) tel que \(\gamma(0)=a\) et \(\gamma(1)=b\). Alors</p>
+                \[ f(b) - f(a) = \int_0^1 df(\gamma(t))(\gamma'(t)) dt. \]
+            </div>
+        </section>
+        
+        <section id="chap16-secIII.2">
+            <h3>III.2 Plan tangent et noyau de la différentielle</h3>
+            <div class="box definition-box" id="def16.3.14">
+                <p><strong>Définition 16.3.14 – Vecteur tangent à une partie</strong></p>
+                <p>Soit \(X \subset E\) et \(x \in X\). Un vecteur \(v \in E\) est tangent à \(X\) en \(x\) s’il existe \(\varepsilon > 0\) et un arc \(\gamma : ]-\varepsilon, \varepsilon[ \to X\) dérivable en 0 tel que \(\gamma(0)=x\) et \(\gamma'(0) = v\). On note \(T_x X\) l’ensemble des vecteurs tangents à \(X\) en \(x\).</p>
+            </div>
+        </section>
+
+        <section id="chap16-secIII.3">
+            <h3>III.3 Applications de classe \(C^k\)</h3>
+             <div class="box definition-box" id="def16.3.28">
+                <p><strong>Définition 16.3.28 – Applications de classe \(C^k\)</strong></p>
+                <p>Soit \(f : \Omega \to F\). On dit que \(f\) est de classe \(C^k\) sur \(\Omega\) si toutes les dérivées partielles d’ordre \(k\) de \(f\) existent et sont continues sur \(\Omega\).</p>
+            </div>
+            <div class="box theorem-box" id="th16.3.30">
+                <p><strong>Théorème 16.3.30 – Théorème de Schwarz</strong></p>
+                <p>Soit \(f : \Omega \to F\), \(\mathcal{B}=(b_1, \dots, b_n)\) une base de \(E\), et \(a \in \Omega\). Si \(f\) est de classe \(C^2\) au voisinage de \(a\), alors \(\forall (i, j) \in \llbracket 1, n \rrbracket^2, \partial_i \partial_j f(a) = \partial_j \partial_i f(a)\).</p>
+            </div>
+        </section>
+        
+        <section id="chap16-secIII.4">
+            <h3>III.4 Hessienne et formule de Taylor-Young à l’ordre 2</h3>
+            <div class="box definition-box" id="def16.3.35">
+                <p><strong>Définition 16.3.35 – Matrice hessienne de \(f\)</strong></p>
+                <p>Soit \(\Omega\) un ouvert de \(\mathbb{R}^n\), et \(f : \Omega \to \mathbb{R}\) de classe \(C^2\). La matrice hessienne de \(f\) en \(a \in \Omega\) est
+                \[ H_f(a) = \left( \frac{\partial^2 f}{\partial x_i \partial x_j}(a) \right)_{1 \le i,j \le n}. \]
+                </p>
+            </div>
+            <div class="box proposition-box" id="prop16.3.36">
+                <p><strong>Proposition 16.3.36 – Symétrie de \(H_f(a)\)</strong></p>
+                <p>Sous les mêmes hypothèses, \(H_f(a) \in \mathcal{S}_n(\mathbb{R})\).</p>
+            </div>
+            <div class="box theorem-box" id="th16.3.38">
+                <p><strong>Théorème 16.3.38 – Formule de Taylor-Young à l’ordre 2</strong></p>
+                <p>Soit \(\Omega\) un ouvert de \(\mathbb{R}^n\) et \(f : \Omega \to \mathbb{R}\) de classe \(C^2\) au voisinage de \(a \in \Omega\). Alors \(f\) admet un DL à l’ordre 2 en \(a\), s’exprimant :</p>
+                \[ f(a+h) = f(a) + \langle \nabla f(a), h \rangle + \frac{1}{2} h^T H_f(a) h + o(\Vert h \Vert^2). \]
+            </div>
+        </section>
+    </section>
+
+    <section id="chap16-secIV">
+        <h2>IV Optimisation</h2>
+        <section id="chap16-secIV.1">
+            <h3>IV.1 Principes généraux</h3>
+            <div class="box definition-box" id="def16.4.1">
+                <p><strong>Définition 16.4.1 – Extrema</strong></p>
+                <p>Soit \(D\) un sous-ensemble de \(E\), et \(f : D \to \mathbb{R}\), et \(a \in D\). On dit que \(f\) admet un minimum local (resp. maximum local) en \(a\) s’il existe \(V \in \mathcal{V}(a)\) tel que pour tout \(x \in D \cap V, f(x) \ge f(a)\) (resp. \(f(x) \le f(a)\)).</p>
+            </div>
+        </section>
+        
+        <section id="chap16-secIV.2">
+            <h3>IV.2 Condition nécessaire du premier ordre</h3>
+            <div class="box theorem-box" id="th16.4.5">
+                <p><strong>Théorème 16.4.5 – CN du premier ordre pour un extremum local</strong></p>
+                <p>Soit \(f : D \to \mathbb{R}\). Si \(f\) admet un extremum local en \(a \in \mathring{D}\) et si \(f\) est différentiable en \(a\), alors \(df(a) = 0\).</p>
+            </div>
+            <p>Un point \(a \in \mathring{D}\) tel que \(df(a)=0\) est appelé point critique.</p>
+        </section>
+        
+        <section id="chap16-secIV.3">
+            <h3>IV.3 Optimisation sous contrainte</h3>
+            <div class="box theorem-box" id="th16.4.17">
+                <p><strong>Théorème 16.4.17 – Optimisation sous contrainte</strong></p>
+                <p>Soit \(f, g : \Omega \to \mathbb{R}\) de classe \(C^1\), et \(X = \{x \in \Omega, g(x) = 0\}\). Si \(f_{|X}\) admet un extremum local en \(a \in X\) tel que \(dg(a) \neq 0\), alors \(df(a)\) et \(dg(a)\) sont colinéaires.</p>
+            </div>
+        </section>
+
+        <section id="chap16-secIV.4">
+            <h3>IV.4 Étude à l’ordre 2</h3>
+            <div class="box proposition-box" id="prop16.4.19">
+                <p><strong>Proposition 16.4.19 – CN du second ordre</strong></p>
+                <p>Soit \(f : \Omega \to \mathbb{R}\) de classe \(C^2\). Si \(f\) admet un minimum local en \(a \in \Omega\), alors \(a\) est un point critique de \(f\) et \(H_f(a) \in \mathcal{S}_n^+(\mathbb{R})\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th16.4.20">
+                <p><strong>Théorème 16.4.20 – CS du second ordre</strong></p>
+                <p>Soit \(f : \Omega \to \mathbb{R}\) de classe \(C^2\), et soit \(a \in \Omega\). Si \(a\) est un point critique de \(f\) et si \(H_f(a) \in \mathcal{S}_n^{++}(\mathbb{R})\), alors \(f\) admet un minimum local strict en \(a\).</p>
+            </div>
+        </section>
+    </section>
+</section>
+<!-- Fin du chapitre 16 -->
+                    <section id="chap17">
+    <div class="chapter-heading">
+        <span class="chapter-number">17</span>
+        <div class="chapter-title">
+            <h1>Intégration vectorielle et équations différentielles linéaires</h1>
+        </div>
+    </div>
+
+    <p>Ce chapitre consiste en un certain nombre de rappels concernant la résolution des équations différentielles linéaires, ainsi qu’un certain nombre de compléments. En effet, le contexte des e.v.n., et les techniques matricielles nous permettent d’avoir des outils efficaces pour gérer des situations bien plus générales que ce que vous avez vu en MPSI.</p>
+
+    <section id="chap17-secI">
+        <h2>I Compléments d’intégration</h2>
+        <section id="chap17-secI.1">
+            <h3>I.1 Définition et propriétés générales</h3>
+            <div class="box proposition-box" id="propdef17.1.2">
+                <p><strong>Proposition/Définition 17.1.2 – Définition de l’intégrale vectorielle</strong></p>
+                <p>Soit \(f : I = [a, b] \to F\) une fonction continue par morceaux. Le vecteur</p>
+                \[ \sum_{k=1}^n \left( \int_a^b f_{\mathcal{B},i}(t) dt \right) b_i \]
+                <p>est bien défini, et indépendant du choix de la base \(\mathcal{B} = (b_1, \dots, b_n)\) de \(F\). On définit alors</p>
+                \[ \int_a^b f(t) dt = \sum_{k=1}^n \left( \int_a^b f_{\mathcal{B},i}(t) dt \right) b_i. \]
+            </div>
+        </section>
+
+        <section id="chap17-secI.2">
+            <h3>I.2 Théorème fondamental</h3>
+            <div class="box theorem-box" id="th17.1.11">
+                <p><strong>Théorème 17.1.11 – Théorème fondamental de l’analyse, version vectorielle</strong></p>
+                <ol>
+                    <li>Soit \(g : I \to F\) une application continue sur \(I = [a, b]\), et \(a \in I\). Alors : \(G_0 : x \mapsto \int_a^x g(t) dt\) est une primitive de \(g\). De plus, \(G_0\) est alors de classe \(C^1\).</li>
+                    <li>Soit \(g : I \to F\) et \(G\) une primitive de \(g\). Alors \(\int_a^b g(x) dx = [G(x)]_a^b = G(b) - G(a)\).</li>
+                </ol>
+            </div>
+            
+            <div class="box theorem-box" id="cor17.1.13">
+                <p><strong>Corollaire 17.1.13 – Inégalité des accroissements finis</strong></p>
+                <p>Soit \(f \in C^1(I, F)\), telle que \(f'\) soit bornée. Alors, pour tout \(x \in I\), \(\Vert f(b) - f(a) \Vert \le |b-a| \cdot \Vert f' \Vert_\infty\).</p>
+            </div>
+        </section>
+        
+        <section id="chap17-secI.3">
+            <h3>I.3 Formules de Taylor</h3>
+            <div class="box theorem-box" id="th17.1.14">
+                <p><strong>Théorème 17.1.14 – Formule de Taylor vectorielle avec reste intégral</strong></p>
+                <p>Soit \(f \in C^{n+1}([a, b], F)\), à valeurs dans \(\mathbb{R}\) ou \(\mathbb{C}\). Alors</p>
+                \[ f(b) = \sum_{k=0}^n \frac{f^{(k)}(a)}{k!} (b-a)^k + \int_a^b \frac{(b-t)^n}{n!} f^{(n+1)}(t) dt. \]
+            </div>
+            
+            <div class="box theorem-box" id="th17.1.17">
+                <p><strong>Théorème 17.1.17 – Formule de Taylor-Young à l’ordre n au point \(x_0\)</strong></p>
+                <p>Soit \(I\) un intervalle ouvert de \(\mathbb{R}\), \(x_0 \in I\), et \(f : I \to F\) une fonction de classe \(C^n\) au voisinage de \(x_0\). Alors :</p>
+                \[ f(x) =_{x_0} \sum_{k=0}^n \frac{f^{(k)}(x_0)}{k!} (x-x_0)^k + o((x-x_0)^n). \]
+            </div>
+        </section>
+    </section>
+
+    <section id="chap17-secII">
+        <h2>II Propriétés générales des EDL</h2>
+        <section id="chap17-secII.1">
+            <h3>II.1 Notations et définitions</h3>
+            <div class="box definition-box" id="def17.2.2">
+                <p><strong>Définition 17.2.2 – Équation différentielle linéaire</strong></p>
+                <p>Une équation différentielle linéaire d’ordre \(r\) est une équation de fonction inconnue \(y : I \to E\), de la forme :</p>
+                \[ \forall t \in I, a_r(t) \cdot y^{(r)}(t) + \dots + a_0(t) \cdot y(t) = b(t). \]
+            </div>
+        </section>
+
+        <section id="chap17-secII.2">
+            <h3>II.2 Structure de l’ensemble des solutions</h3>
+            <div class="box theorem-box" id="th17.2.4">
+                <p><strong>Théorème 17.2.4 – Structure de l’ensemble des solutions d’une EDL</strong></p>
+                <p>Soit l’équation différentielle \((E) : a_r(t)y^{(r)} + \dots + a_0(t)y = b(t)\), et \(y_0\) une solution particulière de \((E)\). Alors l’ensemble \(\mathcal{S}\) des solutions de \((E)\) est un sous-espace affine, passant par \(y_0\), et de direction l’ensemble des solutions \(\mathcal{S}_H\) de l’équation homogène associée. Ainsi, \(\mathcal{S} = y_0 + \mathcal{S}_H\).</p>
+            </div>
+        </section>
+        
+        <section id="chap17-secII.3">
+            <h3>II.3 Forme normalisée</h3>
+            <div class="box definition-box" id="def17.2.9">
+                <p><strong>Définition 17.2.9 – Forme normalisée d’une EDL</strong></p>
+                <p>Une équation différentielle linéaire d’ordre \(r\) est sous forme normalisée si elle est de la forme :</p>
+                \[ y^{(r)} = \alpha_{r-1}(t) \cdot y^{(r-1)} + \dots + \alpha_0(t) \cdot y + \beta(t). \]
+            </div>
+        </section>
+    </section>
+
+    <section id="chap17-secIII">
+        <h2>III EDL d’ordre 1</h2>
+        <section id="chap17-secIII.1">
+            <h3>III.1 Situation</h3>
+            <p>Dans cette partie, nous étudions les équations différentielles d’ordre 1, de fonction inconnue \(y : I \to E\), sous forme normalisée. Ainsi, ce sont des équations de la forme \((E) : y' = a(t) \cdot y + b(t)\).</p>
+        </section>
+
+        <section id="chap17-secIII.2">
+            <h3>III.2 Problème de Cauchy et espace des solutions</h3>
+            <div class="box definition-box" id="def17.3.2">
+                <p><strong>Définition 17.3.2 – Problème de Cauchy pour une EDL d’ordre 1</strong></p>
+                <p>Soit \(t_0 \in I\). Un problème de Cauchy pour l’équation \((E)\) en \(t_0\) est la donnée de conditions initiales en \(t_0\) de la forme \(Y(t_0) = Y_0\), où \(Y_0 \in \mathbb{K}^n\) est fixé.</p>
+            </div>
+            
+            <div class="box theorem-box" id="th17.3.5">
+                <p><strong>Théorème 17.3.5 – Théorème de Cauchy linéaire pour l’ordre 1</strong></p>
+                <p>Soit \(Y_0 \in \mathbb{K}^n\). L’équation différentielle \((E)\) admet une et une seule solution répondant au problème de Cauchy \(Y(t_0) = Y_0\).</p>
+            </div>
+        </section>
+
+        <section id="chap17-secIII.3">
+            <h3>III.3 Méthodes de résolution dans le cas scalaire</h3>
+            <div class="box theorem-box" id="th17.3.9">
+                <p><strong>Théorème 17.3.9 – Résolution de l’équation \(y' = a(x)y\) (a continue)</strong></p>
+                <p>L’ensemble des solutions de l’équation homogène \(y' = a(x)y\) est : \(\mathcal{S}_0 = \{y: x \mapsto C e^{A(x)}, C \in \mathbb{K}\}\), où \(A\) est une primitive de la fonction \(a\), et \(C\) est une constante.</p>
+            </div>
+        </section>
+
+        <section id="chap17-secIII.4">
+            <h3>III.4 Méthodes de résolution dans le cas vectoriel à coefficients constants</h3>
+            <p>On se replace dans le contexte vectoriel \(y' = a(t) \cdot y + b(t)\), et on suppose ici que \(a : I \to \mathcal{L}(E)\) est constante. De façon équivalente, cela revient à étudier l’équation différentielle matricielle \(Y' = AY + B(t)\).</p>
+            <div class="box theorem-box" id="th17.3.19">
+                <p><strong>Théorème 17.3.19 – Résolution de l’équation homogène matricielle \(Y' = AY\)</strong></p>
+                <p>Soit \(A \in M_n(\mathbb{K}), t_0 \in I\) et \(Y_0 \in M_{n,1}(\mathbb{K})\). Le problème de Cauchy \(Y' = AY\) et \(Y(t_0) = Y_0\) admet comme unique solution sur \(I\) la fonction vectorielle définie par \(\forall t \in I, Y(t) = \exp((t-t_0)A)Y_0\).</p>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap17-secIV">
+        <h2>IV EDL scalaires d’ordre supérieur</h2>
+        <section id="chap17-secIV.1">
+            <h3>IV.1 Comment se ramener à l’ordre 1</h3>
+            <div class="box theorem-box" id="th17.4.1">
+                <p><strong>Théorème 17.4.1 – Réduction à une ED matricielle d’ordre 1</strong></p>
+                <p>Soit \(y \in D^r(I, \mathbb{K})\), et \(Y : I \to \mathbb{K}^r\) telle que \(\forall t \in I, Y(t) = (y(t), y'(t), \dots, y^{(r-1)}(t))\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(y\) est solution de l’équation différentielle scalaire \((E) : y^{(r)} = a_{r-1}y^{(r-1)} + \dots + a_0 y + b\) ;</li>
+                    <li>\(Y\) est solution de l’équation différentielle matricielle \((E') : Y' = A(t)Y + B(t)\), où \(A(t)\) est la matrice compagnon associée et \(B(t) = (0, \dots, 0, b(t))\).</li>
+                </ol>
+            </div>
+            
+            <div class="box theorem-box" id="th17.4.3">
+                <p><strong>Théorème 17.4.3 – Théorème de Cauchy linéaire d’ordre \(r\)</strong></p>
+                <p>Soit \((E) : y^{(r)} = a_{r-1}(t)y^{(r-1)} + \dots + a_0(t)y + b(t)\) une EDL d’ordre \(r\) sur \(I\). Pour tout \((y_0, \dots, y_{r-1}) \in \mathbb{K}^r\), le problème de Cauchy \(y(t_0) = y_0, \dots, y^{(r-1)}(t_0) = y_{r-1}\) associé à \(E\) admet une unique solution définie sur \(I\).</p>
+            </div>
+        </section>
+
+        <section id="chap17-secIV.2">
+            <h3>IV.2 Équations à coefficients constants</h3>
+            <p>On considère dans ce paragraphe une équation linéaire d’ordre \(r\) de la forme \((E) : y^{(r)} = a_{r-1}y^{(r-1)} + \dots + a_0y + b(t)\), où \(a_{r-1}, \dots, a_0\) sont des constantes de \(\mathbb{K}\).</p>
+            <div class="box theorem-box" id="th17.4.5">
+                <p><strong>Théorème 17.4.5 – Résolution d’une EDL homogène à coefficients constants, HP si \(r>2\)</strong></p>
+                <p>Soit \(\lambda_1, \dots, \lambda_k\) les racines 2 à 2 distinctes dans \(\mathbb{C}\) de \(\chi\) et \(\alpha_1, \dots, \alpha_k\) leurs multiplicités. L’ensemble des solutions de \((E_H)\) est</p>
+                \[ \mathcal{S}_H = \left\{ t \mapsto \sum_{j=1}^k P_j(t) e^{\lambda_j t}, P_j \in \mathbb{C}_{\alpha_j-1}[X] \right\}. \]
+            </div>
+        </section>
+
+        <section id="chap17-secIV.3">
+            <h3>IV.3 EDL d’ordre 2</h3>
+            <p>On s’intéresse maintenant aux EDL scalaires d’ordre 2, à coefficients non nécessairement constants : \((E) : y'' = a_1(t)y' + a_0(t)y + b(t)\).</p>
+             <div class="box definition-box" id="def17.4.7">
+                <p><strong>Définition 17.4.7 – Wronskien d’un couple de solutions de l’équation homogène</strong></p>
+                <p>Soit \(y\) et \(z\) deux solutions de \((E_H)\). On définit leur wronskien \(W_{y,z} : I \to \mathbb{K}\) par :</p>
+                \[ \forall t \in I, W_{y,z}(t) = \begin{vmatrix} y(t) & z(t) \\ y'(t) & z'(t) \end{vmatrix}. \]
+            </div>
+            
+            <div class="box proposition-box" id="prop17.4.9">
+                <p><strong>Proposition 17.4.9 – Caractérisation des bases de (EH)</strong></p>
+                <p>Soit \((y,z)\) un couple de solutions de \((E_H)\), et \(W\) leur wronskien. Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\((y,z)\) est une base de \(\mathcal{S}_H\) ;</li>
+                    <li>il existe \(t_0 \in I\) tel que \(W(t_0) \neq 0\) ;</li>
+                    <li>pour tout \(t \in I, W(t) \neq 0\).</li>
+                </ol>
+            </div>
+        </section>
+    </section>
+</section>
+<!-- Fin du chapitre 17 -->
 </main>
 
 <script>
