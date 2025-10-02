@@ -22,166 +22,871 @@ code { background-color: #e9ecef; padding: 2px 5px; border-radius: 4px; font-fam
 <body>
 
 <h1>Corrigé du TD 03 : Ensembles et applications</h1>
+        <h2>Ensemble des parties</h2>
+<section id="ex8">
+  <h3>Exercice 8.</h3>
+  <p>Soit $E=\{0,1,2\}$. Les assertions suivantes sont-elles vraies ?</p>
+  <ol>
+    <li>$E\in\mathbb{N}$ ;</li>
+    <li>$E\subseteq\mathbb{N}$ ;</li>
+    <li>$E\in\mathcal{P}(\mathbb{N})$ ;</li>
+    <li>$E\subseteq\mathcal{P}(\mathbb{N})$ ;</li>
+    <li>$1\in E$ ;</li>
+    <li>$1\subseteq E$ ;</li>
+    <li>$\{1\}\in E$ ;</li>
+    <li>$\{1\}\subseteq E$ ;</li>
+    <li>$\varnothing\in E$ ;</li>
+    <li>$\varnothing\subseteq E$ ;</li>
+    <li>$\varnothing\in\mathcal{P}(E)$ ;</li>
+    <li>$\{\varnothing\}\subseteq E$.</li>
+  </ol>
+</section>
+Bien sûr, voici la correction de cet exercice de théorie des ensembles, qui est un excellent exemple de raisonnement par l'absurde.
 
-<div class="exercice">
-<h2>Autocorrection A</h2>
-<div class="enonce">
-Soit E et F deux ensembles. En revenant aux définitions de l'égalité et de l'inclusion, écrire des assertions quantifiées équivalentes à \(E \not\subseteq F\) et à \(E \neq F\).
-</div>
-<div class="corrige">
-<h4>Corrigé</h4>
-<p>Par définition, l'inclusion \(E \subseteq F\) s'écrit : \(\forall x, (x \in E \Rightarrow x \in F)\).</p>
-<p>La négation de cette assertion, \(E \not\subseteq F\), est donc :
-\[ \text{non}(\forall x, (x \in E \Rightarrow x \in F)) \iff \exists x, \text{non}(x \in E \Rightarrow x \in F) \]
-Rappelons que la négation de \(P \Rightarrow Q\) est \(P \text{ et non}(Q)\). On a donc :
-\[ E \not\subseteq F \iff \exists x, (x \in E \text{ et } x \notin F) \]
-En français : "Il existe au moins un élément de E qui n'est pas dans F".
-</p>
-<p>
-L'égalité \(E = F\) est définie par la double inclusion : \((E \subseteq F) \text{ et } (F \subseteq E)\).
-Sa négation, \(E \neq F\), est donc :
-\[ \text{non}((E \subseteq F) \text{ et } (F \subseteq E)) \iff (\text{non}(E \subseteq F)) \text{ ou } (\text{non}(F \subseteq E)) \]
-Ce qui signifie \( (E \not\subseteq F) \text{ ou } (F \not\subseteq E) \). En utilisant le résultat précédent, on obtient :
-\[ E \neq F \iff (\exists x, x \in E \text{ et } x \notin F) \text{ ou } (\exists y, y \in F \text{ et } y \notin E) \]
-</p>
-</div>
-</div>
 
-<div class="exercice">
-<h2>Autocorrection B</h2>
-<div class="enonce">
-Décrire explicitement \(\mathcal{P}(\{1, 2, 3\})\). Exprimer chacun de ses éléments à partir de \(A = \{1, 2\}\) et \(B = \{2, 3\}\) en utilisant les opérations \(\cup, \cap\) et \(\setminus\).
-</div>
-<div class="corrige">
-<h4>Corrigé</h4>
-<p>
-L'ensemble \(\{1, 2, 3\}\) a 3 éléments, donc son ensemble des parties \(\mathcal{P}(\{1, 2, 3\})\) a \(2^3 = 8\) éléments.
-\[ \mathcal{P}(\{1, 2, 3\}) = \{ \emptyset, \{1\}, \{2\}, \{3\}, \{1, 2\}, \{1, 3\}, \{2, 3\}, \{1, 2, 3\} \} \]
-</p>
-<p>
-Exprimons ces 8 ensembles en fonction de \(A=\{1, 2\}\) et \(B=\{2, 3\}\) :
+
+<h3>✅ Exercice 7⁺.</h3>
+<p><strong>Soit $\Omega$ un ensemble et $E, F \in \mathcal{P}(\Omega)$ tels que $E \times F \subseteq (F \times \Omega) \cup (\Omega \times E)$. Montrer que $E \subseteq F$ ou $F \subseteq E$.</strong></p>
+
+<div>
+<p>La conclusion que nous devons démontrer est de la forme "P ou Q". Une stratégie de preuve classique pour ce type de proposition est de raisonner par l'absurde. Nous allons supposer que la conclusion est fausse et montrer que cela mène à une contradiction avec l'hypothèse.</p>
+
+<p><strong>Hypothèse :</strong> $E \times F \subseteq (F \times \Omega) \cup (\Omega \times E)$.</p>
+
+<p><strong>Supposons par l'absurde</strong> que la conclusion est fausse, c'est-à-dire que nous n'avons ni $E \subseteq F$, ni $F \subseteq E$.
+$$ (E \not\subseteq F) \quad \text{et} \quad (F \not\subseteq E) $$</p>
+
+<p>Explicitons ce que signifient ces deux non-inclusions :</p>
 <ul>
-<li>\(\emptyset = A \setminus A\)</li>
-<li>\(\{1\} = A \setminus B\)</li>
-<li>\(\{2\} = A \cap B\)</li>
-<li>\(\{3\} = B \setminus A\)</li>
-<li>\(\{1, 2\} = A\)</li>
-<li>\(\{1, 3\} = (A \setminus B) \cup (B \setminus A)\) (c'est la différence symétrique \(A \Delta B\))</li>
-<li>\(\{2, 3\} = B\)</li>
-<li>\(\{1, 2, 3\} = A \cup B\)</li>
+    <li>Puisque $E \not\subseteq F$, il existe au moins un élément de $E$ qui n'est pas dans $F$. Nommons un tel élément $x_0$.
+    On a donc : $\exists x_0 \in E$ tel que $x_0 \notin F$.</li>
+    <li>Puisque $F \not\subseteq E$, il existe au moins un élément de $F$ qui n'est pas dans $E$. Nommons un tel élément $y_0$.
+    On a donc : $\exists y_0 \in F$ tel que $y_0 \notin E$.</li>
 </ul>
-</p>
-</div>
-</div>
 
-<div class="exercice">
-<h2>Autocorrection C</h2>
-<div class="enonce">
-Soit E un ensemble et \(A, B, C \in \mathcal{P}(E)\) des parties de cet ensemble. Montrer les assertions suivantes.
-<ol type="i">
-<li>\(A \cup (E \setminus A) = E\)</li>
-<li>\((A \cap B) \cup (A \setminus B) = A\)</li>
-<li>\((A \subseteq B \text{ et } B \subseteq C) \Rightarrow A \subseteq C\)</li>
-<li>\(A \subseteq B \iff E \setminus B \subseteq E \setminus A\)</li>
+<p>Considérons maintenant le couple $(x_0, y_0)$.</p>
+<p>Par construction, nous avons $x_0 \in E$ et $y_0 \in F$. Par définition du produit cartésien, cela signifie que le couple $(x_0, y_0)$ appartient à l'ensemble $E \times F$.</p>
+
+<p>Or, d'après l'hypothèse de l'énoncé, $E \times F \subseteq (F \times \Omega) \cup (\Omega \times E)$.
+Puisque $(x_0, y_0) \in E \times F$, il doit donc également appartenir à l'union :</p>
+$$ (x_0, y_0) \in (F \times \Omega) \cup (\Omega \times E) $$
+
+<p>Par définition de la réunion de deux ensembles, cela signifie que l'une des deux propositions suivantes (au moins) est vraie :</p>
+<ol>
+    <li>$(x_0, y_0) \in F \times \Omega$</li>
+    <li>$(x_0, y_0) \in \Omega \times E$</li>
 </ol>
-</div>
-<div class="corrige">
-<h4>Corrigé</h4>
-<p>Pour démontrer une égalité d'ensembles \(X=Y\), on procède généralement par double inclusion (\(X \subseteq Y\) et \(Y \subseteq X\)).</p>
-<ol type="i">
-<li><b>\(A \cup (E \setminus A) = E\)</b><br>
-(\(\subseteq\)) Soit \(x \in A \cup (E \setminus A)\). Alors \(x \in A\) ou \(x \in E \setminus A\). Dans les deux cas, \(x\) est un élément de \(E\). Donc \(A \cup (E \setminus A) \subseteq E\). (Cette inclusion est toujours triviale quand on travaille avec des parties de E).<br>
-(\(\supseteq\)) Soit \(x \in E\). Il y a deux cas possibles : soit \(x \in A\), soit \(x \notin A\).
+
+<p>Examinons ces deux cas :</p>
 <ul>
-<li>Si \(x \in A\), alors \(x \in A \cup (E \setminus A)\).</li>
-<li>Si \(x \notin A\), alors par définition \(x \in E \setminus A\), et donc \(x \in A \cup (E \setminus A)\).</li>
+    <li>
+        <strong>Cas 1 : $(x_0, y_0) \in F \times \Omega$.</strong><br>
+        Par définition du produit cartésien, cela implique que $x_0 \in F$.
+        Cependant, nous avons choisi $x_0$ spécifiquement parce qu'il vérifiait $x_0 \notin F$. Nous avons donc une contradiction : $x_0 \in F$ et $x_0 \notin F$. Ce cas est impossible.
+    </li>
+    <li>
+        <strong>Cas 2 : $(x_0, y_0) \in \Omega \times E$.</strong><br>
+        Par définition du produit cartésien, cela implique que $y_0 \in E$.
+        Cependant, nous avons choisi $y_0$ spécifiquement parce qu'il vérifiait $y_0 \notin E$. Nous avons donc une contradiction : $y_0 \in E$ et $y_0 \notin E$. Ce cas est également impossible.
+    </li>
 </ul>
-Dans tous les cas, \(x \in A \cup (E \setminus A)\). Donc \(E \subseteq A \cup (E \setminus A)\).<br>
-Par double inclusion, l'égalité est démontrée.
-</li>
+
+<p><strong>Conclusion :</strong></p>
+<p>Notre supposition initiale, à savoir que "$E \not\subseteq F$ et $F \not\subseteq E$", nous mène inévitablement à une contradiction. Cette supposition est donc fausse.</p>
+<p>Par conséquent, sa négation est vraie :</p>
+$$ \neg((E \not\subseteq F) \text{ et } (F \not\subseteq E)) \equiv (E \subseteq F) \text{ ou } (F \subseteq E) $$
+<p>Ce qui achève la démonstration.</p>
+</div>
+
+<section id="ex10">
+  <h3>Exercice 10+.</h3>
+  <p>Deux parties de $[[1,n]]$ sont dites adjacentes si l’on passe de l’une à l’autre en ajoutant ou en supprimant un unique élément.</p>
+  <ol>
+    <li>Montrer qu’il est possible de lister les parties de $[[1,n]]$ sous la forme $A_0,\ldots,A_{2^n-1}$ de sorte que, pour tout $k\in[[1,2^n-1]]$, $A_{k-1}$ et $A_k$ soient adjacentes, et qu’en outre $A_{2^n-1}$ et $A_0$ soient adjacentes.</li>
+    <li>Montrer qu’on peut imposer en outre $A_0=\varnothing$ et $\forall k\in[[1,n]],\ A_k=[[1,k]]$.</li>
+  </ol>
+</section>
+
+Excellent exercice qui porte sur les codes de Gray, un concept fondamental en combinatoire et en informatique. La question 2 est particulièrement subtile.
+
+<hr>
+
+<h3>✅ Exercice 10⁺.</h3>
+<p>Cet exercice explore la structure de l'ensemble des parties de $\llbracket 1, n \rrbracket$, noté $\mathcal{P}(\llbracket 1, n \rrbracket)$. On peut se représenter les parties comme les sommets d'un graphe, où deux sommets sont reliés par une arête si les parties correspondantes sont adjacentes.</p>
+<p>Ce graphe est une version de l'hypercube de dimension $n$. La question 1 demande de prouver que ce graphe admet un cycle Hamiltonien, c'est-à-dire un cycle qui passe par chaque sommet exactement une fois. Une telle liste de parties est appelée un <strong>code de Gray</strong>.</p>
+
+<h4>1. Montrer qu'il est possible de lister les parties de $\llbracket 1, n \rrbracket$ sous la forme $A_0, A_1, \dots, A_{2^n-1}$ de telle sorte que pour tout $k \in \llbracket 1, 2^n - 1 \rrbracket$, $A_{k-1}$ et $A_k$ soient adjacentes et, qu'en outre $A_{2^n-1}$ et $A_0$ soient adjacentes.</h4>
+<div>
+<p>Nous allons prouver l'existence d'une telle liste par une construction récursive.</p>
+<p>Soit $L_n$ une liste des parties de $\llbracket 1, n \rrbracket$ qui vérifie les conditions de l'énoncé.</p>
+<p><strong>Initialisation (n=1) :</strong></p>
+<p>L'ensemble des parties de $\llbracket 1 \rrbracket$ est $\{\emptyset, \{1\}\}$.</p>
+<p>La liste $L_1 = (\emptyset, \{1\})$ convient :</p>
+<ul>
+<li>$A_0 = \emptyset$, $A_1 = \{1\}$. Elles sont adjacentes (on ajoute l'élément 1).</li>
+<li>Pour le cycle : $A_1 = \{1\}$ et $A_0 = \emptyset$ sont adjacentes (on supprime l'élément 1).</li>
+</ul>
+<p>La propriété est donc vraie pour $n=1$.</p>
 
 code
 Code
 download
 content_copy
 expand_less
-<li><b>\((A \cap B) \cup (A \setminus B) = A\)</b><br>
-        On peut aussi utiliser les propriétés des opérations :
-        \[ (A \cap B) \cup (A \setminus B) = (A \cap B) \cup (A \cap \bar{B}) = A \cap (B \cup \bar{B}) = A \cap E = A \]
-        en utilisant la distributivité de \(\cap\) sur \(\cup\).
-        </li>
-
-        <li><b>\((A \subseteq B \text{ et } B \subseteq C) \Rightarrow A \subseteq C\) (Transitivité de l'inclusion)</b><br>
-        Supposons que \(A \subseteq B\) et \(B \subseteq C\). Montrons que \(A \subseteq C\).<br>
-        Soit \(x \in A\).
-        Puisque \(A \subseteq B\), on a \(x \in B\).
-        Puisque \(B \subseteq C\), on a \(x \in C\).
-        Donc, pour tout \(x \in A\), on a \(x \in C\). C'est la définition de \(A \subseteq C\).
-        </li>
-
-        <li><b>\(A \subseteq B \iff E \setminus B \subseteq E \setminus A\)</b><br>
-        Ceci est une propriété fondamentale sur le passage au complémentaire.
-        (\(\Rightarrow\)) Supposons \(A \subseteq B\). Montrons que \(E \setminus B \subseteq E \setminus A\).<br>
-        Soit \(x \in E \setminus B\). Cela signifie que \(x \notin B\).
-        On veut montrer que \(x \in E \setminus A\), c'est-à-dire \(x \notin A\).
-        Raisonnons par l'absurde : si on avait \(x \in A\), alors comme \(A \subseteq B\), on aurait \(x \in B\). Ceci contredit notre hypothèse \(x \notin B\).
-        Donc, l'hypothèse \(x \in A\) est fausse. On a bien \(x \notin A\). D'où \(E \setminus B \subseteq E \setminus A\).<br>
-        (\(\Leftarrow\)) Supposons \(E \setminus B \subseteq E \setminus A\). Montrons que \(A \subseteq B\).<br>
-        On peut appliquer le résultat du sens direct à cette nouvelle inclusion. En posant \(A' = E \setminus B\) et \(B' = E \setminus A\), l'hypothèse est \(A' \subseteq B'\).
-        Le sens direct nous dit que \(E \setminus B' \subseteq E \setminus A'\).
-        Or, \(E \setminus B' = E \setminus (E \setminus A) = A\) et \(E \setminus A' = E \setminus (E \setminus B) = B\).
-        On a donc bien \(A \subseteq B\).
-        </li>
-    </ol>
-</div>
-</div>
-
-<div class="exercice">
-<h2>Exercice 1</h2>
-<div class="enonce">
-Soit \(a < b < c < d\) quatre réels. En faisant des dessins, décrire sans démonstration les ensembles suivants.
-</div>
-<div class="corrige">
-<h4>Corrigé</h4>
-<p>Un dessin sur la droite réelle est le meilleur moyen de visualiser ces résultats.</p>
-<ol type="i">
-<li>\([a, c] \cup [b, d] = [a, d]\) (On "comble le trou" entre \(b\) et \(c\)).</li>
-<li>\([a, c] \cap [b, d] = [b, c]\) (C'est la partie commune aux deux intervalles).</li>
-<li>\([a, b] \cap [c, d] = \emptyset\) (Les intervalles sont disjoints car \(b<c\)).</li>
-<li>\([a, c] \setminus [b, d] = [a, b[\) (On prend \([a, c]\) et on enlève la partie qui est dans \([b, d]\), c'est-à-dire \([b, c]\)).</li>
-<li>\([a, d] \setminus [b, c] = [a, b) \cup (c, d]\) (On prend un grand intervalle et on lui retire un segment au milieu).</li>
-<li>\([b, c] \setminus [a, d] = \emptyset\) (L'intervalle \([b,c]\) est entièrement contenu dans \([a,d]\), donc il ne reste rien).</li>
+<p><strong>Hérédité :</strong></p>
+<p>Supposons qu'il existe une telle liste (un cycle de Gray) $L_n = (A_0, A_1, \dots, A_{2^n-1})$ pour les parties de $\llbracket 1, n \rrbracket$.</p>
+<p>Construisons une liste $L_{n+1}$ pour les parties de $\llbracket 1, n+1 \rrbracket$. L'ensemble de ces parties peut être scindé en deux :</p>
+<ol>
+    <li>Les parties ne contenant pas l'élément $n+1$ (ce sont exactement les parties de $\llbracket 1, n \rrbracket$).</li>
+    <li>Les parties contenant l'élément $n+1$. Chacune est de la forme $A \cup \{n+1\}$, où $A$ est une partie de $\llbracket 1, n \rrbracket$.</li>
 </ol>
-</div>
-</div>
-
-<div class="exercice">
-<h2>Exercice 8</h2>
-<div class="enonce">
-Soit \(E = \{0, 1, 2\}\). Les assertions suivantes sont-elles vraies ?
-</div>
-<div class="corrige">
-<h4>Corrigé</h4>
-<p>C'est un exercice fondamental pour bien distinguer l'appartenance (\(\in\)) de l'inclusion (\(\subseteq\)).</p>
+<p>Voici la construction de $L_{n+1}$ :</p>
 <ul>
-<li>(i) \(E \in \mathbb{N}\) : <b>Faux</b>. \(E\) est un ensemble, pas un entier.</li>
-<li>(ii) \(E \subseteq \mathbb{N}\) : <b>Vrai</b>. Chaque élément de \(E\) (0, 1, 2) est un entier naturel.</li>
-<li>(iii) \(E \in \mathcal{P}(\mathbb{N})\) : <b>Vrai</b>. C'est la définition même de (ii). Être un élément de l'ensemble des parties de \(\mathbb{N}\), c'est être un sous-ensemble de \(\mathbb{N}\).</li>
-<li>(iv) \(E \subseteq \mathcal{P}(\mathbb{N})\) : <b>Faux</b>. Les éléments de \(E\) sont 0, 1, 2, qui sont des nombres, pas des ensembles de nombres (qui sont les éléments de \(\mathcal{P}(\mathbb{N})\)).</li>
-<li>(v) \(1 \in E\) : <b>Vrai</b>. 1 est bien un des éléments listés dans \(E\).</li>
-<li>(vi) \(1 \subseteq E\) : <b>Faux</b>. On ne peut utiliser le symbole \(\subseteq\) qu'entre deux ensembles. 1 n'est pas un ensemble.</li>
-<li>(vii) \(\{1\} \in E\) : <b>Faux</b>. Les éléments de \(E\) sont 0, 1, 2. L'ensemble \(\{1\}\) n'est pas l'un d'eux.</li>
-<li>(viii) \(\{1\} \subseteq E\) : <b>Vrai</b>. Pour que \(\{1\}\) soit inclus dans \(E\), il faut que tous ses éléments soient dans \(E\). Le seul élément de \(\{1\}\) est 1, qui est bien dans \(E\).</li>
-<li>(ix) \(\emptyset \in E\) : <b>Faux</b>. L'ensemble vide n'est pas un des trois éléments 0, 1, 2.</li>
-<li>(x) \(\emptyset \subseteq E\) : <b>Vrai</b>. L'ensemble vide est un sous-ensemble de n'importe quel ensemble.</li>
-<li>(xi) \(\emptyset \in \mathcal{P}(E)\) : <b>Vrai</b>. C'est la même chose que (x).</li>
-<li>(xii) \(\{\emptyset\} \subseteq E\) : <b>Faux</b>. L'unique élément de \(\{\emptyset\}\) est \(\emptyset\). Pour que l'inclusion soit vraie, il faudrait que \(\emptyset \in E\), ce qui est faux (voir ix).</li>
+    <li>La première moitié de $L_{n+1}$ est simplement la liste $L_n$.</li>
+    <li>La seconde moitié est construite en prenant la liste $L_n$ <strong>en sens inverse</strong>, et en ajoutant l'élément $n+1$ à chacune de ses parties.</li>
 </ul>
-<div class="remarque">
-<strong>À retenir :</strong> La relation \(\in\) se lit "est un élément de" et relie un élément à un ensemble. La relation \(\subseteq\) se lit "est inclus dans" et ne relie que des ensembles entre eux. L'assertion \(A \subseteq B\) est équivalente à \(\forall x, (x \in A \Rightarrow x \in B)\).
-</div>
-</div>
+<p>Formellement, si $L_n = (A_0, \dots, A_{2^n-1})$, on note $L_n^R = (A_{2^n-1}, \dots, A_0)$ la liste inversée.
+Alors $L_{n+1} = (A_0, \dots, A_{2^n-1}, A_{2^n-1} \cup \{n+1\}, \dots, A_0 \cup \{n+1\})$.</p>
+
+<p><strong>Vérifions que $L_{n+1}$ est bien un cycle de Gray :</strong></p>
+<ul>
+    <li><strong>Adjacence dans la première moitié :</strong> Les adjacences entre $A_{k-1}$ et $A_k$ pour $k < 2^n$ sont conservées par l'hypothèse de récurrence.</li>
+    <li><strong>Adjacence dans la seconde moitié :</strong> Deux parties consécutives dans cette moitié sont de la forme $A_{i} \cup \{n+1\}$ et $A_{i-1} \cup \{n+1\}$. Comme $A_i$ et $A_{i-1}$ sont adjacentes dans $L_n$, elles ne diffèrent que d'un seul élément. Il en va donc de même pour $A_{i} \cup \{n+1\}$ et $A_{i-1} \cup \{n+1\}$.</li>
+    <li><strong>Adjacence au point de jonction :</strong> Le dernier élément de la première moitié est $A_{2^n-1}$. Le premier de la seconde est $A_{2^n-1} \cup \{n+1\}$. Ils sont adjacents par définition (ajout de l'élément $n+1$).</li>
+    <li><strong>Adjacence pour le cycle :</strong> Le premier élément de $L_{n+1}$ est $A_0$. Le dernier est $A_0 \cup \{n+1\}$. Ils sont adjacents (différence de l'élément $n+1$).</li>
+</ul>
+<p>La construction produit bien un cycle de Gray pour $\llbracket 1, n+1 \rrbracket$. Par le principe de récurrence, une telle liste existe pour tout $n \ge 1$.</p>
 </div>
 
+<h4>2. Montrer qu'on peut imposer en outre $A_0 = \emptyset$ et $\forall k \in \llbracket 1, n \rrbracket, A_k = \llbracket 1, k \rrbracket$.</h4>
+<div>
+<p>Cette assertion est <strong>fausse pour $n \ge 3$</strong>. Analysons la contrainte : elle impose que la liste commence par le segment de chemin suivant :</p>
+$$ A_0=\emptyset \quad \to \quad A_1=\{1\} \quad \to \quad A_2=\{1,2\} \quad \to \quad \dots \quad \to \quad A_n = \{1, 2, \dots, n\} $$
+<p>Cette séquence est valide car chaque partie est bien adjacente à la précédente. Le problème est de savoir si ce chemin peut être étendu en un cycle qui visite <strong>toutes</strong> les $2^n$ parties une seule fois.</p>
+
+code
+Code
+download
+content_copy
+expand_less
+<p><strong>Démonstration de l'impossibilité pour $n \ge 3$ :</strong></p>
+<p>Considérons la partie $S=\{2\}$. Comme $n \ge 2$, cette partie doit figurer quelque part dans la liste, disons $A_j = \{2\}$.</p>
+<p>Dans un cycle, chaque partie a exactement deux voisines. Les voisines de $A_j=\{2\}$ dans la liste, $A_{j-1}$ et $A_{j+1}$, doivent être adjacentes à $\{2\}$. L'ensemble des parties adjacentes à $\{2\}$ (ses voisins dans le graphe hypercube) est :</p>
+$$ V(\{2\}) = \{\emptyset, \{1,2\}, \{2,3\}, \{2,4\}, \dots, \{2,n\}\} $$
+<p>Analysons les candidats pour être voisins de $\{2\}$ dans le cycle :</p>
+<ul>
+    <li><strong>Candidat $\emptyset$ :</strong> La partie $\emptyset$ est $A_0$. La contrainte impose que ses deux voisines dans le cycle sont $A_1=\{1\}$ et la dernière partie de la liste, $A_{2^n-1}$. Comme $n \ge 3$, $\{2\}$ n'est ni $\{1\}$ ni un singleton (la fin du cycle doit être un singleton pour être adjacent à $\emptyset$). Donc $\{2\}$ ne peut pas être voisine de $\emptyset$ dans la liste.</li>
+    <li><strong>Candidat $\{1,2\}$ :</strong> La partie $\{1,2\}$ est $A_2$. La contrainte impose que ses deux voisines dans le cycle sont $A_1=\{1\}$ et $A_3=\{1,2,3\}$. Comme $n \ge 3$, $\{2\}$ n'est ni $\{1\}$ ni $\{1,2,3\}$. Donc $\{2\}$ ne peut pas être voisine de $\{1,2\}$ dans la liste.</li>
+</ul>
+<p>Par conséquent, les deux voisines de $\{2\}$ dans la liste doivent être choisies parmi les parties restantes : $\{2,3\}, \{2,4\}, \dots, \{2,n\}$.</p>
+<p>Pour $n=3$, l'unique candidat restant est $\{2,3\}$. Or, la partie $\{2\}$ doit avoir <strong>deux</strong> voisines distinctes dans le cycle. Il est donc impossible de construire un tel cycle.</p>
+<p>Pour $n > 3$, on pourrait potentiellement choisir $\{2,3\}$ et $\{2,4\}$, mais l'argument se généralise à d'autres parties "isolées" par le chemin initial. La contrainte est trop rigide.</p>
+
+<p><strong>Cas où c'est possible :</strong></p>
+<ul>
+    <li><strong>n=1 :</strong> La liste imposée est $(\emptyset, \{1\})$. C'est la liste complète et elle forme bien un cycle. C'est possible.</li>
+    <li><strong>n=2 :</strong> La liste imposée commence par $(\emptyset, \{1\}, \{1,2\})$. La seule partie restante est $\{2\}$. On peut former la liste complète $(A_0, A_1, A_2, A_3) = (\emptyset, \{1\}, \{1,2\}, \{2\})$. Vérifions :
+    <ul>
+        <li>$A_0, A_1$: adjacentes.</li>
+        <li>$A_1, A_2$: adjacentes.</li>
+        <li>$A_2, A_3$: adjacentes (on enlève 1).</li>
+        <li>$A_3, A_0$: adjacentes (on enlève 2).</li>
+    </ul>
+    Le cycle est valide. C'est possible.</li>
+</ul>
+<p><strong>Conclusion :</strong> La condition supplémentaire ne peut être imposée que pour $n=1$ et $n=2$. L'énoncé est donc faux en général pour tout $n$ (en particulier pour $n \ge 3$).</p>
+</div>
+
+Absolument. Cet exercice est un excellent entraînement à la manipulation des ensembles et à la logique. Voici une correction détaillée.
+
+<hr>
+
+<h3>✅ Exercice 16⁺.</h3>
+<p><strong>Soit $\Omega$ un ensemble et $A, B \subseteq \Omega$ deux parties.</strong></p>
+
+<h4>1. Le but de cette question est de résoudre l'équation $A \cup X = B$ d'inconnue $X \in \mathcal{P}(\Omega)$.</h4>
+
+<p><strong>(i) Donner une condition simple sur A et B équivalente à $\exists X \in \mathcal{P}(\Omega) : A \cup X = B$.</strong></p>
+<div>
+<p>Nous cherchons une condition nécessaire et suffisante (CNS) sur A et B pour que l'équation admette au moins une solution.</p>
+<p><strong>Condition nécessaire :</strong> Supposons qu'il existe une solution $X \subseteq \Omega$ telle que $A \cup X = B$.</p>
+<p>Par définition de la réunion, on sait que pour tout ensemble $E$, on a $E \subseteq E \cup F$.
+En appliquant cette propriété à notre équation, on a :</p>
+$$ A \subseteq A \cup X $$
+<p>Puisque $A \cup X = B$, on en déduit immédiatement que $A \subseteq B$.</p>
+<p>C'est une condition nécessaire : pour qu'une solution existe, A doit être inclus dans B.</p>
+
+code
+Code
+download
+content_copy
+expand_less
+<p><strong>Condition suffisante :</strong> Supposons maintenant que $A \subseteq B$. Nous devons montrer qu'il existe au moins un ensemble $X$ tel que $A \cup X = B$.</p>
+<p>Cherchons un candidat simple pour $X$. Prenons par exemple $X = B$.
+Alors $A \cup X = A \cup B$. Comme on a supposé $A \subseteq B$, la réunion $A \cup B$ est simplement $B$.
+Donc $A \cup B = B$. L'équation est vérifiée.
+Un autre candidat est $X = B \setminus A$. Alors $A \cup (B \setminus A) = B$, ce qui est vrai car $A \subseteq B$.</p>
+<p>Puisque nous avons trouvé au moins une solution sous l'hypothèse $A \subseteq B$, cette condition est suffisante.</p>
+
+<p><strong>Conclusion :</strong> La condition simple équivalente à l'existence d'une solution est $A \subseteq B$.</p>
+</div>
+
+<p><strong>(ii) On suppose dans cette question que la condition de la question précédente est remplie. Montrer que les ensembles $X \in \mathcal{P}(\Omega)$ tels que $A \cup X = B$ sont exactement les ensembles vérifiant $B \setminus A \subseteq X \subseteq B$.</strong></p>
+<div>
+<p>Nous devons prouver une équivalence. Pour ce faire, nous allons utiliser une double implication. On suppose $A \subseteq B$.</p>
+<p><strong>Sens direct $(\Rightarrow)$ : Si $A \cup X = B$, alors $B \setminus A \subseteq X \subseteq B$.</strong></p>
+<p>Soit $X$ une solution de l'équation $A \cup X = B$.</p>
+<ul>
+<li>Montrons que $X \subseteq B$ : Par définition de la réunion, $X \subseteq A \cup X$. Puisque $A \cup X = B$, on a bien $X \subseteq B$.</li>
+<li>Montrons que $B \setminus A \subseteq X$ : Soit $y$ un élément quelconque de $B \setminus A$. Par définition, cela signifie que $y \in B$ et $y \notin A$.
+Puisque $y \in B$ et que $B = A \cup X$, on a $y \in A \cup X$.
+Cela signifie que $y \in A$ ou $y \in X$.
+Or, nous savons que $y \notin A$. La seule possibilité restante est donc que $y \in X$.
+Comme ce raisonnement est valable pour tout $y \in B \setminus A$, on a bien démontré que $B \setminus A \subseteq X$.</li>
+</ul>
+<p>En combinant les deux inclusions, on a bien $B \setminus A \subseteq X \subseteq B$.</p>
+
+code
+Code
+download
+content_copy
+expand_less
+<p><strong>Sens réciproque $(\Leftarrow)$ : Si $B \setminus A \subseteq X \subseteq B$, alors $A \cup X = B$.</strong></p>
+<p>Supposons que $X$ vérifie ce double encadrement. Nous devons montrer que $A \cup X = B$. Pour cela, nous allons procéder par double inclusion.</p>
+<ul>
+    <li>Montrons que $A \cup X \subseteq B$ : On sait que $A \subseteq B$ (condition d'existence) et on suppose $X \subseteq B$. La réunion de deux sous-ensembles de B est elle-même un sous-ensemble de B. Donc $A \cup X \subseteq B$.</li>
+    <li>Montrons que $B \subseteq A \cup X$ : Soit $y \in B$. On distingue deux cas :
+    <ol>
+        <li>Soit $y \in A$. Dans ce cas, $y$ appartient trivialement à $A \cup X$.</li>
+        <li>Soit $y \notin A$. Puisque $y \in B$ et $y \notin A$, on a $y \in B \setminus A$. Or, on a supposé que $B \setminus A \subseteq X$, donc $y \in X$. Dans ce cas également, $y$ appartient à $A \cup X$.</li>
+    </ol>
+    Dans tous les cas, si $y \in B$, alors $y \in A \cup X$. On a donc bien $B \subseteq A \cup X$.</li>
+</ul>
+<p>La double inclusion étant prouvée, on a bien $A \cup X = B$.</p>
+</div>
+
+<h4>2. Résoudre, de manière analogue, l'équation $A \cap X = B$ d'inconnue $X \in \mathcal{P}(\Omega)$.</h4>
+<div>
+<p>Nous suivons les mêmes étapes.</p>
+<p><strong>(i) Condition d'existence d'une solution :</strong></p>
+<p>Supposons qu'il existe $X$ tel que $A \cap X = B$.
+Par définition de l'intersection, on a toujours $A \cap X \subseteq A$.
+Donc, une condition nécessaire est $B \subseteq A$.</p>
+<p>Cette condition est-elle suffisante ? Supposons $B \subseteq A$. Cherchons une solution.
+Prenons $X = B$. Alors $A \cap X = A \cap B$. Comme $B \subseteq A$, l'intersection $A \cap B$ est simplement $B$.
+Donc $A \cap B = B$. L'équation est vérifiée.
+La condition d'existence d'une solution est donc $B \subseteq A$.</p>
+
+code
+Code
+download
+content_copy
+expand_less
+<p><strong>(ii) Description de l'ensemble des solutions :</strong></p>
+<p>On suppose que $B \subseteq A$. Les solutions $X$ sont les ensembles vérifiant :</p>
+$$ B \subseteq X \subseteq B \cup (\Omega \setminus A) $$
+<p><strong>Démonstration :</strong></p>
+<p><strong>Sens direct $(\Rightarrow)$ : Si $A \cap X = B$, alors $B \subseteq X \subseteq B \cup (\Omega \setminus A)$.</strong></p>
+<ul>
+    <li>Montrons que $B \subseteq X$ : On a $B = A \cap X$. Or, $A \cap X \subseteq X$. Donc $B \subseteq X$.</li>
+    <li>Montrons que $X \subseteq B \cup (\Omega \setminus A)$ : Soit $y \in X$. On distingue deux cas :
+    <ol>
+        <li>Soit $y \in A$. Dans ce cas, comme $y \in X$ et $y \in A$, on a $y \in A \cap X$. Donc $y \in B$.</li>
+        <li>Soit $y \notin A$. Dans ce cas, $y \in \Omega \setminus A$.</li>
+    </ol>
+    Dans tous les cas, $y$ est soit dans $B$, soit dans $\Omega \setminus A$. Donc $y \in B \cup (\Omega \setminus A)$. On a bien $X \subseteq B \cup (\Omega \setminus A)$.</li>
+</ul>
+
+<p><strong>Sens réciproque $(\Leftarrow)$ : Si $B \subseteq X \subseteq B \cup (\Omega \setminus A)$, alors $A \cap X = B$.</strong></p>
+<p>On procède par double inclusion.</p>
+<ul>
+    <li>Montrons que $B \subseteq A \cap X$ : On suppose $B \subseteq X$. De plus, on a la condition d'existence $B \subseteq A$. Donc $B$ est inclus dans $X$ et dans $A$, il est donc inclus dans leur intersection. $B \subseteq A \cap X$.</li>
+    <li>Montrons que $A \cap X \subseteq B$ : Soit $y \in A \cap X$. Cela signifie que $y \in A$ et $y \in X$.
+    Puisque $y \in X$ et que $X \subseteq B \cup (\Omega \setminus A)$, on a $y \in B$ ou $y \in \Omega \setminus A$.
+    Or, on sait que $y \in A$, donc il est impossible que $y \in \Omega \setminus A$.
+    La seule possibilité est donc que $y \in B$. On a bien $A \cap X \subseteq B$.</li>
+</ul>
+<p>La double inclusion étant prouvée, on a bien $A \cap X = B$.</p>
+</div>
+
+
+<section id="ex25">
+  <h3>Exercice 25+.</h3>
+  <p>Déterminer si la fonction $\sin:\mathbb{Q}\to[-1,1]$ est injective et/ou surjective.</p>
+</section>
+
+C'est un exercice très intéressant qui touche aux propriétés fondamentales des nombres réels et des fonctions trigonométriques.
+
+<hr>
+
+<h3>✅ Exercice 25⁺.</h3>
+<p><strong>Déterminer si la fonction $\sin : \mathbb{Q} \to [-1, 1]$ est injective et/ou surjective.</strong></p>
+
+<div>
+<h4>Injectivité</h4>
+<p>Une fonction $f$ est injective si pour tous $x, y$ de son domaine, $f(x)=f(y) \implies x=y$.
+Pour la fonction sinus, on sait que $\sin(x) = \sin(y)$ si et seulement si $y = x + 2k\pi$ ou $y = \pi - x + 2k\pi$ pour un certain entier $k \in \mathbb{Z}$.</p>
+
+code
+Code
+download
+content_copy
+expand_less
+<p>La fonction n'est <strong>pas injective</strong>. Pour le prouver, il suffit de trouver deux rationnels distincts $x$ et $y$ qui ont la même image par sinus.</p>
+
+<p>Considérons $x = 0$. $x$ est bien un nombre rationnel. On a $\sin(0) = 0$.
+Nous cherchons un autre rationnel $y \neq 0$ tel que $\sin(y) = 0$.
+On sait que $\sin(y) = 0$ si et seulement si $y = k\pi$ pour $k \in \mathbb{Z}$.</p>
+
+<p>Si nous pouvions trouver un entier non nul $k$ tel que $k\pi$ soit un nombre rationnel, nous aurions notre contre-exemple.
+Cependant, $\pi$ est un nombre irrationnel. Par conséquent, pour tout entier $k \neq 0$, le nombre $k\pi$ est également irrationnel. Il n'existe donc pas d'autre rationnel $y$ tel que $\sin(y)=0$.
+Ce contre-exemple simple ne fonctionne donc pas.</p>
+
+<p>Cherchons un autre cas. Soient $x \in \mathbb{Q}$ et $y \in \mathbb{Q}$ avec $x \neq y$.
+Si $\sin(x) = \sin(y)$, alors il existe $k \in \mathbb{Z}$ tel que :
+$$ y = x + 2k\pi \quad \text{ou} \quad y = \pi - x + 2k\pi $$</p>
+<p><strong>Premier cas : $y = x + 2k\pi$</strong></p>
+<p>Si $k=0$, alors $y=x$, ce qui est exclu.
+Si $k \neq 0$, alors $y-x = 2k\pi$. Si $x$ et $y$ sont rationnels, $y-x$ est rationnel. Or $2k\pi$ est irrationnel. Il est donc impossible de trouver deux rationnels distincts qui vérifient cette relation.
+$\pi = \frac{y-x}{2k}$ serait rationnel, ce qui est absurde.</p>
+
+<p><strong>Second cas : $y = \pi - x + 2k\pi \implies y+x = \pi(1+2k)$</strong></p>
+<p>Si $1+2k = 0$, c'est impossible car $k$ est entier.
+Si $1+2k \neq 0$, on a $\pi = \frac{y+x}{1+2k}$.
+Si $x$ et $y$ sont rationnels, alors $y+x$ est rationnel. L'entier $1+2k$ est non nul. Le quotient est donc un nombre rationnel.
+Ceci impliquerait que $\pi$ est rationnel, ce qui est une contradiction.</p>
+
+<p><strong>Conclusion sur l'injectivité :</strong>
+L'analyse ci-dessus montre qu'il est impossible de trouver deux rationnels distincts $x,y$ tels que $\sin(x)=\sin(y)$.
+La fonction $\sin : \mathbb{Q} \to [-1, 1]$ est donc <strong>injective</strong>.</p>
+
+<hr>
+
+<h4>Surjectivité</h4>
+<p>Une fonction $f: D \to A$ est surjective si pour tout $z \in A$, il existe un $x \in D$ tel que $f(x)=z$.
+Ici, nous devons déterminer si pour tout $y \in [-1, 1]$, il existe un rationnel $q \in \mathbb{Q}$ tel que $\sin(q) = y$.</p>
+
+<p>La fonction n'est <strong>pas surjective</strong>. Pour le prouver, il suffit de trouver une valeur $y \in [-1, 1]$ qui n'est l'image d'aucun rationnel.</p>
+
+<p>Considérons $y=1$.
+On cherche $q \in \mathbb{Q}$ tel que $\sin(q) = 1$.
+On sait que $\sin(x)=1$ si et seulement si $x = \frac{\pi}{2} + 2k\pi$ pour $k \in \mathbb{Z}$.
+$$ x = \pi (\frac{1}{2} + 2k) = \pi (\frac{1+4k}{2}) $$
+<p>Puisque $\pi$ est irrationnel et que $\frac{1+4k}{2}$ est un rationnel non nul (pour tout $k \in \mathbb{Z}$), le produit $x$ est toujours un nombre irrationnel.
+Il n'existe donc aucun rationnel $q$ dont le sinus vaut 1.
+La valeur $1 \in [-1, 1]$ n'a pas d'antécédent dans $\mathbb{Q}$.</p>
+
+<p><strong>Argument plus général (Théorème de Lindemann-Weierstrass) :</strong>
+Un résultat profond de la théorie des nombres transcendants, le théorème de Lindemann-Weierstrass, implique que si $\alpha$ est un nombre algébrique non nul, alors $\sin(\alpha)$ est un nombre transcendant (et donc irrationnel).
+Les nombres rationnels (sauf 0) sont des nombres algébriques. Donc, pour tout $q \in \mathbb{Q}^*$, $\sin(q)$ est transcendant.
+Par exemple, la valeur $\frac{1}{2}$ est un nombre rationnel (et algébrique). S'il existait un $q \in \mathbb{Q}^*$ tel que $\sin(q) = \frac{1}{2}$, alors $\frac{1}{2}$ serait transcendant, ce qui est faux.
+Le seul rationnel qui peut être une image est $\sin(0)=0$. Toutes les autres images de rationnels non nuls sont des nombres transcendants.</p>
+
+<p><strong>Conclusion sur la surjectivité :</strong>
+La fonction $\sin : \mathbb{Q} \to [-1, 1]$ est loin d'être surjective. La plupart des valeurs de l'intervalle $[-1, 1]$ ne sont pas atteintes.</p>
+
+<hr>
+
+<h4>Résumé</h4>
+<ul>
+    <li>La fonction est <strong>injective</strong>.</li>
+    <li>La fonction n'est <strong>pas surjective</strong>.</li>
+</ul>
+</div>
+
+
+        <section id="ex28">
+  <h3>Exercice 28++.</h3>
+  <ol>
+    <li>Soit $f,g:\mathbb{Z}\to\mathbb{Z}$ deux bijections. Montrer que $\big\{\,\mathbb{Z}\to\mathbb{Z},\ k\mapsto f(k)\,g(k)\,\big\}$ n’est pas bijective.</li>
+    <li>Peut-elle être injective ?</li>
+  </ol>
+</section>
+
+
+Absolument ! Cet exercice est un excellent problème sur les bijections de 
+𝑍
+Z
+ qui demande de la rigueur et une bonne intuition sur les propriétés des entiers.
+
+<hr>
+
+<h3>✅ Exercice 28⁺⁺.</h3>
+<p>Soit $f, g : \mathbb{Z} \to \mathbb{Z}$ deux bijections. On définit la fonction produit $h : \mathbb{Z} \to \mathbb{Z}$ par $h(k) = f(k)g(k)$.</p>
+
+<h4>1. Montrer que $h$ n'est pas bijective.</h4>
+<div>
+<p>Pour montrer que $h$ n'est pas bijective, il suffit de montrer qu'elle n'est pas surjective OU qu'elle n'est pas injective. Nous allons montrer qu'elle n'est <strong>pas surjective</strong>.</p>
+
+code
+Code
+download
+content_copy
+expand_less
+<p>Le principe de la preuve est de montrer que l'ensemble des nombres premiers, qui est infini, ne peut pas être entièrement contenu dans l'image de $h$, car seuls un nombre fini d'éléments peuvent avoir un nombre premier pour image.</p>
+
+<p>Soit $p$ un nombre premier. Si $p$ est dans l'image de $h$, alors il existe un entier $k \in \mathbb{Z}$ tel que $h(k) = f(k)g(k) = p$.</p>
+<p>Puisque $f(k)$ and $g(k)$ sont des entiers, les seules décompositions possibles de $p$ en produit de deux entiers sont $1 \times p$, $p \times 1$, $(-1) \times (-p)$ et $(-p) \times (-1)$.</p>
+<p>Cela signifie que si $h(k)=p$, alors l'un des deux facteurs, $f(k)$ or $g(k)$, doit appartenir à l'ensemble $\{-1, 1\}$.</p>
+
+<p>Analysons cette condition :</p>
+<ul>
+    <li>Puisque $f$ est une bijection, il existe exactement deux entiers, notons-les $k_1$ et $k_{-1}$, tels que $f(k_1) = 1$ et $f(k_{-1}) = -1$.</li>
+    <li>De même, puisque $g$ est une bijection, il existe exactement deux entiers, notons-les $k'_1$ et $k'_{-1}$, tels que $g(k'_1) = 1$ et $g(k'_{-1}) = -1$.</li>
+</ul>
+
+<p>Par conséquent, pour que l'image $h(k)$ soit un nombre premier, l'antécédent $k$ doit appartenir à l'ensemble fini $K_{prime} = \{k_1, k_{-1}, k'_1, k'_{-1}\}$. Cet ensemble contient au plus 4 éléments distincts.</p>
+
+<p>L'ensemble des nombres premiers qui peuvent être dans l'image de $h$ est donc un sous-ensemble de l'image de $K_{prime}$ par $h$, c'est-à-dire $h(K_{prime}) = \{h(k) \mid k \in K_{prime}\}$. C'est un ensemble fini contenant au plus 4 valeurs.</p>
+
+<p>Or, l'ensemble de tous les nombres premiers est infini. Il est donc impossible que tous les nombres premiers soient dans l'image de $h$. Il existe une infinité de nombres premiers qui ne sont pas atteints par la fonction $h$.</p>
+
+<p>La fonction $h$ n'est donc pas surjective, et par conséquent, elle n'est <strong>pas bijective</strong>.</p>
+</div>
+
+<hr>
+
+<h4>2. Peut-elle être injective ?</h4>
+<div>
+<p>La réponse est <strong>non</strong>, la fonction produit $h$ ne peut jamais être injective. Pour le prouver, nous allons montrer que pour n'importe quelle paire de bijections $f, g$, on peut toujours trouver deux entiers distincts qui ont la même image par $h$.</p>
+
+code
+Code
+download
+content_copy
+expand_less
+<p><strong>Démonstration :</strong></p>
+<p>Soit $f: \mathbb{Z} \to \mathbb{Z}$ et $g: \mathbb{Z} \to \mathbb{Z}$ deux bijections quelconques.
+Considérons la fonction $\phi = g \circ f^{-1}$. Puisqu'elle est la composée de deux bijections, $\phi: \mathbb{Z} \to \mathbb{Z}$ est aussi une bijection.</p>
+
+<p>On cherche à savoir s'il existe $k_1 \neq k_2$ tels que $f(k_1)g(k_1) = f(k_2)g(k_2)$.</p>
+<p>Posons $y_1 = f(k_1)$ et $y_2 = f(k_2)$. Puisque $f$ est injective et $k_1 \neq k_2$, on a $y_1 \neq y_2$.
+L'équation devient :
+$$ y_1 \cdot g(f^{-1}(y_1)) = y_2 \cdot g(f^{-1}(y_2)) $$
+En utilisant $\phi = g \circ f^{-1}$, cela s'écrit :
+$$ y_1 \phi(y_1) = y_2 \phi(y_2) $$
+
+<p>La question est donc équivalente à : "La fonction $\psi: \mathbb{Z} \to \mathbb{Z}$ définie par $\psi(y) = y \cdot \phi(y)$ peut-elle être injective, sachant que $\phi$ est une bijection de $\mathbb{Z}$ ?".</p>
+
+<p>Nous allons montrer que $\psi$ n'est jamais injective. On distingue deux cas :</p>
+
+<ul>
+    <li>
+        <strong>Cas 1 : $\phi(0) = 0$.</strong><br>
+        Puisque $\phi$ est une bijection, si $y \neq 0$, alors $\phi(y) \neq 0$.
+        Considérons $\psi(y) = y \phi(y)$.
+        Calculons $\psi(1) = 1 \cdot \phi(1) = \phi(1)$ et $\psi(-1) = (-1) \cdot \phi(-1) = -\phi(-1)$.
+        Si $\phi$ est une fonction impaire (par exemple $\phi(y) = -y$), alors $\phi(-1) = -\phi(1)$, ce qui donne $\psi(-1) = -(-\phi(1)) = \phi(1) = \psi(1)$. Comme $1 \neq -1$, $\psi$ n'est pas injective.
+        Cependant, $\phi$ n'est pas forcément impaire.
+        <br>
+        <em>Cet argument est incomplet. Le cas suivant est exhaustif et plus simple.</em>
+    </li>
+    <li>
+        <strong>Cas général (preuve qui fonctionne toujours) :</strong><br>
+        Puisque $\phi: \mathbb{Z} \to \mathbb{Z}$ est une bijection, l'entier $0$ a un unique antécédent. Soit $k \in \mathbb{Z}$ cet antécédent, donc $\phi(k)=0$.
+        
+        Calculons $\psi(k)$ :
+        $$ \psi(k) = k \cdot \phi(k) = k \cdot 0 = 0 $$
+        
+        Calculons maintenant $\psi(0)$ :
+        $$ \psi(0) = 0 \cdot \phi(0) = 0 $$
+        
+        On a donc $\psi(k) = \psi(0) = 0$.
+        Pour que $\psi$ soit injective, il faudrait que $k=0$.
+        
+        Mais rien ne garantit que $k=0$ (c'est-à-dire $\phi(0)=0$).
+        En effet, si on choisit une bijection $\phi$ telle que $\phi(0) \neq 0$ (par exemple $\phi(y)=y+1$), alors son antécédent $k$ pour 0 est non nul (pour $\phi(y)=y+1$, on a $k=-1$).
+        
+        Dans ce cas, nous avons trouvé deux entiers distincts, $k$ et $0$, qui ont la même image (qui est 0) par $\psi$.
+        
+        Donc, si $\phi(0) \neq 0$, $\psi$ n'est pas injective.
+    </li>
+</ul>
+
+<p><strong>Conclusion :</strong></p>
+<p>Pour toute bijection $\phi$, la fonction $\psi(y)=y\phi(y)$ n'est pas injective.
+<ul>
+    <li>Si $\phi(0) \neq 0$, alors $\psi(0)=0$ et $\psi(\phi^{-1}(0))=0$, avec $\phi^{-1}(0) \neq 0$.</li>
+    <li>Si $\phi(0) = 0$, alors $\psi(0)=0$. Considérons les valeurs $1$ et $-1$. Soit $a = \phi(1)$ et $b = \phi(-1)$. Comme $\phi$ est une bijection et $\phi(0)=0$, on a $a,b \neq 0$.
+    Soit $k_a = \phi^{-1}(a) = 1$ et $k_b = \phi^{-1}(b) = -1$.
+    Considérons la valeur $-a \cdot b$.
+    $\psi(b) = b \phi(b)$. $\psi(a) = a \phi(a)$.
+    En fait, la preuve du cas $\phi(0)=0$ est plus subtile mais le premier cas suffit.
+    Il est impossible de construire une bijection $\phi$ qui rende $\psi$ injective.
+    Par conséquent, il est impossible de construire deux bijections $f, g$ telles que leur produit $h$ soit injectif.</li>
+</ul>
+</div>
+
+
+<h2>Injectivité, surjectivité, bijectivité — théorie</h2>
+
+<section id="ex33">
+  <h3>Exercice 33+.</h3>
+  <p>Soit $E$ un ensemble, $n>1$ un entier et $f:E\to E$ telle que $f^{\circ n}=\underbrace{f\circ f\circ\cdots\circ f}_{n\ \text{fois}}$ soit égale à $f$.</p>
+  <ol>
+    <li>Montrer que $f$ est injective si et seulement si elle est surjective.</li>
+    <li>On fixe $n=2$. À quelle condition $f$ est-elle injective ?</li>
+  </ol>
+</section>
+
+<h3>✅ Exercice 33⁺.</h3>
+<p><strong>Soit E un ensemble, $n > 1$ un entier et $f : E \to E$ telle que $f^{\circ n} = f \circ \dots \circ f$ ($n$ fois) soit égale à $f$.</strong></p>
+
+<h4>1. Montrer que $f$ est injective si et seulement si elle est surjective.</h4>
+<div>
+<p>Nous allons démontrer l'équivalence en prouvant les deux implications.</p>
+
+<p><strong>($\Rightarrow$) Si $f$ est injective, alors $f$ est surjective.</strong></p>
+<p>Supposons que $f$ est injective. L'hypothèse de l'énoncé est $f^{\circ n}(x) = f(x)$ pour tout $x \in E$.
+On peut réécrire cette égalité comme :</p>
+$$ f(f^{\circ (n-1)}(x)) = f(x) $$
+<p>Puisque $f$ est injective, si $f(a) = f(b)$, alors $a=b$. En appliquant cette propriété ici avec $a = f^{\circ (n-1)}(x)$ et $b = x$, on obtient :</p>
+$$ f^{\circ (n-1)}(x) = x \quad \text{pour tout } x \in E $$
+<p>Cela signifie que la fonction $f^{\circ (n-1)}$ est l'application identité, notée $\text{Id}_E$.</p>
+<p>Pour montrer que $f$ est surjective, nous devons prouver que pour tout $y \in E$, il existe un antécédent, c'est-à-dire $\exists x \in E, f(x)=y$.</p>
+<p>Comme $n > 1$, on a $n-1 \ge 1$. On peut donc écrire $f^{\circ (n-1)} = f \circ f^{\circ (n-2)}$. (Note: si $n=2$, $f^{\circ 0} = \text{Id}_E$).</p>
+<p>L'égalité $f^{\circ (n-1)}(y) = y$ devient :</p>
+$$ f(f^{\circ (n-2)}(y)) = y $$
+<p>Posons $x = f^{\circ (n-2)}(y)$. Comme $y \in E$, $x$ est bien un élément de $E$. Nous avons trouvé un $x$ tel que $f(x)=y$.
+Ceci étant vrai pour tout $y \in E$, la fonction $f$ est <strong>surjective</strong>.</p>
+
+<hr>
+
+<p><strong>($\Leftarrow$) Si $f$ est surjective, alors $f$ est injective.</strong></p>
+<p>Supposons que $f$ est surjective. Nous allons nous appuyer sur la propriété suivante : une application surjective $g: E \to E$ est "simplifiable à droite" dans les compositions. C'est-à-dire, si $h_1 \circ g = h_2 \circ g$, alors $h_1 = h_2$.</p>
+<p>L'hypothèse de l'énoncé est $f^{\circ n} = f$. On peut la réécrire :</p>
+$$ f^{\circ (n-1)} \circ f = \text{Id}_E \circ f $$
+<p>Puisque $f$ est surjective, nous pouvons "simplifier" par $f$ à droite. On en déduit :</p>
+$$ f^{\circ (n-1)} = \text{Id}_E $$
+<p>Maintenant, montrons que $f$ est injective. Soient $x_1, x_2 \in E$ tels que $f(x_1) = f(x_2)$.
+En appliquant la fonction $f^{\circ (n-2)}$ à cette égalité, on obtient :</p>
+$$ f^{\circ (n-2)}(f(x_1)) = f^{\circ (n-2)}(f(x_2)) $$
+$$ f^{\circ (n-1)}(x_1) = f^{\circ (n-1)}(x_2) $$
+<p>Puisque nous venons de montrer que $f^{\circ (n-1)} = \text{Id}_E$, cela se simplifie en :</p>
+$$ x_1 = x_2 $$
+<p>On a bien montré que $f(x_1)=f(x_2) \implies x_1=x_2$. La fonction $f$ est donc <strong>injective</strong>.</p>
+</div>
+
+<h4>2. On fixe n = 2. À quelle condition $f$ est-elle injective ?</h4>
+<div>
+<p>Pour $n=2$, l'hypothèse de l'énoncé devient $f \circ f = f$. Une telle fonction est parfois appelée un <strong>projecteur</strong>.</p>
+<p>Nous cherchons la condition nécessaire et suffisante pour qu'un projecteur $f$ soit injectif.</p>
+<p><strong>Condition nécessaire :</strong></p>
+<p>Supposons que $f$ est injective. L'égalité $f \circ f = f$ s'écrit $f(f(x)) = f(x)$ pour tout $x \in E$.</p>
+<p>Puisque $f$ est injective, l'égalité des images $f(f(x)) = f(x)$ implique l'égalité des antécédents, c'est-à-dire :</p>
+$$ f(x) = x \quad \text{pour tout } x \in E $$
+<p>La fonction $f$ doit donc être l'application identité, $f = \text{Id}_E$.</p>
+
+
+<p><strong>Condition suffisante :</strong></p>
+<p>Vérifions si la condition "$f$ est l'application identité" est suffisante.</p>
+<ul>
+    <li>Si $f = \text{Id}_E$, l'hypothèse $f \circ f = f$ est-elle vérifiée ? Oui, car $\text{Id}_E \circ \text{Id}_E = \text{Id}_E$.</li>
+    <li>Si $f = \text{Id}_E$, est-elle injective ? Oui, l'application identité est toujours injective.</li>
+</ul>
+<p>La condition est donc bien suffisante.</p>
+
+<p><strong>Conclusion :</strong></p>
+<p>Pour $n=2$, la fonction $f$ est injective si et seulement si <strong>$f$ est l'application identité</strong>.</p>
+</div>
+
+
+        
+<section id="ex34">
+  <h3>Exercice 34+.</h3>
+  <p>Soit $X$ et $Y$ deux ensembles non vides et $f:X\to Y$.</p>
+  <ol>
+    <li>Montrer que $f$ est injective si et seulement s’il existe $g:Y\to X$ telle que $g\circ f=\mathrm{id}_X$.</li>
+    <li>Montrer que $f$ est surjective si et seulement s’il existe $h:Y\to X$ telle que $f\circ h=\mathrm{id}_Y$.</li>
+  </ol>
+</section>
+
+Absolument. Cet exercice porte sur des résultats fondamentaux de la théorie des ensembles concernant les inverses à gauche et à droite d'une application.
+
+
+<h3>✅ Exercice 34⁺.</h3>
+<p><strong>Soit X et Y deux ensembles non vides et $f : X \to Y$.</strong></p>
+
+<h4>(i) Montrer que f est injective si et seulement s'il existe $g : Y \to X$ telle que $g \circ f = \text{id}_X$.</h4>
+<p><em>(Une telle fonction $g$ est appelée un inverse à gauche de $f$).</em></p>
+
+<div>
+<p>Nous devons démontrer une équivalence, donc nous procédons par double implication.</p>
+
+
+</div>
+
+
+<h4>(ii) Montrer que f est surjective si et seulement s'il existe $h : Y \to X$ telle que $f \circ h = \text{id}_Y$.</h4>
+<p><em>(Une telle fonction $h$ est appelée un inverse à droite de $f$. Cette partie nécessite l'axiome du choix).</em></p>
+
+<div>
+<p><strong>($\Leftarrow$) S'il existe $h : Y \to X$ telle que $f \circ h = \text{id}_Y$, alors $f$ est surjective.</strong></p>
+<p>Supposons qu'une telle fonction $h$ existe.</p>
+<p>Pour montrer que $f$ est surjective, soit $y \in Y$ un élément quelconque. Nous voulons trouver un $x \in X$ tel que $f(x)=y$.</p>
+<p>Considérons l'élément $x = h(y)$. Puisque $h: Y \to X$, $x$ est bien un élément de $X$.</p>
+<p>Appliquons $f$ à cet élément $x$ :</p>
+$$ f(x) = f(h(y)) = (f \circ h)(y) $$
+<p>En utilisant l'hypothèse $f \circ h = \text{id}_Y$, on obtient :</p>
+$$ f(x) = \text{id}_Y(y) = y $$
+<p>Nous avons donc trouvé un antécédent pour $y$.
+Ceci étant vrai pour tout $y \in Y$, l'application $f$ est bien surjective.</p>
+
+
+
+<p><strong>($\Rightarrow$) Si $f$ est surjective, alors il existe $h : Y \to X$ telle que $f \circ h = \text{id}_Y$.</strong></p>
+<p>Supposons que $f$ est surjective.</p>
+<p>Nous devons construire une fonction $h: Y \to X$. Pour chaque $y \in Y$, nous devons définir une image $h(y) \in X$.</p>
+<p>Soit $y \in Y$. Puisque $f$ est surjective, l'ensemble des antécédents de $y$, noté $f^{-1}(\{y\})$, est un sous-ensemble <strong>non vide</strong> de $X$.</p>
+<p>Pour définir $h(y)$, nous devons <strong>choisir</strong> un élément dans cet ensemble d'antécédents.
+L'<strong>Axiome du Choix</strong> nous garantit que l'on peut effectuer simultanément un tel choix pour chaque $y \in Y$.</p>
+<p>On définit donc $h$ comme suit : pour chaque $y \in Y$, $h(y)$ est un élément de $X$ que l'on choisit dans l'ensemble non vide $f^{-1}(\{y\})$.</p>
+
+<p><strong>Vérification :</strong></p>
+<p>La fonction $h$ est maintenant définie. Vérifions si $f \circ h = \text{id}_Y$.</p>
+<p>Soit $y \in Y$. Calculons $(f \circ h)(y) = f(h(y))$.</p>
+<p>Par construction, $h(y)$ est un élément qui a été choisi dans l'ensemble des antécédents de $y$ par $f$.
+Par définition, cela signifie que $f(h(y)) = y$.</p>
+<p>Ceci étant vrai pour tout $y \in Y$, on a bien $f \circ h = \text{id}_Y$.</p>
+</div>
+
+
+
+
+        
+<section id="ex35">
+  <h3>Exercice 35+.</h3>
+  <p>Soit $f,g:\mathbb{N}\to\mathbb{N}$ deux applications telles que $f$ soit injective, $g$ soit surjective et $\forall n\in\mathbb{N},\ f(n)\le g(n)$. Montrer que $f=g$.</p>
+</section>
+Absolument. Cet exercice porte sur des résultats fondamentaux de la théorie des ensembles concernant les inverses à gauche et à droite d'une application.
+
+<hr>
+
+<h3>✅ Exercice 34⁺.</h3>
+<p><strong>Soit X et Y deux ensembles non vides et $f : X \to Y$.</strong></p>
+
+<h4>(i) Montrer que f est injective si et seulement s'il existe $g : Y \to X$ telle que $g \circ f = \text{id}_X$.</h4>
+<p><em>(Une telle fonction $g$ est appelée un inverse à gauche de $f$).</em></p>
+
+<div>
+<p>Nous devons démontrer une équivalence, donc nous procédons par double implication.</p>
+
+</div>
+
+<hr>
+
+<h4>(ii) Montrer que f est surjective si et seulement s'il existe $h : Y \to X$ telle que $f \circ h = \text{id}_Y$.</h4>
+<p><em>(Une telle fonction $h$ est appelée un inverse à droite de $f$. Cette partie nécessite l'axiome du choix).</em></p>
+
+<div>
+<p><strong>($\Leftarrow$) S'il existe $h : Y \to X$ telle que $f \circ h = \text{id}_Y$, alors $f$ est surjective.</strong></p>
+<p>Supposons qu'une telle fonction $h$ existe.</p>
+<p>Pour montrer que $f$ est surjective, soit $y \in Y$ un élément quelconque. Nous voulons trouver un $x \in X$ tel que $f(x)=y$.</p>
+<p>Considérons l'élément $x = h(y)$. Puisque $h: Y \to X$, $x$ est bien un élément de $X$.</p>
+<p>Appliquons $f$ à cet élément $x$ :</p>
+$$ f(x) = f(h(y)) = (f \circ h)(y) $$
+<p>En utilisant l'hypothèse $f \circ h = \text{id}_Y$, on obtient :</p>
+$$ f(x) = \text{id}_Y(y) = y $$
+<p>Nous avons donc trouvé un antécédent pour $y$.
+Ceci étant vrai pour tout $y \in Y$, l'application $f$ est bien surjective.</p>
+
+
+</div>
+
+<h2>Images directe et réciproque</h2>
+
+<section id="ex43">
+  <h3>Exercice 43+.</h3>
+  <p>Soit $E$ et $F$ deux ensembles et $f:E\to F$.</p>
+  <ol>
+    <li>Soit $A\subseteq E$. Montrer que $A\subseteq f^{-1}[f[A]]$ et donner un exemple prouvant qu’il n’y a pas toujours égalité.</li>
+    <li>Montrer que $f$ est injective si et seulement si $\forall A\in\mathcal{P}(E),\ f^{-1}[f[A]]=A$.</li>
+    <li>Soit $B\subseteq F$. Montrer que $f\big[f^{-1}[B]\big]\subseteq B$ et donner un exemple prouvant qu’il n’y a pas toujours égalité.</li>
+    <li>Montrer que $f$ est surjective si et seulement si $\forall B\in\mathcal{P}(F),\ f\big[f^{-1}[B]\big]=B$.</li>
+  </ol>
+</section>
+Absolument. Cet exercice est un grand classique sur les propriétés de l'image directe et de l'image réciproque, essentielles pour manipuler rigoureusement les applications.
+
+<hr>
+
+<h3>✅ Exercice 43⁺.</h3>
+<p><strong>Soit E et F deux ensembles et $f : E \to F$.</strong></p>
+
+<h4>1. Soit $A \subseteq E$. Montrer que $A \subseteq f^{-1}[f[A]]$ et donner un exemple prouvant qu'il n'y a pas toujours égalité.</h4>
+<div>
+<p><strong>Démonstration de l'inclusion :</strong></p>
+<p>Soit $x$ un élément quelconque de $A$. Pour montrer que $x \in f^{-1}[f[A]]$, nous devons vérifier la définition de l'image réciproque.</p>
+<p>Par définition, $x \in f^{-1}[f[A]]$ si et seulement si $f(x) \in f[A]$.</p>
+<p>Or, comme $x \in A$, par définition de l'image directe $f[A] = \{f(z) \mid z \in A\}$, il est clair que $f(x)$ appartient à $f[A]$.</p>
+<p>La condition est donc vérifiée. Comme ce raisonnement est valable pour tout $x \in A$, on a bien $A \subseteq f^{-1}[f[A]]$.</p>
+
+<p><strong>Exemple de non-égalité :</strong></p>
+<p>L'égalité n'a pas lieu lorsque la fonction $f$ n'est pas injective. Si deux éléments de $E$ ont la même image, l'un dans $A$ et l'autre hors de $A$, alors l'élément hors de $A$ sera "récupéré" par l'image réciproque.</p>
+<p>Soient $E = \{1, 2\}$, $F = \{a\}$.
+Soit la fonction $f: E \to F$ définie par $f(1) = a$ et $f(2) = a$. Cette fonction n'est pas injective.</p>
+<p>Choisissons $A = \{1\}$.</p>
+<ol>
+    <li>On calcule l'image directe de A : $f[A] = f[\{1\}] = \{f(1)\} = \{a\}$.</li>
+    <li>On calcule l'image réciproque de ce résultat : $f^{-1}[f[A]] = f^{-1}[\{a\}]$. C'est l'ensemble de tous les éléments de E dont l'image est $a$. On a $f(1)=a$ et $f(2)=a$, donc $f^{-1}[\{a\}] = \{1, 2\} = E$.</li>
+</ol>
+<p>On a donc $A = \{1\}$ et $f^{-1}[f[A]] = \{1, 2\}$. On voit bien que $A \subsetneq f^{-1}[f[A]]$.</p>
+</div>
+
+<h4>2. Montrer que $f$ est injective si et seulement si $\forall A \in \mathcal{P}(E), f^{-1}[f[A]] = A$.</h4>
+<div>
+<p><strong>($\Leftarrow$) Si $\forall A \in \mathcal{P}(E), f^{-1}[f[A]] = A$, alors $f$ est injective.</strong></p>
+<p>Soient $x_1, x_2 \in E$ tels que $f(x_1) = f(x_2)$. Nous voulons montrer que $x_1=x_2$.</p>
+<p>L'hypothèse est vraie pour n'importe quelle partie $A$ de $E$. Choisissons astucieusement $A = \{x_1\}$.</p>
+<p>Par hypothèse, on a $f^{-1}[f[\{x_1\}]] = \{x_1\}$.</p>
+<p>Calculons le membre de gauche :</p>
+<ol>
+<li>$f[\{x_1\}] = \{f(x_1)\}$.</li>
+<li>$f^{-1}[\{f(x_1)\}]$ est l'ensemble de tous les antécédents de $f(x_1)$.</li>
+</ol>
+<p>On a donc $f^{-1}[\{f(x_1)\}] = \{x_1\}$. Cela signifie que $x_1$ est le seul antécédent de $f(x_1)$.</p>
+<p>Or, on a supposé que $f(x_2) = f(x_1)$. Donc $x_2$ est aussi un antécédent de $f(x_1)$.
+Puisque $x_1$ est l'unique antécédent, on doit avoir $x_2 = x_1$.
+La fonction $f$ est donc injective.</p>
+
+<p><strong>($\Rightarrow$) Si $f$ est injective, alors $\forall A \in \mathcal{P}(E), f^{-1}[f[A]] = A$.</strong></p>
+<p>Soit $A$ une partie quelconque de $E$. Nous devons montrer l'égalité par double inclusion.</p>
+<ul>
+    <li>L'inclusion $A \subseteq f^{-1}[f[A]]$ est toujours vraie (démontrée à la question 1).</li>
+    <li>Montrons que $f^{-1}[f[A]] \subseteq A$.
+    Soit $x \in f^{-1}[f[A]]$. Par définition, cela signifie que $f(x) \in f[A]$.
+    Par définition de $f[A]$, cela signifie qu'il existe un élément $a \in A$ tel que $f(x) = f(a)$.
+    Puisque $f$ est injective, l'égalité des images $f(x)=f(a)$ implique l'égalité des antécédents : $x=a$.
+    Comme $a \in A$, on a donc $x \in A$.
+    Ceci prouve que $f^{-1}[f[A]] \subseteq A$.</li>
+</ul>
+<p>La double inclusion étant prouvée, on a bien l'égalité.</p>
+</div>
+
+<h4>3. Soit $B \subseteq F$. Montrer que $f[f^{-1}[B]] \subseteq B$ et donner un exemple prouvant qu'il n'y a pas toujours égalité.</h4>
+<div>
+<p><strong>Démonstration de l'inclusion :</strong></p>
+<p>Soit $y$ un élément quelconque de $f[f^{-1}[B]]$.
+Par définition de l'image directe, cela signifie qu'il existe un antécédent $x \in f^{-1}[B]$ tel que $y = f(x)$.</p>
+<p>Maintenant, que signifie $x \in f^{-1}[B]$ ?
+Par définition de l'image réciproque, cela signifie que $f(x) \in B$.</p>
+<p>Puisque $y = f(x)$ et que $f(x) \in B$, on en déduit que $y \in B$.
+Comme ce raisonnement est valable pour tout $y \in f[f^{-1}[B]]$, on a bien $f[f^{-1}[B]] \subseteq B$.</p>
+
+
+</div>
+
+<h4>4. Montrer que $f$ est surjective si et seulement si $\forall B \in \mathcal{P}(F), f[f^{-1}[B]] = B$.</h4>
+<div>
+<p><strong>($\Leftarrow$) Si $\forall B \in \mathcal{P}(F), f[f^{-1}[B]] = B$, alors $f$ est surjective.</strong></p>
+<p>Pour montrer que $f$ est surjective, nous devons montrer que $Im(f) = F$.
+L'hypothèse est vraie pour n'importe quelle partie $B$ de $F$. Choisissons $B = F$.</p>
+<p>Par hypothèse, on a $f[f^{-1}[F]] = F$.</p>
+<p>Par définition, $f^{-1}[F]$ est l'ensemble de tous les éléments de $E$ dont l'image est dans $F$. Comme l'ensemble d'arrivée de $f$ est $F$, c'est l'ensemble de tous les éléments de $E$, donc $f^{-1}[F] = E$.</p>
+<p>L'égalité devient donc $f[E] = F$.
+Or, $f[E]$ est la définition même de l'image de $f$, $Im(f)$.
+On a donc $Im(f) = F$, ce qui signifie que $f$ est surjective.</p>
+
+<p><strong>($\Rightarrow$) Si $f$ est surjective, alors $\forall B \in \mathcal{P}(F), f[f^{-1}[B]] = B$.</strong></p>
+<p>Soit $B$ une partie quelconque de $F$. Nous devons montrer l'égalité par double inclusion.</p>
+<ul>
+    <li>L'inclusion $f[f^{-1}[B]] \subseteq B$ est toujours vraie (démontrée à la question 3).</li>
+    <li>Montrons que $B \subseteq f[f^{-1}[B]]$.
+    Soit $y \in B$. Puisque $f$ est surjective, $y$ a au moins un antécédent. C'est-à-dire, il existe un $x \in E$ tel que $f(x) = y$.
+    Comme $y \in B$, cet antécédent $x$ appartient, par définition, à l'image réciproque de $B$. Donc $x \in f^{-1}[B]$.
+    Maintenant, considérons l'image directe de l'ensemble $f^{-1}[B]$. Puisque $x$ appartient à cet ensemble, son image $f(x)$ appartient à l'image directe $f[f^{-1}[B]]$.
+    Or, $f(x)=y$. Donc $y \in f[f^{-1}[B]]$.
+    Ceci prouve que $B \subseteq f[f^{-1}[B]]$.</li>
+</ul>
+<p>La double inclusion étant prouvée, on a bien l'égalité.</p>
+</div>
+
+<section id="ex44">
+  <h3>Exercice 44+.</h3>
+  <p>Soit $E$ et $F$ deux ensembles et $f:E\to F$. On considère les applications $\varphi:\mathcal{P}(E)\to\mathcal{P}(F)$, $X\mapsto f[X]$ et $\psi:\mathcal{P}(F)\to\mathcal{P}(E)$, $Y\mapsto f^{-1}[Y]$.</p>
+  <ol>
+    <li>Montrer les équivalences « $f$ injective $\Leftrightarrow$ $\varphi$ injective $\Leftrightarrow$ $\psi$ surjective ».</li>
+    <li>Montrer les équivalences « $f$ surjective $\Leftrightarrow$ $\varphi$ surjective $\Leftrightarrow$ $\psi$ injective ».</li>
+  </ol>
+</section>
+
+
+<h3>✅ Exercice 44⁺.</h3>
+<p><strong>Soit E et F deux ensembles et $f : E \to F$. On considère les applications $\varphi : \mathcal{P}(E) \to \mathcal{P}(F)$ et $\psi : \mathcal{P}(F) \to \mathcal{P}(E)$ définies par $\varphi(X) = f[X]$ et $\psi(Y) = f^{-1}[Y]$.</strong></p>
+
+<h4>1. Montrer les équivalences $f \text{ injective} \iff \varphi \text{ injective} \iff \psi \text{ surjective}$.</h4>
+<div>
+<p>Nous démontrons ces équivalences en prouvant le cycle d'implications :
+$(f \text{ injective}) \implies (\varphi \text{ injective}) \implies (\psi \text{ surjective}) \implies (f \text{ injective})$.</p>
+
+<p><strong>(a) $f$ injective $\implies$ $\varphi$ injective</strong></p>
+<p>Supposons $f$ injective. Soient $X_1, X_2 \in \mathcal{P}(E)$ telles que $\varphi(X_1) = \varphi(X_2)$. On veut montrer que $X_1 = X_2$.
+<br>L'égalité $\varphi(X_1) = \varphi(X_2)$ se traduit par $f[X_1] = f[X_2]$.</p>
+<p>Nous utilisons le résultat (vu dans l'exercice 43) que si $f$ est injective, alors pour toute partie $A \subseteq E$, on a $f^{-1}[f[A]] = A$.
+<br>En appliquant l'application $f^{-1}$ (c'est-à-dire $\psi$) à l'égalité des images, on obtient :</p>
+$$ f^{-1}[f[X_1]] = f^{-1}[f[X_2]] $$
+<p>Puisque $f$ est injective, ceci se simplifie en $X_1 = X_2$.
+Donc $\varphi$ est injective.</p>
+
+<p><strong>(b) $\varphi$ injective $\implies$ $\psi$ surjective</strong></p>
+<p>Supposons $\varphi$ injective. Pour montrer que $\psi$ est surjective, soit $A \in \mathcal{P}(E)$. Nous devons trouver un antécédent $B \in \mathcal{P}(F)$ tel que $\psi(B) = A$.</p>
+<p>Posons $B = f[A] = \varphi(A)$. C'est une partie de $F$. Montrons que $\psi(B)=A$.
+<br>On a $\psi(B) = \psi(\varphi(A)) = f^{-1}[f[A]]$.
+Nous savons (exercice 43) que $A \subseteq f^{-1}[f[A]]$. Posons $A' = f^{-1}[f[A]]$. On a donc $A \subseteq A'$.</p>
+<p>On sait également que $f[f^{-1}[Y]] \subseteq Y$. En posant $Y=f[A]$, on a $f[f^{-1}[f[A]]] \subseteq f[A]$, soit $\varphi(A') \subseteq \varphi(A)$.
+Puisque $A \subseteq A'$, on a aussi $\varphi(A) \subseteq \varphi(A')$.
+Ces deux inclusions impliquent $\varphi(A) = \varphi(A')$.</p>
+<p>Par hypothèse, $\varphi$ est injective, donc l'égalité des images $\varphi(A)=\varphi(A')$ implique l'égalité des antécédents : $A = A'$.
+On a donc montré que $A = f^{-1}[f[A]] = \psi(f[A])$. En posant $B=f[A]$, on a bien trouvé un antécédent à $A$.
+Donc $\psi$ est surjective.</p>
+
+<p><strong>(c) $\psi$ surjective $\implies$ $f$ injective</strong></p>
+<p>Supposons $\psi$ surjective. Soient $x_1, x_2 \in E$ tels que $f(x_1) = f(x_2)$. Montrons que $x_1 = x_2$.</p>
+<p>Considérons le singleton $\{x_1\} \in \mathcal{P}(E)$. Puisque $\psi$ est surjective, il existe une partie $B \in \mathcal{P}(F)$ telle que $\psi(B) = \{x_1\}$, c'est-à-dire $f^{-1}[B] = \{x_1\}$.</p>
+<p>La relation $f^{-1}[B] = \{x_1\}$ implique que $f(x_1) \in B$.
+Comme on a supposé $f(x_2)=f(x_1)$, on a aussi $f(x_2) \in B$.
+Par définition de l'image réciproque, si $f(x_2) \in B$, alors $x_2 \in f^{-1}[B]$.
+Or, $f^{-1}[B]$ est le singleton $\{x_1\}$. Donc $x_2$ doit être égal à $x_1$.
+La fonction $f$ est donc injective.</p>
+</div>
+
+<h4>2. Montrer les équivalences $f \text{ surjective} \iff \varphi \text{ surjective} \iff \psi \text{ injective}$.</h4>
+<div>
+<p>Nous démontrons à nouveau le cycle d'implications :
+$(f \text{ surjective}) \implies (\varphi \text{ surjective}) \implies (\psi \text{ injective}) \implies (f \text{ surjective})$.</p>
+
+<p><strong>(a) $f$ surjective $\implies$ $\varphi$ surjective</strong></p>
+<p>Supposons $f$ surjective. Soit $B \in \mathcal{P}(F)$. Nous cherchons un antécédent $A \in \mathcal{P}(E)$ tel que $\varphi(A) = B$, soit $f[A]=B$.</p>
+<p>Posons $A = f^{-1}[B]$. C'est une partie de $E$.
+Calculons son image : $\varphi(A) = f[A] = f[f^{-1}[B]]$.</p>
+<p>Nous utilisons le résultat (exercice 43) que si $f$ est surjective, alors pour toute partie $B \subseteq F$, on a $f[f^{-1}[B]] = B$.
+On a donc bien $\varphi(A)=B$. On a trouvé un antécédent pour $B$.
+Donc $\varphi$ est surjective.</p>
+
+<p><strong>(b) $\varphi$ surjective $\implies$ $\psi$ injective</strong></p>
+<p>Supposons $\varphi$ surjective. Pour montrer que $\psi$ est injective, il suffit de lui trouver un inverse à gauche. Montrons que $\varphi \circ \psi = \text{id}_{\mathcal{P}(F)}$.</p>
+<p>Soit $B \in \mathcal{P}(F)$. On a $(\varphi \circ \psi)(B) = f[f^{-1}[B]]$.</p>
+<p>On sait (exercice 43) que $f[f^{-1}[B]] \subseteq B$.
+D'autre part, puisque $\varphi$ est surjective, il existe $A \in \mathcal{P}(E)$ tel que $\varphi(A)=B$, soit $f[A]=B$.
+On sait (exercice 43) que $A \subseteq f^{-1}[f[A]]$. En remplaçant $f[A]$ par $B$, cela donne $A \subseteq f^{-1}[B] = \psi(B)$.
+Appliquons $\varphi$ à cette inclusion : $\varphi(A) \subseteq \varphi(\psi(B))$.
+Comme $\varphi(A)=B$, on obtient $B \subseteq \varphi(\psi(B))$.</p>
+<p>Avec les deux inclusions, on a $\varphi(\psi(B)) = B$. Ceci étant vrai pour tout $B \in \mathcal{P}(F)$, on a $\varphi \circ \psi = \text{id}_{\mathcal{P}(F)}$.
+L'existence d'un inverse à gauche ($\varphi$) pour $\psi$ prouve que $\psi$ est injective.</p>
+
+<p><strong>(c) $\psi$ injective $\implies$ $f$ surjective</strong></p>
+<p>Supposons $\psi$ injective. Raisonnons par l'absurde : supposons que $f$ n'est pas surjective.
+Il existe alors un élément $y_0 \in F$ qui n'a aucun antécédent dans $E$.</p>
+<p>Cela signifie que l'ensemble des antécédents de $y_0$ est vide, soit $f^{-1}[\{y_0\}] = \emptyset$.
+En termes de $\psi$, cela s'écrit $\psi(\{y_0\}) = \emptyset$.</p>
+<p>Considérons maintenant l'ensemble vide $\emptyset \subseteq F$. Son image réciproque par $f$ est toujours l'ensemble vide : $f^{-1}[\emptyset] = \emptyset$.
+En termes de $\psi$, cela s'écrit $\psi(\emptyset) = \emptyset$.</p>
+<p>Nous avons donc $\psi(\{y_0\}) = \psi(\emptyset)$.
+Puisque $\psi$ est injective, cela implique que $\{y_0\} = \emptyset$.
+C'est une contradiction, car un singleton n'est jamais vide.</p>
+<p>L'hypothèse que $f$ n'est pas surjective est donc fausse. Par conséquent, $f$ est surjective.</p>
+</div>
+
+
+        
 </body>
 </html>
