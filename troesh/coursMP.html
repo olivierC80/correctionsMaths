@@ -681,11 +681,1928 @@
     </div>
 </section>
 </section>
+<section id="chap1-secIII">
+    <h2>III Comparaisons asymptotiques</h2>
+    
+    <div class="box proposition-box" id="propdef1.3.1">
+        <p><strong>Proposition/Définition 1.3.1 – Domination</strong></p>
+        <p>Soit \((u_n)_{n \in \mathbb{N}}\) et \((v_n)_{n \in \mathbb{N}}\) deux suites réelles. Les propositions suivantes sont équivalentes:</p>
+        <ol style="list-style-type: lower-roman;">
+            <li>\(\exists M \in \mathbb{R}, \exists n_0 \in \mathbb{N}, \forall n \ge n_0, |u_n| \le M|v_n|\)</li>
+            <li>il existe une suite \((\mu_n)\) et \(n_0 \in \mathbb{N}\) telle que pour tout \(n \ge n_0, u_n = \mu_n v_n\), et \((\mu_n)\) est bornée</li>
+        </ol>
+        <p>Si ces propriétés sont satisfaites, on dit que \((u_n)\) est dominée par \((v_n)\), et on note \(u_n = O(v_n)\).</p>
+    </div>
 
-<!-- Arrêt de la conversion ici. La suite commence avec la section III sur les Comparaisons Asymptotiques. -->
+    <div class="box proposition-box" id="propdef1.3.2">
+        <p><strong>Proposition/Définition 1.3.2 – Négligeabilité</strong></p>
+        <p>Soit \((u_n)_{n \in \mathbb{N}}\) et \((v_n)_{n \in \mathbb{N}}\) deux suites réelles. Les propositions suivantes sont équivalentes:</p>
+        <ol style="list-style-type: lower-roman;">
+            <li>\(\forall \varepsilon > 0, \exists n_0 \in \mathbb{N}, \forall n \ge n_0, |u_n| \le \varepsilon|v_n|\) ;</li>
+            <li>il existe une suite \((\varepsilon_n)_{n \in \mathbb{N}}\) et un entier \(n_0\) tels que :
+            \[ \forall n \ge n_0, u_n = \varepsilon_n v_n \quad \text{et} \quad \lim \varepsilon_n = 0. \]
+            </li>
+        </ol>
+        <p>Si ces propriétés sont satisfaites, on dit que \((u_n)\) est négligeable devant \((v_n)\), et on note \(u_n = o(v_n)\).</p>
+    </div>
+
+    <div class="box definition-box" id="def1.3.3">
+        <p><strong>Définition 1.3.3 – Équivalence</strong></p>
+        <p>Deux suites réelles \((u_n)\) et \((v_n)\) sont dites équivalentes s’il existe une suite \((\alpha_n)\) et un entier \(n_0\) tels que
+        \[ \forall n \ge n_0, u_n = \alpha_n v_n \quad \text{et} \quad \lim \alpha_n = 1. \]
+        On note \(u_n \sim_{+\infty} v_n\) ou \(u_n \sim v_n\).</p>
+    </div>
+
+    <p>La propriété suivante permet d’écrire une équivalence sous forme d’un développement asymptotique, ce qui s’avère très souvent pratique d’un point de vue technique, pour contourner certains problèmes techniques liés aux équivalents (sommes, compositions)</p>
+    
+    <div class="box proposition-box" id="prop1.3.4">
+        <p><strong>Proposition 1.3.4 – Caractérisation de l’équivalence par la négligeabilité</strong></p>
+        \[ u_n \sim_{+\infty} v_n \iff u_n = v_n + o(v_n). \]
+    </div>
+
+    <div class="box remark-box" id="rem1.3.5">
+        <p><strong>Remarque 1.3.5</strong></p>
+        <p>Si \((v_n)\) ne s’annule pas à partir d’un certain rang, ces propriétés peuvent être caractérisées par l’étude de \(\frac{u_n}{v_n}\) :</p>
+        <ul>
+            <li>\(\left(\frac{u_n}{v_n}\right)\) bornée \(\iff u_n = O(v_n)\);</li>
+            <li>\(\frac{u_n}{v_n} \to 0 \iff u_n = o(v_n)\);</li>
+            <li>\(\frac{u_n}{v_n} \to 1 \iff u_n \sim v_n\).</li>
+        </ul>
+    </div>
+
+    <p>On rappelle les règles de manipulation suivantes, qui se démontrent facilement avec le point de vue séquentiel (la deuxième caractérisation).</p>
+
+    <div class="box proposition-box" id="prop1.3.6">
+        <p><strong>Propriétés 1.3.6 – Transitivités strictes et larges de \(o\) et \(O\)</strong></p>
+        <ol>
+            <li>Si \(u_n = O(v_n)\) et \(v_n = O(w_n)\), alors \(u_n = O(w_n)\).</li>
+            <li>Si \(u_n = o(v_n)\) et \(v_n = o(w_n)\), alors \(u_n = o(w_n)\).</li>
+            <li>Si \(u_n = o(v_n)\) et \(v_n = O(w_n)\), alors \(u_n = o(w_n)\).</li>
+            <li>Si \(u_n = O(v_n)\) et \(v_n = o(w_n)\), alors \(u_n = o(w_n)\).</li>
+        </ol>
+    </div>
+
+    <div class="box proposition-box" id="prop1.3.7">
+        <p><strong>Propriétés 1.3.7 – sommes de \(o\) et \(O\)</strong></p>
+        <ol>
+            <li>Si \(u_n = o(w_n)\) et \(v_n = o(w_n)\), alors \(u_n + v_n = o(w_n)\).</li>
+            <li>Si \(u_n = O(w_n)\) et \(v_n = O(w_n)\), alors \(u_n + v_n = O(w_n)\).</li>
+            <li>Si \(u_n = o(w_n)\) et \(v_n = O(w_n)\), alors \(u_n + v_n = O(w_n)\).</li>
+            <li>Si \(u_n = O(w_n)\) et \(v_n = o(w_n)\), alors \(u_n + v_n = O(w_n)\).</li>
+        </ol>
+    </div>
+    
+    <div class="box proposition-box" id="prop1.3.8">
+        <p><strong>Propriétés 1.3.8 – produits de \(o\) et \(O\)</strong></p>
+        <ol>
+            <li>Si \(u_n = o(w_n)\) et \(v_n = o(x_n)\), alors \(u_n v_n = o(w_n x_n)\).</li>
+            <li>Si \(u_n = O(w_n)\) et \(v_n = o(x_n)\), alors \(u_n v_n = o(w_n x_n)\).</li>
+            <li>Si \(u_n = o(w_n)\) et \(v_n = O(x_n)\), alors \(u_n v_n = o(w_n x_n)\).</li>
+            <li>Si \(u_n = O(w_n)\) et \(v_n = O(x_n)\), alors \(u_n v_n = O(w_n x_n)\).</li>
+            <li>En particulier, \(u_n = w_n o(x_n) \iff u_n = o(w_n x_n)\) et \(u_n = w_n O(x_n) \iff u_n = O(w_n x_n)\). (Les \(o\) et \(O\) sont multiplicatifs : on peut rentrer ou sortir un facteur multiplicatif).</li>
+        </ol>
+    </div>
+
+    <div class="box proposition-box" id="prop1.3.9">
+        <p><strong>Proposition 1.3.9 – Équivalents de produits, quotients, puissances</strong></p>
+        <p>Soit \((u_n), (v_n), (u'_n)\) et \((v'_n)\) quatre suites réelles.</p>
+        <ol>
+            <li>Si \(u_n \sim u'_n\) et \(v_n \sim v'_n\), alors \(u_n v_n \sim u'_n v'_n\).</li>
+            <li>Si de plus \(v_n\) est non nulle à partir d’un certain rang, alors \(\frac{u_n}{v_n} \sim \frac{u'_n}{v'_n}\).</li>
+            <li>Si \(u_n \sim u'_n\) et si \(\alpha\) est un réel fixé, alors \((u_n)^\alpha \sim (u'_n)^\alpha\).</li>
+        </ol>
+    </div>
+
+    <div class="box avertissement-box" id="av1.3.10">
+        <p><strong>Avertissement 1.3.10</strong></p>
+        <ul>
+            <li>Ne pas sommer des équivalents (problème de compensation de la partie principale)</li>
+            <li>Ne pas composer des équivalents par une fonction.</li>
+        </ul>
+    </div>
+    
+    <div class="box example-box" id="ex1.3.11">
+        <p><strong>Exemples 1.3.11</strong></p>
+        <p>Donner des contre-exemples pour ces deux avertissements.</p>
+    </div>
+
+    <p>Pour contourner ces problèmes, revenir à des techniques de développements limités ou asymptotiques. Enfin, deux propriétés importantes des équivalents :</p>
+
+    <div class="box theorem-box" id="th1.3.12">
+        <p><strong>Théorème 1.3.12 – Conservation des limites par équivalence</strong></p>
+        <p>Si \(u_n \sim_{+\infty} v_n\), et si \((u_n)_{n \in \mathbb{N}}\) converge vers \(\ell\) dans \(\overline{\mathbb{R}}\), alors \((v_n)_{n \in \mathbb{N}}\) converge, et sa limite est \(\ell\).</p>
+    </div>
+
+    <div class="box proposition-box" id="prop1.3.13">
+        <p><strong>Proposition 1.3.13 – Conservation du signe</strong></p>
+        <p>Soit \((u_n)\) et \((v_n)\) deux suites équivalentes. Alors il existe \(n_0\) tels que pour tout \(n \ge n_0\), \(u_n\) et \(v_n\) soient de même signe.</p>
+    </div>
+
+    <p>Et pour terminer, la piqûre de rappel des équivalents classiques. Je les donne sous leur version fonctionnelle, ce qui signifie ici qu’on peut remplacer \(x\) par n’importe quelle suite convergeant vers 0 (les équivalents classiques étant tous donnés au voisinage de 0). Ne pas hésiter sur ces équivalents !</p>
+
+    <div class="box proposition-box" id="prop1.3.14">
+        <p><strong>Proposition 1.3.14 – Équivalents classiques</strong></p>
+        <ol>
+            <li>\(\ln(1 + x) \sim_0 x\) ;</li>
+            <li>\(e^x - 1 \sim_0 x\) ;</li>
+            <li>\((1 + x)^\alpha - 1 \sim_0 \alpha x\) (\(\alpha \neq 0\)) ;</li>
+            <li>\(\sin(x) \sim_0 x\) ;</li>
+            <li>\(\cos(x) - 1 \sim_0 -\frac{x^2}{2}\) ;</li>
+            <li>\(\tan(x) \sim_0 x\) ;</li>
+            <li>\(\sinh(x) \sim_0 x\) ;</li>
+            <li>\(\cosh(x) - 1 \sim_0 \frac{x^2}{2}\) ;</li>
+            <li>\(\tanh(x) \sim_0 x\) ;</li>
+            <li>\(\operatorname{Arcsin}(x) \sim_0 x\) ;</li>
+            <li>\(\operatorname{Arctan}(x) \sim_0 x\) ;</li>
+        </ol>
+    </div>
+
+    <p>Et un petit dernier qui a un statut un peu particulier, car spécifique aux suites et ne découlant pas de techniques de dérivation :</p>
+    
+    <div class="box theorem-box" id="th1.3.15">
+        <p><strong>Théorème 1.3.15 – Formule de Stirling</strong></p>
+        <p>On a : \(n! \sim_{+\infty} \sqrt{2\pi n} \left(\frac{n}{e}\right)^n\).</p>
+    </div>
+
+</section>
+<section id="chap1-secIV">
+    <h2>IV Suites récurrentes</h2>
+    <p>Nous terminons ce chapitre par quelques rappels sur les propriétés et l’étude de certaines suites récurrentes.</p>
+
+    <section id="chap1-secIV.1">
+        <h3>IV.1 Suites récurrentes linéaires</h3>
+        <div class="box definition-box" id="def1.4.1">
+            <p><strong>Définition 1.4.1 – Suites récurrentes linéaires</strong></p>
+            <p>Soit \((u_n)_{n \in \mathbb{N}}\). On dit que \((u_n)\) est une suite récurrente linéaire d’ordre \(k\) si \((u_n)\) vérifie une relation du type :</p>
+            \[ \forall n \in \mathbb{N}, u_{n+k} = a_{k-1,n}u_{n+k-1} + \dots + a_{1,n}u_{n+1} + a_{0,n}u_n. \]
+            <p>où \(((a_{0,n}), \dots, (a_{k-1,n})) \in (\mathbb{C}^\mathbb{N})^k\).</p>
+        </div>
+        <p>Une suite récurrente d’ordre \(k\) est entièrement déterminée par sa relation de récurrence et la donnée de ses \(k\) premiers termes. Plus précisément :</p>
         
+        <div class="box theorem-box" id="th1.4.2">
+            <p><strong>Théorème 1.4.2 – Structure et dimension de l’ensemble des SRL</strong></p>
+            <p>Soit, pour \(i \in \{0, \dots, k-1\}, (a_{i,n}) \in \mathbb{C}^\mathbb{N}\). On pose \(S\) l’ensemble des suites \((u_n)_{n \in \mathbb{N}}\) vérifiant la relation de récurrence :</p>
+            \[ \forall n \in \mathbb{N}, u_{n+k} = a_{k-1,n}u_{n+k-1} + \dots + a_{1,n}u_{n+1} + a_{0,n}u_n. \]
+            <p>Alors \(S\) est un \(\mathbb{C}\)-espace vectoriel, et l’application</p>
+            \[ \Phi: \begin{cases} S \to \mathbb{C}^k \\ (u_n) \mapsto (u_0, \dots, u_{k-1}) \end{cases} \]
+            <p>est un isomorphisme. En particulier, \(S\) est de dimension \(k\).</p>
+        </div>
+        <p>Dans le cas où les suites \((a_{i,n})\) sont constantes, on parle de suite récurrente linéaire d’ordre \(k\) à coefficients constants. On dispose dans ce cas de techniques d’explicitation, grâce aux racines du polynôme caractéristique.</p>
+    
+        <div class="box definition-box" id="def1.4.3">
+            <p><strong>Définition 1.4.3 – Polynôme caractéristique d’une récurrence linéaire</strong></p>
+            <p>Soit \((u_n)_{n \in \mathbb{N}}\) une suite récurrente linéaire à coefficients constants, de relation</p>
+            \[ u_{n+k} = a_{k-1}u_{n+k-1} + \dots + a_1u_{n+1} + a_0u_n \quad \text{i.e.} \quad u_{n+k} - a_{k-1}u_{n+k-1} - \dots - a_1u_{n+1} - a_0u_n = 0 \]
+            <p>Le polynôme caractéristique associé à la suite récurrente \((u_n)_{n \in \mathbb{N}}\) est le polynôme</p>
+            \[ \chi(X) = X^k - a_{k-1}X^{k-1} - \dots - a_1X - a_0. \]
+        </div>
+
+        <div class="box theorem-box" id="th1.4.4">
+            <p><strong>Théorème 1.4.4 – Explicitation des SRL, HP si \(k \ge 2\)</strong></p>
+            <p>Soit \(S\) l’ensemble des suites \((u_n)\) vérifiant une relation de récurrence linéaire dont le polynôme caractéristique est \(\chi\). Soit \(\lambda_1, \dots, \lambda_p\) les racines de \(\chi\) (dans \(\mathbb{C}\)), de multiplicité \(\alpha_1, \dots, \alpha_p\) respectivement. Alors \(S\) est l’ensemble des suites telles que</p>
+            \[ \forall n \in \mathbb{N}, u_n = \sum_{i=1}^p P_i(n)\lambda_i^n, \]
+            <p>où pour tout \(i \in \{1, \dots, p\}, P_i \in \mathbb{C}_{\alpha_i-1}[X]\).</p>
+        </div>
+        <div class="proof">
+            <p>Ÿ <strong>Éléments de preuve.</strong></p>
+            <p>Hors-programme dans le cas général. Voir cours de MPSI pour le cas particulier \(k \le 2\) (ou adapter celle-ci). La preuve utilise des polynômes d’endomorphisme. Reprenez-là lorsque vous serez un peu plus à l’aise sur le sujet.</p>
+        </div>
+    </section>
+
+    <section id="chap1-secIV.2">
+        <h3>IV.2 Suites récurrentes linéaires perturbées</h3>
+        <p>Une suite récurrente linéaire perturbée est une suite définie par une récurrence qui ressemble à une récurrence linéaire, à laquelle on ajoute une perturbation sous forme d’une suite \((b_n)\). Ainsi, elle vérifie une relation du type :</p>
+        \[ (E) : \forall n \in \mathbb{N}, u_{n+k} - \sum_{i=0}^{k-1} a_{i,n}u_{n+i} = b_n. \]
+        <p>On note également \((E_H)\) la relation de récurrence homogène associée (obtenue en remplaçant \(b_n\) par 0).</p>
+
+        <div class="box theorem-box" id="th1.4.5">
+            <p><strong>Théorème 1.4.5 – Structure de l’ensemble des SRL perturbées</strong></p>
+            <p>L’ensemble \(S\) des suites vérifiant la relation de récurrence \((E)\) est un espace affine dirigé par l’espace \(S_H\) des suites vérifiant \((E_H)\). Ainsi, si \((u_n)_{n \in \mathbb{N}}\) est une solution particulière, toute autre suite \((v_n)\) vérifiant \((E)\) vérifiera</p>
+            \[ \forall n \in \mathbb{N}, v_n = u_n + w_n, \quad (w_n) \in S_H. \]
+        </div>
+        <div class="proof">
+            <p>Ÿ <strong>Éléments de preuve.</strong></p>
+            <p>Il s’agit d’une fibre de l’endomorphisme de \(\mathbb{C}^\mathbb{N}\) défini par \((u_n) \mapsto u_{n+k} - \sum_{i=0}^{k-1} a_{i,n}u_{n+i}\).</p>
+        </div>
+        
+        <div class="box proposition-box" id="prop1.4.6">
+            <p><strong>Proposition 1.4.6 – Explicitation d’une SRL perturbée par \((P(n)\lambda^n)\)</strong></p>
+            <p>Soit \((E_H)\) une relation de récurrence linéaire à coefficients constants, de polynôme caractéristique \(\chi\), et \((E)\) la relation correspondante, perturbée par \((b_n) = P(n)\lambda^n\). Alors il existe une solution particulière de \((E)\) de la forme</p>
+            \[ u_n = n^\alpha Q(n)\lambda^n, \]
+            <p>où \(\alpha = \text{mult}_\chi(\lambda)\) et \(\deg(Q) \le \deg(P)\).</p>
+        </div>
+
+        <div class="box remark-box" id="rem1.4.7">
+            <p><strong>Remarque 1.4.7</strong></p>
+            <ol>
+                <li>La résolution des suites arithmético-géométriques \(u_{n+1} = au_n + b, a \neq 1\), est un cas particulier de ces deux résultats plus général : il existe une solution constante \(c\), vérifiant \(c = ac + b\). C’est donc le point fixe. La solution générale s’écrit alors sous la forme \(\lambda a^n + c\).</li>
+                <li>Avant cela, la résolution des suites arithmétiques \(u_{n+1} = u_n + a\) en est aussi un cas particulier : la proposition donne l’existence d’une solution particulière sous la forme \(cn\) (il faut multiplier par \(n\) car 1 est racine de multiplicité 1 du polynôme caractéristique). En remplaçant, on trouve facilement \(c = a\). La solution générale est alors \(\lambda 1^n + an\), et on ajuste avec les termes initiaux.</li>
+            </ol>
+        </div>
+        
+        <div class="box example-box" id="ex1.4.8">
+            <p><strong>Exemple 1.4.8</strong></p>
+            <p>Un exemple un peu moins trivial. Expliciter \((u_n)\) tel que</p>
+            \[ u_0 = 2, u_1 = 1, u_{n+2} = 5u_{n+1} - 6u_n + (n+1)2^n. \]
+        </div>
+    </section>
+
+    <section id="chap1-secIV.3">
+        <h3>IV.3 Suites récurrentes \(u_{n+1} = f(u_n)\)</h3>
+        <p>On rappelle ici les grands principes d’étude des systèmes dynamiques discrets, c’est-à-dire des suites récurrentes non linéaires d’ordre 1, du type \(u_{n+1} = f(u_n)\), où \(f\) sera supposée continue sur une partie \(D\) de \(\mathbb{R}\).</p>
+        
+        <div class="box method-box" id="meth1.4.9">
+            <p><strong>Méthode 1.4.9 – Étude d’une suite récurrente</strong></p>
+            <ul>
+                <li>Justifier la bonne définition de la suite, par exemple en exhibant un intervalle stable (voir ci-dessous)</li>
+                <li>Étudier l’existence de la limite : étudier la monotonie, et obtenir l’existence de la limite à l’aide par exemple du théorème de la limite monotone.</li>
+                <li>Une fois assurée l’existence de la limite, déterminer les valeurs possibles de cette limite \(\ell\) en passant à la limite dans la relation de récurrence : Si \(f\) est continue, soit \(\ell\) vérifie \(f(\ell) = \ell\), soit \(\ell\) est un bord ouvert du domaine de \(f\).</li>
+                <li>Déterminer, parmi l’ensemble des valeurs possibles de \(\ell\) laquelle est la bonne.</li>
+                <li>Déterminer les points fixes de \(f\) peut déjà s’avérer utile pour la première étape (aide à la recherche d’intervalles stables, de majorants et de minorants). Commencer par cela peut être efficace.</li>
+            </ul>
+        </div>
+        
+        <p>Un objet incontournable dans l’étude des suites récurrentes est :</p>
+        <div class="box definition-box" id="def1.4.10">
+            <p><strong>Définition 1.4.10 – Intervalle stable</strong></p>
+            <p>On dit qu’un intervalle \(I\) est stable par \(f\) si \(f\) est définie sur \(I\) (i.e. \(I \subset D_f\)) et \(f(I) \subset I\).</p>
+        </div>
+
+        <div class="box theorem-box" id="th1.4.11">
+            <p><strong>Théorème 1.4.11 – CS pour que \((u_n)\) soit bien définie</strong></p>
+            <p>Si \(I\) est un intervalle stable par \(f\), et si \(u_0 \in I\), alors \((u_n)_{n \in \mathbb{N}}\) est bien définie.</p>
+        </div>
+        <p>Évidemment, si on parvient à trouver un indice \(N\) tel que \(u_N\) soit dans un intervalle stable, on parvient à la même conclusion. Les intervalles stables permettent aussi souvent d’étudier les variations de \((u_n)_{n \in \mathbb{N}}\). La situation la plus simple est la suivante (et assez facile à détecter graphiquement) :</p>
+        
+        <div class="box proposition-box" id="prop1.4.12">
+            <p><strong>Proposition 1.4.12 – Étude des variations lorsque \(f - \text{id}\) est de signe constant</strong></p>
+            <p>Supposons \(f - \text{id}\) de signe constant sur un intervalle stable \(I\), et \(u_0 \in I\). Alors \((u_n)\) est monotone, de sens de monotonie déterminé par le signe de \(f - \text{id}\).</p>
+        </div>
+        
+        <div class="box proposition-box" id="prop1.4.13">
+            <p><strong>Proposition 1.4.13 – Étude des variations lorsque \(f\) est croissante</strong></p>
+            <p>Supposons \(f\) croissante sur un intervalle stable \(I\), et \(u_0 \in I\) (peut s’adapter si on n’a pas cette inclusion dès le rang initial). Alors \((u_n)\) est monotone. On trouve le sens de monotonie en comparant \(u_0\) et \(u_1\).</p>
+        </div>
+        
+        <div class="box proposition-box" id="prop1.4.14">
+            <p><strong>Proposition 1.4.14 – Étude des variations lorsque \(f\) est décroissante</strong></p>
+            <p>Supposons \(f\) décroissante sur un intervalle stable \(I\), et \(u_0 \in I\) (peut s’adapter si on n’a pas cette inclusion dès le rang initial). Alors \((u_{2n})\) et \((u_{2n+1})\) sont monotones, de sens de monotonie opposé. On trouve les sens de monotonie en comparant \(u_0\) et \(u_2\).</p>
+        </div>
+
+        <div class="box remark-box" id="rem1.4.15">
+            <p><strong>Remarque 1.4.15</strong></p>
+            <p>Ainsi, si \(f\) est décroissante sur un intervalle stable, les deux suites extraites \((u_{2n})\) et \((u_{2n+1})\) sont monotones de sens de variation opposés. Cela ne suffit pas pour prouver que \((u_n)_{n \in \mathbb{N}}\) converge. Pour cela, il faut encore s’assurer que \((u_{2n})\) et \((u_{2n+1})\) ont même limite. Les limites de ces deux suites sont à rechercher parmi les points fixes de \(f \circ f\). Si \(f \circ f\) a deux points fixes distincts, on peut très bien avoir convergence de \((u_{2n})\) vers l’un des deux et de \((u_{2n+1})\) vers l’autre. Essayez de construire un exemple graphique.</p>
+        </div>
+
+        <div class="box avertissement-box" id="av1.4.16">
+            <p><strong>Avertissement 1.4.16</strong></p>
+            <p>Les points fixes de \(f\) sont point fixes de \(f \circ f\), mais il peut exister des points fixes de \(f \circ f\) qui ne sont pas points fixes de \(f\).</p>
+        </div>
+        
+        <div class="box example-box" id="ex1.4.17">
+            <p><strong>Exemple 1.4.17</strong></p>
+            <p>Étude de la suite \(u_0 \in \mathbb{R}, \forall n \in \mathbb{N}, u_{n+1} = u_n^2 - u_n\).</p>
+        </div>
+        
+        <p>Pour terminer, nous donner deux résultats hors-programme, mais à savoir refaire, permettant l’étude de la vitesse de convergence (c’est-à-dire estimant le comportement asymptotique de la suite, soit sous forme d’une domination, soit sous forme d’un équivalent).</p>
+
+        <div class="box proposition-box" id="prop1.4.18">
+            <p><strong>Proposition 1.4.18 – Vitesse de convergence en un point fixe attractif, HP</strong></p>
+            <p>Soit \(f\) une fonction définie et de classe \(C^1\) sur un intervalle \(I\), et soit \(a \in I\) un point fixe de \(f\) tel que \(|f'(a)| < 1\).</p>
+            <ol>
+                <li>Alors il existe \(\varepsilon\) tel que s’il existe \(n_0\) tel que \(|u_{n_0} - a| < \varepsilon\), alors \(u_n \to a\). On dit que \(a\) est un point fixe attractif.</li>
+                <li>Si tel est le cas, on a alors, pour tout \(k \in ]|f'(a)|, 1[\), \(u_n = O(k^n)\).</li>
+            </ol>
+        </div>
+        <p>Le deuxième résultat s’applique lorsque \(f'(a) = 1\). Dans ce cas, il est clair graphiquement que la convergence sera beaucoup plus lente. On peut, sous réserve quelques hypothèses supplémentaires, trouver un équivalent de \((u_n)\). Plutôt que de donner un résultat tout finalisé, nous donnons ici plutôt une méthode. Nous avons besoin pour cela d’un lemme archi-classique, probablement vu en MPSI déjà.</p>
+        
+        <div class="box theorem-box" id="lem1.4.19">
+            <p><strong>Lemme 1.4.19 – Théorème de la moyenne de Cesàro, cas convergent</strong></p>
+            <p>Soit \((u_n)_{n \in \mathbb{N}}\) une suite réelle ou complexe, et</p>
+            \[ \forall n \ge 1, M_n = \frac{1}{n} \sum_{k=0}^{n-1} u_k \]
+            <p>la suite de ses moyennes. Alors si \((u_n)\) converge vers \(\ell\), \((M_n)\) aussi.</p>
+        </div>
+
+        <div class="box method-box" id="meth1.4.20">
+            <p><strong>Méthode 1.4.20 – Equivalent de \((u_n)\) convergeant vers \(a\) tel que \(f'(a) = 1\)</strong></p>
+            <ul>
+                <li>Sous des hypothèses permettant de mener les calculs à leurs termes (hypothèses que je ne donne pas explicitement), trouver \(\alpha\) tel que
+                \[ u_{n+1}^\alpha - u_n^\alpha = u_n^\alpha \left(\left(\frac{f(u_n)}{u_n}\right)^\alpha - 1\right) \]
+                admette une limite finie non nulle. On pourra pour cela faire un développement limité de \(f\) au voisinage de \(a\), ou utiliser des équivalents classiques.</li>
+                <li>Le théorème de Cesàro permet alors d’obtenir, par télescopage, un équivalent de \(u_n^\alpha - u_0^\alpha\), duquel on déduit un équivalent de \((u_n)\).</li>
+            </ul>
+        </div>
+        
+        <div class="box example-box" id="ex1.4.21">
+            <p><strong>Exemple 1.4.21</strong></p>
+            <p>Donner un équivalent de la suite définie par \(u_0 = 1\) et \(\forall n \in \mathbb{N}, u_{n+1} = \sin(u_n)\).</p>
+        </div>
+    </section>
+</section>
+<!-- Fin du chapitre 1 -->
+  <section id="chap2">
+    <div class="chapter-heading">
+        <span class="chapter-number">2</span>
+        <div class="chapter-title">
+            <h1>Cardinaux et dénombrabilité</h1>
+        </div>
+    </div>
+    
+    <p>Nous faisons dans ce chapitre quelques rappels sur les cardinaux finis, et leur utilisation dans des questions de dénombrement. Dans un second temps, nous quittons les révisions pour aborder le problème des cardinaux infinis, beaucoup moins intuitif, l’objectif étant l’étude des ensembles de même cardinal que \(\mathbb{N}\), qu’on appelle ensembles dénombrables.</p>
+    
+    <section id="chap2-secI">
+        <h2>I Rappels sur les cardinaux finis</h2>
+        <section id="chap2-secI.1">
+            <h3>I.1 Ensembles finis, cardinaux</h3>
+            <p>Nous rappelons la définition du cardinal d’un ensemble fini :</p>
+            <div class="box definition-box" id="def2.1.1">
+                <p><strong>Définition 2.1.1 – Cardinal d’un ensemble fini</strong></p>
+                <p>Soit \(E\) un ensemble.</p>
+                <ul>
+                    <li>On dit que \(E\) est un ensemble fini s’il existe \(n \in \mathbb{N}\) et une bijection \( \llbracket 1, n \rrbracket \to E \).</li>
+                    <li>L’entier \(n\) est alors unique, est appelé cardinal de \(E\), et est noté \(|E|\) ou \(\text{Card}(E)\) ou \(\#E\).</li>
+                </ul>
+            </div>
+            <div class="proof">
+                <p>Ÿ <strong>Éléments de preuve.</strong></p>
+                <p>L’unicité de \(n\) provient du fait qu’il ne peut pas exister de bijection de \(\llbracket 1, n \rrbracket\) dans \(\llbracket 1, m \rrbracket\) si \(n \neq m\), ce qui n’est pas si évident que cela à montrer si on ne dispose d’aucun outil de cardinalité. Cela peut se faire en montrant par récurrence sur \(n\) que si \(m \neq n\) et \(f : \llbracket 1, n \rrbracket \to \llbracket 1, m \rrbracket\), alors \(f\) n’est ni injective ni surjective. Pour passer de \(n\) à \(n+1\), considérer \(f(n+1)\). Quitte à composer par une transposition bijective, on peut considérer que \(f(n+1) = m\), ce qui permet d’enlever \(n+1\) d’un côté, \(m\) de l’autre (avec une discussion à faire), pour se ramener à l’hypothèse de récurrence.</p>
+            </div>
+
+            <div class="box theorem-box" id="lem2.1.2">
+                <p><strong>Lemme 2.1.2 – Finitude des sous-ensembles de \(\llbracket 1, n \rrbracket\)</strong></p>
+                <p>Tout sous-ensemble \(F\) de \(\llbracket 1, n \rrbracket\) peut être mis en bijection avec un ensemble \(\llbracket 1, m \rrbracket\), avec \(m \le n\).</p>
+            </div>
+             <div class="proof">
+                <p>Ÿ <strong>Éléments de preuve.</strong></p>
+                <p>On peut ranger les éléments de \(F\) dans l’ordre : \(F = \{x_1 < x_2 < \dots < x_m\}\).</p>
+            </div>
+
+            <div class="box proposition-box" id="prop2.1.3">
+                <p><strong>Proposition 2.1.3 – Sous-ensemble d’un ensemble fini</strong></p>
+                <p>Soit \(F\) un sous-ensemble de \(E\). Si \(E\) est fini, alors \(F\) aussi.</p>
+            </div>
+             <div class="proof">
+                <p>Ÿ <strong>Éléments de preuve.</strong></p>
+                <p>Restreindre et corestreindre une bijection \(E \to \llbracket 1, n \rrbracket\) et utiliser le lemme.</p>
+            </div>
+        </section>
+        <section id="chap2-secI.2">
+            <h3>I.2 Rappel des propriétés calculatoires sur les cardinaux</h3>
+            <div class="box theorem-box" id="lem2.1.4">
+                <p><strong>Lemme 2.1.4 – Réexpression du cardinal</strong></p>
+                <p>Soit \(E\) un ensemble fini, et \(A\) un sous-ensemble de \(E\). Alors</p>
+                \[ |A| = \sum_{k \in E} \mathbf{1}_A(k). \]
+            </div>
+            
+            <div class="box proposition-box" id="prop2.1.5">
+                <p><strong>Proposition 2.1.5 – Cardinal d’une union disjointe</strong></p>
+                <p>Soit \(A, B, A_1, \dots, A_n\) des ensembles finis.</p>
+                <ol>
+                    <li>Si \(A \cap B = \emptyset\), alors \(|A \cup B| = |A| + |B|\).</li>
+                    <li>Plus généralement, si pour tout \((i, j) \in \llbracket 1, n \rrbracket^2\) tel que \(i \neq j\), \(A_i \cap A_j = \emptyset\), alors</li>
+                    \[ |A_1 \cup \dots \cup A_n| = |A_1| + \dots + |A_n|. \]
+                </ol>
+            </div>
+            
+            <div class="box proposition-box" id="prop2.1.6">
+                <p><strong>Proposition 2.1.6 – Cardinal d’un complémentaire</strong></p>
+                <p>Si \(A \subset B\), alors \(|B \setminus A| = |B| - |A|\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="cor2.1.7">
+                <p><strong>Corollaire 2.1.7 – Cardinal d’un sous-ensemble</strong></p>
+                <p>Si \(A \subset B\), alors \(|A| \le |B|\), avec égalité si et seulement si \(A = B\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop2.1.8">
+                <p><strong>Proposition 2.1.8 – Cardinal d’une union quelconque</strong></p>
+                <p>Soit \(A\) et \(B\) des ensembles finis. On a :</p>
+                \[ |A \cup B| = |A| + |B| - |A \cap B|. \]
+            </div>
+            
+            <div class="box proposition-box" id="prop2.1.9">
+                <p><strong>Proposition 2.1.9 – Cardinal d’un produit cartésien</strong></p>
+                <ol>
+                    <li>Soit \(A\) et \(B\) deux ensembles finis. Alors \(|A \times B| = |A| \times |B|\).</li>
+                    <li>Plus généralement, soit \(A_1, \dots, A_n\) des ensembles finis. Alors</li>
+                    \[ |A_1 \times \dots \times A_n| = \prod_{i=1}^n |A_i|. \]
+                </ol>
+            </div>
+        </section>
+        <section id="chap2-secI.3">
+            <h3>I.3 Grands principes combinatoires</h3>
+            <p>Par définition même :</p>
+            <div class="box proposition-box" id="prop2.1.10">
+                <p><strong>Proposition 2.1.10 – Injectivité, surjectivité, bijectivité et cardinal</strong></p>
+                <p>Soit \(E\) et \(F\) deux ensembles finis, et soit \(f : E \to F\) une application. Alors :</p>
+                <ol>
+                    <li>Si \(f\) est bijective, \(\text{Card}(E) = \text{Card}(F)\).</li>
+                    <li>Si \(f\) est injective, \(\text{Card}(E) \le \text{Card}(F)\).</li>
+                    <li>Si \(f\) est surjective, \(\text{Card}(E) \ge \text{Card}(F)\).</li>
+                </ol>
+            </div>
+            <p>Cela incite, pour des dénombrements (ou calculs de cardinaux), à se ramener par une bijection, à des modèles simples et connus.</p>
+            
+            <div class="box method-box" id="meth2.1.11">
+                <p><strong>Méthode 2.1.11 – Combinatoire bijective</strong></p>
+                <p>Pour dénombrer un ensemble fini \(E\) (c’est-à-dire pour déterminer son cardinal), une méthode classique consiste à le mettre en bijection avec un ensemble dont le cardinal est connu.</p>
+            </div>
+
+            <div class="box example-box" id="ex2.1.12">
+                <p><strong>Exemple 2.1.12</strong></p>
+                <p>Par définition des coefficients binomiaux, le cardinal de \(\mathcal{P}_k(\llbracket 1, n \rrbracket)\) est \(\binom{n}{k}\). En déduire le nombre de l’ensemble des chemins monotones de \((0, 0)\) à \((a, b)\) dans \(\mathbb{N}^2\), chaque pas étant de longueur 1, et se faisant vers la droite ou vers le haut.</p>
+            </div>
+            
+            <div class="box method-box" id="meth2.1.13">
+                <p><strong>Méthode 2.1.13 – Tri, partitionnement, principe additif</strong></p>
+                <p>Si on peut trier les objets de \(E\) en plusieurs paquets disjoints \(E_1, \dots, E_n\) de cardinaux respectifs \(a_1, \dots, a_n\), alors le cardinal de \(E\) est</p>
+                \[ |E| = \sum_{k=1}^n a_k. \]
+            </div>
+
+            <div class="box example-box" id="ex2.1.14">
+                <p><strong>Exemple 2.1.14</strong></p>
+                <p>Formule sommatoire, ou lemme de la chaussette : \(\sum_{k=0}^p \binom{n+k}{n} = \binom{n+p+1}{n+1}\).</p>
+            </div>
+            
+            <div class="box method-box" id="meth2.1.15">
+                <p><strong>Méthode 2.1.15 – Choix successifs, principe multiplicatif</strong></p>
+                <p>Dénombrer un ensemble se fait souvent en s’intéressant à la façon de construire un élément, en décomposant sa construction de façon élémentaire en plusieurs étapes. Si un élément se construit en 2 étapes, et que :</p>
+                <ul>
+                    <li>la première étape peut se faire de \(a\) façons différentes ;</li>
+                    <li>pour chaque choix de première étape, la deuxième étape peut se faire de \(b\) façons différentes (le nombre \(b\) ne dépendant pas de la première étape) ;</li>
+                    <li>toutes les constructions faites ainsi sont distinctes</li>
+                </ul>
+                <p>alors le nombre total d’éléments est \(ab\).</p>
+            </div>
+            
+            <div class="box example-box" id="ex2.1.16">
+                <p><strong>Exemple 2.1.16</strong></p>
+                <p>Dénombrement des injections, cardinal de \(\mathfrak{S}_n\).</p>
+            </div>
+
+            <div class="box remark-box" id="rem2.1.17">
+                <p><strong>Remarque 2.1.17</strong></p>
+                <p>Les deux méthodes peuvent être combinées, par exemple un tri, et pour chaque part du tri, une succession de choix.</p>
+            </div>
+            
+            <div class="box example-box" id="ex2.1.18">
+                <p><strong>Exemple 2.1.18</strong></p>
+                <p>Formule de Vandermonde : \(\sum_{k=0}^n \binom{a}{k}\binom{b}{n-k} = \binom{a+b}{n}\)</p>
+            </div>
+            
+            <div class="box method-box" id="meth2.1.19">
+                <p><strong>Méthode 2.1.19 – Formalisation par couple, et lecture inverse</strong></p>
+                <p>Une formalisation mathématique de deux choix successifs peut se faire sous forme d’un couple, en mettant \(E\) en bijection avec un ensemble \(F\) de couples \((x, y)\) où \(x\) est le résultat du premier choix, \(y\) le résultat du deuxième choix. Il y a souvent des contraintes entre \(x\) et \(y\) (liées à la façon de procéder au second choix). Ces contraintes définissent une propriété satisfaite par \(x\) et \(y\), qu’on note \(P(x, y)\). Ainsi</p>
+                \[ F = \{(x, y) | P(x, y)\} \]
+                <p>Sous cette forme on peut voir que la contrainte peut souvent être retournée en lisant le couple dans l’autre sens : \(F\) est clairement en bijection avec</p>
+                \[ G = \{(y, x) | P(x, y)\} \]
+                <p>Cela revient à intervertir le rôle des deux étapes, donc l’ordre dans lequel on effectue la construction.</p>
+            </div>
+            
+            <div class="box example-box" id="ex2.1.20">
+                <p><strong>Exemple 2.1.20</strong></p>
+                <p>La formule du capitaine, ou comité-président.</p>
+            </div>
+            
+            <div class="box method-box" id="meth2.1.21">
+                <p><strong>Méthode 2.1.21 – Démonstration ou interprétation combinatoire d’une formule</strong></p>
+                <ul>
+                    <li>Interpréter combinatoirement une formule permet d’en avoir une compréhension intuitive et naturelle, qui aide à la retenir ou à la retrouver.</li>
+                    <li>Cela permet également éventuellement de la démontrer, comme la formule de Vandermonde ci-dessus.</li>
+                    <li>Pour démontrer ou interpréter combinatoirement une formule, chercher un modèle adéquat, et dénombrer de deux façons différentes, par exemple de façon directe et en effectuant un tri, ou bien en effectuant des choix successifs dans des ordres différents etc.</li>
+                </ul>
+            </div>
+            
+            <div class="box example-box" id="ex2.1.22">
+                <p><strong>Exemple 2.1.22</strong></p>
+                <p>Interpréter combinatoirement la formule \(\sum_{k=0}^n \binom{n}{k} = 2^n\).</p>
+            </div>
+            
+            <div class="box method-box" id="meth2.1.23">
+                <p><strong>Méthode 2.1.23 – Signes, principe de l’interrupteur</strong></p>
+                <ul>
+                    <li>Une formule combinatoire ne contient a priori que des termes positifs. Certaines formules contenant aussi des signes négatifs peuvent quand même se démontrer combinatoirement, en réarrangeant l’égalité de sorte à passer les termes négatifs de l’autre côté. On a alors deux quantités à comparer, ce qu’on peut faire combinatoirement, par exemple en établissant des bijections.</li>
+                    <li>Une situation classique : des signes qui alternent devant une expression avec des coefficients binomiaux : il s’agit de comparer des ensembles ayant des cardinaux de parité différente : pour cela, faire entrer ou sortir un élément (interrupteur qu’on allume ou éteint). On illustre cela dans l’exemple qui suit, qui est à peu près le plus simple du genre.</li>
+                </ul>
+            </div>
+            
+            <div class="box example-box" id="ex2.1.24">
+                <p><strong>Exemple 2.1.24</strong></p>
+                <p>Montrer combinatoirement que \(\sum_{k=0}^n (-1)^k \binom{n}{k} = 0\) si \(n > 0\).</p>
+            </div>
+        </section>
     </section>
     
+    <section id="chap2-secII">
+        <h2>II Dénombrabilité</h2>
+        <section id="chap2-secII.1">
+            <h3>II.1 Cardinaux infinis</h3>
+            <p>On ne peut pas définir d’emblée (en tout cas pas simplement) de cardinal d’un ensemble infini. Cantor a fait une construction (compliquée) qui permet de définir des cardinaux (ou plutôt des classes cardinales) de façon explicite, mais ce n’est pas l’objet de ce cours. Nous nous contentons de définir la condition d’égalité des cardinaux.</p>
+            <div class="box definition-box" id="def2.2.1">
+                <p><strong>Définition 2.2.1 – Ensembles de même cardinal</strong></p>
+                <p>Soit \(E\) et \(F\) deux ensembles.</p>
+                <ul>
+                    <li>On dit que \(E\) et \(F\) ont même cardinal s’il existe une bijection \(f : E \to F\). On dit aussi que \(E\) est équipotent à \(F\).</li>
+                    <li>On dit que \(E\) est subpotent à \(F\) (ou que le cardinal de \(E\) est inférieur à celui de \(F\)) s’il existe une injection de \(E\) dans \(F\).</li>
+                </ul>
+            </div>
+            
+            <div class="box remark-box" id="rem2.2.2">
+                <p><strong>Remarque 2.2.2 – (HP)</strong></p>
+                <ul>
+                    <li>On peut montrer que la relation de subpotence vérifie les propriétés d’une relation d’ordre sur les classes cardinales. L’antisymétrie provient d’un théorème classique dû à Cantor et Bernstein, affirmant que s’il existe une injection \(f : E \to F\), et une injection \(g : F \to E\), alors il existe une bijection \(E \to F\).</li>
+                    <li>Avec l’axiome du choix, on peut montrer que cette « relation d’ordre » est totale.</li>
+                </ul>
+            </div>
+            <p>Attention, certaines intuitions sur les comparaisons de cardinaux d’ensembles finis peuvent être fausses dans ce contexte.</p>
+            
+            <div class="box avertissement-box" id="av2.2.3">
+                <p><strong>Avertissement 2.2.3</strong></p>
+                <p>Deux ensembles vérifiant une inclusion stricte \(E \subsetneq F\) peuvent être de même cardinal. Pourtant \(F\) contient strictement plus d’éléments que \(E\).</p>
+            </div>
+            
+            <div class="box example-box" id="ex2.2.4">
+                <p><strong>Exemple 2.2.4 – Hôtel de Hilbert</strong></p>
+                <p>\(f : \mathbb{N} \to \mathbb{N}^*\) tel que \(f(n) = n + 1\) est une bijection. Donc \(\mathbb{N}\) et \(\mathbb{N}^*\) ont même cardinal.</p>
+            </div>
+        </section>
+        <section id="chap2-secII.2">
+            <h3>II.2 Dénombrabilité</h3>
+            <div class="box definition-box" id="def2.2.5">
+                <p><strong>Définition 2.2.5 – Ensemble dénombrable</strong></p>
+                <p>Soit \(E\) un ensemble. On dit que :</p>
+                <ul>
+                    <li>\(E\) est dénombrable s’il est de même cardinal que \(\mathbb{N}\) ;</li>
+                    <li>\(E\) est au plus dénombrable s’il est fini ou dénombrable.</li>
+                </ul>
+            </div>
+            <p>Ainsi, \(E\) est dénombrable si et seulement s’il existe une bijection \(f : \mathbb{N} \to E\).</p>
+            
+            <div class="box proposition-box" id="prop2.2.6">
+                <p><strong>Proposition 2.2.6 – Dénombrabilité de \(\mathbb{N}^2\)</strong></p>
+                <p>Le produit cartésien \(\mathbb{N}^2\) est dénombrable.</p>
+            </div>
+            
+            <p>Nous souhaitons caractériser les ensembles au plus dénombrables à l’aide des sous-ensembles de \(\mathbb{N}\). Pour cela, nous commençons par établir un lemme sur le cardinal des sous-ensembles de \(\mathbb{N}\).</p>
+            <div class="box theorem-box" id="lem2.2.7">
+                <p><strong>Lemme 2.2.7</strong></p>
+                <p>Tout sous-ensemble de \(\mathbb{N}\) est au plus dénombrable.</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop2.2.8">
+                <p><strong>Proposition 2.2.8 – Première caractérisation des ensembles au plus dénombrables</strong></p>
+                <p>Un ensemble \(E\) est au plus dénombrable si et seulement s’il peut être mis en bijection avec une partie de \(\mathbb{N}\).</p>
+            </div>
+            
+            <p>Nous donnons une deuxième caractérisation des ensembles au plus dénombrables en terme de surjection ou d’injection. Cette caractérisation est plus souple pour prouver les différentes propriétés de dénombrabilité liées aux constructions ensemblistes. Cette caractérisation nécessite un petit lemme.</p>
+            <div class="box theorem-box" id="lem2.2.9">
+                <p><strong>Lemme 2.2.9 – Inversibilité à gauche ou droite des injections et surjections</strong></p>
+                <p>Soit \(f : E \to F\).</p>
+                <ol>
+                    <li>Si \(f\) est injective, il existe \(g : F \to E\) telle que \(g \circ f = \text{id}_E\), et \(g\) est alors surjective.</li>
+                    <li>Si \(f\) est surjective, il existe \(g : F \to E\) telle que \(f \circ g = \text{id}_F\), et \(g\) est alors injective.</li>
+                </ol>
+            </div>
+            
+            <div class="box remark-box" id="rem2.2.10">
+                <p><strong>Remarque 2.2.10</strong></p>
+                <ul>
+                    <li>Ce sont en fait des équivalences.</li>
+                    <li>On utilise l’axiome du choix (qui affirme la possibilité de pouvoir faire simultanément une infinité de choix).</li>
+                </ul>
+            </div>
+            
+            <div class="box proposition-box" id="prop2.2.11">
+                <p><strong>Proposition 2.2.11 – Deuxième caractérisation des ensembles au plus dénombrables</strong></p>
+                <p>Soit \(E\) un ensemble non vide. Les trois propriétés suivantes sont équivalentes :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(E\) est au plus dénombrable</li>
+                    <li>il existe une fonction injective \(f : E \to \mathbb{N}\).</li>
+                    <li>il existe une fonction surjective \(f : \mathbb{N} \to E\).</li>
+                </ol>
+            </div>
+        </section>
+        <section id="chap2-secII.3">
+            <h3>II.3 Règles opératoires sur les ensembles dénombrables</h3>
+            <div class="box proposition-box" id="prop2.2.12">
+                <p><strong>Proposition 2.2.12 – Construction d’ensembles dénombrables</strong></p>
+                <ol>
+                    <li>Si \(E\) et \(F\) sont au plus dénombrables, alors \(E \times F\) est au plus dénombrable.</li>
+                    <li>Plus généralement, un produit \(E_1 \times \dots \times E_n\) d’un nombre fini d’ensembles au plus dénombrables est au plus dénombrable. Si l’un d’eux est dénombrable et les autres non vides, alors le produit est dénombrable.</li>
+                    <li>Une union d’un nombre au plus dénombrable d’ensembles au plus dénombrables est au plus dénombrable. Si l’un des ensembles est dénombrable, l’union est dénombrable.</li>
+                </ol>
+            </div>
+            
+            <div class="box theorem-box" id="cor2.2.13">
+                <p><strong>Corollaire 2.2.13</strong></p>
+                <ol>
+                    <li>L’ensemble \(\mathbb{Z}\) est dénombrable.</li>
+                    <li>L’ensemble \(\mathbb{N}^p\) est dénombrable.</li>
+                    <li>L’ensemble \(\mathbb{Q}\) des rationnels est dénombrable.</li>
+                </ol>
+            </div>
+            <p>Un résultat important sur les familles sommables découle de ces propriétés. On rappelle la définition suivante.</p>
+            <div class="box definition-box" id="def2.2.14">
+                <p><strong>Définition 2.2.14 – Support d’une famille de scalaires</strong></p>
+                <p>Soit \(a = (a_i)_{i \in I}\) une famille de réels ou complexes. Le support de \(a\) est l’ensemble</p>
+                \[ J = \{i \in I | a_i \neq 0\}. \]
+            </div>
+            
+            <div class="box proposition-box" id="prop2.2.15">
+                <p><strong>Proposition 2.2.15 – Support d’une famille sommable</strong></p>
+                <p>Soit \(a = (a_i)_{i \in I}\) une famille de réels ou complexes. Si \(a\) est sommable, alors le support de \(a\) est au plus dénombrable.</p>
+            </div>
+        </section>
+        <section id="chap2-secII.4">
+            <h3>II.4 Des ensembles infinis non dénombrables</h3>
+            <p>Comme on l’a vu, des ensembles qui semblent bien plus gros que \(\mathbb{N}\) sont dénombrables, donc ont dans les faits « autant » d’éléments que \(\mathbb{N}\). Une question qui peut se poser alors est de savoir si tous les ensembles infinis ont même cardinal, ou s’il existe d’autres cardinaux (plus gros). Un premier élément de réponse provient de l’étude du cardinal de \(\mathbb{R}\), à partir de l’écriture décimale d’un nombre réel. On rappelle qu’un nombre réel admet un et un seul développement décimal, à condition d’exclure les développements terminant uniquement par une infinité de 9.</p>
+            
+            <div class="box theorem-box" id="th2.2.16">
+                <p><strong>Théorème 2.2.16 – Cardinal de \(\mathbb{R}\), Cantor</strong></p>
+                <p>L’ensemble des réels \(\mathbb{R}\) est non dénombrable.</p>
+            </div>
+            <div class="proof">
+                <p>Ÿ <strong>Éléments de preuve.</strong></p>
+                <p>(démonstration non exigible) Sinon, considérer une énumération \((x_n)_{n \in \mathbb{N}^*}\) de tous les réels, et considérer un \(y\) tel que le \(n\)-ième chiffre après la virgule de \(y\) soit distinct de 0, 9 et du \(n\)-ième chiffre de \(x_n\). Le réel \(y\) peut-il être dans l’énumération ? Pourquoi prendre la précaution de prendre les chiffres distincts de 0 et 9 ?</p>
+            </div>
+            <p>Cette preuve est connue sous le nom d’« argument diagonal de Cantor », dont une généralisation donne un deuxième élément de réponse à la question initiale :</p>
+            <div class="box theorem-box" id="th2.2.17">
+                <p><strong>Théorème 2.2.17 – Cantor, HP</strong></p>
+                <p>Soit \(X\) un ensemble. Alors \(\text{Card}(X) < \text{Card}(\mathcal{P}(X))\) (i.e. \(X\) est subpotent à \(\mathcal{P}(X)\), mais pas équipotent).</p>
+            </div>
+             <div class="proof">
+                <p>Ÿ <strong>Éléments de preuve.</strong></p>
+                <p>S’il existe une surjection \(f : X \to \mathcal{P}(X)\), considérer \(Y \subset X\) constitué des éléments \(x\) tels que \(x \notin f(x)\), et obtenir une contradiction en considérant l’appartenance de \(c\) à \(Y\), \(c\) étant un élément de \(X\) tel que \(f(c) = Y\).</p>
+            </div>
+            <p>On peut donc construire une chaîne infinie d’ensembles ayant des cardinaux strictement croissants. Il y a donc une infinité de cardinaux infinis distincts.</p>
+            <div class="box remark-box" id="rem2.2.18">
+                <p><strong>Remarque 2.2.18</strong></p>
+                <p>En quoi le résultat précédent empêche-t-il l’existence d’un « ensemble des ensembles » ?</p>
+            </div>
+        </section>
+    </section>
+</section>
+<!-- Fin du chapitre 2 -->
+                            <section id="chap3">
+    <div class="chapter-heading">
+        <span class="chapter-number">3</span>
+        <div class="chapter-title">
+            <h1>Espaces vectoriels normés</h1>
+        </div>
+    </div>
+    
+    <p>Le but de ce chapitre est d’introduire un cadre qui permettra de généraliser l’analyse réelle de première année au cas de fonctions définies d’un espace vectoriel vers un autre. En particulier, la notion importante à la base de la notion de limite (et à partir de là, de continuité et de dérivabilité) est la notion de convergence d’une suite.</p>
+    <p>On aimerait donc donner un cadre rigoureux à l’étude de la convergence de suites dans un espace vectoriel \(E\) sur \(\mathbb{R}\) ou \(\mathbb{C}\). Si cet espace est de dimension finie, il suffit d’étudier la convergence coordonnée par coordonnée relativement à une base fixée. On verra dans un chapitre ultérieur que la propriété de convergence ne dépend alors pas du choix de la base. Ainsi, dans ce contexte, toute notion « raisonnable » de convergence équivaut à la convergence coordonnée par coordonnée.</p>
+    <p>Lorsque \(E\) n’est pas de dimension finie, les choses sont beaucoup moins claires, et nécessitent de revenir à l’intuition et la définition de la convergence, en terme d’approximation : une suite réelle ou complexe \((u_n)_{n \in \mathbb{N}}\) converge vers \(\ell\), si et seulement si, pour toute qualité d’approximation \(\varepsilon > 0\), à partir d’un certain rang, \(u_n\) est presque égal à \(\ell\), à \(\varepsilon\) près. Cette définition nécessite de mesurer une distance de \(u_n\) à \(\ell\).</p>
+    <p>Pour généraliser cette définition, nous introduisons la notion de norme sur un espace vectoriel, permettant de définir ensuite une distance. Beaucoup de notions d’analyse réelle (notamment dans un premier temps d’analyse séquentielle) se généralisent alors dans le cadre des espaces vectoriels normés (c’est-à-dire munis d’une norme). On montrera par exemple dans le chapitre suivant des généralisations de certaines propriétés des fonctions continues, rencontrées dans le cadre de fonctions réelles : le théorème des bornes atteintes, le théorème des valeurs intermédiaires et le théorème de Heine par exemple.</p>
+    <p>Nous ferons remarquer dans la dernière partie (HP) qu’il est possible de définir directement une notion plus générale de distance, sans passer par une norme, ce qui est suffisant pour pouvoir définir de façon satisfaisante la notion de convergence.</p>
+
+    <section id="chap3-secI">
+        <h2>I Normes sur un espace vectoriel</h2>
+        <p>Dans toute cette partie \(\mathbb{K}\) désigne le corps \(\mathbb{R}\) ou \(\mathbb{C}\).</p>
+        <section id="chap3-secI.1">
+            <h3>I.1 Définitions et propriétés élémentaires</h3>
+            <div class="box definition-box" id="def3.1.1">
+                <p><strong>Définition 3.1.1 – Norme sur un \(\mathbb{K}\)-espace vectoriel</strong></p>
+                <p>Soit \(E\) un espace vectoriel sur \(\mathbb{K}\), et \(N : E \to \mathbb{R}^+\) une application à valeurs réelles positives. On dit que \(N\) est une norme si et seulement si \(N\) vérifie les propriétés suivantes :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>(séparation) pour tout \(x \in E, N(x) = 0 \iff x = 0\) ;</li>
+                    <li>(homogénéité) pour tout \(x \in E\) et \(\lambda \in \mathbb{K}, N(\lambda x) = |\lambda|N(x)\);</li>
+                    <li>(inégalité triangulaire) pour tout \((x, y) \in E^2, N(x + y) \le N(x) + N(y)\).</li>
+                </ol>
+            </div>
+            <p>La propriété de positivité est en fait redondante, mais ce n’est généralement pas la plus dure à montrer dans les situations concrètes.</p>
+            <div class="box proposition-box" id="prop3.1.2">
+                <p><strong>Proposition 3.1.2</strong></p>
+                <p>Soit \(N : E \to \mathbb{R}\) vérifiant les points (i), (ii) et (iii) de la propriété précédente. Alors pour tout \(x \in E, N(x) \ge 0\) (et par conséquent, \(N\) est une norme).</p>
+            </div>
+            
+            <div class="box definition-box" id="def3.1.3">
+                <p><strong>Définition 3.1.3 – Espace vectoriel normé</strong></p>
+                <ul>
+                    <li>Un espace vectoriel normé \(E\) est un \(\mathbb{K}\) espace vectoriel \(E\) muni d’une norme \(N : E \to \mathbb{R}^+\).</li>
+                    <li>Cette norme sera souvent notée \(\Vert \cdot \Vert\). Ainsi, pour \(x \in E, \Vert x \Vert\) désignera la norme de \(x\).</li>
+                </ul>
+            </div>
+
+            <div class="box example-box" id="ex3.1.4">
+                <p><strong>Exemples 3.1.4</strong></p>
+                <ul>
+                    <li>Si \(E = \mathbb{K}\), \(|\cdot|\) est une norme.</li>
+                    <li>Si \(E = \mathbb{R}^2\), \((x, y) \mapsto \sqrt{x^2 + y^2}\) est une norme.</li>
+                </ul>
+            </div>
+            <p>Le deuxième exemple est un cas particulier d’une situation plus générale déjà croisée en première année.</p>
+            
+            <div class="box proposition-box" id="prop3.1.5">
+                <p><strong>Proposition 3.1.5 – Norme euclidienne</strong></p>
+                <p>Soit \((E, \langle \cdot, \cdot \rangle)\) un espace préhilbertien réel. Pour tout \(x\), on note</p>
+                \[ \Vert x \Vert = \sqrt{\langle x, x \rangle}. \]
+                <p>Alors \(\Vert \cdot \Vert\) est une norme sur \(E\), appelée norme euclidienne associée au produit scalaire \(\langle \cdot, \cdot \rangle\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop3.1.6">
+                <p><strong>Proposition 3.1.6 – Inégalités triangulaires</strong></p>
+                <p>Soit \((E, \Vert \cdot \Vert)\) un espace vectoriel normé. Alors :</p>
+                <ol>
+                    <li>Pour tout \((x_1, \dots, x_n) \in E^n, \left\Vert \sum_{k=1}^n x_k \right\Vert \le \sum_{k=1}^n \Vert x_k \Vert\).</li>
+                    <li>Pour tout \((x, y) \in E^2, |\Vert x \Vert - \Vert y \Vert| \le \Vert x - y \Vert\).</li>
+                </ol>
+            </div>
+
+            <div class="box theorem-box" id="lem3.1.7">
+                <p><strong>Lemme 3.1.7 – Transfert d’une norme</strong></p>
+                <p>Soit \(\varphi : E \to F\) une application linéaire injective entre deux espaces vectoriels, et \(N\) une norme sur \(F\). Alors l’application \(N'\) définie sur \(E\) par</p>
+                \[ N'(x) = N(\varphi(x)) \]
+                <p>est une norme sur \(E\).</p>
+            </div>
+
+            <div class="box theorem-box" id="cor3.1.8">
+                <p><strong>Corollaire 3.1.8 – Restriction d’une norme</strong></p>
+                <p>Soit \(N\) une norme sur \(E\), et soit \(F\) un sous-espace vectoriel de \(E\). Alors la restriction \(N_F\) de \(N\) à \(F\) est une norme sur \(F\). Ainsi, tout sous-espace vectoriel d’un e.v.n. est muni d’une structure d’e.v.n. par restriction de la norme de \(E\).</p>
+            </div>
+        </section>
+        
+        <section id="chap3-secI.2">
+            <h3>I.2 Normes sur des espaces de dimension finie</h3>
+            <div class="box proposition-box" id="propdef3.1.9">
+                <p><strong>Proposition/Définition 3.1.9 – Normes usuelles sur \(\mathbb{K}^n\)</strong></p>
+                <p>Soit, pour tout \(X = (x_1, \dots, x_n) \in \mathbb{K}^n\) :</p>
+                \[ \Vert X \Vert_1 = \sum_{k=1}^n |x_k|, \quad \Vert X \Vert_2 = \sqrt{\sum_{k=1}^n |x_k|^2}, \quad \Vert X \Vert_\infty = \max_{i \in \llbracket 1,n \rrbracket} |x_i|. \]
+                <p>Alors \(\Vert \cdot \Vert_1, \Vert \cdot \Vert_2\) et \(\Vert \cdot \Vert_\infty\) sont des normes.</p>
+            </div>
+            
+            <div class="box remark-box" id="rem3.1.10">
+                <p><strong>Remarque 3.1.10</strong></p>
+                <ol>
+                    <li>Si \(\mathbb{K} = \mathbb{R}\), \(\Vert \cdot \Vert_2\) est la norme euclidienne associée au produit scalaire canonique.</li>
+                    <li>Un même espace vectoriel peut être muni de plusieurs normes ! Comme la notion de convergence est définie à l’aide des normes, elle peut être fortement dépendante du choix de la norme. Ainsi, une suite peut très bien converger pour une norme et pas pour une autre. On verra des exemples en exercice.</li>
+                </ol>
+            </div>
+
+            <p>Par transfert, on en déduit :</p>
+            <div class="box proposition-box" id="propdef3.1.11">
+                <p><strong>Proposition/Définition 3.1.11 – Normes usuelles sur un espace de dimension finie</strong></p>
+                <p>Soit \(E\) un \(\mathbb{K}\)-espace vectoriel de dimension finie, muni d’une base \(\mathcal{B} = (b_1, \dots, b_n)\). Pour \(X \in E\) tel que \([X]_\mathcal{B} = \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}\), on définit :</p>
+                \[ \Vert X \Vert_{\mathcal{B},1} = \sum_{k=1}^n |x_k|, \quad \Vert X \Vert_{\mathcal{B},2} = \sqrt{\sum_{k=1}^n |x_k|^2}, \quad \Vert X \Vert_{\mathcal{B},\infty} = \max_{i \in \llbracket 1,n \rrbracket} |x_i|. \]
+                <p>S’il n’y a pas d’ambiguïté sur la base, on notera simplement \(\Vert \cdot \Vert_1, \Vert \cdot \Vert_2\) ou \(\Vert \cdot \Vert_\infty\).</p>
+            </div>
+        </section>
+
+        <section id="chap3-secI.3">
+            <h3>I.3 Normes sur des espaces de fonctions</h3>
+            
+            <div class="box avertissement-box" id="av3.1.12">
+                <p><strong>Avertissement 3.1.12</strong></p>
+                <p>Toute norme sur un \(\mathbb{R}\)-espace vectoriel n’est pas euclidienne. Par exemple, \(\Vert \cdot \Vert_\infty\) n’est pas euclidienne.</p>
+            </div>
+            <p>On rappelle que si \(E\) est un espace vectoriel sur \(\mathbb{K}\), alors tout ensemble de fonctions \(E^A\) défini sur un ensemble quelconque \(A\) et à valeurs dans \(E\) est un espace vectoriel sur \(\mathbb{K}\). On peut chercher alors à définir des normes sur cet espace ou sur des sous-espaces vectoriels de cet espace. Dans un premier temps, nous nous intéressons au sous-espace \(C^0([a, b], \mathbb{K})\) de \(\mathbb{K}^{[a,b]}\), toujours avec \(\mathbb{K} = \mathbb{R}\) ou \(\mathbb{C}\).</p>
+            <p>L’intégration correspondant à une sommation continue, les exemples précédents s’adaptent bien dans le cadre de fonctions continues.</p>
+            
+            <div class="box proposition-box" id="propdef3.1.13">
+                <p><strong>Proposition/Définition 3.1.13 – Normes sur \(C^0([a, b], \mathbb{K})\)</strong></p>
+                <p>Pour tout \(f \in C^0([a, b], \mathbb{K})\), on définit</p>
+                \[ \Vert f \Vert_1 = \int_a^b |f(t)| dt, \quad \Vert f \Vert_2 = \sqrt{\int_a^b |f(t)|^2 dt}, \quad \Vert f \Vert_\infty = \sup_{t \in [a,b]} |f(t)|. \]
+                <p>Alors \(\Vert \cdot \Vert_1, \Vert \cdot \Vert_2\) et \(\Vert \cdot \Vert_\infty\) sont des normes, appelées respectivement :</p>
+                <ul>
+                    <li>norme de la convergence en moyenne pour \(\Vert \cdot \Vert_1\) ;</li>
+                    <li>norme de la convergence en moyenne quadratique pour \(\Vert \cdot \Vert_2\) ;</li>
+                    <li>Norme de la convergence uniforme, ou norme infinie pour \(\Vert \cdot \Vert_\infty\).</li>
+                </ul>
+            </div>
+            
+            <div class="box remark-box" id="rem3.1.14">
+                <p><strong>Remarque 3.1.14</strong></p>
+                <ol>
+                    <li>Ces normes s’étendent-elles au cas des fonctions continues par morceaux ? (la réponse n’est pas forcément la même suivant les normes).</li>
+                    <li>Dans la définition de \(\Vert \cdot \Vert_\infty\), le sup est-il un max ?</li>
+                </ol>
+            </div>
+            <p>La norme \(\Vert \cdot \Vert_\infty\) peut être définie dans un contexte beaucoup plus général.</p>
+            <div class="box definition-box" id="def3.1.15">
+                <p><strong>Définition 3.1.15 – Parties bornées, applications bornées</strong></p>
+                <p>Soit \(A\) un ensemble quelconque, \((E, \Vert \cdot \Vert)\) un e.v.n., et \(B\) une partie quelconque de \(E\).</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>On dit que \(B\) est bornée s’il existe un réel \(M \in \mathbb{R}^+\) tel que pour tout \(x \in B, \Vert x \Vert \le M\).</li>
+                    <li>On dit qu’une application \(f \in E^A\) est bornée si son image \(\text{Im}(f)\) est un sous-ensemble borné de \(E\), c’est-à-dire s’il existe \(M \in \mathbb{R}^+\) tel que \(\forall x \in A, \Vert f(x) \Vert \le M\).</li>
+                </ol>
+                <p>On note \(\mathcal{B}(A, E)\) l’ensemble des applications bornées de \(A\) dans \(E\).</p>
+            </div>
+        </section>
+        
+        <section id="chap3-secI.4">
+            <h3>I.4 Normes sur \(\mathbb{K}[X]\)</h3>
+             <div class="box proposition-box" id="prop3.1.16">
+                <p><strong>Proposition 3.1.16 – Structure de \(\mathcal{B}(A, E)\)</strong></p>
+                <p>L’ensemble \(\mathcal{B}(A, E)\) est un espace vectoriel sur \(\mathbb{K}\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="propdef3.1.17">
+                <p><strong>Proposition/Définition 3.1.17 – Norme de la convergence uniforme sur \(\mathcal{B}(A, E)\)</strong></p>
+                <p>Soit \(A\) un ensemble quelconque et \((E, \Vert \cdot \Vert)\) un e.v.n.. Pour tout \(f \in \mathcal{B}(A, E)\), on définit</p>
+                \[ \Vert f \Vert_\infty = \sup_{a \in A} \Vert f(a) \Vert. \]
+                <p>L’application \(\Vert \cdot \Vert_\infty\) est une norme sur \(\mathcal{B}(A, E)\), appelée norme de la convergence uniforme sur \(\mathcal{B}(A, E)\).</p>
+            </div>
+            
+            <p>Suivant qu’on s’intéresse à des propriétés algébriques liées aux coefficients, ou analytiques liées aux valeurs de la fonction polynomiale associée, on peut adopter différentes normes sur l’espace des polynômes. En particulier, les normes définies sur \(\mathbb{K}^n\) s’adaptent bien, du fait que, même si \(\mathbb{K}[X]\) n’est pas de dimension finie, les polynômes ont un nombre fini de coefficients non nuls.</p>
+            <p>Ainsi, pour \(P = \sum_{k=0}^\infty a_k X^k\) (somme en réalité finie), on peut définir</p>
+            \[ \Vert P \Vert_1 = \sum_{n=0}^\infty |a_n|, \quad \Vert P \Vert_2 = \sqrt{\sum_{n=0}^\infty |a_n|^2}, \quad \Vert P \Vert_\infty = \sup_{n \in \mathbb{N}} |a_n|. \]
+            <p>Et dans un contexte plus analytique, on peut définit les normes \(\Vert \cdot \Vert_1, \Vert \cdot \Vert_2, \Vert \cdot \Vert_\infty\) associées aux fonctions polynomiales définies par les polynômes formels.</p>
+            <div class="box remark-box" id="rem3.1.18">
+                <p><strong>Remarque 3.1.18</strong></p>
+                <p>La définition des normes séquentielles ci-dessus s’étend à certains sous-espaces de l’espace des suites \(\mathbb{K}^\mathbb{N}\) (les sous-espaces permettant d’assurer la bonne définition de ces normes).</p>
+            </div>
+        </section>
+
+        <section id="chap3-secI.5">
+            <h3>I.5 Normes sur \(M_n(\mathbb{K})\)</h3>
+            <p>L’espace \(M_n(\mathbb{K})\) est isomorphe à \(\mathbb{K}^{n^2}\) (par exemple en mettant les unes au dessus des autres les colonnes de \(M_n(\mathbb{K})\)). Via cet isomorphisme, les normes usuelles de \(\mathbb{K}^{n^2}\) se transfèrent à \(M_n(\mathbb{K})\) : pour une matrice \(A = (a_{i,j})\), on obtient les normes</p>
+            \[ \Vert A \Vert_1 = \sum_{1 \le i,j \le n} |a_{i,j}|, \quad \Vert A \Vert_2 = \sqrt{\sum_{1 \le i,j \le n} |a_{i,j}|^2}, \quad \Vert A \Vert_\infty = \max_{1 \le i,j \le n} |a_{i,j}|. \]
+            <div class="box remark-box" id="rem3.1.19">
+                <p><strong>Remarque 3.1.19</strong></p>
+                <ol>
+                    <li>Si \(\mathbb{K} = \mathbb{R}\), la norme \(\Vert \cdot \Vert_2\) est associée au produit scalaire canonique sur \(M_n(\mathbb{R})\), défini par
+                    \[ \langle A, B \rangle = \text{tr}(A^T B) = \sum_{1 \le i,j \le n} a_{i,j}b_{i,j}. \]
+                    </li>
+                    <li>Ces 3 définitions s’étendent aux matrices rectangulaires \(M_{n,p}(\mathbb{K})\).</li>
+                    <li>Dans le cas de matrices carrées, comparer \(\Vert AB \Vert\) et \(\Vert A \Vert \cdot \Vert B \Vert\) pour ces différentes normes</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="chap3-secI.6">
+            <h3>I.6 Produits d’e.v.n.</h3>
+            <div class="box definition-box" id="def3.1.20">
+                <p><strong>Définition 3.1.20 – Norme matricielle sur \(M_n(\mathbb{K})\)</strong></p>
+                <p>Une norme \(\Vert \cdot \Vert\) sur \(M_n(\mathbb{K})\) est appelée norme matricielle si elle est sous-multiplicative, i.e. :</p>
+                \[ \forall(A, B) \in M_n(\mathbb{K})^2, \quad \Vert AB \Vert \le \Vert A \Vert \cdot \Vert B \Vert. \]
+            </div>
+
+            <div class="box proposition-box" id="prop3.1.21">
+                <p><strong>Proposition 3.1.21 – Existence d’une norme matricielle, HP</strong></p>
+                <p>Les normes \(\Vert \cdot \Vert_1\) et \(\Vert \cdot \Vert_2\) sont matricielles, la norme \(\Vert \cdot \Vert_\infty\) ne l’est pas.</p>
+            </div>
+            
+            <p>L’existence d’une norme matricielle est d’une grande utilité dans l’étude de convergences de séries matricielles par exemple, notamment des séries faisant intervenir des puissances d’une matrice \(A\). C’est le cas par exemple de la série exponentielle, permettant de définir l’exponentielle d’une matrice carrée :</p>
+            \[ \exp(A) = \sum_{n=0}^\infty \frac{A^n}{n!}. \]
+            <p>Nous définirons dans le chapitre suivant une autre norme matricielle sur \(M_n(\mathbb{K})\), notée \(\Vert A \Vert\), et appelée norme triple, ou norme d’opérateur.</p>
+            
+            <div class="box proposition-box" id="propdef3.1.22">
+                <p><strong>Proposition/Définition 3.1.22 – Produit cartésien d’e.v.n.</strong></p>
+                <p>Soit \(((E_i, N_i))_{i \in \llbracket 1,n \rrbracket}\) une famille finie d’e.v.n.. Pour \(X = (x_1, \dots, x_n) \in E_1 \times \dots \times E_n\), on définit</p>
+                \[ \Vert X \Vert_1 = \sum_{i=1}^n N_i(x_i), \quad \Vert X \Vert_2 = \sqrt{\sum_{i=1}^n N_i(x_i)^2} \quad \text{et} \quad \Vert X \Vert_\infty = \max_{i \in \llbracket 1,n \rrbracket} N_i(x_i). \]
+                <p>Ce sont des normes. La norme \(\Vert \cdot \Vert_\infty\) ainsi définie est appelée norme produit des normes \(N_i\).</p>
+            </div>
+            
+            <div class="box remark-box" id="rem3.1.23">
+                <p><strong>Remarque 3.1.23</strong></p>
+                <p>La notation \(\Vert \cdot \Vert_\infty\) n’indique que la dernière couche de la définition de la norme. Les normes internes utilisées sur chaque composante peuvent ne pas être des normes infinies.</p>
+            </div>
+        </section>
+    </section>
+    
+    <section id="chap3-secII">
+        <h2>II Topologie d’un espace vectoriel normé</h2>
+        
+        <section id="chap3-secII.1">
+            <h3>II.1 Distance et boules</h3>
+            <div class="box definition-box" id="def3.2.1">
+                <p><strong>Définition 3.2.1 – Distance associée à une norme</strong></p>
+                <p>Soit \((E, \Vert \cdot \Vert)\) un e.v.n., et \((x, y) \in E\). On définit la distance de \(x\) à \(y\) par :</p>
+                \[ d(x, y) = \Vert y - x \Vert. \]
+            </div>
+            
+            <div class="box proposition-box" id="prop3.2.2">
+                <p><strong>Proposition 3.2.2 – Propriétés de la distance</strong></p>
+                <p>La distance \(d : E^2 \to \mathbb{R}\) vérifie :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>(séparation) pour tout \((x, y) \in E^2, d(x, y) = 0 \iff x = y\) ;</li>
+                    <li>(symétrie) pour tout \((x, y) \in E^2, d(x, y) = d(y, x)\);</li>
+                    <li>(inégalité triangulaire) pour tout \((x, y, z) \in E^3, d(x, z) \le d(x, y) + d(y, z)\);</li>
+                    <li>(positivité) pour tout \((x, y) \in E^2, d(x, y) \ge 0\).</li>
+                </ol>
+            </div>
+            
+            <div class="box remark-box" id="rem3.2.3">
+                <p><strong>Remarque 3.2.3</strong></p>
+                <ul>
+                    <li>La propriété (iv) découle des 3 autres.</li>
+                    <li>Les propriétés (i) à (iii) ci-dessus (et donc aussi (iv)) permettent de définir des distances sur des ensembles beaucoup plus généraux (qui n’ont pas besoin d’être des espaces vectoriels).</li>
+                </ul>
+            </div>
+            <p>Dans ce qui suit, on se place dans un e.v.n. \(E\), dont la norme sera notée \(\Vert \cdot \Vert\), et la distance associée sera notée \(d\).</p>
+            
+            <div class="box definition-box" id="def3.2.4">
+                <p><strong>Définition 3.2.4 – Boules ouvertes, boules fermées, sphère</strong></p>
+                <p>Soit \(a \in E\), et \(r \in \mathbb{R}^+\)</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>La boule ouverte de centre \(a\) et de rayon \(r\) est définie par \(B(a, r) = \{x \in E \mid d(x, a) < r\}\) ;</li>
+                    <li>La boule fermée de centre \(a\) et de rayon \(r\) est définie par \(\overline{B}(a, r) = \{x \in E \mid d(x, a) \le r\}\) ;</li>
+                    <li>La sphère de centre \(a\) et de rayon \(r\) est définie par \(S(a, r) = \{y \in E \mid d(x, a) = r\}\).</li>
+                </ol>
+                <p>Pour lever une éventuelle ambiguïté, cela arrive d’utiliser la notation \(B^\circ(a, r)\) pour désigner la boule ouverte \(B(a, r)\).</p>
+            </div>
+
+            <div class="box example-box" id="ex3.2.5">
+                <p><strong>Exemples 3.2.5</strong></p>
+                <ol>
+                    <li>Les boules dans \(\mathbb{R}^2\) au sens de la norme \(\Vert \cdot \Vert_2\) sont des disques. Essayez de représenter de la même façon les boules pour la norme \(\Vert \cdot \Vert_1\) et la norme \(\Vert \cdot \Vert_\infty\), et observez qu’une boule n’est pas toujours ronde !</li>
+                    <li>À quoi ressemble la boule \(B(f, \varepsilon)\), pour \(f \in C([a,b], \mathbb{R})\), muni de la norme \(\Vert \cdot \Vert_\infty\) ?</li>
+                </ol>
+            </div>
+            
+            <div class="box example-box" id="ex3.2.6">
+                <p><strong>Exemple 3.2.6</strong></p>
+                <p>Dans \(\mathbb{R}\), les boules sont des intervalles :</p>
+                <ul>
+                    <li>\(B(x, r) = ]x-r, x+r[\)</li>
+                    <li>\(\overline{B}(x, r) = [x-r, x+r]\)</li>
+                </ul>
+                <p>En fait, tout intervalle borné ouvert est une boule ouverte, tout intervalle borné fermé est une boule fermée :</p>
+                <ul>
+                    <li>\(]a, b[ = B\left(\frac{a+b}{2}, \frac{b-a}{2}\right)\),</li>
+                    <li>\([a, b] = \overline{B}\left(\frac{a+b}{2}, \frac{b-a}{2}\right)\).</li>
+                </ul>
+            </div>
+            
+            <div class="box proposition-box" id="prop3.2.7">
+                <p><strong>Proposition 3.2.7 – Caractérisation des parties bornées</strong></p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>Une boule est bornée.</li>
+                    <li>Une partie \(A\) de \(E\) est bornée si et seulement s’il existe \((a, r) \in E \times \mathbb{R}^+\) tel que \(A \subset \overline{B}(a, r)\).</li>
+                </ol>
+            </div>
+            <p>L’inégalité triangulaire implique également une autre propriété des boules, bien visible sur tous les exemples étudiés : la convexité (au sens géométrique).</p>
+            
+            <div class="box definition-box" id="def3.2.8">
+                <p><strong>Définition 3.2.8 – Ensemble convexe</strong></p>
+                <p>Soit \(F\) une partie \(E\). On dit que \(F\) est convexe si et seulement si pour tout couple de points \(A\) et \(B\) de \(E\), le segment \([AB] = \{(1-t)A + tB, t \in [0, 1]\}\) est entièrement inclus dans \(E\).</p>
+            </div>
+
+            <div class="box example-box" id="ex3.2.9">
+                <p><strong>Exemple 3.2.9</strong></p>
+                <p>Par définition, les intervalles sont les sous-ensembles convexes de \(\mathbb{R}\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th3.2.10">
+                <p><strong>Théorème 3.2.10 – Convexité des boules</strong></p>
+                <p>Pour tout \(a \in E\) et \(r > 0\), \(B(a, r)\) et \(\overline{B}(a, r)\) sont des parties convexes de \(E\).</p>
+            </div>
+        </section>
+
+</section>
+        <section id="chap3-secII.2">
+            <h3>II.2 Ouverts, fermés, voisinages</h3>
+            <p>La notion de boule est très mesurée. Nous définissons maintenant des objets un peu similaires, permettant d’assurer la présence de « matière » de toute part d’un point \(a\), mais sans être aussi mesuré. Ainsi, il s’agit d’une notion plus qualitative que la notion très quantitative de boule. L’ensemble \(E\) est toujours un e.v.n., muni de sa norme \(\Vert \cdot \Vert\) et de sa distance \(d\).</p>
+
+            <div class="box definition-box" id="def3.2.11">
+                <p><strong>Définition 3.2.11 – Voisinage</strong></p>
+                <p>Soit \(a \in E\). Un voisinage \(V\) de \(a\) est un sous-ensemble \(V\) de \(E\) tel qu’il existe une boule ouverte centrée en \(a\) entièrement contenue dans \(V\) :</p>
+                \[ \exists \varepsilon > 0, B(a, \varepsilon) \subset V, \quad \text{i.e.} \quad \exists \varepsilon > 0, \forall x \in E, d(x, a) < \varepsilon \implies x \in V. \]
+                <p>On note \(\mathcal{V}(a) \subset \mathcal{P}(E)\) l’ensemble des voisinages de \(a\).</p>
+            </div>
+            <p>En gros, \(V\) est un voisinage de \(x\) si \(x\) est « à l’intérieur de \(V\) », et non sur un bord. En s’éloignant un peu de \(x\), on ne sort pas de \(V\).</p>
+
+            <div class="box example-box" id="ex3.2.12">
+                <p><strong>Exemple 3.2.12 – Voisinages dans \(\mathbb{R}\)</strong></p>
+                <ul>
+                    <li>Dans \(\mathbb{R}\), un voisinage de \(x\) est un ensemble contenant un intervalle \(]a, b[\) tel que \(x \in ]a, b[\).</li>
+                    <li>Par extension et commodité, on dit parfois qu’un ensemble contenant un intervalle \(]a, +\infty[\) est un voisinage de \(+\infty\). Version symétrique pour \(-\infty\). On notera \(\mathcal{V}(+\infty)\) l’ensemble des voisinages de \(+\infty\) dans \(\overline{\mathbb{R}}\).</li>
+                </ul>
+            </div>
+            
+            <div class="box proposition-box" id="prop3.2.13">
+                <p><strong>Proposition 3.2.13 – Intersection et union de voisinages</strong></p>
+                <p>Soit \((V_i)_{i \in I} \in \mathcal{V}(a)^I\) une famille de voisinages de \(a\).</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>Soit \(V \in \mathcal{V}(a)\) et \(W \in \mathcal{P}(E)\) tel que \(V \subset W\). Alors \(W \in \mathcal{V}(a)\).</li>
+                    <li>En particulier, si \(I \neq \emptyset\), \(\bigcup_{i \in I} V_i \in \mathcal{V}(a)\).</li>
+                    <li>Si \(I\) est fini, \(\bigcap_{i \in I} V_i \in \mathcal{V}(a)\).</li>
+                </ol>
+            </div>
+            
+            <div class="box example-box" id="ex3.2.14">
+                <p><strong>Exemple 3.2.14</strong></p>
+                <p>Trouver dans \(\mathbb{R}\) un exemple de famille infinie de voisinages de \(a \in \mathbb{R}\) dont l’intersection n’est pas un voisinage de \(a\).</p>
+            </div>
+            
+            <div class="box definition-box" id="def3.2.15">
+                <p><strong>Définition 3.2.15 – Partie ouverte</strong></p>
+                <ul>
+                    <li>Un ouvert \(U\) de \(E\) est une partie \(U\) de \(E\) qui est voisinage de tous ses points</li>
+                    <li>De manière équivalente, \(U \subset E\) est un ouvert ssi :</li>
+                </ul>
+                \[ \forall x \in U, \exists \varepsilon > 0, B(x, \varepsilon) \subset U. \]
+            </div>
+            <p>Intuitivement, un ouvert est un ensemble dont le « bord » est flou : on peut s’en approcher, mais jamais l’atteindre en restant dans \(U\). Ainsi, l’image qu’il faut en garder est qu’un ouvert est un ensemble ne contenant pas son bord. Évidemment, n’ayant pas défini la notion de bord, ceci reste une image.</p>
+            
+            <div class="box definition-box" id="def3.2.16">
+                <p><strong>Définition 3.2.16 – Partie fermée</strong></p>
+                <p>Un sous-ensemble \(F\) de \(E\) est fermé si son complémentaire \(C_E F\) est ouvert.</p>
+            </div>
+            <p>Cette fois, intuitivement, c’est le complémentaire qui ne contient pas son bord, donc \(F\), lui contient tout son bord.</p>
+            
+            <div class="box example-box" id="ex3.2.17">
+                <p><strong>Exemples 3.2.17</strong></p>
+                <ol>
+                    <li>Les intervalles ouverts sont des sous-ensembles ouverts de \(\mathbb{R}\).</li>
+                    <li>Les intervalles fermés sont des sous-ensembles fermés de \(\mathbb{R}\).</li>
+                    <li>Les intervalles semi-ouverts ne sont ni ouverts ni fermés.</li>
+                    <li>\(\mathbb{R}\) et \(\emptyset\) sont des sous-ensembles à la fois fermés et ouverts de \(\mathbb{R}\).</li>
+                    <li>On peut montrer que les sous-ensembles ouverts de \(\mathbb{R}\) sont les unions disjointes d’intervalles ouverts (voir exercices)</li>
+                </ol>
+            </div>
+            
+            <div class="box definition-box" id="def3.2.18">
+                <p><strong>Définition 3.2.18 – Topologie</strong></p>
+                <p>La topologie d’un e.v.n. \(E\) est la donnée de l’ensemble \(\mathcal{O}\) de tous ses ouverts.</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop3.2.19">
+                <p><strong>Proposition 3.2.19 – Propriétés topologiques des boules</strong></p>
+                <ol>
+                    <li>Les boules ouvertes \(B^\circ(a, r)\) sont des parties ouvertes de \(E\).</li>
+                    <li>Les boules fermées \(\overline{B}(a, r)\) sont des parties fermées de \(E\).</li>
+                    <li>Les sphères \(S(a, r)\) sont des parties fermées de \(E\).</li>
+                </ol>
+            </div>
+            
+            <div class="box proposition-box" id="prop3.2.20">
+                <p><strong>Proposition 3.2.20 – union, intersection d’ouverts et de fermés</strong></p>
+                <ol>
+                    <li>Toute union quelconque d’ouverts est un ouvert ;</li>
+                    <li>Toute intersection d’un nombre fini d’ouverts est un ouvert ;</li>
+                    <li>Toute intersection quelconque de fermés est un fermé ;</li>
+                    <li>Toute union d’un nombre fini de fermés est un fermé.</li>
+                </ol>
+            </div>
+            
+            <div class="box example-box" id="ex3.2.21">
+                <p><strong>Exemples 3.2.21</strong></p>
+                <p>Voici deux contre-exemples à bien garder en tête :</p>
+                <ol>
+                    <li>Contre-exemple pour une intersection infinie d’ouverts : \(\bigcap_{n=1}^\infty \left]-\frac{1}{n}, 1\right[ = [0, 1[\).</li>
+                    <li>Contre-exemple pour une union infinie de fermés : \(\bigcup_{n=1}^\infty \left[\frac{1}{n}, 1\right] = ]0, 1]\).</li>
+                </ol>
+            </div>
+            
+            <div class="box proposition-box" id="prop3.2.22">
+                <p><strong>Proposition 3.2.22 – Propriétés topologiques d’un produit cartésien</strong></p>
+                <p>Soit \(((E_i, N_i))_{i \in \llbracket 1,n \rrbracket}\) une famille finie d’e.v.n.. On munit le produit cartésien \(E = E_1 \times \dots \times E_n\) de la norme produit.</p>
+                <ol>
+                    <li>Soit, pour tout \(i \in \llbracket 1, n \rrbracket, U_i\) un ouvert de \(E_i\). Alors \(U_1 \times \dots \times U_n\) est un ouvert de \(E\).</li>
+                    <li>Soit, pour tout \(i \in \llbracket 1, n \rrbracket, F_i\) un fermé de \(E_i\). Alors \(F_1 \times \dots \times F_n\) est un fermé de \(E\).</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="chap3-secII.3">
+            <h3>II.3 Intérieur, adhérence, frontière</h3>
+            <div class="box definition-box" id="def3.2.23">
+                <p><strong>Définition 3.2.23 – Intérieur</strong></p>
+                <p>Soit \(A\) une partie de l’e.v.n. \(E\).</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>Un point \(a \in E\) est intérieur à \(A\) s’il existe \(\varepsilon > 0\) tel que \(B(a, \varepsilon) \subset A\).</li>
+                    <li>L’intérieur de \(A\), noté \(\mathring{A}\), est la partie de \(E\) constituée de tous les points intérieurs à \(A\) :</li>
+                </ol>
+                \[ \mathring{A} = \{ a \in E \mid \exists \varepsilon > 0, B(a, \varepsilon) \subset A \}. \]
+            </div>
+            
+            <div class="box proposition-box" id="prop3.2.24">
+                <p><strong>Proposition 3.2.24 – Caractérisation topologique de l’intérieur</strong></p>
+                <p>Soit \(A\) une partie de \(E\) ;</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(\mathring{A} \subset A\) ;</li>
+                    <li>\(\mathring{A}\) est un ouvert de \(E\) ;</li>
+                    <li>Si \(U\) est un ouvert de \(A\) tel que \(U \subset A\), alors \(U \subset \mathring{A}\).</li>
+                </ol>
+                <p>Ces trois propriétés peuvent être résumées en disant que \(\mathring{A}\) est le plus grand ouvert de \(E\) inclus dans \(A\).</p>
+            </div>
+
+            <div class="box theorem-box" id="cor3.2.25">
+                <p><strong>Corollaire 3.2.25 – Intérieur d’un ouvert</strong></p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>Si \(A\) est ouvert, \(\mathring{A} = A\). C’est même une équivalence.</li>
+                    <li>\(\mathring{\mathring{A}} = \mathring{A}\).</li>
+                </ol>
+            </div>
+            
+            <div class="box example-box" id="ex3.2.26">
+                <p><strong>Exemples 3.2.26</strong></p>
+                <ol>
+                    <li>Décrire l’intérieur d’un intervalle.</li>
+                    <li>Décrire \(\mathring{\overline{B}}(a, r)\) ?</li>
+                    <li>Justifier que \(\mathring{\mathbb{Q}} = \emptyset\). A-t-on \(\mathring{A \cup B} = \mathring{A} \cup \mathring{B}\) ?</li>
+                </ol>
+            </div>
+
+            <div class="box definition-box" id="def3.2.27">
+                <p><strong>Définition 3.2.27 – Adhérence</strong></p>
+                <p>Soit \(A\) une partie de \(E\).</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>Un point \(a\) est adhérent à \(A\) si pour tout \(\varepsilon > 0, B(a, \varepsilon) \cap A \neq \emptyset\).</li>
+                    <li>L’adhérence \(\overline{A}\) est l’ensemble des points adhérents à \(A\) :</li>
+                </ol>
+                \[ \overline{A} = \{ a \in E \mid \forall \varepsilon > 0, B(a, \varepsilon) \cap A \neq \emptyset \}. \]
+            </div>
+            
+            <div class="box theorem-box" id="lem3.2.29">
+                <p><strong>Lemme 3.2.29 – Lien avec l’intérieur</strong></p>
+                <p>Soit \(A \subset E\). Alors</p>
+                <ul>
+                    <li>\(\overline{A} = (\mathring{(A^c)})^c\), où \(X^c\) désigne le complémentaire de \(X\) dans \(E\) ;</li>
+                    <li>\((\overline{A})^c = \mathring{(A^c)}\)</li>
+                </ul>
+            </div>
+            
+            <div class="box proposition-box" id="prop3.2.30">
+                <p><strong>Proposition 3.2.30 – Caractérisation topologique de l’adhérence</strong></p>
+                <p>Soit \(A \subset E\). Alors \(\overline{A}\) est le plus petit fermé (au sens de l’inclusion) tel que \(A \subset \overline{A}\). Autrement dit :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(\overline{A}\) est un fermé</li>
+                    <li>\(A \subset \overline{A}\)</li>
+                    <li>Si \(F\) est un fermé tel que \(A \subset F\), alors \(\overline{A} \subset F\).</li>
+                </ol>
+            </div>
+            <p>On donne une autre caractérisation en terme de distance. Pour cela, on définit dans un premier temps la distance d’un point à une partie.</p>
+            
+            <div class="box definition-box" id="def3.2.31">
+                <p><strong>Définition 3.2.31 – Distance à une partie</strong></p>
+                <p>Soit \(A\) une partie non vide de \(E\). Soit \(x \in E\). On définit la distance de \(x\) à \(A\) par :</p>
+                \[ d(x, A) = \inf_{y \in A} \Vert y - x \Vert_E \]
+            </div>
+            
+            <div class="box proposition-box" id="prop3.2.32">
+                <p><strong>Proposition 3.2.32 – Caractérisation de l’adhérence par la distance</strong></p>
+                <p>Soit \(A \subset E\). Alors</p>
+                \[ \overline{A} = \{ x \in E \mid d(x, A) = 0 \}. \]
+            </div>
+            
+            <div class="box proposition-box" id="prop3.2.33">
+                <p><strong>Propriétés 3.2.33 – Propriétés relatives aux intersections et unions</strong></p>
+                <p>Ces propriétés ne sont pas explicitement marquées au programme, mais assez utiles. Soit \(A, B \subset E\).</p>
+                <ol>
+                    <li>\(\mathring{A \cap B} = \mathring{A} \cap \mathring{B}\).</li>
+                    <li>\(\overline{A \cup B} = \overline{A} \cup \overline{B}\).</li>
+                    <li>\(\mathring{A} \cup \mathring{B} \subset \mathring{A \cup B}\), mais l’inclusion réciproque peut être fausse.</li>
+                    <li>\(\overline{A \cap B} \subset \overline{A} \cap \overline{B}\), mais l’inclusion réciproque peut être fausse.</li>
+                </ol>
+            </div>
+            
+            <div class="box definition-box" id="def3.2.34">
+                <p><strong>Définition 3.2.34 – Frontière</strong></p>
+                <p>Soit \(A \subset E\). La frontière de \(A\), notée \(\text{Fr}(A)\), est</p>
+                \[ \text{Fr}(A) = \overline{A} \setminus \mathring{A} = \overline{A} \cap \overline{A^c}. \]
+            </div>
+            
+            <div class="box definition-box" id="def3.2.36">
+                <p><strong>Définition 3.2.36 – Parties denses</strong></p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>Soit \(A\) et \(B\) deux parties de \(E\) telles que \(A \subset B\). On dit que \(A\) est dense dans \(B\) si \(B \subset \overline{A}\). Autrement dit, \(A\) est dense dans \(B\) ssi :
+                    \[ \forall b \in B, \forall \varepsilon > 0, \exists a \in A, d(a, b) < \varepsilon. \]
+                    </li>
+                    <li>Soit \(A\) une partie de \(E\). On dit que \(A\) est partout dense si \(\overline{A} = E\) (ce qui équivaut donc à dire que \(A\) est dense dans \(E\)).</li>
+                </ol>
+            </div>
+            
+            <div class="box proposition-box" id="prop3.2.37">
+                <p><strong>Proposition 3.2.37 – Lien avec la densité dans \((\mathbb{R}, \le)\)</strong></p>
+                <p>Soit \(A \subset \mathbb{R}\). Les propositions suivantes sont équivalentes :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(A\) est (partout) dense dans \(\mathbb{R}\) ;</li>
+                    <li>pour tout \((a, b) \in \mathbb{R}^2\) tel que \(a < b\), il existe \(x \in A\) tel que \(a < x < b\).</li>
+                </ol>
+            </div>
+            
+            <div class="box example-box" id="ex3.2.38">
+                <p><strong>Exemples 3.2.38</strong></p>
+                <ol>
+                    <li>\(\mathbb{Q} \subset \mathbb{R}\) est partout dense (dans \(\mathbb{R}\)). Il est dense dans \([0, 1]\).</li>
+                    <li>\(\text{Esc}([a,b], \mathbb{R})\) est dense dans \(C^0([a,b], \mathbb{R})\), ainsi que dans \(C^0_m([a,b], \mathbb{R})\) (espace des fonctions continues par morceaux).</li>
+                    <li>\(\text{GL}_n(\mathbb{C})\) est dense dans \(M_n(\mathbb{C})\).</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- The chapter continues -->
+        
+        <section id="chap3-secII.4">
+            <h3>II.4 Topologie relative</h3>
+            <div class="box definition-box" id="def3.2.39">
+                <p><strong>Définition 3.2.39 – Voisinages relatifs</strong></p>
+                <p>Soit \(A \subset E\), et \(a \in A\). Un voisinage relatif de \(a\) dans \(A\) est une partie \(V \subset A\) telle qu’il existe \(V_0 \in \mathcal{V}(a)\) tel que \(V = V_0 \cap A\).</p>
+            </div>
+            
+            <div class="box example-box" id="ex3.2.40">
+                <p><strong>Exemple 3.2.40</strong></p>
+                <ol>
+                    <li>On se place dans l’e.v.n. \(\mathbb{C}\). Soit \(a \in \mathbb{R}\). Alors \(]a-1, a+1[\) est un voisinage relatif de \(a\) dans \(\mathbb{R}\), mais ce n’est pas un voisinage de \(a\) dans \(\mathbb{C}\).</li>
+                    <li>On se place dans l’e.v.n. \(\mathbb{R}\). Soit \(a \in \mathbb{R}\). Alors \([a, a+1[\) est un voisinage relatif de \(a\) dans \([a, +\infty[\).</li>
+                </ol>
+            </div>
+            
+            <div class="box definition-box" id="term3.2.41">
+                <p><strong>Terminologie 3.2.41 – Voisinage à droite, voisinage à gauche</strong></p>
+                <p>Dans l’e.v.n. \((\mathbb{R}, |\cdot|)\), un voisinage relatif de \(a\) dans \([a, +\infty[\) est parfois appelé voisinage à droite de \(a\). De même, un voisinage à gauche de \(a\) est un voisinage relatif de \(a\) dans \(]-\infty, a]\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop3.2.42">
+                <p><strong>Proposition 3.2.42 – Caractérisation des voisinages relatifs</strong></p>
+                <p>Soit \(V \subset A \subset E\). Les propriétés suivantes sont équivalentes :</p>
+                <ul>
+                    <li>\(V\) est un voisinage relatif de \(a\) dans \(A\) ;</li>
+                    <li>il existe \(\varepsilon > 0\) tel que \(A \cap B(a, \varepsilon) \subset V\) ;</li>
+                    <li>il existe \(\varepsilon > 0\) tel que pour tout \(x \in A, d(x, a) < \varepsilon \implies x \in V\).</li>
+                </ul>
+            </div>
+            
+            <div class="box proposition-box" id="propdef3.2.43">
+                <p><strong>Proposition/Définition 3.2.43 – Ouverts relatifs</strong></p>
+                <p>Soit \(A \subset E\), et \(U \subset A\). Les propriétés suivantes sont équivalentes :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(U\) est un voisinage relatif de tous ses points dans \(A\) ;</li>
+                    <li>pour tout \(a \in U\), il existe \(\varepsilon > 0\) tel que \(B(x, \varepsilon) \cap A \subset U\) ;</li>
+                    <li>il existe un ouvert \(U_0\) de \(E\) tel que \(U = A \cap U_0\).</li>
+                </ol>
+                <p>Si ces propriétés sont vérifiées, on dit que \(U\) est un ouvert relatif de \(A\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="propdef3.2.45">
+                <p><strong>Proposition/Définition 3.2.45 – Fermés relatifs</strong></p>
+                <p>Soit \(A \subset E\), et \(F \subset A\). Les propriétés suivantes sont équivalentes :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(A \setminus F\) est un ouvert relatif de \(A\) ;</li>
+                    <li>il existe \(F_0\) un fermé de \(E\) tel que \(F = A \cap F_0\).</li>
+                </ol>
+                <p>Lorsque ces propriétés sont vérifiées, on dit que \(F\) est un fermé relatif de \(A\).</p>
+            </div>
+
+            <div class="box theorem-box" id="th3.2.47">
+                <p><strong>Théorème 3.2.47 – Union, intersection d’ouverts, fermés relatifs</strong></p>
+                <ol>
+                    <li>Une union quelconque d’ouverts relatifs de \(A\) est un ouvert relatif de \(A\).</li>
+                    <li>Une intersection finie d’ouverts relatifs de \(A\) est un ouvert relatif de \(A\).</li>
+                    <li>Une union finie de fermés relatifs de \(A\) est un fermé relatif de \(A\).</li>
+                    <li>Une intersection quelconque de fermés relatifs de \(A\) est un fermé relatif de \(A\).</li>
+                </ol>
+            </div>
+        </section>
+        
+    </section>
+        
+    <section id="chap3-secIII">
+        <h2>III Convergences</h2>
+        
+        <section id="chap3-secIII.1">
+            <h3>III.1 Suites convergentes</h3>
+            <p>Les notions de convergence vues pour les suites réelles et complexes se généralisent sans peine au cas des suites à valeurs dans un evn.</p>
+            
+            <div class="box proposition-box" id="propdef3.3.1">
+                <p><strong>Proposition/Définition 3.3.1 – Convergence d’une suite d’éléments d’un e.v.n.</strong></p>
+                <p>Soit \((u_n)_{n \in \mathbb{N}}\) une suite d’éléments d’un e.v.n. \(E\), et \(\ell \in E\). Les propriétés suivantes sont équivalentes :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>(point de vue métrique) \(\forall \varepsilon > 0, \exists N \in \mathbb{N}, \forall n \ge N, \Vert u_n - \ell \Vert \le \varepsilon\).</li>
+                    <li>(réexpression du point de vue métrique) \(\forall \varepsilon > 0, \exists N \in \mathbb{N}, \forall n \ge N, u_n \in B(\ell, \varepsilon)\).</li>
+                    <li>(point de vue topologique) \(\forall V \in \mathcal{V}(\ell), \exists N \in \mathbb{N}, \forall n \ge N, u_n \in V\).</li>
+                </ol>
+                <p>Si ces propriétés sont vérifiées, on dit que \((u_n)\) converge vers \(\ell\), ou que \((u_n)\) admet \(\ell\) comme limite.</p>
+            </div>
+            
+            <div class="box remark-box" id="rem3.3.2">
+                <p><strong>Remarque 3.3.2</strong></p>
+                <p>Dans le point (i), l’inégalité \(\Vert u_n - \ell \Vert \le \varepsilon\) peut être exprimée indifféremment avec une inégalité large ou stricte, sans que cela ne modifie le sens de la propriété. C’est ce que suggère l’équivalence avec le point (ii).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th3.3.3">
+                <p><strong>Théorème 3.3.3 – Unicité de la limite</strong></p>
+                <p>Soit \((u_n)_{n \in \mathbb{N}}\) une suite d’éléments d’un e.v.n. \(E\). Si \((u_n)\) admet une limite, alors cette limite est unique.</p>
+            </div>
+            <p>Cette unicité permet de définir sans ambiguïté LA limite d’une suite (en cas d’existence).</p>
+            
+            <div class="box definition-box" id="not3.3.4">
+                <p><strong>Notation 3.3.4 – Limite d’une suite</strong></p>
+                <p>Si \((u_n)\) converge vers \(\ell\), on écrira \(\ell = \lim_{n \to \infty} u_n\), ce qui est défini sans ambiguïté en vertu du théorème précédent.</p>
+            </div>
+            
+            <p>Ainsi, la notion de convergence est fortement dépendante de la norme (en tout cas en dimension infinie).</p>
+            
+            <div class="box proposition-box" id="prop3.3.6">
+                <p><strong>Proposition 3.3.6 – Convergent implique borné</strong></p>
+                <p>Soit \((u_n)_{n \in \mathbb{N}}\) une suite d’éléments de \(E\). Si \((u_n)\) est convergente, alors elle est bornée.</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop3.3.7">
+                <p><strong>Proposition 3.3.7 – Caractérisation de la convergence dans un produit cartésien</strong></p>
+                <p>Soit \((E_1, N_1), \dots, (E_p, N_p)\) des e.v.n., et \(E = E_1 \times \dots \times E_p\) le produit cartésien, muni de la norme produit. Soit \((X_n)_{n \in \mathbb{N}} \in E^\mathbb{N}\), et pour tout \(n \in \mathbb{N}\),</p>
+                \[ X_n = (x_{1,n}, \dots, x_{p,n}). \]
+                <p>Alors \((X_n)_{n \in \mathbb{N}}\) converge vers \(L = (\ell_1, \dots, \ell_p)\) si et seulement si pour tout \(k \in \llbracket 1, p \rrbracket, (x_{k,n})_{n \in \mathbb{N}}\) converge vers \(\ell_k\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop3.3.8">
+                <p><strong>Proposition 3.3.8 – Caractérisation par la limite des normes</strong></p>
+                <p>Soit \((u_n)_{n \in \mathbb{N}} \in E^\mathbb{N}, \ell \in E\). La suite \((u_n)\) converge vers \(\ell\) si et seulement si la suite de réels \((\Vert u_n - \ell \Vert)_{n \in \mathbb{N}}\) converge vers 0.</p>
+            </div>
+
+            <div class="box method-box" id="meth3.3.9">
+                <p><strong>Méthode 3.3.9</strong></p>
+                <p>Pour montrer que \(u_n \to \ell\), il suffit de trouver une majoration</p>
+                \[ \forall n \in \mathbb{N}, \Vert u_n - \ell \Vert \le M_n, \]
+                <p>où \((M_n)\) est une suite de réels de limite nulle.</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop3.3.10">
+                <p><strong>Proposition 3.3.10 – Règles opératoires générales</strong></p>
+                <p>Soit \((u_n)_{n \in \mathbb{N}}\) et \((v_n)_{n \in \mathbb{N}}\) deux suites d’éléments d’un e.v.n. \(E\), et \((\lambda_n)_{n \in \mathbb{N}} \in \mathbb{K}^\mathbb{N}\). Si \((u_n), (v_n)\) et \((\lambda_n)\) sont convergentes, alors :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>la suite \((u_n + v_n)\) est convergente, et \(\lim_{n\to\infty} (u_n + v_n) = \lim_{n\to\infty} u_n + \lim_{n\to\infty} v_n\);</li>
+                    <li>la suite \((\lambda_n u_n)\) est convergente, et \(\lim_{n\to\infty} \lambda_n u_n = \lim_{n\to\infty} \lambda_n \lim_{n\to\infty} u_n\).</li>
+                </ol>
+            </div>
+            
+        </section>
+        
+        <section id="chap3-secIII.2">
+            <h3>III.2 Caractérisations séquentielles</h3>
+            <div class="box proposition-box" id="prop3.3.13">
+                <p><strong>Proposition 3.3.13 – Caractérisation séquentielle de l’adhérence</strong></p>
+                <p>Soit \(A \subset E\), et \(a \in E\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(a \in \overline{A}\)</li>
+                    <li>il existe une suite \((x_n) \in A^\mathbb{N}\) telle que \(x_n \to a\).</li>
+                </ol>
+            </div>
+            
+            <div class="box theorem-box" id="cor3.3.14">
+                <p><strong>Corollaire 3.3.14</strong></p>
+                <p>En particulier, toute suite convergente d’éléments de \(A\) converge dans \(\overline{A}\).</p>
+            </div>
+            <p>On en déduit les autres caractérisations qui suivent.</p>
+            
+            <div class="box proposition-box" id="prop3.3.15">
+                <p><strong>Proposition 3.3.15 – Caractérisation séquentielle de la densité</strong></p>
+                <p>Soit \(A\) et \(B\) des parties de \(E\).</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(A\) est dense dans \(B\) si et seulement si pour tout \(b \in B\), il existe \((x_n)_{n \in \mathbb{N}} \in A^\mathbb{N}\) tel que \(x_n \to b\).</li>
+                    <li>\(A\) est partout dense si et seulement si pour tout \(b \in E\), il existe \((x_n)_{n \in \mathbb{N}} \in A^\mathbb{N}\) tel que \(x_n \to b\).</li>
+                </ol>
+            </div>
+            
+            <div class="box proposition-box" id="prop3.3.16">
+                <p><strong>Proposition 3.3.16 – Caractérisation des fermés</strong></p>
+                <p>Soit \(F \subset E\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(F\) est fermé ;</li>
+                    <li>toute suite convergente \((x_n)_{n \in \mathbb{N}} \in F^\mathbb{N}\) admet sa limite dans \(F\).</li>
+                </ol>
+            </div>
+            <p>Autrement dit, \(F\) est fermé si et seulement si \(F\) est stable par passage à la limite. Par restriction à \(A\), on obtient de même une caractérisation des fermés relatifs.</p>
+        </section>
+    </section>
+
+    <section id="chap3-secIV">
+        <h2>IV Valeurs d’adhérence et compacité</h2>
+        
+        <section id="chap3-secIV.1">
+            <h3>IV.1 Valeur d’adhérence d’une suite</h3>
+            <div class="box definition-box" id="def3.4.1">
+                <p><strong>Définition 3.4.1 – Suite extraite, fonction extractrice</strong></p>
+                <ol>
+                    <li>Soit \((u_n)_{n \in \mathbb{N}} \in E^\mathbb{N}\). Une suite extraite de \((u_n)_{n \in \mathbb{N}}\) est une suite \((v_n)_{n \in \mathbb{N}}\) telle qu’il existe \(\varphi : \mathbb{N} \to \mathbb{N}\) strictement croissante telle que pour tout \(n \in \mathbb{N}, v_n = u_{\varphi(n)}\).</li>
+                    <li>La fonction \(\varphi\) est appelée fonction extractrice de la suite extraite \((v_n)_{n \in \mathbb{N}}\).</li>
+                </ol>
+            </div>
+            
+            <div class="box theorem-box" id="th3.4.2">
+                <p><strong>Théorème 3.4.2 – Théorème de convergence des suites extraites</strong></p>
+                <p>Soit \((u_n)_{n \in \mathbb{N}}\) une suite convergente dans \(E\). Alors toutes les suites extraites de \((u_n)_{n \in \mathbb{N}}\) sont convergentes, de même limite que \((u_n)\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop3.4.3">
+                <p><strong>Proposition 3.4.3</strong></p>
+                <p>Soit \((u_n)_{n \in \mathbb{N}}\) une suite réelle ou complexe. Alors \((u_n)_{n \in \mathbb{N}}\) converge dans \(\mathbb{R}\) ou \(\mathbb{C}\) si et seulement si \((u_{2n})_{n \in \mathbb{N}}\) et \((u_{2n+1})_{n \in \mathbb{N}}\) convergent vers une même limite \(\ell\), et dans ce cas, \(\lim u_n = \ell\).</p>
+            </div>
+            <p>C’est un cas particulier de la situation plus générale suivante :</p>
+            
+            <div class="box theorem-box" id="th3.4.4">
+                <p><strong>Théorème 3.4.4 – Convergence par étude de suites extraites couvrantes</strong></p>
+                <p>Soit \((u_n)_{n \in \mathbb{N}}\), et \((\varphi_i)_{i \in I}\) une famille finie d’extractrices, telle que \(\bigcup_{i \in I} \varphi_i(\mathbb{N}) = \mathbb{N}\). Alors \((u_n)\) converge vers \(\ell\) si et seulement si pour tout \(i \in I, (u_{\varphi_i(n)})\) converge vers \(\ell\).</p>
+            </div>
+            
+            <div class="box definition-box" id="def3.4.5">
+                <p><strong>Définition 3.4.5 – Valeur d’adhérence</strong></p>
+                <p>Soit \((u_n)_{n \in \mathbb{N}} \in E^\mathbb{N}\), et \(a \in E\). On dit que \(a\) est une valeur d’adhérence de la suite \((u_n)_{n \in \mathbb{N}}\) s’il existe une suite extraite \((u_{\varphi(n)})\) de \((u_n)\) telle que \(\lim u_{\varphi(n)} = a\).</p>
+            </div>
+            <p>Ainsi, l’ensemble des valeurs d’adhérence d’une suite \((u_n)_{n \in \mathbb{N}}\) est l’ensemble de toutes les limites (finies) des suites extraites de \((u_n)_{n \in \mathbb{N}}\).</p>
+            
+            <div class="box proposition-box" id="prop3.4.7">
+                <p><strong>Proposition 3.4.7 – Valeurs d’adhérences d’une suite convergente</strong></p>
+                <p>Soit \((u_n) \in E^\mathbb{N}\). Si \(u_n \to \ell\), alors \(\ell\) est valeur d’adhérence de \((u_n)\) et c’est la seule.</p>
+            </div>
+            <p>Ainsi, une suite ayant au moins 2 valeurs d’adhérences est divergente.</p>
+            
+            <div class="box avertissement-box" id="av3.4.8">
+                <p><strong>Avertissement 3.4.8</strong></p>
+                <p>La réciproque est fausse !</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop3.4.10">
+                <p><strong>Proposition 3.4.10 – Valeurs d’adhérence d’une suite extraite</strong></p>
+                <p>Soit \((v_n)\) une suite extraite de \((u_n)\). L’ensemble des valeurs d’adhérence de \((v_n)\) est inclus dans l’ensemble des valeurs d’adhérence de \((u_n)\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop3.4.11">
+                <p><strong>Proposition 3.4.11 – Caractérisation des valeurs d’adhérence</strong></p>
+                <p>Soit \((u_n)_{n \in \mathbb{N}} \in E^\mathbb{N}\) et \(a \in E\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(a\) est valeur d’adhérence de \((u_n)_{n \in \mathbb{N}}\) ;</li>
+                    <li>pour tout voisinage \(V\) de \(a\), il existe \(I \subset \mathbb{N}\) infini tel que pour tout \(n \in I, u_n \in V\) ;</li>
+                    <li>pour tout voisinage \(V\) de \(a\), pour tout \(N \in \mathbb{N}\), il existe \(n \ge N\) tel que \(u_n \in V\) ;</li>
+                    <li>pour tout \(\varepsilon > 0\), il existe \(I \subset \mathbb{N}\) infini tel que pour tout \(n \in I, u_n \in B(a, \varepsilon)\);</li>
+                    <li>pour tout \(\varepsilon > 0\), pour tout \(N \in \mathbb{N}\), il existe \(n \ge N\) tel que \(u_n \in B(a, \varepsilon)\).</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="chap3-secIV.2">
+            <h3>IV.2 Théorème de Bolzano-Weierstrass sur \(\mathbb{R}\)</h3>
+            <div class="box theorem-box" id="th3.4.12">
+                <p><strong>Théorème 3.4.12 – Théorème de Bolzano-Weierstrass réel</strong></p>
+                <p>De toute suite réelle bornée on peut extraire une suite convergente. En d’autres termes, toute suite réelle bornée admet au moins une valeur d’adhérence.</p>
+            </div>
+            
+            <div class="box proposition-box" id="propdef3.4.13">
+                <p><strong>Proposition/Définition 3.4.13 – Valeur d’adhérence infinie</strong></p>
+                <p>Soit \((u_n)_{n \in \mathbb{N}} \in \mathbb{R}^\mathbb{N}\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>il existe une suite extraite \((u_{\varphi(n)})\) convergeant vers \(+\infty\) ;</li>
+                    <li>pour tout \(A \in \mathbb{R}\), il existe une infinité d’indices \(n \in \mathbb{N}\) tels que \(u_n \ge A\) ;</li>
+                    <li>pour tout \(A \in \mathbb{R}\) et tout \(N \in \mathbb{N}\), il existe \(n \ge N\) tel que \(u_n \ge A\) ;</li>
+                    <li>\((u_n)\) n’est pas majorée.</li>
+                </ol>
+                <p>On dit dans ce cas que \(+\infty\) est une valeur d’adhérence de \((u_n)\) dans \(\overline{\mathbb{R}}\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop3.4.14">
+                <p><strong>Proposition 3.4.14 – Existence d’une valeur d’adhérence dans \(\overline{\mathbb{R}}\), HP</strong></p>
+                <p>Toute suite réelle \((u_n)\) admet au moins une valeur d’adhérence dans \(\overline{\mathbb{R}}\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th3.4.15">
+                <p><strong>Théorème 3.4.15 – Caractérisation de la convergence par les valeurs d’adhérence, HP</strong></p>
+                <p>Une suite \((u_n)\) converge dans \(\overline{\mathbb{R}}\) si et seulement si elle admet une unique valeur d’adhérence dans \(\overline{\mathbb{R}}\).</p>
+            </div>
+        </section>
+        
+        <section id="chap3-secIV.3">
+            <h3>IV.3 Sous-ensembles compacts</h3>
+            <div class="box definition-box" id="def3.4.17">
+                <p><strong>Définition 3.4.17 – Sous-ensemble compact</strong></p>
+                <p>Soit \(E\) un e.v.n., et \(K\) une partie de \(E\). On dit que \(K\) est compact (ou séquentiellement compact, ou compact au sens de Bolzano-Weierstrass) si et seulement si de toute suite \((u_n)_{n \in \mathbb{N}} \in K^\mathbb{N}\) d’éléments de \(K\), on peut extraire une suite convergeant vers un élément de \(K\).</p>
+            </div>
+            <p>La propriété définissant la compacité est appelée propriété de Bolzano-Weierstrass.</p>
+            
+            <div class="box example-box" id="ex3.4.18">
+                <p><strong>Exemples 3.4.18</strong></p>
+                <ol>
+                    <li>Les intervalles \([a,b]\) fermés bornés sont des compacts de \(\mathbb{R}\).</li>
+                    <li>\(\mathbb{U}\) est un compact de \(\mathbb{C}\).</li>
+                    <li>Un sous-ensemble fini de \(E\) est compact.</li>
+                </ol>
+            </div>
+            
+            <div class="box proposition-box" id="prop3.4.19">
+                <p><strong>Propriétés 3.4.19</strong></p>
+                <p>Soit \(E\) un e.v.n., et \(K\) un compact.</p>
+                <ol>
+                    <li>\(K\) est fermé et borné.</li>
+                    <li>Soit \(F\) un fermé relatif de \(K\). Alors \(F\) est compact.</li>
+                </ol>
+            </div>
+            
+            <div class="box avertissement-box" id="av3.4.20">
+                <p><strong>Avertissement 3.4.20</strong></p>
+                <p>On prendra garde que (i) ne permet pas de caractériser les compacts. On montrera que c’est le cas en dimension finie. En revanche, un théorème célèbre (théorème de Riesz) affirme que la boule fermée \(\overline{B}(0, 1)\) est compacte si et seulement si \(E\) est de dimension finie, ce qui donne un contre-exemple en dimension infinie.</p>
+            </div>
+            
+            <div class="box theorem-box" id="th3.4.21">
+                <p><strong>Théorème 3.4.21 – Caractérisation de la convergence par les v.a. sur un compact</strong></p>
+                <p>Soit \(E\) un e.v.n., et \(K\) un compact de \(E\). Soit \((u_n)_{n \in \mathbb{N}} \in K^\mathbb{N}\). Alors \((u_n)\) converge si et seulement si \((u_n)\) admet une unique valeur d’adhérence.</p>
+            </div>
+            
+            <div class="box remark-box" id="rem3.4.22">
+                <p><strong>Remarque 3.4.22</strong></p>
+                <p>Du fait même de sa définition (équivalente à l’existence d’une valeur d’adhérence), la notion de compacité joue un rôle central dans de nombreux problèmes existentiels. L’hypothèse de compacité permet par exemple d’obtenir l’existence d’extrema de fonctions continues.</p>
+            </div>
+            
+            <div class="box theorem-box" id="th3.4.23">
+                <p><strong>Théorème 3.4.23 – Produit de compacts</strong></p>
+                <p>Soit \((E_1, N_1), \dots, (E_p, N_p)\) des e.v.n., et pour tout \(i \in \llbracket 1, p \rrbracket, K_i\) un compact de \(E_i\). Alors \(K_1 \times \dots \times K_p\) est un sous-ensemble compact de \(E_1 \times \dots \times E_p\) (muni de la norme produit \(\Vert \cdot \Vert_\infty\)).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th3.4.24">
+                <p><strong>Théorème 3.4.24 – Bolzano-Weierstrass pour \(\Vert \cdot \Vert_\infty\) en dimension finie</strong></p>
+                <p>Soit \(E\) un e.v.n. de dimension finie, de base \(\mathcal{B}\), et muni de la norme \(\Vert \cdot \Vert_{\mathcal{B},\infty}\). Alors toute suite bornée \((u_n)_{n \in \mathbb{N}} \in E^\mathbb{N}\) admet au moins une valeur d’adhérence.</p>
+            </div>
+            <p>Une variante de ce résultat est le très important résultat suivant :</p>
+            
+            <div class="box theorem-box" id="th3.4.25">
+                <p><strong>Théorème 3.4.25 – Compacité de \(\overline{B}(a, r)\) pour \(\Vert \cdot \Vert_{\mathcal{B},\infty}\) en dimension finie</strong></p>
+                <p>Soit \(E\) un espace de dimension finie, et \(\mathcal{B}\) une base de \(E\). Dans l’e.v.n. \((E, \Vert \cdot \Vert_{\mathcal{B},\infty})\), \(\overline{B}(a, r)\) est compact.</p>
+            </div>
+        </section>
+    </section>
+    
+    <section id="chap3-secV">
+        <h2>V Comparaison de normes</h2>
+        <p>Comme on l’a vu dans plusieurs énoncés (par exemple le théorème de Bolzano-Weierstrass), il est souvent plus pratique de travailler avec une norme particulière. En général, ce n’est pas suffisant pour pouvoir généraliser le résultat pour une norme quelconque. On s’intéresse ici à des conditions permettant de nous assurer que pour l’étude d’un problème particulier, deux normes sont interchangeables (i.e. que travailler avec l’une plutôt que l’autre est équivalent).</p>
+        
+        <section id="chap3-secV.1">
+            <h3>V.1 Domination</h3>
+            <div class="box definition-box" id="def3.5.1">
+                <p><strong>Définition 3.5.1 – Domination de normes</strong></p>
+                <p>Soit \(E\) un espace vectoriel sur \(\mathbb{K}\), et \(N_1\) et \(N_2\) deux normes sur \(E\). On dit que \(N_1\) est dominée par \(N_2\) s’il existe \(\alpha \in \mathbb{R}_+^*\) tel que</p>
+                \[ \forall x \in E, N_1(x) \le \alpha N_2(x). \]
+            </div>
+            
+            <div class="box proposition-box" id="prop3.5.2">
+                <p><strong>Proposition 3.5.2 – Caractérisation par l’image de la sphère unité fermée</strong></p>
+                <p>Soit \(E\) un \(\mathbb{K}\)-espace vectoriel et \(N_1\) et \(N_2\) deux normes. Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(N_1\) est dominée par \(N_2\)</li>
+                    <li>Toute partie bornée pour \(N_2\) est également bornée pour \(N_1\)</li>
+                    <li>il existe \(\alpha\) tel que pour tout \(x \in E, N_2(x) \le 1 \implies N_1(x) \le \alpha\). En d’autres termes, la boule fermée unité pour \(N_2\) est bornée pour \(N_1\) ;</li>
+                    <li>il existe \(\alpha\) tel que pour tout \(x \in E, N_2(x) = 1 \implies N_1(x) \le \alpha\). En d’autres termes, la sphère unité pour \(N_2\) est bornée pour \(N_1\) ;</li>
+                </ol>
+            </div>
+            
+            <div class="box proposition-box" id="prop3.5.3">
+                <p><strong>Proposition 3.5.3 – Transitivité de la relation de domination</strong></p>
+                <p>Si \(N_1\) est dominée par \(N_2\) et \(N_2\) dominée par \(N_3\), alors \(N_1\) est dominée par \(N_3\).</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop3.5.6">
+                <p><strong>Proposition 3.5.6 – Comparaison des topologies</strong></p>
+                <p>Soit \(E\) un \(\mathbb{K}\)-ev, et \(N_1\) et \(N_2\) deux normes. On note \(\mathcal{V}_i(a)\) l’ensemble des voisinages de \(a\) au sens de la norme \(N_i\) et \(\mathcal{O}_i\) l’ensemble des ouverts au sens de la norme \(i\). Les propositions suivantes sont équivalentes:</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>\(N_1\) est dominée par \(N_2\)</li>
+                    <li>\(\forall a \in E, \mathcal{V}_2(a) \subset \mathcal{V}_1(a)\)</li>
+                    <li>\(\mathcal{O}_2 \subset \mathcal{O}_1\).</li>
+                </ol>
+            </div>
+            
+            <div class="box proposition-box" id="prop3.5.7">
+                <p><strong>Proposition 3.5.7 – Comparaison des convergences</strong></p>
+                <p>Soit \(E\) un \(\mathbb{K}\)-ev, et \(N_1\) et \(N_2\) deux normes. Si \(N_1\) est dominée par \(N_2\), alors toute suite convergeant au sens de \(N_2\) converge aussi au sens de \(N_1\), vers la même limite.</p>
+            </div>
+            
+            <div class="box method-box" id="meth3.5.8">
+                <p><strong>Méthode 3.5.8 – Montrer que \(N_1\) n’est pas dominée par \(N_2\)</strong></p>
+                <ul>
+                    <li>Il suffit de trouver une suite bornée pour \(N_2\) qui ne le soit pas pour \(N_1\).</li>
+                    <li>Il suffit de trouver une suite convergente pour \(N_2\) qui ne le soit pas pour \(N_1\).</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="chap3-secV.2">
+            <h3>V.2 Normes équivalentes</h3>
+            <div class="box definition-box" id="def3.5.10">
+                <p><strong>Définition 3.5.10 – Normes équivalentes</strong></p>
+                <p>On dit que deux normes \(N_1\) et \(N_2\) sur \(E\) sont équivalentes si \(N_1\) est dominée par \(N_2\) et \(N_2\) est dominée par \(N_1\). De manière équivalente, cela revient à dire qu’il existe \((\alpha, \beta) \in (\mathbb{R}_+^*)^2\) tels que</p>
+                \[ \forall x \in E, \alpha N_2(x) \le N_1(x) \le \beta N_2(x). \]
+            </div>
+            
+            <div class="box proposition-box" id="prop3.5.11">
+                <p><strong>Proposition 3.5.11</strong></p>
+                <p>Cela définit une relation d’équivalence sur l’ensemble des normes sur \(E\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th3.5.13">
+                <p><strong>Théorème 3.5.13 – Comparaison des convergences pour 2 normes équivalentes</strong></p>
+                <p>Soit \(N_1\) et \(N_2\) deux normes équivalentes sur \(E\) et \((u_n) \in E^\mathbb{N}\) une suite d’éléments de \(E\). Alors \((u_n)\) est convergente au sens de la norme \(N_1\) si et seulement si elle est convergente au sens de la norme \(N_2\), la valeur de la limite étant la même pour les deux normes.</p>
+            </div>
+            <p>En particulier, les objets et propriétés topologiques et séquentiels (définis soit avec les ouverts ou voisinages, soit avec des propriétés de convergence) sont les mêmes pour deux normes équivalentes. Notamment, deux normes équivalentes définissent les mêmes compacts.</p>
+        </section>
+    </section>
+
+    <section id="chap3-secVI">
+        <h2>VI Espaces métriques (HP)</h2>
+        <p>Comme on l’a évoqué plus haut, on peut définir des distances de façon beaucoup plus générale</p>
+        <div class="box definition-box" id="def3.6.1">
+            <p><strong>Définition 3.6.1 – Distance</strong></p>
+            <p>Soit \(A\) un ensemble quelconque. Une distance \(d\) sur \(A\) est une application \(d : A^2 \to \mathbb{R}\) telle que</p>
+            <ol style="list-style-type: lower-roman;">
+                <li>(séparation) pour tout \((x, y) \in A^2, d(x, y) = 0 \iff x = y\) ;</li>
+                <li>(symétrie) pour tout \((x, y) \in A^2, d(x, y) = d(y, x)\)</li>
+                <li>(inégalité triangulaire) pour tout \((x, y, z) \in A^3, d(x, z) \le d(x, y) + d(y, z)\).</li>
+            </ol>
+        </div>
+        
+        <div class="box definition-box" id="def3.6.3">
+            <p><strong>Définition 3.6.3 – Espace métrique</strong></p>
+            <p>Un espace métrique \((E, d)\) est un ensemble \(E\) (pas forcément un espace vectoriel), muni d’une distance \(d\) sur \(E\).</p>
+        </div>
+        <p>On peut alors définir dans un espace métrique \((E, d)\), de même que dans un e.v.n., des boules, des voisinages, des ouverts, et des fermés. Ce point de vue permet de clarifier la définition de la topologie relative (les ouverts et fermés relatifs) vue en cours de chapitre.</p>
+        
+        <div class="box proposition-box" id="prop3.6.4">
+            <p><strong>Proposition 3.6.4 – Caractérisation de la topologie relative par restriction</strong></p>
+            <p>Soit \((E, \Vert \cdot \Vert)\) un e.v.n., et \(A\) une partie de \(E\). Alors la distance \(d\) définie par \(\Vert \cdot \Vert\) se restreint à \(A\) en une distance \(d_A\). La topologie associée à l’espace métrique \((A, d_A)\) est alors la topologie relative de \(A\) définie en II-4.</p>
+        </div>
+        <p>On peut également définir une notion de convergence.</p>
+        
+        <div class="box definition-box" id="def3.6.5">
+            <p><strong>Définition 3.6.5 – Convergence dans un espace métrique</strong></p>
+            <p>Soit \((E, d)\) un espace métrique, et \((u_n)_{n \in \mathbb{N}} \in E^\mathbb{N}\). On dit que \((u_n)_{n \in \mathbb{N}}\) converge vers \(\ell \in E\) si l’une des propriétés équivalentes suivantes est satisfaite (et donc toutes) :</p>
+            <ol style="list-style-type: lower-roman;">
+                <li>\(\forall \varepsilon > 0, \exists N \in \mathbb{N}, \forall n \in \mathbb{N}, n \ge N \implies d(u_n, \ell) \le \varepsilon\) ;</li>
+                <li>\(\forall \varepsilon > 0, \exists N \in \mathbb{N}, \forall n \in \mathbb{N}, n \ge N \implies u_n \in B(\ell, \varepsilon)\);</li>
+                <li>\(\forall V \in \mathcal{V}(\ell), \exists N \in \mathbb{N}, \forall n \in \mathbb{N}, n \ge N \implies u_n \in V\) ;</li>
+            </ol>
+        </div>
+        <p>Les caractérisations séquentielles restent alors vraies.</p>
+    </section>
+
+</section>
+<!-- Fin du chapitre 3 -->
+ <section id="chap4">
+    <div class="chapter-heading">
+        <span class="chapter-number">4</span>
+        <div class="chapter-title">
+            <h1>Intégrales généralisées</h1>
+        </div>
+    </div>
+    
+    <p>Le but de ce chapitre est de généraliser la définition des intégrales au cas d’intervalles non bornés, ou d’intervalles aux bornes desquels la fonction \(f\) n’est pas définie, et n’admet pas de limite finie.</p>
+    <p>Le procédé est le même que celui qui permet de passer des sommes finies aux séries, à savoir passer à la limite sur les bornes. D’ailleurs, comme vous vous en rendrez compte, l’étude des intégrales généralisées possède des similarités très fortes avec l’étude des séries.</p>
+    <p>Pour cela, afin de pouvoir définir l’intégrale de \(f\) sur un intervalle \(I\) quelconque, il est déjà nécessaire de pouvoir définir son intégrale sur tout segment \([a, b] \subset I\). Le programme de première année nous donne une condition suffisante simple à énoncer pour l’intégrabilité sur un segment : la continuité par morceaux de \(f\). Même si ce n’est qu’une condition nécessaire et pas suffisante, c’est ce cadre que nous adoptons.</p>
+    <p>Nous rappelons donc la définition importante suivante :</p>
+    
+    <div class="box definition-box" id="def4.0.1">
+        <p><strong>Définition 4.0.1 – Fonction continue par morceaux sur un intervalle I</strong></p>
+        <ol>
+            <li>Soit \(I = [a, b]\) un intervalle fermé borné. On dit que \(f\) est continue par morceaux s’il existe une subdivision (finie)
+            \[ a = \sigma_0 < \sigma_1 < \dots < \sigma_{n-1} < \sigma_n = b \]
+            de \([a, b]\) telle que pour tout \(k \in \{0, n-1\}\), \(f_{|]\sigma_k, \sigma_{k+1}[}\) soit continue et prolongeable par continuité sur \([\sigma_k, \sigma_{k+1}]\).</li>
+            <li>Soit \(I\) un intervalle quelconque. On dit que \(f\) est continue par morceaux sur \(I\) si \(f\) est continue par morceaux sur tout segment \([a, b]\) tel que \([a, b] \subset I\).</li>
+        </ol>
+    </div>
+    <p>On notera \(C^0_m([a, b], \mathbb{K})\) l’espace des fonctions continues par morceaux. La notation n’étant pas complètement standard, la redéfinir si vous l’utilisez.</p>
+
+    <div class="box example-box" id="ex4.0.2">
+        <p><strong>Exemples 4.0.2</strong></p>
+        <ol>
+            <li>\(x \mapsto \lfloor x \rfloor\) est continue par morceaux sur \(\mathbb{R}\).</li>
+            <li>\(x \mapsto \begin{cases} \lfloor \frac{1}{x} \rfloor & \text{si } x > 0 \\ 0 & \text{si } x = 0 \end{cases}\) n’est pas continue par morceaux sur \([0, +\infty[\).
+            Sa restriction à \(]0, +\infty[\) est continue par morceaux.</li>
+        </ol>
+    </div>
+
+    <section id="chap4-secI">
+        <h2>I Intégrales sur un intervalle quelconque</h2>
+        <p>Dans toute cette partie, on considère un intervalle \(I = [a, b[\), où \(a \in \mathbb{R}\) et \(b \in \mathbb{R} \cup \{+\infty\}\), tels que \(a < b\). Tout ce qu’on fait s’adapte facilement, par symétrie, à un intervalle \(]b, a]\). Le corps \(\mathbb{K}\) est égal à \(\mathbb{R}\) ou \(\mathbb{C}\).</p>
+        
+        <section id="chap4-secI.1">
+            <h3>I.1 Intégrale généralisée sur un intervalle \([a, b[\).</h3>
+            <p>Par définition, une fonction continue par morceaux sur \(I\) est en particulier continue par morceaux sur tout segment \([c, d]\) inclus dans \(I\), notamment sur des segments \([a, x]\). Elle est donc intégrable (au sens de Riemann) sur ces intervalles fermés bornés. Cela motive la définition suivante.</p>
+            
+            <div class="box definition-box" id="def4.1.1">
+                <p><strong>Définition 4.1.1 – Intégrale généralisée sur \([a, b[\)</strong></p>
+                <ul>
+                    <li>Soit \(f : [a, b[ \to \mathbb{K}\) une application continue par morceaux (c.p.m) sur \([a, b[\). On dit que l’intégrale \(\int_a^b f\) est convergente si la fonction
+                    \[ x \mapsto \int_a^x f(t) dt, \]
+                    définie sur \([a, b[\), admet une limite finie (i.e. dans \(\mathbb{K}\)) lorsque \(x\) tend vers \(b\).</li>
+                    <li>Lorsque \(\int_a^b f\) est convergente, sa valeur est notée d’une des façons suivantes, et définie par :
+                    \[ \int_I f = \int_I f(t) dt = \int_a^b f = \int_a^b f(t) dt = \lim_{x \to b^-} \int_a^x f(t) dt. \]
+                    </li>
+                    <li>Si \(\int_a^b f\) n’est pas convergente, on dit qu’elle est divergente.</li>
+                </ul>
+                <p>On parle aussi parfois d’intégrale impropre et de borne impropre pour désigner la borne \(b\) qui est exclue du domaine.</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop4.1.4">
+                <p><strong>Proposition 4.1.4 – Intégrale faussement généralisée</strong></p>
+                <p>On suppose que \(b \neq +\infty\). Soit \(f : [a, b[ \to \mathbb{K}\) une application admettant un prolongement \(\tilde{f}\) c.p.m sur \([a, b]\). Alors \(\int_a^b f\) est convergente, et</p>
+                \[ \int_a^b f = \int_a^b \tilde{f}. \]
+                <p>Une telle intégrale est parfois appelée intégrale faussement généralisée.</p>
+            </div>
+            
+            <div class="box proposition-box" id="prop4.1.7">
+                <p><strong>Proposition 4.1.7 – Linéarité</strong></p>
+                <p>Soit \(f, g \in C^0_m([a, b[, \mathbb{K})\) et \(\lambda \in \mathbb{K}\).</p>
+                <ol>
+                    <li>Si \(\int_a^b f\) et \(\int_a^b g\) sont convergentes, alors \(\int_a^b f + \lambda g\) aussi, et
+                    \[ \int_a^b (f + \lambda g) = \int_a^b f + \lambda \int_a^b g. \]
+                    </li>
+                    <li>Si \(\int_a^b f\) est convergente et \(\int_a^b g\) est divergente, alors \(\int_a^b (f+g)\) est divergente.</li>
+                    <li>Si \(\int_a^b f\) et \(\int_a^b g\) sont divergentes, on ne peut rien dire en toute généralité de \(\int_a^b (f+g)\).</li>
+                </ol>
+            </div>
+            
+            <div class="box proposition-box" id="prop4.1.10">
+                <p><strong>Proposition 4.1.10 – Chasles</strong></p>
+                <p>Soit \(f : [a, b[ \to \mathbb{K}\) une application c.p.m. sur \([a, b[\), et \(c \in [a, b[\). Alors :</p>
+                <ol>
+                    <li>L’intégrale \(\int_a^b f\) est convergente si et seulement si \(\int_c^b f\) est convergente.</li>
+                    <li>Le cas échéant, on a alors
+                    \[ \int_a^b f(t) dt = \int_a^c f(t) dt + \int_c^b f(t) dt. \]
+                    </li>
+                </ol>
+            </div>
+            
+        </section>
+        
+        <section id="chap4-secI.2">
+            <h3>I.2 Intégrales de référence</h3>
+            <div class="box proposition-box" id="prop4.1.13">
+                <p><strong>Proposition 4.1.13 – Intégrales de référence en la borne \(+\infty\)</strong></p>
+                <ol>
+                    <li>Intégrale de Riemann : pour \(\alpha \in \mathbb{R}\), \(\int_1^{+\infty} \frac{dt}{t^\alpha}\) converge si et seulement si \(\alpha > 1\).</li>
+                    <li>Intégrale exponentielle : pour \(a \in \mathbb{R}\), \(\int_0^{+\infty} e^{-at} dt\) converge si et seulement si \(a > 0\).</li>
+                </ol>
+            </div>
+             <div class="box proposition-box" id="prop4.1.15">
+                <p><strong>Proposition 4.1.15 – Intégrale de Riemann en une borne finie \(b\)</strong></p>
+                <p>Pour \(\alpha \in \mathbb{R}\), l’intégrale de Riemann \(\int_a^b \frac{1}{|t-b|^\alpha} dt\) converge si et seulement si \(\alpha < 1\).</p>
+            </div>
+        </section>
+
+        <section id="chap4-secI.3">
+            <h3>I.3 Théorèmes de comparaison pour les intégrales de fonctions positives</h3>
+            <p>On travaille toujours sur un intervalle \(I = [a, b[\), \(b \in \mathbb{R} \cup \{+\infty\}\).</p>
+            <div class="box proposition-box" id="prop4.1.18">
+                <p><strong>Proposition 4.1.18 – Bonne définition dans \(\mathbb{R}_+\)</strong></p>
+                <p>Soit \(f : [a, b[ \to \mathbb{R}^+\) c.p.m. et positive. Alors \(x \mapsto \int_a^x f(t) dt\) admet toujours une limite, finie ou infinie. Dans le cas où la limite est infinie, on s’autorisera la notation \(\int_a^b f(t) dt = +\infty\).</p>
+            </div>
+
+            <div class="box theorem-box" id="th4.1.21">
+                <p><strong>Théorème 4.1.21 – Théorème de comparaison des intégrales de fonctions positives</strong></p>
+                <p>Soit \(f, g : [a, b[ \to \mathbb{K}\) c.p.m. sur \([a, b[\) et telles que \(0 \le f \le g\) sur \([a, b[\). Alors :</p>
+                <ol>
+                    <li>Si \(\int_a^b g\) est convergente, il en est de même de \(\int_a^b f\).</li>
+                    <li>Si \(\int_a^b f\) est divergente, il en est de même de \(\int_a^b g\).</li>
+                </ol>
+            </div>
+            
+            <div class="box theorem-box" id="cor4.1.23">
+                <p><strong>Corollaire 4.1.23 – Théorème de comparaison par domination ou négligeabilité</strong></p>
+                <p>Soit \(f, g : [a, b[ \to \mathbb{R}\) c.p.m. sur \([a, b[\), positives, et telles que \(f(x) = O_{x \to b}(g(x))\).</p>
+                <ol>
+                    <li>Alors la convergence de \(\int_a^b g\) entraîne celle de \(\int_a^b f\).</li>
+                    <li>Cela reste vrai si on remplace l’hypothèse de domination par \(f(x) = o_{x \to b}(g(x))\).</li>
+                </ol>
+            </div>
+
+            <div class="box theorem-box" id="cor4.1.25">
+                <p><strong>Corollaire 4.1.25 – Théorème de comparaison par équivalences</strong></p>
+                <p>Soit \(f, g : [a, b[ \to \mathbb{R}\) c.p.m. sur \([a, b[\), positives, et telles que \(f(x) \sim_{x \to b} g(x)\). Alors \(\int_a^b f\) et \(\int_a^b g\) ont même nature.</p>
+            </div>
+        </section>
+
+        <section id="chap4-secI.4">
+            <h3>I.4 Extension aux intégrales sur un intervalle quelconque \(I\)</h3>
+            <div class="box proposition-box" id="propdef4.1.27">
+                <p><strong>Proposition/Définition 4.1.27 – Intégrale généralisée sur un intervalle ouvert</strong></p>
+                <p>Soit \((a, b) \in \overline{\mathbb{R}}^2\) tels que \(a < b\), et soit \(f :]a, b[ \to \mathbb{K}\) une application c.p.m. sur \(]a, b[\).</p>
+                <ul>
+                    <li>On dit que \(\int_a^b f(t) dt\) est convergente si et seulement si il existe \(c \in ]a, b[\) tel que \(\int_a^c f(t) dt\) soit convergente (en la borne a) et \(\int_c^b f(t) dt\) soit convergente (en la borne b).</li>
+                    <li>Cette propriété est alors indépendante du choix de \(c \in ]a, b[\).</li>
+                    <li>On définit alors l’intégrale de \(f\) sur \(]a, b[\) par \(\int_a^b f(t) dt = \int_a^c f(t) dt + \int_c^b f(t) dt\).</li>
+                    <li>Cette définition est indépendante de \(c\), et peut se réécrire
+                    \[ \int_a^b f(t) dt = \lim_{x \to a^+} \lim_{y \to b^-} \int_x^y f(t) dt. \]
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="box theorem-box" id="th4.1.31">
+                <p><strong>Théorème 4.1.31 – Chasles</strong></p>
+                <p>Soit \(I\) un intervalle quelconque, d’extrémités \(a < b\) dans \(\overline{\mathbb{R}}\), et \(c\) tel que \(a < c < b\). Alors :</p>
+                <ol>
+                    <li>\(\int_a^b f(t) dt\) est convergente si et seulement si \(\int_a^c f(t) dt\) et \(\int_c^b f(t) dt\) le sont.</li>
+                    <li>Dans ce cas, \(\int_a^b f(t) dt = \int_a^c f(t) dt + \int_c^b f(t) dt\).</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="chap4-secI.5">
+            <h3>I.5 Intégrabilité</h3>
+            <div class="box definition-box" id="def4.1.34">
+                <p><strong>Définition 4.1.34 – Intégrabilité</strong></p>
+                <ol>
+                    <li>Soit \(f : I \to \mathbb{K}\). On dit que \(f\) est intégrable ou que \(\int_I f(t) dt\) est absolument convergente, si : (i) \(f\) est continue par morceaux sur \(I\) ; (ii) \(\int_I |f(t)| dt\) est convergente.</li>
+                    <li>Soit \(f\) définie sur un intervalle \(I\) tel que \(\sup I = b\), et \(b \notin I\). On dit que \(f\) est intégrable en \(b\) s’il existe \(c \in I\) tel que \(f_{|[c,b[}\) soit intégrable.</li>
+                    <li>De même si \(a = \inf(I)\), on dit que \(f\) est intégrable en \(a\) s’il existe \(c \in I\) tel que \(f_{|]a,c]}\) soit intégrable.</li>
+                </ol>
+            </div>
+            
+            <div class="box proposition-box" id="prop4.1.39">
+                <p><strong>Proposition 4.1.39 – CVA implique CV</strong></p>
+                <p>Soit \(f : I \to \mathbb{K}\). Si \(f\) est intégrable, alors \(\int_I f(t) dt\) est convergente.</p>
+            </div>
+            
+             <div class="box proposition-box" id="propdef4.1.43">
+                <p><strong>Proposition/Définition 4.1.43 – Intégrale d’une fonction positive non intégrable</strong></p>
+                <p>Soit \(I\) un intervalle quelconque, de bornes \(a < b\) dans \(\overline{\mathbb{R}}\). Si \(f\) est c.p.m. sur \(I\), positive, et non intégrable, alors \(\int_a^b f(t) dt = +\infty\).</p>
+            </div>
+            
+            <div class="box theorem-box" id="th4.1.46">
+                <p><strong>Théorème 4.1.46 – Théorèmes de comparaison pour l’intégrabilité</strong></p>
+                <p>Soit \(f, g : I \to \mathbb{K}\) continues par morceaux, et \(b = \sup I \in \overline{\mathbb{R}}\).</p>
+                <ol>
+                    <li>Si \(f(x) = O_b(g(x))\), alors l’intégrabilité de \(g\) en \(b\) implique celle de \(f\) en \(b\).</li>
+                    <li>Si \(f(x) = o_b(g(x))\), alors l’intégrabilité de \(g\) en \(b\) implique celle de \(f\) en \(b\).</li>
+                    <li>Si \(f(x) \sim_b g(x)\), l’intégrabilité de \(f\) en \(b\) équivaut à celle de \(g\).</li>
+                </ol>
+            </div>
+        </section>
+        <section id="chap4-secI.6">
+            <h3>I.6 Bilan méthodologique</h3>
+             <div class="box method-box" id="meth4.1.53">
+                <p><strong>Méthode 4.1.53 – Étudier la convergence d’une intégrale</strong></p>
+                <p>Soit \(f : ]a, b[ \to \mathbb{K}\)</p>
+                <ul>
+                    <li>Étudier la c.p.m. sur \(I = ]a, b[\), voir si éventuellement \(f\) est (ou peut se prolonger en) une fonction c.p.m. sur \([a, b]\) (dans ce cas, il n’y a rien à faire) ou sur \([a, b[\) (ce qui évite d’avoir à couper en 2).</li>
+                    <li>Commencer par l’étude de la borne en laquelle la convergence vous paraît la plus douteuse. S’il y a divergence en cette borne, il ne sera pas nécessaire d’étudier l’autre borne.</li>
+                    <li>Commencer par étudier l’intégrabilité en cette borne, notamment par comparaisons, puis en l’autre.</li>
+                    <li>Si la fonction n’est pas intégrable en l’une des 2 bornes, étudier la semi-convergence. Il n’y a pas de méthode standard, mais on pourra penser à faire une (ou plusieurs) intégration(s) par parties.</li>
+                </ul>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap4-secII">
+        <h2>II Méthodes calculatoires</h2>
+        <section id="chap4-secII.1">
+            <h3>II.1 Changement de variables</h3>
+            <div class="box theorem-box" id="th4.2.1">
+                <p><strong>Théorème 4.2.1 – Formule de changement de variable pour les intégrales généralisées</strong></p>
+                <p>Soit \(f : I \to \mathbb{K}\) et \(\varphi : J \to I\), où \(J\) est un autre intervalle de \(\mathbb{R}\), d’extrémités \(\alpha < \beta\). On suppose que : (i) \(f\) est continue sur \(I\) ; (ii) \(\varphi\) est bijective, strictement croissante et de classe \(C^1\) sur \(J\). Alors les intégrales \(\int_I f(x) dx\) et \(\int_J f(\varphi(t))\varphi'(t) dt\) sont de même nature, et en cas de convergence,
+                \[ \int_a^b f(x) dx = \int_\alpha^\beta f(\varphi(t))\varphi'(t) dt. \]
+                </p>
+            </div>
+        </section>
+        
+        <section id="chap4-secII.2">
+            <h3>II.2 Intégration par parties</h3>
+            <div class="box definition-box" id="not4.2.7">
+                <p><strong>Notation 4.2.7</strong></p>
+                <p>Si \(f\) est une fonction définie sur \(I\) d’extrémités \(a < b\) dans \(\overline{\mathbb{R}}\) et si \(f\) admet des limites finies (à droite) en \(a\) et (à gauche) en \(b\), on note
+                \[ [f(x)]_a^b = \lim_{x \to b^-} f(x) - \lim_{x \to a^+} f(x). \]
+                </p>
+            </div>
+
+            <div class="box theorem-box" id="th4.2.8">
+                <p><strong>Théorème 4.2.8 – Intégration par parties</strong></p>
+                <p>Soit \(I\) un intervalle d’extrémités \(a < b\) dans \(\overline{\mathbb{R}}\). Soit \(f, g : I \to \mathbb{K}\). On suppose que : (i) \(f\) et \(g\) sont de classe \(C^1\) sur \(I\) ; (ii) le produit \(fg\) admet une limite finie en \(a^+\) et en \(b^-\). Alors les intégrales \(\int_a^b f(t)g'(t) dt\) et \(\int_a^b f'(t)g(t) dt\) sont de même nature, et en cas de convergence,
+                \[ \int_a^b f(t)g'(t) dt = [f(t)g(t)]_a^b - \int_a^b f'(t)g(t) dt. \]
+                </p>
+            </div>
+        </section>
+    </section>
+
+    <section id="chap4-secIII">
+        <h2>III Études asymptotiques</h2>
+        <section id="chap4-secIII.1">
+            <h3>III.1 Intégration des relations de comparaison</h3>
+            <p>Dans ce paragraphe, on suppose que \(I = [a, b[\). Les résultats s’adaptent facilement au cas \(]a, b]\).</p>
+            <div class="box theorem-box" id="th4.3.1">
+                <p><strong>Théorème 4.3.1 – Intégration des relations de comparaison dans le cas convergent</strong></p>
+                <p>Soit \(f, g : I \to \mathbb{R}\). On suppose que : \(f\) et \(g\) sont continues par morceaux ; \(g\) est positive (ou au moins de signe constant) et intégrable en \(b\). Alors :</p>
+                <ol>
+                    <li>si \(f = O_b(g)\), alors \(\int_x^b f = O_{x \to b}\left(\int_x^b g\right)\) ;</li>
+                    <li>si \(f = o_b(g)\), alors \(\int_x^b f = o_{x \to b}\left(\int_x^b g\right)\) ;</li>
+                    <li>si \(f \sim_b g\), alors \(\int_x^b f \sim_{x \to b} \int_x^b g\).</li>
+                </ol>
+            </div>
+            
+            <div class="box theorem-box" id="th4.3.3">
+                <p><strong>Théorème 4.3.3 – Intégration des relations de comparaison dans le cas divergent</strong></p>
+                <p>Soit \(f, g : I \to \mathbb{R}\). On suppose que : \(f\) et \(g\) sont continues par morceaux ; \(g\) est positive et non intégrable en \(b\). Alors :</p>
+                <ol>
+                    <li>si \(f = O_b(g)\), alors \(\int_a^x f = O_{x \to b}\left(\int_a^x g\right)\) ;</li>
+                    <li>si \(f = o_b(g)\), alors \(\int_a^x f = o_{x \to b}\left(\int_a^x g\right)\) ;</li>
+                    <li>si \(f \sim_b g\), alors \(\int_a^x f \sim_{x \to b} \int_a^x g\).</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section id="chap4-secIII.2">
+            <h3>III.2 Théorème de convergence dominée</h3>
+            <div class="box theorem-box" id="th4.3.5">
+                <p><strong>Théorème 4.3.5 – Théorème de convergence dominée, TCD, admis</strong></p>
+                <p>Soit \((f_n)\) une suite de fonctions de \(I\) dans \(\mathbb{K} = \mathbb{R}\) ou \(\mathbb{C}\). On suppose que :</p>
+                <ol style="list-style-type: lower-roman;">
+                    <li>pour tout \(n \in \mathbb{N}\), \(f_n\) est c.p.m.</li>
+                    <li>\((f_n)\) converge simplement vers une fonction \(f\)</li>
+                    <li>(hypothèse de domination) il existe \(\varphi : I \to \mathbb{R}\), intégrable sur \(I\) et telle que, sur l’intervalle \(I\), on ait : \(\forall n \in \mathbb{N}, |f_n| \le \varphi\).</li>
+                </ol>
+                <p>Alors les \((f_n)\) et \(f\) sont intégrables sur \(I\) et
+                \[ \int_I f_n \xrightarrow{n\to\infty} \int_I f. \]
+                </p>
+            </div>
+        </section>
+    </section>
+</section>
+<!-- Fin du chapitre 4 -->
 </main>
 
 <script>
