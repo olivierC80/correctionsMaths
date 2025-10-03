@@ -293,7 +293,751 @@
         <div class="footnotes">
              <p id="fn4"><a href="#fnref4">^</a> [4] La matrice B est appelée la <em>réduite de Jordan</em> de A. Le lecteur intéressé pourra se renseigner au sujet de la décomposition de Frobenius, dont la décomposition de Jordan est un cas particulier, pour les matrices dont le polynôme caractéristique est scindé.</p>
         </div>
-        
+        <section id="algebre-lineaire-suite">
+    <article class="exercise" id="ex14">
+        <h3>Exercice 14 : CCP 2023</h3>
+        <p>Soient $a, b \in \mathbb{C}$. On considère la matrice :
+        $$ A = \begin{pmatrix}
+        0 & a & \dots & a \\
+        b & 0 & \ddots & \vdots \\
+        \vdots & \ddots & \ddots & a \\
+        b & \dots & b & 0
+        \end{pmatrix} $$
+        </p>
+        <ol>
+            <li>Si $a=b$, $A$ est-elle diagonalisable ?</li>
+            <li>Montrer que :
+            $$ P = \begin{vmatrix}
+            X+\lambda & X-a & \dots & X-a \\
+            X-b & X+\lambda & \ddots & \vdots \\
+            \vdots & \ddots & \ddots & X-a \\
+            X-b & \dots & X-b & X+\lambda
+            \end{vmatrix} $$
+            est un polynôme de degré au plus 1.
+            </li>
+            <li>En déduire le polynôme caractéristique de $A$, et discuter le caractère diagonalisable de $A$.</li>
+        </ol>
+    </article>
+
+    <article class="exercise" id="ex15">
+        <h3>Exercice 15 : CCP 2023</h3>
+        <p>Soit $A \in \mathcal{M}_n(\mathbb{R})$ telle que $A^2 = A^T A$.</p>
+        <ol>
+            <li>Montrer que, pour tout $\mu \in \mathbb{R} \setminus \{0\}$ :
+            $$ \ker(A^2 - \mu^2 I_n) = \ker(A - \mu I_n) \oplus \ker(A + \mu I_n). $$
+            </li>
+            <li>Trouver toutes les matrices réelles $A$ vérifiant $A^2 = A^T A$.</li>
+        </ol>
+    </article>
+    
+    <article class="exercise" id="ex16">
+        <h3>Exercice 16 : CCP 2023</h3>
+        <p>Soit $f \in \mathcal{L}(\mathbb{R}^3)$ vérifiant $f \neq 0$ et $f^3 = -f$. On pose $F = \ker(f)$ et $G = \ker(f^2 + \mathrm{Id})$.</p>
+        <ol>
+            <li>Montrer que $F \neq \{0\}$ et $G \neq \{0\}$.</li>
+            <li>Soit $v \in G \setminus \{0\}$. Montrer que $\mathbb{R}^3 = F \oplus G$ et que $(v, f(v))$ est une base de $G$.</li>
+            <li>Soit $A \in \mathcal{M}_3(\mathbb{R})$ telle que $A^3 = -A$. Montrer que $A$ est semblable à :
+            $$ \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & -1 & 0 \end{pmatrix} \quad \text{ou} \quad \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & -1 \\ 0 & 1 & 0 \end{pmatrix}. $$
+            </li>
+        </ol>
+    </article>
+
+    <article class="exercise" id="ex17">
+        <h3>Exercice 17 : CCP 2023</h3>
+        <p>Soit $A \in \mathcal{M}_n(\mathbb{C})$.</p>
+        <ol>
+            <li>On suppose $A$ nilpotente. Montrer que $\mathrm{Sp}(A) = \{0\}$. En déduire que $\mathrm{tr}(A^k) = 0$ pour tout $k \in \mathbb{N}^*$.</li>
+            <li>On suppose à présent que $\mathrm{tr}(A^k) = 0$ pour tout $k \in \{1, \dots, n\}$. On note :
+            $$ \chi_A = \prod_{i=1}^p (X - \lambda_i)^{m_i}. $$
+            En établissant que $(m_1, \dots, m_p)$ est solution d'un système linéaire $p \times p$, montrer que $0 \in \mathrm{Sp}(A)$.
+            </li>
+            <li>Par un raisonnement similaire, montrer que $\mathrm{Sp}(A) = \{0\}$. En déduire que $A$ est nilpotente.</li>
+        </ol>
+    </article>
+
+    <article class="exercise" id="ex18">
+        <h3>Exercice 18 : CCP 2024</h3>
+        <p>Soit $E$ un $\mathbb{C}$-espace vectoriel de dimension $n \in \mathbb{N}^*$. On considère $f, g \in \mathcal{L}(E)$ telles que :
+        $$ f \circ g - g \circ f = f. $$
+        L'objectif est de montrer que $f$ est nilpotente de trois manières différentes.</p>
+        <ol>
+            <li>
+                <ol type="a">
+                    <li>Montrer que, pour tout $k \in \mathbb{N}$, $f^k \circ g - g \circ f^k = k f^k$.</li>
+                    <li>Conclure en étudiant l'application :
+                    $$ \begin{array}{rcl} u: \mathcal{L}(E) & \to & \mathcal{L}(E) \\ h & \mapsto & h \circ g - g \circ h. \end{array} $$
+                    </li>
+                </ol>
+            </li>
+            <li>Montrer que pour tout $P \in \mathbb{C}[X]$, $P(f) \circ g - g \circ P(f) = f \circ P'(f)$, puis conclure.</li>
+            <li>
+                <ol type="a">
+                    <li>Montrer que pour tout $k \ge 1$, $\mathrm{tr}(f^k) = 0$.</li>
+                    <li>Montrer que $f$ ne possède qu'une seule valeur propre, puis conclure.</li>
+                </ol>
+            </li>
+        </ol>
+    </article>
+</section>
+
+<section id="analyse-topologie">
+    <h2>Analyse, topologie</h2>
+
+    <article class="exercise" id="ex71">
+        <h3>Exercice 71 : CCP 2023</h3>
+        <p>On note $I = \int_0^\infty \frac{\ln(t)}{1+t^2} dt$.</p>
+        <ol>
+            <li>Existence et valeur de $I$ ?</li>
+            <li>Soit $a > 0$ tel que $a \neq 1$. Trouver des réels $\alpha$ et $\beta$ tels que :
+            $$ \frac{1}{(1+t^2)(a^2+t^2)} = \frac{\alpha}{1+t^2} + \frac{\beta}{a^2+t^2}. $$
+            </li>
+            <li>Calculer $I(a) = \int_0^\infty \frac{\ln(t)}{(1+t^2)(a^2+t^2)} dt$.</li>
+            <li>Rappeler le théorème de convergence dominée. L'utiliser pour calculer $\int_0^\infty \frac{\ln(t)}{(1+t^2)^2} dt$.</li>
+        </ol>
+    </article>
+
+    <article class="exercise" id="ex72">
+        <h3>Exercice 72 : CCP 2023</h3>
+        <ol>
+            <li>Calculer $\lim_{n \to \infty} \frac{1}{n} \sum_{k=0}^{n-1} \ln\left(1+\frac{k}{n}\right)$.</li>
+            <li>Montrer que $\lim_{n \to \infty} \frac{1}{n^2} \sum_{k=0}^{n-1} \ln\left(1+\frac{k}{n}\right) = 0$.</li>
+            <li>Soit $f$ une fonction continue sur $[0, 1]$. À l'aide de la continuité uniforme de $f$, montrer que :
+            $$ \lim_{n \to \infty} \frac{1}{n} \sum_{k=0}^{n-1} f\left(\frac{k}{n} + \frac{k}{n^2}\right) = \int_0^1 f(t) dt. $$
+            </li>
+        </ol>
+    </article>
+    
+    <article class="exercise" id="ex73">
+        <h3>Exercice 73 : CCP 2023</h3>
+        <p>On note $I = \int_0^\infty \frac{t \sin t}{t^2+1} dt$.</p>
+        <ol>
+            <li>Existence de $I$ ?</li>
+            <li>Pour $x \in \mathbb{R}$, on pose $J(x) = \int_0^x \frac{t \sin t}{t^2+1} dt$. Montrer que $J(n\pi) = \sum_{k=0}^{n-1} \int_0^\pi \frac{(u+k\pi)\sin u}{(u+k\pi)^2+1} du$.</li>
+            <li>L'intégrale $I$ est-elle absolument convergente ?</li>
+        </ol>
+    </article>
+</section>
+        <section id="analyse-topologie-suite-1">
+    <article class="exercise" id="ex74">
+        <h3>Exercice 74 : CCP 2023</h3>
+        <p>On pose $u_0 = x_0 \in \mathbb{R}$, et $u_{n+1} = \arctan(u_n)$ pour $n \in \mathbb{N}$.</p>
+        <ol>
+            <li>Montrer que $u$ est monotone. Déterminer son sens de variation en fonction de $x_0$.</li>
+            <li>Montrer que $u$ converge et déterminer sa limite.</li>
+            <li>Trouver toutes les fonctions continues $h : \mathbb{R} \to \mathbb{R}$ telles que $\forall x \in \mathbb{R}, h(x) = h(\arctan x)$.</li>
+        </ol>
+    </article>
+
+    <article class="exercise" id="ex75">
+        <h3>Exercice 75 : CCP 2024</h3>
+        <p>Soit $\lambda > 0$. Pour $n \in \mathbb{N}$ et $x \in \mathbb{R}$, on pose :
+        $$ f_n(x) = \frac{x}{1 + \lambda^n x^2}. $$</p>
+        <ol>
+            <li>Convergence simple de $\sum f_n$ sur $\mathbb{R}$ en fonction de $\lambda$ ?</li>
+            <li>Même question pour la convergence uniforme.</li>
+            <li>On définit à présent :
+            $$ g_n(x) = \frac{1}{2n+1} \ln(1+2^n x^2) \quad \text{et} \quad G(x) = \sum_{n=0}^\infty g_n(x). $$
+            Domaine de définition, continuité et dérivabilité de $G$ ?
+            </li>
+        </ol>
+    </article>
+    
+    <article class="exercise" id="ex76">
+        <h3>Exercice 76 : CCP 2024</h3>
+        <p>Soit $a \in ]0, 1[$.</p>
+        <ol>
+            <li>Montrer que l'intégrale $I(a) = \int_0^a \frac{x - \ln(1-x)}{x^2} dx$ converge.</li>
+            <li>Montrer que $I(a) = -\sum_{n=1}^\infty \frac{a^n}{n(n+1)}$.</li>
+            <li>En déduire la valeur de $\int_0^1 \frac{x - \ln(1-x)}{x^2} dx$.</li>
+        </ol>
+    </article>
+    
+    <article class="exercise" id="ex77">
+        <h3>Exercice 77 : Centrale 2022</h3>
+        <p>Soient $B$ un compact convexe de $\mathbb{R}^n$ et $u \in \mathcal{L}(\mathbb{R}^n)$. On suppose que $u(B) \subset B$.
+        On pose $u_0 = \mathrm{Id}$, et $u_n = \frac{1}{n} \sum_{k=0}^{n-1} u^k$ pour $n \ge 1$.</p>
+        <ol>
+            <li>Quels sont les compacts convexes de $\mathbb{R}$ ?</li>
+            <li>On pose $A = \bigcap_{n=0}^\infty u_n(B)$. Montrer que $x \in A$ si, et seulement si, $u(x) = x$ et $x \in B$.</li>
+            <li>Montrer que $A \neq \emptyset$.</li>
+        </ol>
+    </article>
+    
+    <article class="exercise" id="ex78">
+        <h3>Exercice 78 : Centrale 2022</h3>
+        <p>On note $u_n$ le nombre de chiffres « 1 » dans l'écriture en base 2 de $n$. On pose également :
+        $$ S_n = \sum_{k=1}^n \frac{u_k}{k(k+1)}. $$
+        </p>
+        <ol type="1">
+            <li>
+                <ol type="a">
+                    <li>Donner $u_{13}$, $u_{31}$ et $u_{32}$. À l'aide de Python, donner une expression de $u_n$.</li>
+                    <li>Tracer les 100 premières valeurs de $S_n$. Que peut-on conjecturer ?</li>
+                </ol>
+            </li>
+            <li>
+                <ol type="a">
+                    <li>Montrer que $u_n \le 1 + \log_2(n)$.</li>
+                    <li>Montrer que la série $(S_n)$ converge. Calculer sa somme $S$. On pourra d'abord montrer que :
+                    $$ S = \frac{S}{2} + \sum_{k=1}^\infty \frac{(-1)^{k-1}}{k}. $$
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <ol type="a">
+                    <li>Quelle est la nature de la série $\sum u_k$ ?</li>
+                    <li>On pose, pour $p \in \mathbb{N}$: $v_p = \sum_{k=0}^{2^p-1} u_k$. Exprimer $v_{p+1}$ en fonction de $v_p$. En déduire une expression explicite de $v_p$.</li>
+                    <li>Montrer qu'il existe $A, B > 0$ tels que pour tout $n \ge 1$:
+                    $$ A \log_2(n) \le \frac{1}{n} \sum_{k=0}^n u_k \le B \log_2(n). $$
+                    </li>
+                    <li>Montrer que, lorsque $n \to \infty$:
+                    $$ \sum_{k=0}^n u_k \sim \frac{n \log_2(n)}{2}. $$
+                    </li>
+                </ol>
+            </li>
+        </ol>
+    </article>
+    
+    <article class="exercise" id="ex79">
+        <h3>Exercice 79 : Centrale 2022</h3>
+        <p>Pour $n \in \mathbb{N}$ et $x \in \mathbb{R}$, on pose<sup><a href="#fn16" id="fnref16">[16]</a></sup> :
+        $$ S_n(x) = \frac{4}{\pi} \sum_{k=0}^n \frac{\sin((2k+1)x)}{2k+1}. $$
+        </p>
+        <ol type="1">
+            <li>
+                <ol type="a">
+                    <li>Écrire une fonction <code>S(n, x)</code> qui renvoie la valeur de $S_n(x)$.</li>
+                    <li>Pour $n \in \{10, 20, 100\}$, tracer $x \mapsto S_n(x)$ sur l'intervalle $[-2\pi, 2\pi]$.</li>
+                    <li>Écrire une fonction <code>premier_max(n)</code> qui renvoie l'abscisse du premier maximum local de $x \mapsto S_n(x)$.</li>
+                </ol>
+            </li>
+            <li>
+                <ol type="a">
+                    <li>Montrer que pour tout $x \in [0, \pi]$ :
+                    $$ S_n(x) = \frac{2}{\pi} \int_0^x \frac{\sin((2n+2)t)}{\sin(t)} dt. $$
+                    </li>
+                    <li>Montrer que pour tout $n \in \mathbb{N}$:
+                    $$ \frac{\pi}{4} \sum_{k=0}^n \frac{(-1)^k}{2k+1} = (-1)^{n+1} \int_0^1 \frac{t^{2n+2}}{t^2+1} dt. $$
+                    </li>
+                    <li>En déduire que<sup><a href="#fn17" id="fnref17">[17]</a></sup> :
+                    $$ S_n\left(\frac{\pi}{2}\right) \xrightarrow[n\to\infty]{} 1. $$
+                    </li>
+                </ol>
+            </li>
+        </ol>
+        <blockquote>
+            Il restait probablement des questions ; si tel est le cas, en voici certaines qui auraient pu être posées.
+            <ol start="3">
+                <li>
+                    <ol type="a">
+                        <li>Calculer les points critiques de $S_n$ sur $[0, \pi]$.</li>
+                        <li>On note $m_n$ le plus petit d'entre eux. Montrer que $S_n$ admet un maximum local en $m_n$.</li>
+                        <li>Montrer que :
+                        $$ m_n \xrightarrow[n\to\infty]{} 0 \quad \text{et} \quad \frac{2}{\pi} \int_0^{m_n} \frac{\sin t}{t} dt > 1. $$
+                        </li>
+                        <li>Conclure.</li>
+                    </ol>
+                </li>
+            </ol>
+        </blockquote>
+    </article>
+</section>
+
+<div class="footnotes">
+    <p id="fn16"><a href="#fnref16">^</a> [16] La limite simple de $(S_n)$ est la série de Fourier d'un signal carré d'amplitude 1 et de période $2\pi$.</p>
+    <p id="fn17"><a href="#fnref17">^</a> [17] La formule $\pi = 4 - 4/3 + 4/5 - 4/7 + \dots$ est due à Madhava, mathématicien indien (1350-1425). La convergence de cette série alternée est cependant trop lente, et il est plus judicieux de calculer $\arctan(1/\sqrt{3})$ à l'aide de son développement en série entière. Cette méthode a d'ailleurs permis à Madhava de donner l'approximation $\pi \approx 3.14159265359$, avec 11 décimales correctes !</p>
+</div>
+
+        <section id="analyse-topologie-suite-2">
+    <article class="exercise" id="ex80">
+        <h3>Exercice 80 : Centrale 2023</h3>
+        <p>Soient $(a_n)$ et $(b_n)$ deux suites réelles. On suppose que $(b_n)$ décroît et tend vers 0.</p>
+        <ol>
+            <li>Montrer qu'une série (réelle ou complexe) absolument convergente est convergente.<sup><a href="#fn18" id="fnref18">[18]</a></sup></li>
+            <li>
+                <ol type="a">
+                    <li>On note $S_n = a_0 + \dots + a_n$ et on suppose que $(S_n)$ est bornée. Montrer que :
+                    $$ \sum_{k=0}^n a_k b_k = \sum_{k=0}^{n-1} S_k(b_k - b_{k+1}) + S_n b_n. $$
+                    </li>
+                    <li>En déduire que $\sum a_n b_n$ converge.</li>
+                </ol>
+            </li>
+            <li>
+                <ol type="a">
+                    <li>On pose $f_n : x \mapsto \sin(nx)$. Montrer que si $\sum b_n f_n$ converge uniformément sur $\mathbb{R}$, alors $b_n = o(1/n)$.</li>
+                    <li>Montrer la réciproque.</li>
+                </ol>
+            </li>
+        </ol>
+    </article>
+
+    <article class="exercise" id="ex81">
+        <h3>Exercice 81 : Centrale 2023</h3>
+        <p>On fixe $a > 0$ et on pose :
+        $$ f(x) = \sum_{n=0}^\infty \sin(nx) \exp(-n^a). $$
+        </p>
+        <ol>
+            <li>
+                <ol type="a">
+                    <li>Rappeler le théorème de dérivation des séries de fonctions.</li>
+                    <li>Donner le domaine de définition de $f$. Montrer que $f$ est de classe $\mathcal{C}^\infty$.</li>
+                </ol>
+            </li>
+            <li>On suppose $a > 1$. Montrer que $\tau_x : t \mapsto f(x+t)$ est développable en série entière au voisinage de 0.<sup><a href="#fn19" id="fnref19">[19]</a></sup></li>
+            <li>Qu'en est-il lorsque $a \le 1$ ?</li>
+        </ol>
+    </article>
+
+    <article class="exercise" id="ex82">
+        <h3>Exercice 82 : Centrale 2023</h3>
+        <p>On note $\mathfrak{S}_n$ l'ensemble des permutations de $\{1, \dots, n\}$. On appelle <em>dérangement</em> une permutation sans points fixes.</p>
+        <ol>
+            <li>
+                <ol type="a">
+                    <li>Écrire une fonction <code>est_derangement(t)</code>.</li>
+                    <li>Écrire une fonction récursive <code>permut(n)</code>.</li>
+                    <li>Écrire une fonction <code>nb_derangements(n)</code>.</li>
+                    <li>On note $d_n$ ce nombre, avec $d_0=1$. Montrer que : $n! = \sum_{k=0}^n \binom{n}{k} d_{n-k}$.</li>
+                </ol>
+            </li>
+            <li>
+                <ol type="a">
+                    <li>On pose $D(z) = \sum_{n=0}^\infty \frac{d_n}{n!} z^n$. Montrer que son rayon de convergence $R \ge 1$. Calculer $D(t) \exp(t)$ pour $t \in ]-1, 1[$.</li>
+                    <li>En déduire que $d_n = n! \sum_{k=0}^n \frac{(-1)^k}{k!}$.</li>
+                    <li>On note $p_n$ la probabilité de tirer au sort un dérangement de $\mathfrak{S}_n$. Déterminer la limite de $(p_n)$.</li>
+                </ol>
+            </li>
+            <li>On note $S_p(n)$ le nombre de surjections de $\{1, \dots, n\}$ vers $\{1, \dots, p\}$. On considère $x, y \in \mathbb{C}$ et on pose :
+            $$ S(x, y) = \sum_{(n,p) \in \mathbb{N}^2} S_p(n) \frac{x^n y^p}{n! p!}. $$
+                <ol type="a">
+                    <li>Montrer que $p^n = \sum_{k=0}^p \binom{p}{k} S_k(p)$.</li>
+                    <li>Montrer que la famille définissant $S(x,y)$ est sommable, et que $\exp(y) S(x,y) = \exp(x \exp(y))$.</li>
+                    <li>En déduire que $S_p(n) = \sum_{k=0}^p (-1)^{p-k} \binom{p}{k} k^n$. Que peut-on dire lorsque $p=n$ ?</li>
+                </ol>
+            </li>
+        </ol>
+    </article>
+</section>
+
+<div class="footnotes">
+    <p id="fn18"><a href="#fnref18">^</a> [18] Dans un $\mathbb{R}$-espace vectoriel de dimension quelconque, cette propriété caractérise la <em>complétude</em>, c'est-à-dire la convergence de toute suite de Cauchy. Lorsqu'un espace vectoriel normé est complet pour sa norme, on dit que c'est un <em>espace de Banach</em>.</p>
+    <p id="fn19"><a href="#fnref19">^</a> [19] Une fonction développable en série entière au voisinage de tout point est appelée <em>analytique</em>, et c'est une propriété beaucoup plus forte que la dérivabilité à tout ordre. Le lecteur pourra étudier la fonction $x \mapsto \exp(-1/x^2)$ prolongée par 0 en $x=0$.</p>
+</div>
+
+<section id="calcul-differentiel">
+    <h2>Calcul différentiel</h2>
+
+    <article class="exercise" id="ex145">
+        <h3>Exercice 145 : Centrale 2023</h3>
+        <p>On considère la fonction :
+        $$ g: \begin{array}{rcl} \mathbb{R}^* \times \mathbb{R} & \to & \mathbb{R} \\ (x,t) & \mapsto & \frac{x}{x^2+t^2}. \end{array} $$
+        </p>
+        <ol>
+            <li>Justifier que $g$ est de classe $\mathcal{C}^2$ et calculer $\Delta g$.</li>
+            <li>On considère à présent :
+            $$ f: \begin{array}{rcl} \mathbb{R}^* & \to & \mathbb{R} \\ x & \mapsto & \int_{-\infty}^\infty g(x,t) e^{it} dt. \end{array} $$
+            Montrer que $f$ est de classe $\mathcal{C}^2$ et vérifie $f'' - f = 0$.
+            </li>
+            <li>En déduire une expression de $f$.</li>
+        </ol>
+    </article>
+
+    <article class="exercise" id="ex146">
+        <h3>Exercice 146 : Centrale 2024</h3>
+        <p>Soit $S = \{M \in \mathcal{M}_n(\mathbb{R}) \mid \forall i,j \in \{1,\dots,n\}, m_{i,j} \in [-1,1]\}$. On pose :
+        $$ \alpha = \sup_{A \in S} \det(A). $$
+        </p>
+        <ol>
+            <li>Montrer que $\det \in \mathcal{C}^0(\mathcal{M}_n(\mathbb{R}), \mathbb{R})$.</li>
+            <li>Montrer que $\alpha$ est bien défini et est un maximum.</li>
+            <li>Montrer que $\alpha$ est atteint en une matrice $M$ vérifiant :
+                <ul>
+                    <li>$\det(M) > 0$ ;</li>
+                    <li>$\forall i,j \in \{1, \dots, n\}, m_{i,j} \in \{-1,1\}$.</li>
+                </ul>
+            </li>
+        </ol>
+    </article>
+</section>
+        <section id="calcul-differentiel-suite">
+    <article class="exercise" id="ex147">
+        <h3>Exercice 147 : Mines 2023</h3>
+        <p>Déterminer le plus grand $k \in \mathbb{N}$ tel que :
+        $$ f: \begin{array}{rcl} \mathbb{R}^2 & \to & \mathbb{R} \\ (x,y) & \mapsto & xy \frac{x^2-y^2}{x^2+y^2} \quad \text{si } (x,y) \neq (0,0), \text{ et } f(0,0)=0 \end{array} $$
+        soit de classe $\mathcal{C}^k$ mais pas $\mathcal{C}^{k+1}$.
+        </p>
+    </article>
+
+    <article class="exercise" id="ex148">
+        <h3>Exercice 148 : Mines 2023</h3>
+        <p>Existence, continuité et extrema de :
+        $$ f: \begin{array}{rcl} \mathbb{R} \times \mathbb{R}_+^* & \to & \mathbb{R} \\ (x,y) & \mapsto & \int_0^\infty \frac{\sin(t+x)}{t+y} dt. \end{array} $$
+        </p>
+    </article>
+
+    <article class="exercise" id="ex149">
+        <h3>Exercice 149 : Mines 2023</h3>
+        <ol>
+            <li>Montrer que $\det \in \mathcal{C}^1(\mathcal{M}_n(\mathbb{R}), \mathbb{R})$ et que sa différentielle en $I_n$ est la trace.</li>
+            <li>Montrer que sa différentielle en $X \in \mathcal{M}_n(\mathbb{R})$ est $H \mapsto \mathrm{tr}(\mathrm{com}(X)^T H)$.</li>
+            <li>Montrer que $\mathrm{GL}_n(\mathbb{R})$ est dense dans $\mathcal{M}_n(\mathbb{R})$.</li>
+            <li>Montrer qu'il existe un unique prolongement continu sur $\mathcal{M}_n(\mathbb{R})$ de :
+            $$ \phi: \begin{array}{rcl} \mathrm{GL}_n(\mathbb{R}) & \to & \mathcal{M}_n(\mathbb{R}) \\ X & \mapsto & \det(X) X^{-1}. \end{array} $$
+            </li>
+            <li>On pose $f(t) = \det(At+B)$. Montrer que :
+            $$ f'(0) = \sum_{1 \le i,j \le n} \Delta_{i,j} b_{i,j} $$
+            où $\Delta_{i,j}$ désigne le cofacteur<sup><a href="#fn31" id="fnref31">[31]</a></sup> d'indice $(i,j)$ de $A$.
+            </li>
+        </ol>
+    </article>
+
+    <article class="exercise" id="ex150">
+        <h3>Exercice 150 : Mines 2024</h3>
+        <p>On munit $\mathbb{R}^2$ de la norme euclidienne et on considère la fonction :
+        $$ f: \begin{array}{rcl} \mathbb{R}^2 & \to & \mathbb{R}^2 \\ (x,y) & \mapsto & \left( \frac{1}{2}\sin(x+y), \frac{1}{2}\cos(x-y) \right). \end{array} $$
+        </p>
+        <ol>
+            <li>Déterminer la différentielle de $f$.</li>
+            <li>Montrer que pour tout $(x,y) \in \mathbb{R}^2$:
+            $$ |||\mathrm{d}f(x,y)||| \le \frac{1}{\sqrt{2}}. $$
+            </li>
+            <li>En déduire que le système :
+            $$ \begin{cases} 2x = \sin(x+y) \\ 2y = \cos(x-y) \end{cases} $$
+            admet au plus une solution.
+            </li>
+        </ol>
+    </article>
+
+    <article class="exercise" id="ex151">
+        <h3>Exercice 151 : Mines 2024</h3>
+        <p>On définit $f:(x,y) \mapsto \min(x^2, y^2)$. Domaine de continuité de $f$ ? de différentiabilité ? Caractère $\mathcal{C}^1$ ?</p>
+    </article>
+</section>
+
+<div class="footnotes">
+    <p id="fn31"><a href="#fnref31">^</a> [31] Le cofacteur d'indice $(i,j)$ d'une matrice $A$ est le coefficient $(i,j)$ de sa comatrice, c'est-à-dire $(-1)^{i+j} \det(D_{i,j})$, où $D_{i,j}$ est la matrice obtenue en supprimant la $i^{\text{ème}}$ ligne et la $j^{\text{ème}}$ colonne de $A$. Dans l'espace euclidien orienté $\mathbb{R}^3$, la comatrice de $A$ décrit d'ailleurs l'interaction de $A$ avec le produit vectoriel : pour tous vecteurs $u$ et $v$, $Au \wedge Av = (\mathrm{com} A)(u \wedge v)$.</p>
+</div>
+
+<section id="groupes-anneaux-arithmetique">
+    <h2>Groupes, anneaux, arithmétique</h2>
+    
+    <article class="exercise" id="ex155">
+        <h3>Exercice 155 : Centrale 2022</h3>
+        <p>Soit $(A, +, \times)$ un anneau.</p>
+        <ol>
+            <li>
+                <ol type="a">
+                    <li>Montrer que l'unique morphisme d'anneaux $\mathbb{Z} \to A$ est donné par $f_A: k \mapsto k \cdot 1_A$.</li>
+                    <li>Montrer qu'il existe un unique $\kappa_A \in \mathbb{N}$ tel que $\ker(f_A) = \kappa_A \mathbb{Z}$.<sup><a href="#fn32" id="fnref32">[32]</a></sup></li>
+                </ol>
+            </li>
+            <li>
+                <ol type="a">
+                    <li>Montrer que si $A$ est un corps, alors $\kappa_A=0$ ou $\kappa_A$ est un nombre premier.</li>
+                    <li>Montrer que si $A$ est un corps fini, alors $\kappa_A \neq 0$.</li>
+                </ol>
+            </li>
+            <li>
+                <ol type="a">
+                    <li>On suppose que $A$ est un corps fini de cardinal $p^n$ avec $n \ge 1$ et $p$ premier.<sup><a href="#fn33" id="fnref33">[33]</a></sup> Montrer que $F: x \mapsto x^p$ est un automorphisme de corps de $A$.</li>
+                    <li>Déterminer l'ordre de $F$ dans le groupe des automorphismes de $A$.</li>
+                </ol>
+            </li>
+        </ol>
+    </article>
+</section>
+
+<div class="footnotes">
+    <p id="fn32"><a href="#fnref32">^</a> [32] Cet entier est appelé la <em>caractéristique</em> de $A$. Le résultat de la question 2.a) reste vrai lorsque $A$ est seulement supposé intègre.</p>
+    <p id="fn33"><a href="#fnref33">^</a> [33] On peut construire un corps de cardinal $q=p^n$ en quotientant $\mathbb{F}_p[X]$ par l'idéal engendré par un polynôme irréductible à coefficients dans $\mathbb{F}_p$ de degré $n$, ou encore en considérant le corps de décomposition de $X^q-X$ sur $\mathbb{F}_p$. En fait, si $K$ est un corps fini de cardinal $q$, alors $q=p^n$ où $p$ désigne la caractéristique de $K$, et $n = \dim_{\mathbb{F}_p}(K)$. Un tel corps est unique à isomorphisme près.</p>
+</div>
+
+        <section id="groupes-anneaux-arithmetique-suite">
+    <article class="exercise" id="ex156">
+        <h3>Exercice 156 : Centrale 2023 (Cassini 2, Algèbre 1, Exercice 4.33)</h3>
+        <p>On définit la fonction de Möbius par :
+        $$ \mu(n) = \begin{cases}
+        0 & \text{si } n \text{ est divisible par un carré parfait strictement supérieur à 1} \\
+        (-1)^{\omega(n)} & \text{sinon, où } \omega(n) \text{ est le nombre de facteurs premiers distincts de } n
+        \end{cases} $$
+        On donne la formule du crible, stipulant que pour des ensembles finis $V_1, \dots, V_k$:
+        $$ \mathrm{card}(V_1 \cup \dots \cup V_k) = \sum_{j=1}^k (-1)^{j-1} \sum_{1 \le i_1 < \dots < i_j \le k} \mathrm{card}(V_{i_1} \cap \dots \cap V_{i_j}). $$
+        </p>
+        <ol>
+            <li>Montrer la formule du crible pour $k=2$. Que donne-t-elle pour $k=3$ ?</li>
+            <li>On admet la formule du crible pour tout $k \in \mathbb{N}$. On munit $\{1, \dots, n\} \times \{1, \dots, n\}$ de la probabilité uniforme et on y tire un couple $(a,b)$ au hasard. On note $r_n$ la probabilité que $\mathrm{pgcd}(a,b)=1$. Exprimer $r_n$ en fonction de $\mu$.</li>
+            <li>Montrer que $(r_n)$ converge, calculer sa limite et interpréter le résultat.<sup><a href="#fn34" id="fnref34">[34]</a></sup></li>
+        </ol>
+    </article>
+
+    <article class="exercise" id="ex157">
+        <h3>Exercice 157 : Centrale 2023</h3>
+        <p>On note $p_n$ le $n^{\text{ème}}$ nombre premier.</p>
+        <ol>
+            <li>Écrire une fonction Python renvoyant $p_n$ en fonction de $n$.</li>
+            <li>On admet dans un premier temps la proposition $(P)$:
+            $$ P \in \mathbb{Z}[X] \implies P(X+Y)P(X-Y) \in \mathbb{Z}[X, Y^2]. $$
+            On pose $P_1 = X^2-2$ et, pour $n \ge 2$, $P_n = P_{n-1}(X - \sqrt{p_n}) \times P_{n-1}(X + \sqrt{p_n})$.
+            Montrer que $P_n \in \mathbb{Z}[X]$ et que $P_n(\sqrt{p_1} + \dots + \sqrt{p_n}) = 0$.
+            </li>
+            <li>Écrire une fonction Python renvoyant $P_n$ en fonction de $n$.</li>
+            <li>Pour $k < \ell$, montrer que $(X-Y)^k(X+Y)^\ell + (X-Y)^\ell(X+Y)^k \in \mathbb{Z}[X, Y^2]$. En déduire $(P)$.</li>
+            <li>On note $\mathbb{A}$ l'ensemble des nombres complexes annulés par un polynôme unitaire de $\mathbb{Z}[X]$.<sup><a href="#fn35" id="fnref35">[35]</a></sup>
+                <ol type="a">
+                    <li>Montrer que $\forall P \in \mathbb{Z}[X], \exists (Q,R) \in \mathbb{Z}[X]^2, P = Q(X^2) + X R(X^2)$.</li>
+                    <li>Montrer que si $a \in \mathbb{A}$, alors $a^2 \in \mathbb{A}$.</li>
+                </ol>
+            </li>
+        </ol>
+    </article>
+
+    <article class="exercise" id="ex158">
+        <h3>Exercice 158 : Centrale 2024</h3>
+        <ol>
+            <li>
+                <ol type="a">
+                    <li>Énoncer le théorème de Gauss dans $\mathbb{Z}$, ainsi que le petit théorème de Fermat.</li>
+                    <li>Rappeler la définition d'un idéal d'un anneau commutatif. Montrer que pour tout $a \in \mathbb{Z}$, l'ensemble $a\mathbb{Z}[X]$ est un idéal de $\mathbb{Z}[X]$.</li>
+                    <li>Soient $R$ un anneau commutatif et $p \in \mathbb{Z}$. Montrer que $pR = \{pr \mid r \in R\}$ est un idéal de $R$, puis montrer que pour tous $x, y \in R, (x+y)^p - (x^p+y^p) \in pR$.</li>
+                </ol>
+            </li>
+            <li>Soit $p$ un nombre premier.
+                <ol type="a">
+                    <li>Soient $n \in \mathbb{N} \setminus \{0\}$, $R$ un anneau commutatif, $I$ un idéal de $R$. On se donne $A, B \in \mathcal{M}_n(R)$ et on suppose que tous les coefficients de $B$ appartiennent à $I$. Montrer que $\det(A+B) - \det(A) \in I$.</li>
+                    <li>Soit $P \in \mathbb{Z}[X]$. Montrer que $P(X^p) - P^p \in p\mathbb{Z}[X]$.</li>
+                    <li>Soit $M \in \mathcal{M}_n(\mathbb{Z})$. Montrer que $\mathrm{tr}(M^p) \equiv \mathrm{tr}(M) \pmod p$.</li>
+                </ol>
+            </li>
+        </ol>
+    </article>
+</section>
+
+<div class="footnotes">
+    <p id="fn34"><a href="#fnref34">^</a> [34] Ce résultat se généralise à n'importe quel nombre d'entiers et fait intervenir la légendaire fonction zêta de Riemann.</p>
+    <p id="fn35"><a href="#fnref35">^</a> [35] Ces complexes sont appelés <em>entiers algébriques</em>. On peut montrer qu'ils forment un anneau commutatif intègre, et même un sous-anneau du corps des nombres algébriques, qui sont les complexes annulés par un polynôme non nul de $\mathbb{Q}[X]$.</p>
+</div>
+
+<section id="probabilites">
+    <h2>Probabilités</h2>
+
+    <article class="exercise" id="ex169">
+        <h3>Exercice 169 : CCP 2024</h3>
+        <ol>
+            <li>Soit $X$ une variable aléatoire entière. Montrer que $G_X(t) = \sum_{n=0}^\infty \mathbb{P}(X=n)t^n$ est bien définie sur $]-1,1[$.</li>
+            <li>Soient $X_1$ et $X_2$ des variables aléatoires entières indépendantes. Montrer que $G_{X_1+X_2} = G_{X_1} G_{X_2}$:
+                <ol type="a">
+                    <li>par un produit de Cauchy,</li>
+                    <li>par la formule $G_X(t) = \mathbb{E}(t^X)$.</li>
+                </ol>
+            </li>
+            <li>On admet le résultat précédent pour $n \ge 2$ variables entières. On considère une urne qui contient 4 boules dont une portant le numéro 0, deux le numéro 1, et une le numéro 2. On réalise $n$ tirages avec remise dans l'urne, et on note $X_k$ la variable aléatoire entière prenant la valeur sur la boule au $k^{\text{ème}}$ tirage, ainsi que $S_n = X_1 + \dots + X_n$. Calculer $G_{S_n}$ puis donner la loi de $S_n$.</li>
+        </ol>
+    </article>
+</section>
+
+            <section id="probabilites-suite">
+    <article class="exercise" id="ex170">
+        <h3>Exercice 170 : Centrale 2023</h3>
+        <ol>
+            <li>Rappeler l'inégalité de Bienaymé-Tchebychev.</li>
+            <li>En déduire une majoration de la probabilité d'obtenir au moins 3/4 de « face » au cours de $N$ lancers d'une pièce équilibrée.</li>
+            <li>Soit $X$ une variable aléatoire centrée à valeurs dans $[a, b]$. Montrer que pour tout $t \ge 0$:
+            $$ \mathbb{E}(e^{tX}) \le e^{\mu\gamma}(1-\mu+\mu e^\gamma) \quad \text{avec} \quad \mu = \frac{-a}{b-a} \quad \text{et} \quad \gamma = t(b-a). $$
+            </li>
+        </ol>
+    </article>
+
+    <article class="exercise" id="ex171">
+        <h3>Exercice 171 : Centrale 2023</h3>
+        <p>Soit $A = (X_{i,j})_{1 \le i,j \le n}$ où les $X_{i,j}$ sont des variables aléatoires réelles indépendantes.</p>
+        <ol>
+            <li>Écrire une fonction Python <code>A(n)</code> qui renvoie la matrice $A$ si les $X_{i,j}$ suivent une loi de Rademacher.<sup><a href="#fn39" id="fnref39">[39]</a></sup></li>
+            <li>On admet que $D = \det(A)$ est une variable aléatoire. Conjecturer les valeurs de $\mathbb{E}(D)$ et $\mathrm{Var}(D)$ en fonction de $n$, et vérifier cela pour $n=1$ et $n=2$.</li>
+            <li>Montrer que $\mathbb{E}(D) = \det(\mathbb{E}(X_{i,j})_{1 \le i,j \le n})$.</li>
+            <li>Calculer $\mathbb{E}(\chi_A(x))$ pour $x \in \mathbb{R}$.</li>
+            <li>Déterminer $\mathrm{Var}(D)$. On pourra montrer que si $\sigma, \tau \in \mathfrak{S}_n$:
+            $$ \mathrm{cov}\left(\prod_{i=1}^n X_{\sigma(i),i} ; \prod_{i=1}^n X_{\tau(i),i}\right) = \begin{cases} 1 & \text{si } \sigma = \tau, \\ 0 & \text{sinon}. \end{cases} $$
+            </li>
+            <li>Montrer que<sup><a href="#fn40" id="fnref40">[40]</a></sup> :
+            $$ |\det(A)| \le \prod_{i=1}^n \|C_i\|_2. $$
+            où $C_i$ désigne la $i^{\text{ème}}$ colonne de $A$. En déduire que $|D| \le n^{n/2}$.
+            </li>
+            <li>En déduire une majoration de $\mathbb{P}(|D| \ge n!\sqrt{n})$.</li>
+        </ol>
+    </article>
+
+    <article class="exercise" id="ex172">
+        <h3>Exercice 172 : Mines 2022</h3>
+        <p>Une urne contient $a$ boules blanches et $b$ boules rouges. Chaque fois qu'on pioche une boule, on la remet dans l'urne et on y rajoute $c$ boules de la même couleur. On note $Y$ le premier instant où l'on tire une boule rouge. Déterminer la loi de $Y$. Admet-elle une espérance ?</p>
+    </article>
+
+    <article class="exercise" id="ex173">
+        <h3>Exercice 173 : Mines 2022</h3>
+        <p>On considère une urne avec $a$ boules blanches et $b$ boules noires. On tire successivement et sans remise toutes les boules de cette urne. On note $X$ la variable aléatoire désignant le numéro du tirage de la dernière boule blanche.</p>
+        <ol>
+            <li>Montrer que $\sum_{k=p}^n \binom{k}{p} = \binom{n+1}{p+1}$.</li>
+            <li>Montrer que $\mathbb{P}(X=n) = \frac{\binom{n-1}{a-1}}{\binom{a+b}{a}}$.</li>
+            <li>En déduire $\mathbb{E}(X)$ et $\mathrm{Var}(X)$.</li>
+        </ol>
+    </article>
+
+    <article class="exercise" id="ex174">
+        <h3>Exercice 174 : Mines 2022</h3>
+        <p>On considère une urne contenant $n$ boules indiscernables au toucher, numérotées de 1 à $n$. On tire une poignée de boules. On replace cette poignée dans l'urne et on mélange. On tire une deuxième poignée. Déterminer la probabilité que les deux poignées n'aient aucune boule en commun.</p>
+    </article>
+</section>
+
+<div class="footnotes">
+    <p id="fn39"><a href="#fnref39">^</a> [39] On dit que $X$ suit une loi de Rademacher lorsque $\mathbb{P}(X=1) = \mathbb{P}(X=-1)=1/2$, en référence au mathématicien du même nom. Un théorème portant son nom énonce qu'une fonction lipschitzienne est presque partout dérivable.</p>
+    <p id="fn40"><a href="#fnref40">^</a> [40] C'est l'inégalité de Hadamard. Les mathématiciens Jacques Hadamard et Charles-Jean de la Vallée Poussin furent les premiers à démontrer le théorème des nombres premiers en 1896, à l'aide des travaux de Riemann sur la fonction zêta.</p>
+</div>
+
+<section id="indications">
+    <h2>Indications</h2>
+    <p>Cette section contient des indications fournies dans certains exercices ou certaines questions difficiles, qui sont parfois apparues au cours de l'échange avec l'examinateur pour les oraux qui s'y prêtent.</p>
+    
+    <div class="hint" id="hint10">
+        <h4>Exercice 10</h4>
+        <p>Montrer que la composante connexe par arcs de $\mathrm{Id}$ dans $G$ est un sous-groupe distingué de $G$.<sup><a href="#fn41" id="fnref41">[41]</a></sup><br>
+        Dans le cas où $G$ est connexe par arcs et $G \neq \{\mathrm{Id}\}$, montrer que $G$ contient une rotation d'angle $\pi$.</p>
+    </div>
+    
+    <div class="hint" id="hint63">
+        <h4>Exercice 63</h4>
+        <p>Chercher un vecteur propre commun à $a$ et $b$.</p>
+    </div>
+    
+    <div class="hint" id="hint64">
+        <h4>Exercice 64</h4>
+        <p>Pour la question 3, étant donnés $X=(x_0, \dots, x_n) \in \mathbb{R}^{n+1}$ et $Y=(y_0, \dots, y_n) \in \mathbb{R}^{n+1}$, on pourra considérer :
+        $$ P(t) = \sum_{k=0}^n x_k e^{ikt} \quad ; \quad Q(t) = \sum_{k=0}^n y_k e^{ikt}. $$
+        </p>
+    </div>
+
+    <div class="hint" id="hint87">
+        <h4>Exercice 87</h4>
+        <p>Pour la question 4, on pourra poser $g(t) = f(t) - L_n(f)(t) - C U_n(t)$ où $C \in \mathbb{R}$.</p>
+    </div>
+    
+    <div class="hint" id="hint126">
+        <h4>Exercice 126</h4>
+        <p>Prendre $r_2 \le (r_1)^s (r_3)^{1-s}$.</p>
+    </div>
+    
+    <div class="hint" id="hint138">
+        <h4>Exercice 138</h4>
+        <p>Montrer que les fonctions $i \mapsto \binom{i+j}{i}$ et $j \mapsto \binom{i+j}{j}$ sont strictement croissantes.</p>
+    </div>
+
+    <div class="hint" id="hint166">
+        <h4>Exercice 166</h4>
+        <p>Déterminer d'abord $C(M)$ lorsque $M$ est un singleton. Pour ce faire, écrire les relations entre coefficients et racines du polynôme caractéristique, et montrer que $C(\{A\}) = C(\{B\})$ si, et seulement si, $\mathrm{tr}(A) = \mathrm{tr}(B)$.</p>
+    </div>
+
+    <div class="hint" id="hint168">
+        <h4>Exercice 168</h4>
+        <p>Pour la question 4, on pourra choisir $L$ tel que $\|I\|_2^2 = p$ pour tout $I \in L \setminus \{0\}$.<br>
+        On pourra également prendre $v_1 = (p,0)$ et $v_2 = (q,1)$ où $q^2 \equiv -1 \pmod p$.</p>
+    </div>
+</section>
+
+<div class="footnotes">
+    <p id="fn41"><a href="#fnref41">^</a> [41] On rappelle qu'un sous-groupe $H$ de $G$ est dit <em>distingué</em> lorsque $gHg^{-1} \subset H$ pour tout $g \in G$.</p>
+</div>
+
+<section id="corriges">
+    <h2>Corrigés</h2>
+
+    <article class="correction" id="corr11">
+        <h3>Exercice 11 (corrigé proposé par Vivien)</h3>
+        <p><strong>Lemme.</strong> Pour toute base orthonormée $(x_1, \dots, x_n)$ de $\mathbb{R}^n$ et pour tout $A \in \mathcal{S}_n(\mathbb{R})$ :
+        $$ \sum_{k=1}^n \exp(\langle Ax_k, x_k \rangle) \le \mathrm{tr}(e^A). $$
+        <strong>Démonstration.</strong> On note tout d'abord $\lambda_1, \dots, \lambda_r$ les valeurs propres distinctes de $A$. D'après le théorème spectral, il existe alors $Q \in \mathrm{O}_n(\mathbb{R})$ telle que :
+        $$ A = Q \begin{pmatrix} \lambda_1 I_{\alpha_1} & & \\ & \ddots & \\ & & \lambda_r I_{\alpha_r} \end{pmatrix} Q^T $$
+        où l'on a noté, pour $i \in \{1, \dots, r\}$, $\alpha_i = \dim\ker(A - \lambda_i I_n)$. La matrice du projecteur spectral associé est :
+        $$ P_i = Q \begin{pmatrix} 0 & & \\ & I_{\alpha_i} & \\ & & 0 \end{pmatrix} Q^T. $$
+        De plus, par construction, on dispose des égalités suivantes :
+        $$ \sum_{i=1}^r P_i = Q Q^T = I_n \quad ; \quad \sum_{i=1}^r \lambda_i P_i = A \quad ; \quad P_i P_j = \delta_{i,j} P_i. $$
+        Si $x \in \mathbb{R}^n$ est un vecteur unitaire, on a donc :
+        $$ \langle Ax, x \rangle = \sum_{i=1}^r \lambda_i \langle P_i x, x \rangle $$
+        et puisque les $P_i$ sont symétriques positives, chaque $\langle P_i x, x \rangle$ est positif. De plus :
+        $$ \sum_{i=1}^n \langle P_i x, x \rangle = 1 $$
+        donc par l'inégalité de Jensen appliquée à l'exponentielle :
+        $$ \exp(\langle Ax, x \rangle) \le \sum_{i=1}^r e^{\lambda_i} \langle P_i x, x \rangle. $$
+        Ainsi, si $(x_1, \dots, x_n)$ est une base orthonormée de $\mathbb{R}^n$ :
+        $$ \sum_{k=1}^n \exp(\langle Ax_k, x_k \rangle) \le \sum_{k=1}^n \sum_{i=1}^r e^{\lambda_i} \langle P_i x_k, x_k \rangle = \sum_{i=1}^r e^{\lambda_i} \sum_{k=1}^n \langle P_i x_k, x_k \rangle. $$
+        On a $\sum_{k=1}^n \langle P_i x_k, x_k \rangle = \mathrm{tr}(P_i) = \alpha_i$.
+        On en conclut, comme annoncé :
+        $$ \sum_{k=1}^n \exp(\langle Ax_k, x_k \rangle) \le \sum_{i=1}^r \alpha_i e^{\lambda_i} = \mathrm{tr}(\exp A). \quad \square $$
+    </article>
+</section>
+
+            <section id="corriges-suite">
+    <article class="correction" id="corr11-suite">
+        <p>Soient $A, B \in \mathcal{S}_n(\mathbb{R})$ et $t \in [0,1]$. Notons $M(t) = tA + (1-t)B$. Puisque c'est une matrice symétrique réelle, il existe une base orthonormée $(x_1, \dots, x_n)$ de $\mathbb{R}^n$ constituée de vecteurs propres de $M(t)$, chaque $x_i$ étant associé à la valeur propre $\lambda_i$. Remarquons alors que $tAx_i + (1-t)Bx_i = \lambda_i x_i$, d'où $t\langle Ax_i, x_i \rangle + (1-t)\langle Bx_i, x_i \rangle = \lambda_i$.
+        Ainsi, par convexité de l'exponentielle :
+        $$ \mathrm{tr}(M(t)) = \sum_{i=1}^n \lambda_i = \sum_{i=1}^n (t\langle Ax_i, x_i \rangle + (1-t)\langle Bx_i, x_i \rangle) $$
+        $$ \exp(\mathrm{tr}(M(t))) = \exp\left(\sum_{i=1}^n t\langle Ax_i, x_i \rangle + (1-t)\langle Bx_i, x_i \rangle\right) $$
+        $$ \le \sum_{i=1}^n \left( t \exp(\langle Ax_i, x_i \rangle) + (1-t) \exp(\langle Bx_i, x_i \rangle) \right) $$
+        D'après le lemme, on en déduit :
+        $$ \mathrm{tr}(\exp(M(t))) = \mathrm{tr}(\exp(tA + (1-t)B)) \le t\,\mathrm{tr}(\exp A) + (1-t)\,\mathrm{tr}(\exp B) $$
+        et ceci traduit la convexité de $M \mapsto \mathrm{tr}(\exp M)$ sur $\mathcal{S}_n(\mathbb{R})$. $\quad \square$
+        </p>
+    </article>
+
+    <article class="correction" id="corr67">
+        <h3>Exercice 67 (corrigé proposé par Giovanni)</h3>
+        <p>Cet exercice, que j'ai eu à l'oral, n'est pas bien compliqué, mais il est facile de s'y perdre. La clé est de travailler avec $P'/P$. Comme $P$ est scindé et de degré $N \ge 1$, on peut l'écrire :
+        $$ P = \lambda \prod_{i=1}^r (X - a_i)^{m_i} $$
+        où $\lambda \in \mathbb{R}^*$ et les $a_i$ sont les racines distinctes de $P$. On dispose alors des équivalences :
+        $$ (N-1)(P')^2 \ge NPP'' \iff (N-1) \left(\frac{P'}{P}\right)^2 \ge N \frac{P''}{P} = N \left(\left(\frac{P'}{P}\right)' + \left(\frac{P'}{P}\right)^2\right) $$
+        $$ \iff -\left(\frac{P'}{P}\right)^2 \ge N \left(\frac{P'}{P}\right)' $$
+        On utilise alors la formule bien connue :
+        $$ \frac{P'}{P} = \sum_{i=1}^r \frac{m_i}{X - a_i} $$
+        et il ne reste plus qu'à l'injecter dans l'inégalité précédente. Le résultat à prouver est donc équivalent à :
+        $$ N \sum_{i=1}^r \frac{m_i}{(X-a_i)^2} \ge \left( \sum_{i=1}^r \frac{m_i}{X-a_i} \right)^2. $$
+        Chaque $m_i$ étant positif, on peut définir, pour $i \in \{1, \dots, r\}$ :
+        $$ \alpha_i = \frac{\sqrt{m_i}}{X-a_i} \quad \text{et} \quad \beta_i = \sqrt{m_i} $$
+        et puisque la somme des $m_i$ vaut $N = \deg P$, le résultat à prouver équivaut à :
+        $$ \left( \sum_{i=1}^r \beta_i^2 \right) \left( \sum_{i=1}^r \alpha_i^2 \right) \ge \left( \sum_{i=1}^r \alpha_i \beta_i \right)^2. $$
+        On évalue alors en $x \in \mathbb{R}$ non racine de $P$ (le résultat était évident au départ sinon) et on conclut par l'inégalité de Cauchy-Schwarz. Il y a égalité si, et seulement si, les vecteurs $\alpha(x) = (\alpha_1(x), \dots, \alpha_r(x))$ et $\beta = (\beta_1, \dots, \beta_r)$ sont positivement liés. Puisque $N=\deg P \ge 1$, ces derniers ne sont pas nuls, donc il y a égalité si, et seulement, s'il existe $t_0(x) > 0$ tel que pour tout $i \in \{1, \dots, r\}$ :
+        $$ \frac{\sqrt{m_i}}{x - a_i} = t_0(x) \sqrt{m_i} \iff x-a_i = \frac{1}{t_0(x)}. $$
+        On a donc égalité si, et seulement si, pour tous $i,j \in \{1, \dots, r\}$ : $x-a_i = x-a_j$.
+        Par conséquent, le cas d'égalité correspond au cas où $P$ a exactement une seule racine. $\quad \square$
+        </p>
+    </article>
+
+    <article class="correction" id="corr124">
+        <h3>Exercice 124 (corrigé proposé par Giovanni)</h3>
+        <ol>
+            <li>Non, prendre par exemple $f(z) = \sum_{n=0}^\infty (-1)^n z^n$.</li>
+            <li>Si $(a_n)$ est positive, alors $f$ est croissante, donc l'existence de $\ell$ permet d'affirmer que $f$ est majorée par $\ell$, au voisinage de $1^-$, et même sur $I = [0,1[$. Ainsi :
+            $$ \forall x \in I, \forall N \in \mathbb{N}, \sum_{n=0}^N a_n x^n \le f(x) \le \ell. $$
+            Puisqu'on a tronqué la somme, on peut maintenant faire tendre $x$ vers $1^-$ et on obtient :
+            $$ \forall N \in \mathbb{N}, \sum_{n=0}^N a_n \le \ell. $$
+            Comme $(a_n)$ est positive, on en déduit que $\sum a_n$ converge. C'est presque terminé. De nouveau par positivité de $(a_n)$, la série $\sum a_n x^n$ converge normalement sur $[0,1]$. Donc $f$ est continue en 1, puis $f(1)=\ell$.<br>
+            <em>Remarque.</em> On peut faire cela en une ligne :
+            $$ \ell = \lim_{x\to 1^-} f(x) = \sup_{x\in I} f(x) = \sup_{x\in I} \sup_{N\in\mathbb{N}} \sum_{n=0}^N a_n x^n = \sup_{N\in\mathbb{N}} \sup_{x\in I} \sum_{n=0}^N a_n x^n = \sup_{N\in\mathbb{N}} \sum_{n=0}^N a_n = \sum_{n=0}^\infty a_n. $$
+            </li>
+            <li>Il suffit de montrer que :
+            $$ f\left(1-\frac{1}{N}\right) - \sum_{n=0}^N a_n \xrightarrow[N\to\infty]{} 0. $$
+            Tout d'abord, pour $N \ge 1$:
+            $$ \left| \sum_{n=0}^N a_n \left( \left(1-\frac{1}{N}\right)^n - 1 \right) \right| = \sum_{n=0}^N a_n \left( 1 - \left(1-\frac{1}{N}\right)^n \right) \le \sum_{n=0}^N a_n \left( 1 - \left(1-\frac{n}{N}\right) \right) = \frac{1}{N} \sum_{n=0}^N n a_n \xrightarrow[N\to\infty]{} 0 $$
+            d'après le lemme de Cesàro. On doit donc montrer que :
+            $$ \sum_{n=N+1}^\infty a_n \left(1-\frac{1}{N}\right)^n \xrightarrow[N\to\infty]{} 0. $$
+            Rappelons que $\sum a_n z^n$ est de rayon 1, donc $\sum n a_n z^n$ également, ce qui justifie la majoration :
+            $$ \left| \sum_{n=N+1}^\infty a_n \left(1-\frac{1}{N}\right)^n \right| \le \frac{1}{N} \sum_{n=N+1}^\infty n|a_n| \left(1-\frac{1}{N}\right)^n $$
+            puisque la somme démarre à $n=N+1 \ge N$. Puisque $(n|a_n|)$ est majorée, on a donc :
+            $$ \left| \sum_{n=N+1}^\infty n|a_n| \left(1-\frac{1}{N}\right)^n \right| \le (\sup_{n>N} n|a_n|) \sum_{n=N+1}^\infty \left(1-\frac{1}{N}\right)^n = (\sup_{n>N} n|a_n|) N \left(1-\frac{1}{N}\right)^{N+1}. $$
+            On déduit aisément du fait que $n|a_n| \to 0$ le résultat suivant :
+            $$ \lim_{N\to\infty} \sup_{n>N} n|a_n| \stackrel{\text{def}}{=} \limsup_{n\to\infty} n|a_n| = \lim_{n\to\infty}(\sup_{k\ge n} k|a_k|) = 0. $$
+            Enfin, par inégalité triangulaire :
+            $$ \left| f\left(1-\frac{1}{N}\right) - \sum_{n=0}^\infty a_n \right| \le \left| \sum_{n=0}^N a_n \left(\left(1-\frac{1}{N}\right)^n-1\right) \right| + \left| \sum_{n=N+1}^\infty a_n \right| + \left| \sum_{n=N+1}^\infty a_n \left(1-\frac{1}{N}\right)^n \right| $$
+            ce qui donne le résultat cherché puisque $f$ a une limite en 1. $\quad \square$
+            </li>
+        </ol>
+    </article>
+</section>
         <hr>
         <p style="text-align:center; font-style:italic;">
             Le reste du document peut être converti en suivant la même structure. Chaque section thématique (Analyse, Probabilités, etc.) est encapsulée dans une balise <code>&lt;section&gt;</code>, et chaque exercice dans une balise <code>&lt;article&gt;</code>. Les formules mathématiques sont systématiquement converties en syntaxe KaTeX pour un rendu propre et lisible sur tous les appareils.
