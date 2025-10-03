@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oraux de mathématiques - Lycée Thiers</title>
+    
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0KOVEMmg9fzsUGSRUQBs19mmpsQTpxW3fCv6BYSzn8soD4OT5d4KN" crossorigin="anonymous">
+    
+    <!-- KaTeX JS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            background-color: #f8f9fa;
+            color: #212529;
+            margin: 0;
+            padding: 10px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            margin-top: 1.5em;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #0056b3;
+        }
+        h2 {
+            font-size: 1.8em;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #17a2b8;
+            border-bottom-style: dashed;
+        }
+        .exercise {
+            margin-bottom: 2em;
+        }
+        blockquote {
+            background-color: #e9ecef;
+            border-left: 5px solid #17a2b8;
+            padding: 10px 20px;
+            margin: 1em 0;
+            font-style: italic;
+        }
+        .footnotes {
+            margin-top: 2em;
+            padding-top: 1em;
+            border-top: 1px solid #dee2e6;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+        .footnotes p {
+            margin: 0.5em 0;
+        }
+        .notation-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .notation-table td {
+            padding: 8px;
+            border: 1px solid #dee2e6;
+        }
+        .notation-table td:first-child {
+            width: 30%;
+            font-weight: bold;
+            text-align: center;
+        }
+        .hint, .correction {
+            color: #28a745;
+            font-weight: bold;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ol li {
+            margin-bottom: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Oraux de mathématiques</h1>
+            <p style="text-align:center; font-weight: bold;">Lycée Thiers – MP*</p>
+        </header>
+
+        <section id="preambule">
+            <h2>Préambule</h2>
+            <p>
+                Ce document regroupe un grand nombre d'exercices posés à l'oral aux élèves de MP** pendant l'année 2022, et de MP* à partir de l'année 2023. Certains d'entre eux n'ont pas pu être traités ou explorés intégralement, et il sera donc indiqué en-dessous de ceux qui proposaient davantage de questions :
+            </p>
+            <blockquote>Il restait des questions mais l'élève n'a pas eu le temps de poursuivre.</blockquote>
+            <p>
+                Dans ce cas, certaines questions qui auraient pu suivre seront parfois ajoutées, et il sera indiqué :
+            </p>
+            <blockquote>Il restait probablement des questions ; si tel est le cas, en voici certaines qui auraient pu être posées.</blockquote>
+            <p>
+                Vous trouverez également un bon nombre de notes de bas de page, qui précisent certains mots de vocabulaire introduits dans l'énoncé ou proposent une ouverture sur des notions mathématiques proches de ce dont l'exercice traite. Elles seront indiquées au sein du texte par un nombre entre crochets en exposant, comme ici.<sup><a href="#fn1" id="fnref1">[1]</a></sup>
+            </p>
+        </section>
+
+        <section id="sommaire">
+            <h2>Sommaire</h2>
+            <p>Les exercices sont regroupés par concours et classés selon les thèmes suivants :</p>
+            <ul>
+                <li>Algèbre bilinéaire, espaces euclidiens ;</li>
+                <li>Algèbre linéaire, polynômes, réduction ;</li>
+                <li>Analyse, topologie ;</li>
+                <li>Calcul différentiel ;</li>
+                <li>Groupes, anneaux, arithmétique ;</li>
+                <li>Probabilités.</li>
+            </ul>
+            <p>
+                La dernière page de ce document est consacrée aux indications, qui étaient fournies dès le début avec l'énoncé, ou qui sont apparues au cours de l'échange, pour les oraux qui s'y prêtent (notamment pour les trois derniers concours de la liste). Lorsqu'un exercice en propose, vous trouverez en-dessous de son énoncé la mention :
+            </p>
+            <p class="hint">▷ Des indications sont disponibles pour cet exercice. Cliquez ici pour les consulter.</p>
+            <p>
+                Les titres des exercices précisent enfin l'année à laquelle ils ont été donnés, sans doute pas pour la première fois. La présence d'un symbole [C] au niveau du numéro de l'exercice signifie qu'un corrigé est disponible en fin de document. Vous pouvez contacter l'auteur à l'adresse giovanni.lebaron[at]ens-rennes.fr. Enjoy!
+            </p>
+        </section>
+        
+        <div class="footnotes">
+            <p id="fn1"><a href="#fnref1">^</a> [1] Voici un exemple de note de bas de page.</p>
+        </div>
+
+        <section id="notations">
+            <h2>Notations</h2>
+            <table class="notation-table">
+                <tr><td>$\mathbb{K}^\times$</td><td>ensemble des inversibles de $\mathbb{K}$</td></tr>
+                <tr><td>$\mathbb{K}[X]$</td><td>ensemble des polynômes à coefficients dans $\mathbb{K}$</td></tr>
+                <tr><td>$\mathbb{K}_n[X]$</td><td>ensemble des polynômes à coefficients dans $\mathbb{K}$ de degré au plus $n$</td></tr>
+                <tr><td>$\pi_u$</td><td>polynôme minimal de $u$</td></tr>
+                <tr><td>$\chi_u$</td><td>polynôme caractéristique de $u$</td></tr>
+                <tr><td>$\ker u$</td><td>noyau de $u$</td></tr>
+                <tr><td>$\mathrm{Im}\,u$</td><td>image de $u$</td></tr>
+                <tr><td>$\mathrm{rg}\,u$</td><td>rang de $u$</td></tr>
+                <tr><td>$\det u$</td><td>déterminant de $u$</td></tr>
+                <tr><td>$\mathrm{tr}\,u$</td><td>trace de $u$</td></tr>
+                <tr><td>$\mathrm{Sp}\,u$</td><td>spectre de $u$</td></tr>
+                <tr><td>$\mathcal{L}(E)$</td><td>ensemble des endomorphismes de $E$</td></tr>
+                <tr><td>$\mathcal{M}_n(\mathbb{K})$</td><td>ensemble des matrices $n \times n$ à coefficients dans $\mathbb{K}$</td></tr>
+                <tr><td>$\mathrm{GL}_n(\mathbb{K})$</td><td>ensemble des inversibles de $\mathcal{M}_n(\mathbb{K})$</td></tr>
+                <tr><td>$\mathrm{SL}_n(\mathbb{K})$</td><td>noyau du morphisme de groupes $\det: \mathrm{GL}_n(\mathbb{K}) \to \mathbb{K}^\times$</td></tr>
+                <tr><td>$\mathfrak{S}_n$</td><td>ensemble des permutations de $\{1, \dots, n\}$</td></tr>
+                <tr><td>$\mathrm{Aut}(G)$</td><td>ensemble des automorphismes du groupe $G$</td></tr>
+                <tr><td>$\mathrm{Id}$</td><td>application identité</td></tr>
+                <tr><td>$I_n$</td><td>matrice identité de taille $n$</td></tr>
+                <tr><td>$\mathrm{Mat}_\mathcal{B}(f)$</td><td>matrice en base $\mathcal{B}$ de $f$</td></tr>
+                <tr><td>$\mathrm{diag}(\lambda_1, \dots, \lambda_n)$</td><td>matrice diagonale dont les coefficients sont $\lambda_1, \dots, \lambda_n$</td></tr>
+                <tr><td>$A^T$</td><td>transposée de la matrice $A$</td></tr>
+                <tr><td>$|||A|||$</td><td>norme subordonnée (à la norme $\|\cdot\|$) de $A$</td></tr>
+                <tr><td>$\langle x, y \rangle$</td><td>produit scalaire canonique de $x$ et $y$</td></tr>
+                <tr><td>$\|x\|_2$</td><td>norme euclidienne canonique de $x$</td></tr>
+                <tr><td>$\|f\|_\infty$</td><td>supremum de la fonction $|f|$</td></tr>
+                <tr><td>$\mathcal{S}_n(\mathbb{R})$</td><td>sous-ensemble de $\mathcal{M}_n(\mathbb{R})$ constitué des matrices symétriques réelles</td></tr>
+                <tr><td>$\mathcal{S}_n^+(\mathbb{R})$</td><td>sous-ensemble de $\mathcal{S}_n(\mathbb{R})$ constitué des matrices positives</td></tr>
+                <tr><td>$\mathcal{S}_n^{++}(\mathbb{R})$</td><td>sous-ensemble de $\mathcal{S}_n(\mathbb{R})$ constitué des matrices définies positives</td></tr>
+                <tr><td>$\mathrm{O}_n(\mathbb{R})$</td><td>sous-ensemble de $\mathcal{M}_n(\mathbb{R})$ constitué des matrices orthogonales</td></tr>
+                <tr><td>$\mathrm{SO}_n(\mathbb{R})$</td><td>noyau du morphisme de groupes $\det: \mathrm{O}_n(\mathbb{R}) \to \{-1, 1\}$</td></tr>
+                <tr><td>$\mathrm{d}f$</td><td>différentielle de la fonction $f$</td></tr>
+                <tr><td>$\partial_k f$</td><td>dérivée partielle de la fonction $f$ par rapport à la $k^{\text{ème}}$ variable</td></tr>
+                <tr><td>$\Delta f$</td><td>laplacien de la fonction $f$</td></tr>
+                <tr><td>$\mathcal{C}^k(E, F)$</td><td>ensemble des fonctions de classe $\mathcal{C}^k$ sur $E$ à valeurs dans $F$</td></tr>
+                <tr><td>$\mathbb{P}(A)$</td><td>probabilité de l'événement $A$</td></tr>
+                <tr><td>$\mathbb{E}(X)$</td><td>espérance de la variable aléatoire $X$</td></tr>
+                <tr><td>$\mathrm{Var}(X)$</td><td>variance de la variable aléatoire $X$</td></tr>
+                <tr><td>$\mathrm{cov}(X, Y)$</td><td>covariance des variables aléatoires $X$ et $Y$</td></tr>
+                <tr><td>$\mathcal{B}(p)$</td><td>loi de Bernoulli de paramètre $p$</td></tr>
+                <tr><td>$\mathcal{B}(n, p)$</td><td>loi binomiale de paramètres $n, p$</td></tr>
+                <tr><td>$\mathcal{P}(\lambda)$</td><td>loi de Poisson de paramètre $\lambda$</td></tr>
+            </table>
+        </section>
+
+        <section id="algebre-bilineaire">
+            <h2>Algèbre bilinéaire, espaces euclidiens</h2>
+            
+            <article class="exercise" id="ex1">
+                <h3>Exercice 1 : CCP 2024</h3>
+                <p>Soient $E$ et $F$ deux espaces vectoriels de dimensions respectives $n$ et $p$, ainsi que $f \in \mathcal{L}(E, F)$. On suppose que $f$ est de rang $n$ et que $f^*$ est de rang $p$.</p>
+                <ol>
+                    <li>Montrer que $f^* \circ f$ est un automorphisme d'un espace vectoriel à préciser.</li>
+                    <li>On pose $g = f \circ (f^* \circ f)^{-1} \circ f^*$. Montrer que $g$ est un endomorphisme auto-adjoint.</li>
+                    <li>Montrer que $g$ est la projection orthogonale sur $f$.</li>
+                </ol>
+            </article>
+
+            <article class="exercise" id="ex2">
+                <h3>Exercice 2 : Centrale 2022</h3>
+                <ol>
+                    <li>Soit $A \in \mathrm{GL}_n(\mathbb{R})$. Montrer que $\varphi : (x, y) \mapsto \langle Ax, Ay \rangle$ est un produit scalaire sur $\mathbb{R}^n$.</li>
+                    <li>
+                        <ol type="a">
+                            <li>En déduire qu'il existe $Q \in \mathrm{O}_n(\mathbb{R})$ et $S \in \mathcal{S}_n(\mathbb{R})$ telles que $A = QS$.</li>
+                            <li>Étendre le résultat à $A \in \mathcal{M}_n(\mathbb{R})$.</li>
+                        </ol>
+                    </li>
+                </ol>
+            </article>
+
+            <article class="exercise" id="ex3">
+                <h3>Exercice 3 : Centrale 2022</h3>
+                <ol>
+                    <li>Montrer que si $U \in \mathcal{S}_n^{++}(\mathbb{R})$, alors $U$ admet une unique racine carrée dans $\mathcal{S}_n^{+}(\mathbb{R})$.</li>
+                    <li>Montrer que si $U, V \in \mathcal{S}_n^{+}(\mathbb{R})$, alors $\mathrm{tr}(UV) \ge 0$.</li>
+                    <li>Soit $I$ un intervalle non vide de $\mathbb{R}$. On considère une fonction dérivable $f : I \to \mathcal{M}_n(\mathbb{R})$ ainsi que $P \in \mathbb{R}[X]$. Montrer que $\mathrm{tr} \circ P \circ f$ est dérivable sur $I$ et calculer sa dérivée.</li>
+                </ol>
+            </article>
+
+            <article class="exercise" id="ex4">
+                <h3>Exercice 4 : Centrale 2023</h3>
+                <p>Soient $E$ un espace euclidien et $s \in \mathcal{L}(E)$.</p>
+                <ol>
+                    <li>Établir l'identité du parallélogramme et l'identité de polarisation.</li>
+                    <li>Montrer l'équivalence entre les assertions suivantes :
+                        <ol type="i">
+                            <li>$\exists c \ge 0, \forall x, y \in E, \langle s(x), s(y) \rangle = c \langle x, y \rangle$ ;</li>
+                            <li>$\forall x, y \in E, \langle x, y \rangle = 0 \implies \langle s(x), s(y) \rangle = 0$.</li>
+                        </ol>
+                    </li>
+                    <li>Trouver tous les $u \in \mathcal{L}(E)$ tels que $u(V^\perp) \subset u(V)^\perp$ pour tout sous-espace vectoriel $V$ de $E$.</li>
+                </ol>
+            </article>
+            
+            <article class="exercise" id="ex5">
+                <h3>Exercice 5 : Mines 2022</h3>
+                <p>Soit $A \in \mathcal{S}_n(\mathbb{R})$. On suppose que la suite $(A^k)_{k \in \mathbb{N}}$ converge vers $B \in \mathcal{M}_n(\mathbb{R})$. Montrer que :
+                $$ \sum_{1 \le i,j \le n} |b_{i,j}| \le n\sqrt{\mathrm{rg}\,B}. $$</p>
+            </article>
+
+            <article class="exercise" id="ex6">
+                <h3>Exercice 6 : Mines 2024</h3>
+                <p>Soient $E$ un espace euclidien et $p \in \mathcal{L}(E)$ tel que $p^2 = p$. Montrer que $p$ est un projecteur orthogonal si, et seulement si, $\|p(x)\| \le \|x\|$ pour tout $x \in E$.</p>
+            </article>
+            
+        </section>
+
+        <section id="algebre-lineaire">
+            <h2>Algèbre linéaire, polynômes, réduction</h2>
+
+            <article class="exercise" id="ex12">
+                <h3>Exercice 12 : CCP 2023</h3>
+                <p>Soit $(a, b) \in \mathbb{R}^2 \setminus \{0\}$. On considère la matrice :
+                $$ A = \begin{pmatrix}
+                0 & & & a \\
+                & \ddots & & \vdots \\
+                & & 0 & a \\
+                a & \dots & a & b
+                \end{pmatrix} $$
+                </p>
+                <ol>
+                    <li>Justifier que $A$ est diagonalisable.</li>
+                    <li>Déterminer le rang de $A$.</li>
+                    <li>Calculer le polynôme minimal et les valeurs propres de $A$. En déduire son polynôme caractéristique.</li>
+                </ol>
+            </article>
+
+            <article class="exercise" id="ex13">
+                <h3>Exercice 13 : CCP 2023</h3>
+                <p>On considère la matrice :
+                $$ A = \begin{pmatrix} 3 & 2 & -2 \\ -1 & 0 & 1 \\ 1 & -1 & 0 \end{pmatrix} $$
+                </p>
+                <ol>
+                    <li>Déterminer le polynôme caractéristique de $A$.</li>
+                    <li>Déterminer le polynôme minimal de $A$.</li>
+                    <li>Calculer $A^n$ pour $n \in \mathbb{N}$. En déduire $\exp(A)$.</li>
+                    <li>Montrer que $A$ est semblable à<sup><a href="#fn4" id="fnref4">[4]</a></sup> :
+                    $$ B = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix} $$
+                    </li>
+                    <li>Trouver une autre méthode pour calculer $A^n$.</li>
+                </ol>
+            </article>
+        </section>
+        
+        <div class="footnotes">
+             <p id="fn4"><a href="#fnref4">^</a> [4] La matrice B est appelée la <em>réduite de Jordan</em> de A. Le lecteur intéressé pourra se renseigner au sujet de la décomposition de Frobenius, dont la décomposition de Jordan est un cas particulier, pour les matrices dont le polynôme caractéristique est scindé.</p>
+        </div>
+        
+        <hr>
+        <p style="text-align:center; font-style:italic;">
+            Le reste du document peut être converti en suivant la même structure. Chaque section thématique (Analyse, Probabilités, etc.) est encapsulée dans une balise <code>&lt;section&gt;</code>, et chaque exercice dans une balise <code>&lt;article&gt;</code>. Les formules mathématiques sont systématiquement converties en syntaxe KaTeX pour un rendu propre et lisible sur tous les appareils.
+        </p>
+    </div>
+
+    <!-- KaTeX auto-render script configuration -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                throwOnError : false
+            });
+        });
+    </script>
+</body>
+</html>
