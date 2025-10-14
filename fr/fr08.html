@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Évolution du roman français — Balzac, Stendhal, Gautier, Flaubert, Proust</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+onload="renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false},{left:'$$',right:'$$',display:true}]});"></script>
+<style>
+:root{
+  --bg:#fafafa; --fg:#222; --muted:#555; --card:#fff; --border:#ddd; --accent:#1f7aec;
+  --balzac:#b87333; /* cuivre */
+  --stendhal:#ba1e1e; /* carmin */
+  --gautier:#5a6bbf;  /* bleu pictural */
+  --flaubert:#ddd6c8; /* ivoire */
+  --proust:#c8b273;   /* or pâle */
+}
+*{box-sizing:border-box}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  margin:2rem; line-height:1.6; background:var(--bg); color:var(--fg); max-width:1150px;
+}
+h1,h2,h3{color:#111;margin-top:1.25em}
+h1{font-size:1.9rem} h2{font-size:1.4rem} h3{font-size:1.15rem}
+hr{border:none;border-top:1px solid var(--border);margin:1.2em 0}
+table{border-collapse:collapse;width:100%;margin:1em 0}
+th,td{border:1px solid #ccc;padding:0.55em 0.8em;text-align:left;vertical-align:top}
+th{background:#f1f1f1}
+blockquote{
+  border-left:4px solid #999; padding-left:1em; color:#333; margin:1em 0;
+  font-style:italic; background:rgba(0,0,0,0.02);
+}
+ul{margin:0.6em 0 0.6em 1.2em}
+.small{font-size:.95em;color:var(--muted)}
+.notice{
+  background:var(--card); border:1px solid var(--border); border-radius:12px;
+  padding:1rem 1.2rem; box-shadow:0 1px 3px rgba(0,0,0,.03);
+}
+.caption{color:var(--muted);font-size:.92em;margin-top:.2rem}
+.toc a{color:var(--accent);text-decoration:none}
+.toc a:hover{text-decoration:underline}
+.badge{display:inline-block;padding:.15em .5em;border:1px solid var(--border);border-radius:999px;background:#fff;font-size:.8em;color:#333}
+.kv{display:grid;grid-template-columns:180px 1fr;gap:.4rem .8rem}
+.kv div:nth-child(odd){color:#444}
+.timeline-wrap{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem}
+.legend{display:flex;gap:.8rem;flex-wrap:wrap;margin:.5rem 0 0}
+.legend span{display:inline-flex;align-items:center;gap:.35rem}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:3px;border:1px solid #999}
+</style>
+</head>
+<body>
+
+<div class="notice">
+<p><strong>Grande fresque chronologique du roman français</strong> (XIXᵉ → début XXᵉ) centrée sur <strong>Balzac, Stendhal, Gautier, Flaubert, Proust</strong>. Tableau synthétique + commentaire pour montrer le passage du <em>monde extérieur</em> vers la <em>conscience intérieure</em>, de la société vers le style pur.</p>
+</div>
+
+<hr>
+
+<h1>🕰️ <strong>Évolution du roman français : du réel au souvenir</strong></h1>
+
+<table>
+<thead>
+<tr>
+<th><strong>Époque</strong></th>
+<th><strong>Auteur majeur</strong></th>
+<th><strong>Œuvre emblématique</strong></th>
+<th><strong>Style dominant</strong></th>
+<th><strong>Thèmes principaux</strong></th>
+<th><strong>École / mouvement</strong></th>
+<th><strong>Phrase-type</strong></th>
+<th><strong>Influence sur la suite</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1830–1850</strong></td>
+<td><strong>Stendhal (1783–1842)</strong></td>
+<td><em>Le Rouge et le Noir</em> (1830), <em>La Chartreuse de Parme</em> (1839)</td>
+<td>Clair, rapide, sincère, sans artifice</td>
+<td>Passion, ambition, sincérité, hypocrisie sociale</td>
+<td>Réalisme psychologique, héritier du romantisme</td>
+<td>« Un roman, c’est un miroir qu’on promène le long d’un chemin. »</td>
+<td>Prépare le roman d’analyse intérieure, influence Gide, Mauriac, Proust</td>
+</tr>
+<tr>
+<td><strong>1830–1850</strong></td>
+<td><strong>Balzac (1799–1850)</strong></td>
+<td><em>La Comédie humaine</em> (1829–1850)</td>
+<td>Foisonnant, énergique, narratif</td>
+<td>Société, argent, pouvoir, destin collectif</td>
+<td>Réalisme fondateur</td>
+<td>« Paris est une mer ; jetez-y la sonde, vous n’en connaîtrez jamais la profondeur. »</td>
+<td>Inspire Flaubert, Zola, Maupassant, les naturalistes</td>
+</tr>
+<tr>
+<td><strong>1835–1860</strong></td>
+<td><strong>Théophile Gautier (1811–1872)</strong></td>
+<td><em>Mademoiselle de Maupin</em> (1835), <em>Le Capitaine Fracasse</em> (1863)</td>
+<td>Pictural, sensuel, musical</td>
+<td>Beauté, art, sensualité, rêve</td>
+<td>Esthétisme — <em>l’art pour l’art</em></td>
+<td>« Sa peau semblait garder la trace d’une lumière lunaire. »</td>
+<td>Inspire Baudelaire, les symbolistes, Proust pour la beauté du style</td>
+</tr>
+<tr>
+<td><strong>1857–1880</strong></td>
+<td><strong>Gustave Flaubert (1821–1880)</strong></td>
+<td><em>Madame Bovary</em> (1857), <em>L’Éducation sentimentale</em> (1869)</td>
+<td>Musical, impersonnel, travaillé à la perfection</td>
+<td>Désillusion, médiocrité, vanité, art pur</td>
+<td>Réalisme esthétique</td>
+<td>« Elle se répétait : “J’ai un amant !” en se délectant à cette idée comme à un vin trop fort. »</td>
+<td>Donne au roman son exigence formelle, influence Maupassant, Zola, Proust</td>
+</tr>
+<tr>
+<td><strong>1913–1927</strong></td>
+<td><strong>Marcel Proust (1871–1922)</strong></td>
+<td><em>À la recherche du temps perdu</em> (1913–1927)</td>
+<td>Long, spiralé, introspectif, musical</td>
+<td>Mémoire, temps, jalousie, art, rédemption</td>
+<td>Modernisme, roman de la conscience</td>
+<td>« Longtemps je me suis couché de bonne heure. »</td>
+<td>Transforme la narration moderne, influence Joyce, Woolf, Sarraute, Gracq</td>
+</tr>
+</tbody>
+</table>
+
+<hr>
+
+<h1>🧭 <strong>Commentaire analytique</strong></h1>
+
+<h2>1. De l’observation du monde à la conquête du moi</h2>
+
+<table>
+<thead><tr><th><strong>Étape</strong></th><th><strong>Objectif du roman</strong></th><th><strong>Type de réalisme</strong></th></tr></thead>
+<tbody>
+<tr><td><strong>Balzac</strong></td><td>Décrire la société comme un naturaliste décrit une espèce.</td><td>Réalisme social.</td></tr>
+<tr><td><strong>Stendhal</strong></td><td>Montrer les passions et la conscience de soi.</td><td>Réalisme psychologique.</td></tr>
+<tr><td><strong>Flaubert</strong></td><td>Dire le vrai avec un style parfait.</td><td>Réalisme esthétique.</td></tr>
+<tr><td><strong>Proust</strong></td><td>Comprendre la vie par la mémoire.</td><td>Réalisme intérieur (ou spirituel).</td></tr>
+</tbody>
+</table>
+
+<p><strong>Gautier</strong> s’insère entre Balzac et Flaubert : il ne cherche ni la vérité sociale ni morale, mais <strong>la beauté pure du style</strong>. Il rend possible la phrase flaubertienne, mais avec la sensualité d’un peintre.</p>
+
+<h2>2. Évolution de la phrase française</h2>
+
+<table>
+<thead>
+<tr><th><strong>Auteur</strong></th><th><strong>Rythme et syntaxe</strong></th><th><strong>Exemple bref</strong></th><th><strong>Effet dominant</strong></th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Balzac</strong></td><td>Longues phrases oratoires, dynamiques.</td><td>« Paris est une mer… »</td><td>Force, mouvement.</td></tr>
+<tr><td><strong>Stendhal</strong></td><td>Phrase courte, vive, presque journalistique.</td><td>« Julien s’enfuit, les larmes aux yeux. »</td><td>Vitesse, sincérité.</td></tr>
+<tr><td><strong>Gautier</strong></td><td>Harmonie descriptive, vocabulaire pictural.</td><td>« Ses cheveux flottaient comme une vapeur… »</td><td>Couleur, sensualité.</td></tr>
+<tr><td><strong>Flaubert</strong></td><td>Architecture parfaite, rythme calculé.</td><td>« Tout sentait la résignation et la longue habitude. »</td><td>Musique, équilibre.</td></tr>
+<tr><td><strong>Proust</strong></td><td>Phrase en expansion, rétrospective, spiralée.</td><td>« Longtemps je me suis couché de bonne heure. »</td><td>Flux de conscience, durée.</td></tr>
+</tbody>
+</table>
+
+<p>👉 L’évolution du roman suit <strong>l’évolution de la phrase</strong> : de l’<strong>énergie</strong> (Balzac) → à la <strong>conscience</strong> (Proust).</p>
+
+<h2>3. Les grands thèmes en miroir</h2>
+
+<table>
+<thead>
+<tr>
+<th><strong>Thème</strong></th>
+<th><strong>Balzac</strong></th>
+<th><strong>Stendhal</strong></th>
+<th><strong>Gautier</strong></th>
+<th><strong>Flaubert</strong></th>
+<th><strong>Proust</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr><td><strong>Amour</strong></td><td>Force sociale ou piège moral</td><td>Passion, sincérité</td><td>Beauté sensuelle</td><td>Désillusion, ennui</td><td>Mémoire, jalousie</td></tr>
+<tr><td><strong>Temps</strong></td><td>Historique (époque)</td><td>Présent de la passion</td><td>Instant esthétique</td><td>Présent figé, sans issue</td><td>Temps retrouvé, mémoire rédemptrice</td></tr>
+<tr><td><strong>Art / Beauté</strong></td><td>Expression de la société</td><td>Miroir du moi</td><td>Finalité absolue</td><td>Recherche du style pur</td><td>Transcendance par l’art</td></tr>
+<tr><td><strong>Société</strong></td><td>Totalité du monde humain</td><td>Contrainte du moi</td><td>Décor esthétique</td><td>Prison de la médiocrité</td><td>Réseau des mondanités</td></tr>
+<tr><td><strong>Sens du roman</strong></td><td>Représenter</td><td>Vivre</td><td>Embellir</td><td>Parfaire</td><td>Ressusciter</td></tr>
+</tbody>
+</table>
+
+<h2>4. La chaîne des influences</h2>
+
+<pre class="small">Stendhal → Balzac → Flaubert → Proust
+          ↘ Gautier ↗</pre>
+
+<ul>
+<li><strong>Stendhal</strong> apporte la <strong>lucidité psychologique</strong>.</li>
+<li><strong>Balzac</strong> donne au roman une <strong>architecture du monde social</strong>.</li>
+<li><strong>Gautier</strong> introduit la <strong>notion d’art pur</strong>, de style visuel.</li>
+<li><strong>Flaubert</strong> synthétise tout cela dans la <strong>phrase parfaite et impersonnelle</strong>.</li>
+<li><strong>Proust</strong> transforme le roman en <strong>exploration du temps et de la mémoire</strong>.</li>
+</ul>
+
+<h2>5. Ce que chacun lègue à la littérature mondiale</h2>
+
+<table>
+<thead>
+<tr><th><strong>Auteur</strong></th><th><strong>Héritiers directs</strong></th><th><strong>Traces dans la littérature mondiale</strong></th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Balzac</strong></td><td>Zola, Maupassant, Tolstoï</td><td>Réalisme social universel</td></tr>
+<tr><td><strong>Stendhal</strong></td><td>Gide, Mauriac, Henry James</td><td>Roman psychologique moderne</td></tr>
+<tr><td><strong>Gautier</strong></td><td>Baudelaire, Huysmans, Wilde</td><td>Esthétisme européen</td></tr>
+<tr><td><strong>Flaubert</strong></td><td>Joyce, Nabokov, Sartre</td><td>Style impersonnel et ironique</td></tr>
+<tr><td><strong>Proust</strong></td><td>Woolf, Faulkner, Yourcenar</td><td>Flux de conscience, mémoire intérieure</td></tr>
+</tbody>
+</table>
+
+<hr>
+
+<h1>🌹 <strong>Conclusion générale</strong></h1>
+
+<p>Le roman français du XIXᵉ au XXᵉ siècle trace une <strong>courbe d’intériorisation</strong> :</p>
+
+<blockquote><strong>Balzac</strong> montre le monde.<br>
+<strong>Stendhal</strong> fait battre le cœur.<br>
+<strong>Gautier</strong> fait briller la phrase.<br>
+<strong>Flaubert</strong> cherche la perfection.<br>
+<strong>Proust</strong> redonne sens au temps perdu.</blockquote>
+
+<p>En une phrase :</p>
+<blockquote>le roman passe du <strong>regard sur la société</strong> (Balzac) au <strong>regard sur la conscience</strong> (Proust).</blockquote>
+
+<hr>
+
+<h2>Frise chronologique (HTML/SVG pur)</h2>
+
+<div class="timeline-wrap">
+<div class="legend">
+  <span><i style="background:var(--stendhal)"></i>Stendhal</span>
+  <span><i style="background:var(--balzac)"></i>Balzac</span>
+  <span><i style="background:var(--gautier)"></i>Gautier</span>
+  <span><i style="background:var(--flaubert)"></i>Flaubert</span>
+  <span><i style="background:var(--proust)"></i>Proust</span>
+</div>
+<svg viewBox="0 0 1000 220" width="100%" height="220" role="img" aria-label="Frise chronologique des auteurs">
+  <!-- Axe -->
+  <line x1="40" y1="110" x2="960" y2="110" stroke="#999" stroke-width="1"/>
+  <!-- Graduations années clés -->
+  <g fill="#666" font-size="11">
+    <text x="40" y="95">1800</text>
+    <text x="220" y="95">1830</text>
+    <text x="400" y="95">1850</text>
+    <text x="580" y="95">1880</text>
+    <text x="760" y="95">1910</text>
+    <text x="940" y="95">1930</text>
+  </g>
+  <!-- Segments auteurs (positions approximatives sur l'axe) -->
+  <!-- Stendhal (1783–1842) impact 1830–1850 -->
+  <rect x="210" y="30" width="180" height="18" fill="var(--stendhal)" rx="4" ry="4"/>
+  <text x="215" y="25" font-size="12" fill="#333">Stendhal (1830–1850)</text>
+  <!-- Balzac (1799–1850) -->
+  <rect x="210" y="60" width="200" height="18" fill="var(--balzac)" rx="4" ry="4"/>
+  <text x="215" y="55" font-size="12" fill="#333">Balzac (1830–1850)</text>
+  <!-- Gautier (1811–1872) 1835–1860 -->
+  <rect x="240" y="140" width="200" height="18" fill="var(--gautier)" rx="4" ry="4"/>
+  <text x="245" y="135" font-size="12" fill="#333">Gautier (1835–1860)</text>
+  <!-- Flaubert (1821–1880) 1857–1880 -->
+  <rect x="400" y="170" width="180" height="18" fill="var(--flaubert)" stroke="#bbb" rx="4" ry="4"/>
+  <text x="405" y="165" font-size="12" fill="#333">Flaubert (1857–1880)</text>
+  <!-- Proust (1871–1922) 1913–1927 -->
+  <rect x="740" y="120" width="160" height="18" fill="var(--proust)" rx="4" ry="4"/>
+  <text x="745" y="115" font-size="12" fill="#333">Proust (1913–1927)</text>
+  <!-- Liens d'influence (flèches) -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#777"/>
+    </marker>
+  </defs>
+  <line x1="300" y1="48" x2="300" y2="78" stroke="#777" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="440" y1="78" x2="440" y2="168" stroke="#777" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="520" y1="178" x2="820" y2="128" stroke="#777" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="340" y1="150" x2="440" y2="170" stroke="#777" stroke-width="1.2" marker-end="url(#arrow)"/>
+</svg>
+<p class="caption">Frise indicative (positions temporelles approximatives). Les flèches représentent des influences majeures.</p>
+</div>
+
+</body>
+</html>
