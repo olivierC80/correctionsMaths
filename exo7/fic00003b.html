@@ -1,0 +1,369 @@
+Of course. As an engineer specializing in web technologies and LaTeX, I will convert the provided document on injections, surjections, and bijections into a complete, mobile-optimized HTML file using KaTeX for mathematical rendering. I will ensure all internal links between exercises and their solutions are correctly implemented for easy navigation.
+
+Here is the resulting HTML file:
+
+code
+Html
+play_circle
+download
+content_copy
+expand_less
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Injection, surjection, bijection - Exo7</title>
+    
+    <!-- KaTeX for LaTeX rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"  crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"  crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"  crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+    <style>
+        :root {
+            --primary-color: #005a9c; /* A professional blue */
+            --secondary-color: #f0f0f0;
+            --border-color: #ddd;
+            --text-color: #333;
+            --exo7-orange: #f57c00;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: #fff;
+            margin: 0;
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 1rem;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 1.5em;
+            margin-bottom: 0.8em;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.3em;
+        }
+
+        h1 {
+            font-size: 2em;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            position: relative;
+        }
+        
+        .exo7-logo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--exo7-orange);
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 0 0 0 8px;
+            box-shadow: -2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .exercise, .solution-box, .indication-box {
+            background-color: #fdfdfd;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .exercise-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .exercise-header h3 {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .exercise-code {
+            color: #888;
+            font-size: 0.8em;
+            font-family: monospace;
+        }
+
+        .nav-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            background-color: var(--secondary-color);
+            padding: 0.3rem 0.7rem;
+            border-radius: 15px;
+            font-size: 0.9em;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .solution-box h4 a, .indication-box h4 a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        ol, ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Injection, surjection, bijection <div class="exo7-logo">Exo7</div></h1>
+    </header>
+
+    <main>
+        <section id="exercices">
+            <article id="exo1" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 1</h3>
+                    <span class="exercise-code">[000185]</span>
+                </div>
+                <p>Soient $f: \mathbb{R} \to \mathbb{R}$ et $g: \mathbb{R} \to \mathbb{R}$ telles que $f(x) = 3x + 1$ et $g(x) = x^2 - 1$. A-t-on $f \circ g = g \circ f$ ?</p>
+                <div class="nav-links">
+                    <a href="#ind1">Indication ▼</a>
+                    <a href="#corr1">Correction ▼</a>
+                    <a href="#">Vidéo ■</a>
+                </div>
+            </article>
+
+            <article id="exo2" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 2</h3>
+                    <span class="exercise-code">[000199]</span>
+                </div>
+                <p>Soit $f : [0, 1] \to [0, 1]$ telle que</p>
+                $$ f(x) = \begin{cases} x & \text{si } x \in [0, 1] \cap \mathbb{Q}, \\ 1-x & \text{sinon.} \end{cases} $$
+                <p>Démontrer que $f \circ f = id$.</p>
+                <div class="nav-links">
+                    <a href="#ind2">Indication ▼</a>
+                    <a href="#corr2">Correction ▼</a>
+                    <a href="#">Vidéo ■</a>
+                </div>
+            </article>
+
+            <article id="exo3" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 3</h3>
+                    <span class="exercise-code">[000202]</span>
+                </div>
+                <p>Soit $f : [1, +\infty[ \to [0, +\infty[$ telle que $f(x) = x^2 - 1$. $f$ est-elle bijective ?</p>
+                <div class="nav-links">
+                    <a href="#ind3">Indication ▼</a>
+                    <a href="#corr3">Correction ▼</a>
+                    <a href="#">Vidéo ■</a>
+                </div>
+            </article>
+
+            <article id="exo4" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 4</h3>
+                    <span class="exercise-code">[000190]</span>
+                </div>
+                <p>Les applications suivantes sont-elles injectives, surjectives, bijectives ?</p>
+                <ol>
+                    <li>$f : \mathbb{N} \to \mathbb{N}, n \mapsto n+1$</li>
+                    <li>$g : \mathbb{Z} \to \mathbb{Z}, n \mapsto n+1$</li>
+                    <li>$h : \mathbb{R}^2 \to \mathbb{R}^2, (x, y) \mapsto (x+y, x-y)$</li>
+                    <li>$k : \mathbb{R} \setminus \{1\} \to \mathbb{R}, x \mapsto \frac{x+1}{x-1}$</li>
+                </ol>
+                <div class="nav-links">
+                    <a href="#ind4">Indication ▼</a>
+                    <a href="#corr4">Correction ▼</a>
+                    <a href="#">Vidéo ■</a>
+                </div>
+            </article>
+
+            <article id="exo5" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 5</h3>
+                    <span class="exercise-code">[000200]</span>
+                </div>
+                <p>Soit $f: \mathbb{R} \to \mathbb{C}, t \mapsto e^{it}$. Changer les ensembles de départ et d'arrivée afin que (la restriction de) $f$ devienne bijective.</p>
+                <div class="nav-links">
+                    <a href="#ind5">Indication ▼</a>
+                    <a href="#corr5">Correction ▼</a>
+                    <a href="#">Vidéo ■</a>
+                </div>
+            </article>
+
+            <article id="exo6" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 6 - Exponentielle complexe</h3>
+                    <span class="exercise-code">[000197]</span>
+                </div>
+                <p>Si $z = x+iy$, $(x,y) \in \mathbb{R}^2$, on pose $e^z = e^x \times e^{iy}$.</p>
+                <ol>
+                    <li>Déterminer le module et l'argument de $e^z$.</li>
+                    <li>Calculer $e^{z+z'}$, $\overline{e^z}$, $e^{-z}$, $(e^z)^n$ pour $n \in \mathbb{Z}$.</li>
+                    <li>L'application $\exp: \mathbb{C} \to \mathbb{C}, z \mapsto e^z$, est-elle injective ?, surjective ?</li>
+                </ol>
+                <div class="nav-links">
+                    <a href="#corr6">Correction ▼</a>
+                    <a href="#">Vidéo ■</a>
+                </div>
+            </article>
+
+            <article id="exo7" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 7</h3>
+                    <span class="exercise-code">[000193]</span>
+                </div>
+                <p>On considère quatre ensembles $A, B, C$ et $D$ et des applications $f: A \to B, g: B \to C, h: C \to D$. Montrer que :</p>
+                <ul>
+                    <li>$g \circ f$ injective $\Rightarrow$ $f$ injective,</li>
+                    <li>$g \circ f$ surjective $\Rightarrow$ $g$ surjective.</li>
+                </ul>
+                <p>Montrer que :</p>
+                $$ (g \circ f \text{ et } h \circ g \text{ sont bijectives}) \Leftrightarrow (f, g \text{ et } h \text{ sont bijectives}). $$
+                <div class="nav-links">
+                    <a href="#ind7">Indication ▼</a>
+                    <a href="#corr7">Correction ▼</a>
+                    <a href="#">Vidéo ■</a>
+                </div>
+            </article>
+            
+            <article id="exo8" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 8</h3>
+                    <span class="exercise-code">[000191]</span>
+                </div>
+                <p>Soit $f: \mathbb{R} \to \mathbb{R}$ définie par $f(x) = 2x/(1+x^2)$.</p>
+                <ol>
+                    <li>$f$ est-elle injective ? surjective ?</li>
+                    <li>Montrer que $f(\mathbb{R}) = [-1,1]$.</li>
+                    <li>Montrer que la restriction $g: [-1,1] \to [-1,1]$, $g(x)=f(x)$ est une bijection.</li>
+                    <li>Retrouver ce résultat en étudiant les variations de $f$.</li>
+                </ol>
+                <div class="nav-links">
+                    <a href="#ind8">Indication ▼</a>
+                    <a href="#corr8">Correction ▼</a>
+                    <a href="#">Vidéo ■</a>
+                </div>
+            </article>
+        </section>
+
+        <section id="indications">
+            <h2>Indications</h2>
+            <div id="ind1" class="indication-box"><h4><a href="#exo1">Indication pour l'exercice 1 ▲</a></h4><p>Prouver que l'égalité est fausse.</p></div>
+            <div id="ind2" class="indication-box"><h4><a href="#exo2">Indication pour l'exercice 2 ▲</a></h4><p>$id$ est l'application identité définie par $id(x) = x$ pour tout $x \in [0, 1]$. Donc $f \circ f = id$ signifie $f(f(x)) = x$ pour tout $x \in [0, 1]$.</p></div>
+            <div id="ind3" class="indication-box"><h4><a href="#exo3">Indication pour l'exercice 3 ▲</a></h4><p>Montrer que $f$ est injective et surjective.</p></div>
+            <div id="ind4" class="indication-box"><h4><a href="#exo4">Indication pour l'exercice 4 ▲</a></h4><ol><li>$f$ est injective mais pas surjective.</li><li>$g$ est bijective.</li><li>$h$ aussi.</li><li>$k$ est injective mais pas surjective.</li></ol></div>
+            <div id="ind5" class="indication-box"><h4><a href="#exo5">Indication pour l'exercice 5 ▲</a></h4><p>Montrer que la restriction de $f$ définie par : $[0, 2\pi[ \to \mathbb{U}, t \mapsto e^{it}$ est une bijection. Ici $\mathbb{U}$ est le cercle unité de $\mathbb{C}$, c'est-à-dire l'ensemble des nombres complexes de module égal à 1.</p></div>
+            <div id="ind7" class="indication-box"><h4><a href="#exo7">Indication pour l'exercice 7 ▲</a></h4><p>Pour la première assertion le début du raisonnement est : “supposons que $g \circ f$ est injective, soient $a, a' \in A$ tels que $f(a) = f(a')$,... à vous de travailler, cela se termine par “...donc $a = a'$, donc $f$ est injective.”</p></div>
+            <div id="ind8" class="indication-box"><h4><a href="#exo8">Indication pour l'exercice 8 ▲</a></h4><ol><li>$f$ n'est ni injective, ni surjective.</li><li>Pour $y \in \mathbb{R}$, résoudre l'équation $f(x) = y$.</li><li>On pourra exhiber l'inverse.</li></ol></div>
+        </section>
+
+        <section id="corrections">
+            <h2>Corrections</h2>
+            <div id="corr1" class="solution-box">
+                <h4><a href="#exo1">Correction de l'exercice 1 ▲</a></h4>
+                <p>Si $f \circ g = g \circ f$ alors $\forall x \in \mathbb{R} \ f \circ g(x) = g \circ f(x)$. Nous allons montrer que c'est faux, en exhibant un contre-exemple. Prenons $x=0$. Alors $f \circ g(0) = f(-1) = -2$, et $g \circ f(0) = g(1) = 0$ donc $f \circ g(0) \ne g \circ f(0)$. Ainsi $f \circ g \ne g \circ f$.</p>
+            </div>
+            <div id="corr2" class="solution-box">
+                <h4><a href="#exo2">Correction de l'exercice 2 ▲</a></h4>
+                <p>Soit $x \in [0, 1] \cap \mathbb{Q}$ alors $f(x)=x$ donc $f \circ f(x) = f(x) = x$. Soit $x \notin [0, 1] \cap \mathbb{Q}$ alors $f(x)=1-x$ donc $f \circ f(x) = f(1-x)$, mais $1-x \notin [0, 1] \cap \mathbb{Q}$ (vérifiez-le !) donc $f \circ f(x) = f(1-x) = 1-(1-x) = x$. Donc pour tout $x \in [0, 1]$ on a $f \circ f(x) = x$. Et donc $f \circ f = id$.</p>
+            </div>
+            <div id="corr3" class="solution-box">
+                <h4><a href="#exo3">Correction de l'exercice 3 ▲</a></h4>
+                <ul>
+                    <li>$f$ est injective : soient $x, y \in [1, +\infty[$ tels que $f(x) = f(y)$ :
+                    $$ f(x) = f(y) \Rightarrow x^2 - 1 = y^2 - 1 \\ \Rightarrow x = \pm y \text{ or } x, y \in [1, +\infty[ \text{ donc } x, y \text{ sont de même signe} \\ \Rightarrow x=y. $$</li>
+                    <li>$f$ est surjective : soit $y \in [0, +\infty[$. Nous cherchons un élément $x \in [1, +\infty[$ tel que $y = f(x) = x^2 - 1$. Le réel $x = \sqrt{y+1}$ convient !</li>
+                </ul>
+            </div>
+            <div id="corr4" class="solution-box">
+                <h4><a href="#exo4">Correction de l'exercice 4 ▲</a></h4>
+                <ol>
+                    <li>$f$ n'est pas surjective car 0 n'a pas d'antécédent : en effet il n'existe pas de $n \in \mathbb{N}$ tel que $f(n)=0$ (si ce $n$ existait ce serait $n=-1$ qui n'est pas un élément de $\mathbb{N}$). Par contre $f$ est injective : soient $n, n' \in \mathbb{N}$ tels que $f(n)=f(n')$ alors $n+1=n'+1$ donc $n=n'$. Bilan $f$ est injective, non surjective et donc non bijective.</li>
+                    <li>Pour montrer que $g$ est bijective deux méthodes sont possibles. Première méthode : montrer que $g$ est à la fois injective et surjective. En effet soient $n, n' \in \mathbb{Z}$ tels que $g(n)=g(n')$ alors $n+1=n'+1$ donc $n=n'$, alors $g$ est injective. Et $g$ est surjective car chaque $m \in \mathbb{Z}$ admet un antécédent par $g$ : en posant $n=m-1 \in \mathbb{Z}$ on trouve bien $g(n)=m$. Deuxième méthode : expliciter directement la bijection réciproque. Soit la fonction $g': \mathbb{Z} \to \mathbb{Z}$ définie par $g'(m)=m-1$ alors $g' \circ g(n) = n$ (pour tout $n \in \mathbb{Z}$) et $g \circ g'(m)=m$ (pour tout $m \in \mathbb{Z}$). Alors $g'$ est la bijection réciproque de $g$ et donc $g$ est bijective.</li>
+                    <li>Montrons que $h$ est injective. Soient $(x,y), (x',y') \in \mathbb{R}^2$ tels que $h(x,y)=h(x',y')$. Alors $(x+y, x-y) = (x'+y', x'-y')$ donc $$ \begin{cases} x+y = x'+y' \\ x-y = x'-y' \end{cases} $$ En faisant la somme des lignes de ce système on trouve $2x=2x'$ donc $x=x'$ et avec la différence on obtient $y=y'$. Donc les couples $(x,y)$ et $(x',y')$ sont égaux. Donc $h$ est injective.
+                    <br>Montrons que $h$ est surjective. Soit $(X,Y) \in \mathbb{R}^2$, cherchons lui un antécédent $(x,y)$ par $h$. Un tel antécédent vérifie $h(x,y)=(X,Y)$, donc $(x+y, x-y)=(X,Y)$ ou encore : $$ \begin{cases} x+y = X \\ x-y = Y \end{cases} $$ Encore une fois on faisant la somme des lignes on obtient $x=\frac{X+Y}{2}$ et avec la différence $y=\frac{X-Y}{2}$, donc $(x,y) = (\frac{X+Y}{2}, \frac{X-Y}{2})$. La partie "analyse" de notre raisonnement est finie, passons à la "synthèse" : il suffit de juste de vérifier que le couple $(x,y)$ que l'on a obtenu est bien solution (on a tout fait pour !). Bilan pour $(X,Y)$ donné, son antécédent par $h$ existe et est $(\frac{X+Y}{2}, \frac{X-Y}{2})$. Donc $h$ est surjective.
+                    <br>En fait on pourrait montrer directement que $h$ est bijective en exhibant sa bijection réciproque $(X,Y) \mapsto (\frac{X+Y}{2}, \frac{X-Y}{2})$. Mais vous devriez vous convaincre qu'il s'agit là d'une différence de rédaction, mais pas vraiment d'un raisonnement différent.</li>
+                    <li>Montrons d'abord que $k$ est injective : soient $x,x' \in \mathbb{R} \setminus \{1\}$ tels que $k(x)=k(x')$ alors $\frac{x+1}{x-1} = \frac{x'+1}{x'-1}$ donc $(x+1)(x'-1) = (x-1)(x'+1)$. En développant nous obtenons $xx'+x-x'-1=xx'-x+x'-1$, soit $2x=2x'$ donc $x=x'$.
+                    <br>Au brouillon essayons de montrer que $k$ est surjective : soit $y \in \mathbb{R}$ et cherchons $x \in \mathbb{R} \setminus \{1\}$ tel que $f(x)=y$. Si un tel $x$ existe alors il vérifie $\frac{x+1}{x-1}=y$ donc $x+1=y(x-1)$, autrement dit $x(y-1)=y+1$. Si l'on veut exprimer $x$ en fonction de $y$ cela se fait par la formule $x=\frac{y+1}{y-1}$. Mais attention, il y a un piège ! Pour $y=1$ on ne peut pas trouver d'antécédent $x$ (cela revient à diviser par 0 dans la fraction précédente). Donc $k$ n'est pas surjective car $y=1$ n'a pas d'antécédent.
+                    <br>Par contre on vient de montrer que si l'on considérait la restriction $k_1 : \mathbb{R} \setminus \{1\} \to \mathbb{R} \setminus \{1\}$ qui est définie aussi par $k_1(x)=\frac{x+1}{x-1}$ (seul l'espace d'arrivée change par rapport à $k$) alors cette fonction $k_1$ est injective et surjective, donc bijective (en fait sa bijection réciproque est elle même).</li>
+                </ol>
+            </div>
+            <div id="corr5" class="solution-box">
+                <h4><a href="#exo5">Correction de l'exercice 5 ▲</a></h4>
+                <p>Considérons la restriction suivante de $f$ : $f_1 : [0, 2\pi[ \to \mathbb{U}, t \mapsto e^{it}$. Montrons que cette nouvelle application $f_1$ est bijective. Ici $\mathbb{U}$ est le cercle unité de $\mathbb{C}$ donné par l'équation ($|z|=1$).</p>
+                <ul>
+                    <li>$f_1$ est surjective car tout nombre complexe de $\mathbb{U}$ s'écrit sous la forme polaire $e^{i\theta}$, et l'on peut choisir $\theta \in [0, 2\pi[$.</li>
+                    <li>$f_1$ est injective : $$ f_1(t) = f_1(t') \Leftrightarrow e^{it} = e^{it'} \\ \Leftrightarrow t=t'+2k\pi \text{ avec } k \in \mathbb{Z} \\ \Leftrightarrow t=t' \text{ car } t, t' \in [0, 2\pi[ \text{ et donc } k=0. $$</li>
+                </ul>
+                <p>En conclusion $f_1$ est injective et surjective donc bijective.</p>
+            </div>
+            <div id="corr6" class="solution-box">
+                <h4><a href="#exo6">Correction de l'exercice 6 ▲</a></h4>
+                <ol>
+                    <li>Pour $z=x+iy$, le module de $e^z = e^{x+iy} = e^x e^{iy}$ est $e^x$ et son argument est $y$.</li>
+                    <li>Les résultats : $e^{z+z'} = e^z e^{z'}$, $\overline{e^z} = e^{\bar{z}}$, $e^{-z} = (e^z)^{-1}$, $(e^z)^n = e^{nz}$.</li>
+                    <li>La fonction exp n'est pas surjective car $|e^z|=e^x > 0$ et donc $e^z$ ne vaut jamais 0. La fonction exp n'est pas non plus injective car pour $z \in \mathbb{C}$, $e^z = e^{z+2i\pi}$.</li>
+                </ol>
+            </div>
+            <div id="corr7" class="solution-box">
+                <h4><a href="#exo7">Correction de l'exercice 7 ▲</a></h4>
+                <ol>
+                    <li>Supposons $g \circ f$ injective, et montrons que $f$ est injective : soient $a, a' \in A$ avec $f(a)=f(a')$ donc $g \circ f(a) = g \circ f(a')$ or $g \circ f$ est injective donc $a=a'$. Conclusion on a montré :
+                    $$ \forall a, a' \in A \quad f(a)=f(a') \Rightarrow a=a' $$
+                    c'est la définition de $f$ injective.</li>
+                    <li>Supposons $g \circ f$ surjective, et montrons que $g$ est surjective : soit $c \in C$ comme $g \circ f$ est surjective il existe $a \in A$ tel que $g \circ f(a) = c$ ; posons $b=f(a)$, alors $g(b)=c$, ce raisonnement est valide quelque soit $c \in C$ donc $g$ est surjective.</li>
+                    <li>Un sens est simple ($\Leftarrow$) si $f$ et $g$ sont bijectives alors $g \circ f$ l'est également. De même avec $h \circ g$. Pour l'implication directe ($\Rightarrow$) : si $g \circ f$ est bijective alors en particulier elle est surjective et donc d'après la question 2. $g$ est surjective. Si $h \circ g$ est bijective, elle est en particulier injective, donc $g$ est injective (c'est le 1.). Par conséquent $g$ est à la fois injective et surjective donc bijective. Pour finir $f = g^{-1} \circ (g \circ f)$ est bijective comme composée d'applications bijectives, de même pour $h$.</li>
+                </ol>
+            </div>
+            <div id="corr8" class="solution-box">
+                <h4><a href="#exo8">Correction de l'exercice 8 ▲</a></h4>
+                <ol>
+                    <li>$f$ n'est pas injective car $f(2) = \frac{4}{5} = f(\frac{1}{2})$. $f$ n'est pas surjective car $y=2$ n'a pas d'antécédent: en effet l'équation $f(x)=2$ devient $2x = 2(1+x^2)$ soit $x^2 - x + 1 = 0$ qui n'a pas de solutions réelles.</li>
+                    <li>$f(x)=y$ est équivalent à l'équation $yx^2 - 2x + y = 0$. Cette équation a des solutions $x$ si et seulement si $\Delta = 4 - 4y^2 \ge 0$ donc il y a des solutions si et seulement si $y \in [-1, 1]$. Nous venons de montrer que $f(\mathbb{R})$ est exactement $[-1, 1]$.</li>
+                    <li>Soit $y \in [-1, 1] \setminus \{0\}$ alors les solutions $x$ possibles de l'équation $g(x)=y$ sont $x = \frac{1-\sqrt{1-y^2}}{y}$ ou $x = \frac{1+\sqrt{1-y^2}}{y}$. La seule solution $x \in [-1, 1]$ est $x = \frac{1-\sqrt{1-y^2}}{y}$ en effet $x = \frac{1-\sqrt{1-y^2}}{y} \cdot \frac{1+\sqrt{1-y^2}}{1+\sqrt{1-y^2}} = \frac{y^2}{y(1+\sqrt{1-y^2})} = \frac{y}{1+\sqrt{1-y^2}} \in [-1, 1]$. Pour $y=0$, la seule solution de l'équation $g(x)=0$ est $x=0$. Donc pour $g: [-1, 1] \to [-1, 1]$ nous avons trouvé un inverse $h: [-1, 1] \to [-1, 1]$ défini par $h(y) = \frac{1-\sqrt{1-y^2}}{y}$ si $y \ne 0$ et $h(0)=0$. Donc $g$ est une bijection.</li>
+                    <li>$f'(x) = \frac{2-2x^2}{(1+x^2)^2}$, donc $f'$ est strictement positive sur $]-1, 1[$ donc $f$ est strictement croissante sur $[-1, 1]$ avec $f(-1)=-1$ et $f(1)=1$. Donc la restriction de $f$, appelée $g: [-1, 1] \to [-1, 1]$, est une bijection.</li>
+                </ol>
+            </div>
+        </section>
+    </main>
+</div>
+
+</body>
+</html>
