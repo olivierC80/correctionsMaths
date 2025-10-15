@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exo7 — Arithmétique dans ℤ (fic00006)</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+  <style>
+    :root{--bg:#0b0c10;--card:#111319;--ink:#e8f0fe;--muted:#a6b3c5;--link:#8cd3ff;--border:#2a2f3a;--chip:#0f1523;--accent:#ffd166}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Helvetica,Arial,sans-serif}
+    a{color:var(--link);text-decoration:none}
+    a:hover,a:active{text-decoration:underline}
+    header.sticky{position:sticky;top:0;background:linear-gradient(180deg,#0e1117,#0d1118);border-bottom:1px solid var(--border);padding:10px 14px;z-index:10}
+    .title{font-size:18px;font-weight:700;margin:0 0 6px}
+    .meta{font-size:12px;color:var(--muted)}
+    .toc{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .toc a{border:1px solid var(--border);background:var(--chip);border-radius:999px;padding:6px 10px;font-size:13px}
+    main{padding:14px}
+    .section{margin:14px 0}
+    .section>h2{font-size:20px;margin:8px 0 6px}
+    .ex{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;margin:12px 0}
+    .eno{display:flex;gap:8px;align-items:baseline}
+    .id{color:var(--accent);font-weight:800}
+    .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .chip{border:1px solid var(--border);background:var(--chip);padding:6px 10px;border-radius:999px;font-size:13px}
+    details{margin-top:8px;border:1px solid var(--border);border-radius:12px}
+    details summary{cursor:pointer;list-style:none;padding:10px 12px}
+    details[open]{background:#101527}
+    details .content{padding:0 12px 12px}
+    .vid{font-size:13px;color:var(--muted)}
+    footer{color:var(--muted);font-size:12px;margin:18px 0;text-align:center}
+  </style>
+</head>
+<body>
+  <header class="sticky">
+    <div class="title">Exo7 — Arithmétique dans ℤ (fic00006)</div>
+    <div class="meta">Page unique • Smartphone • Liens Énoncé ⇄ Indication ⇄ Correction ⇄ Vidéo</div>
+    <nav class="toc">
+      <a href="#sec1">Divisibilité</a>
+      <a href="#sec2">PGCD – PPCM</a>
+      <a href="#sec3">Nombres premiers</a>
+    </nav>
+  </header>
+  <main>
+    <section id="sec1" class="section">
+      <h2>1. Divisibilité et division euclidienne</h2>
+      <article id="exo1" class="ex"><div class="eno"><span class="id">Exercice 1.</span><span> À partir de $96842=256×375+842$, déterminer le reste de la division de $96842$ par $256$ et $375$.</span></div><div class="links"><a class="chip" href="#ind1">Indication</a><a class="chip" href="#corr1">Correction</a><a class="chip" href="#vid1">Vidéo [000251]</a></div></article>
+      <article id="exo2" class="ex"><div class="eno"><span class="id">Exercice 2.</span><span> Montrer que $n(n+1)(n+2)(n+3)$ est divisible par $24$ et $n(n+1)(n+2)(n+3)(n+4)$ par $120$.</span></div><div class="links"><a class="chip" href="#corr2">Correction</a><a class="chip" href="#vid2">Vidéo [000257]</a></div></article>
+      <article id="exo3" class="ex"><div class="eno"><span class="id">Exercice 3.</span><span> Si $n=p^2+q^2$, montrer que $n\not\equiv3\pmod4$.</span></div><div class="links"><a class="chip" href="#corr3">Correction</a><a class="chip" href="#vid3">Vidéo [000267]</a></div></article>
+      <article id="exo4" class="ex"><div class="eno"><span class="id">Exercice 4.</span><span> Démontrer que $7^n+1$ est divisible par $8$ si $n$ est impair ; sinon, donner le reste.</span></div><div class="links"><a class="chip" href="#ind4">Indication</a><a class="chip" href="#corr4">Correction</a><a class="chip" href="#vid4">Vidéo [000254]</a></div></article>
+      <article id="exo5" class="ex"><div class="eno"><span class="id">Exercice 5.</span><span> Trouver le reste de la division par $13$ du nombre $100^{1000}$.</span></div><div class="links"><a class="chip" href="#ind5">Indication</a><a class="chip" href="#corr5">Correction</a><a class="chip" href="#vid5">Vidéo [000250]</a></div></article>
+      <article id="exo6" class="ex"><div class="eno"><span class="id">Exercice 6.</span><span> Étude mod 8 des carrés pairs et impairs, puis applications à $a^2+b^2+c^2$ et $2(ab+bc+ca)$.</span></div><div class="links"><a class="chip" href="#ind6">Indication</a><a class="chip" href="#corr6">Correction</a><a class="chip" href="#vid6">Vidéo [000285]</a></div></article>
+    </section>
+
+    <section id="sec2" class="section">
+      <h2>2. PGCD, PPCM, algorithme d’Euclide</h2>
+      <article id="exo7" class="ex"><div class="eno"><span class="id">Exercice 7.</span><span> Calculer le pgcd de $(126,230)$ ; $(390,720,450)$ ; $(180,606,750)$.</span></div><div class="links"><a class="chip" href="#corr7">Correction</a><a class="chip" href="#vid7">Vidéo [000290]</a></div></article>
+      <article id="exo8" class="ex"><div class="eno"><span class="id">Exercice 8.</span><span> Couples $(a,b)$ de pgcd 18 et somme 360 ; puis de produit 6480.</span></div><div class="links"><a class="chip" href="#corr8">Correction</a><a class="chip" href="#vid8">Vidéo [000292]</a></div></article>
+      <article id="exo9" class="ex"><div class="eno"><span class="id">Exercice 9.</span><span> Par l’algorithme d’Euclide, calculer $\mathrm{pgcd}(18480,9828)$ et écrire $84$ comme combinaison linéaire.</span></div><div class="links"><a class="chip" href="#corr9">Correction</a><a class="chip" href="#vid9">Vidéo [000296]</a></div></article>
+      <article id="exo10" class="ex"><div class="eno"><span class="id">Exercice 10.</span><span> $a=1111111111$, $b=123456789$. Division euclidienne, pgcd et coefficients de Bézout.</span></div><div class="links"><a class="chip" href="#corr10">Correction</a><a class="chip" href="#vid10">Vidéo [000303]</a></div></article>
+      <article id="exo11" class="ex"><div class="eno"><span class="id">Exercice 11.</span><span> Résoudre $1665x+1035y=45$ dans $\mathbb{Z}$.</span></div><div class="links"><a class="chip" href="#ind11">Indication</a><a class="chip" href="#corr11">Correction</a><a class="chip" href="#vid11">Vidéo [000305]</a></div></article>
+    </section>
+
+    <section id="sec3" class="section">
+      <h2>3. Nombres premiers et propriétés</h2>
+      <article id="exo12" class="ex"><div class="eno"><span class="id">Exercice 12.</span><span> Combien $15!$ admet-il de diviseurs ?</span></div><div class="links"><a class="chip" href="#ind12">Indication</a><a class="chip" href="#corr12">Correction</a><a class="chip" href="#vid12">Vidéo [000249]</a></div></article>
+      <article id="exo13" class="ex"><div class="eno"><span class="id">Exercice 13.</span><span> Si $a,b$ premiers entre eux, montrer que $a+b$ et $ab$ le sont aussi.</span></div><div class="links"><a class="chip" href="#ind13">Indication</a><a class="chip" href="#corr13">Correction</a><a class="chip" href="#vid13">Vidéo [000337]</a></div></article>
+      <article id="exo14" class="ex"><div class="eno"><span class="id">Exercice 14.</span><span> Soient $a,b≥1$. Montrer : (1) $(2^a−1)|(2^{ab}−1)$ ; (2) $2^p−1$ premier ⇒ $p$ premier ; (3) $\mathrm{pgcd}(2^a−1,2^b−1)=2^{\mathrm{pgcd}(a,b)}−1$.</span></div><div class="links"><a class="chip" href="#ind14">Indication</a><a class="chip" href="#corr14">Correction</a><a class="chip" href="#vid14">Vidéo [000336]</a></div></article>
+      <article id="exo15" class="ex"><div class="eno"><span class="id">Exercice 15.</span><span> Si $a^n+1$ est premier, montrer $n=2^k$. Que penser de $2^{2^n}+1$ ?</span></div><div class="links"><a class="chip" href="#ind15">Indication</a><a class="chip" href="#corr15">Correction</a><a class="chip" href="#vid15">Vidéo [000349]</a></div></article>
+      <article id="exo16" class="ex"><div class="eno"><span class="id">Exercice 16.</span><span> (1) Montrer que pour $0<i<p$, $\binom{p}{i}$ est divisible par $p$. (2) Démontrer le petit théorème de Fermat.</span></div><div class="links"><a class="chip" href="#ind16">Indication</a><a class="chip" href="#corr16">Correction</a><a class="chip" href="#vid16">Vidéo [000339]</a></div></article>
+      <article id="exo17" class="ex"><div class="eno"><span class="id">Exercice 17.</span><span> Récurrence sur les nombres de Fermat $F_n=2^{2^n}+1$ ; montrer qu’ils sont deux à deux premiers et qu’il y a une infinité de nombres premiers.</span></div><div class="links"><a class="chip" href="#ind17">Indication</a><a class="chip" href="#corr17">Correction</a><a class="chip" href="#vid17">Vidéo [000341]</a></div></article>
+      <article id="exo18" class="ex"><div class="eno"><span class="id">Exercice 18.</span><span> Les nombres premiers de la forme $4k+3$ sont-ils en nombre infini ?</span></div><div class="links"><a class="chip" href="#corr18">Correction</a><a class="chip" href="#vid18">Vidéo [000348]</a></div></article>
+    </section>
+
+    <footer>Source : Exo7 — Arithmétique dans ℤ (fic00006)</footer>
+  </main>
+</body>
+</html>
