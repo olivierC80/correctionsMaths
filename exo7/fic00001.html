@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exo7 — Nombres complexes (fic00001) — Énoncés, Indications, Corrections</title>
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+  <style>
+    :root{
+      --bg:#0b0c10; --card:#111319; --ink:#e8f0fe; --muted:#9fb3c8; --link:#8cd3ff; --accent:#ffd166;
+      --ok:#7bd389; --warn:#ffb703; --danger:#ef476f; --code:#1b1e28; --border:#2a2f3a;
+    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Helvetica,Arial,sans-serif}
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .layout{display:grid;grid-template-columns:300px 1fr;min-height:100vh}
+    nav{background:linear-gradient(180deg,#0e1117,#0c1118);border-right:1px solid var(--border);padding:18px;position:sticky;top:0;height:100vh;overflow:auto}
+    nav h1{font-size:18px;margin:0 0 12px}
+    nav .group{margin:14px 0}
+    nav .group h3{margin:10px 0 6px;color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+    nav ul{list-style:none;margin:0;padding:0}
+    nav li{margin:6px 0}
+    main{padding:28px}
+    .hero{margin-bottom:18px}
+    .hero h2{margin:.2rem 0 0;font-size:26px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;margin:16px 0}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+    .badges{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+    .badge{font-size:12px;border:1px solid var(--border);padding:2px 8px;border-radius:999px;background:#0e1320;color:var(--muted)}
+    details{background:var(--code);border:1px solid var(--border);border-radius:12px;padding:10px 12px;margin-top:10px}
+    details[open]{background:#11162a}
+    details summary{cursor:pointer;color:var(--ink);font-weight:600}
+    .eno-title{display:flex;align-items:baseline;gap:10px}
+    .eno-title .id{color:var(--accent);font-weight:700}
+    .eno-title .tags{margin-left:auto}
+    .links{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0}
+    .links a{border:1px solid var(--border);padding:4px 10px;border-radius:999px}
+    .sep{height:1px;background:var(--border);margin:24px 0}
+    .toc-mini{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+    .toc-mini a{font-size:12px;border:1px solid var(--border);padding:2px 8px;border-radius:8px}
+    .katex-display{margin:0.6rem 0}
+    img.figure{max-width:100%;border:1px solid var(--border);border-radius:10px}
+    .video{font-size:14px;color:var(--muted)}
+    .sticky-top{position:sticky;top:0;z-index:2}
+    .sr-only{position:absolute;left:-9999px}
+  </style>
+</head>
+<body>
+<div class="layout">
+  <nav>
+    <h1>Exo7 — Nombres complexes</h1>
+    <div class="group">
+      <h3>Sommaire</h3>
+      <ul>
+        <li><a href="#sec-1">1. Forme cartésienne, forme polaire</a>
+          <div class="toc-mini">
+            <a href="#exo-1">Ex. 1</a><a href="#exo-2">Ex. 2</a><a href="#exo-3">Ex. 3</a><a href="#exo-4">Ex. 4</a>
+          </div>
+        </li>
+        <li><a href="#sec-2">2. Racines carrées, équation du second degré</a>
+          <div class="toc-mini">
+            <a href="#exo-5">Ex. 5</a><a href="#exo-6">Ex. 6</a><a href="#exo-7">Ex. 7</a>
+          </div>
+        </li>
+        <li><a href="#sec-3">3. Racine n-ième</a>
+          <div class="toc-mini">
+            <a href="#exo-8">Ex. 8</a><a href="#exo-9">Ex. 9</a><a href="#exo-10">Ex. 10</a><a href="#exo-11">Ex. 11</a>
+          </div>
+        </li>
+        <li><a href="#sec-4">4. Géométrie</a>
+          <div class="toc-mini">
+            <a href="#exo-12">Ex. 12</a><a href="#exo-13">Ex. 13</a><a href="#exo-14">Ex. 14</a>
+          </div>
+        </li>
+        <li><a href="#sec-5">5. Trigonométrie</a>
+          <div class="toc-mini">
+            <a href="#exo-15">Ex. 15</a><a href="#exo-16">Ex. 16</a>
+          </div>
+        </li>
+        <li><a href="#sec-6">6. Divers</a>
+          <div class="toc-mini">
+            <a href="#exo-17">Ex. 17</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <main>
+    <header class="hero">
+      <div class="meta">Exo7 — Exercices de mathématiques • Thème : Nombres complexes • Fiche: fic00001</div>
+      <h2>Énoncés, indications et corrections (HTML + KaTeX)</h2>
+      <p class="video">Les liens « Vidéo » pointent vers les identifiants fournis sur la fiche originale.</p>
+    </header>
+
+    <section id="sec-1" class="card">
+      <h3>1. Forme cartésienne, forme polaire</h3>
+
+      <article id="exo-1" class="card">
+        <div class="eno-title"><span class="id">Exercice 1.</span> Mettre sous la forme $a+ib$ $(a,b\in\mathbb{R})$ les nombres :
+        <div class="tags badges"><span class="badge">Cartésienne</span><span class="badge">Polaire</span></div></div>
+        <p>$\dfrac{3+6i}{3-4i}\,;\;\left(\dfrac{1+i}{2-i}\right)^2+\dfrac{3+6i}{3-4i}\,;\;\dfrac{2+5i}{1-i}+\dfrac{2-5i}{1+i}$.</p>
+        <div class="links">
+          <a href="#ind-1">Indication</a>
+          <a href="#corr-1">Correction</a>
+          <a href="#vid-1">Vidéo [000001]</a>
+        </div>
+      </article>
+
+      <article id="exo-2" class="card">
+        <div class="eno-title"><span class="id">Exercice 2.</span> Écrire sous la forme $a+ib$ :
+          <div class="tags badges"><span class="badge">Module/Argument</span></div></div>
+        <ol>
+          <li>Nombre de module $2$ et d’argument $\pi/3$.</li>
+          <li>Nombre de module $3$ et d’argument $-\pi/8$.</li>
+        </ol>
+        <div class="links">
+          <a href="#ind-2">Indication</a>
+          <a href="#corr-2">Correction</a>
+          <a href="#vid-2">Vidéo [000003]</a>
+        </div>
+      </article>
+
+      <article id="exo-3" class="card">
+        <div class="eno-title"><span class="id">Exercice 3.</span> Calculer le module et l’argument de $u=\sqrt{\dfrac{6-i}{2}}$ et $v=1-i$. En déduire ceux de $w=u/v$.</div>
+        <div class="links">
+          <a href="#ind-3">Indication</a>
+          <a href="#corr-3">Correction</a>
+          <a href="#vid-3">Vidéo [000011]</a>
+        </div>
+      </article>
+
+      <article id="exo-4" class="card">
+        <div class="eno-title"><span class="id">Exercice 4.</span> Déterminer le module et l’argument de $e^{e^{i\alpha}}$ et de $e^{i\theta}+e^{2i\theta}$.</div>
+        <div class="links">
+          <a href="#ind-4">Indication</a>
+          <a href="#corr-4">Correction</a>
+          <a href="#vid-4">Vidéo [000013]</a>
+        </div>
+      </article>
+    </section>
+
+    <section id="sec-2" class="card">
+      <h3>2. Racines carrées, équation du second degré</h3>
+      <article id="exo-5" class="card">
+        <div class="eno-title"><span class="id">Exercice 5.</span> Calculer les racines carrées de $1,\ i,\ 3+4i,\ 8-6i,\ 7+24i$.</div>
+        <div class="links">
+          <a href="#ind-5">Indication</a>
+          <a href="#corr-5">Correction</a>
+          <a href="#vid-5">Vidéo [000027]</a>
+        </div>
+      </article>
+      <article id="exo-6" class="card">
+        <div class="eno-title"><span class="id">Exercice 6.</span>
+          <ol>
+            <li>Calculer les racines carrées de $\dfrac{1+i}{\sqrt{2}}$. En déduire $\cos(\pi/8)$ et $\sin(\pi/8)$.</li>
+            <li>Calculer $\cos(\pi/12)$ et $\sin(\pi/12)$.</li>
+          </ol>
+        </div>
+        <div class="links">
+          <a href="#ind-6">Indication</a>
+          <a href="#corr-6">Correction</a>
+          <a href="#vid-6">Vidéo [000029]</a>
+        </div>
+      </article>
+      <article id="exo-7" class="card">
+        <div class="eno-title"><span class="id">Exercice 7.</span> Résoudre dans $\mathbb{C}$ :
+          $$z^2+z+1=0;\; z^2-(1+2i)z+i-1=0;\; z^2-\sqrt{3}\,z-i=0;$$
+          $$z^2-(5-14i)z-2(5i+12)=0;\; z^2-(3+4i)z-1+5i=0;\; 4z^2-2z+1=0;$$
+          $$z^4+10z^2+169=0;\; z^4+2z^2+4=0.$$</div>
+        <div class="links">
+          <a href="#ind-7">Indication</a>
+          <a href="#corr-7">Correction</a>
+          <a href="#vid-7">Vidéo [000031]</a>
+        </div>
+      </article>
+    </section>
+
+    <section id="sec-3" class="card">
+      <h3>3. Racine n-ième</h3>
+      <article id="exo-8" class="card">
+        <div class="eno-title"><span class="id">Exercice 8.</span> Calculer la somme $S_n=1+z+z^2+\cdots+z^n$.</div>
+        <div class="links">
+          <a href="#ind-8">Indication</a>
+          <a href="#corr-8">Correction</a>
+          <a href="#vid-8">Vidéo [000047]</a>
+        </div>
+      </article>
+      <article id="exo-9" class="card">
+        <div class="eno-title"><span class="id">Exercice 9.</span>
+          <ol>
+            <li>Résoudre $z^3=1$ et montrer que les racines sont $1,\,j,\,j^2$. Calculer $1+j+j^2$ et en déduire les racines de $1+z+z^2=0$.</li>
+            <li>Résoudre $z^n=1$ et montrer que les racines sont $1,\varepsilon,\dots,\varepsilon^{n-1}$. En déduire les racines de $1+z+\cdots+z^{n-1}=0$. Calculer $1+\varepsilon^p+\cdots+\varepsilon^{(n-1)p}$.</li>
+          </ol>
+        </div>
+        <div class="links">
+          <a href="#corr-9">Correction</a>
+          <a href="#vid-9">Vidéo [000048]</a>
+        </div>
+      </article>
+      <article id="exo-10" class="card">
+        <div class="eno-title"><span class="id">Exercice 10.</span> Trouver les racines cubiques de $2-2i$ et de $11+2i$.</div>
+        <div class="links">
+          <a href="#corr-10">Correction</a>
+          <a href="#vid-10">Vidéo [000043]</a>
+        </div>
+      </article>
+      <article id="exo-11" class="card">
+        <div class="eno-title"><span class="id">Exercice 11.</span>
+          <ol>
+            <li>Soient $z_1,z_2,z_3$ distincts de même cube. Exprimer $z_2$ et $z_3$ en fonction de $z_1$.</li>
+            <li>Donner, sous forme polaire, les solutions de $z^6+(7-i)z^3-8-8i=0$ (poser $Z=z^3$; $(9+i)^2$).</li>
+          </ol>
+        </div>
+        <div class="links">
+          <a href="#corr-11">Correction</a>
+          <a href="#vid-11">Vidéo [000056]</a>
+        </div>
+      </article>
+    </section>
+
+    <section id="sec-4" class="card">
+      <h3>4. Géométrie</h3>
+      <article id="exo-12" class="card">
+        <div class="eno-title"><span class="id">Exercice 12.</span> Déterminer l’ensemble des $z$ tels que $\left|\dfrac{z-3}{z-5}\right|=1$ et $\left|\dfrac{z-3}{z-5}\right|=\tfrac{\sqrt{2}}{2}$.</div>
+        <div class="links">
+          <a href="#ind-12">Indication</a>
+          <a href="#corr-12">Correction</a>
+          <a href="#vid-12">Vidéo [000060]</a>
+        </div>
+      </article>
+      <article id="exo-13" class="card">
+        <div class="eno-title"><span class="id">Exercice 13.</span> Montrer $|u+v|^2+|u-v|^2=2(|u|^2+|v|^2)$ et donner une interprétation géométrique.</div>
+        <div class="links">
+          <a href="#ind-13">Indication</a>
+          <a href="#corr-13">Correction</a>
+          <a href="#vid-13">Vidéo [000069]</a>
+        </div>
+      </article>
+      <article id="exo-14" class="card">
+        <div class="eno-title"><span class="id">Exercice 14.</span> Pentagone régulier $(A_0,\dots,A_4)$, repère orthonormé, affixes $\omega_k$… (voir énoncé détaillé ci-dessous).</div>
+        <p class="video">Figure de pentagone : <em>à insérer</em> si disponible : <code>&lt;img class="figure" src="pentagone.png" alt="Pentagone régulier" /&gt;</code></p>
+        <div class="links">
+          <a href="#corr-14">Correction</a>
+          <a href="#vid-14">Vidéo [000077]</a>
+        </div>
+      </article>
+    </section>
+
+    <section id="sec-5" class="card">
+      <h3>5. Trigonométrie</h3>
+      <article id="exo-15" class="card">
+        <div class="eno-title"><span class="id">Exercice 15.</span> Soit $z$ de module $\rho$ et d’argument $\theta$, et $\bar z$ son conjugué. Calculer $(z+\bar z)(z^2+\bar z^2)\cdots(z^n+\bar z^n)$.</div>
+        <div class="links">
+          <a href="#ind-15">Indication</a>
+          <a href="#corr-15">Correction</a>
+          <a href="#vid-15">Vidéo [000020]</a>
+        </div>
+      </article>
+      <article id="exo-16" class="card">
+        <div class="eno-title"><span class="id">Exercice 16.</span> À l’aide des complexes, exprimer $\cos 5\theta$ et $\sin 5\theta$ en fonction de $\cos\theta$ et $\sin\theta$.</div>
+        <div class="links">
+          <a href="#ind-16">Indication</a>
+          <a href="#corr-16">Correction</a>
+          <a href="#vid-16">Vidéo [000080]</a>
+        </div>
+      </article>
+    </section>
+
+    <section id="sec-6" class="card">
+      <h3>6. Divers</h3>
+      <article id="exo-17" class="card">
+        <div class="eno-title"><span class="id">Exercice 17.</span> $\mathbb{Z}[i]=\{a+ib\;;\;a,b\in\mathbb{Z}\}$. Propriétés de stabilité, éléments inversibles, approximation, division euclidienne.</div>
+        <div class="links">
+          <a href="#corr-17">Correction</a>
+          <a href="#vid-17">Vidéo [000096]</a>
+        </div>
+      </article>
+    </section>
+
+    <div class="sep"></div>
+
+    <!-- Indications -->
+    <section id="indications" class="card">
+      <h3>Indications</h3>
+      <details id="ind-1"><summary>Exercice 1 — Indication</summary><p>Pour se « débarrasser » d’un dénominateur : $\dfrac{z_1}{z_2}=\dfrac{z_1}{z_2}\cdot\dfrac{\bar z_2}{\bar z_2}=\dfrac{z_1\bar z_2}{|z_2|^2}$.</p><p><a href="#exo-1">Retour énoncé 1</a> · <a href="#corr-1">Aller à correction 1</a></p></details>
+      <details id="ind-2"><summary>Exercice 2 — Indication</summary><p>Formules trigonométriques usuelles ; de $\cos(2\theta)$ ou $\sin(2\theta)$, retrouver $\cos\theta,\sin\theta$.</p><p><a href="#exo-2">Retour énoncé 2</a> · <a href="#corr-2">Aller à correction 2</a></p></details>
+      <details id="ind-3"><summary>Exercice 3 — Indication</summary><p>Passer en forme trigonométrique. Rappels : $e^{ia}e^{ib}=e^{i(a+b)}$, $e^{ia}/e^{ib}=e^{i(a-b)}$.</p><p><a href="#exo-3">Retour énoncé 3</a> · <a href="#corr-3">Aller à correction 3</a></p></details>
+      <details id="ind-4"><summary>Exercice 4 — Indication</summary><p>Pour $e^{iu}+e^{iv}$, factoriser par $e^{i\frac{u+v}{2}}$.</p><p><a href="#exo-4">Retour énoncé 4</a> · <a href="#corr-4">Aller à correction 4</a></p></details>
+      <details id="ind-5"><summary>Exercice 5 — Indication</summary><p>Pour $z=a+ib$, chercher $\omega=\alpha+i\beta$ tel que $\omega^2=z$. Utiliser $|\omega|^2=|z|$.</p><p><a href="#exo-5">Retour énoncé 5</a> · <a href="#corr-5">Aller à correction 5</a></p></details>
+      <details id="ind-6"><summary>Exercice 6 — Indication</summary><p>Calculer les racines de $\dfrac{1+i}{\sqrt{2}}=e^{i\pi/4}$ de deux façons (algébrique et polaire).</p><p><a href="#exo-6">Retour énoncé 6</a> · <a href="#corr-6">Aller à correction 6</a></p></details>
+      <details id="ind-7"><summary>Exercice 7 — Indication</summary><p>Pour $az^4+bz^2+c=0$, poser $Z=z^2$.</p><p><a href="#exo-7">Retour énoncé 7</a> · <a href="#corr-7">Aller à correction 7</a></p></details>
+      <details id="ind-8"><summary>Exercice 8 — Indication</summary><p>Calculer $(1-z)S_n$.</p><p><a href="#exo-8">Retour énoncé 8</a> · <a href="#corr-8">Aller à correction 8</a></p></details>
+      <details id="ind-12"><summary>Exercice 12 — Indication</summary><p>Le premier ensemble est une droite, le second un cercle.</p><p><a href="#exo-12">Retour énoncé 12</a> · <a href="#corr-12">Aller à correction 12</a></p></details>
+      <details id="ind-13"><summary>Exercice 13 — Indication</summary><p>Pour l’interprétation géométrique, chercher le parallélogramme.</p><p><a href="#exo-13">Retour énoncé 13</a> · <a href="#corr-13">Aller à correction 13</a></p></details>
+      <details id="ind-15"><summary>Exercice 15 — Indication</summary><p>Utiliser la formule d’Euler pour faire apparaître des cosinus.</p><p><a href="#exo-15">Retour énoncé 15</a> · <a href="#corr-15">Aller à correction 15</a></p></details>
+      <details id="ind-16"><summary>Exercice 16 — Indication</summary><p>Deux applications de Moivre : $e^{i5\theta}=(e^{i\theta})^5$.</p><p><a href="#exo-16">Retour énoncé 16</a> · <a href="#corr-16">Aller à correction 16</a></p></details>
+    </section>
+
+    <!-- Corrections -->
+    <section id="corrections" class="card">
+      <h3>Corrections</h3>
+      <details id="corr-1"><summary>Correction — Exercice 1</summary>
+        <p>$$\frac{3+6i}{3-4i}=\frac{(3+6i)(3+4i)}{(3-4i)(3+4i)}=\frac{-15+30i}{25}=-\tfrac{3}{5}+\tfrac{6}{5}i.$$</p>
+        <p>$$\left(\frac{1+i}{2-i}\right)=\frac{(1+i)(2+i)}{5}=\tfrac{1+3i}{5},\quad \left(\tfrac{1+3i}{5}\right)^2=-\tfrac{8}{25}+\tfrac{6}{25}i.$$
+        $$\left(\frac{1+i}{2-i}\right)^2+\frac{3+6i}{3-4i}=-\tfrac{23}{25}+\tfrac{36}{25}i.$$</p>
+        <p>Avec $z=\dfrac{2+5i}{1-i}$ on obtient $z=-\tfrac{3}{2}+\tfrac{7}{2}i$ et $z+\bar z=-3$.</p>
+        <p><a href="#exo-1">Retour énoncé 1</a></p>
+      </details>
+
+      <details id="corr-2"><summary>Correction — Exercice 2</summary>
+        <ol>
+          <li>$z_1=2e^{i\pi/3}=2(\cos\tfrac{\pi}{3}+i\sin\tfrac{\pi}{3})=1+i\sqrt{3}$.</li>
+          <li>$z_2=3e^{-i\pi/8}=3\cos\tfrac{\pi}{8}-3i\sin\tfrac{\pi}{8}$ avec $\cos\tfrac{\pi}{8}=\tfrac{1}{2}\sqrt{2+\sqrt2}$, $\sin\tfrac{\pi}{8}=\tfrac{1}{2}\sqrt{2-\sqrt2}$.</li>
+        </ol>
+        <p><a href="#exo-2">Retour énoncé 2</a></p>
+      </details>
+
+      <details id="corr-3"><summary>Correction — Exercice 3</summary>
+        <p>$u=\sqrt{\dfrac{6-i}{2}}=\sqrt{2}\,e^{-i\pi/6}$, $v=1-i=\sqrt{2}\,e^{-i\pi/4}$, donc $w=\dfrac{u}{v}=e^{i\pi/12}$.</p>
+        <p><a href="#exo-3">Retour énoncé 3</a></p>
+      </details>
+
+      <details id="corr-4"><summary>Correction — Exercice 4</summary>
+        <p>Pour $e^{e^{i\alpha}}=e^{\cos\alpha+i\sin\alpha}=e^{\cos\alpha}e^{i\sin\alpha}$ : module $e^{\cos\alpha}&gt;0$, argument $\sin\alpha$ (mod $2\pi$).</p>
+        <p>$$e^{i\theta}+e^{2i\theta}=e^{\tfrac{3i\theta}{2}}\big(e^{-i\theta/2}+e^{i\theta/2}\big)=2\cos\tfrac{\theta}{2}\;e^{\tfrac{3i\theta}{2}}.$$
+        Module $=2|\cos\tfrac{\theta}{2}|$ et argument $=\tfrac{3\theta}{2}$ si $\cos\tfrac{\theta}{2}&gt;0$, sinon $\tfrac{3\theta}{2}+\pi$.</p>
+        <p><a href="#exo-4">Retour énoncé 4</a></p>
+      </details>
+
+      <details id="corr-5"><summary>Correction — Exercice 5</summary>
+        <ul>
+          <li>$\pm1$ pour $1$ ; $\pm\tfrac{\sqrt2}{2}(1+i)$ pour $i$.</li>
+          <li>$3+4i \Rightarrow 2+i$ et $-2-i$.</li>
+          <li>$8-6i \Rightarrow 3-i$ et $-3+i$.</li>
+          <li>$7+24i \Rightarrow 4+3i$ et $-4-3i$.</li>
+        </ul>
+        <p><a href="#exo-5">Retour énoncé 5</a></p>
+      </details>
+
+      <details id="corr-6"><summary>Correction — Exercice 6</summary>
+        <p>Une racine de $z=\dfrac{1+i}{\sqrt2}=e^{i\pi/4}$ est $e^{i\pi/8}=\cos\tfrac{\pi}{8}+i\sin\tfrac{\pi}{8}$, d’où
+        $\cos\tfrac{\pi}{8}=\tfrac{1}{2}\sqrt{2+\sqrt2}$ et $\sin\tfrac{\pi}{8}=\tfrac{1}{2}\sqrt{2-\sqrt2}$.</p>
+        <p><a href="#exo-6">Retour énoncé 6</a></p>
+      </details>
+
+      <details id="corr-7"><summary>Correction — Exercice 7</summary>
+        <p>Méthode générale : discriminant $\Delta=b^2-4ac$, choisir $\delta^2=\Delta$, alors $z_{1,2}=\dfrac{-b\pm\delta}{2a}$.</p>
+        <ul>
+          <li>$z^2+z+1=0\Rightarrow \tfrac{-1\pm i\sqrt3}{2}$.</li>
+          <li>$z^2-(1+2i)z+i-1=0\Rightarrow 1+i,\ i$.</li>
+          <li>$z^2-\sqrt3 z-i=0\Rightarrow \tfrac{2-\sqrt3+i}{2},\ \tfrac{-2-\sqrt3-i}{2}$.</li>
+          <li>$z^2-(5-14i)z-2(5i+12)=0\Rightarrow 5-12i,\ -2i$.</li>
+          <li>$z^2-(3+4i)z-1+5i=0\Rightarrow 2+3i,\ 1+i$.</li>
+          <li>$4z^2-2z+1=0\Rightarrow \tfrac{1\pm i\sqrt3}{4}$.</li>
+          <li>$z^4+10z^2+169=0\Rightarrow \pm(2\pm3i)$.</li>
+          <li>$z^4+2z^2+4=0\Rightarrow \tfrac{\sqrt2}{2}(\pm1\pm i\sqrt3)$.</li>
+        </ul>
+        <p><a href="#exo-7">Retour énoncé 7</a></p>
+      </details>
+
+      <details id="corr-8"><summary>Correction — Exercice 8</summary>
+        <p>$S_n(1-z)=1-z^{n+1}\;\Rightarrow\; S_n=\dfrac{1-z^{n+1}}{1-z}$ pour $z\neq1$.</p>
+        <p><a href="#exo-8">Retour énoncé 8</a></p>
+      </details>
+
+      <details id="corr-9"><summary>Correction — Exercice 9</summary>
+        <p>Solutions de $z^n=1$ : $\{e^{2ik\pi/n}\}_{k=0}^{n-1}$, notées $\{\varepsilon^k\}$ avec $\varepsilon=e^{2i\pi/n}$. Pour $P(z)=1+z+\cdots+z^{n-1}$, toutes les racines sont $\{\varepsilon,\dots,\varepsilon^{n-1}\}$. De plus $\sum_{k=0}^{n-1}\varepsilon^{kp}=n$ si $n\mid p$, sinon $0$.</p>
+        <p><a href="#exo-9">Retour énoncé 9</a></p>
+      </details>
+
+      <details id="corr-10"><summary>Correction — Exercice 10</summary>
+        <ol>
+          <li>Pour $2-2i=2\sqrt2\,e^{-i\pi/4}$, racines de module $\sqrt2$ et arguments $-\tfrac{\pi}{12},\ \tfrac{7\pi}{12},\ \tfrac{15\pi}{12}$.</li>
+          <li>Pour $11+2i$, une racine est $-1-2i$ puis multiplier par $j, j^2$ avec $j=\tfrac{-1+i\sqrt3}{2}$.</li>
+        </ol>
+        <p><a href="#exo-10">Retour énoncé 10</a></p>
+      </details>
+
+      <details id="corr-11"><summary>Correction — Exercice 11</summary>
+        <ol>
+          <li>Comme $\left(\dfrac{z_2}{z_1}\right)^3=\left(\dfrac{z_3}{z_1}\right)^3=1$ et $z_1\neq0$, à permutation près : $z_2=jz_1$, $z_3=j^2z_1$, avec $j=e^{2i\pi/3}$.</li>
+          <li>Poser $Z=z^3$. $Z^2+(7-i)Z-(8+8i)=0$ et $\Delta=(9+i)^2$. Donc $Z\in\{-8,1+i\}$. D’où $$z\in\{-2,2e^{i\pi/3},2e^{-i\pi/3},\ \sqrt[3]{2\sqrt2}e^{i\pi/12},\ \sqrt[3]{2\sqrt2}e^{i3\pi/4},\ \sqrt[3]{2\sqrt2}e^{i17\pi/12}\}.$$</li>
+        </ol>
+        <p><a href="#exo-11">Retour énoncé 11</a></p>
+      </details>
+
+      <details id="corr-12"><summary>Correction — Exercice 12</summary>
+        <p>$\left|\dfrac{z-3}{z-5}\right|=1\iff |z-3|=|z-5|$ : médiatrice de $[3,5]$.
+        $$\left|\dfrac{z-3}{z-5}\right|=\tfrac{\sqrt2}{2}\iff |z-3|^2=\tfrac12|z-5|^2\iff |z-1|=2\sqrt2,$$ cercle de centre $1$ et rayon $2\sqrt2$.</p>
+        <p><a href="#exo-12">Retour énoncé 12</a></p>
+      </details>
+
+      <details id="corr-13"><summary>Correction — Exercice 13</summary>
+        <p>$|u+v|^2+|u-v|^2=(u+v)(\bar u+\bar v)+(u-v)(\bar u-\bar v)=2|u|^2+2|v|^2$ (identité du parallélogramme).</p>
+        <p><a href="#exo-13">Retour énoncé 13</a></p>
+      </details>
+
+      <details id="corr-14"><summary>Correction — Exercice 14</summary>
+        <ol>
+          <li>$\omega_0=1,\ \omega_1=e^{2i\pi/5},\ \omega_2=e^{4i\pi/5},\ \omega_3=e^{6i\pi/5},\ \omega_4=e^{8i\pi/5}$ et $\omega_k=\omega_1^k$. Puis $\dfrac{1+\omega_1+\omega_1^2+\omega_1^3+\omega_1^4}{1}=0$.</li>
+          <li>$\operatorname{Re}\big(1+\omega_1+\omega_1^2+\omega_1^{-1}+\omega_1^{-2}\big)=1+2\cos(2\pi/5)+2\cos(4\pi/5)$, donc $4\cos^2(2\pi/5)+2\cos(2\pi/5)-1=0$ et $\cos(2\pi/5)=\tfrac{\sqrt5-1}{4}$.</li>
+          <li>$BA_2=\sqrt{5}-1\over 2$ ; <em>détails dans la fiche</em>.</li>
+          <li>$BI=\tfrac{\sqrt5}{2}$, $BJ=\tfrac{\sqrt5-1}{2}$.</li>
+        </ol>
+        <p><a href="#exo-14">Retour énoncé 14</a></p>
+      </details>
+
+      <details id="corr-15"><summary>Correction — Exercice 15</summary>
+        <p>Avec $z=\rho e^{i\theta}$ et $\bar z=\rho e^{-i\theta}$ : $$\prod_{k=1}^{n}(z^k+\bar z^{\,k})=\prod_{k=1}^{n}\big(\rho^k(e^{ik\theta}+e^{-ik\theta})\big)=\prod_{k=1}^{n}\big(2\rho^k\cos k\theta\big)=2^n\,\rho^{\tfrac{n(n+1)}{2}}\prod_{k=1}^{n}\cos k\theta.$$
+        <p><a href="#exo-15">Retour énoncé 15</a></p>
+      </details>
+
+      <details id="corr-16"><summary>Correction — Exercice 16</summary>
+        <p>$(\cos5\theta+i\sin5\theta)=(\cos\theta+i\sin\theta)^5$. Développer et identifier :
+        $$\cos5\theta=\cos^5\theta-10\cos^3\theta\sin^2\theta+5\cos\theta\sin^4\theta,$$
+        $$\sin5\theta=5\cos^4\theta\sin\theta-10\cos^2\theta\sin^3\theta+\sin^5\theta.$$
+        <p><a href="#exo-16">Retour énoncé 16</a></p>
+      </details>
+
+      <details id="corr-17"><summary>Correction — Exercice 17</summary>
+        <ol>
+          <li>Stabilité : si $\alpha=a+ib$, $\beta=c+id$, alors $\alpha+\beta\in\mathbb{Z}[i]$ et $\alpha\beta\in\mathbb{Z}[i]$.</li>
+          <li>Unités : $|\alpha|=1\Rightarrow \alpha\in\{1,-1,i,-i\}$.</li>
+          <li>Approximation : pour $\omega=x+iy$, prendre $\alpha=\operatorname{round}(x)+i\,\operatorname{round}(y)$ donne $|\omega-\alpha|<1$.</li>
+          <li>Division euclidienne : pour $\alpha,\beta\in\mathbb{Z}[i]$, $\beta\neq0$, il existe $q,r\in\mathbb{Z}[i]$ tels que $\alpha=\beta q+r$ avec $|r|<|\beta|$.</li>
+        </ol>
+        <p><a href="#exo-17">Retour énoncé 17</a></p>
+      </details>
+    </section>
+
+    <div class="sep"></div>
+    <section class="card">
+      <h3 id="videos">Vidéos</h3>
+      <ul>
+        <li id="vid-1">Ex.1 — [000001]</li>
+        <li id="vid-2">Ex.2 — [000003]</li>
+        <li id="vid-3">Ex.3 — [000011]</li>
+        <li id="vid-4">Ex.4 — [000013]</li>
+        <li id="vid-5">Ex.5 — [000027]</li>
+        <li id="vid-6">Ex.6 — [000029]</li>
+        <li id="vid-7">Ex.7 — [000031]</li>
+        <li id="vid-8">Ex.8 — [000047]</li>
+        <li id="vid-9">Ex.9 — [000048]</li>
+        <li id="vid-10">Ex.10 — [000043]</li>
+        <li id="vid-11">Ex.11 — [000056]</li>
+        <li id="vid-12">Ex.12 — [000060]</li>
+        <li id="vid-13">Ex.13 — [000069]</li>
+        <li id="vid-14">Ex.14 — [000077]</li>
+        <li id="vid-15">Ex.15 — [000020]</li>
+        <li id="vid-16">Ex.16 — [000080]</li>
+        <li id="vid-17">Ex.17 — [000096]</li>
+      </ul>
+    </section>
+
+    <footer class="card">
+      <p>Source : Exo7 — Exercices de mathématiques, fiche « Nombres complexes » (fic00001).</p>
+      <p class="meta">HTML généré avec KaTeX. Liens internes : chaque exercice ↔ indication ↔ correction ↔ vidéo.</p>
+    </footer>
+  </main>
+</div>
+</body>
+</html>
