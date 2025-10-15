@@ -1,13 +1,4 @@
-An excellent request. As an engineer with expertise in web technologies and LaTeX, but without a background in mathematics, I will focus on a precise and functional conversion of the provided document. The structure will be semantic, the styling will be mobile-first for optimal smartphone viewing, and the mathematical formulas will be accurately transcribed into LaTeX for rendering by KaTeX.
 
-Here is the complete HTML file.
-
-code
-Html
-play_circle
-download
-content_copy
-expand_less
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,8 +9,7 @@ expand_less
     <!-- KaTeX for LaTeX rendering -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"  crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"  crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"  crossorigin="anonymous"
-        onload="renderMathInElement(document.body);"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
 
     <style>
         :root {
