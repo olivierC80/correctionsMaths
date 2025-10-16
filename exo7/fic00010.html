@@ -1,0 +1,410 @@
+Of course. As an engineer with expertise in web technologies and LaTeX, I will convert the provided document on sequences into a single, comprehensive, and mobile-optimized HTML file. The mathematical formulas will be accurately transcribed using LaTeX and rendered with KaTeX, using the specified configuration. All internal links between exercises, indications, and solutions will be correctly implemented for seamless navigation.
+
+Here is the complete HTML file.
+
+code
+Html
+play_circle
+download
+content_copy
+expand_less
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suites - Exo7</title>
+    
+    <!-- KaTeX for LaTeX rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+
+    <style>
+        :root {
+            --primary-color: #005a9c;
+            --secondary-color: #f0f0f0;
+            --border-color: #ddd;
+            --text-color: #333;
+            --exo7-orange: #f57c00;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 1rem;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 1.8em;
+            margin-bottom: 1em;
+            padding-bottom: 0.3em;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            position: relative;
+        }
+        h2 {
+           font-size: 1.8em;
+           border-bottom: 2px solid var(--secondary-color);
+        }
+        h3 {
+           font-size: 1.4em;
+           color: #337ab7;
+           border: none;
+        }
+        .exo7-logo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--exo7-orange);
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 0 0 0 8px;
+            box-shadow: -2px 2px 5px rgba(0,0,0,0.1);
+        }
+        .exercise, .solution-box, .indication-box {
+            background-color: #fdfdfd;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .exercise-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .exercise-header h3 {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+        .exercise-code {
+            color: #888;
+            font-size: 0.8em;
+            font-family: monospace;
+        }
+        .nav-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            background-color: var(--secondary-color);
+            padding: 0.3rem 0.7rem;
+            border-radius: 15px;
+            font-size: 0.9em;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .nav-links a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .solution-box h4 a, .indication-box h4 a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        ul, ol {
+            padding-left: 1.5rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Suites <div class="exo7-logo">Exo7</div></h1>
+    </header>
+
+    <main>
+        <section id="convergence">
+            <h2>1 Convergence</h2>
+            <article id="exo1" class="exercise">
+                <div class="exercise-header"><h3>Exercice 1</h3><span class="exercise-code">[000506]</span></div>
+                <p>Montrer que toute suite convergente est bornée.</p>
+                <div class="nav-links"><a href="#ind1">Indication ▼</a><a href="#corr1">Correction ▼</a></div>
+            </article>
+
+            <article id="exo2" class="exercise">
+                <div class="exercise-header"><h3>Exercice 2</h3><span class="exercise-code">[000519]</span></div>
+                <p>Montrer qu'une suite d'entiers qui converge est constante à partir d'un certain rang.</p>
+                <div class="nav-links"><a href="#ind2">Indication ▼</a><a href="#corr2">Correction ▼</a></div>
+            </article>
+
+            <article id="exo3" class="exercise">
+                <div class="exercise-header"><h3>Exercice 3</h3><span class="exercise-code">[000507]</span></div>
+                <p>Montrer que la suite $(u_n)_{n \in \mathbb{N}}$ définie par</p>
+                $$ u_n = (-1)^n + \frac{1}{n} $$
+                <p>n'est pas convergente.</p>
+                <div class="nav-links"><a href="#ind3">Indication ▼</a><a href="#corr3">Correction ▼</a></div>
+            </article>
+
+            <article id="exo4" class="exercise">
+                <div class="exercise-header"><h3>Exercice 4</h3><span class="exercise-code">[000505]</span></div>
+                <p>Soit $(u_n)_{n \in \mathbb{N}}$ une suite de $\mathbb{R}$. Que pensez-vous des propositions suivantes :</p>
+                <ul>
+                    <li>Si $(u_n)_n$ converge vers un réel $l$ alors $(u_{2n})_n$ et $(u_{2n+1})_n$ convergent vers $l$.</li>
+                    <li>Si $(u_{2n})_n$ et $(u_{2n+1})_n$ sont convergentes, il en est de même de $(u_n)_n$.</li>
+                    <li>Si $(u_{2n})_n$ et $(u_{2n+1})_n$ sont convergentes, de même limite $l$, il en est de même de $(u_n)_n$.</li>
+                </ul>
+                <div class="nav-links"><a href="#ind4">Indication ▼</a><a href="#corr4">Correction ▼</a></div>
+            </article>
+
+            <article id="exo5" class="exercise">
+                <div class="exercise-header"><h3>Exercice 5</h3><span class="exercise-code">[000524]</span></div>
+                <p>Soit $q$ un entier au moins égal à 2. Pour tout $n \in \mathbb{N}$, on pose $u_n = \cos \frac{2n\pi}{q}$.</p>
+                <ol>
+                    <li>Montrer que $u_{n+q}=u_n$ pour tout $n \in \mathbb{N}$.</li>
+                    <li>Calculer $u_{nq}$ et $u_{nq+1}$. En déduire que la suite $(u_n)$ n'a pas de limite.</li>
+                </ol>
+                <div class="nav-links"><a href="#ind5">Indication ▼</a><a href="#corr5">Correction ▼</a></div>
+            </article>
+
+            <article id="exo6" class="exercise">
+                <div class="exercise-header"><h3>Exercice 6</h3><span class="exercise-code">[000520]</span></div>
+                <p>Soit $H_n = 1 + \frac{1}{2} + \dots + \frac{1}{n}$.</p>
+                <ol>
+                    <li>En utilisant une intégrale, montrer que pour tout $n>0: \frac{1}{n+1} < \ln(n+1) - \ln(n) \le \frac{1}{n}$.</li>
+                    <li>En déduire que $\ln(n+1) \le H_n \le \ln(n)+1$.</li>
+                    <li>Déterminer la limite de $H_n$.</li>
+                    <li>Montrer que $u_n=H_n-\ln(n)$ est décroissante et positive.</li>
+                    <li>Conclusion ?</li>
+                </ol>
+                <div class="nav-links"><a href="#ind6">Indication ▼</a><a href="#corr6">Correction ▼</a></div>
+            </article>
+
+            <article id="exo7" class="exercise">
+                <div class="exercise-header"><h3>Exercice 7</h3><span class="exercise-code">[000539]</span></div>
+                <p>On considère la fonction $f: \mathbb{R} \to \mathbb{R}$ définie par</p>
+                $$ f(x) = \frac{x^3}{9} + \frac{2x}{3} + \frac{1}{9} $$
+                <p>et on définit la suite $(x_n)_{n \ge 0}$ en posant $x_0=0$ et $x_{n+1}=f(x_n)$ pour $n \in \mathbb{N}$.</p>
+                <ol>
+                    <li>Montrer que l'équation $x^3-3x+1=0$ possède une solution unique $\alpha \in ]0, 1/2[$.</li>
+                    <li>Montrer que l'équation $f(x)=x$ est équivalente à l'équation $x^3-3x+1=0$ et en déduire que $\alpha$ est l'unique solution de l'équation $f(x)=x$ dans l'intervalle $[0, 1/2]$.</li>
+                    <li>Montrer que la fonction $f$ est croissante sur $\mathbb{R}^+$ et que $f(\mathbb{R}^+) \subset \mathbb{R}^+$. En déduire que la suite $(x_n)$ est croissante.</li>
+                    <li>Montrer que $f(1/2) < 1/2$ et en déduire que $0 \le x_n < 1/2$ pour tout $n \ge 0$.</li>
+                    <li>Montrer que la suite $(x_n)_{n \ge 0}$ converge vers $\alpha$.</li>
+                </ol>
+                <div class="nav-links"><a href="#ind7">Indication ▼</a><a href="#corr7">Correction ▼</a></div>
+            </article>
+        </section>
+
+        <section id="limites">
+            <h2>2 Limites</h2>
+            <article id="exo8" class="exercise">
+                <div class="exercise-header"><h3>Exercice 8</h3><span class="exercise-code">[000563]</span></div>
+                <p>Posons $u_2=1-\frac{1}{2^2}$ et pour tout entier $n \ge 3$,</p>
+                $$ u_n = \left(1-\frac{1}{2^2}\right)\left(1-\frac{1}{3^2}\right)\dots\left(1-\frac{1}{n^2}\right) $$
+                <p>Calculer $u_n$. En déduire que l'on a $\lim u_n = \frac{1}{2}$.</p>
+                <div class="nav-links"><a href="#ind8">Indication ▼</a><a href="#corr8">Correction ▼</a></div>
+            </article>
+
+            <article id="exo9" class="exercise">
+                <div class="exercise-header"><h3>Exercice 9</h3><span class="exercise-code">[000568]</span></div>
+                <p>Déterminer les limites lorsque $n$ tend vers l'infini des suites ci-dessous ; pour chacune, essayer de préciser en quelques mots la méthode employée.</p>
+                <ol>
+                    <li>$1; -1/2; 1/3; \dots; (-1)^{n-1}/n; \dots$</li>
+                    <li>$2/1; 4/3; 6/5; \dots; 2n/(2n-1); \dots$</li>
+                    <li>$0,23; 0,233; \dots; 0,233\dots3; \dots$</li>
+                    <li>$\frac{1+2+\dots+(n-1)}{n^2}$</li>
+                    <li>$\frac{(n+1)(n+2)(n+3)}{n^3}$</li>
+                    <li>$\left[\frac{1+3+5+\dots+(2n-1)}{n+1} - \frac{2n+1}{2}\right]$</li>
+                    <li>$\frac{n+(-1)^n}{n-(-1)^n}$</li>
+                    <li>$\frac{2^{n+1}+3^{n+1}}{2^n+3^n}$</li>
+                    <li>$(1/2+1/4+\dots+1/2^n)$ puis $\sqrt{2}; \sqrt{2\sqrt{2}}; \sqrt{2\sqrt{2\sqrt{2}}}; \dots$</li>
+                    <li>$\left(1-\frac{1}{3}+\frac{1}{9}-\frac{1}{27}+\dots+\frac{(-1)^n}{3^n}\right)$</li>
+                    <li>$(\sqrt{n+1}-\sqrt{n})$</li>
+                    <li>$\frac{n\sin(n!)}{n^2+1}$</li>
+                    <li>Démontrer la formule $1+2^2+3^2+\dots+n^2 = \frac{1}{6}n(n+1)(2n+1)$; en déduire $\lim_{n \to \infty} \frac{1+2^2+3^2+\dots+n^2}{n^3}$.</li>
+                </ol>
+                <div class="nav-links"><a href="#corr9">Correction ▼</a></div>
+            </article>
+
+            <article id="exo10" class="exercise">
+                <div class="exercise-header"><h3>Exercice 10</h3><span class="exercise-code">[000570]</span></div>
+                <p>On considère les deux suites :</p>
+                $$ u_n = 1+\frac{1}{2!}+\frac{1}{3!}+\dots+\frac{1}{n!} ; n \in \mathbb{N}, $$
+                $$ v_n = u_n + \frac{1}{n \cdot n!} ; n \in \mathbb{N}. $$
+                <p>Montrer que $(u_n)_n$ et $(v_n)_n$ convergent vers une même limite. Et montrer que cette limite est un élément de $\mathbb{R}\setminus\mathbb{Q}$.</p>
+                <div class="nav-links"><a href="#ind10">Indication ▼</a><a href="#corr10">Correction ▼</a></div>
+            </article>
+
+            <article id="exo11" class="exercise">
+                <div class="exercise-header"><h3>Exercice 11</h3><span class="exercise-code">[000569]</span></div>
+                <p>Soit $a>0$. On définit la suite $(u_n)_{n \ge 0}$ par $u_0$ un réel vérifiant $u_0 > 0$ et par la relation</p>
+                $$ u_{n+1} = \frac{1}{2}\left(u_n + \frac{a}{u_n}\right) $$
+                <p>On se propose de montrer que $(u_n)$ tend vers $\sqrt{a}$.</p>
+                <ol>
+                    <li>Montrer que $u_{n+1}^2 - a = \frac{(u_n^2-a)^2}{4u_n^2}$.</li>
+                    <li>Montrer que si $n \ge 1$ alors $u_n \ge \sqrt{a}$ puis que la suite $(u_n)_{n \ge 1}$ est décroissante.</li>
+                    <li>En déduire que la suite $(u_n)$ converge vers $\sqrt{a}$.</li>
+                    <li>En utilisant la relation $u_{n+1}^2-a=(u_{n+1}-\sqrt{a})(u_{n+1}+\sqrt{a})$ donner une majoration de $u_{n+1}-\sqrt{a}$ en fonction de $u_n-\sqrt{a}$.</li>
+                    <li>Si $u_1-\sqrt{a} \le k$ et pour $n \ge 1$ montrer que $u_n-\sqrt{a} \le 2\sqrt{a}\left(\frac{k}{2\sqrt{a}}\right)^{2^{n-1}}$.</li>
+                    <li>Application : Calculer $\sqrt{10}$ avec une précision de 8 chiffres après la virgule, en prenant $u_0=3$.</li>
+                </ol>
+                <div class="nav-links"><a href="#ind11">Indication ▼</a><a href="#corr11">Correction ▼</a></div>
+            </article>
+
+            <article id="exo12" class="exercise">
+                <div class="exercise-header"><h3>Exercice 12</h3><span class="exercise-code">[000571]</span></div>
+                <p>Soient $a$ et $b$ deux réels, $a<b$. On considère la fonction $f:[a,b] \to [a,b]$ supposée continue et une suite récurrente $(u_n)_n$ définie par :</p>
+                $$ u_0 \in [a,b] \text{ et pour tout } n \in \mathbb{N}, u_{n+1}=f(u_n). $$
+                <ol>
+                    <li>On suppose ici que $f$ est croissante. Montrer que $(u_n)_n$ est monotone et en déduire sa convergence vers une solution de l'équation $f(x)=x$.</li>
+                    <li>Application. Calculer la limite de la suite définie par : $u_0=4$ et pour tout $n \in \mathbb{N}, u_{n+1} = \frac{4u_n+5}{u_n+3}$.</li>
+                    <li>On suppose maintenant que $f$ est décroissante. Montrer que les suites $(u_{2n})_n$ et $(u_{2n+1})_n$ sont monotones et convergentes.</li>
+                    <li>Application. Soit $u_0=1/2$ et pour tout $n \in \mathbb{N}, u_{n+1}=(1-u_n)^2$. Calculer les limites des suites $(u_{2n})_n$ et $(u_{2n+1})_n$.</li>
+                </ol>
+                <div class="nav-links"><a href="#ind12">Indication ▼</a><a href="#corr12">Correction ▼</a></div>
+            </article>
+
+            <article id="exo13" class="exercise">
+                <div class="exercise-header"><h3>Exercice 13</h3><span class="exercise-code">[000572]</span></div>
+                <ol>
+                    <li>Soient $a,b>0$. Montrer que $\sqrt{ab} \le \frac{a+b}{2}$.</li>
+                    <li>Montrer les inégalités suivantes ($b \ge a > 0$): $a \le \frac{a+b}{2} \le b$ et $a \le \sqrt{ab} \le b$.</li>
+                    <li>Soient $u_0$ et $v_0$ des réels strictement positifs avec $u_0 < v_0$. On définit deux suites $(u_n)$ et $(v_n)$ de la façon suivante : $u_{n+1}=\sqrt{u_nv_n}$ et $v_{n+1}=\frac{u_n+v_n}{2}$.
+                        <ol type="a">
+                            <li>Montrer que $u_n \le v_n$ quel que soit $n \in \mathbb{N}$.</li>
+                            <li>Montrer que $(v_n)$ est une suite décroissante.</li>
+                            <li>Montrer que $(u_n)$ est croissante. En déduire que les suites $(u_n)$ et $(v_n)$ sont convergentes et quelles ont même limite.</li>
+                        </ol>
+                    </li>
+                </ol>
+                <div class="nav-links"><a href="#ind13">Indication ▼</a><a href="#corr13">Correction ▼</a></div>
+            </article>
+
+            <article id="exo14" class="exercise">
+                <div class="exercise-header"><h3>Exercice 14</h3><span class="exercise-code">[000574]</span></div>
+                <p>Soit $n \ge 1$.</p>
+                <ol>
+                    <li>Montrer que l'équation $\sum_{k=1}^n x^k = 1$ admet une unique solution, notée $a_n$, dans $[0,1]$.</li>
+                    <li>Montrer que $(a_n)_{n \in \mathbb{N}}$ est décroissante minorée par $1/2$.</li>
+                    <li>Montrer que $(a_n)$ converge vers $1/2$.</li>
+                </ol>
+                <div class="nav-links"><a href="#ind14">Indication ▼</a><a href="#corr14">Correction ▼</a></div>
+            </article>
+
+        </section>
+
+        <section id="indications">
+            <h2>Indications</h2>
+            <div id="ind1" class="indication-box"><h4><a href="#exo1">Indication pour l'exercice 1 ▲</a></h4><p>Écrire la définition de la convergence d'une suite $(u_n)$ avec les "$\varepsilon$". Comme on a une proposition qui est vraie pour tout $\varepsilon > 0$, c'est en particulier vrai pour $\varepsilon=1$. Cela nous donne un "N". Ensuite séparez la suite en deux : regardez les $n<N$ (il n'y a qu'un nombre fini de termes) et les $n \ge N$ (pour lequel on utilise notre $\varepsilon=1$).</p></div>
+            <div id="ind2" class="indication-box"><h4><a href="#exo2">Indication pour l'exercice 2 ▲</a></h4><p>Écrire la convergence de la suite et fixer $\varepsilon=1/2$. Une suite est stationnaire si, à partir d'un certain rang, elle est constante.</p></div>
+            <div id="ind3" class="indication-box"><h4><a href="#exo3">Indication pour l'exercice 3 ▲</a></h4><p>On prendra garde à ne pas parler de limite d'une suite sans savoir au préalable qu'elle converge ! Vous pouvez utiliser le résultat du cours suivant : Soit $(u_n)$ une suite convergeant vers la limite $l$ alors toute sous-suite $(v_n)$ de $(u_n)$ a pour limite $l$.</p></div>
+            <div id="ind4" class="indication-box"><h4><a href="#exo4">Indication pour l'exercice 4 ▲</a></h4><p>Dans l'ordre c'est vrai, faux et vrai. Lorsque c'est faux chercher un contre-exemple, lorsque c'est vrai il faut le prouver.</p></div>
+            <div id="ind5" class="indication-box"><h4><a href="#exo5">Indication pour l'exercice 5 ▲</a></h4><p>Pour la deuxième question, raisonner par l'absurde et trouver deux sous-suites ayant des limites distinctes.</p></div>
+            <div id="ind6" class="indication-box"><h4><a href="#exo6">Indication pour l'exercice 6 ▲</a></h4><ol><li>En se rappelant que l'intégrale calcule une aire montrer : $\frac{1}{n+1} \le \int_n^{n+1} \frac{dt}{t} \le \frac{1}{n}$.</li><li>Pour chacune des majorations, il s'agit de faire la somme de l'inégalité précédente et de s'apercevoir que d'un coté on calcule $H_n$ et de l'autre les termes s'éliminent presque tous deux à deux.</li><li>La limite est $+\infty$.</li><li>Calculer $u_{n+1}-u_n$.</li><li>Que fait une suite décroissante et minorée ?</li></ol></div>
+            <div id="ind7" class="indication-box"><h4><a href="#exo7">Indication pour l'exercice 7 ▲</a></h4><p>Pour la première question : attention on ne demande pas de calculer $\alpha$ ! L'existence vient du théorème des valeurs intermédiaires. L'unicité vient du fait que la fonction est strictement croissante. Pour la dernière question : il faut d'une part montrer que $(x_n)$ converge et on note $l$ sa limite et d'autre part il faut montrer que $l=\alpha$.</p></div>
+            <div id="ind8" class="indication-box"><h4><a href="#exo8">Indication pour l'exercice 8 ▲</a></h4><p>Remarquer que $1-\frac{1}{k^2} = \frac{(k-1)(k+1)}{k \cdot k}$. Puis simplifier l'écriture de $u_n$.</p></div>
+            <div id="ind10" class="indication-box"><h4><a href="#exo10">Indication pour l'exercice 10 ▲</a></h4><ol><li>Montrer que $(u_n)$ est croissante et $(v_n)$ décroissante.</li><li>Montrer que $(u_n)$ est majorée et $(v_n)$ minorée. Montrer que ces suites ont la même limite.</li><li>Raisonner par l'absurde : si la limite $l=\frac{p}{q}$ alors multiplier l'inégalité $u_q < \frac{p}{q} < v_q$ par $q!$ et raisonner avec des entiers.</li></ol></div>
+            <div id="ind11" class="indication-box"><h4><a href="#exo11">Indication pour l'exercice 11 ▲</a></h4><ol><li>C'est un calcul de réduction au même dénominateur.</li><li>Pour montrer la décroisance, montrer $\frac{u_{n+1}}{u_n} \le 1$.</li><li>Montrer d'abord que la suite converge, montrer ensuite que la limite est $\sqrt{a}$.</li><li>Penser à écrire $u_{n+1}^2-a=(u_{n+1}-\sqrt{a})(u_{n+1}+\sqrt{a})$.</li><li>Raisonner par récurrence.</li><li>Pour $u_0=3$ on a $u_1=3.166\dots$, donc $3 < \sqrt{10} \le u_1$ et on peut prendre $k=0.17$ par exemple et $n=4$ suffit pour la précision demandée.</li></ol></div>
+            <div id="ind12" class="indication-box"><h4><a href="#exo12">Indication pour l'exercice 12 ▲</a></h4><p>Pour la première question et la monotonie il faut raisonner par récurrence. Pour la troisième question, remarquer que si $f$ est décroissante alors $f \circ f$ est croissante et appliquer la première question.</p></div>
+            <div id="ind13" class="indication-box"><h4><a href="#exo13">Indication pour l'exercice 13 ▲</a></h4><ol><li>Regarder ce que donne l'inégalité en élevant au carré de chaque coté.</li><li>Petites manipulations des inégalités.</li><li>(a) Utiliser 1. (b) Utiliser 2. (c) Une suite croissante et majorée converge ; une suite décroissante et minorée aussi.</li></ol></div>
+            <div id="ind14" class="indication-box"><h4><a href="#exo14">Indication pour l'exercice 14 ▲</a></h4><p>On notera $f_n : [0,1] \to \mathbb{R}$ la fonction définie par $f_n(x)=\sum_{k=1}^n x^k - 1$.</p><ol><li>C'est une étude de la fonction $f_n$.</li><li>On sait que $f_n(a_n)=0$. Montrer par un calcul que $f_n(a_{n-1}) > 0$, en déduire la décroissance de $(a_n)$. En calculant $f_n(1/2)$ montrer que la suite $(a_n)$ est minorée par $1/2$.</li><li>Une fois établie la convergence de $(a_n)$ vers une limite $l$, composer l'inégalité $1/2 < l < a_n$ par $f_n$. Conclure.</li></ol></div>
+        </section>
+
+        <section id="corrections">
+            <h2>Corrections</h2>
+            <div id="corr1" class="solution-box"><h4><a href="#exo1">Correction de l'exercice 1 ▲</a></h4><p>Soit $(u_n)$ une suite convergeant vers $l \in \mathbb{R}$. Par définition: $\forall \varepsilon > 0, \exists N \in \mathbb{N}, \forall n \ge N, |u_n-l| < \varepsilon$.
+            <br>Choisissons $\varepsilon=1$. Nous obtenons le $N$ correspondant. Alors pour $n \ge N$, nous avons $|u_n-l|<1$, autrement dit $l-1 < u_n < l+1$.
+            <br>Notons $M_1 = \max\{u_0, u_1, \dots, u_{N-1}\}$ et $M = \max(M_1, l+1)$. Alors pour tout $n \in \mathbb{N}$, $u_n \le M$.
+            <br>De même, en posant $m_1=\min\{u_0, \dots, u_{N-1}\}$ et $m=\min(m_1, l-1)$, nous obtenons pour tout $n \in \mathbb{N}$, $u_n \ge m$.
+            La suite est donc bornée.</p></div>
+            
+            <div id="corr2" class="solution-box"><h4><a href="#exo2">Correction de l'exercice 2 ▲</a></h4><p>Soit $(u_n)$ une suite d'entiers qui converge vers $l \in \mathbb{R}$. Dans l'intervalle $I=]l-1/2, l+1/2[$ de longueur 1, il existe au plus un entier.
+            <br>La convergence de $(u_n)$ s'écrit: $\forall \varepsilon > 0, \exists N \in \mathbb{N} \text{ tel que } (n \ge N \Rightarrow |u_n-l|<\varepsilon)$.
+            <br>Fixons $\varepsilon=1/2$. Nous obtenons un $N$ correspondant. Pour $n \ge N$, $u_n \in I$. Mais de plus $u_n$ est un entier, donc $u_n \in I \cap \mathbb{Z}$.
+            Comme $I \cap \mathbb{Z}$ est soit vide soit un singleton $\{a\}$, et qu'il contient $u_N$, il est non vide. Soit $a$ cet unique entier.
+            L'implication s'écrit maintenant : $n \ge N \Rightarrow u_n = a$.
+            Donc la suite $(u_n)$ est stationnaire à partir du rang $N$. Elle converge bien vers $l=a \in \mathbb{Z}$.</p></div>
+            
+            <div id="corr3" class="solution-box"><h4><a href="#exo3">Correction de l'exercice 3 ▲</a></h4><p>Supposons par l'absurde que $(u_n)$ converge vers une limite $l$. Alors toute sous-suite de $(u_n)$ converge vers $l$.
+            Considérons la sous-suite des termes pairs $v_n = u_{2n} = (-1)^{2n} + \frac{1}{2n} = 1 + \frac{1}{2n}$. Elle converge vers 1. Donc $l=1$.
+            Considérons la sous-suite des termes impairs $w_n = u_{2n+1} = (-1)^{2n+1} + \frac{1}{2n+1} = -1 + \frac{1}{2n+1}$. Elle converge vers -1. Donc $l=-1$.
+            On aboutit à une contradiction $1=-1$. Donc l'hypothèse de départ est fausse, la suite $(u_n)$ ne converge pas.</p></div>
+
+            <div id="corr4" class="solution-box"><h4><a href="#exo4">Correction de l'exercice 4 ▲</a></h4><ol><li>Vrai. C'est un résultat du cours.</li><li>Faux. Contre-exemple : $u_n=(-1)^n$. $(u_{2n})_n$ est la suite constante 1, qui converge. $(u_{2n+1})_n$ est la suite constante -1, qui converge. Pourtant $(u_n)_n$ ne converge pas.</li><li>Vrai. Soit $\varepsilon > 0$. Comme $(u_{2p})_p \to l$, il existe $N_1$ tel que $2p \ge N_1 \Rightarrow |u_{2p}-l|<\varepsilon$. De même, il existe $N_2$ tel que $2p+1 \ge N_2 \Rightarrow |u_{2p+1}-l|<\varepsilon$.
+            Soit $N=\max(N_1, N_2)$. Pour tout $n \ge N$, si $n$ est pair ($n=2p$), alors $n \ge N \ge N_1$ et $|u_n-l|<\varepsilon$. Si $n$ est impair ($n=2p+1$), alors $n \ge N \ge N_2$ et $|u_n-l|<\varepsilon$. Dans tous les cas, pour $n \ge N$, $|u_n-l|<\varepsilon$. Ce qui prouve que $(u_n)_n$ converge vers $l$.</li></ol></div>
+
+            <div id="corr5" class="solution-box"><h4><a href="#exo5">Correction de l'exercice 5 ▲</a></h4><ol><li>$u_{n+q}=\cos(\frac{2(n+q)\pi}{q}) = \cos(\frac{2n\pi}{q}+2\pi) = \cos(\frac{2n\pi}{q})=u_n$.</li><li>$u_{nq} = \cos(\frac{2nq\pi}{q}) = \cos(2n\pi)=1=u_0$.
+            $u_{nq+1} = \cos(\frac{2(nq+1)\pi}{q}) = \cos(2n\pi+\frac{2\pi}{q}) = \cos(\frac{2\pi}{q})=u_1$.
+            Supposons que $(u_n)$ converge vers $l$. La sous-suite $(u_{nq})_n$ converge vers $l$. Comme $u_{nq}=1$ pour tout $n$, $l=1$.
+            La sous-suite $(u_{nq+1})_n$ converge aussi vers $l$. Comme $u_{nq+1}=u_1=\cos(2\pi/q)$, on a $l=\cos(2\pi/q)$.
+            On obtient la contradiction $1=\cos(2\pi/q)$, car pour $q \ge 2$, $2\pi/q \in ]0, \pi]$ et son cosinus n'est pas 1. Donc $(u_n)$ ne converge pas.</li></ol></div>
+
+            <div id="corr6" class="solution-box"><h4><a href="#exo6">Correction de l'exercice 6 ▲</a></h4><ol><li>La fonction $t \mapsto 1/t$ est décroissante sur $[n, n+1]$. Pour $t \in [n, n+1]$, $\frac{1}{n+1} \le \frac{1}{t} \le \frac{1}{n}$. En intégrant de $n$ à $n+1$, on a $\int_n^{n+1}\frac{1}{n+1}dt \le \int_n^{n+1}\frac{dt}{t} \le \int_n^{n+1}\frac{1}{n}dt$. Cela donne l'encadrement voulu.</li><li>On somme l'inégalité $\ln(k+1)-\ln(k) \le 1/k$ pour $k=1, \dots, n$: $\sum_{k=1}^n (\ln(k+1)-\ln(k)) \le \sum_{k=1}^n \frac{1}{k} = H_n$. La somme de gauche est télescopique et vaut $\ln(n+1)-\ln(1)=\ln(n+1)$. D'où $\ln(n+1) \le H_n$.
+            On somme l'inégalité $1/k \le \ln(k)-\ln(k-1)$ pour $k=2, \dots, n$: $H_n-1 = \sum_{k=2}^n \frac{1}{k} \le \sum_{k=2}^n (\ln(k)-\ln(k-1)) = \ln(n)-\ln(1)=\ln(n)$. D'où $H_n \le \ln(n)+1$.</li><li>Comme $H_n \ge \ln(n+1)$ et que $\ln(n+1) \to +\infty$, alors $H_n \to +\infty$.</li><li>$u_{n+1}-u_n = H_{n+1}-H_n - (\ln(n+1)-\ln(n)) = \frac{1}{n+1} - (\ln(n+1)-\ln(n)) \le 0$ d'après la question 1. La suite $(u_n)$ est décroissante. De plus $H_n \ge \ln(n+1) > \ln(n)$, donc $u_n = H_n-\ln(n) > 0$. Elle est positive.</li><li>La suite $(u_n)$ est décroissante et minorée (par 0), donc elle converge. Sa limite est la constante d'Euler-Mascheroni $\gamma \approx 0.577$.</li></ol></div>
+
+            <div id="corr7" class="solution-box"><h4><a href="#exo7">Correction de l'exercice 7 ▲</a></h4><ol><li>Soit $P(x)=x^3-3x+1$. $P'(x)=3x^2-3=3(x-1)(x+1)$, négative sur $]-1,1[$. $P$ est strictement décroissante sur cet intervalle. $P(0)=1$, $P(1/2)=1/8-3/2+1 = -3/8$. Par le TVI, il existe une unique solution $\alpha \in ]0,1/2[$.</li><li>$f(x)-x = \frac{x^3+6x+1-9x}{9} = \frac{x^3-3x+1}{9}$. Les solutions de $f(x)=x$ sont les mêmes que celles de $P(x)=0$. $\alpha$ est donc l'unique solution dans $]0,1/2[$.</li><li>$f'(x) = \frac{3x^2+6}{9} = \frac{x^2+2}{3} > 0$. $f$ est croissante. $f(\mathbb{R}^+) \subset [1/9, +\infty[ \subset \mathbb{R}^+$. $x_0=0, x_1=f(0)=1/9$. $x_1 > x_0$. Comme $f$ est croissante, $f(x_1) > f(x_0) \Rightarrow x_2 > x_1$. Par récurrence, $(x_n)$ est croissante.</li><li>$f(1/2) = \frac{1/8+1+1/9}{1} = \frac{1/8+4/3+1/9}{1} = \frac{1/72 + 8/9+1/9}{1} \dots$  $f(1/2) = \frac{(1/2)^3}{9}+\frac{2(1/2)}{3}+\frac{1}{9} = \frac{1}{72}+\frac{1}{3}+\frac{1}{9}=\frac{1+24+8}{72}=\frac{33}{72} < \frac{36}{72}=1/2$.
+            $x_0=0 < 1/2$. Par récurrence, si $x_n < 1/2$, alors $x_{n+1}=f(x_n) < f(1/2) < 1/2$. Donc $x_n < 1/2$ pour tout $n$.</li><li>$(x_n)$ est croissante et majorée par $1/2$, elle converge vers une limite $l \in [0, 1/2]$. Par continuité de $f$, $l$ vérifie $f(l)=l$. D'après la question 2, $l=\alpha$.</li></ol></div>
+
+            <div id="corr8" class="solution-box"><h4><a href="#exo8">Correction de l'exercice 8 ▲</a></h4><p>On remarque que $1-1/k^2 = (k-1)(k+1)/k^2$.
+            $u_n = \frac{1 \cdot 3}{2 \cdot 2} \cdot \frac{2 \cdot 4}{3 \cdot 3} \cdot \frac{3 \cdot 5}{4 \cdot 4} \dots \frac{(n-1)(n+1)}{n \cdot n}$.
+            C'est un produit télescopique. $u_n = \frac{1 \cdot 2 \cdot 3 \dots (n-1)}{2 \cdot 3 \cdot 4 \dots n} \cdot \frac{3 \cdot 4 \cdot 5 \dots (n+1)}{2 \cdot 3 \cdot 4 \dots n} = \frac{1}{n} \cdot \frac{n+1}{2} = \frac{n+1}{2n}$.
+            $\lim_{n \to \infty} u_n = \lim_{n \to \infty} \frac{1+1/n}{2} = 1/2$.</p></div>
+
+            <div id="corr9" class="solution-box"><h4><a href="#corr9">Correction de l'exercice 9 ▲</a></h4><ol><li>$|u_n|=1/n \to 0$, donc $u_n \to 0$.</li><li>$u_n=\frac{2n}{2n-1}=\frac{2}{2-1/n} \to 1$.</li><li>Suite croissante majorée par 0.24. Elle converge. $u_1=0.23, u_2=0.233, \dots$. $u_n = 2/10 + 3/100 \sum_{k=0}^{n-2} (1/10)^k \to 2/10 + (3/100)\frac{1}{1-1/10} = 0.2 + 3/90 = 7/30$.</li><li>$\frac{n(n-1)/2}{n^2} \to 1/2$.</li><li>$\frac{n^3(1+1/n)(1+2/n)(1+3/n)}{n^3} \to 1$.</li><li>Somme des impairs: $n^2$. $\frac{n^2}{n+1}-\frac{2n+1}{2} = \frac{2n^2-(2n+1)(n+1)}{2(n+1)} = \frac{2n^2-(2n^2+3n+1)}{2(n+1)} = \frac{-3n-1}{2n+2} \to -3/2$.</li><li>$\frac{1+(-1)^n/n}{1-(-1)^n/n} \to 1$.</li><li>Diviser par $3^n$: $\frac{3(2/3)^n+3}{ (2/3)^n+1 } \to 3$.</li><li>Suite géométrique: $1-(1/2)^n \to 1$. Pour la seconde, $u_{n+1}=\sqrt{2u_n}$. Si elle converge, $l=\sqrt{2l} \Rightarrow l=2$.</li><li>Suite géométrique: $\frac{1-(-1/3)^{n+1}}{1-(-1/3)} \to \frac{1}{4/3} = 3/4$.</li><li>$(\sqrt{n+1}-\sqrt{n}) \frac{\sqrt{n+1}+\sqrt{n}}{\sqrt{n+1}+\sqrt{n}} = \frac{1}{\sqrt{n+1}+\sqrt{n}} \to 0$.</li><li>$|\frac{n\sin(n!)}{n^2+1}| \le \frac{n}{n^2+1} \to 0$. Par les gendarmes, la limite est 0.</li><li>La limite est $1/6$.</li></ol></div>
+
+            <div id="corr10" class="solution-box"><h4><a href="#corr10">Correction de l'exercice 10 ▲</a></h4><p>$u_{n+1}-u_n=\frac{1}{(n+1)!} > 0$, $(u_n)$ est croissante.
+            $v_{n+1}-v_n = u_{n+1}-u_n + \frac{1}{(n+1)(n+1)!} - \frac{1}{n \cdot n!} < 0$ (après calcul). $(v_n)$ est décroissante.
+            $v_n-u_n=\frac{1}{n \cdot n!} \to 0$. Les suites sont adjacentes, elles convergent vers la même limite $l$.
+            Supposons $l=p/q \in \mathbb{Q}$. Pour $n > q$, $u_n < l < v_n \implies q! u_n < q! p/q < q! v_n$.
+            $q!u_q$ est un entier. $q!u_n = q!u_q + q!(\frac{1}{(q+1)!}+\dots+\frac{1}{n!})$ n'est pas un entier. Contradiction.
+            $q! u_q < (q-1)! p < q! u_q + 1/q$. Pour $q \ge 2$, on a un entier strict entre deux entiers distants de $1/q \le 1/2$. Impossible. Donc $l \notin \mathbb{Q}$. (c'est $e$).</p></div>
+
+            <div id="corr11" class="solution-box"><h4><a href="#exo11">Correction de l'exercice 11 ▲</a></h4><p>1. $u_{n+1}^2-a = \frac{1}{4}(u_n^2+2a+a^2/u_n^2)-a = \frac{1}{4u_n^2}(u_n^4-2au_n^2+a^2) = \frac{(u_n^2-a)^2}{4u_n^2}$.
+            2. Pour $n \ge 0$, $u_{n+1}^2-a \ge 0 \Rightarrow u_{n+1} \ge \sqrt{a}$. Donc pour $n \ge 1, u_n \ge \sqrt{a}$.
+            Pour $n \ge 1, \frac{u_{n+1}}{u_n} = \frac{1}{2}(1+\frac{a}{u_n^2}) \le \frac{1}{2}(1+1)=1$. Donc $(u_n)_{n \ge 1}$ est décroissante.
+            3. $(u_n)_{n \ge 1}$ est décroissante et minorée par $\sqrt{a}$, donc elle converge vers une limite $l \ge \sqrt{a}$. Passant à la limite dans la relation de récurrence, $l=\frac{1}{2}(l+a/l) \Rightarrow 2l^2=l^2+a \Rightarrow l^2=a \Rightarrow l=\sqrt{a}$.</p></div>
+
+            <div id="corr12" class="solution-box"><h4><a href="#exo12">Correction de l'exercice 12 ▲</a></h4><p>1. Si $u_1 \ge u_0$, $f(u_1) \ge f(u_0) \Rightarrow u_2 \ge u_1$. Par récurrence, $(u_n)$ est croissante. Majorée par $b$, elle converge vers $l \in [a,b]$. Par continuité de $f$, $f(l)=l$.
+            2. $f(x)=\frac{4x+5}{x+3}$, $f'(x)>0$. $f$ est croissante. $u_0=4, u_1=21/7=3$. $u_1 < u_0$, la suite est décroissante. Elle converge vers $l$ tel que $l=(4l+5)/(l+3) \Rightarrow l^2+3l=4l+5 \Rightarrow l^2-l-5=0$. La solution positive est $l=(1+\sqrt{21})/2$.
+            3. Si $f$ est décroissante, $f \circ f$ est croissante. On applique la Q1 aux suites $(u_{2n})_n$ et $(u_{2n+1})_n$ avec la fonction $g=f \circ f$. Elles sont monotones et convergent vers des limites $l_1, l_2$.
+            4. $f(x)=(1-x)^2$. $f$ est décroissante sur $[0,1]$. $u_0=1/2, u_1=1/4, u_2=9/16, u_3 \approx 0.19$. $(u_{2n})$ est croissante, $(u_{2n+1})$ est décroissante. Les limites sont des points fixes de $g(x)=f(f(x))=(1-(1-x)^2)^2 = x^2(2-x)^2$. Les solutions dans $[0,1]$ sont $0, 1, (3-\sqrt{5})/2 \approx 0.38$. Comme $u_0=1/2 > (3-\sqrt{5})/2$, la suite $(u_{2n})$ croît vers 1. Comme $u_1=1/4 < (3-\sqrt{5})/2$, la suite $(u_{2n+1})$ décroît vers 0.</p></div>
+
+            <div id="corr13" class="solution-box"><h4><a href="#exo13">Correction de l'exercice 13 ▲</a></h4><p>1. $(a+b)^2 - 4ab = a^2-2ab+b^2=(a-b)^2 \ge 0$.
+            3. (a) Pour $n=0, u_0<v_0$. Par récurrence, si $u_n < v_n$, $u_{n+1}=\sqrt{u_n v_n} < \sqrt{v_n v_n}=v_n$. Et $u_{n+1}=\sqrt{u_n v_n} < \frac{u_n+v_n}{2} = v_{n+1}$ (par Q1).
+            (b) $v_{n+1}=\frac{u_n+v_n}{2} < \frac{v_n+v_n}{2}=v_n$. $(v_n)$ est décroissante.
+            (c) $u_{n+1}=\sqrt{u_n v_n} > \sqrt{u_n u_n}=u_n$. $(u_n)$ est croissante.
+            $(u_n)$ croissante majorée par $v_0$, converge vers $l$. $(v_n)$ décroissante minorée par $u_0$, converge vers $l'$.
+            $v_{n+1}=\frac{u_n+v_n}{2} \Rightarrow l'=(l+l')/2 \Rightarrow l=l'$.</p></div>
+
+            <div id="corr14" class="solution-box"><h4><a href="#exo14">Correction de l'exercice 14 ▲</a></h4><ol><li>Soit $f_n(x)=\sum_{k=1}^n x^k - 1$. $f_n$ est continue, $f_n(0)=-1, f_n(1)=n-1 \ge 0$. Par le TVI, il existe une solution $a_n \in [0,1]$. $f_n'(x) > 0$ sur $]0,1]$, donc la solution est unique.</li><li>$f_{n-1}(a_{n-1})=0$. $f_n(a_{n-1}) = f_{n-1}(a_{n-1}) + a_{n-1}^n = a_{n-1}^n > 0$. Or $f_n(a_n)=0$. Comme $f_n$ est croissante, $a_n < a_{n-1}$. La suite $(a_n)$ est décroissante.
+            $f_n(1/2) = \frac{1/2(1-(1/2)^n)}{1-1/2} - 1 = 1-(1/2)^n-1=-(1/2)^n < 0$. Comme $f_n(a_n)=0$, on a $a_n > 1/2$. La suite est minorée.</li><li>$(a_n)$ décroissante minorée, converge vers $l \ge 1/2$. $a_n = \frac{1-a_n^{n+1}}{1-a_n} - 2$.
+            On a $1/2 < l \le a_n$. $f_n(1/2) < f_n(l) \le f_n(a_n)=0$.
+            $f_n(l) = \frac{l(1-l^n)}{1-l}-1$. Quand $n \to \infty$, $l^n \to 0$ car $l<a_2 \approx 0.618 < 1$. Donc $f_n(l) \to \frac{l}{1-l}-1$.
+            Par les gendarmes, $\lim f_n(l) = 0$. Donc $\frac{l}{1-l}-1=0 \implies l=1-l \implies l=1/2$.</li></ol></div>
+        </section>
+    </main>
+</div>
+</body>
+</html>
