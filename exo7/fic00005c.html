@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dénombrement - Exo7</title>
+    
+    <!-- KaTeX for LaTeX rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+
+    <style>
+        :root {
+            --primary-color: #005a9c; /* A professional blue */
+            --secondary-color: #f0f0f0;
+            --border-color: #ddd;
+            --text-color: #333;
+            --exo7-orange: #f57c00;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: #fff;
+            margin: 0;
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 1rem;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 1.5em;
+            margin-bottom: 0.8em;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.3em;
+        }
+
+        h1 {
+            font-size: 2em;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            position: relative;
+            margin-top: 0;
+        }
+        
+        .exo7-logo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--exo7-orange);
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 0 0 0 8px;
+            box-shadow: -2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .exercise, .solution-box, .indication-box {
+            background-color: #fdfdfd;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .exercise-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .exercise-header h3 {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .exercise-code {
+            color: #888;
+            font-size: 0.8em;
+            font-family: monospace;
+        }
+
+        .nav-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            background-color: var(--secondary-color);
+            padding: 0.3rem 0.7rem;
+            border-radius: 15px;
+            font-size: 0.9em;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .solution-box h4 a, .indication-box h4 a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        ol, ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Dénombrement <div class="exo7-logo">Exo7</div></h1>
+    </header>
+
+    <main>
+        <section id="exercices">
+            <article id="exo1" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 1</h3>
+                    <span class="exercise-code">[000236]</span>
+                </div>
+                <p>Pour $A, B$ deux ensembles de $E$ on note $A\Delta B = (A \cup B) \setminus (A \cap B)$. Pour $E$ un ensemble fini, montrer :</p>
+                $$ \text{Card}(A\Delta B) = \text{Card } A + \text{Card } B - 2\text{Card}(A \cap B). $$
+                <div class="nav-links">
+                    <a href="#ind1">Indication ▼</a>
+                    <a href="#corr1">Correction ▼</a>
+                </div>
+            </article>
+
+            <article id="exo2" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 2</h3>
+                    <span class="exercise-code">[000220]</span>
+                </div>
+                <p>En utilisant la fonction $x \mapsto (1+x)^n$, calculer :</p>
+                $$ \sum_{k=0}^n C_n^k \quad ; \quad \sum_{k=0}^n (-1)^k C_n^k \quad ; \quad \sum_{k=1}^n k C_n^k \quad ; \quad \sum_{k=0}^n \frac{1}{k+1} C_n^k. $$
+                <div class="nav-links">
+                    <a href="#ind2">Indication ▼</a>
+                    <a href="#corr2">Correction ▼</a>
+                </div>
+            </article>
+
+            <article id="exo3" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 3</h3>
+                    <span class="exercise-code">[000222]</span>
+                </div>
+                <p>En utilisant la formule du binôme, démontrer que :</p>
+                <ol>
+                    <li>$2^n+1$ est divisible par 3 si et seulement si $n$ est impair ;</li>
+                    <li>$3^{2n+1} + 2^{4n+2}$ est divisible par 7.</li>
+                </ol>
+                <div class="nav-links">
+                    <a href="#ind3">Indication ▼</a>
+                    <a href="#corr3">Correction ▼</a>
+                </div>
+            </article>
+
+            <article id="exo4" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 4</h3>
+                    <span class="exercise-code">[005284]</span>
+                </div>
+                <p>On part du point de coordonnées $(0,0)$ pour rejoindre le point de coordonnées $(p,q)$ ($p$ et $q$ entiers naturels donnés) en se déplaçant à chaque étape d'une unité vers la droite ou vers le haut. Combien y a-t-il de chemins possibles ?</p>
+                <div class="nav-links">
+                    <a href="#ind4">Indication ▼</a>
+                    <a href="#corr4">Correction ▼</a>
+                </div>
+            </article>
+
+            <article id="exo5" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 5</h3>
+                    <span class="exercise-code">[000239]</span>
+                </div>
+                <p>On considère les mains de 5 cartes que l'on peut extraire d'un jeu de 52 cartes.</p>
+                <ol>
+                    <li>Combien y a-t-il de mains différentes ?</li>
+                    <li>Combien y a-t-il de mains comprenant exactement un as ?</li>
+                    <li>Combien y a-t-il de mains comprenant au moins un valet ?</li>
+                    <li>Combien y a-t-il de mains comprenant (à la fois) au moins un roi et au moins une dame ?</li>
+                </ol>
+                <div class="nav-links">
+                    <a href="#ind5">Indication ▼</a>
+                    <a href="#corr5">Correction ▼</a>
+                </div>
+            </article>
+
+            <article id="exo6" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 6 - Permutations</h3>
+                    <span class="exercise-code">[002912]</span>
+                </div>
+                <p>Combien y a-t-il de bijections $f$ de $\{1, \dots, 12\}$ dans lui-même possédant :</p>
+                <ol>
+                    <li>la propriété : $n$ est pair $\Rightarrow f(n)$ est pair ?</li>
+                    <li>la propriété : $n$ est divisible par 3 $\Rightarrow f(n)$ est divisible par 3 ?</li>
+                    <li>ces deux propriétés à la fois ?</li>
+                    <li>Reprendre les questions précédentes en remplaçant <em>bijection</em> par <em>application</em>.</li>
+                </ol>
+                <div class="nav-links">
+                    <a href="#corr6">Correction ▼</a>
+                </div>
+            </article>
+
+            <article id="exo7" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 7</h3>
+                    <span class="exercise-code">[000237]</span>
+                </div>
+                <p>Soit $E$ un ensemble à $n$ éléments, et $A \subset E$ un sous-ensemble à $p$ éléments. Quel est le nombre de parties de $E$ qui contiennent un et un seul élément de $A$ ?</p>
+                <div class="nav-links">
+                    <a href="#ind7">Indication ▼</a>
+                    <a href="#corr7">Correction ▼</a>
+                </div>
+            </article>
+        </section>
+
+        <section id="indications">
+            <h2>Indications</h2>
+
+            <div id="ind1" class="indication-box">
+                <h4><a href="#exo1">Indication pour l'exercice 1 ▲</a></h4>
+                <p>Tout d'abord faire un dessin (avec des patates !). Pour $A$ et $B$ deux ensembles finis quelconques, commencer par (re)démontrer la formule : $\text{Card}(A \cup B) = \text{Card } A + \text{Card } B - \text{Card}(A \cap B)$.</p>
+            </div>
+
+            <div id="ind2" class="indication-box">
+                <h4><a href="#exo2">Indication pour l'exercice 2 ▲</a></h4>
+                <p>Évaluer $(1+x)^n$ en $x=1$, d'une part directement et ensuite avec la formule du binôme de Newton. Pour la deuxième égalité évaluer en $x=-1$. Pour la troisième commencer par dériver $x \mapsto (1+x)^n$. Pour la quatrième primitive.</p>
+            </div>
+
+            <div id="ind3" class="indication-box">
+                <h4><a href="#exo3">Indication pour l'exercice 3 ▲</a></h4>
+                <p>Commencer par $2^n = (3-1)^n$. Pour le deuxième regarder $3=7-4$ et $2^4=16=2\times 7+2$.</p>
+            </div>
+
+            <div id="ind4" class="indication-box">
+                <h4><a href="#exo4">Indication pour l'exercice 4 ▲</a></h4>
+                <p>Coder un chemin par un mot : $D$ pour droite, $H$ pour haut.</p>
+            </div>
+
+            <div id="ind5" class="indication-box">
+                <h4><a href="#exo5">Indication pour l'exercice 5 ▲</a></h4>
+                <p>Petits rappels : dans un jeu de 52 cartes il y a 4 "couleurs" (pique, cœur, carreau, trèfle) et 13 "valeurs" (1 = As, 2, 3, ..., 10, Valet, Dame, Roi). Une "main" c'est juste choisir 5 cartes parmi les 52, l'ordre du choix n'important pas. Utiliser les complémentaires pour les questions "au moins".</p>
+            </div>
+
+            <div id="ind7" class="indication-box">
+                <h4><a href="#exo7">Indication pour l'exercice 7 ▲</a></h4>
+                <p>Combien y-a-t'il de choix pour l'élément de $A$ ? Combien y-a-t'il de choix pour le sous-ensemble de $E \setminus A$ ?</p>
+            </div>
+        </section>
+
+        <section id="corrections">
+            <h2>Corrections</h2>
+
+            <div id="corr1" class="solution-box">
+                <h4><a href="#exo1">Correction de l'exercice 1 ▲</a></h4>
+                <p>Tout d'abord si deux ensembles finis $A$ et $B$ sont disjoints alors $\text{Card}(A \cup B) = \text{Card } A + \text{Card } B$.
+                Si maintenant $A$ et $B$ sont deux ensembles finis quelconques : nous décomposons $A \cup B$ en trois ensembles :
+                $$ A \cup B = (A \setminus (A \cap B)) \cup (B \setminus (A \cap B)) \cup (A \cap B). $$
+                Ces trois ensembles sont disjoints deux à deux donc : $\text{Card}(A \cup B) = \text{Card}(A \setminus (A \cap B)) + \text{Card}(B \setminus (A \cap B)) + \text{Card}(A \cap B)$.
+                Mais pour $R \subset S$ nous avons $\text{Card}(S \setminus R) = \text{Card } S - \text{Card } R$.
+                Ici $A \cap B \subset A$ et $A \cap B \subset B$.
+                Donc $\text{Card}(A \cup B) = (\text{Card } A - \text{Card}(A \cap B)) + (\text{Card } B - \text{Card}(A \cap B)) + \text{Card}(A \cap B)$.
+                Donc $\text{Card}(A \cup B) = \text{Card } A + \text{Card } B - \text{Card}(A \cap B)$ (Formule du crible).
+                Appliquons ceci à $A\Delta B = (A \cup B) \setminus (A \cap B)$. Comme $A \cap B \subset A \cup B$:
+                $$ \text{Card}(A\Delta B) = \text{Card}(A \cup B) - \text{Card}(A \cap B) = (\text{Card } A + \text{Card } B - \text{Card}(A \cap B)) - \text{Card}(A \cap B) $$
+                $$ \text{Card}(A\Delta B) = \text{Card } A + \text{Card } B - 2\text{Card}(A \cap B). $$
+                </p>
+            </div>
+
+            <div id="corr2" class="solution-box">
+                <h4><a href="#exo2">Correction de l'exercice 2 ▲</a></h4>
+                <p>Soit $f: \mathbb{R} \to \mathbb{R}$ la fonction $f(x) = (1+x)^n$. Par la formule du binôme de Newton nous savons que
+                $$ f(x) = (1+x)^n = \sum_{k=0}^n C_n^k x^k. $$
+                <ol>
+                    <li>En calculant $f(1)$ nous avons $2^n = (1+1)^n = \sum_{k=0}^n C_n^k 1^k = \sum_{k=0}^n C_n^k$.</li>
+                    <li>En calculant $f(-1)$ nous avons $0 = (1-1)^n = \sum_{k=0}^n C_n^k (-1)^k = \sum_{k=0}^n (-1)^k C_n^k$ (pour $n \ge 1$, si $n=0$ la somme vaut 1).</li>
+                    <li>Maintenant calculons $f'(x) = n(1+x)^{n-1} = \sum_{k=1}^n k C_n^k x^{k-1}$. Évaluons $f'(1) = n2^{n-1} = \sum_{k=1}^n k C_n^k$.</li>
+                    <li>Il s'agit ici de calculer la primitive $F$ de $f$ (qui s'annule en 0) : $F(x) = \frac{1}{n+1}(1+x)^{n+1} - \frac{1}{n+1} = \sum_{k=0}^n C_n^k \frac{x^{k+1}}{k+1}$. En $x=1$: $F(1) = \frac{1}{n+1}(2^{n+1}-1) = \sum_{k=0}^n \frac{1}{k+1} C_n^k$.</li>
+                </ol>
+                </p>
+            </div>
+
+            <div id="corr3" class="solution-box">
+                <h4><a href="#exo3">Correction de l'exercice 3 ▲</a></h4>
+                <ol>
+                    <li>L'astuce consiste à écrire $2 = 3-1$ (!)
+                    $$ 2^n = (3-1)^n = \sum_{k=0}^n C_n^k 3^k (-1)^{n-k} = C_n^0 3^0 (-1)^n + \sum_{k=1}^n C_n^k 3^k (-1)^{n-k} = (-1)^n + 3 \sum_{k=1}^n C_n^k 3^{k-1} (-1)^{n-k} $$
+                    Donc $2^n = (-1)^n + 3p$ où $p \in \mathbb{Z}$.
+                    Donc $2^n - (-1)^n$ est divisible par 3.
+                    Si $n$ est impair, $n=2k+1$, alors $(-1)^n = -1$, donc $2^n - (-1) = 2^n+1$ est divisible par 3.
+                    Si $n$ est pair, $n=2k$, alors $(-1)^n = 1$, donc $2^n - 1$ est divisible par 3. Alors $2^n+1 = (2^n-1)+2$ n'est pas divisible par 3.
+                    Conclusion : $2^n+1$ est divisible par 3 si et seulement si $n$ est impair.
+                    </li>
+                    <li>Regardons $3^{2n+1} + 2^{4n+2}$.
+                    On remarque que $2^{4n+2} = 2^{2(2n+1)} = (2^2)^{2n+1} = 4^{2n+1}$.
+                    Posons $m=2n+1$. On cherche à montrer que $3^m + 4^m$ est divisible par 7 sachant que $m$ est impair.
+                    $3^m + 4^m = 3^m + (7-3)^m = 3^m + \sum_{k=0}^m C_m^k 7^k (-3)^{m-k} = 3^m + C_m^0 (-3)^m + \sum_{k=1}^m C_m^k 7^k (-3)^{m-k}$.
+                    $3^m + 4^m = 3^m + (-1)^m 3^m + 7 \times (\text{entier})$.
+                    Comme $m=2n+1$ est impair, $(-1)^m = -1$.
+                    Donc $3^m + 4^m = 3^m - 3^m + 7p = 7p$.
+                    Donc $3^{2n+1} + 2^{4n+2}$ est divisible par 7 pour tout $n \in \mathbb{N}$.
+                    (Note: L'énoncé original utilise l'argument $4 \equiv -3 \pmod 7$ implicitement. Une autre façon : $x+y$ divise $x^m+y^m$ si $m$ est impair. Ici $x=3, y=4, x+y=7$, $m=2n+1$ impair).
+                    </li>
+                </ol>
+            </div>
+
+            <div id="corr4" class="solution-box">
+                <h4><a href="#exo4">Correction de l'exercice 4 ▲</a></h4>
+                <p>On pose $H =$ "vers le haut" et $D =$ "vers la droite". Un exemple de chemin de $(0,0)$ à $(p,q)$ est le mot $DD...DHH...H$ où $D$ est écrit $p$ fois et $H$ est écrit $q$ fois. Un chemin quelconque correspond à une permutation de ces lettres. La longueur totale du mot est $p+q$. Le nombre de chemins cherché est le nombre de façons de placer les $q$ lettres $H$ parmi les $p+q$ positions (les positions restantes étant nécessairement des $D$), ou de façon équivalente, de choisir les $p$ positions des $D$.
+                Le nombre de chemins possibles est donc $C_{p+q}^q$.
+                On a bien sûr $C_{p+q}^q = C_{p+q}^{(p+q)-q} = C_{p+q}^p$.
+                </p>
+            </div>
+
+            <div id="corr5" class="solution-box">
+                <h4><a href="#exo5">Correction de l'exercice 5 ▲</a></h4>
+                <ol>
+                    <li>Il s'agit de choisir 5 cartes parmi 52 : il y a donc $C_{52}^5$ mains différentes. Ceci peut être calculé :
+                    $$ C_{52}^5 = \frac{52 \times 51 \times 50 \times 49 \times 48}{5 \times 4 \times 3 \times 2 \times 1} = 2\,598\,960. $$</li>
+                    <li>Pour constituer une main avec exactement un as :
+                        <ul>
+                            <li>On choisit 1 as parmi les 4 : $C_4^1 = 4$ façons.</li>
+                            <li>On choisit 4 cartes parmi les 48 cartes qui ne sont pas des as : $C_{48}^4$ façons.</li>
+                        </ul>
+                        Le nombre total de mains est $C_4^1 \times C_{48}^4 = 4 \times \frac{48 \times 47 \times 46 \times 45}{4 \times 3 \times 2 \times 1} = 4 \times 194\,580 = 778\,320$.
+                    </li>
+                    <li>Il est beaucoup plus facile de utiliser le complémentaire : compter les mains qui ne contiennent <em>aucun</em> valet.
+                        Il faut choisir 5 cartes parmi les $52-4=48$ cartes qui ne sont pas des valets. Il y a $C_{48}^5$ telles mains.
+                        Le nombre total de mains est $C_{52}^5$.
+                        Le nombre de mains contenant <em>au moins</em> un valet est donc : $C_{52}^5 - C_{48}^5 = 2\,598\,960 - 1\,712\,304 = 886\,656$.
+                    </li>
+                    <li>Soit $E$ l'ensemble de toutes les mains. Soit $R$ l'ensemble des mains sans roi, et $D$ l'ensemble des mains sans dame. On cherche le nombre de mains ayant au moins un roi ET au moins une dame. C'est le complémentaire de l'ensemble des mains n'ayant (pas de roi OU pas de dame), c'est-à-dire le complémentaire de $R \cup D$.
+                    $$ \text{Card}(E \setminus (R \cup D)) = \text{Card } E - \text{Card}(R \cup D). $$
+                    Par la formule du crible : $\text{Card}(R \cup D) = \text{Card } R + \text{Card } D - \text{Card}(R \cap D)$.
+                    <ul>
+                        <li>$\text{Card } E = C_{52}^5$.</li>
+                        <li>Mains sans roi : on choisit 5 cartes parmi $52-4=48$. $\text{Card } R = C_{48}^5$.</li>
+                        <li>Mains sans dame : on choisit 5 cartes parmi $52-4=48$. $\text{Card } D = C_{48}^5$.</li>
+                        <li>Mains sans roi ET sans dame ($R \cap D$) : on choisit 5 cartes parmi $52-4-4=44$. $\text{Card}(R \cap D) = C_{44}^5$.</li>
+                    </ul>
+                    Nombre cherché = $C_{52}^5 - (C_{48}^5 + C_{48}^5 - C_{44}^5) = C_{52}^5 - 2C_{48}^5 + C_{44}^5$.
+                    </li>
+                </ol>
+            </div>
+
+            <div id="corr6" class="solution-box">
+                <h4><a href="#exo6">Correction de l'exercice 6 ▲</a></h4>
+                <p>Soit $E = \{1, \dots, 12\}$.
+                <ol>
+                    <li>Soit $P = \{2, 4, 6, 8, 10, 12\}$ l'ensemble des nombres pairs de $E$, et $I = \{1, 3, 5, 7, 9, 11\}$ l'ensemble des nombres impairs. $\text{Card } P = 6$, $\text{Card } I = 6$.
+                    La condition "$n$ pair $\Rightarrow f(n)$ pair" signifie $f(P) \subset P$.
+                    Comme $f$ est une bijection et que $P$ est fini, $f(P) \subset P$ et $\text{Card } f(P) = \text{Card } P$ implique $f(P) = P$.
+                    Comme $f$ est bijective, nécessairement $f(E \setminus P) = E \setminus P$, c'est-à-dire $f(I) = I$.
+                    Pour définir une telle bijection, il faut choisir une bijection de $P$ dans $P$ ($6!$ choix) et une bijection de $I$ dans $I$ ($6!$ choix).
+                    Nombre total de bijections = $6! \times 6! = (720)^2 = 518\,400$.
+                    </li>
+                    <li>Soit $D_3 = \{3, 6, 9, 12\}$ les multiples de 3 dans $E$. $\text{Card } D_3 = 4$. Soit $A = E \setminus D_3$, $\text{Card } A = 8$.
+                    Même raisonnement : $f$ bijection et $f(D_3) \subset D_3$ implique $f(D_3)=D_3$ et $f(A)=A$.
+                    Nombre de bijections de $D_3$ sur $D_3$ est $4!$. Nombre de bijections de $A$ sur $A$ est $8!$.
+                    Nombre total = $4! \times 8! = 24 \times 40\,320 = 967\,680$.
+                    </li>
+                    <li>On veut $f(P)=P$ et $f(D_3)=D_3$. Comme $f$ est bijective, cela implique $f(P \cap D_3) = P \cap D_3$.
+                    Les ensembles partitionnent $E$ : $E_1 = P \cap D_3 = \{6, 12\}$ (card 2), $E_2 = P \setminus D_3 = \{2, 4, 8, 10\}$ (card 4), $E_3 = D_3 \setminus P = \{3, 9\}$ (card 2), $E_4 = E \setminus (P \cup D_3) = \{1, 5, 7, 11\}$ (card 4).
+                    La condition implique $f(E_1)=E_1$, $f(E_2)=E_2$, $f(E_3)=E_3$, $f(E_4)=E_4$.
+                    Nombre total = $(\text{Card } E_1)! \times (\text{Card } E_2)! \times (\text{Card } E_3)! \times (\text{Card } E_4)! = 2! \times 4! \times 2! \times 4! = 2 \times 24 \times 2 \times 24 = 2304$.
+                    </li>
+                    <li>Maintenant $f$ est une application quelconque de $E$ dans $E$. $\text{Card } E = 12$.
+                        <ol type="a">
+                            <li>Condition $f(P) \subset P$. Pour chaque $x \in P$ (6 éléments), $f(x)$ doit être dans $P$ (6 choix). Pour chaque $x \in I$ (6 éléments), $f(x)$ peut être n'importe où dans $E$ (12 choix).
+                            Nombre d'applications = $6^6 \times 12^6 = (72)^6$.
+                            </li>
+                            <li>Condition $f(D_3) \subset D_3$. Pour $x \in D_3$ (4 éléments), $f(x) \in D_3$ (4 choix). Pour $x \in A$ (8 éléments), $f(x) \in E$ (12 choix).
+                            Nombre d'applications = $4^4 \times 12^8$.
+                            </li>
+                            <li>Conditions $f(P) \subset P$ ET $f(D_3) \subset D_3$. Cela implique $f(P \cap D_3) \subset P \cap D_3$.
+                            Utilisons la partition précédente.
+                            <ul>
+                                <li>$x \in E_1 = P \cap D_3$: $f(x) \in P$ et $f(x) \in D_3 \Rightarrow f(x) \in E_1$. 2 éléments, 2 choix chacun $\to 2^2$.</li>
+                                <li>$x \in E_2 = P \setminus D_3$: $f(x) \in P$. 4 éléments, 6 choix chacun $\to 6^4$.</li>
+                                <li>$x \in E_3 = D_3 \setminus P$: $f(x) \in D_3$. 2 éléments, 4 choix chacun $\to 4^2$.</li>
+                                <li>$x \in E_4 = E \setminus (P \cup D_3)$: aucune contrainte, $f(x) \in E$. 4 éléments, 12 choix chacun $\to 12^4$.</li>
+                            </ul>
+                            Nombre total = $2^2 \times 6^4 \times 4^2 \times 12^4 = 4 \times 1296 \times 16 \times 20736$.
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+                </p>
+            </div>
+
+            <div id="corr7" class="solution-box">
+                <h4><a href="#exo7">Correction de l'exercice 7 ▲</a></h4>
+                <p>On cherche le nombre de parties $X \subset E$ telles que $\text{Card}(X \cap A) = 1$.
+                Pour construire une telle partie $X$ :
+                <ol>
+                    <li>On doit choisir l'unique élément de $X$ qui est dans $A$. Comme $\text{Card } A = p$, il y a $C_p^1 = p$ choix possibles. Soit $a$ cet élément.</li>
+                    <li>Les autres éléments de $X$ doivent être choisis dans $E \setminus A$. L'ensemble $E \setminus A$ a pour cardinal $n-p$. Une partie quelconque de $E \setminus A$ convient pour compléter $X \setminus \{a\}$. Il y a $2^{n-p}$ parties de $E \setminus A$.</li>
+                </ol>
+                Le nombre total de telles parties $X$ est le produit des nombres de choix :
+                $$ p \times 2^{n-p}. $$
+                Alternativement : Fixons $k \in \{1\}$. On choisit $k$ élément dans $A$ ($C_p^k$ choix), les autres éléments de la partie sont dans $E \setminus A$ (nombre quelconque). La question est mal comprise.
+                Relecture : "contiennent un et un seul élément de A".
+                Soit $X$ une telle partie. $X = \{a\} \cup Y$ où $a \in A$ et $Y \subset E \setminus A$.
+                Choix de $a$ : $p$ possibilités.
+                Choix de $Y$ : $Y$ est une partie quelconque de $E \setminus A$. $\text{Card}(E \setminus A) = n-p$. Nombre de parties est $2^{n-p}$.
+                Total = $p \times 2^{n-p}$.
+                (La correction originale utilise une somme $\sum_{k=0}^{n-p} C_{n-p}^k$ qui est bien $2^{n-p}$).
+                </p>
+            </div>
+        </section>
+    </main>
+</div>
+
+</body>
+</html>
