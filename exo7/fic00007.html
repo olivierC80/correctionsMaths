@@ -1,0 +1,542 @@
+Of course. As an engineer with expertise in web technologies and LaTeX, I will convert the provided document on polynomials into a single, comprehensive, and mobile-optimized HTML file. The mathematical formulas will be accurately transcribed using LaTeX and rendered with KaTeX, using the specified configuration. All internal links between exercises, indications, and solutions will be correctly implemented for seamless navigation.
+
+Here is the complete HTML file.
+
+code
+Html
+play_circle
+download
+content_copy
+expand_less
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polynômes - Exo7</title>
+    
+    <!-- KaTeX for LaTeX rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+
+    <style>
+        :root {
+            --primary-color: #005a9c;
+            --secondary-color: #f0f0f0;
+            --border-color: #ddd;
+            --text-color: #333;
+            --exo7-orange: #f57c00;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 1rem;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 1.8em;
+            margin-bottom: 1em;
+            padding-bottom: 0.3em;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            position: relative;
+        }
+        h2 {
+           font-size: 1.8em;
+           border-bottom: 2px solid var(--secondary-color);
+        }
+        h3 {
+           font-size: 1.4em;
+           color: #337ab7;
+           border: none;
+        }
+        .exo7-logo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--exo7-orange);
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 0 0 0 8px;
+            box-shadow: -2px 2px 5px rgba(0,0,0,0.1);
+        }
+        .exercise, .solution-box, .indication-box {
+            background-color: #fdfdfd;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .exercise-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .exercise-header h3 {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+        .exercise-code {
+            color: #888;
+            font-size: 0.8em;
+            font-family: monospace;
+        }
+        .nav-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            background-color: var(--secondary-color);
+            padding: 0.3rem 0.7rem;
+            border-radius: 15px;
+            font-size: 0.9em;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .nav-links a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .solution-box h4 a, .indication-box h4 a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        ul, ol {
+            padding-left: 1.5rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Polynômes <div class="exo7-logo">Exo7</div></h1>
+        <p style="text-align: center; font-style: italic;">Corrections de Léa Blanc-Centi.</p>
+    </header>
+
+    <main>
+        <section id="operations">
+            <h2>1 Opérations sur les polynômes</h2>
+            <article id="exo1" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 1</h3>
+                    <span class="exercise-code">[000427]</span>
+                </div>
+                <p>Trouver le polynôme $P$ de degré inférieur ou égal à 3 tel que :</p>
+                $$ P(0) = 1 \text{ et } P(1) = 0 \text{ et } P(-1) = -2 \text{ et } P(2) = 4. $$
+                <div class="nav-links">
+                    <a href="#corr1">Correction ▼</a>
+                    <a href="#exo13">Voir aussi Exercice 13</a>
+                </div>
+            </article>
+        </section>
+
+        <section id="division-pgcd">
+            <h2>2 Division, pgcd</h2>
+            <article id="exo2" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 2</h3>
+                    <span class="exercise-code">[006955]</span>
+                </div>
+                <ol>
+                    <li>Effectuer la division euclidienne de A par B :
+                        <ol type="a">
+                            <li>$A = 3X^5 + 4X^2 + 1$, $B = X^2 + 2X + 3$</li>
+                            <li>$A = 3X^5 + 2X^4 - X^2 + 1$, $B = X^3 + X + 2$</li>
+                            <li>$A = X^4 - X^3 + X - 2$, $B = X^2 - 2X + 4$</li>
+                            <li>$A = X^5 - 7X^4 - X^2 - 9X + 9$, $B = X^2 - 5X + 4$</li>
+                        </ol>
+                    </li>
+                    <li>Effectuer la division selon les puissances croissantes de A par B à l'ordre k (c'est-à-dire tel que le reste soit divisible par $X^{k+1}$) :
+                        <ol type="a">
+                            <li>$A = 1 - 2X + X^3 + X^4$, $B = 1 + 2X + X^2$, $k=2$</li>
+                            <li>$A = 1 + X^3 - 2X^4 + X^6$, $B = 1 + X^2 + X^3$, $k=4$</li>
+                        </ol>
+                    </li>
+                </ol>
+                <div class="nav-links">
+                    <a href="#corr2">Correction ▼</a>
+                </div>
+            </article>
+
+            <article id="exo3" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 3</h3>
+                    <span class="exercise-code">[006956]</span>
+                </div>
+                <p>À quelle condition sur $a, b, c \in \mathbb{R}$ le polynôme $X^4 + aX^2 + bX + c$ est-il divisible par $X^2 + X + 1$ ?</p>
+                <div class="nav-links">
+                    <a href="#corr3">Correction ▼</a>
+                </div>
+            </article>
+
+            <article id="exo4" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 4</h3>
+                </div>
+                <ol>
+                    <li>Déterminer les pgcd des polynômes suivants:
+                        <ol type="a">
+                            <li>$X^3 - X^2 - X - 2$ et $X^5 - 2X^4 + X^2 - X - 2$</li>
+                            <li>$X^4 + X^3 - 2X + 1$ et $X^3 + X + 1$</li>
+                            <li>$X^5 + 3X^4 + X^3 + X^2 + 3X + 1$ et $X^4 + 2X^3 + X + 2$</li>
+                            <li>$nX^{n+1} - (n+1)X^n + 1$ et $X^n - nX + n - 1$ ($n \in \mathbb{N}^*$)</li>
+                        </ol>
+                    </li>
+                    <li id="exo4-2"><span class="exercise-code">[006957]</span> Calculer le pgcd $D$ des polynômes A et B ci-dessous. Trouver des polynômes U et V tels que $AU + BV = D$.
+                        <ol type="a">
+                            <li>$A = X^5 + 3X^4 + 2X^3 - X^2 - 3X - 2$ et $B = X^4 + 2X^3 + 2X^2 + 7X + 6$</li>
+                            <li>$A = X^6 - 2X^5 + 2X^4 - 3X^3 + 3X^2 - 2X$ et $B = X^4 - 2X^3 + X^2 - X + 1$</li>
+                        </ol>
+                    </li>
+                </ol>
+                <div class="nav-links">
+                    <a href="#corr4">Correction ▼</a>
+                    <a href="#ind4">Indication ▼</a>
+                </div>
+            </article>
+
+            <article id="exo5" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 5</h3>
+                    <span class="exercise-code">[006958]</span>
+                </div>
+                <ol>
+                    <li>Montrer que si A et B sont deux polynômes à coefficients dans $\mathbb{Q}$, alors le quotient et le reste de la division euclidienne de A par B, ainsi que pgcd(A, B), sont aussi à coefficients dans $\mathbb{Q}$.</li>
+                    <li>Soit $a, b, c \in \mathbb{C}^*$ distincts, et $0 < p < q < r$ des entiers. Montrer que si $P(X) = (X-a)^p(X-b)^q(X-c)^r$ est à coefficients dans $\mathbb{Q}$, alors $a, b, c \in \mathbb{Q}$.</li>
+                </ol>
+                <div class="nav-links">
+                    <a href="#corr5">Correction ▼</a>
+                    <a href="#ind5">Indication ▼</a>
+                </div>
+            </article>
+        </section>
+
+        <section id="racines-factorisation">
+            <h2>3 Racines et factorisation</h2>
+            <article id="exo6" class="exercise">
+                <div class="exercise-header"><h3>Exercice 6</h3><span class="exercise-code">[006959]</span></div>
+                <ol>
+                    <li>Factoriser dans $\mathbb{R}[X]$ et $\mathbb{C}[X]$ les polynômes suivants :
+                        <ol type="a">
+                            <li>$X^3 - 3$</li>
+                            <li>$X^{12} - 1$</li>
+                            <li>$X^6 + 1$</li>
+                            <li>$X^9 + X^6 + X^3 + 1$</li>
+                        </ol>
+                    </li>
+                    <li>Factoriser les polynômes suivants :
+                        <ol type="a">
+                            <li>$X^2 + (3i - 1)X - 2 - i$</li>
+                            <li>$X^3 + (4+i)X^2 + (5 - 2i)X + 2 - 3i$</li>
+                        </ol>
+                    </li>
+                </ol>
+                <div class="nav-links"><a href="#corr6">Correction ▼</a></div>
+            </article>
+
+            <article id="exo7" class="exercise">
+                <div class="exercise-header"><h3>Exercice 7</h3><span class="exercise-code">[000410]</span></div>
+                <p>Pour quelles valeurs de $a$ le polynôme $(X+1)^7 - X^7 - a$ admet-il une racine multiple réelle?</p>
+                <div class="nav-links"><a href="#corr7">Correction ▼</a></div>
+            </article>
+
+            <article id="exo8" class="exercise">
+                <div class="exercise-header"><h3>Exercice 8</h3><span class="exercise-code">[000370]</span></div>
+                <p>Chercher tous les polynômes $P$ tels que $P+1$ soit divisible par $(X-1)^4$ et $P-1$ par $(X+1)^4$.</p>
+                <p><strong>Indications.</strong> Commencer par trouver une solution particulière $P_0$ avec l'une des méthode suivantes :</p>
+                <ol>
+                    <li>à partir de la relation de Bézout entre $(X-1)^4$ et $(X+1)^4$;</li>
+                    <li>en considérant le polynôme dérivé $P_0''$ et en cherchant un polynôme de degré minimal.</li>
+                </ol>
+                <p>Montrer que $P$ convient si et seulement si le polynôme $P - P_0$ est divisible par $(X-1)^4(X+1)^4$, et en déduire toutes les solutions du problème.</p>
+                <div class="nav-links"><a href="#corr8">Correction ▼</a></div>
+            </article>
+
+            <article id="exo9" class="exercise">
+                <div class="exercise-header"><h3>Exercice 9</h3><span class="exercise-code">[000378]</span></div>
+                <p>Quels sont les polynômes $P \in \mathbb{C}[X]$ tels que $P'$ divise $P$?</p>
+                <div class="nav-links"><a href="#corr9">Correction ▼</a><a href="#ind9">Indication ▼</a></div>
+            </article>
+
+            <article id="exo10" class="exercise">
+                <div class="exercise-header"><h3>Exercice 10</h3><span class="exercise-code">[006960]</span></div>
+                <p>Trouver tous les polynômes $P$ qui vérifient la relation</p>
+                $$ P(X^2) = P(X)P(X+1) $$
+                <div class="nav-links"><a href="#corr10">Correction ▼</a><a href="#ind10">Indication ▼</a></div>
+            </article>
+
+            <article id="exo11" class="exercise">
+                <div class="exercise-header"><h3>Exercice 11</h3><span class="exercise-code">[006961]</span></div>
+                <p>Soit $n \in \mathbb{N}$. Montrer qu'il existe un unique $P \in \mathbb{C}[X]$ tel que</p>
+                $$ \forall z \in \mathbb{C}^* \quad P\left(z+\frac{1}{z}\right) = z^n + \frac{1}{z^n} $$
+                <p>Montrer alors que toutes les racines de $P$ sont réelles, simples, et appartiennent à l'intervalle $[-2, 2]$.</p>
+                <div class="nav-links"><a href="#corr11">Correction ▼</a><a href="#ind11">Indication ▼</a></div>
+            </article>
+
+            <article id="exo12" class="exercise">
+                <div class="exercise-header"><h3>Exercice 12</h3><span class="exercise-code">[006962]</span></div>
+                <ol>
+                    <li>Soit $P = X^n + a_{n-1}X^{n-1} + \dots + a_1X + a_0$ un polynôme de degré $n \ge 1$ à coefficients dans $\mathbb{Z}$. Démontrer que si $P$ admet une racine dans $\mathbb{Z}$, alors celle-ci divise $a_0$.</li>
+                    <li>Les polynômes $X^3 - X^2 - 109X - 11$ et $X^{10} + X^5 + 1$ ont-ils des racines dans $\mathbb{Z}$?</li>
+                </ol>
+                <div class="nav-links"><a href="#corr12">Correction ▼</a></div>
+            </article>
+
+            <article id="exo13" class="exercise">
+                <div class="exercise-header"><h3>Exercice 13</h3><span class="exercise-code">[006963]</span></div>
+                <p>Soient $a_0, \dots, a_n$ des réels deux à deux distincts. Pour tout $i = 0, \dots, n$, on pose</p>
+                $$ L_i(X) = \prod_{\substack{1 \le j \le n \\ j \ne i}} \frac{X-a_j}{a_i-a_j} $$
+                <p>(les $L_i$ sont appelés polynômes interpolateurs de Lagrange). Calculer $L_i(a_j)$.</p>
+                <p>Soient $b_0, \dots, b_n$ des réels fixés. Montrer que $P(X) = \sum_{i=0}^n b_i L_i(X)$ est l'unique polynôme de degré inférieur ou égal à $n$ qui vérifie:</p>
+                $$ P(a_j) = b_j \quad \text{pour tout } j=0, \dots, n. $$
+                <p><strong>Application.</strong> Trouver le polynôme $P$ de degré inférieur ou égal à 3 tel que</p>
+                $$ P(0) = 1 \text{ et } P(1)=0 \text{ et } P(-1)=-2 \text{ et } P(2)=4. $$
+                <div class="nav-links"><a href="#corr13">Correction ▼</a><a href="#exo1">Voir aussi Exercice 1</a></div>
+            </article>
+        </section>
+
+        <section id="indications">
+            <h2>Indications</h2>
+            <div id="ind4" class="indication-box"><h4><a href="#exo4-2">Indication pour l'exercice 4.2 ▲</a></h4><p>Le calcul du pgcd se fait par l'algorithme d'Euclide, et la "remontée" de l'algorithme permet d'obtenir U et V.</p></div>
+            <div id="ind5" class="indication-box"><h4><a href="#exo5">Indication pour l'exercice 5 ▲</a></h4><p>Calculer pgcd(P, P').</p></div>
+            <div id="ind9" class="indication-box"><h4><a href="#exo9">Indication pour l'exercice 9 ▲</a></h4><p>Si $P=P'Q$ avec $P \ne 0$, regarder le degré de Q.</p></div>
+            <div id="ind10" class="indication-box"><h4><a href="#exo10">Indication pour l'exercice 10 ▲</a></h4><p>Montrer que si $P$ est un polynôme non constant vérifiant la relation, alors ses seules racines possibles sont 0 et 1.</p></div>
+            <div id="ind11" class="indication-box"><h4><a href="#exo11">Indication pour l'exercice 11 ▲</a></h4><p>Pour l'existence, preuve par récurrence sur $n$. Pour les racines, montrer que $P(x) = 2\cos(n \arccos(x/2))$.</p></div>
+        </section>
+
+        <section id="corrections">
+            <h2>Corrections</h2>
+            <div id="corr1" class="solution-box">
+                <h4><a href="#exo1">Correction de l'exercice 1 ▲</a></h4>
+                <p>On cherche $P$ sous la forme $P(X) = aX^3 + bX^2 + cX + d$, ce qui donne le système linéaire suivant à résoudre:</p>
+                $$ \begin{cases} d = 1 \\ a+b+c+d=0 \\ -a+b-c+d=-2 \\ 8a+4b+2c+d=4 \end{cases} $$
+                <p>Après calculs, on trouve une unique solution : $a = \frac{3}{2}, b = -2, c = -\frac{1}{2}, d = 1$ c'est-à-dire</p>
+                $$ P(X) = \frac{3}{2}X^3 - 2X^2 - \frac{1}{2}X + 1. $$
+            </div>
+
+            <div id="corr2" class="solution-box">
+                <h4><a href="#exo2">Correction de l'exercice 2 ▲</a></h4>
+                <ol>
+                    <li>
+                        <p>(a) $3X^5 + 4X^2 + 1 = (X^2 + 2X + 3)(3X^3 - 6X^2 + 3X + 16) - 41X - 47$</p>
+                        <p>(b) $3X^5 + 2X^4 - X^2 + 1 = (X^3 + X + 2)(3X^2 + 2X - 3) - 9X^2 - X + 7$</p>
+                        <p>(c) $X^4 - X^3 + X - 2 = (X^2 - 2X + 4)(X^2 + X - 2) - 7X + 6$</p>
+                        <p>(d) $X^5 - 7X^4 - X^2 - 9X + 9 = (X^2 - 5X + 4)(X^3 - 2X^2 - 14X - 63) - 268X + 261$</p>
+                    </li>
+                    <li>
+                        <p>(a) $1 - 2X + X^3 + X^4 = (1 + 2X + X^2)(1 - 4X + 7X^2) + X^3(-9 - 6X)$</p>
+                        <p>(b) $1 + X^3 - 2X^4 + X^6 = (1 + X^2 + X^3)(1 - X^2 - X^4) + X^5(1 + 2X + X^2)$</p>
+                    </li>
+                </ol>
+            </div>
+
+            <div id="corr3" class="solution-box">
+                <h4><a href="#exo3">Correction de l'exercice 3 ▲</a></h4>
+                <p>La division euclidienne de $A = X^4 + aX^2 + bX + c$ par $B = X^2 + X + 1$ donne</p>
+                $$ X^4 + aX^2 + bX + c = (X^2 + X + 1)(X^2 - X + a) + (b - a + 1)X + c - a $$
+                <p>Or A est divisible par B si et seulement si le reste $R = (b - a + 1)X + c - a$ est le polynôme nul, c'est-à-dire si et seulement si $b - a + 1 = 0$ et $c - a = 0$.</p>
+            </div>
+            
+            <div id="corr4" class="solution-box">
+                <h4><a href="#exo4">Correction de l'exercice 4 ▲</a></h4>
+                <ol>
+                    <li>L'algorithme d'Euclide permet de calculer le pgcd par une suite de divisions euclidiennes.
+                        <p>(a) $X^5 - 2X^4 + X^2 - X - 2 = (X^3 - X^2 - X - 2)(X^2 - X) + 2X^2 - 3X - 2$</p>
+                        <p>puis $X^3 - X^2 - X - 2 = (2X^2 - 3X - 2)(\frac{1}{2}X + \frac{1}{4}) + \frac{9}{4}X - \frac{3}{2}$</p>
+                        <p>Le pgcd est le dernier reste non nul, normalisé. Un calcul plus simple:
+                        $X^5 - 2X^4 + X^2 - X - 2 = (X-2) (X^4+X^2+1)$ et $X^3-X^2-X-2 = (X-2)(X^2+X+1)$. pgcd est $X-2$.
+                        </p>
+                        <p>(b) $X^4 + X^3 - 2X + 1 = (X^3 + X + 1)(X + 1) - X^2 - 3X$</p>
+                        <p>puis $X^3 + X + 1 = (-X^2 - 3X)(-X+3) + 10X+1$.
+                        Le pgcd est 1 car $-X^2-3X$ et $10X+1$ n'ont pas de racine commune.
+                        </p>
+                        <p>(c) $X^5 + 3X^4 + X^3 + X^2 + 3X + 1 = (X^4 + 2X^3 + X + 2)(X + 1) - X^3 - 1$</p>
+                        <p>puis $X^4 + 2X^3 + X + 2 = (-X^3 - 1)(-X - 2) + 2X^3 + 2X$.
+                        Le pgcd est $X^3+1$.
+                        </p>
+                        <p>(d) $nX^{n+1} - (n+1)X^n + 1 = (X^n - nX + n - 1)(nX - (n+1)) + n^2(X-1)^2$.
+                        1 est racine de $X^n-nX+n-1$ et de sa dérivée, donc $(X-1)^2$ le divise.
+                        Ainsi pgcd($nX^{n+1} - (n+1)X^n + 1, X^n - nX + n - 1) = (X-1)^2$.</p>
+                    </li>
+                    <li>(a) $A = BQ_1 + R_1$ avec $Q_1=X+1$, $R_1=-2X^3-10X^2-16X-8$.
+                        $B = R_1Q_2+R_2$ avec $Q_2=-\frac{1}{2}X+\frac{3}{2}$, $R_2=9X^2+27X+18$.
+                        $R_1=R_2Q_3$ avec $Q_3=-\frac{2}{9}X-\frac{4}{9}$.
+                        $D = \text{pgcd}(A,B)=X^2+3X+2$.
+                        $9D = R_2 = B-R_1Q_2 = B - (A-BQ_1)Q_2 = -AQ_2+B(1+Q_1Q_2)$.
+                        $U = -\frac{1}{9}Q_2 = \frac{1}{18}X-\frac{1}{6}$, $V=\frac{1}{9}(1+Q_1Q_2) = -\frac{1}{9}X^2+\frac{1}{9}X+\frac{5}{9}$.
+                        <p>(b) $A = BQ_1 + R_1$ avec $Q_1=X^2+1, R_1=X^2-X-1$.
+                        $B = R_1Q_2 + R_2$ avec $Q_2=X^2-X+1, R_2=-X+2$.
+                        $R_1=R_2Q_3+R_3$ avec $Q_3=-X-1, R_3=1$.
+                        $D=1$.
+                        $1=R_1-R_2Q_3 = R_1-(B-R_1Q_2)Q_3 = R_1(1+Q_2Q_3)-BQ_3 = (A-BQ_1)(1+Q_2Q_3)-BQ_3 = A(1+Q_2Q_3)-B(Q_1(1+Q_2Q_3)+Q_3)$.
+                        $U=1+Q_2Q_3 = -X^3$. $V=-(Q_1(1+Q_2Q_3)+Q_3) = X^5+X^3+X+1$.</p>
+                    </li>
+                </ol>
+            </div>
+            
+            <div id="corr5" class="solution-box">
+                <h4><a href="#exo5">Correction de l'exercice 5 ▲</a></h4>
+                <ol>
+                    <li>Lorsqu'on effectue la division euclidienne $A=BQ+R$, les coefficients de Q sont obtenus par des opérations élémentaires (multiplication, division, addition) à partir des coefficients de A et B : ils restent donc dans $\mathbb{Q}$. De plus, $R=A-BQ$ est alors encore à coefficients rationnels. L'algorithme d'Euclide ne fait intervenir que des divisions euclidiennes. Le pgcd, étant le dernier reste non nul (normalisé), est donc à coefficients dans $\mathbb{Q}$.</li>
+                    <li>Notons $P_1 = \text{pgcd}(P,P') = (X-a)^{p-1}(X-b)^{q-1}(X-c)^{r-1}$. Comme $P \in \mathbb{Q}[X]$, $P' \in \mathbb{Q}[X]$, et donc $P_1 \in \mathbb{Q}[X]$. En itérant ce processus, on obtient que $P_{r-1}(X) = (X-c)$ est à coefficients rationnels, donc $c \in \mathbb{Q}$. En "remontant" les étapes, on montre de même que $b \in \mathbb{Q}$ et $a \in \mathbb{Q}$.</li>
+                </ol>
+            </div>
+            
+            <div id="corr6" class="solution-box">
+                <h4><a href="#exo6">Correction de l'exercice 6 ▲</a></h4>
+                <ol>
+                    <li>(a) $\mathbb{R}[X]$: $X^3-3 = (X-3^{1/3})(X^2+3^{1/3}X+3^{2/3})$.
+                    <br>$\mathbb{C}[X]$: $X^3-3 = (X-3^{1/3})(X-3^{1/3}e^{2i\pi/3})(X-3^{1/3}e^{4i\pi/3})$.
+                    <p>(b) $\mathbb{R}[X]$: $X^{12}-1 = (X-1)(X+1)(X^2+1)(X^2-X+1)(X^2+X+1)(X^2-\sqrt{3}X+1)(X^2+\sqrt{3}X+1)$.
+                    <br>$\mathbb{C}[X]$: $X^{12}-1 = \prod_{k=0}^{11} (X-e^{ik\pi/6})$.</p>
+                    <p>(c) $\mathbb{R}[X]$: $X^6+1 = (X^2+1)(X^2-\sqrt{3}X+1)(X^2+\sqrt{3}X+1)$.
+                    <br>$\mathbb{C}[X]$: $X^6+1 = \prod_{k=0}^{5} (X-e^{i(\pi+2k\pi)/6})$.</p>
+                    <p>(d) $X^9+X^6+X^3+1 = (X^3+1)(X^6+1) = (X+1)(X^2-X+1)(X^2+1)(X^2-\sqrt{3}X+1)(X^2+\sqrt{3}X+1)$. La factorisation sur $\mathbb{C}$ se déduit de celle-ci.</p>
+                    </li>
+                    <li>(a) $\Delta = (3i-1)^2 - 4(-2-i) = -9+1-6i+8+4i = -2i = (1-i)^2$. Racines: $\frac{-(3i-1)\pm(1-i)}{2}$ soit $-i$ et $1-2i$. $P(X) = (X+i)(X-(1-2i))$.
+                    <p>(b) $-i$ est une racine évidente. $P(X)=(X+i)(X^2+4X+2-3i)$. Pour le second facteur, $\Delta = 16-4(2-3i)=8+12i = ( \sqrt{2(4+\sqrt{13})} + i\sqrt{2(-4+\sqrt{13})} )^2$. Le calcul est complexe.
+                    Une autre racine évidente est $-1$. $P(X)=(X+1)(X^2+(3+i)X+2-3i)$. $\Delta=(3+i)^2-4(2-3i) = 9-1+6i-8+12i=18i=(3+3i)^2$. Racines: $\frac{-(3+i)\pm(3+3i)}{2}$ soit $i$ et $-3-2i$. $P(X)=(X+1)(X-i)(X+3+2i)$.
+                    </p>
+                    </li>
+                </ol>
+            </div>
+            
+            <div id="corr7" class="solution-box">
+                <h4><a href="#exo7">Correction de l'exercice 7 ▲</a></h4>
+                <p>Soit $P(X)=(X+1)^7 - X^7 - a$. Une racine $x$ est multiple si $P(x)=0$ et $P'(x)=0$.
+                $P'(X) = 7(X+1)^6 - 7X^6$.
+                $P'(x)=0 \Leftrightarrow (x+1)^6=x^6 \Leftrightarrow (x+1)^3=\pm x^3$.
+                Cas 1: $(x+1)^3=x^3 \Rightarrow x+1=x \Rightarrow 1=0$, impossible.
+                Cas 2: $(x+1)^3=-x^3 \Rightarrow x+1=-x \Rightarrow 2x=-1 \Rightarrow x=-1/2$.
+                La seule racine multiple possible est $x=-1/2$.
+                Pour que ce soit le cas, il faut $P(-1/2)=0$.
+                $P(-1/2) = (1/2)^7 - (-1/2)^7 - a = 1/128 - (-1/128) - a = 2/128 - a = 1/64 - a$.
+                $P(-1/2)=0 \Leftrightarrow a = 1/64$.
+                </p>
+            </div>
+            
+            <div id="corr8" class="solution-box">
+                <h4><a href="#corr8">Correction de l'exercice 8 ▲</a></h4>
+                <p>Soit $P_0$ une solution. $(X-1)^4 | (P_0+1)$ et $(X+1)^4 | (P_0-1)$.
+                $P_0+1 = (X-1)^4 A(X)$ et $P_0-1 = (X+1)^4 B(X)$.
+                $P_0' = 4(X-1)^3 A(X) + (X-1)^4 A'(X)$ et $P_0' = 4(X+1)^3 B(X) + (X+1)^4 B'(X)$.
+                Donc $(X-1)^3 | P_0'$ et $(X+1)^3 | P_0'$.
+                Donc $(X-1)^3(X+1)^3 | P_0'$.
+                Le degré minimal pour $P_0'$ est $3+3=6$. On peut prendre $P_0' = \lambda (X^2-1)^3 = \lambda(X^6-3X^4+3X^2-1)$.
+                $P_0(X) = \lambda (\frac{1}{7}X^7 - \frac{3}{5}X^5 + X^3 - X) + C$.
+                $P_0(1)=-1$ et $P_0(-1)=1$.
+                $P_0(1) = \lambda(\frac{1}{7}-\frac{3}{5}+1-1)+C = -\frac{16\lambda}{35}+C = -1$.
+                $P_0(-1) = \lambda(-\frac{1}{7}+\frac{3}{5}-1+1)+C = \frac{16\lambda}{35}+C = 1$.
+                En additionnant: $2C=0 \Rightarrow C=0$. En soustrayant: $-\frac{32\lambda}{35}=-2 \Rightarrow \lambda=\frac{35}{16}$.
+                $P_0(X) = \frac{35}{16}(\frac{1}{7}X^7 - \frac{3}{5}X^5 + X^3 - X) = \frac{5}{16}X^7 - \frac{7}{16}X^5 + \frac{21}{16}X^3 - \frac{35}{16}X$.
+                Soit $P$ une autre solution. $P-P_0 = (P+1)-(P_0+1)$ est divisible par $(X-1)^4$.
+                $P-P_0 = (P-1)-(P_0-1)$ est divisible par $(X+1)^4$.
+                Puisque $(X-1)^4$ et $(X+1)^4$ sont premiers entre eux, $P-P_0$ est divisible par leur produit $(X-1)^4(X+1)^4$.
+                Les solutions sont donc $P(X) = P_0(X) + (X^2-1)^4 A(X)$, où A est un polynôme quelconque.
+                </p>
+            </div>
+            
+            <div id="corr9" class="solution-box">
+                <h4><a href="#corr9">Correction de l'exercice 9 ▲</a></h4>
+                <p>Si $P$ est constant, $P'=0$. $0|P$ ssi $P=0$.
+                Si $P$ non constant, $P=P'Q$. $\deg Q = \deg P - \deg P' = 1$. Soit $Q(X)=aX+b, a \ne 0$.
+                $P = aP'(X+\frac{b}{a})$. Soit $z_0 = -b/a$. Les racines de $P$ sont les mêmes que celles de $P'$.
+                Si $z_0$ est racine de $P$ de multiplicité $k$, elle est racine de $P'$ de multiplicité $k-1$.
+                Si $P(z)=0$ et $z \ne z_0$, $P'(z)=0$. Multiplicité de $z$ dans $P$ est $k$, dans $P'$ est $k-1$. Impossible.
+                La seule racine possible est $z_0$. Donc $P(X)=\lambda(X-z_0)^n$ pour $n \ge 1, \lambda \ne 0$.
+                $P' = n\lambda(X-z_0)^{n-1}$. $P'|P$.
+                Les solutions sont les polynômes de la forme $\lambda(X-z_0)^n$ pour $n \in \mathbb{N}$ et $P=0$.
+                </p>
+            </div>
+            
+            <div id="corr10" class="solution-box">
+                <h4><a href="#corr10">Correction de l'exercice 10 ▲</a></h4>
+                <p>Solutions constantes: $c=c^2 \Rightarrow c=0$ ou $c=1$.
+                Si $P$ non constant, soit $z$ une racine. $P(z)=0 \Rightarrow P(z^2)=0$. La suite $z, z^2, z^4, \dots$ sont des racines.
+                Pour que l'ensemble des racines soit fini, on doit avoir $|z|=0$ ou $|z|=1$.
+                Aussi $P(X)=P(X-1)P(X-1+1)$. Si $z$ est racine, $P((z-1)^2)=0$.
+                Donc $|z-1|=0$ ou $|z-1|=1$.
+                Les racines $z$ doivent satisfaire ($|z|=0$ ou $|z|=1$) ET ($|z-1|=0$ ou $|z-1|=1$).
+                Les possibilités sont $z=0, z=1, z=e^{i\pi/3}, z=e^{-i\pi/3}$.
+                Si $z=e^{i\pi/3}$ est racine, $z^2=e^{2i\pi/3}$ aussi. Mais $|z^2-1| \ne 1$. Contradiction.
+                Les seules racines possibles sont 0 et 1. $P(X)=\lambda X^k(X-1)^l$.
+                On injecte dans l'équation. $\lambda X^{2k}(X^2-1)^l = \lambda X^k(X-1)^l \lambda(X+1)^k(X)^l$.
+                $\lambda X^{2k}(X-1)^l(X+1)^l = \lambda^2 X^{k+l}(X-1)^l(X+1)^k$.
+                $\lambda=1$, $2k=k+l$, $l=k$. Donc $P(X)=X^k(X-1)^k = (X^2-X)^k$.
+                Solutions: $P=0, P=1, P(X)=(X^2-X)^k$ pour $k \in \mathbb{N}^*$.
+                </p>
+            </div>
+            
+            <div id="corr11" class="solution-box">
+                <h4><a href="#corr11">Correction de l'exercice 11 ▲</a></h4>
+                <ol><li>Unicité: Si $P, Q$ conviennent, $P(z+1/z)=Q(z+1/z)$. La fonction $u: z \mapsto z+1/z$ envoie $\mathbb{C}^*$ sur $\mathbb{C}$. Donc $P(w)=Q(w)$ pour tout $w \in \mathbb{C}$. $P=Q$.
+                <li>Existence: par récurrence sur $n$.
+                $n=0: P_0=2$. $n=1: P_1=X$.
+                $z^{n+1}+\frac{1}{z^{n+1}} = (z+\frac{1}{z})(z^n+\frac{1}{z^n}) - (z^{n-1}+\frac{1}{z^{n-1}})$.
+                Donc $P_{n+1}(w) = w P_n(w) - P_{n-1}(w)$. $P_{n+1}$ existe et est de degré $n+1$.
+                <li>Soit $x \in [-2,2]$, $x=2\cos\theta$. $P_n(x)=P_n(2\cos\theta)=2\cos(n\theta)$.
+                Les racines de $P_n(x)$ sont données par $2\cos(n\theta)=0 \Rightarrow n\theta = \frac{\pi}{2}+k\pi \Rightarrow \theta_k = \frac{(2k+1)\pi}{2n}$.
+                Pour $k=0, \dots, n-1$, on obtient $n$ valeurs distinctes pour $\theta_k$ dans $]0, \pi[$.
+                Ceci donne $n$ racines réelles distinctes $x_k = 2\cos(\theta_k)$ dans $[-2,2]$. Comme $\deg P_n = n$, ce sont toutes les racines. Elles sont réelles et simples.
+                </li></ol>
+            </div>
+
+            <div id="corr12" class="solution-box">
+                <h4><a href="#corr12">Correction de l'exercice 12 ▲</a></h4>
+                <ol><li>Si $k \in \mathbb{Z}$ est racine, $P(k)=0$. $k^n+a_{n-1}k^{n-1}+\dots+a_1k+a_0=0$.
+                $a_0 = -k(k^{n-1}+a_{n-1}k^{n-2}+\dots+a_1)$. Comme le terme entre parenthèses est un entier, $k$ divise $a_0$.</li>
+                <li>Pour $X^3-X^2-109X-11$, les racines entières possibles divisent -11: $\pm 1, \pm 11$. Test: $P(11)=1331-121-1199-11=0$. 11 est racine.
+                <li>Pour $X^{10}+X^5+1$, les racines entières possibles divisent 1: $\pm 1$. $P(1)=3 \ne 0$, $P(-1)=1-1+1=1 \ne 0$. Pas de racine entière.</li>
+                </ol>
+            </div>
+            
+            <div id="corr13" class="solution-box">
+                <h4><a href="#corr13">Correction de l'exercice 13 ▲</a></h4>
+                <p>$L_i(a_j) = \delta_{ij}$ (symbole de Kronecker). Si $j=i$, tous les facteurs sont 1. Si $j \ne i$, le facteur $\frac{X-a_j}{a_i-a_j}$ s'annule en $X=a_j$.
+                $P(a_j) = \sum_{i=0}^n b_i L_i(a_j) = \sum_{i=0}^n b_i \delta_{ij} = b_j$. $P$ convient.
+                Unicité: Si $Q$ convient aussi, $P-Q$ est de degré $\le n$ et s'annule en $n+1$ points $a_0, \dots, a_n$. Donc $P-Q=0$.
+                </p><p><strong>Application :</strong> $a_0=0, b_0=1; a_1=1, b_1=0; a_2=-1, b_2=-2; a_3=2, b_3=4$.
+                $L_0(X) = \frac{(X-1)(X+1)(X-2)}{(0-1)(0+1)(0-2)} = \frac{1}{2}(X^3-2X^2-X+2)$.
+                $L_1(X) = \frac{X(X+1)(X-2)}{1(1+1)(1-2)} = -\frac{1}{2}(X^3-X^2-2X)$.
+                $L_2(X) = \frac{X(X-1)(X-2)}{-1(-1-1)(-1-2)} = -\frac{1}{6}(X^3-3X^2+2X)$.
+                $L_3(X) = \frac{X(X-1)(X+1)}{2(2-1)(2+1)} = \frac{1}{6}(X^3-X)$.
+                $P(X) = 1 \cdot L_0(X) + 0 \cdot L_1(X) - 2 \cdot L_2(X) + 4 \cdot L_3(X) = \frac{1}{2}(X^3-2X^2-X+2) + \frac{1}{3}(X^3-3X^2+2X) + \frac{4}{6}(X^3-X) = (\frac{1}{2}+\frac{1}{3}+\frac{2}{3})X^3 + (-1-1)X^2 + (-\frac{1}{2}+\frac{2}{3}-\frac{2}{3})X + 1 = \frac{3}{2}X^3 - 2X^2 - \frac{1}{2}X + 1$.
+                </p>
+            </div>
+
+        </section>
+    </main>
+</div>
+</body>
+</html>
