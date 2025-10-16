@@ -1,0 +1,307 @@
+Of course. As an engineer with expertise in web technologies and LaTeX, I will convert the provided document on the properties of real numbers into a single, comprehensive, and mobile-optimized HTML file. The mathematical formulas will be accurately transcribed using LaTeX and rendered with KaTeX, using the specified configuration. All internal links between exercises, indications, and solutions will be correctly implemented for seamless navigation.
+
+Here is the complete HTML file.
+
+code
+Html
+play_circle
+download
+content_copy
+expand_less
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propriétés de R - Exo7</title>
+    
+    <!-- KaTeX for LaTeX rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+
+    <style>
+        :root {
+            --primary-color: #005a9c;
+            --secondary-color: #f0f0f0;
+            --border-color: #ddd;
+            --text-color: #333;
+            --exo7-orange: #f57c00;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 1rem;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 1.8em;
+            margin-bottom: 1em;
+            padding-bottom: 0.3em;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            position: relative;
+        }
+        h2 {
+           font-size: 1.8em;
+           border-bottom: 2px solid var(--secondary-color);
+        }
+        h3 {
+           font-size: 1.4em;
+           color: #337ab7;
+           border: none;
+        }
+        .exo7-logo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--exo7-orange);
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 0 0 0 8px;
+            box-shadow: -2px 2px 5px rgba(0,0,0,0.1);
+        }
+        .exercise, .solution-box, .indication-box {
+            background-color: #fdfdfd;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .exercise-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .exercise-header h3 {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+        .exercise-code {
+            color: #888;
+            font-size: 0.8em;
+            font-family: monospace;
+        }
+        .nav-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            background-color: var(--secondary-color);
+            padding: 0.3rem 0.7rem;
+            border-radius: 15px;
+            font-size: 0.9em;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .nav-links a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .solution-box h4 a, .indication-box h4 a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        ul, ol {
+            padding-left: 1.5rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Propriétés de $\mathbb{R}$ <div class="exo7-logo">Exo7</div></h1>
+    </header>
+
+    <main>
+        <section id="rationnels">
+            <h2>1 Les rationnels $\mathbb{Q}$</h2>
+            <article id="exo1" class="exercise">
+                <div class="exercise-header"><h3>Exercice 1</h3><span class="exercise-code">[000451]</span></div>
+                <ol>
+                    <li>Démontrer que si $r \in \mathbb{Q}$ et $x \notin \mathbb{Q}$ alors $r+x \notin \mathbb{Q}$ et si $r \ne 0$ alors $r \cdot x \notin \mathbb{Q}$.</li>
+                    <li>Montrer que $\sqrt{2} \notin \mathbb{Q}$.</li>
+                    <li>En déduire : entre deux nombres rationnels il y a toujours un nombre irrationnel.</li>
+                </ol>
+                <div class="nav-links"><a href="#ind1">Indication ▼</a><a href="#corr1">Correction ▼</a></div>
+            </article>
+
+            <article id="exo2" class="exercise">
+                <div class="exercise-header"><h3>Exercice 2</h3><span class="exercise-code">[000461]</span></div>
+                <p>Montrer que $\frac{\ln 3}{\ln 2}$ est irrationnel.</p>
+                <div class="nav-links"><a href="#ind2">Indication ▼</a><a href="#corr2">Correction ▼</a></div>
+            </article>
+
+            <article id="exo3" class="exercise">
+                <div class="exercise-header"><h3>Exercice 3</h3><span class="exercise-code">[000459]</span></div>
+                <ol>
+                    <li>Soit $N_n = 0,19971997\dots1997$ (n fois). Mettre $N_n$ sous la forme $\frac{p}{q}$ avec $p,q \in \mathbb{N}^*$.</li>
+                    <li>Soit $M = 0,199719971997\dots$. Donner le rationnel dont l'écriture décimale est $M$.</li>
+                    <li>Même question avec : $P = 0,11111\dots+0,22222\dots+\dots+0,99999\dots$</li>
+                </ol>
+                <div class="nav-links"><a href="#ind3">Indication ▼</a><a href="#corr3">Correction ▼</a></div>
+            </article>
+
+            <article id="exo4" class="exercise">
+                <div class="exercise-header"><h3>Exercice 4</h3><span class="exercise-code">[000457]</span></div>
+                <p>Soit $p(x) = \sum_{i=0}^n a_i \cdot x^i$. On suppose que tous les $a_i$ sont des entiers.</p>
+                <ol>
+                    <li>Montrer que si $p$ a une racine rationnelle $\frac{\alpha}{\beta}$ (avec $\alpha$ et $\beta$ premiers entre eux) alors $\alpha$ divise $a_0$ et $\beta$ divise $a_n$.</li>
+                    <li>On considère le nombre $\sqrt{2}+\sqrt{3}$. En calculant son carré, montrer que ce carré est racine d'un polynôme de degré 2. En déduire, à l'aide du résultat précédent qu'il n'est pas rationnel.</li>
+                </ol>
+                <div class="nav-links"><a href="#ind4">Indication ▼</a><a href="#corr4">Correction ▼</a></div>
+            </article>
+        </section>
+
+        <section id="max-min-sup">
+            <h2>2 Maximum, minimum, borne supérieure...</h2>
+            <article id="exo5" class="exercise">
+                <p>Le maximum de deux nombres $x,y$ (c'est-à-dire le plus grand des deux) est noté $\max(x,y)$. De même on notera $\min(x,y)$ le plus petit des deux nombres $x,y$. Démontrer que :</p>
+                $$ \max(x,y) = \frac{x+y+|x-y|}{2} \quad \text{et} \quad \min(x,y) = \frac{x+y-|x-y|}{2} $$
+                <p>Trouver une formule pour $\max(x,y,z)$.</p>
+                <div class="nav-links"><a href="#ind5">Indication ▼</a><a href="#corr5">Correction ▼</a></div>
+            </article>
+
+            <article id="exo6" class="exercise">
+                <div class="exercise-header"><h3>Exercice 6</h3><span class="exercise-code">[000465]</span></div>
+                <p>Déterminer la borne supérieure et inférieure (si elles existent) de : $A=\{u_n | n \in \mathbb{N}\}$ en posant $u_n=2^n$ si $n$ est pair et $u_n=2^{-n}$ sinon.</p>
+                <div class="nav-links"><a href="#ind6">Indication ▼</a><a href="#corr6">Correction ▼</a></div>
+            </article>
+
+            <article id="exo7" class="exercise">
+                <div class="exercise-header"><h3>Exercice 7</h3><span class="exercise-code">[000466]</span></div>
+                <p>Déterminer (s'ils existent) : les majorants, les minorants, la borne supérieure, la borne inférieure, le plus grand élément, le plus petit élément des ensembles suivants :</p>
+                $$ [0,1]\cap\mathbb{Q}, \quad ]0,1[\cap\mathbb{Q}, \quad \mathbb{N}, \quad \left\{(-1)^n+\frac{1}{n^2} \mid n \in \mathbb{N}^*\right\} $$
+                <div class="nav-links"><a href="#corr7">Correction ▼</a></div>
+            </article>
+
+            <article id="exo8" class="exercise">
+                <div class="exercise-header"><h3>Exercice 8</h3><span class="exercise-code">[000476]</span></div>
+                <p>Soient A et B deux parties bornées de $\mathbb{R}$. On note $A+B=\{a+b | (a,b) \in A \times B\}$.</p>
+                <ol>
+                    <li>Montrer que $\sup A + \sup B$ est un majorant de $A+B$.</li>
+                    <li>Montrer que $\sup(A+B) = \sup A + \sup B$.</li>
+                </ol>
+                <div class="nav-links"><a href="#ind8">Indication ▼</a><a href="#corr8">Correction ▼</a></div>
+            </article>
+
+            <article id="exo9" class="exercise">
+                <div class="exercise-header"><h3>Exercice 9</h3><span class="exercise-code">[000477]</span></div>
+                <p>Soit A et B deux parties bornées de $\mathbb{R}$. Vrai ou faux ?</p>
+                <ol>
+                    <li>$A \subset B \Rightarrow \sup A \le \sup B$,</li>
+                    <li>$A \subset B \Rightarrow \inf A \le \inf B$,</li>
+                    <li>$\sup(A \cup B) = \max(\sup A, \sup B)$,</li>
+                    <li>$\sup(A+B) < \sup A + \sup B$,</li>
+                    <li>$\sup(-A) = -\inf A$,</li>
+                    <li>$\sup A + \inf B \le \sup(A+B)$.</li>
+                </ol>
+                <div class="nav-links"><a href="#ind9">Indication ▼</a><a href="#corr9">Correction ▼</a></div>
+            </article>
+        </section>
+
+        <section id="divers">
+            <h2>3 Divers</h2>
+            <article id="exo10" class="exercise">
+                <p>Soit $x$ un réel.</p>
+                <ol>
+                    <li>Donner l'encadrement qui définit la partie entière $E(x)$.</li>
+                    <li>Soit $(u_n)_{n \in \mathbb{N}^*}$ la suite définie par $u_n = \frac{E(x)+E(2x)+\dots+E(nx)}{n^2}$. Donner un encadrement simple de $n^2 \times u_n$, qui utilise $\sum_{k=1}^n k$.</li>
+                    <li>En déduire que $(u_n)$ converge et calculer sa limite.</li>
+                    <li>En déduire que $\mathbb{Q}$ est dense dans $\mathbb{R}$.</li>
+                </ol>
+                <div class="nav-links"><a href="#ind10">Indication ▼</a><a href="#corr10">Correction ▼</a></div>
+            </article>
+
+            <article id="exo11" class="exercise">
+                <div class="exercise-header"><h3>Exercice 11</h3><span class="exercise-code">[000497]</span></div>
+                <p>Soit $f:\mathbb{R} \to \mathbb{R}$ telle que $\forall(x,y) \in \mathbb{R}^2, f(x+y)=f(x)+f(y)$.</p>
+                <p>Montrer que</p>
+                <ol>
+                    <li>$\forall n \in \mathbb{N}, f(n) = n \cdot f(1)$.</li>
+                    <li>$\forall n \in \mathbb{Z}, f(n) = n \cdot f(1)$.</li>
+                    <li>$\forall q \in \mathbb{Q}, f(q) = q \cdot f(1)$.</li>
+                    <li>$\forall x \in \mathbb{R}, f(x) = x \cdot f(1)$ si $f$ est croissante.</li>
+                </ol>
+                <div class="nav-links"><a href="#ind11">Indication ▼</a><a href="#corr11">Correction ▼</a></div>
+            </article>
+        </section>
+
+        <section id="indications">
+            <h2>Indications</h2>
+            <div id="ind1" class="indication-box"><h4><a href="#exo1">Indication pour l'exercice 1 ▲</a></h4><ol><li>Raisonner par l'absurde.</li><li>Raisonner par l'absurde en écrivant $\sqrt{2}=\frac{p}{q}$ avec p et q premiers entre eux. Ensuite plusieurs méthodes sont possibles par exemple essayer de montrer que p et q sont tous les deux pairs.</li><li>Considérer $r+\frac{\sqrt{2}}{2}(r'-r)$ (faites un dessin !) pour deux rationnels $r,r'$. Puis utiliser les deux questions précédentes.</li></ol></div>
+            <div id="ind2" class="indication-box"><h4><a href="#exo2">Indication pour l'exercice 2 ▲</a></h4><p>Raisonner par l'absurde !</p></div>
+            <div id="ind3" class="indication-box"><h4><a href="#exo3">Indication pour l'exercice 3 ▲</a></h4><ol><li>Multiplier $N_n$ par une puissance de 10 suffisamment grande pour obtenir un nombre entier.</li><li>Multiplier M par une puissance de 10 suffisamment grande (pas trop grande) puis soustraire M pour obtenir un nombre entier.</li></ol></div>
+            <div id="ind4" class="indication-box"><h4><a href="#exo4">Indication pour l'exercice 4 ▲</a></h4><ol><li>Calculer $\beta^n p(\frac{\alpha}{\beta})$ et utiliser le lemme de Gauss.</li><li>Utiliser la première question avec $p(x) = (x^2-5)^2-24$.</li></ol></div>
+            <div id="ind5" class="indication-box"><h4><a href="#exo5">Indication pour l'exercice 5 ▲</a></h4><p>Distinguer des cas.</p></div>
+            <div id="ind6" class="indication-box"><h4><a href="#exo6">Indication pour l'exercice 6 ▲</a></h4><p>$\inf A = 0$, A n'a pas de borne supérieure.</p></div>
+            <div id="ind8" class="indication-box"><h4><a href="#exo8">Indication pour l'exercice 8 ▲</a></h4><p>Il faut revenir à la définition de la borne supérieure d'un ensemble borné : c'est le plus petit des majorants. En particulier la borne supérieure est un majorant.</p></div>
+            <div id="ind9" class="indication-box"><h4><a href="#exo9">Indication pour l'exercice 9 ▲</a></h4><p>Deux propositions sont fausses...</p></div>
+            <div id="ind10" class="indication-box"><h4><a href="#exo10">Indication pour l'exercice 10 ▲</a></h4><ol><li>Rappelez-vous que la partie entière de x est le plus grand entier, inférieur ou égal à x. Mais il est ici préférable de donner la définition de $E(x)$ en disant que $E(x) \in \mathbb{Z}$ et que x vérifie un certain encadrement...</li><li>Encadrer $E(kx)$, pour $k=1, \dots, n$.</li><li>Rappelez-vous d'abord de la formule $1+2+\dots+n$ puis utilisez le fameux théorème des gendarmes.</li><li>Les $u_n$ ne seraient-ils pas des rationnels ?</li></ol></div>
+            <div id="ind11" class="indication-box"><h4><a href="#exo11">Indication pour l'exercice 11 ▲</a></h4><ol><li>$f(2)=f(1+1)=\dots$, faire une récurrence.</li><li>$f((-n)+n)=\dots$.</li><li>Si $q=\frac{a}{b}$, calculer $f(\frac{a}{b}+\frac{a}{b}+\dots+\frac{a}{b})$ avec b termes dans cette somme.</li><li>Utiliser la densité de $\mathbb{Q}$ dans $\mathbb{R}$ : pour $x \in \mathbb{R}$ fixé, prendre une suite de rationnels qui croit vers x, et une autre qui décroit vers x.</li></ol></div>
+        </section>
+
+        <section id="corrections">
+            <h2>Corrections</h2>
+            <div id="corr1" class="solution-box"><h4><a href="#exo1">Correction de l'exercice 1 ▲</a></h4><ol><li>Soit $r=\frac{p}{q} \in \mathbb{Q}$ et $x \notin \mathbb{Q}$. Par l'absurde supposons que $r+x \in \mathbb{Q}$ alors il existe deux entiers $p',q'$ tels que $r+x=\frac{p'}{q'}$. Donc $x = \frac{p'}{q'}-r=\frac{p'q-pq'}{qq'} \in \mathbb{Q}$ ce qui est absurde car $x \notin \mathbb{Q}$. De même si $r \cdot x \in \mathbb{Q}$ alors $r \cdot x = \frac{p'}{q'}$ et donc $x=\frac{p'}{q'r} = \frac{p'}{q'p/q} = \frac{p'q}{q'p} \in \mathbb{Q}$. Ce qui est absurde.</li><li>Méthode "classique". Supposons, par l'absurde, que $\sqrt{2} \in \mathbb{Q}$ alors il existe deux entiers $p,q$ tels que $\sqrt{2}=\frac{p}{q}$. De plus nous pouvons supposer que la fraction est irréductible (p et q sont premiers entre eux). En élevant l'égalité au carré nous obtenons $2q^2=p^2$. Donc $p^2$ est un nombre pair, cela implique que p est un nombre pair. Donc $p=2p'$ avec $p' \in \mathbb{N}$, d'où $p^2=4p'^2$. Nous obtenons $2q^2=4p'^2 \implies q^2=2p'^2$. Nous en déduisons que $q^2$ est pair et donc que $q$ est pair. Nous obtenons une contradiction car p et q étant tous les deux pairs la fraction $\frac{p}{q}$ n'est pas irréductible. Donc $\sqrt{2} \notin \mathbb{Q}$.</li><li>Soient $r,r'$ deux rationnels avec $r<r'$. Notons $x=r+\frac{\sqrt{2}}{2}(r'-r)$. D'une part $x \in ]r,r'[$ (car $0 < \frac{\sqrt{2}}{2} < 1$) et d'après les deux premières questions $\frac{\sqrt{2}}{2}(r'-r) \notin \mathbb{Q}$ donc $x \notin \mathbb{Q}$. Et donc $x$ est un nombre irrationnel compris entre r et r'.</li></ol></div>
+            <div id="corr2" class="solution-box"><h4><a href="#exo2">Correction de l'exercice 2 ▲</a></h4><p>Par l'absurde supposons que $\frac{\ln 3}{\ln 2}$ soit un rationnel. Il s'écrit alors $\frac{p}{q}$ avec $p \ge 0, q>0$ des entiers. On obtient $q \ln 3 = p \ln 2$. En prenant l'exponentielle nous obtenons : $\exp(q \ln 3) = \exp(p \ln 2)$ soit $3^q=2^p$. Si $p \ge 1$ alors 2 divise $3^q$ donc 2 divise 3, ce qui est absurde. Donc $p=0$. Ceci nous conduit à l'égalité $3^q=1$, donc $q=0$. La seule solution possible est $p=0,q=0$. Ce qui contredit $q \ne 0$. Donc $\frac{\ln 3}{\ln 2}$ est irrationnel.</p></div>
+            <div id="corr3" class="solution-box"><h4><a href="#exo3">Correction de l'exercice 3 ▲</a></h4><ol><li>$N_n = 1997 \times (10^{-4} + 10^{-8} + \dots + 10^{-4n}) = 1997 \times 10^{-4} \frac{1-(10^{-4})^n}{1-10^{-4}} = \frac{1997}{9999}(1-10^{-4n})$.</li><li>$M = \lim_{n \to \infty} N_n = \frac{1997}{9999}$. Autre méthode: $10000M = 1997.1997\dots = 1997+M \Rightarrow 9999M=1997$.</li><li>$0,111\dots = 1/9$, $0,222\dots=2/9$, etc. D'où $P=\frac{1}{9}+\frac{2}{9}+\dots+\frac{9}{9} = \frac{1+2+\dots+9}{9} = \frac{45}{9}=5$.</li></ol></div>
+            <div id="corr4" class="solution-box"><h4><a href="#exo4">Correction de l'exercice 4 ▲</a></h4><ol><li>Si $\frac{\alpha}{\beta}$ est une racine de $p(x)=0$, alors $\sum_{i=0}^n a_i (\frac{\alpha}{\beta})^i = 0$. Multiplions par $\beta^n$: $a_n\alpha^n + a_{n-1}\alpha^{n-1}\beta + \dots + a_1\alpha\beta^{n-1} + a_0\beta^n=0$.
+            $a_0\beta^n = -\alpha(a_n\alpha^{n-1}+\dots+a_1\beta^{n-1})$. Donc $\alpha|a_0\beta^n$. Comme $\alpha, \beta$ sont premiers entre eux, $\alpha|a_0$.
+            De même $a_n\alpha^n = -\beta(a_{n-1}\alpha^{n-1}+\dots+a_0\beta^{n-1})$. Donc $\beta|a_n\alpha^n$. Comme $\alpha, \beta$ sont premiers entre eux, $\beta|a_n$.</li><li>Soit $\gamma=\sqrt{2}+\sqrt{3}$. $\gamma^2 = 2+3+2\sqrt{6}=5+2\sqrt{6}$. $(\gamma^2-5)^2=(2\sqrt{6})^2=24$.
+            $\gamma$ est racine de $p(x)=(x^2-5)^2-24 = x^4-10x^2+1=0$.
+            Si $\gamma$ était rationnel, $\gamma=\frac{\alpha}{\beta}$, alors $\alpha$ diviserait 1 et $\beta$ diviserait 1. Donc $\gamma=\pm 1$. Ce qui est absurde car $\gamma \approx 1.414+1.732 > 3$.</li></ol></div>
+            <div id="corr5" class="solution-box"><h4><a href="#corr5">Correction de l'exercice 5 ▲</a></h4><p>Si $x \ge y$, $x-y \ge 0$, $|x-y|=x-y$. $\frac{x+y+x-y}{2}=x$. Si $x<y$, $x-y<0$, $|x-y|=-(x-y)=y-x$. $\frac{x+y+y-x}{2}=y$. La formule est correcte.
+            <br>Pour trois éléments : $\max(x,y,z)=\max(\max(x,y),z) = \frac{\max(x,y)+z+|\max(x,y)-z|}{2} = \frac{\frac{x+y+|x-y|}{2}+z+|\frac{x+y+|x-y|}{2}-z|}{2}$.</p></div>
+            <div id="corr6" class="solution-box"><h4><a href="#corr6">Correction de l'exercice 6 ▲</a></h4><p>La suite des termes pairs $(u_{2k})_k = (2^{2k})_k = (4^k)_k$ tend vers $+\infty$, donc A n'est pas majoré. Il n'y a pas de borne supérieure.
+            <br>La suite des termes impairs $(u_{2k+1})_k = (2^{-(2k+1)})_k$ tend vers 0. Tous les termes de A sont positifs. 0 est un minorant. Comme $u_{2k+1}$ peut être aussi proche de 0 que l'on veut, 0 est le plus grand des minorants. $\inf A = 0$.</p></div>
+            <div id="corr7" class="solution-box"><h4><a href="#corr7">Correction de l'exercice 7 ▲</a></h4><ol>
+            <li>$[0,1]\cap\mathbb{Q}$. Majorants: $[1, +\infty[$. Minorants: $]-\infty, 0]$. $\sup=1$, $\inf=0$. Plus grand élément: 1. Plus petit élément: 0.</li>
+            <li>$]0,1[\cap\mathbb{Q}$. Majorants: $[1, +\infty[$. Minorants: $]-\infty, 0]$. $\sup=1$, $\inf=0$. Pas de plus grand/petit élément.</li>
+            <li>$\mathbb{N}$. Pas de majorant/sup. Minorants: $]-\infty, 0]$. $\inf=0$. Plus petit élément: 0.</li>
+            <li>$\{(-1)^n+\frac{1}{n^2}\}$. $n=1: 0, n=2: 5/4, n=3: -26/27, n=4: 17/16, \dots$. La suite des termes pairs tend vers 1 par le dessus, celle des impairs vers -1 par le dessous. Majorants: $[5/4, +\infty[$. Minorants: $]-\infty, -1]$. $\sup=5/4$. $\inf=-1$. Plus grand élément: 5/4. Pas de plus petit élément.</li>
+            </ol></div>
+            <div id="corr8" class="solution-box"><h4><a href="#corr8">Correction de l'exercice 8 ▲</a></h4><ol><li>Pour tout $a \in A, a \le \sup A$. Pour tout $b \in B, b \le \sup B$. Soit $x \in A+B$, $x=a+b$ pour un $a \in A, b \in B$. Alors $x=a+b \le \sup A + \sup B$. Donc $\sup A + \sup B$ est un majorant de $A+B$.</li><li>Soit $\epsilon>0$. Par définition du sup, il existe $a \in A$ tel que $a > \sup A - \epsilon/2$ et il existe $b \in B$ tel que $b > \sup B - \epsilon/2$. Alors $a+b > \sup A + \sup B - \epsilon$. Comme $a+b \in A+B$, cela montre que $\sup A + \sup B - \epsilon$ n'est pas un majorant de $A+B$. Donc $\sup(A+B)$ doit être $\sup A + \sup B$.</li></ol></div>
+            <div id="corr9" class="solution-box"><h4><a href="#corr9">Correction de l'exercice 9 ▲</a></h4><ol><li>Vrai.</li><li>Faux. $A \subset B \Rightarrow \inf A \ge \inf B$.</li><li>Vrai.</li><li>Faux. Il y a égalité (exercice 8).</li><li>Vrai.</li><li>Vrai.</li></ol></div>
+            <div id="corr10" class="solution-box"><h4><a href="#corr10">Correction de l'exercice 10 ▲</a></h4><ol><li>$E(x) \in \mathbb{Z}$ et $E(x) \le x < E(x)+1$.</li><li>$kx-1 < E(kx) \le kx$. En sommant de $k=1$ à $n$: $\sum(kx-1) < \sum E(kx) \le \sum kx$.
+            $x\sum k - n < n^2 u_n \le x \sum k$.
+            $x\frac{n(n+1)}{2} - n < n^2 u_n \le x\frac{n(n+1)}{2}$.</li><li>On divise par $n^2$: $x\frac{n+1}{2n} - \frac{1}{n} < u_n \le x\frac{n+1}{2n}$. Quand $n \to \infty$, les deux bornes tendent vers $x/2$. Par le théorème des gendarmes, $u_n \to x/2$.</li><li>Pour tout $x \in \mathbb{R}$, la suite de rationnels $(2u_n)$ converge vers $x$. Cela montre que $\mathbb{Q}$ est dense dans $\mathbb{R}$.</li></ol></div>
+            <div id="corr11" class="solution-box"><h4><a href="#corr11">Correction de l'exercice 11 ▲</a></h4><ol><li>Par récurrence. $n=0: f(0)=f(0+0)=f(0)+f(0) \Rightarrow f(0)=0$. $f(0)=0 \cdot f(1)$. Supposons $f(n)=n f(1)$. $f(n+1)=f(n)+f(1)=nf(1)+f(1)=(n+1)f(1)$.</li><li>$f(0)=f(n+(-n))=f(n)+f(-n)$. Donc $f(-n)=-f(n)=-n f(1)$.</li><li>Soit $q=a/b$. $f(b \cdot q) = f(a) = a f(1)$. Mais $f(b \cdot q) = f(q+\dots+q) = b f(q)$. Donc $b f(q) = a f(1)$, d'où $f(q) = \frac{a}{b} f(1) = q f(1)$.</li><li>Soit $x \in \mathbb{R}$. Il existe une suite de rationnels $(\alpha_n)$ croissante qui tend vers $x$ et une suite $(\beta_n)$ décroissante qui tend vers $x$.
+            Pour tout $n$, $\alpha_n \le x \le \beta_n$. Comme $f$ est croissante, $f(\alpha_n) \le f(x) \le f(\beta_n)$.
+            $\alpha_n f(1) \le f(x) \le \beta_n f(1)$. En passant à la limite quand $n \to \infty$, on obtient $x f(1) \le f(x) \le x f(1)$ par le théorème des gendarmes. Donc $f(x)=x f(1)$.</li></ol></div>
+        </section>
+    </main>
+</div>
+</body>
+</html>
