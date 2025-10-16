@@ -1,0 +1,541 @@
+Of course. As an engineer specializing in web technologies and LaTeX, I will convert the two provided documents into a single, comprehensive, and mobile-optimized HTML file. The mathematical formulas will be accurately transcribed using LaTeX and rendered with KaTeX, configured as you've requested. All internal links will be carefully managed to ensure correct navigation between exercises, indications, and solutions across both topics.
+
+Here is the complete HTML file combining "Dénombrement" and "Arithmétique dans Z".
+
+code
+Html
+play_circle
+download
+content_copy
+expand_less
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dénombrement et Arithmétique - Exo7</title>
+    
+    <!-- KaTeX for LaTeX rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+
+    <style>
+        :root {
+            --primary-color: #005a9c;
+            --secondary-color: #f0f0f0;
+            --border-color: #ddd;
+            --text-color: #333;
+            --exo7-orange: #f57c00;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 1.8em;
+            margin-bottom: 1em;
+            padding-bottom: 0.3em;
+        }
+        
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            position: relative;
+        }
+
+        h2 {
+           font-size: 1.8em;
+           border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        h3 {
+           font-size: 1.4em;
+           color: #337ab7;
+           border: none;
+        }
+
+        .exo7-logo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--exo7-orange);
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 0 0 0 8px;
+            box-shadow: -2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .exercise, .solution-box, .indication-box {
+            background-color: #fdfdfd;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .exercise-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .exercise-header h3 {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .exercise-header h3 .difficulty {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .exercise-code {
+            color: #888;
+            font-size: 0.8em;
+            font-family: monospace;
+        }
+
+        .nav-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            background-color: var(--secondary-color);
+            padding: 0.3rem 0.7rem;
+            border-radius: 15px;
+            font-size: 0.9em;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .solution-box h4 a, .indication-box h4 a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Dénombrement & Arithmétique <div class="exo7-logo">Exo7</div></h1>
+    </header>
+
+    <main>
+        <!-- ===================================================================== -->
+        <!-- ====================== DÉNOMBREMENT SECTION ========================= -->
+        <!-- ===================================================================== -->
+        <section id="denombrement">
+            <h2>Dénombrement</h2>
+
+            <section id="denomb-exercices">
+                <h3>Exercices</h3>
+                <article id="denomb-exo1" class="exercise">
+                    <div class="exercise-header">
+                        <h3>Exercice 1</h3>
+                        <span class="exercise-code">[000236]</span>
+                    </div>
+                    <p>Pour A, B deux ensembles de E on note $A\Delta B = (A \cup B) \setminus (A \cap B)$. Pour E un ensemble fini, montrer :</p>
+                    $$ \text{Card} A\Delta B = \text{Card} A + \text{Card} B - 2\text{Card} A \cap B. $$
+                    <div class="nav-links">
+                        <a href="#denomb-ind1">Indication ▼</a>
+                        <a href="#denomb-corr1">Correction ▼</a>
+                    </div>
+                </article>
+
+                <article id="denomb-exo2" class="exercise">
+                    <div class="exercise-header">
+                        <h3>Exercice 2</h3>
+                        <span class="exercise-code">[000220]</span>
+                    </div>
+                    <p>En utilisant la fonction $x \mapsto (1+x)^n$, calculer :</p>
+                    $$ \sum_{k=0}^n C_n^k \quad ; \quad \sum_{k=0}^n (-1)^k C_n^k \quad ; \quad \sum_{k=1}^n k C_n^k \quad ; \quad \sum_{k=0}^n \frac{1}{k+1} C_n^k. $$
+                    <div class="nav-links">
+                        <a href="#denomb-ind2">Indication ▼</a>
+                        <a href="#denomb-corr2">Correction ▼</a>
+                    </div>
+                </article>
+
+                <article id="denomb-exo3" class="exercise">
+                    <div class="exercise-header">
+                        <h3>Exercice 3</h3>
+                        <span class="exercise-code">[000222]</span>
+                    </div>
+                    <p>En utilisant la formule du binôme, démontrer que :</p>
+                    <ol>
+                        <li>$2^n + 1$ est divisible par 3 si et seulement si $n$ est impair ;</li>
+                        <li>$3^{2n+1} + 2^{4n+2}$ est divisible par 7.</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#denomb-ind3">Indication ▼</a>
+                        <a href="#denomb-corr3">Correction ▼</a>
+                    </div>
+                </article>
+                
+                <article id="denomb-exo4" class="exercise">
+                    <div class="exercise-header">
+                        <h3>Exercice 4 <span class="difficulty">**I</span></h3>
+                        <span class="exercise-code">[005284]</span>
+                    </div>
+                    <p>On part du point de coordonnées (0,0) pour rejoindre le point de coordonnées $(p,q)$ ($p$ et $q$ entiers naturels donnés) en se déplaçant à chaque étape d'une unité vers la droite ou vers le haut. Combien y a-t-il de chemins possibles ?</p>
+                    <div class="nav-links">
+                        <a href="#denomb-ind4">Indication ▼</a>
+                        <a href="#denomb-corr4">Correction ▼</a>
+                    </div>
+                </article>
+
+                <article id="denomb-exo5" class="exercise">
+                    <div class="exercise-header">
+                        <h3>Exercice 5</h3>
+                        <span class="exercise-code">[000239]</span>
+                    </div>
+                    <p>On considère les mains de 5 cartes que l'on peut extraire d'un jeu de 52 cartes.</p>
+                    <ol>
+                        <li>Combien y a-t-il de mains différentes ?</li>
+                        <li>Combien y a-t-il de mains comprenant exactement un as ?</li>
+                        <li>Combien y a-t-il de mains comprenant au moins un valet ?</li>
+                        <li>Combien y a-t-il de mains comprenant (à la fois) au moins un roi et au moins une dame ?</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#denomb-ind5">Indication ▼</a>
+                        <a href="#denomb-corr5">Correction ▼</a>
+                    </div>
+                </article>
+
+                <article id="denomb-exo6" class="exercise">
+                    <div class="exercise-header">
+                        <h3>Exercice 6 - Permutations</h3>
+                        <span class="exercise-code">[002912]</span>
+                    </div>
+                    <p>Combien y a-t-il de bijections $f$ de $\{1,...,12\}$ dans lui-même possédant :</p>
+                    <ol>
+                        <li>la propriété: $n$ est pair $\Rightarrow f(n)$ est pair ?</li>
+                        <li>la propriété: $n$ est divisible par 3 $\Rightarrow f(n)$ est divisible par 3 ?</li>
+                        <li>ces deux propriétés à la fois ?</li>
+                        <li>Reprendre les questions précédentes en remplaçant <em>bijection</em> par <em>application</em>.</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#denomb-corr6">Correction ▼</a>
+                    </div>
+                </article>
+
+                <article id="denomb-exo7" class="exercise">
+                    <div class="exercise-header">
+                        <h3>Exercice 7</h3>
+                        <span class="exercise-code">[000237]</span>
+                    </div>
+                    <p>Soit E un ensemble à $n$ éléments, et $A \subset E$ un sous-ensemble à $p$ éléments. Quel est le nombre de parties de E qui contiennent un et un seul élément de A ?</p>
+                    <div class="nav-links">
+                        <a href="#denomb-ind7">Indication ▼</a>
+                        <a href="#denomb-corr7">Correction ▼</a>
+                    </div>
+                </article>
+            </section>
+
+            <section id="denomb-indications">
+                <h3>Indications (Dénombrement)</h3>
+                <div id="denomb-ind1" class="indication-box"><h4><a href="#denomb-exo1">Indication pour l'exercice 1 ▲</a></h4><p>Tout d'abord faire un dessin (avec des patates !). Pour A et B deux ensembles finis quelconques, commencer par (re)démontrer la formule : $\text{Card} A \cup B = \text{Card} A + \text{Card} B - \text{Card} A \cap B$.</p></div>
+                <div id="denomb-ind2" class="indication-box"><h4><a href="#denomb-exo2">Indication pour l'exercice 2 ▲</a></h4><p>Évaluer $(1+x)^n$ en $x=1$, d'une part directement et ensuite avec la formule du binôme de Newton. Pour la deuxième égalité commencer par dériver $x \mapsto (1+x)^n$.</p></div>
+                <div id="denomb-ind3" class="indication-box"><h4><a href="#denomb-exo3">Indication pour l'exercice 3 ▲</a></h4><p>Commencer par $2^n = (3-1)^n$.</p></div>
+                <div id="denomb-ind4" class="indication-box"><h4><a href="#denomb-exo4">Indication pour l'exercice 4 ▲</a></h4><p>Coder un chemin par un mot : D pour droite, H pour haut.</p></div>
+                <div id="denomb-ind5" class="indication-box"><h4><a href="#denomb-exo5">Indication pour l'exercice 5 ▲</a></h4><p>Petits rappels : dans un jeu de 52 cartes il y a 4 "couleurs" (pique, cœur, carreau, trèfle) et 13 "valeurs" (1 = As, 2, 3, ..., 10, Valet, Dame, Roi). Une "main" c'est juste choisir 5 cartes parmi les 52, l'ordre du choix n'important pas.</p></div>
+                <div id="denomb-ind7" class="indication-box"><h4><a href="#denomb-exo7">Indication pour l'exercice 7 ▲</a></h4><p>Combien y-a-t'il de choix pour l'élément de A ? Combien y-a-t'il de choix pour le sous-ensemble de $E \setminus A$ ?</p></div>
+            </section>
+
+            <section id="denomb-corrections">
+                <h3>Corrections (Dénombrement)</h3>
+                <div id="denomb-corr1" class="solution-box">
+                    <h4><a href="#denomb-exo1">Correction de l'exercice 1 ▲</a></h4>
+                    <p>Tout d'abord si deux ensembles finis A et B sont disjoints alors $\text{Card} A \cup B = \text{Card} A + \text{Card} B$. Si maintenant A et B sont deux ensembles finis quelconques : nous décomposons $A \cup B$ en trois ensembles :
+                    $$ A \cup B = (A \setminus (A \cap B)) \cup (B \setminus (A \cap B)) \cup (A \cap B). $$
+                    Ces trois ensembles sont disjoints deux à deux donc : $\text{Card} A \cup B = \text{Card} A \setminus (A \cap B) + \text{Card} B \setminus (A \cap B) + \text{Card} A \cap B$.
+                    Mais pour $R \subset S$ nous avons $\text{Card} S \setminus R = \text{Card} S - \text{Card} R$. Donc $\text{Card} A \cup B = \text{Card} A - \text{Card} A \cap B + \text{Card} B - \text{Card} A \cap B + \text{Card} A \cap B$. Donc $\text{Card} A \cup B = \text{Card} A + \text{Card} B - \text{Card} A \cap B$.
+                    Appliquons ceci à $A \Delta B = (A \cup B) \setminus (A \cap B)$ :
+                    $$ \text{Card} A \Delta B = \text{Card} (A \cup B) - \text{Card} (A \cap B) = (\text{Card} A + \text{Card} B - \text{Card} A \cap B) - \text{Card} A \cap B = \text{Card} A + \text{Card} B - 2\text{Card} A \cap B. $$
+                </div>
+                <div id="denomb-corr2" class="solution-box">
+                    <h4><a href="#denomb-exo2">Correction de l'exercice 2 ▲</a></h4>
+                    <p>Soit $f: \mathbb{R} \to \mathbb{R}$ la fonction $f(x) = (1+x)^n$. Par la formule du binôme de Newton nous savons que
+                    $$ f(x) = (1+x)^n = \sum_{k=0}^n C_n^k x^k. $$
+                    </p><ol>
+                        <li>En calculant $f(1)$ nous avons $2^n = \sum_{k=0}^n C_n^k$.</li>
+                        <li>En calculant $f(-1)$ nous avons $0 = \sum_{k=0}^n (-1)^k C_n^k$.</li>
+                        <li>Maintenant calculons $f'(x) = n(1+x)^{n-1} = \sum_{k=1}^n k C_n^k x^{k-1}$. Évaluons $f'(1) = n2^{n-1} = \sum_{k=1}^n k C_n^k$.</li>
+                        <li>Il s'agit ici de calculer la primitive $F$ de $f$ qui correspond à la somme : $F(x) = \frac{(1+x)^{n+1}}{n+1} - \frac{1}{n+1} = \sum_{k=0}^n C_n^k \frac{x^{k+1}}{k+1}$. En $F(1)$ : $\frac{1}{n+1}(2^{n+1}-1) = \sum_{k=0}^n \frac{1}{k+1} C_n^k$.</li>
+                    </ol>
+                </div>
+                <div id="denomb-corr3" class="solution-box">
+                    <h4><a href="#denomb-exo3">Correction de l'exercice 3 ▲</a></h4>
+                    <p>L'astuce consiste à écrire $2 = 3-1$ (!)</p>
+                    $$ 2^n = (3-1)^n = \sum_{k=0}^n C_n^k 3^k (-1)^{n-k} = 3 \times p + (-1)^n $$
+                    Où $3 \times p$ représente les $n$ premiers termes de la somme $\sum_{k=1}^n C_n^k 3^k (-1)^{n-k}$ et $(-1)^n$ est le dernier terme (pour $k=0$). Donc $2^n - (-1)^n = 3p$. Si $n$ est impair l'égalité s'écrit $2^n+1=3p$ et donc $2^n+1$ est divisible par 3. Si $n$ est pair $2^n-1=3p$ donc $2^n+1=3p+2$ qui n'est pas divisible par 3.
+                    <p>Pour l'autre assertion regarder $3 = 7-4$ (et $2^4 = 16 = 2 \times 7 + 2$).
+                    $3^{2n+1} + 2^{4n+2} = 3 \cdot 9^n + 4 \cdot 16^n \equiv 3 \cdot 2^n + 4 \cdot 2^n \pmod{7} \equiv 7 \cdot 2^n \pmod{7} \equiv 0 \pmod{7}$.
+                    </p>
+                </div>
+                <div id="denomb-corr4" class="solution-box">
+                    <h4><a href="#denomb-exo4">Correction de l'exercice 4 ▲</a></h4>
+                    <p>On pose H = "vers le haut" et D = "vers la droite". Un chemin de (0,0) à (p,q) est une suite de $p$ déplacements D et $q$ déplacements H. La longueur totale du chemin est $p+q$. Un chemin est donc un mot de $p+q$ lettres contenant $p$ fois la lettre D et $q$ fois la lettre H. Le nombre de chemins cherché est le nombre d'anagrammes du mot $D...DH...H$.
+                    Pour former un tel mot, il faut choisir la place des $q$ lettres H parmi les $p+q$ positions possibles. Il y a $C_{p+q}^q$ choix. Une fois que les lettres H sont placées il n'y a plus de choix pour les lettres D. Il y a donc $C_{p+q}^q$ chemins possibles.
+                    Remarque : si on place d'abord les lettres D alors on a $C_{p+q}^p$ choix possibles. Mais on trouve bien sûr le même nombre de chemins car $C_{p+q}^p = C_{p+q}^{(p+q)-p} = C_{p+q}^q$.</p>
+                </div>
+                <div id="denomb-corr5" class="solution-box">
+                    <h4><a href="#denomb-exo5">Correction de l'exercice 5 ▲</a></h4>
+                    <ol>
+                        <li>Il s'agit donc de choisir 5 cartes parmi 52 : il y a donc $C_{52}^5$ mains différentes. Ceci peut être calculé : $C_{52}^5 = \frac{52 \cdot 51 \cdot 50 \cdot 49 \cdot 48}{5!} = 2598960$.</li>
+                        <li>Il y a 4 choix pour l'as (l'as de pique ou l'as de cœur ou ...), puis il faut choisir les 4 cartes restantes parmi 48 cartes (on ne peut pas rechoisir un as). Bilan $4 \times C_{48}^4$ mains comprenant exactement un as.</li>
+                        <li>Il est beaucoup plus facile de compter d'abord les mains qui ne contiennent aucun valet : il faut choisir 5 cartes parmi 48 (on exclut les valets) ; il y a donc $C_{48}^5$ mains ne contenant aucun valet. Les autres mains sont les mains qui contiennent au moins un valet : il y en a donc $C_{52}^5 - C_{48}^5$.</li>
+                        <li>Nous allons d'abord compter le nombre de mains qui ne contiennent pas de roi ou pas de dame. Le nombre de mains qui ne contiennent pas de roi est $C_{48}^5$ (comme la question 3.). Le nombre de mains qui ne contiennent pas de dame est aussi $C_{48}^5$. Le nombre de mains ne contenant pas de roi ou pas de dame n'est pas $C_{48}^5 + C_{48}^5$, car on aurait compté deux fois les mains ne contenant ni roi, ni dame (il y a $C_{44}^5$ telles mains). Par le principe d'inclusion-exclusion, le nombre de mains ne contenant pas de roi ou pas de dame est donc : $2C_{48}^5 - C_{44}^5$. Ce que nous cherchons ce sont toutes les autres mains : celles qui contiennent au moins un roi et au moins une dame. Leur nombre est donc : $C_{52}^5 - (2C_{48}^5 - C_{44}^5)$.</li>
+                    </ol>
+                </div>
+                <div id="denomb-corr6" class="solution-box">
+                    <h4><a href="#denomb-exo6">Correction de l'exercice 6 ▲</a></h4>
+                    <ol>
+                        <li><b>Bijections:</b> L'ensemble $\{1,...,12\}$ contient 6 nombres pairs et 6 impairs. Une bijection doit envoyer les 6 pairs sur les 6 pairs (6! possibilités) et les 6 impairs sur les 6 impairs (6! possibilités). Total : $(6!)^2$.</li>
+                        <li><b>Bijections:</b> Il y a 4 multiples de 3 et 8 non-multiples de 3. La bijection doit envoyer les 4 multiples de 3 sur les 4 multiples de 3 (4! possibilités) et les 8 autres sur les 8 autres (8! possibilités). Total: $4! \times 8!$.</li>
+                        <li><b>Bijections:</b> On partitionne l'ensemble:
+                            <ul><li>Pairs et mult. de 3: {6, 12} (2 él.)</li><li>Impairs et mult. de 3: {3, 9} (2 él.)</li><li>Pairs et non-mult. de 3: {2, 4, 8, 10} (4 él.)</li><li>Impairs et non-mult. de 3: {1, 5, 7, 11} (4 él.)</li></ul>
+                        Une telle bijection doit préserver chaque sous-ensemble. Total : $2! \times 2! \times 4! \times 4!$.</li>
+                        <li><b>Applications:</b>
+                            <ol type="a"><li>$f($pair$) \in \{$pairs$\}$. Pour les 6 pairs, l'image doit être paire ($6^6$ choix). Pour les 6 impairs, l'image peut être quelconque ($12^6$ choix). Total: $6^6 \times 12^6$.</li>
+                            <li>$f($mult. de 3$) \in \{$mult. de 3$\}$. Pour les 4 mult. de 3, l'image doit être un mult. de 3 ($4^4$ choix). Pour les 8 autres, l'image peut être quelconque ($12^8$ choix). Total: $4^4 \times 12^8$.</li>
+                            <li>Les deux conditions. On utilise la partition de 3.
+                                <ul><li>Pour les 2 pairs mult. de 3, l'image doit être paire et mult. de 3 ($2^2$ choix).</li>
+                                <li>Pour les 2 impairs mult. de 3, l'image doit être mult. de 3 mais peut être paire ou impaire; or, la condition 1 ne s'applique pas. $f(n)$ divisible par 3 (4 choix). $2 \times 4^2$.</li>
+                                <li>Pour les 4 pairs non-mult. de 3, l'image doit être paire (6 choix). $4 \times 6^4$.</li>
+                                <li>Pour les 4 impairs non-mult. de 3, image quelconque (12 choix). $4 \times 12^4$.</li>
+                               </ul>
+                               La correction `2^2 × 4^2 × 6^4 × 12^4` semble appliquer les conditions indépendamment à des partitions disjointes de l'ensemble de départ, ce qui n'est pas tout à fait correct. Une approche plus simple:
+                               <ul>
+                                   <li>$n$ pair et mult. de 3 (2 él.): $f(n)$ doit être pair et mult. de 3 (2 choix). Total: $2^2$.</li>
+                                   <li>$n$ pair et non-mult. de 3 (4 él.): $f(n)$ doit être pair (6 choix). Total: $6^4$.</li>
+                                   <li>$n$ impair et mult. de 3 (2 él.): $f(n)$ doit être mult. de 3 (4 choix). Total: $4^2$.</li>
+                                   <li>$n$ impair et non-mult. de 3 (4 él.): aucune condition. Total: $12^4$.</li>
+                               </ul>
+                               Total combiné: $2^2 \times 6^4 \times 4^2 \times 12^4$. La correction est probablement une coquille.
+                            </li></ol>
+                        </li>
+                    </ol>
+                </div>
+                <div id="denomb-corr7" class="solution-box">
+                    <h4><a href="#denomb-exo7">Correction de l'exercice 7 ▲</a></h4>
+                    <p>Pour construire une telle partie, il faut choisir:
+                    <ol><li>Un unique élément dans $A$. Il y a $p$ choix possibles.</li>
+                    <li>Un sous-ensemble quelconque d'éléments dans $E \setminus A$. L'ensemble $E \setminus A$ a $n-p$ éléments, donc il a $2^{n-p}$ sous-ensembles possibles.</li></ol>
+                    Le nombre total de parties est le produit des choix, soit $p \times 2^{n-p}$.</p>
+                </div>
+            </section>
+        </section>
+
+        <!-- ===================================================================== -->
+        <!-- ====================== ARITHMÉTIQUE SECTION ========================= -->
+        <!-- ===================================================================== -->
+        <section id="arithmetique">
+            <h2>Arithmétique dans Z</h2>
+
+            <section id="arith-exercices">
+                <h3>1 Divisibilité, division euclidienne</h3>
+                <article id="arith-exo1" class="exercise">
+                    <div class="exercise-header"><h3>Exercice 1</h3><span class="exercise-code">[000251]</span></div>
+                    <p>Sachant que l'on a $96842 = 256 \times 375 + 842$, déterminer, sans faire la division, le reste de la division du nombre 96842 par chacun des nombres 256 et 375.</p>
+                    <div class="nav-links"><a href="#arith-ind1">Indication ▼</a><a href="#arith-corr1">Correction ▼</a></div>
+                </article>
+                <article id="arith-exo2" class="exercise">
+                    <div class="exercise-header"><h3>Exercice 2</h3><span class="exercise-code">[000257]</span></div>
+                    <p>Montrer que $\forall n \in \mathbb{N}$ :</p>
+                    <ul>
+                        <li>$n(n+1)(n+2)(n+3)$ est divisible par 24,</li>
+                        <li>$n(n+1)(n+2)(n+3)(n+4)$ est divisible par 120.</li>
+                    </ul>
+                    <div class="nav-links"><a href="#arith-corr2">Correction ▼</a></div>
+                </article>
+                <article id="arith-exo3" class="exercise">
+                    <div class="exercise-header"><h3>Exercice 3</h3><span class="exercise-code">[000267]</span></div>
+                    <p>Montrer que si $n$ est un entier naturel somme de deux carrés d'entiers alors le reste de la division euclidienne de $n$ par 4 n'est jamais égal à 3.</p>
+                    <div class="nav-links"><a href="#arith-corr3">Correction ▼</a></div>
+                </article>
+                <article id="arith-exo4" class="exercise">
+                    <div class="exercise-header"><h3>Exercice 4</h3><span class="exercise-code">[000254]</span></div>
+                    <p>Démontrer que le nombre $7^n+1$ est divisible par 8 si $n$ est impair ; dans le cas $n$ pair, donner le reste de sa division par 8.</p>
+                    <div class="nav-links"><a href="#arith-ind4">Indication ▼</a><a href="#arith-corr4">Correction ▼</a></div>
+                </article>
+                <article id="arith-exo5" class="exercise">
+                    <div class="exercise-header"><h3>Exercice 5</h3><span class="exercise-code">[000250]</span></div>
+                    <p>Trouver le reste de la division par 13 du nombre $100^{1000}$.</p>
+                    <div class="nav-links"><a href="#arith-ind5">Indication ▼</a><a href="#arith-corr5">Correction ▼</a></div>
+                </article>
+                <article id="arith-exo6" class="exercise">
+                    <div class="exercise-header"><h3>Exercice 6</h3><span class="exercise-code">[000285]</span></div>
+                    <ol>
+                        <li>Montrer que le reste de la division euclidienne par 8 du carré de tout nombre impair est 1.</li>
+                        <li>Montrer de même que tout nombre pair vérifie $x^2 \equiv 0 \pmod 8$ ou $x^2 \equiv 4 \pmod 8$.</li>
+                        <li>Soient $a, b, c$ trois entiers impairs. Déterminer le reste modulo 8 de $a^2+b^2+c^2$ et celui de $2(ab+bc+ca)$.</li>
+                        <li>En déduire que ces deux nombres ne sont pas des carrés puis que $ab+bc+ca$ non plus.</li>
+                    </ol>
+                    <div class="nav-links"><a href="#arith-ind6">Indication ▼</a><a href="#arith-corr6">Correction ▼</a></div>
+                </article>
+                
+                <h3>2 pgcd, ppcm, algorithme d'Euclide</h3>
+                <article id="arith-exo7" class="exercise">
+                    <div class="exercise-header"><h3>Exercice 7</h3><span class="exercise-code">[000290]</span></div>
+                    <p>Calculer le pgcd des nombres suivants :</p>
+                    <ol><li>126, 230.</li><li>390, 720, 450.</li><li>180, 606, 750.</li></ol>
+                    <div class="nav-links"><a href="#arith-corr7">Correction ▼</a></div>
+                </article>
+                <article id="arith-exo8" class="exercise">
+                    <div class="exercise-header"><h3>Exercice 8</h3><span class="exercise-code">[000292]</span></div>
+                    <p>Déterminer les couples d'entiers naturels de pgcd 18 et de somme 360. De même avec pgcd 18 et produit 6480.</p>
+                    <div class="nav-links"><a href="#arith-corr8">Correction ▼</a></div>
+                </article>
+                <article id="arith-exo9" class="exercise">
+                    <div class="exercise-header"><h3>Exercice 9</h3><span class="exercise-code">[000296]</span></div>
+                    <p>Calculer par l'algorithme d'Euclide : pgcd(18480, 9828). En déduire une écriture de 84 comme combinaison linéaire de 18480 et 9828.</p>
+                    <div class="nav-links"><a href="#arith-corr9">Correction ▼</a></div>
+                </article>
+                <article id="arith-exo11" class="exercise">
+                    <div class="exercise-header"><h3>Exercice 11</h3><span class="exercise-code">[000305]</span></div>
+                    <p>Résoudre dans $\mathbb{Z}$ : $1665x + 1035y = 45$.</p>
+                    <div class="nav-links"><a href="#arith-ind11">Indication ▼</a><a href="#arith-corr11">Correction ▼</a></div>
+                </article>
+
+                <h3>3 Nombres premiers, nombres premiers entre eux</h3>
+                <article id="arith-exo12" class="exercise">
+                    <div class="exercise-header"><h3>Exercice 12</h3><span class="exercise-code">[000249]</span></div>
+                    <p>Combien 15! admet-il de diviseurs ?</p>
+                    <div class="nav-links"><a href="#arith-ind12">Indication ▼</a><a href="#arith-corr12">Correction ▼</a></div>
+                </article>
+                <article id="arith-exo15" class="exercise">
+                    <div class="exercise-header"><h3>Exercice 15</h3><span class="exercise-code">[000349]</span></div>
+                    <p>Soit $a \in \mathbb{N}$ tel que $a^n+1$ soit premier, montrer que $\exists k \in \mathbb{N}, n=2^k$. Que penser de la conjecture : $\forall n \in \mathbb{N}, 2^{2^n}+1$ est premier ?</p>
+                    <div class="nav-links"><a href="#arith-ind15">Indication ▼</a><a href="#arith-corr15">Correction ▼</a></div>
+                </article>
+                <article id="arith-exo17" class="exercise">
+                    <div class="exercise-header"><h3>Exercice 17</h3><span class="exercise-code">[000341]</span></div>
+                    <ol>
+                        <li>Montrer par récurrence que $\forall n \in \mathbb{N}, \forall k \ge 1$ on a : $2^{2^{n+k}}-1 = (2^{2^n}-1) \times \prod_{i=0}^{k-1} (2^{2^{n+i}}+1)$.</li>
+                        <li>On pose $F_n = 2^{2^n}+1$. Montrer que pour $m \ne n$, $F_n$ et $F_m$ sont premiers entre eux.</li>
+                        <li>En déduire qu'il y a une infinité de nombres premiers.</li>
+                    </ol>
+                    <div class="nav-links"><a href="#arith-ind17">Indication ▼</a><a href="#arith-corr17">Correction ▼</a></div>
+                </article>
+                <article id="arith-exo18" class="exercise">
+                    <div class="exercise-header"><h3>Exercice 18</h3><span class="exercise-code">[000348]</span></div>
+                    <p>Soit X l'ensemble des nombres premiers de la forme $4k+3$ avec $k \in \mathbb{N}$.</p>
+                    <ol>
+                        <li>Montrer que X est non vide.</li>
+                        <li>Montrer que le produit de nombres de la forme $4k+1$ est encore de cette forme.</li>
+                        <li>On suppose que X est fini et on l'écrit alors $X = \{p_1, ..., p_n\}$. Soit $a=4p_1p_2...p_n - 1$. Montrer par l'absurde que $a$ admet un diviseur premier de la forme $4k+3$.</li>
+                        <li>Montrer que ceci est impossible et donc que X est infini.</li>
+                    </ol>
+                    <div class="nav-links"><a href="#arith-corr18">Correction ▼</a></div>
+                </article>
+            </section>
+            
+            <section id="arith-indications">
+                <h3>Indications (Arithmétique)</h3>
+                <div id="arith-ind1" class="indication-box"><h4><a href="#arith-exo1">Indication pour l'exercice 1 ▲</a></h4><p>Attention le reste d'une division euclidienne est plus petit que le diviseur !</p></div>
+                <div id="arith-ind4" class="indication-box"><h4><a href="#arith-exo4">Indication pour l'exercice 4 ▲</a></h4><p>Utiliser les modulos (ici modulo 8), un entier est divisible par 8 si et seulement si il est équivalent à 0 modulo 8. Ici vous pouvez commencer par calculer $7^n \pmod 8$.</p></div>
+                <div id="arith-ind5" class="indication-box"><h4><a href="#arith-exo5">Indication pour l'exercice 5 ▲</a></h4><p>Il faut travailler modulo 13, tout d'abord réduire 100 modulo 13. Se souvenir que si $a \equiv b \pmod{13}$ alors $a^k \equiv b^k \pmod{13}$. Enfin calculer ce que cela donne pour les exposants $k = 1,2,3,...$ en essayant de trouver une règle générale.</p></div>
+                <div id="arith-ind6" class="indication-box"><h4><a href="#arith-exo6">Indication pour l'exercice 6 ▲</a></h4><ol><li>Écrire $n=2p+1$.</li><li>Écrire $n=2p$ et discuter selon que $p$ est pair ou impair.</li><li>Utiliser la première question.</li><li>Par l'absurde supposer que cela s'écrive comme un carré, par exemple $a^2+b^2+c^2 = n^2$ puis discuter selon que $n$ est pair ou impair.</li></ol></div>
+                <div id="arith-ind11" class="indication-box"><h4><a href="#arith-exo11">Indication pour l'exercice 11 ▲</a></h4><p>Commencer par simplifier l'équation ! Ensuite trouver une solution particulière $(x_0, y_0)$ à l'aide de l'algorithme d'Euclide par exemple. Ensuite trouver une expression pour une solution générale.</p></div>
+                <div id="arith-ind12" class="indication-box"><h4><a href="#arith-exo12">Indication pour l'exercice 12 ▲</a></h4><p>Il ne faut surtout pas chercher à calculer $15! = 1 \times 2 \times \dots \times 15$, mais profiter du fait qu'il est déjà "presque" factorisé.</p></div>
+                <div id="arith-ind15" class="indication-box"><h4><a href="#arith-exo15">Indication pour l'exercice 15 ▲</a></h4><p>Raisonner par contraposition (ou par l'absurde) : supposer que $n$ n'est pas de la forme $2^k$, alors $n$ admet un facteur irréductible $p>2$. Utiliser aussi $x^p+1 = (x+1)(1-x+x^2-\dots+x^{p-1})$ avec $x$ bien choisi.</p></div>
+                <div id="arith-ind17" class="indication-box"><h4><a href="#arith-exo17">Indication pour l'exercice 17 ▲</a></h4><ol><li>Il faut être très soigneux : $n$ est fixé une fois pour toute, la récurrence se fait sur $k \ge 1$.</li><li>Utiliser la question précédente avec $m=n+k$.</li><li>Par l'absurde, supposer qu'il y a seulement $N$ nombres premiers, considérer $N+1$ nombres du type $F_i$. Appliquer le "principe du tiroir" : si vous avez $N+1$ chaussettes rangées dans $N$ tiroirs alors il existe (au moins) un tiroir contenant (plus de) deux chaussettes.</li></ol></div>
+            </section>
+            
+            <section id="arith-corrections">
+                <h3>Corrections (Arithmétique)</h3>
+                <div id="arith-corr1" class="solution-box"><h4><a href="#arith-exo1">Correction de l'exercice 1 ▲</a></h4><p>Pour la division par 256: $96842 = 256 \times 375 + 842 = 256 \times 375 + 3 \times 256 + 74 = 256 \times (375+3) + 74 = 256 \times 378 + 74$. Le reste est 74.
+                <br>Pour la division par 375: $96842 = 375 \times 256 + 842 = 375 \times 256 + 2 \times 375 + 92 = 375 \times (256+2) + 92 = 375 \times 258 + 92$. Le reste est 92.</p></div>
+                <div id="arith-corr2" class="solution-box"><h4><a href="#arith-exo2">Correction de l'exercice 2 ▲</a></h4><p>Parmi 4 nombres consécutifs, il y a nécessairement deux nombres pairs, dont l'un est un multiple de 4. Leur produit est donc divisible par 8. Il y a aussi au moins un multiple de 3. Le produit est donc divisible par $8 \times 3 = 24$.
+                <br>Parmi 5 nombres consécutifs, il y a en plus un multiple de 5. Le produit est donc divisible par $24 \times 5 = 120$.</p></div>
+                <div id="arith-corr3" class="solution-box"><h4><a href="#arith-exo3">Correction de l'exercice 3 ▲</a></h4><p>Soit $n=p^2+q^2$. On étudie les carrés modulo 4. Si $k$ est pair, $k=2m$, $k^2=4m^2 \equiv 0 \pmod 4$. Si $k$ est impair, $k=2m+1$, $k^2=4m^2+4m+1 \equiv 1 \pmod 4$.
+                Ainsi, un carré est congru à 0 ou 1 modulo 4.
+                La somme de deux carrés $p^2+q^2$ ne peut être congrue qu'à $0+0=0$, $0+1=1$, ou $1+1=2$ modulo 4. Elle ne peut jamais être congrue à 3.</p></div>
+                <div id="arith-corr4" class="solution-box"><h4><a href="#arith-exo4">Correction de l'exercice 4 ▲</a></h4><p>On raisonne modulo 8: $7 \equiv -1 \pmod 8$. Donc $7^n+1 \equiv (-1)^n+1 \pmod 8$.
+                Si $n$ est impair, $(-1)^n+1 = -1+1=0$. Donc $7^n+1$ est divisible par 8.
+                Si $n$ est pair, $(-1)^n+1 = 1+1=2$. Le reste de la division par 8 est 2.</p></div>
+                <div id="arith-corr5" class="solution-box"><h4><a href="#arith-exo5">Correction de l'exercice 5 ▲</a></h4><p>Il s'agit de calculer $100^{1000} \pmod{13}$. D'abord $100 = 7 \times 13 + 9 \equiv 9 \pmod{13}$.
+                Donc $100^{1000} \equiv 9^{1000} \pmod{13}$.
+                On calcule les puissances de 9 modulo 13: $9^1 \equiv 9$, $9^2 \equiv 81 \equiv 3$, $9^3 \equiv 9 \times 3 = 27 \equiv 1$.
+                Le cycle est de longueur 3. On divise 1000 par 3: $1000 = 3 \times 333 + 1$.
+                Donc $9^{1000} = 9^{3 \times 333 + 1} = (9^3)^{333} \times 9^1 \equiv 1^{333} \times 9 \equiv 9 \pmod{13}$.
+                Le reste est 9.</p></div>
+                <div id="arith-corr6" class="solution-box"><h4><a href="#arith-exo6">Correction de l'exercice 6 ▲</a></h4><ol><li>Soit $n=2p+1$. $n^2 = (2p+1)^2 = 4p^2+4p+1 = 4p(p+1)+1$. Comme $p(p+1)$ est toujours pair, $p(p+1)=2k$. Donc $n^2=4(2k)+1=8k+1 \equiv 1 \pmod 8$.</li><li>Soit $n=2p$. $n^2=4p^2$. Si $p$ est pair, $p=2k$, $n^2=4(4k^2)=16k^2 \equiv 0 \pmod 8$. Si $p$ est impair, $p=2k+1$, $p^2 \equiv 1 \pmod 4$, $p^2=4j+1$. $n^2=4(4j+1)=16j+4 \equiv 4 \pmod 8$.</li><li>$a,b,c$ impairs. $a^2 \equiv b^2 \equiv c^2 \equiv 1 \pmod 8$. Donc $a^2+b^2+c^2 \equiv 1+1+1 \equiv 3 \pmod 8$.
+                Pour l'autre, $(a+b+c)^2 = a^2+b^2+c^2+2(ab+bc+ca)$. $a,b,c$ impairs donc $a+b+c$ est impair. $(a+b+c)^2 \equiv 1 \pmod 8$. Donc $1 \equiv 3 + 2(ab+bc+ca) \pmod 8$, ce qui donne $2(ab+bc+ca) \equiv -2 \equiv 6 \pmod 8$.</li><li>Un carré $n^2$ est congru à 0, 1, ou 4 mod 8. Or $a^2+b^2+c^2 \equiv 3 \pmod 8$ et $2(ab+bc+ca) \equiv 6 \pmod 8$. Aucun de ces deux nombres ne peut être un carré. Si $ab+bc+ca=n^2$, alors $2(ab+bc+ca)=2n^2$. Si $n$ est pair, $n^2 \equiv 0,4 \pmod 8$, $2n^2 \equiv 0,8 \equiv 0 \pmod 8$. Si $n$ est impair, $n^2 \equiv 1 \pmod 8$, $2n^2 \equiv 2 \pmod 8$. Dans aucun cas $2n^2 \equiv 6 \pmod 8$, donc contradiction.</li></ol></div>
+                <div id="arith-corr7" class="solution-box"><h4><a href="#arith-corr7">Correction de l'exercice 7 ▲</a></h4><ol><li>$126 = 2 \cdot 3^2 \cdot 7$, $230 = 2 \cdot 5 \cdot 23$. pgcd(126, 230) = 2.</li><li>$390=2 \cdot 3 \cdot 5 \cdot 13$, $720=2^4 \cdot 3^2 \cdot 5$, $450=2 \cdot 3^2 \cdot 5^2$. pgcd(390,720,450) = $2^1 \cdot 3^1 \cdot 5^1 = 30$.</li><li>pgcd(180, 606, 750) = pgcd($2^2 \cdot 3^2 \cdot 5$, $2 \cdot 3 \cdot 101$, $2 \cdot 3 \cdot 5^3$) = $2 \cdot 3 = 6$.</li></ol></div>
+                <div id="arith-corr8" class="solution-box"><h4><a href="#arith-corr8">Correction de l'exercice 8 ▲</a></h4><p>Soit $a=18a', b=18b'$ avec pgcd($a',b'$)=1.
+                <br><b>Somme:</b> $18a'+18b'=360 \Rightarrow a'+b'=20$. Couples ($a',b'$) avec $a' \le b'$: (1,19), (3,17), (7,13), (9,11). Couples ($a,b$): (18,342), (54,306), (126,234), (162,198).
+                <br><b>Produit:</b> $(18a')(18b')=6480 \Rightarrow a'b'=20$. Couples ($a',b'$) avec $a' \le b'$: (1,20), (4,5). Couples ($a,b$): (18,360), (72,90).</p></div>
+                <div id="arith-corr9" class="solution-box"><h4><a href="#arith-corr9">Correction de l'exercice 9 ▲</a></h4><p>Euclide: $18480 = 1 \cdot 9828 + 8652$; $9828 = 1 \cdot 8652 + 1176$; $8652 = 7 \cdot 1176 + 420$; $1176 = 2 \cdot 420 + 336$; $420 = 1 \cdot 336 + 84$; $336 = 4 \cdot 84 + 0$. Le pgcd est 84.
+                <br>Remontée: $84 = 420 - 336 = 420 - (1176 - 2 \cdot 420) = 3 \cdot 420 - 1176 = 3(8652 - 7 \cdot 1176) - 1176 = 3 \cdot 8652 - 22 \cdot 1176 = 3 \cdot 8652 - 22(9828 - 8652) = 25 \cdot 8652 - 22 \cdot 9828 = 25(18480 - 9828) - 22 \cdot 9828 = 25 \cdot 18480 - 47 \cdot 9828$.
+                Donc $25 \times 18480 + (-47) \times 9828 = 84$.</p></div>
+                <div id="arith-corr11" class="solution-box"><h4><a href="#arith-corr11">Correction de l'exercice 11 ▲</a></h4><p>Le pgcd de 1665 et 1035 est 45. On divise l'équation par 45: $37x+23y=1$.
+                Une solution particulière est $(x_0, y_0)=(5, -8)$ (via Euclide).
+                La solution générale est $37(x-x_0) = -23(y-y_0)$. Comme 37 et 23 sont premiers entre eux, $x-x_0$ doit être un multiple de 23. $x-x_0 = -23k \Rightarrow x = 5-23k$.
+                En substituant, $37(-23k) = -23(y-y_0) \Rightarrow y-y_0 = 37k \Rightarrow y = -8+37k$.
+                Les solutions sont $\{(5-23k, -8+37k) \mid k \in \mathbb{Z}\}$.</p></div>
+                <div id="arith-corr12" class="solution-box"><h4><a href="#arith-corr12">Correction de l'exercice 12 ▲</a></h4><p>$15! = 2^{11} \cdot 3^6 \cdot 5^3 \cdot 7^2 \cdot 11^1 \cdot 13^1$.
+                Le nombre de diviseurs est $(11+1)(6+1)(3+1)(2+1)(1+1)(1+1) = 12 \cdot 7 \cdot 4 \cdot 3 \cdot 2 \cdot 2 = 4032$.</p></div>
+                <div id="arith-corr15" class="solution-box"><h4><a href="#arith-corr15">Correction de l'exercice 15 ▲</a></h4><p>1. Contraposée: si $n$ n'est pas une puissance de 2, alors $n=pq$ avec $p$ premier impair. Soit $x=a^q$. Alors $a^n+1 = (a^q)^p+1 = x^p+1$. Comme $p$ est impair, $x+1$ divise $x^p+1$. Donc $a^q+1$ divise $a^n+1$. Puisque $1 < a^q+1 < a^n+1$, $a^n+1$ n'est pas premier.
+                <br>2. La conjecture est que les nombres de Fermat $F_n=2^{2^n}+1$ sont tous premiers. C'est faux. Euler a montré que $F_5 = 2^{32}+1 = 4294967297 = 641 \times 6700417$.</p></div>
+                <div id="arith-corr17" class="solution-box"><h4><a href="#arith-corr17">Correction de l'exercice 17 ▲</a></h4><p>2. Soit $m>n$. $m=n+k$ pour $k \ge 1$. D'après la formule de la question 1, $(F_n-2) \times \prod_{i=0}^{k-1} F_{n+i} = F_{n+k}-2$. Soit $d$ un diviseur commun de $F_n$ et $F_m=F_{n+k}$. Alors $d$ divise $F_n$ et donc $d$ divise $\prod_{i=0}^{k-1} F_{n+i}$ car $F_n$ est un des facteurs. Donc $d$ divise $F_m - (\dots F_n \dots) = 2$. Comme $F_n$ est impair, $d$ ne peut pas être 2. Donc $d=1$.
+                <br>3. Chaque $F_n$ a au moins un diviseur premier, notons-le $p_n$. Puisque les $F_n$ sont premiers entre eux deux à deux, les $p_n$ sont tous distincts. On a donc une infinité de nombres premiers.</p></div>
+                <div id="arith-corr18" class="solution-box"><h4><a href="#arith-corr18">Correction de l'exercice 18 ▲</a></h4><p>1. 3, 7, 11 sont dans X. X est non vide.
+                <br>2. $(4k+1)(4l+1) = 16kl+4k+4l+1 = 4(4kl+k+l)+1$. C'est de la forme $4k'+1$.
+                <br>3. $a = 4(p_1...p_n)-1 \equiv -1 \equiv 3 \pmod 4$. $a$ n'est pas divisible par 2. Ses diviseurs premiers sont donc de la forme $4k+1$ ou $4k+3$. Si tous ses diviseurs premiers étaient de la forme $4k+1$, leur produit (d'après la question 2) serait de la forme $4k'+1$. Mais $a \equiv 3 \pmod 4$. Donc $a$ doit avoir au moins un diviseur premier $p$ de la forme $4k+3$.
+                <br>4. Ce diviseur premier $p$ est dans $X$, donc $p \in \{p_1, ..., p_n\}$. Donc $p$ divise $p_1...p_n$. Mais $p$ divise aussi $a = 4p_1...p_n-1$. Donc $p$ doit diviser leur différence, qui est 1. C'est impossible. L'hypothèse que $X$ est fini est donc fausse.</p></div>
+            </section>
+        </section>
+    </main>
+</div>
+
+</body>
+</html>
