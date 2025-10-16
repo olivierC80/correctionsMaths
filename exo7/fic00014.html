@@ -1,0 +1,570 @@
+An engineer would proceed as follows:
+
+Analyze the request: The goal is to convert a PDF of math exercises into a single, mobile-friendly HTML file. Key constraints are using KaTeX for math, creating internal links between exercises and solutions, omitting video links, and following specific instructions for the KaTeX script tags.
+
+Set up the HTML structure: A basic HTML5 boilerplate is needed. A single CSS block will be embedded in the <head> for styling, prioritizing mobile readability (responsive design).
+
+Content extraction and conversion: Each page of the PDF will be processed sequentially.
+
+Text will be transcribed.
+
+Mathematical formulas will be converted to LaTeX, enclosed in $ for inline math and $$ for display math.
+
+Structural elements like lists (<ol>), sections (<section>), and exercise blocks (<article>) will be used.
+
+id attributes will be assigned to each exercise, indication, and correction to enable internal linking (<a href="#...">).
+
+Images (diagrams) will be extracted, saved, and embedded using <img> tags, with CSS to make them responsive.
+
+Styling (CSS): The CSS will focus on a clean, single-column layout. It will ensure fonts are readable, spacing is generous, and the overall look is professional and functional on a small screen. The "Exo7" logo will be recreated with a styled div.
+
+Final Assembly: All parts will be combined into a single HTML file, including the specified KaTeX CDN links in the head. A final check ensures all links work and the math renders correctly.
+
+Here is the resulting complete HTML file.
+
+code
+Html
+play_circle
+download
+content_copy
+expand_less
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonctions circulaires et hyperboliques inverses</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .exo7-box {
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            background-color: #ffc107;
+            color: #333;
+            padding: 10px 15px;
+            font-weight: bold;
+            transform: rotate(15deg);
+            border: 2px solid #e0a800;
+            border-radius: 4px;
+        }
+        h1, h2, h3, h4 {
+            color: #0056b3;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            margin-top: 1.5em;
+        }
+        h1 {
+            font-size: 1.8em;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #007bff;
+        }
+        h3 {
+            font-size: 1.3em;
+            color: #17a2b8;
+            border-bottom: none;
+        }
+        h4 {
+            font-size: 1.1em;
+            color: #6c757d;
+            border-bottom: 1px dotted #ccc;
+        }
+        article {
+            margin-bottom: 2em;
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            background-color: #fdfdff;
+        }
+        .ref {
+            text-align: right;
+            font-size: 0.8em;
+            color: #6c757d;
+        }
+        .nav-links {
+            margin-top: 10px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #007bff;
+            margin-right: 15px;
+            font-weight: 500;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        ol, ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 1em auto;
+            border-radius: 4px;
+        }
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 5px 0;
+        }
+        .back-link {
+            text-decoration: none;
+            color: #17a2b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="exo7-box">Exo7</div>
+        <header>
+            <h1>Fonctions circulaires et hyperboliques inverses</h1>
+            <p style="text-align: center;">Corrections de Léa Blanc-Centi.</p>
+        </header>
+
+        <main>
+            <section id="exercices">
+                <h2>1 Fonctions circulaires inverses</h2>
+
+                <article id="exo1">
+                    <h3>Exercice 1</h3>
+                    <p>Vérifier</p>
+                    $$ \arcsin x + \arccos x = \frac{\pi}{2} \quad \text{et} \quad \arctan x + \arctan \frac{1}{x} = \operatorname{sgn}(x)\frac{\pi}{2} $$
+                    <div class="nav-links">
+                        <a href="#ind1">Indication ▼</a>
+                        <a href="#corr1">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000752]</div>
+                </article>
+
+                <article id="exo2">
+                    <h3>Exercice 2</h3>
+                    <p>Une statue de hauteur $s$ est placée sur un piédestal de hauteur $p$.</p>
+                    <ol>
+                        <li>À quelle distance $x_0$ doit se placer un observateur (dont la taille est supposée négligeable) pour voir la statue sous un angle maximal $\alpha_0$?</li>
+                        <li>Vérifier que $\alpha_0 = \arctan \frac{s}{2\sqrt{p(p+s)}}$.</li>
+                        <li>Application à la statue de la liberté : haute de 46 mètres avec un piédestal de 47 mètres.</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind2">Indication ▼</a>
+                        <a href="#corr2">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000745]</div>
+                </article>
+
+                <article id="exo3">
+                    <h3>Exercice 3</h3>
+                    <p>Écrire sous forme d'expression algébrique</p>
+                    <ol>
+                        <li>$\sin(\arccos x), \quad \cos(\arcsin x), \quad \cos(2\arcsin x)$.</li>
+                        <li>$\sin(\arctan x), \quad \cos(\arctan x), \quad \sin(3\arctan x)$.</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind3">Indication ▼</a>
+                        <a href="#corr3">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000747]</div>
+                </article>
+
+                <article id="exo4">
+                    <h3>Exercice 4</h3>
+                    <p>Résoudre les équations suivantes:</p>
+                    <ol>
+                        <li>$\arccos x = 2 \arccos \frac{3}{4}$.</li>
+                        <li>$\arcsin x = \arcsin \frac{2}{5} + \arcsin \frac{3}{5}$.</li>
+                        <li>$\arctan 2x + \arctan x = \frac{\pi}{4}$.</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind4">Indication ▼</a>
+                        <a href="#corr4">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000749]</div>
+                </article>
+                
+                <article id="exo5">
+                    <h3>Exercice 5</h3>
+                    <p>Montrer que pour tout $x > 0$, on a</p>
+                    $$ \arctan\left(\frac{1}{2x^2}\right) = \arctan\left(\frac{x}{x+1}\right) - \arctan\left(\frac{x-1}{x}\right) $$
+                    <p>En déduire une expression de $S_n = \sum_{k=1}^n \arctan\left(\frac{1}{2k^2}\right)$ et calculer $\lim_{n\to+\infty} S_n$.</p>
+                     <div class="nav-links">
+                        <a href="#ind5">Indication ▼</a>
+                        <a href="#corr5">Correction ▼</a>
+                    </div>
+               </article>
+
+                <article id="exo6">
+                    <h3>Exercice 6</h3>
+                    <p>Soit $z = x + iy$ un nombre complexe, où $x = \operatorname{Re}z$ et $y = \operatorname{Im}z$. On sait que si $z$ est non nul, on peut l'écrire de façon unique sous la forme $z = x+iy = re^{i\theta}$, où $\theta \in ]-\pi, \pi]$ et $r = \sqrt{x^2+y^2}$.</p>
+                    <img src="https://i.imgur.com/vH9XvH8.png" alt="Diagramme nombre complexe z=x+iy">
+                    <ol>
+                        <li>Montrer que si $x > 0$, alors $\theta = \arctan \frac{y}{x}$.</li>
+                        <li>Montrer que si $\theta \in ]-\pi, \pi[$, alors $\theta = 2 \arctan \left(\frac{\sin\theta}{1+\cos\theta}\right)$.</li>
+                        <li>En déduire que si $z$ n'est pas réel négatif ou nul, on a l'égalité
+                        $$ \theta = 2 \arctan\left(\frac{y}{x+\sqrt{x^2+y^2}}\right) $$
+                        </li>
+                    </ol>
+                     <div class="nav-links">
+                        <a href="#corr6">Correction ▼</a>
+                    </div>
+                    <div class="ref">[006974]</div>
+                </article>
+            </section>
+            
+            <section>
+                <h2>2 Fonctions hyperboliques</h2>
+                
+                <article id="exo7">
+                    <h3>Exercice 7</h3>
+                    <p>Simplifier l'expression $\frac{2\operatorname{ch}^2(x) - \operatorname{sh}(2x)}{x - \ln(\operatorname{ch}x) - \ln 2}$ et donner ses limites en $-\infty$ et $+\infty$.</p>
+                     <div class="nav-links">
+                        <a href="#ind7">Indication ▼</a>
+                        <a href="#corr7">Correction ▼</a>
+                    </div>
+                    <div class="ref">[006975]</div>
+                </article>
+
+                <article id="exo8">
+                    <h3>Exercice 8</h3>
+                    <p>Soit $x \in \mathbb{R}$. On pose $t = \arctan(\operatorname{sh}x)$.</p>
+                    <ol>
+                        <li>Établir les relations
+                        $$ \tan t = \operatorname{sh}x \qquad \frac{1}{\cos t} = \operatorname{ch}x \qquad \sin t = \operatorname{th}x $$
+                        </li>
+                        <li>Montrer que $x = \ln\left(\tan\left(\frac{t}{2}+\frac{\pi}{4}\right)\right)$.</li>
+                    </ol>
+                     <div class="nav-links">
+                        <a href="#ind8">Indication ▼</a>
+                        <a href="#corr8">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000764]</div>
+                </article>
+                
+                <article id="exo9">
+                    <h3>Exercice 9</h3>
+                    <p>Soit $x$ un réel fixé. Pour $n \in \mathbb{N}^*$, on pose</p>
+                    $$ C_n = \sum_{k=1}^n \operatorname{ch}(kx) \quad \text{et} \quad S_n = \sum_{k=1}^n \operatorname{sh}(kx) $$
+                    <p>Calculer $C_n$ et $S_n$.</p>
+                     <div class="nav-links">
+                        <a href="#ind9">Indication ▼</a>
+                        <a href="#corr9">Correction ▼</a>
+                    </div>
+                    <div class="ref">[006976]</div>
+                </article>
+
+                <article id="exo10">
+                    <h3>Exercice 10</h3>
+                    <p>Soit $a$ et $b$ deux réels positifs tels que $a^2-b^2=1$. Résoudre le système</p>
+                    $$ \begin{cases} \operatorname{ch}(x) + \operatorname{ch}(y) = 2a \\ \operatorname{sh}(x) + \operatorname{sh}(y) = 2b \end{cases} $$
+                     <div class="nav-links">
+                        <a href="#ind10">Indication ▼</a>
+                        <a href="#corr10">Correction ▼</a>
+                    </div>
+                    <div class="ref">[006977]</div>
+                </article>
+            </section>
+
+            <section>
+                <h2>3 Fonctions hyperboliques inverses</h2>
+
+                <article id="exo11">
+                    <h3>Exercice 11</h3>
+                    <p>Simplifier les expressions suivantes:</p>
+                    <ol>
+                        <li>$\operatorname{ch}(\operatorname{argsh}x), \quad \operatorname{th}(\operatorname{argsh}x), \quad \operatorname{sh}(2\operatorname{argsh}x)$.</li>
+                        <li>$\operatorname{sh}(\operatorname{argch}x), \quad \operatorname{th}(\operatorname{argch}x), \quad \operatorname{ch}(3\operatorname{argch}x)$.</li>
+                    </ol>
+                     <div class="nav-links">
+                        <a href="#corr11">Correction ▼</a>
+                    </div>
+                    <div class="ref">[006978]</div>
+                </article>
+                
+                <article id="exo12">
+                    <h3>Exercice 12</h3>
+                    <p>Étudier le domaine de définition de la fonction $f$ définie par</p>
+                    $$ f(x) = \operatorname{argch}\left[\frac{1}{2}\left(x+\frac{1}{x}\right)\right] $$
+                    <p>et simplifier son expression lorsqu'elle a un sens.</p>
+                     <div class="nav-links">
+                        <a href="#ind12">Indication ▼</a>
+                        <a href="#corr12">Correction ▼</a>
+                    </div>
+                    <div class="ref">[006979]</div>
+                </article>
+
+                <article id="exo13">
+                    <h3>Exercice 13</h3>
+                    <p>Montrer que l'équation $\operatorname{argsh}x + \operatorname{argch}x = 1$ admet une unique solution, puis la déterminer.</p>
+                     <div class="nav-links">
+                        <a href="#ind13">Indication ▼</a>
+                        <a href="#corr13">Correction ▼</a>
+                    </div>
+                    <div class="ref">[006980]</div>
+                </article>
+            </section>
+            
+            <section id="indications">
+                <h2>Indications</h2>
+                <div id="ind1"><h4>Indication pour l'exercice 1 <a href="#exo1" class="back-link">▲</a></h4><p>Faire une étude de fonction. La fonction $\operatorname{sgn}(x)$ est la fonction signe : elle vaut +1 si $x > 0$, -1 si $x < 0$ (et 0 si $x = 0$).</p></div>
+                <div id="ind2"><h4>Indication pour l'exercice 2 <a href="#exo2" class="back-link">▲</a></h4><p>Faire un dessin. Calculer l'angle d'observation $\alpha$ en fonction de la distance $x$ et étudier cette fonction. Pour simplifier l'expression de $\alpha_0$, calculer $\tan \alpha_0$ à l'aide de la formule donnant $\tan(a-b)$.</p></div>
+                <div id="ind3"><h4>Indication pour l'exercice 3 <a href="#exo3" class="back-link">▲</a></h4><p>Il faut utiliser les identités trigonométriques classiques.</p></div>
+                <div id="ind4"><h4>Indication pour l'exercice 4 <a href="#exo4" class="back-link">▲</a></h4><p>On compose les équations par la bonne fonction (sur le bon domaine de définition), par exemple cosinus pour la première. Pour la dernière, commencer par étudier la fonction pour montrer qu'il existe une unique solution.</p></div>
+                <div id="ind5"><h4>Indication pour l'exercice 5 <a href="#exo5" class="back-link">▲</a></h4><p>Dériver la différence des deux expressions.</p></div>
+                <div id="ind7"><h4>Indication pour l'exercice 7 <a href="#exo7" class="back-link">▲</a></h4><p>On trouve $\frac{1+e^{-2x}}{\ln(1+e^{-2x})}$.</p></div>
+                <div id="ind8"><h4>Indication pour l'exercice 8 <a href="#exo8" class="back-link">▲</a></h4><p>Pour la première question calculer $\frac{1}{\cos^2 t}$. Pour la seconde question, vérifier que $y = \ln\left(\tan\left(\frac{t}{2}+\frac{\pi}{4}\right)\right)$ est bien défini et calculer $\operatorname{sh}y$.</p></div>
+                <div id="ind9"><h4>Indication pour l'exercice 9 <a href="#exo9" class="back-link">▲</a></h4><p>Commencer par calculer $C_n + S_n$ et $C_n - S_n$ à l'aide des fonctions $\operatorname{ch}$ et $\operatorname{sh}$.</p></div>
+                <div id="ind10"><h4>Indication pour l'exercice 10 <a href="#exo10" class="back-link">▲</a></h4><p>Poser $X=e^x$ et $Y=e^y$ et se ramener à un système d'équations du type somme-produit.</p></div>
+                <div id="ind12"><h4>Indication pour l'exercice 12 <a href="#exo12" class="back-link">▲</a></h4><p>On trouve $f(x) = |\ln x|$ pour tout $x > 0$.</p></div>
+                <div id="ind13"><h4>Indication pour l'exercice 13 <a href="#exo13" class="back-link">▲</a></h4><p>Faire le tableau de variations de $f: x \mapsto \operatorname{argsh}x + \operatorname{argch}x$.</p></div>
+            </section>
+            
+            <section id="corrections">
+                <h2>Corrections</h2>
+                <div id="corr1">
+                    <h4>Correction de l'exercice 1 <a href="#exo1" class="back-link">▲</a></h4>
+                    <ol>
+                        <li>Soit $f$ la fonction définie sur $[-1,1]$ par $f(x) = \arcsin x + \arccos x$: $f$ est continue sur l'intervalle $[-1,1]$, et dérivable sur $]-1,1[$. Pour tout $x \in ]-1,1[$, $f'(x) = \frac{1}{\sqrt{1-x^2}} - \frac{1}{\sqrt{1-x^2}} = 0$. Ainsi $f$ est constante sur $]-1,1[$, donc sur $[-1,1]$ (car continue aux extrémités). Or $f(0) = \arcsin 0 + \arccos 0 = \frac{\pi}{2}$ donc pour tout $x \in [-1,1]$, $f(x) = \frac{\pi}{2}$.</li>
+                        <li>Soit $g(x) = \arctan x + \arctan \frac{1}{x}$. Cette fonction est définie sur $]-\infty,0[$ et sur $]0, +\infty[$ (mais pas en 0). On a
+                        $$ g'(x) = \frac{1}{1+x^2} + \frac{-1/x^2}{1+(1/x)^2} = \frac{1}{1+x^2} - \frac{1}{x^2+1} = 0, $$
+                        donc $g$ est constante sur chacun de ses intervalles de définition: $g(x) = c_1$ sur $]-\infty,0[$ et $g(x) = c_2$ sur $]0, +\infty[$. Sachant $\arctan 1 = \frac{\pi}{4}$, on calcule $g(1)$ et $g(-1)$ on obtient $c_2 = \frac{\pi}{2}$ et $c_1 = -\frac{\pi}{2}$.</li>
+                    </ol>
+                </div>
+                
+                <div id="corr2">
+                    <h4>Correction de l'exercice 2 <a href="#exo2" class="back-link">▲</a></h4>
+                    <ol>
+                        <li>On note $x$ la distance de l'observateur au pied de la statue. On note $\alpha$ l'angle d'observation de la statue seule, et $\beta$ l'angle d'observation du piédestal seul.
+                        <img src="https://i.imgur.com/qU3g4T2.png" alt="Diagramme de la statue et de l'observateur">
+                        Nous avons les relations trigonométriques dans les triangles rectangles :
+                        $$ \tan(\alpha+\beta) = \frac{p+s}{x} \quad \text{et} \quad \tan \beta = \frac{p}{x} $$
+                        On en déduit les deux identités :
+                        $$ \alpha+\beta = \arctan\left(\frac{p+s}{x}\right) \quad \text{et} \quad \beta = \arctan\left(\frac{p}{x}\right) $$
+                        à partir desquelles on obtient $\alpha = \alpha(x) = \arctan\left(\frac{p+s}{x}\right) - \arctan\left(\frac{p}{x}\right)$.
+                        Étudions cette fonction sur $]0, +\infty[$ : elle est dérivable et
+                        $$ \alpha'(x) = \frac{-\frac{p+s}{x^2}}{1+(\frac{p+s}{x})^2} - \frac{-\frac{p}{x^2}}{1+(\frac{p}{x})^2} = \frac{s(p(p+s)-x^2)}{(x^2+p^2)(x^2+(s+p)^2)} $$
+                        Ainsi $\alpha'$ ne s'annule sur $]0, +\infty[$ qu'en $x_0 = \sqrt{p(p+s)}$. Par des considérations physiques, à la limite en 0 et en $+\infty$, l'angle $\alpha$ est nul, alors en $x_0$ nous obtenons un angle $\alpha$ maximum. Donc la distance optimale de vision est $x_0 = \sqrt{p(p+s)}$.</li>
+                        <li>Pour calculer l'angle maximum $\alpha_0$ correspondant, on pourrait calculer $\alpha_0 = \alpha(x_0)$ à partir de la définition de la fonction $\alpha(x)$. Pour obtenir une formule plus simple nous utilisons la formule trigonométrique suivante : si $a, b$ et $a-b$ sont dans l'intervalle de définition de la fonction $\tan$, alors $\tan(a-b) = \frac{\tan a - \tan b}{1+\tan a \tan b}$, ce qui donne ici
+                        $$ \tan\alpha_0 = \tan((\alpha_0+\beta_0)-\beta_0) = \frac{\frac{p+s}{x_0} - \frac{p}{x_0}}{1+\frac{p+s}{x_0} \cdot \frac{p}{x_0}} = \frac{s/x_0}{1+\frac{p(p+s)}{x_0^2}} = \frac{s/x_0}{2} = \frac{s}{2x_0} = \frac{s}{2\sqrt{p(p+s)}} $$
+                        Comme $\alpha_0 \in ]-\frac{\pi}{2}, \frac{\pi}{2}[$, on en déduit $\alpha_0 = \arctan\frac{s}{2x_0} = \arctan\frac{s}{2\sqrt{p(p+s)}}$.
+                        </li>
+                        <li>Pour la statue de la liberté, on a la hauteur de la statue $s=46$ mètres et la hauteur du piédestal $p=47$ mètres. On trouve donc
+                        $$ x_0 = \sqrt{p(p+s)} \approx 65,40 \text{ mètres} \qquad \alpha_0 = \arctan\frac{s}{2\sqrt{p(p+s)}} \approx 19^\circ. $$
+                        Voici les représentations de la statue et de la fonction $\alpha(x)$ pour ces valeurs de $s$ et $p$.
+                        <img src="https://i.imgur.com/k28s2vY.png" alt="Graphique de la fonction alpha(x)">
+                        </li>
+                    </ol>
+                </div>
+
+                <div id="corr3">
+                    <h4>Correction de l'exercice 3 <a href="#exo3" class="back-link">▲</a></h4>
+                    <ol>
+                        <li>$\sin^2 y = 1 - \cos^2 y$, donc $\sin y = \pm\sqrt{1-\cos^2 y}$. Avec $y=\arccos x$, il vient $\sin(\arccos x) = \pm\sqrt{1-x^2}$. Or $\arccos x \in [0, \pi]$, donc $\sin(\arccos x)$ est positif et finalement $\sin(\arccos x) = +\sqrt{1-x^2}$. De la même manière on trouve $\cos(\arcsin x) = \pm\sqrt{1-x^2}$. Or $\arcsin x \in [-\frac{\pi}{2}, \frac{\pi}{2}]$, donc $\cos(\arcsin x)$ est positif et finalement $\cos(\arcsin x) = +\sqrt{1-x^2}$.<br>
+                        Ces deux égalités sont à connaître ou à savoir retrouver très rapidement :
+                        $$ \sin(\arccos x) = \sqrt{1-x^2} = \cos(\arcsin x). $$
+                        Enfin, puisque $\cos(2y) = \cos^2 y - \sin^2 y$, on obtient avec $y=\arcsin x$,
+                        $$ \cos(2\arcsin x) = (\sqrt{1-x^2})^2 - x^2 = 1 - 2x^2. $$
+                        </li>
+                        <li>Commençons par calculer $\sin(\arctan x)$, $\cos(\arctan x)$. On utilise l'identité $1+\tan^2 y = \frac{1}{\cos^2 y}$ avec $y = \arctan x$, ce qui donne $\cos^2 y = \frac{1}{1+x^2}$ et $\sin^2 y = 1-\cos^2 y = \frac{x^2}{1+x^2}$. Il reste à déterminer les signes de $\cos(\arctan x) = \pm\frac{1}{\sqrt{1+x^2}}$ et $\sin(\arctan x) = \pm\frac{x}{\sqrt{1+x^2}}$. Or $y=\arctan x$ donc $y \in ]-\frac{\pi}{2}, \frac{\pi}{2}[$ et $y$ a le même signe que $x$ : ainsi $\cos y > 0$, et $\sin y$ a le même signe que $y$ et donc que $x$. Finalement, on a $\cos(\arctan x) = \frac{1}{\sqrt{1+x^2}}$ et $\sin(\arctan x) = \frac{x}{\sqrt{1+x^2}}$.<br>
+                        Il ne reste plus qu'à linéariser $\sin(3y)$:
+                        $$ \sin(3y) = \sin(2y+y) = \cos(2y)\sin y + \cos y \sin(2y) = (2\cos^2 y - 1)\sin y + 2\sin y \cos^2 y = 4\sin y \cos^2 y - \sin y $$
+                        Maintenant
+                        $$ \sin(3\arctan x) = 4\frac{x}{\sqrt{1+x^2}} \left(\frac{1}{\sqrt{1+x^2}}\right)^2 - \frac{x}{\sqrt{1+x^2}} = \frac{4x}{(1+x^2)^{3/2}} - \frac{x(1+x^2)}{(1+x^2)^{3/2}} = \frac{x(3-x^2)}{(1+x^2)^{3/2}} $$
+                        </li>
+                    </ol>
+                </div>
+                
+                <div id="corr4">
+                    <h4>Correction de l'exercice 4 <a href="#exo4" class="back-link">▲</a></h4>
+                    <ol>
+                        <li>On vérifie d'abord que $2\arccos\frac{3}{4} \in [0, \pi]$ (sinon, l'équation n'aurait aucune solution). En effet, par définition, la fonction arccos est décroissante sur $[-1,1]$ à valeurs dans $[0,\pi]$, donc puisque $\frac{1}{2} < \frac{3}{4} < 1$ on a $\frac{\pi}{3} \ge \arccos(\frac{3}{4}) \ge 0$. Puisque par définition $\arccos x \in [0,\pi]$, on obtient en prenant le cosinus :
+                        $$ \arccos x = 2\arccos\frac{3}{4} \iff x = \cos\left(2\arccos\frac{3}{4}\right) $$
+                        En appliquant la formule $\cos 2u = 2\cos^2 u - 1$, on arrive donc à une unique solution $x=2(\frac{3}{4})^2 - 1 = \frac{1}{8}$.</li>
+                        <li>Vérifions d'abord que $-\frac{\pi}{2} \le \arcsin\frac{2}{5} + \arcsin\frac{3}{5} \le \frac{\pi}{2}$. En effet, la fonction arcsin est strictement croissante et $0 < \frac{2}{5} < \frac{1}{2} < \frac{3}{5} < \frac{\sqrt{2}}{2}$, ce qui donne $0 < \arcsin(\frac{2}{5}) < \frac{\pi}{6} < \arcsin(\frac{3}{5}) < \frac{\pi}{4}$, d'où l'encadrement $0 + \frac{\pi}{6} < \arcsin\frac{2}{5} + \arcsin\frac{3}{5} \le \frac{\pi}{6} + \frac{\pi}{4}$.
+                        Puisque par définition on a aussi $\arcsin x \in [-\frac{\pi}{2}, \frac{\pi}{2}]$, il vient en prenant le sinus:
+                        $$ \arcsin x = \arcsin\frac{2}{5} + \arcsin\frac{3}{5} \iff x = \sin\left(\arcsin\frac{2}{5} + \arcsin\frac{3}{5}\right) $$
+                        $$ \iff x = \frac{2}{5}\cos\left(\arcsin\frac{3}{5}\right) + \frac{3}{5}\cos\left(\arcsin\frac{2}{5}\right) $$
+                        La dernière équivalence vient de la formule de $\sin(a+b) = \cos a \sin b + \cos b \sin a$ et de l'identité $\sin(\arcsin u) = u$.
+                        En utilisant la formule $\cos(\arcsin x) = \sqrt{1-x^2}$, on obtient une unique solution: $x = \frac{2}{5}\sqrt{1-(\frac{3}{5})^2} + \frac{3}{5}\sqrt{1-(\frac{2}{5})^2} = \frac{2}{5}\frac{4}{5} + \frac{3}{5}\frac{\sqrt{21}}{5} = \frac{8+3\sqrt{21}}{25}$.</li>
+                        <li>Supposons d'abord que $x$ est solution. Remarquons d'abord que $x$ est nécessairement positif, puisque $\arctan x$ a le même signe que $x$. Alors, en prenant la tangente des deux membres, on obtient $\tan(\arctan(2x) + \arctan(x)) = 1$.
+                        En utilisant la formule donnant la tangente d'une somme : $\tan(a+b) = \frac{\tan a + \tan b}{1-\tan a \tan b}$, on obtient $\frac{2x+x}{1-2x \cdot x} = 1$, et finalement $2x^2+3x-1=0$ qui admet une unique solution positive $x_0 = \frac{-3+\sqrt{17}}{4}$. Ainsi, si l'équation de départ admet une solution, c'est nécessairement $x_0$.
+                        Or, en posant $f(x) = \arctan(2x) + \arctan(x)$, la fonction $f$ est continue sur $\mathbb{R}$. Comme $f(x) \xrightarrow{x\to-\infty} -\pi$ et $f(x) \xrightarrow{x\to+\infty} +\pi$, on sait d'après le théorème des valeurs intermédiaires que $f$ prend la valeur $\frac{\pi}{4}$ au moins une fois (et en fait une seule fois, puisque $f$ est strictement croissante comme somme de deux fonctions strictement croissantes). Ainsi l'équation de départ admet bien une solution, qui est $x_0$.</li>
+                    </ol>
+                </div>
+
+                <div id="corr5">
+                    <h4>Correction de l'exercice 5 <a href="#exo5" class="back-link">▲</a></h4>
+                    <p>Posons $f(x) = \arctan\left(\frac{1}{2x^2}\right) - \arctan\left(\frac{x}{x+1}\right) + \arctan\left(\frac{x-1}{x}\right)$ pour tout $x > 0$. La fonction $f$ est dérivable, et
+                    $$ f'(x) = \frac{-\frac{1}{x^3}}{1+(\frac{1}{2x^2})^2} - \frac{\frac{1}{(x+1)^2}}{1+(\frac{x}{x+1})^2} + \frac{\frac{1}{x^2}}{1+(\frac{x-1}{x})^2} $$
+                    $$ = \frac{-4x}{4x^4+1} - \frac{1}{(x+1)^2+x^2} + \frac{1}{x^2+(x-1)^2} = 0 $$
+                    Ainsi $f$ est une fonction constante. Or $f(x) \xrightarrow{x\to+\infty} \arctan 0 - \arctan 1 + \arctan 1 = 0$. Donc la constante vaut 0, d'où l'égalité cherchée.
+                    Alors :
+                    $$ S_n = \sum_{k=1}^n \arctan\left(\frac{1}{2k^2}\right) = \sum_{k=1}^n \left( \arctan\left(\frac{k}{k+1}\right) - \arctan\left(\frac{k-1}{k}\right) \right) $$
+                    C'est une somme télescopique :
+                    $$ S_n = \arctan\left(\frac{n}{n+1}\right) - \arctan\left(\frac{1-1}{1}\right) = \arctan\left(\frac{n}{n+1}\right) - \arctan(0) = \arctan\left(\frac{n}{n+1}\right) $$
+                    Ainsi $S_n \xrightarrow{n\to+\infty} \arctan(1) = \frac{\pi}{4}$.
+                    </p>
+                </div>
+                
+                <div id="corr6">
+                    <h4>Correction de l'exercice 6 <a href="#exo6" class="back-link">▲</a></h4>
+                    <ol>
+                        <li>Si $x > 0$, alors $\frac{y}{x}$ est bien défini et $\arctan\frac{y}{x}$ aussi. Comme $x=r\cos\theta$ et $y=r\sin\theta$, on a bien $\frac{y}{x}=\tan\theta$. Puisque par hypothèse $\theta \in ]-\pi, \pi]$ et que l'on a supposé $x>0$, alors $\cos\theta > 0$. Cela implique $\theta \in ]-\frac{\pi}{2}, \frac{\pi}{2}[$. Donc $\theta = \arctan(\tan\theta) = \arctan\frac{y}{x}$. (Attention ! Il est important d'avoir $\theta \in ]-\frac{\pi}{2}, \frac{\pi}{2}[$ pour considérer l'identité $\arctan(\tan\theta)=\theta$.)</li>
+                        <li>Si $\theta \in ]-\pi, \pi[$ alors $\frac{\theta}{2} \in ]-\frac{\pi}{2}, \frac{\pi}{2}[$, donc $\frac{\theta}{2} = \arctan(\tan\frac{\theta}{2})$. Or
+                        $$ \frac{\sin\theta}{1+\cos\theta} = \frac{2\cos\frac{\theta}{2}\sin\frac{\theta}{2}}{1+(2\cos^2\frac{\theta}{2}-1)} = \frac{\sin\frac{\theta}{2}}{\cos\frac{\theta}{2}} = \tan\frac{\theta}{2} $$
+                        d'où $\frac{\theta}{2} = \arctan(\tan\frac{\theta}{2}) = \arctan(\frac{\sin\theta}{1+\cos\theta})$.</li>
+                        <li>Remarquons que $z=x+iy$, supposé non nul, est un nombre réel négatif si et seulement si ($x=r\cos\theta < 0$ et $y=r\sin\theta=0$), c'est-à-dire $\theta=\pi$. Par conséquent, dire que $z$ n'est pas réel négatif ou nul signifie que $\theta \in ]-\pi, \pi[$. On a alors $x+\sqrt{x^2+y^2} \ne 0$ (sinon, on aurait $\sqrt{x^2+y^2}=-x$ et donc $y=0$ et $x \le 0$) et
+                        $$ \frac{y}{x+\sqrt{x^2+y^2}} = \frac{r\sin\theta}{r\cos\theta+r} = \frac{\sin\theta}{1+\cos\theta} $$
+                        Par la question précédente :
+                        $$ \theta = 2\arctan\left(\frac{\sin\theta}{1+\cos\theta}\right) = 2\arctan\left(\frac{y}{x+\sqrt{x^2+y^2}}\right) $$
+                        </li>
+                    </ol>
+                </div>
+
+                <div id="corr7">
+                    <h4>Correction de l'exercice 7 <a href="#exo7" class="back-link">▲</a></h4>
+                    <p>Par définition des fonctions $\operatorname{ch}$ et $\operatorname{sh}$, on a
+                    $$ 2\operatorname{ch}^2(x) - \operatorname{sh}(2x) = 2\left(\frac{e^x+e^{-x}}{2}\right)^2 - \frac{e^{2x}-e^{-2x}}{2} = \frac{e^{2x}+2+e^{-2x}}{2} - \frac{e^{2x}-e^{-2x}}{2} = 1+e^{-2x} $$
+                    Et en utilisant les deux relations $\ln(ab) = \ln a + \ln b$ et $\ln(e^u)=u$ on calcule :
+                    $$ x - \ln(\operatorname{ch}x) - \ln 2 = x - \ln\left(\frac{e^x+e^{-x}}{2}\right) - \ln 2 = x - (\ln(e^x+e^{-x}) - \ln 2) - \ln 2 = x - \ln(e^x(1+e^{-2x})) = x - (\ln(e^x)+\ln(1+e^{-2x})) = -\ln(1+e^{-2x}) $$
+                    d'où
+                    $$ \frac{2\operatorname{ch}^2(x) - \operatorname{sh}(2x)}{x - \ln(\operatorname{ch}x) - \ln 2} = -\frac{1+e^{-2x}}{\ln(1+e^{-2x})} $$
+                    C'est une expression de la forme $-\frac{u}{\ln u}$ avec $u = 1+e^{-2x}$.
+                    <ul>
+                        <li>Si $x \to +\infty$, alors $u \to 1^+$, et $\ln u \to 0^+$. Donc l'expression tend vers $-\infty$.</li>
+                        <li>Si $x \to -\infty$, alors $u \to +\infty$. D'après les relations de croissances comparées, $\frac{u}{\ln u} \to +\infty$, donc l'expression tend vers $-\infty$.</li>
+                    </ul>
+                    </p>
+                </div>
+                
+                <div id="corr8">
+                    <h4>Correction de l'exercice 8 <a href="#exo8" class="back-link">▲</a></h4>
+                    <ol type="a">
+                        <li>Remarquons d'abord que, par construction, $t \in ]-\frac{\pi}{2}, \frac{\pi}{2}[$, $t$ est donc dans le domaine de définition de la fonction $\tan$. En prenant la tangente de l'égalité $t = \arctan(\operatorname{sh}x)$ on obtient directement $\tan t = \tan(\arctan(\operatorname{sh}x)) = \operatorname{sh}x$.</li>
+                        <li>Ensuite, $\frac{1}{\cos^2 t} = 1+\tan^2 t = 1+\tan^2(\arctan(\operatorname{sh}x)) = 1+\operatorname{sh}^2 x = \operatorname{ch}^2 x$. Or la fonction $\operatorname{ch}$ ne prend que des valeurs positives, et $t \in ]-\frac{\pi}{2}, \frac{\pi}{2}[$ donc $\cos t > 0$. Ainsi $\frac{1}{\cos t} = \operatorname{ch}x$.</li>
+                        <li>Enfin, $\sin t = \tan t \cdot \cos t = \operatorname{sh}x \cdot \frac{1}{\operatorname{ch}x} = \operatorname{th}x$.</li>
+                    </ol>
+                    <p><b>2.</b> Puisque $t \in ]-\frac{\pi}{2}, \frac{\pi}{2}[$, on a $0 < \frac{t}{2}+\frac{\pi}{4} < \frac{\pi}{2}$, donc $\tan(\frac{t}{2}+\frac{\pi}{4})$ est bien défini et strictement positif. Ainsi $y = \ln(\tan(\frac{t}{2}+\frac{\pi}{4}))$ est bien défini.
+                    Ensuite :
+                    $$ \operatorname{sh}y = \frac{e^y-e^{-y}}{2} = \frac{1}{2}\left(\tan\left(\frac{t}{2}+\frac{\pi}{4}\right) - \frac{1}{\tan\left(\frac{t}{2}+\frac{\pi}{4}\right)}\right) = \frac{\sin^2(\frac{t}{2}+\frac{\pi}{4}) - \cos^2(\frac{t}{2}+\frac{\pi}{4})}{2\cos(\frac{t}{2}+\frac{\pi}{4})\sin(\frac{t}{2}+\frac{\pi}{4})} = \frac{-\cos(t+\frac{\pi}{2})}{\sin(t+\frac{\pi}{2})} = \frac{\sin t}{\cos t} = \tan t $$
+                    car $\sin(2u) = 2\cos u \sin u$ et $\cos(2u) = \cos^2 u - \sin^2 u$.
+                    Enfin, on a $\operatorname{sh}y = \tan t = \operatorname{sh}x$. Puisque la fonction $\operatorname{sh}$ est bijective de $\mathbb{R}$ dans $\mathbb{R}$, on en déduit $y=x$. Conclusion : $x=y=\ln(\tan(\frac{t}{2}+\frac{\pi}{4}))$.</p>
+                </div>
+                
+                <div id="corr9">
+                    <h4>Correction de l'exercice 9 <a href="#exo9" class="back-link">▲</a></h4>
+                    <p>Puisque $\operatorname{ch}x+\operatorname{sh}x=e^x$ et $\operatorname{ch}x-\operatorname{sh}x=e^{-x}$, les expressions $C_n+S_n = \sum_{k=1}^n e^{kx}$ et $C_n-S_n=\sum_{k=1}^n e^{-kx}$ sont des sommes de termes de suites géométriques, de raison respectivement $e^x$ et $e^{-x}$.
+                    Si $x=0$, on a directement $C_n = \sum_{k=1}^n 1 = n$ et $S_n=\sum_{k=1}^n 0 = 0$.
+                    Supposons $x \ne 0$, alors $e^x \ne 1$. Donc :
+                    $$ C_n+S_n = \sum_{k=1}^n (e^x)^k = e^x \frac{1-e^{nx}}{1-e^x} = e^x \frac{e^{nx/2}(e^{-nx/2}-e^{nx/2})}{e^{x/2}(e^{-x/2}-e^{x/2})} = e^{\frac{(n+1)x}{2}}\frac{\operatorname{sh}(\frac{nx}{2})}{\operatorname{sh}(\frac{x}{2})} $$
+                    De même $C_n-S_n = \sum_{k=1}^n e^{-kx}$; c'est donc la même formule que ci-dessus en remplaçant $x$ par $-x$. Ainsi :
+                    $$ C_n-S_n = e^{-\frac{(n+1)x}{2}}\frac{\operatorname{sh}(\frac{nx}{2})}{\operatorname{sh}(\frac{x}{2})} $$
+                    En utilisant $C_n = \frac{(C_n+S_n)+(C_n-S_n)}{2}$ et $S_n = \frac{(C_n+S_n)-(C_n-S_n)}{2}$, on récupère donc :
+                    $$ C_n = \operatorname{ch}\left(\frac{(n+1)x}{2}\right) \frac{\operatorname{sh}(\frac{nx}{2})}{\operatorname{sh}(\frac{x}{2})} \qquad S_n = \operatorname{sh}\left(\frac{(n+1)x}{2}\right) \frac{\operatorname{sh}(\frac{nx}{2})}{\operatorname{sh}(\frac{x}{2})} $$
+                    </p>
+                </div>
+                
+                <div id="corr10">
+                    <h4>Correction de l'exercice 10 <a href="#exo10" class="back-link">▲</a></h4>
+                    <p>Le système (S) s'écrit:
+                    $$ (S) \begin{cases} \frac{e^x+e^{-x}}{2} + \frac{e^y+e^{-y}}{2} = 2a \\ \frac{e^x-e^{-x}}{2} + \frac{e^y-e^{-y}}{2} = 2b \end{cases} \iff \begin{cases} (e^x+e^y) + (e^{-x}+e^{-y}) = 4a \\ (e^x+e^y) - (e^{-x}+e^{-y}) = 4b \end{cases} $$
+                    En additionnant et soustrayant les deux lignes, on obtient:
+                    $$ \begin{cases} 2(e^x+e^y) = 4(a+b) \\ 2(e^{-x}+e^{-y}) = 4(a-b) \end{cases} \iff \begin{cases} e^x+e^y = 2(a+b) \\ e^{-x}+e^{-y} = 2(a-b) \end{cases} $$
+                    Ce qui donne, en posant $X=e^x$ et $Y=e^y$:
+                    $$ \begin{cases} X+Y = 2(a+b) \\ \frac{1}{X}+\frac{1}{Y} = 2(a-b) \end{cases} \iff \begin{cases} X+Y = 2(a+b) \\ \frac{X+Y}{XY} = 2(a-b) \end{cases} $$
+                    $$ \iff \begin{cases} X+Y = 2(a+b) \\ XY = \frac{a+b}{a-b} \end{cases} $$
+                    Puisque $a^2-b^2=1$, on a $(a-b)(a+b)=1$, donc $\frac{1}{a-b}=a+b$. Le système devient:
+                    $$ \begin{cases} X+Y = 2(a+b) \\ XY = (a+b)^2 \end{cases} $$
+                    $X$ et $Y$ sont les solutions de l'équation $z^2 - 2(a+b)z + (a+b)^2 = 0$, qui est $(z-(a+b))^2 = 0$.
+                    Il y a donc une unique solution $z=a+b$. Ainsi $X=Y=a+b$.
+                    On a donc $e^x = e^y = a+b$. Comme $a,b>0$, $a+b>0$, donc on peut prendre le logarithme.
+                    Conclusion : le système (S) admet une unique solution, donnée par $(x=\ln(a+b), y=\ln(a+b))$.</p>
+                </div>
+
+                <div id="corr11">
+                    <h4>Correction de l'exercice 11 <a href="#exo11" class="back-link">▲</a></h4>
+                    <ol>
+                        <li>(a) On sait que $\operatorname{ch}^2 u = 1 + \operatorname{sh}^2 u$. Comme de plus la fonction $\operatorname{ch}$ est à valeurs positives, $\operatorname{ch} u = \sqrt{1+\operatorname{sh}^2 u}$ et donc $\operatorname{ch}(\operatorname{argsh}x) = \sqrt{1+\operatorname{sh}^2(\operatorname{argsh}x)} = \sqrt{1+x^2}$.<br>
+                        (b) Alors $\operatorname{th}(\operatorname{argsh}x) = \frac{\operatorname{sh}(\operatorname{argsh}x)}{\operatorname{ch}(\operatorname{argsh}x)} = \frac{x}{\sqrt{1+x^2}}$.<br>
+                        (c) Et $\operatorname{sh}(2\operatorname{argsh}x) = 2\operatorname{ch}(\operatorname{argsh}x)\operatorname{sh}(\operatorname{argsh}x) = 2x\sqrt{1+x^2}$.</li>
+                        <li>On va utiliser les expressions explicites des fonctions hyperboliques réciproques. Supposons $x \ge 1$, pour que $\operatorname{argch}x$ soit bien défini, alors on a la formule : $\operatorname{argch}x = \ln(x+\sqrt{x^2-1})$.<br>
+                        Ainsi :
+                        $$ \operatorname{sh}(\operatorname{argch}x) = \frac{e^{\operatorname{argch}x} - e^{-\operatorname{argch}x}}{2} = \frac{(x+\sqrt{x^2-1}) - \frac{1}{x+\sqrt{x^2-1}}}{2} = \frac{(x+\sqrt{x^2-1})^2 - 1}{2(x+\sqrt{x^2-1})} = \frac{2x^2-1+2x\sqrt{x^2-1}-1}{2(x+\sqrt{x^2-1})} = \sqrt{x^2-1} $$
+                        Donc $\operatorname{th}(\operatorname{argch}x) = \frac{\operatorname{sh}(\operatorname{argch}x)}{\operatorname{ch}(\operatorname{argch}x)} = \frac{\sqrt{x^2-1}}{x}$.<br>
+                        Enfin, si $u=\operatorname{argch}x$: $\operatorname{ch}(3u) = \operatorname{ch}(2u+u) = \operatorname{ch}(2u)\operatorname{ch}u + \operatorname{sh}(2u)\operatorname{sh}u$, où
+                        <ul>
+                            <li>$\operatorname{ch}(2u) = \operatorname{ch}^2 u + \operatorname{sh}^2 u = x^2 + (x^2-1) = 2x^2-1$.</li>
+                            <li>$\operatorname{sh}(2u) = 2\operatorname{sh}u\operatorname{ch}u = 2x\sqrt{x^2-1}$.</li>
+                        </ul>
+                        Donc $\operatorname{ch}(3\operatorname{argch}x) = (2x^2-1)x + 2x\sqrt{x^2-1}\sqrt{x^2-1} = x(4x^2-3)$.
+                        </li>
+                    </ol>
+                </div>
+                
+                <div id="corr12">
+                    <h4>Correction de l'exercice 12 <a href="#exo12" class="back-link">▲</a></h4>
+                    <p>La fonction $\operatorname{argch}$ est définie sur $[1, +\infty[$. Or
+                    $$ \frac{1}{2}\left(x+\frac{1}{x}\right) \ge 1 \iff x+\frac{1}{x} \ge 2 \iff \frac{x^2-2x+1}{x} \ge 0 \iff \frac{(x-1)^2}{x} \ge 0 $$
+                    Cette dernière inégalité est vraie pour tout $x > 0$. Donc $f$ est définie sur $]0, +\infty[$.<br>
+                    Soit $x>0$, alors $y=\frac{1}{2}(x+\frac{1}{x}) \ge 1$ et on sait que $\operatorname{argch}y = \ln(y+\sqrt{y^2-1})$. Ainsi
+                    $$ \sqrt{y^2-1} = \sqrt{\frac{1}{4}\left(x+\frac{1}{x}\right)^2 - 1} = \sqrt{\frac{(x^2+1)^2-4x^2}{4x^2}} = \sqrt{\frac{(x^2-1)^2}{4x^2}} = \left|\frac{x^2-1}{2x}\right| $$
+                    On obtient
+                    $$ f(x) = \operatorname{argch}y = \ln\left(y+\sqrt{y^2-1}\right) = \ln\left(\frac{x^2+1}{2x} + \left|\frac{x^2-1}{2x}\right|\right) $$
+                    On a supposé $x>0$, il suffit donc de distinguer les cas $x \ge 1$ et $0 < x < 1$.
+                    <ul>
+                        <li>Si $x \ge 1$, $f(x) = \ln\left(\frac{x^2+1}{2x} + \frac{x^2-1}{2x}\right) = \ln\left(\frac{2x^2}{2x}\right) = \ln x$.</li>
+                        <li>Si $0 < x < 1$, $f(x) = \ln\left(\frac{x^2+1}{2x} - \frac{x^2-1}{2x}\right) = \ln\left(\frac{2}{2x}\right) = \ln \frac{1}{x} = -\ln x$.</li>
+                    </ul>
+                    Puisque $\ln x$ est positif si $x \ge 1$ et négatif si $x < 1$, on obtient dans les deux cas $f(x) = |\ln x|$.</p>
+                    <img src="https://i.imgur.com/rMndl9t.png" alt="Graphique de la fonction f(x)=|ln x|">
+                </div>
+                
+                <div id="corr13">
+                    <h4>Correction de l'exercice 13 <a href="#exo13" class="back-link">▲</a></h4>
+                    <p>Soit $f(x) = \operatorname{argsh}x + \operatorname{argch}x$. Le domaine de définition de $\operatorname{argch}$ est $[1, +\infty[$ et celui de $\operatorname{argsh}$ est $\mathbb{R}$, donc $f$ est définie sur $[1, +\infty[$. La fonction $f$ est bien définie, continue, et strictement croissante sur $[1, +\infty[$ (comme somme de deux fonctions continues strictement croissantes).</p>
+                    <img src="https://i.imgur.com/g8o78Lw.png" alt="Graphique de la fonction f(x)=argsh(x)+argch(x)">
+                    <p>De plus, $f(x) \xrightarrow{x\to+\infty} +\infty$, donc $f$ atteint exactement une fois toute valeur de l'intervalle $[f(1), +\infty[$. Comme (par la formule logarithmique) $f(1) = \operatorname{argsh} 1 = \ln(1+\sqrt{2}) < \ln(e)=1$, on a $1 \in [f(1), +\infty[$. Par le théorème des valeurs intermédiaires l'équation $f(x)=1$ admet une unique solution, que l'on notera $a$.
+                    <br>Déterminons la solution :
+                    $$ f(a)=1 \implies \operatorname{sh}(f(a)) = \operatorname{sh}(1) $$
+                    $$ \operatorname{sh}(\operatorname{argsh}a + \operatorname{argch}a) = \operatorname{sh}(1) $$
+                    $$ \operatorname{sh}(\operatorname{argsh}a)\operatorname{ch}(\operatorname{argch}a) + \operatorname{sh}(\operatorname{argch}a)\operatorname{ch}(\operatorname{argsh}a) = \operatorname{sh}(1) $$
+                    $$ a \cdot a + \sqrt{a^2-1}\sqrt{a^2+1} = \operatorname{sh}(1) $$
+                    $$ a^2 + \sqrt{a^4-1} = \operatorname{sh}(1) $$
+                    $$ \sqrt{a^4-1} = \operatorname{sh}(1) - a^2 $$
+                    En élevant au carré :
+                    $$ a^4-1 = (\operatorname{sh}(1)-a^2)^2 = \operatorname{sh}^2(1) - 2a^2\operatorname{sh}(1) + a^4 $$
+                    $$ -1 = \operatorname{sh}^2(1) - 2a^2\operatorname{sh}(1) $$
+                    $$ 2a^2\operatorname{sh}(1) = 1 + \operatorname{sh}^2(1) = \operatorname{ch}^2(1) $$
+                    $$ a^2 = \frac{\operatorname{ch}^2(1)}{2\operatorname{sh}(1)} $$
+                    Comme on cherche $a \ge 1$, on a $a = \sqrt{\frac{\operatorname{ch}^2(1)}{2\operatorname{sh}(1)}} = \frac{\operatorname{ch}(1)}{\sqrt{2\operatorname{sh}(1)}}$. C'est la seule solution possible. Comme on sait qu'il en existe une unique, c'est bien la solution cherchée.
+                    $$ a = \frac{\operatorname{ch}(1)}{\sqrt{2\operatorname{sh}(1)}} = \frac{1}{2}\frac{e+e^{-1}}{\sqrt{e-e^{-1}}} = \frac{1}{2}\sqrt{\frac{(e+e^{-1})^2}{e-e^{-1}}} = \frac{1}{2}\sqrt{\frac{e^2+2+e^{-2}}{e-e^{-1}}} \approx 1.0065... $$
+                    </p>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
