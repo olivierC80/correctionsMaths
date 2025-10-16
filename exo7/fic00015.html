@@ -1,0 +1,427 @@
+Here is the complete HTML file converted from the provided PDF, following all your engineering specifications.
+
+code
+Html
+play_circle
+download
+content_copy
+expand_less
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculs d'intégrales</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .exo7-box {
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            background-color: #ffc107;
+            color: #333;
+            padding: 10px 15px;
+            font-weight: bold;
+            transform: rotate(15deg);
+            border: 2px solid #e0a800;
+            border-radius: 4px;
+        }
+        h1, h2, h3, h4 {
+            color: #0056b3;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            margin-top: 1.5em;
+        }
+        h1 {
+            font-size: 1.8em;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #007bff;
+        }
+        h3 {
+            font-size: 1.3em;
+            color: #17a2b8;
+            border-bottom: none;
+        }
+        h4 {
+            font-size: 1.1em;
+            color: #6c757d;
+            border-bottom: 1px dotted #ccc;
+        }
+        article {
+            margin-bottom: 2em;
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            background-color: #fdfdff;
+        }
+        .ref {
+            text-align: right;
+            font-size: 0.8em;
+            color: #6c757d;
+        }
+        .nav-links {
+            margin-top: 10px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #007bff;
+            margin-right: 15px;
+            font-weight: 500;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        ol, ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 5px 0;
+        }
+        .back-link {
+            text-decoration: none;
+            color: #17a2b8;
+        }
+        .indication-summary p, .correction-block p {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+        }
+        .correction-block > ol > li {
+            margin-bottom: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="exo7-box">Exo7</div>
+        <header>
+            <h1>Calculs d'intégrales</h1>
+            <p style="text-align: center;">Fiche d'Arnaud Bodin, soigneusement relue par Chafiq Benhida</p>
+        </header>
+
+        <main>
+            <section id="exercices">
+                <h2>1 Utilisation de la définition</h2>
+                <article id="exo1">
+                    <h3>Exercice 1</h3>
+                    <p>Soit $f$ la fonction définie sur $[0,4]$ par</p>
+                    $$
+                    f(x) = \begin{cases}
+                        -1 & \text{si } x = 0 \\
+                        1 & \text{si } 0 < x < 1 \\
+                        3 & \text{si } x = 1 \\
+                        -2 & \text{si } 1 < x < 2 \\
+                        4 & \text{si } 2 \le x \le 4.
+                    \end{cases}
+                    $$
+                    <ol>
+                        <li>Calculer $\int_0^4 f(t)dt$.</li>
+                        <li>Soit $x \in [0,4]$, calculer $F(x) = \int_0^x f(t)dt$.</li>
+                        <li>Montrer que $F$ est une fonction continue sur $[0,4]$. La fonction $F$ est-elle dérivable sur $[0,4]$ ?</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#corr1">Correction ▼</a>
+                    </div>
+                    <div class="ref">[002081]</div>
+                </article>
+
+                <article id="exo2">
+                    <h3>Exercice 2</h3>
+                    <p>Soient les fonctions définies sur $\mathbb{R}$,</p>
+                    $$ f(x) = x, \quad g(x) = x^2 \quad \text{et} \quad h(x) = e^x, $$
+                    <p>Justifier qu'elles sont intégrables sur tout intervalle fermé borné de $\mathbb{R}$. En utilisant les sommes de Riemann, calculer les intégrales $\int_0^1 f(x)dx$, $\int_1^2 g(x)dx$ et $\int_0^x h(t)dt$.</p>
+                    <div class="nav-links">
+                        <a href="#ind2">Indication ▼</a>
+                        <a href="#corr2">Correction ▼</a>
+                    </div>
+                    <div class="ref">[002082]</div>
+                </article>
+
+                <article id="exo3">
+                    <h3>Exercice 3</h3>
+                    <p>Soit $f : [a, b] \to \mathbb{R}$ une fonction continue sur $[a,b]$ ($a < b$).</p>
+                    <ol>
+                        <li>On suppose que $f(x) \ge 0$ pour tout $x \in [a,b]$, et que $f(x_0) > 0$ en un point $x_0 \in [a,b]$. Montrer que $\int_a^b f(x)dx > 0$. En déduire que : «si $f$ est une fonction continue positive sur $[a, b]$ telle que $\int_a^b f(x)dx = 0$ alors $f$ est identiquement nulle».</li>
+                        <li>On suppose que $\int_a^b f(x)dx = 0$. Montrer qu'il existe $c \in [a, b]$ tel que $f(c) = 0$.</li>
+                        <li>Application: on suppose que $f$ est une fonction continue sur $[0, 1]$ telle que $\int_0^1 f(x)dx = \frac{1}{2}$. Montrer qu'il existe $d \in [0, 1]$ tel que $f(d) = d$.</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind3">Indication ▼</a>
+                        <a href="#corr3">Correction ▼</a>
+                    </div>
+                    <div class="ref">[002085]</div>
+                </article>
+
+                <article id="exo4">
+                    <h3>Exercice 4</h3>
+                    <p>Soit $f: \mathbb{R} \to \mathbb{R}$ une fonction continue sur $\mathbb{R}$ et $F(x) = \int_0^x f(t)dt$. Répondre par vrai ou faux aux affirmations suivantes:</p>
+                    <ol>
+                        <li>$F$ est continue sur $\mathbb{R}$.</li>
+                        <li>$F$ est dérivable sur $\mathbb{R}$ de dérivée $f$.</li>
+                        <li>Si $f$ est croissante sur $\mathbb{R}$ alors $F$ est croissante sur $\mathbb{R}$.</li>
+                        <li>Si $f$ est positive sur $\mathbb{R}$ alors $F$ est positive sur $\mathbb{R}$.</li>
+                        <li>Si $f$ est positive sur $\mathbb{R}$ alors $F$ est croissante sur $\mathbb{R}$.</li>
+                        <li>Si $f$ est $T$-périodique sur $\mathbb{R}$ alors $F$ est $T$-périodique sur $\mathbb{R}$.</li>
+                        <li>Si $f$ est paire alors $F$ est impaire.</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#corr4">Correction ▼</a>
+                    </div>
+                    <div class="ref">[002091]</div>
+                </article>
+
+                <h2>2 Calculs de primitives</h2>
+
+                <article id="exo5">
+                    <h3>Exercice 5</h3>
+                    <p>Calculer les primitives suivantes par intégration par parties.</p>
+                    <ol>
+                        <li>$\int x^2 \ln x dx$</li>
+                        <li>$\int x \arctan x dx$</li>
+                        <li>$\int \ln x dx$ puis $\int (\ln x)^2 dx$</li>
+                        <li>$\int \cos x \exp x dx$</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind5">Indication ▼</a>
+                        <a href="#corr5">Correction ▼</a>
+                    </div>
+                    <div class="ref">[006864]</div>
+                </article>
+                
+                <article id="exo6">
+                    <h3>Exercice 6</h3>
+                    <p>Calculer les primitives suivantes par changement de variable.</p>
+                    <ol>
+                        <li>$\int (\cos x)^{1234} \sin x dx$</li>
+                        <li>$\int \frac{1}{x \ln x} dx$</li>
+                        <li>$\int \frac{1}{3+\exp(-x)} dx$</li>
+                        <li>$\int \frac{1}{\sqrt{4x-x^2}} dx$</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind6">Indication ▼</a>
+                        <a href="#corr6">Correction ▼</a>
+                    </div>
+                    <div class="ref">[006865]</div>
+                </article>
+
+                <article id="exo7">
+                    <h3>Exercice 7</h3>
+                    <p>Calculer les primitives suivantes, en précisant si nécessaire les intervalles de validité des calculs :</p>
+                    <ol>
+                        <li>$\int \frac{x+2}{x^2-3x-4} dx$</li>
+                        <li>$\int \frac{x-1}{x^2+x+1} dx$</li>
+                        <li>$\int \sin^8 x \cos^3 x dx$</li>
+                        <li>$\int \frac{1}{\sin x} dx$</li>
+                        <li>$\int \frac{3-\sin x}{2\cos x+3\tan x} dx$</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind7">Indication ▼</a>
+                        <a href="#corr7">Correction ▼</a>
+                    </div>
+                    <div class="ref">[006866]</div>
+                </article>
+
+                <h2>3 Calculs d'intégrales</h2>
+
+                <article id="exo8">
+                    <h3>Exercice 8</h3>
+                    <p>Calculer les intégrales suivantes :</p>
+                    <ol>
+                        <li>$\int_0^{\frac{\pi}{2}} x \sin x dx$ (intégration par parties)</li>
+                        <li>$\int_0^1 \frac{e^x}{\sqrt{e^x+1}} dx$ (à l'aide d'un changement de variable simple)</li>
+                        <li>$\int_0^1 \frac{1}{(1+x^2)^2} dx$ (changement de variable $x = \tan t$)</li>
+                        <li>$\int_0^1 \frac{3x+1}{(x+1)^2} dx$ (décomposition en éléments simples)</li>
+                        <li>$\int_{1/2}^2 (1+\frac{1}{x^2}) \arctan x dx$ (changement de variable $u = \frac{1}{x}$)</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind8">Indication ▼</a>
+                        <a href="#corr8">Correction ▼</a>
+                    </div>
+                    <div class="ref">[006867]</div>
+                </article>
+                
+                <article id="exo9">
+                    <h3>Exercice 9</h3>
+                    <p>Calculer les intégrales suivantes :</p>
+                    $$ \int_0^{\frac{\pi}{2}} \frac{1}{1+\sin x} dx \quad \text{et} \quad \int_0^{\frac{\pi}{2}} \frac{\sin x}{1+\sin x} dx. $$
+                    <div class="nav-links">
+                        <a href="#ind9">Indication ▼</a>
+                        <a href="#corr9">Correction ▼</a>
+                    </div>
+                    <div class="ref">[002095]</div>
+                </article>
+
+                <article id="exo10">
+                    <h3>Exercice 10: Intégrales de Wallis</h3>
+                    <p>Soit $I_n = \int_0^{\frac{\pi}{2}} (\sin x)^n dx$ pour $n \in \mathbb{N}$.</p>
+                    <ol>
+                        <li>Montrer que $I_{n+2} = \frac{n+1}{n+2}I_n$. Expliciter $I_n$. En déduire $\int_{-1}^1 (1-x^2)^n dx$.</li>
+                        <li>Montrer que $(I_n)_n$ est positive décroissante. Montrer que $I_n \sim I_{n+1}$.</li>
+                        <li>Simplifier $I_n \cdot I_{n+1}$. Montrer que $I_n \sim \sqrt{\frac{\pi}{2n}}$. En déduire $\frac{1 \cdot 3 \cdots (2n-1)}{2 \cdot 4 \cdots (2n)} \sim \frac{1}{\sqrt{n\pi}}$.</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind10">Indication ▼</a>
+                        <a href="#corr10">Correction ▼</a>
+                    </div>
+                    <div class="ref">[002096]</div>
+                </article>
+
+                <article id="exo11">
+                    <h3>Exercice 11</h3>
+                    <p>Soit $I_n = \int_0^1 \frac{x^n}{1+x} dx$.</p>
+                    <ol>
+                        <li>En majorant la fonction intégrée, montrer que $\lim_{n \to +\infty} I_n = 0$.</li>
+                        <li>Calculer $I_n+I_{n+1}$.</li>
+                        <li>Déterminer $\lim_{n \to +\infty} \left( \sum_{k=1}^n \frac{(-1)^{k+1}}{k} \right)$.</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind11">Indication ▼</a>
+                        <a href="#corr11">Correction ▼</a>
+                    </div>
+                    <div class="ref">[002097]</div>
+                </article>
+
+                <h2>4 Applications : calculs d'aires, calculs de limites</h2>
+
+                <article id="exo12">
+                    <h3>Exercice 12</h3>
+                    <p>Calculer l'aire de la région délimitée par les courbes d'équation $y = \frac{x^2}{2}$ et $y = \frac{1}{1+x^2}$.</p>
+                    <div class="nav-links">
+                        <a href="#ind12">Indication ▼</a>
+                        <a href="#corr12">Correction ▼</a>
+                    </div>
+                    <div class="ref">[002099]</div>
+                </article>
+
+                <article id="exo13">
+                    <h3>Exercice 13</h3>
+                    <p>Calculer l'aire intérieure d'une ellipse d'équation :</p>
+                    $$ \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1. $$
+                    <p><em>Indications.</em> On pourra calculer seulement la partie de l'ellipse correspondant à $x \ge 0, y \ge 0$. Puis exprimer $y$ en fonction de $x$. Enfin calculer une intégrale.</p>
+                    <div class="nav-links">
+                        <a href="#ind13">Indication ▼</a>
+                        <a href="#corr13">Correction ▼</a>
+                    </div>
+                    <div class="ref">[006863]</div>
+                </article>
+                
+                <article id="exo14">
+                    <h3>Exercice 14</h3>
+                    <p>Calculer la limite des suites suivantes :</p>
+                    <ol>
+                        <li>$u_n = n \sum_{k=0}^{n-1} \frac{1}{k^2+n^2}$</li>
+                        <li>$v_n = \left( \prod_{k=1}^n \left(1+\frac{k^2}{n^2}\right) \right)^{\frac{1}{n}}$</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind14">Indication ▼</a>
+                        <a href="#corr14">Correction ▼</a>
+                    </div>
+                    <div class="ref">[002100]</div>
+                </article>
+            </section>
+
+            <section id="indications">
+                <h2>Indications</h2>
+                <div id="ind2" class="indication-summary"><h4>Indication pour l'exercice 2 <a href="#exo2" class="back-link">▲</a></h4><p>Les fonctions continues ne seraient-elles pas intégrables ? Il faut se souvenir de ce que vaut la somme des $n$ premiers entiers, la somme des carrés des $n$ premiers entiers et la somme d'une suite géométrique. La formule générale pour les sommes de Riemann est que $\int_a^b f(x)dx$ est la limite (quand $n \to +\infty$) de $$S_n = \frac{b-a}{n} \sum_{k=0}^{n-1} f\left(a+k\frac{b-a}{n}\right).$$</p></div>
+                <div id="ind3" class="indication-summary"><h4>Indication pour l'exercice 3 <a href="#exo3" class="back-link">▲</a></h4><ol><li>Revenir à la définition de la continuité en $x_0$ en prenant $\varepsilon = \frac{f(x_0)}{2}$ par exemple.</li><li>Soit $f$ est tout le temps de même signe (et alors utiliser la première question), soit ce n'est pas le cas (et alors utiliser un théorème classique...).</li><li>On remarquera que $\int_0^1 f(x) dx - \frac{1}{2} = \int_0^1 (f(x)-x)dx$.</li></ol></div>
+                <div id="ind5" class="indication-summary"><h4>Indication pour l'exercice 5 <a href="#exo5" class="back-link">▲</a></h4><ol><li>Pour $\int x^2 \ln x dx$ poser $v' = x^2, u = \ln x$.</li><li>Pour $\int x \arctan x dx$ poser $v'=x$ et $u=\arctan x$.</li><li>Pour les deux il faut faire une intégration par parties avec $v'=1$.</li><li>Pour $\int \cos x \exp x dx$ il faut faire deux intégrations par parties.</li></ol></div>
+                <div id="ind6" class="indication-summary"><h4>Indication pour l'exercice 6 <a href="#exo6" class="back-link">▲</a></h4><ol><li>$\int \cos^{1234} x \sin x dx = -\frac{1}{1235}\cos^{1235}x+c$ (changement de variable $u=\cos x$)</li><li>$\int \frac{1}{x \ln x} dx = \ln|\ln x| + c$ (changement de variable $u = \ln x$)</li><li>$\int \frac{1}{3+\exp(-x)} dx = \frac{1}{3} \ln(3\exp x + 1)+c$ (changement de variable $u = \exp x$)</li><li>$\int \frac{1}{\sqrt{4x-x^2}} dx = \arcsin(\frac{x}{2}-1)+c$ (changement de variable $u=\frac{x}{2}-1$)</li></ol></div>
+                <div id="ind7" class="indication-summary"><h4>Indication pour l'exercice 7 <a href="#exo7" class="back-link">▲</a></h4><ol><li>$\int \frac{x+2}{x^2-3x-4} dx = -\frac{1}{5}\ln|x+1| + \frac{6}{5}\ln|x-4|+c$ (décomposition en éléments simples)</li><li>$\int \frac{x-1}{x^2+x+1} dx = \frac{1}{2}\ln|x^2+x+1| - \frac{3}{\sqrt{3}}\arctan\left(\frac{2}{\sqrt{3}}(x+\frac{1}{2})\right) + c$</li><li>$\int \sin^8 x \cos^3 x dx = \frac{1}{9}\sin^9 x - \frac{1}{11}\sin^{11}x+c$</li><li>$\int \frac{1}{\sin x} dx = \frac{1}{2}\ln|\frac{1-\cos x}{1+\cos x}|+c = \ln|\tan \frac{x}{2}|+c$ (changement de variable $u=\cos x$ ou $u=\tan \frac{x}{2}$)</li><li>$\int \frac{3-\sin x}{2\cos x+3\tan x} dx = -\frac{1}{5}\ln|2-\sin x| + \frac{7}{5}\ln|1+2\sin x|+c$ (changement de variable $u=\sin x$)</li></ol></div>
+                <div id="ind8" class="indication-summary"><h4>Indication pour l'exercice 8 <a href="#exo8" class="back-link">▲</a></h4><ol><li>$\int_0^{\pi/2} x\sin x dx = 1$ (intégration par parties $v'=\sin x, u=x$)</li><li>$\int_0^1 \frac{e^x}{\sqrt{e^x+1}}dx = 2\sqrt{e+1}-2\sqrt{2}$ (à l'aide du changement de variable $u=e^x$)</li><li>$\int_0^1 \frac{1}{(1+x^2)^2}dx = \frac{\pi}{8}+\frac{1}{4}$ (changement de variable $x=\tan t$, $dx=(1+\tan^2 t)dt$ et $1+\tan^2 t = \frac{1}{\cos^2 t}$)</li><li>$\int_0^1 \frac{3x+1}{(x+1)^2}dx = 3\ln 2 - 1$ (décomposition en éléments simples de la forme $\frac{3x+1}{(x+1)^2} = \frac{\alpha}{x+1}+\frac{\beta}{(x+1)^2}$)</li><li>$\int_{1/2}^2 (1+\frac{1}{x^2})\arctan x dx = \frac{3\pi}{4}$ (changement de variables $u=\frac{1}{x}$ et $\arctan x + \arctan \frac{1}{x} = \pm \frac{\pi}{2}$)</li></ol></div>
+                <div id="ind9" class="indication-summary"><h4>Indication pour l'exercice 9 <a href="#exo9" class="back-link">▲</a></h4><p>$\int_0^{\pi/2} \frac{1}{1+\sin x} dx = 1$ (changement de variables $t=\tan \frac{x}{2}$).</p><p>$\int_0^{\pi/2} \frac{\sin x}{1+\sin x} dx = \frac{\pi}{2}-1$ (utiliser la précédente).</p></div>
+                <div id="ind10" class="indication-summary"><h4>Indication pour l'exercice 10 <a href="#exo10" class="back-link">▲</a></h4><ol><li>Faire une intégration par parties afin d'exprimer $I_{n+2}$ en fonction de $I_n$. Pour le calcul explicite on distinguera le cas des $n$ pairs et impairs.</li><li>Rappel : $u_n \sim v_n$ est équivalent à $\frac{u_n}{v_n} \to 1$. Utiliser la décroissance de $I_n$ pour encadrer $\frac{I_{n+1}}{I_n}$.</li></ol></div>
+                <div id="ind11" class="indication-summary"><h4>Indication pour l'exercice 11 <a href="#exo11" class="back-link">▲</a></h4><ol><li>Majorer par $x^n$.</li><li></li><li>On pourra calculer $(I_0+I_1) - (I_1+I_2) + (I_2+I_3) - \dots$</li></ol></div>
+                <div id="ind12" class="indication-summary"><h4>Indication pour l'exercice 12 <a href="#exo12" class="back-link">▲</a></h4><p>Un dessin ne fait pas de mal ! Il faut ensuite résoudre l'équation $\frac{x^2}{2} = \frac{1}{1+x^2}$ puis calculer deux intégrales.</p></div>
+                <div id="ind13" class="indication-summary"><h4>Indication pour l'exercice 13 <a href="#exo13" class="back-link">▲</a></h4><p>Il faut se ramener au calcul de $\int_0^a b\sqrt{1-\frac{x^2}{a^2}}dx$.</p></div>
+                <div id="ind14" class="indication-summary"><h4>Indication pour l'exercice 14 <a href="#exo14" class="back-link">▲</a></h4><p>On pourra essayer de reconnaître des sommes de Riemann, puis calculer des intégrales. Pour le produit composer par la fonction $\ln$, afin de transformer le produit en une somme.</p></div>
+            </section>
+            
+            <section id="corrections">
+                <h2>Corrections</h2>
+                <div id="corr1" class="correction-block"><h4>Correction de l'exercice 1 <a href="#exo1" class="back-link">▲</a></h4><ol><li>On trouve $\int_0^4 f(t) dt = 7$. Il faut tout d'abord tracer le graphe de cette fonction. Ensuite la valeur d'une intégrale ne dépend pas de la valeur de la fonction en un point, c'est-à-dire ici les valeurs en $x=0, x=1, x=2$ n'ont aucune influence sur l'intégrale. On a $\int_0^4 f(t)dt = \int_0^1 1 dt + \int_1^2 (-2) dt + \int_2^4 4 dt = 1 \cdot (1-0) - 2 \cdot (2-1) + 4 \cdot (4-2) = 1-2+8 = 7$.</li><li>C'est la même chose pour $\int_0^x f(t) dt$, mais au lieu d'aller jusqu'à 4 on s'arrête à $x$, on trouve
+                $$ F(x) = \begin{cases} \int_0^x 1 dt = x & \text{si } 0 \le x < 1 \\ \int_0^1 1 dt + \int_1^x (-2) dt = 1 - 2(x-1) = 3-2x & \text{si } 1 \le x < 2 \\ \int_0^1 1 dt + \int_1^2 (-2) dt + \int_2^x 4 dt = 1-2+4(x-2) = 4x-9 & \text{si } 2 \le x \le 4. \end{cases} $$</li><li>Les seuls points à discuter pour la continuité sont les points $x=1$ et $x=2$.
+                Pour $x=1$: $\lim_{x \to 1^-} F(x) = \lim_{x \to 1^-} x = 1$. $F(1) = 3-2(1)=1$. Les limites à gauche et la valeur au point coïncident.
+                Pour $x=2$: $\lim_{x \to 2^-} F(x) = \lim_{x \to 2^-} (3-2x) = -1$. $F(2) = 4(2)-9 = -1$.
+                $F$ est donc continue sur $[0,4]$. Par contre $F$ n'est pas dérivable en $x=1$ (la dérivée à gauche est $1$, la dérivée à droite est $-2$). $F$ n'est pas non plus dérivable en $x=2$ (dérivée à gauche $-2$, à droite $4$).</li></ol></div>
+                
+                <div id="corr2" class="correction-block"><h4>Correction de l'exercice 2 <a href="#exo2" class="back-link">▲</a></h4><p>Les fonctions sont continues donc intégrables !</p><ol><li>En utilisant les sommes de Riemann, on sait que $\int_0^1 f(x)dx$ est la limite (quand $n \to +\infty$) de $S_n = \frac{1}{n}\sum_{k=0}^{n-1} f(\frac{k}{n})$. Alors $S_n = \frac{1}{n}\sum_{k=0}^{n-1} \frac{k}{n} = \frac{1}{n^2}\sum_{k=0}^{n-1} k = \frac{1}{n^2}\frac{(n-1)n}{2} = \frac{n-1}{2n}$. Donc $S_n$ tend vers $\frac{1}{2}$. Donc $\int_0^1 f(x)dx = \frac{1}{2}$.</li><li>Même travail : $\int_1^2 g(x)dx$ est la limite de $S_n' = \frac{1}{n}\sum_{k=0}^{n-1} g(1+\frac{k}{n}) = \frac{1}{n}\sum_{k=0}^{n-1} (1+\frac{k}{n})^2 = \frac{1}{n}\sum_{k=0}^{n-1} (1+\frac{2k}{n}+\frac{k^2}{n^2})$. En séparant la somme en trois nous obtenons : $S_n' = \frac{1}{n}(n + \frac{2}{n}\frac{(n-1)n}{2} + \frac{1}{n^2}\frac{(n-1)n(2n-1)}{6})$. Donc à la limite on trouve $S_n' \to 1+1+\frac{2}{6} = \frac{7}{3}$. Donc $\int_1^2 g(x)dx = 7/3$.</li><li>Même chose pour $\int_0^x h(t)dt$ qui est la limite de $S_n'' = \frac{x}{n}\sum_{k=0}^{n-1} h(\frac{kx}{n}) = \frac{x}{n}\sum_{k=0}^{n-1} (e^x)^{k/n}$. Cette dernière somme est la somme d'une suite géométrique (si $x \ne 0$), donc $S_n'' = \frac{x}{n} \frac{1-(e^{x/n})^n}{1-e^{x/n}} = \frac{x}{n} \frac{1-e^x}{1-e^{x/n}}$. En posant $u = x/n$, on a $\frac{1-e^{x}}{ (1-e^{xu/x})/u} = \frac{u(1-e^x)}{1-e^u}$. Lorsque $n \to +\infty$, $u \to 0$ et $\frac{1-e^u}{u} \to -1$. Donc $S_n'' \to -(1-e^x)=e^x-1$. Donc $\int_0^x h(t)dt = e^x-1$.</li></ol></div>
+                
+                <div id="corr3" class="correction-block"><h4>Correction de l'exercice 3 <a href="#exo3" class="back-link">▲</a></h4><ol><li>Écrivons la continuité de $f$ en $x_0$ avec $\varepsilon = \frac{f(x_0)}{2} > 0$: il existe $\delta > 0$ tel que pour tout $x \in [a,b]$ avec $|x-x_0| < \delta$, on ait $|f(x)-f(x_0)| < \varepsilon$. Avec notre choix de $\varepsilon$ cela donne pour $x \in ]x_0-\delta, x_0+\delta[$ que $f(x) > f(x_0) - \varepsilon = \frac{f(x_0)}{2}$. On peut supposer que $[x_0-\delta, x_0+\delta] \subset [a,b]$. Alors
+                $$ \int_a^b f(x)dx = \int_a^{x_0-\delta} f(x)dx + \int_{x_0-\delta}^{x_0+\delta} f(x)dx + \int_{x_0+\delta}^b f(x)dx $$
+                Comme $f$ est positive, par positivité de l'intégrale, les première et troisième intégrales sont positives. Pour le terme du milieu, on a $f(x) \ge \frac{f(x_0)}{2}$ donc $\int_{x_0-\delta}^{x_0+\delta} f(x)dx \ge \int_{x_0-\delta}^{x_0+\delta} \frac{f(x_0)}{2}dx = 2\delta \frac{f(x_0)}{2} = \delta f(x_0)$. Le bilan est que $\int_a^b f(x)dx \ge \delta f(x_0) > 0$.
+                La contraposée est: si $f$ est une fonction continue et positive et si $\int_a^b f(x)dx = 0$, alors $f(x_0)=0$ pour tout $x_0$. Donc $f$ est identiquement nulle.</li><li>Soit $f$ n'est pas de signe constant. Alors par le théorème des valeurs intermédiaires, il existe $c$ tel que $f(c)=0$. Soit $f$ est tout le temps positive (ou nulle), soit tout le temps négative (ou nulle). Si $f$ est tout le temps positive et $\int_a^b f(x)dx = 0$ alors par la première question $f$ est identiquement nulle, donc $f(c)=0$ pour n'importe quel $c$. Si $f$ est tout le temps négative, on applique le résultat à $-f$.</li><li>Posons $g(x) = f(x)-x$. Alors $\int_0^1 g(x)dx = \int_0^1(f(x)-x)dx = \int_0^1 f(x)dx - \int_0^1 x dx = \frac{1}{2} - \frac{1}{2} = 0$. Donc par la question précédente, $g$ étant continue, il existe $d \in [0,1]$ tel que $g(d)=0$, ce qui est équivalent à $f(d)=d$.</li></ol></div>
+                
+                <div id="corr4" class="correction-block"><h4>Correction de l'exercice 4 <a href="#exo4" class="back-link">▲</a></h4><ol><li>Vrai. C'est un résultat du cours (toute fonction de la forme $\int_a^x f(t)dt$ avec $f$ continue est continue).</li><li>Vrai. Théorème fondamental de l'analyse, $f$ étant continue, $F$ est dérivable et $F'(x)=f(x)$.</li><li>Faux ! Attention aux valeurs négatives. Par exemple pour $f(x)=x$ (qui est croissante), $F(x) = \int_0^x t dt = \frac{x^2}{2}$. $F$ est décroissante sur $]-\infty, 0]$ et croissante sur $[0, +\infty[$.</li><li>Faux. Attention aux valeurs négatives. Par exemple pour $f(x)=x^2$, $F(x)=\frac{x^3}{3}$. $F$ est négative sur $]-\infty, 0]$ et positive sur $[0, +\infty[$.</li><li>Vrai. Si $f$ est positive, alors pour $x > 0$, $F(x)=\int_0^x f(t)dt$ est l'aire sous la courbe d'une fonction positive, donc est positive. Pour $x < y$, $F(y)-F(x)=\int_x^y f(t)dt \ge 0$ car $f \ge 0$ et $x<y$. Donc $F$ est croissante.</li><li>Faux. Si $f(x)=1+\sin(x)$, $F(x) = \int_0^x (1+\sin t)dt = x-\cos x+1$. $F(x+2\pi) = x+2\pi - \cos(x+2\pi)+1 = F(x)+2\pi \ne F(x)$.</li><li>Vrai. $F(-x) = \int_0^{-x} f(t)dt$. Faisons le changement de variable $u=-t$. $F(-x) = \int_0^x f(-u)(-du) = -\int_0^x f(u)du = -F(x)$ car $f$ est paire ($f(-u)=f(u)$).</li></ol></div>
+                
+                <div id="corr5" class="correction-block"><h4>Correction de l'exercice 5 <a href="#exo5" class="back-link">▲</a></h4>
+                    <ol>
+                        <li>$\int x^2 \ln x dx$: Considérons l'intégration par parties avec $u=\ln x$ et $v'=x^2$. On a donc $u'=\frac{1}{x}$ et $v=\frac{x^3}{3}$. Donc:
+                        $$ \int x^2 \ln x dx = \left[ \frac{x^3}{3}\ln x \right] - \int \frac{1}{x} \frac{x^3}{3} dx = \frac{x^3}{3}\ln x - \int \frac{x^2}{3} dx = \frac{x^3}{3}\ln x - \frac{x^3}{9} + c $$
+                        </li>
+                        <li>$\int x \arctan x dx$: IPP avec $u=\arctan x$ et $v'=x$. On a $u'=\frac{1}{1+x^2}$ et $v=\frac{x^2}{2}$.
+                        $$ \int x \arctan x dx = \left[ \frac{x^2}{2} \arctan x \right] - \int \frac{1}{1+x^2}\frac{x^2}{2} dx = \frac{x^2}{2}\arctan x - \frac{1}{2}\int \frac{x^2+1-1}{1+x^2} dx $$
+                        $$ = \frac{x^2}{2}\arctan x - \frac{1}{2}\int \left(1-\frac{1}{1+x^2}\right) dx = \frac{x^2}{2}\arctan x - \frac{1}{2}(x-\arctan x)+c $$
+                        </li>
+                        <li>$\int \ln x dx$: IPP avec $u=\ln x, v'=1$. Donc $u'=\frac{1}{x}, v=x$.
+                        $$ \int \ln x dx = [x \ln x] - \int x \frac{1}{x} dx = x\ln x - x + c $$
+                        Pour $\int (\ln x)^2 dx$: IPP avec $u=(\ln x)^2, v'=1$. Donc $u'=2\frac{\ln x}{x}, v=x$.
+                        $$ \int (\ln x)^2 dx = [x(\ln x)^2] - \int x \cdot 2\frac{\ln x}{x} dx = x(\ln x)^2 - 2 \int \ln x dx = x(\ln x)^2 - 2(x\ln x - x) + c $$
+                        </li>
+                        <li>Notons $I = \int \cos x e^x dx$. IPP avec $u=e^x, v'=\cos x$. Alors $u'=e^x, v=\sin x$.
+                        $I = [e^x \sin x] - \int e^x \sin x dx$. Notons $J = \int e^x \sin x dx$.
+                        Pour calculer $J$, une autre IPP avec $u=e^x, v'=\sin x$. Alors $u'=e^x, v=-\cos x$.
+                        $J = [-e^x \cos x] - \int e^x (-\cos x) dx = -e^x \cos x + I$.
+                        En reportant $J$ dans l'expression de $I$, on obtient $I = e^x \sin x - (-e^x \cos x + I)$. Donc $2I = e^x(\sin x + \cos x)$.
+                        $$ I = \frac{1}{2} e^x(\sin x + \cos x) + c $$
+                        </li>
+                    </ol>
+                </div>
+
+                <div id="corr6" class="correction-block"><h4>Correction de l'exercice 6 <a href="#exo6" class="back-link">▲</a></h4>
+                    <ol>
+                        <li>$\int (\cos x)^{1234} \sin x dx$: changement de variable $u = \cos x$, $du = -\sin x dx$.
+                        $$ \int u^{1234} (-du) = -\frac{u^{1235}}{1235} + c = -\frac{(\cos x)^{1235}}{1235} + c $$
+                        </li>
+                        <li>$\int \frac{1}{x \ln x} dx$: changement de variable $u = \ln x$, $du = \frac{1}{x} dx$.
+                        $$ \int \frac{1}{u} du = \ln|u| + c = \ln|\ln x| + c $$
+                        </li>
+                        <li>$\int \frac{1}{3+e^{-x}} dx$: changement de variable $u=e^x$, $du=e^x dx$, donc $dx = \frac{du}{u}$.
+                        $$ \int \frac{1}{3+1/u} \frac{du}{u} = \int \frac{u}{3u+1} \frac{du}{u} = \int \frac{1}{3u+1} du = \frac{1}{3}\ln|3u+1|+c = \frac{1}{3}\ln(3e^x+1)+c $$
+                        </li>
+                        <li>$\int \frac{1}{\sqrt{4x-x^2}} dx$: $4x-x^2 = -(x^2-4x) = -( (x-2)^2 - 4) = 4 - (x-2)^2 = 4(1 - (\frac{x-2}{2})^2)$.
+                        Changement de variable $u = \frac{x-2}{2}$, $du = \frac{1}{2} dx$.
+                        $$ \int \frac{1}{\sqrt{4(1-u^2)}} 2du = \int \frac{1}{2\sqrt{1-u^2}} 2du = \int \frac{1}{\sqrt{1-u^2}} du = \arcsin u + c = \arcsin\left(\frac{x-2}{2}\right)+c $$
+                        </li>
+                    </ol>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
