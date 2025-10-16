@@ -1,0 +1,335 @@
+An engineer would follow these steps to fulfill the request:
+
+Deconstruct the Request: The primary goal is to convert a PDF document about linear algebra into a single, mobile-friendly HTML file. The key technical requirements are:
+
+Use KaTeX for rendering all mathematical formulas.
+
+Embed the KaTeX loader script precisely as specified, omitting the integrity attribute.
+
+Create internal hyperlinks between exercises, their corresponding hints (indications), and their solutions (corrections).
+
+Omit any links or references to videos.
+
+The final HTML should be optimized for smartphone viewing.
+
+HTML Scaffolding: A standard HTML5 boilerplate will be created. This includes the <!DOCTYPE html> declaration, <html>, <head>, and <body> tags. The lang attribute will be set to "fr". A meta tag for viewport is crucial for mobile optimization.
+
+Styling Strategy (CSS): A single <style> block will be placed within the <head>. The CSS will be designed with a "mobile-first" approach:
+
+A fluid, single-column layout using a max-width on a container div to maintain readability on larger screens.
+
+A clean, sans-serif font stack for legibility.
+
+Clear visual hierarchy using styled headings (h1, h2, h3).
+
+The "Exo7" logo will be replicated using a styled div with absolute positioning and a slight rotation to match the source.
+
+Exercises, indications, and corrections will be visually grouped within bordered containers (<article>, <div>).
+
+Interactive elements like hyperlinks will be styled for clarity.
+
+Content Extraction and Semantic Markup: Each page of the PDF will be processed sequentially.
+
+Text: All text will be transcribed directly.
+
+Structure: The document's structure (sections, lists) will be replicated using semantic HTML tags (<section>, <h2>, <article>, <h3>, <ol>, <li>).
+
+Mathematics (LaTeX): Every mathematical expression will be converted into its LaTeX equivalent. Inline math will be enclosed in single dollar signs ($f_1$), and display math will be enclosed in double dollar signs ($$...$$). This includes symbols like \mathbb{R}, \to, \circ, \text{Ker}, \text{Im}, \text{rg}, \phi, \oplus, and matrix-like structures for vectors.
+
+Linking: Each exercise, indication, and correction section will be given a unique id (e.g., id="exo1", id="ind1", id="corr1"). <a> tags will then be used to create the internal navigation system (e.g., <a href="#corr1">Correction ▼</a>). "Back to top" links (▲) will be added in the indication and correction headers for easy navigation back to the exercise statement.
+
+Assembly and Finalization: All transcribed text, LaTeX formulas, and structural HTML will be assembled into the single HTML file. The pre-defined KaTeX <script> tags will be placed just before the closing </body> tag. A final review will ensure all links are functional, all math renders correctly, and the layout is responsive and clean.
+
+Here is the resulting complete HTML file.
+
+code
+Html
+play_circle
+download
+content_copy
+expand_less
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications linéaires</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .exo7-box {
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            background-color: #ffc107;
+            color: #333;
+            padding: 10px 15px;
+            font-weight: bold;
+            transform: rotate(15deg);
+            border: 2px solid #e0a800;
+            border-radius: 4px;
+        }
+        h1, h2, h3, h4 {
+            color: #0056b3;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            margin-top: 1.5em;
+        }
+        h1 { font-size: 1.8em; text-align: center; }
+        h2 { font-size: 1.5em; color: #007bff; }
+        h3 { font-size: 1.3em; color: #17a2b8; border-bottom: none; }
+        h4 { font-size: 1.1em; color: #6c757d; border-bottom: 1px dotted #ccc; }
+        article {
+            margin-bottom: 2em;
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            background-color: #fdfdff;
+        }
+        .ref { text-align: right; font-size: 0.8em; color: #6c757d; }
+        .nav-links { margin-top: 10px; }
+        .nav-links a { text-decoration: none; color: #007bff; margin-right: 15px; font-weight: 500; }
+        .nav-links a:hover { text-decoration: underline; }
+        ol, ul { padding-left: 20px; }
+        li { margin-bottom: 0.5em; }
+        .katex-display { overflow-x: auto; overflow-y: hidden; padding: 5px 0; }
+        .back-link { text-decoration: none; color: #17a2b8; }
+        .correction-block, .indication-block {
+            padding: 15px;
+            border-left: 3px solid #17a2b8;
+            background-color: #f1f8ff;
+            margin-top: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="exo7-box">Exo7</div>
+        <header>
+            <h1>Applications linéaires</h1>
+        </header>
+
+        <main>
+            <section id="exercices">
+                <h2>1 Définition</h2>
+
+                <article id="exo1">
+                    <h3>Exercice 1</h3>
+                    <p>Déterminer si les applications $f_i$ suivantes sont linéaires :</p>
+                    $f_1 : \mathbb{R}^2 \to \mathbb{R}^2 \quad f_1(x, y) = (2x + y, x - y)$<br>
+                    $f_2 : \mathbb{R}^3 \to \mathbb{R}^3 \quad f_2(x, y, z) = (xy, x, y)$<br>
+                    $f_3 : \mathbb{R}^3 \to \mathbb{R}^3 \quad f_3(x, y, z) = (2x + y + z, y - z, x+y)$<br>
+                    $f_4 : \mathbb{R}^2 \to \mathbb{R}^4 \quad f_4(x, y) = (y, 0, x - 7y, x+y)$<br>
+                    $f_5 : \mathbb{R}_3[X] \to \mathbb{R}^3 \quad f_5(P) = (P(-1), P(0), P(1))$
+                    <div class="nav-links">
+                        <a href="#ind1">Indication ▼</a>
+                        <a href="#corr1">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000929]</div>
+                </article>
+
+                <article id="exo2">
+                    <h3>Exercice 2</h3>
+                    <p>Soit E un espace vectoriel de dimension $n$ et $\phi$ une application linéaire de E dans lui-même telle que $\phi^n = 0$ et $\phi^{n-1} \neq 0$. Soit $x \in E$ tel que $\phi^{n-1}(x) \neq 0$. Montrer que la famille $\{x, \phi(x), \phi^2(x), \dots, \phi^{n-1}(x)\}$ est une base de E.</p>
+                    <div class="nav-links">
+                        <a href="#ind2">Indication ▼</a>
+                        <a href="#corr2">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000930]</div>
+                </article>
+
+                <h2>2 Image et noyau</h2>
+
+                <article id="exo3">
+                    <h3>Exercice 3</h3>
+                    <p>Soit E un espace vectoriel et soient $E_1$ et $E_2$ deux sous-espaces vectoriels de dimension finie de E, on définit l'application $f: E_1 \times E_2 \to E$ par $f(x_1, x_2) = x_1 + x_2$.</p>
+                    <ol>
+                        <li>Montrer que $f$ est linéaire.</li>
+                        <li>Déterminer le noyau et l'image de $f$.</li>
+                        <li>Que donne le théorème du rang ?</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind3">Indication ▼</a>
+                        <a href="#corr3">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000934]</div>
+                </article>
+
+                <article id="exo4">
+                    <h3>Exercice 4</h3>
+                    <p>Soit E un espace vectoriel de dimension $n$ et $f$ une application linéaire de E dans lui-même. Montrer que les deux assertions qui suivent sont équivalentes :</p>
+                    (i) $\text{Ker } f = \text{Im } f$<br>
+                    (ii) $f^2 = 0$ et $n = 2 \cdot \text{rg}(f)$
+                    <div class="nav-links">
+                        <a href="#ind4">Indication ▼</a>
+                        <a href="#corr4">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000943]</div>
+                </article>
+
+                <article id="exo5">
+                    <h3>Exercice 5</h3>
+                    <p>Soient $f$ et $g$ deux endomorphismes de E tels que $f \circ g = g \circ f$. Montrer que $\text{Ker } f$ et $\text{Im } f$ sont stables par $g$.</p>
+                    <div class="nav-links">
+                        <a href="#ind5">Indication ▼</a>
+                        <a href="#corr5">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000947]</div>
+                </article>
+
+                <article id="exo6">
+                    <h3>Exercice 6</h3>
+                    <p>Soit E et F de dimensions finies et $u, v \in \mathcal{L}(E, F)$.</p>
+                    <ol>
+                        <li>Montrer que $\text{rg}(u+v) \le \text{rg}(u) + \text{rg}(v)$.</li>
+                        <li>En déduire que $|\text{rg}(u) - \text{rg}(v)| \le \text{rg}(u+v)$.</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#corr6">Correction ▼</a>
+                    </div>
+                    <div class="ref">[001027]</div>
+                </article>
+                
+                <h2>3 Injectivité, surjectivité, isomorphie</h2>
+
+                <article id="exo7">
+                    <h3>Exercice 7</h3>
+                    <p>Pour les applications linéaires suivantes, déterminer $\text{Ker } f_i$ et $\text{Im } f_i$. En déduire si $f_i$ est injective, surjective, bijective.</p>
+                    $f_1 : \mathbb{R}^2 \to \mathbb{R}^2 \quad f_1(x, y) = (2x + y, x - y)$<br>
+                    $f_2 : \mathbb{R}^3 \to \mathbb{R}^3 \quad f_2(x, y, z) = (2x + y + z, y - z, x + y)$<br>
+                    $f_3 : \mathbb{R}^2 \to \mathbb{R}^4 \quad f_3(x, y) = (y, 0, x - 7y, x + y)$<br>
+                    $f_4 : \mathbb{R}_3[X] \to \mathbb{R}^3 \quad f_4(P) = (P(-1), P(0), P(1))$
+                    <div class="nav-links">
+                        <a href="#corr7">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000956]</div>
+                </article>
+
+                <article id="exo8">
+                    <h3>Exercice 8</h3>
+                    <p>Soit E un espace vectoriel de dimension 3, $\{e_1, e_2, e_3\}$ une base de E, et $t$ un paramètre réel.</p>
+                    <p>Démontrer que la donnée de 
+                    $$ \begin{cases} \phi(e_1) = e_1 + e_2 \\ \phi(e_2) = e_1 - e_2 \\ \phi(e_3) = e_1 + t e_3 \end{cases} $$
+                    définit une application linéaire $\phi$ de E dans E. Écrire le transformé du vecteur $x = \alpha_1 e_1 + \alpha_2 e_2 + \alpha_3 e_3$. Comment choisir $t$ pour que $\phi$ soit injective ? surjective ?</p>
+                    <div class="nav-links">
+                        <a href="#ind8">Indication ▼</a>
+                        <a href="#corr8">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000954]</div>
+                </article>
+
+                <article id="exo9">
+                    <h3>Exercice 9</h3>
+                    <p>Soit E et F deux espaces vectoriels de dimension finie et $\phi$ une application linéaire de E dans F. Montrer que $\phi$ est un isomorphisme si et seulement si l'image par $\phi$ de toute base de E est une base de F.</p>
+                    <div class="nav-links">
+                        <a href="#ind9">Indication ▼</a>
+                        <a href="#corr9">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000963]</div>
+                </article>
+
+                <h2>4 Morphismes particuliers</h2>
+
+                <article id="exo10">
+                    <h3>Exercice 10</h3>
+                    <p>Soit E l'espace vectoriel des fonctions de $\mathbb{R}$ dans $\mathbb{R}$. Soient P le sous-espace des fonctions paires et I le sous-espace des fonctions impaires. Montrer que $E = P \oplus I$. Donner l'expression du projecteur sur P de direction I.</p>
+                    <div class="nav-links">
+                        <a href="#ind10">Indication ▼</a>
+                        <a href="#corr10">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000974]</div>
+                </article>
+
+                <article id="exo11">
+                    <h3>Exercice 11</h3>
+                    <p>Soit $E = \mathbb{R}_n[X]$ et soient A et B deux polynômes à coefficients réels de degré $n+1$. On considère l'application $f$ qui à tout polynôme P de E, associe le reste de la division euclidienne de AP par B.</p>
+                    <ol>
+                        <li>Montrer que $f$ est un endomorphisme de E.</li>
+                        <li>Montrer l'équivalence : $f$ est bijective $\iff$ A et B sont premiers entre eux.</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind11">Indication ▼</a>
+                        <a href="#corr11">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000959]</div>
+                </article>
+
+                <article id="exo12">
+                    <h3>Exercice 12</h3>
+                    <p>Soit $E = \mathbb{R}_n[X]$ l'espace vectoriel des polynômes de degré $\le n$, et $f : E \to E$ définie par :</p>
+                    $$ f(P) = P + (1-X)P'. $$
+                    <p>Montrer que $f$ est une application linéaire et donner une base de $\text{Im } f$ et de $\text{Ker } f$.</p>
+                    <div class="nav-links">
+                        <a href="#ind12">Indication ▼</a>
+                        <a href="#corr12">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000976]</div>
+                </article>
+            </section>
+            
+            <section id="indications">
+                <h2>Indications</h2>
+                <div id="ind1"><h4>Indication pour l'exercice 1 <a href="#exo1" class="back-link">▲</a></h4><p>Une seule application n'est pas linéaire.</p></div>
+                <div id="ind2"><h4>Indication pour l'exercice 2 <a href="#exo2" class="back-link">▲</a></h4><p>Prendre une combinaison linéaire nulle et l'évaluer par $\phi^{n-1}$.</p></div>
+                <div id="ind3"><h4>Indication pour l'exercice 3 <a href="#exo3" class="back-link">▲</a></h4><p>Faire un dessin de l'image et du noyau pour $f: \mathbb{R} \times \mathbb{R} \to \mathbb{R}$. Montrer que le noyau est isomorphe à $E_1 \cap E_2$.</p></div>
+                <div id="ind4"><h4>Indication pour l'exercice 4 <a href="#exo4" class="back-link">▲</a></h4><p>Pour chacune des implications utiliser la formule du rang.</p></div>
+                <div id="ind5"><h4>Indication pour l'exercice 5 <a href="#exo5" class="back-link">▲</a></h4><p>Dire qu'un sous-espace F est stable par g signifie que $g(F) \subset F$.</p></div>
+                <div id="ind8"><h4>Indication pour l'exercice 8 <a href="#exo8" class="back-link">▲</a></h4><p>$t=0$ est un cas à part.</p></div>
+                <div id="ind9"><h4>Indication pour l'exercice 9 <a href="#exo9" class="back-link">▲</a></h4><p>Pour une base $\mathcal{B} = \{e_1, \dots, e_n\}$ de E considérer la famille $\{\phi(e_1), \dots, \phi(e_n)\}$.</p></div>
+                <div id="ind10"><h4>Indication pour l'exercice 10 <a href="#exo10" class="back-link">▲</a></h4><p>Pour une fonction $f$ on peut écrire $$f(x) = \frac{f(x)+f(-x)}{2} + \frac{f(x)-f(-x)}{2}.$$ Le projecteur sur P de direction I est l'application $\pi : E \to E$ qui vérifie $\pi(f) \in P$, $\pi \circ \pi = \pi$ et $\text{Ker } \pi = I$.</p></div>
+                <div id="ind11"><h4>Indication pour l'exercice 11 <a href="#exo11" class="back-link">▲</a></h4><p>Résultats utiles d'arithmétique des polynômes : la division euclidienne, le théorème de Bézout, le lemme de Gauss.</p></div>
+                <div id="ind12"><h4>Indication pour l'exercice 12 <a href="#exo12" class="back-link">▲</a></h4><p>P' désigne la dérivée de P. Pour trouver le noyau, résoudre une équation différentielle. Pour l'image calculer les $f(X^k)$.</p></div>
+            </section>
+            
+            <section id="corrections">
+                <h2>Corrections</h2>
+                <div id="corr1" class="correction-block"><h4>Correction de l'exercice 1 <a href="#exo1" class="back-link">▲</a></h4>
+                    <ol>
+                        <li>$f_1$ est linéaire. On vérifie $f_1(\lambda(x,y) + (x',y')) = \lambda f_1(x,y) + f_1(x',y')$.</li>
+                        <li>$f_2$ n'est pas linéaire. Par exemple, $f_2(2(1,1,0)) = f_2(2,2,0) = (4,2,2)$ mais $2f_2(1,1,0) = 2(1,1,1) = (2,2,2)$.</li>
+                        <li>$f_3$ est linéaire.</li>
+                        <li>$f_4$ est linéaire.</li>
+                        <li>$f_5$ est linéaire. Pour $P, Q \in \mathbb{R}_3[X]$ et $\lambda \in \mathbb{R}$: $f_5(\lambda P+Q) = ((\lambda P+Q)(-1), (\lambda P+Q)(0), (\lambda P+Q)(1)) = (\lambda P(-1)+Q(-1), \lambda P(0)+Q(0), \lambda P(1)+Q(1)) = \lambda f_5(P) + f_5(Q)$.</li>
+                    </ol>
+                </div>
+                 <div id="corr2" class="correction-block"><h4>Correction de l'exercice 2 <a href="#exo2" class="back-link">▲</a></h4>
+                    <p>Montrons que la famille $\{x, \phi(x), \dots, \phi^{n-1}(x)\}$ est libre. Soient $\lambda_0, \dots, \lambda_{n-1} \in \mathbb{R}$ tels que $\lambda_0 x + \lambda_1 \phi(x) + \dots + \lambda_{n-1}\phi^{n-1}(x) = 0$.
+                    Appliquons $\phi^{n-1}$ à cette égalité. Comme $\phi^k = 0$ pour $k \ge n$, on obtient :
+                    $$ \phi^{n-1}(\lambda_0 x + \dots + \lambda_{n-1}\phi^{n-1}(x)) = \lambda_0 \phi^{n-1}(x) + \lambda_1 \phi^n(x) + \dots = \lambda_0 \phi^{n-1}(x) = 0. $$
+                    Comme $\phi^{n-1}(x) \neq 0$, on en déduit que $\lambda_0 = 0$.
+                    L'équation devient $\lambda_1 \phi(x) + \dots + \lambda_{n-1}\phi^{n-1}(x) = 0$. En appliquant maintenant $\phi^{n-2}$, on montre de la même manière que $\lambda_1=0$.
+                    En itérant ce processus, on montre que tous les $\lambda_i$ sont nuls.
+                    La famille est donc libre. Comme elle contient $n$ vecteurs dans un espace de dimension $n$, c'est une base de E.</p>
+                </div>
+                <div id="corr3" class="correction-block"><h4>Correction de l'exercice 3 <a href="#exo3" class="back-link">▲</a></h4>
+                    <ol>
+                        <li>$f$ est linéaire : $f(\lambda(x_1,x_2) + (x'_1,x'_2)) = f(\lambda x_1+x'_1, \lambda x_2+x'_2) = (\lambda x_1+x'_1) + (\lambda x_2+x'_2) = \lambda(x_1+x_2) + (x'_1+x'_2) = \lambda f(x_1,x_2) + f(x'_1,x'_2)$.</li>
+                        <li>$\text{Im } f = \{x_1+x_2 \mid x_1 \in E_1, x_2 \in E_2\} = E_1+E_2$.
+                        $\text{Ker } f = \{(x_1,x_2) \in E_1 \times E_2 \mid x_1+x_2=0\}$. Cela signifie $x_1=-x_2$. Donc $x_1$ doit appartenir à $E_2$ (car $-x_2 \in E_2$) et $x_2$ doit appartenir à $E_1$. Ainsi, $x_1 \in E_1 \cap E_2$ et $x_2=-x_1$. Donc $\text{Ker } f = \{(x, -x) \mid x \in E_1 \cap E_2\}$. Cet espace est isomorphe à $E_1 \cap E_2$.</li>
+                        <li>Le théorème du rang s'écrit $\dim(\text{Ker } f) + \dim(\text{Im } f) = \dim(E_1 \times E_2)$.
+                        Ceci donne $\dim(E_1 \cap E_2) + \dim(E_1+E_2) = \dim(E_1) + \dim(E_2)$, qui est la formule de Grassmann.</li>
+                    </ol>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
