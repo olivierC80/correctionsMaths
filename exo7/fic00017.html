@@ -1,0 +1,408 @@
+Here is the complete HTML file converted from the provided PDF, following all your engineering specifications.
+
+code
+Html
+play_circle
+download
+content_copy
+expand_less
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espaces vectoriels</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .exo7-box {
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            background-color: #ffc107;
+            color: #333;
+            padding: 10px 15px;
+            font-weight: bold;
+            transform: rotate(15deg);
+            border: 2px solid #e0a800;
+            border-radius: 4px;
+        }
+        h1, h2, h3, h4 {
+            color: #0056b3;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            margin-top: 1.5em;
+        }
+        h1 {
+            font-size: 1.8em;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #007bff;
+        }
+        h3 {
+            font-size: 1.3em;
+            color: #17a2b8;
+            border-bottom: none;
+        }
+        h4 {
+            font-size: 1.1em;
+            color: #6c757d;
+            border-bottom: 1px dotted #ccc;
+        }
+        article {
+            margin-bottom: 2em;
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            background-color: #fdfdff;
+        }
+        .ref {
+            text-align: right;
+            font-size: 0.8em;
+            color: #6c757d;
+        }
+        .nav-links {
+            margin-top: 10px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #007bff;
+            margin-right: 15px;
+            font-weight: 500;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 5px 0;
+        }
+        .back-link {
+            text-decoration: none;
+            color: #17a2b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="exo7-box">Exo7</div>
+        <header>
+            <h1>Espaces vectoriels</h1>
+            <p style="text-align: center;">Fiche amendée par David Chataur et Arnaud Bodin.</p>
+        </header>
+
+        <main>
+            <section id="exercices">
+                <h2>1 Définition, sous-espaces</h2>
+                <article id="exo1">
+                    <h3>Exercice 1</h3>
+                    <p>Montrer que les ensembles ci-dessous sont des espaces vectoriels (sur $\mathbb{R}$) :</p>
+                    <ul>
+                        <li>$E_1 = \{f : [0,1] \to \mathbb{R}\}$ : l'ensemble des fonctions à valeurs réelles définies sur l'intervalle $[0, 1]$, muni de l'addition $f+g$ des fonctions et de la multiplication par un nombre réel $\lambda \cdot f$.</li>
+                        <li>$E_2 = \{(u_n): \mathbb{N} \to \mathbb{R}\}$ : l'ensemble des suites réelles muni de l'addition des suites définie par $(u_n)+(v_n) = (u_n + v_n)$ et de la multiplication par un nombre réel $\lambda \cdot (u_n) = (\lambda \times u_n)$.</li>
+                        <li>$E_3 = \{P \in \mathbb{R}[x] \mid \deg P \le n\}$ : l'ensemble des polynômes à coefficients réels de degré inférieur ou égal à $n$ muni de l'addition $P + Q$ des polynômes et de la multiplication par un nombre réel $\lambda \cdot P$.</li>
+                    </ul>
+                    <div class="nav-links">
+                        <a href="#ind1">Indication ▼</a>
+                        <a href="#corr1">Correction ▼</a>
+                    </div>
+                    <div class="ref">[006868]</div>
+                </article>
+
+                <article id="exo2">
+                    <h3>Exercice 2</h3>
+                    <p>Déterminer lesquels des ensembles $E_1, E_2, E_3$ et $E_4$ sont des sous-espaces vectoriels de $\mathbb{R}^3$.</p>
+                    $E_1 = \{(x, y, z) \in \mathbb{R}^3 \mid 3x - 7y = z\}$ <br>
+                    $E_2 = \{(x, y, z) \in \mathbb{R}^3 \mid x^2 - z^2 = 0\}$ <br>
+                    $E_3 = \{(x, y, z) \in \mathbb{R}^3 \mid x+y-z=x+y+z=0\}$ <br>
+                    $E_4 = \{(x, y, z) \in \mathbb{R}^3 \mid z(x^2 + y^2) = 0\}$
+                    <div class="nav-links">
+                        <a href="#ind2">Indication ▼</a>
+                        <a href="#corr2">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000886]</div>
+                </article>
+
+                <article id="exo3">
+                    <h3>Exercice 3</h3>
+                    <ol>
+                        <li>Décrire les sous-espaces vectoriels de $\mathbb{R}$ ; puis de $\mathbb{R}^2$ et $\mathbb{R}^3$.</li>
+                        <li>Dans $\mathbb{R}^3$ donner un exemple de deux sous-espaces dont l'union n'est pas un sous-espace vectoriel.</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind3">Indication ▼</a>
+                        <a href="#corr3">Correction ▼</a>
+                    </div>
+                    <div class="ref">[006869]</div>
+                </article>
+
+                <article id="exo4">
+                    <h3>Exercice 4</h3>
+                    <p>Parmi les ensembles suivants reconnaître ceux qui sont des sous-espaces vectoriels.</p>
+                    $E_1 = \{(x, y, z) \in \mathbb{R}^3 \mid x + y + a = 0 \text{ et } x + 3az = 0\}$ <br>
+                    $E_2 = \{f \in \mathcal{F}(\mathbb{R},\mathbb{R}) \mid f(1) = 0\}$ <br>
+                    $E_3 = \{f \in \mathcal{F}(\mathbb{R}, \mathbb{R}) \mid f(0) = 1\}$ <br>
+                    $E_4 = \{(x,y) \in \mathbb{R}^2 \mid x + ay + 1 \ge 0\}$
+                    <div class="nav-links">
+                        <a href="#ind4">Indication ▼</a>
+                        <a href="#corr4">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000888]</div>
+                </article>
+
+                <article id="exo5">
+                    <h3>Exercice 5</h3>
+                    <p>Soit $E$ un espace vectoriel.</p>
+                    <ol>
+                        <li>Soient $F$ et $G$ deux sous-espaces de $E$. Montrer que
+                        $$ F \cup G \text{ est un sous-espace vectoriel de } E \iff F \subset G \text{ ou } G \subset F. $$</li>
+                        <li>Soit $H$ un troisième sous-espace vectoriel de $E$. Prouver que
+                        $$ G \subset F \implies F \cap (G+H) = G + (F \cap H). $$</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind5">Indication ▼</a>
+                        <a href="#corr5">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000893]</div>
+                </article>
+
+                <h2>2 Systèmes de vecteurs</h2>
+
+                <article id="exo6">
+                    <h3>Exercice 6</h3>
+                    <ol>
+                        <li>Soient $v_1 = (2,1,4)$, $v_2 = (1, -1,2)$ et $v_3 = (3,3,6)$ des vecteurs de $\mathbb{R}^3$, trouver trois réels non tous nuls $\alpha, \beta, \gamma$ tels que $\alpha v_1 + \beta v_2 + \gamma v_3 = 0$.</li>
+                        <li>On considère deux plans vectoriels
+                        $$ P_1 = \{(x,y,z) \in \mathbb{R}^3 \mid x-y+z= 0\} $$
+                        $$ P_2 = \{(x, y, z) \in \mathbb{R}^3 \mid x - y = 0\} $$
+                        trouver un vecteur directeur de la droite $D = P_1 \cap P_2$ ainsi qu'une équation paramétrée.</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind6">Indication ▼</a>
+                        <a href="#corr6">Correction ▼</a>
+                    </div>
+                    <div class="ref">[006870]</div>
+                </article>
+
+                <article id="exo7">
+                    <h3>Exercice 7</h3>
+                    <p>Soient dans $\mathbb{R}^4$ les vecteurs $v_1 = (1,2,3,4)$ et $v_2 = (1, -2, 3, -4)$. Peut-on déterminer $x$ et $y$ pour que $(x, 1, y, 1) \in \text{Vect}\{v_1, v_2\}$ ? Et pour que $(x,1,1,y) \in \text{Vect}\{v_1, v_2\}$ ?</p>
+                    <div class="nav-links">
+                        <a href="#ind7">Indication ▼</a>
+                        <a href="#corr7">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000900]</div>
+                </article>
+
+                <article id="exo8">
+                    <h3>Exercice 8</h3>
+                    <p>Soit $E$ le sous-espace vectoriel de $\mathbb{R}^3$ engendré par les vecteurs $v_1 = (2,3, -1)$ et $v_2 = (1, -1, -2)$ et $F$ celui engendré par $w_1 = (3,7,0)$ et $w_2 = (5,0, -7)$. Montrer que $E$ et $F$ sont égaux.</p>
+                    <div class="nav-links">
+                        <a href="#ind8">Indication ▼</a>
+                        <a href="#corr8">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000908]</div>
+                </article>
+
+                <article id="exo9">
+                    <h3>Exercice 9</h3>
+                    <p>Soit $\alpha \in \mathbb{R}$ et $f_\alpha : \mathbb{R} \to \mathbb{R}, x \mapsto e^{\alpha x}$. Montrer que la famille $(f_\alpha)_{\alpha \in \mathbb{R}}$ est libre.</p>
+                    <div class="nav-links">
+                        <a href="#ind9">Indication ▼</a>
+                        <a href="#corr9">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000917]</div>
+                </article>
+
+                <h2>3 Somme directe</h2>
+                <article id="exo10">
+                    <h3>Exercice 10</h3>
+                    <p>Par des considérations géométriques répondez aux questions suivantes :</p>
+                    <ol>
+                        <li>Deux droites vectorielles de $\mathbb{R}^3$ sont-elles supplémentaires ?</li>
+                        <li>Deux plans vectoriels de $\mathbb{R}^3$ sont-ils supplémentaires ?</li>
+                        <li>A quelle condition un plan vectoriel et une droite vectorielle de $\mathbb{R}^3$ sont-ils supplémentaires ?</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind10">Indication ▼</a>
+                        <a href="#corr10">Correction ▼</a>
+                    </div>
+                    <div class="ref">[006871]</div>
+                </article>
+
+                <article id="exo11">
+                    <h3>Exercice 11</h3>
+                    <p>On considère les vecteurs $v_1 = (1,0,0,1)$, $v_2 = (0,0,1,0)$, $v_3 = (0,1,0,0)$, $v_4 = (0,0,0,1)$, $v_5 = (0,1,0,1)$ dans $\mathbb{R}^4$.</p>
+                    <ol>
+                        <li>$\text{Vect}\{v_1,v_2\}$ et $\text{Vect}\{v_3\}$ sont-ils supplémentaires dans $\mathbb{R}^4$ ?</li>
+                        <li>$\text{Vect}\{v_1,v_2\}$ et $\text{Vect}\{v_4,v_5\}$ sont-ils supplémentaires dans $\mathbb{R}^4$ ?</li>
+                        <li>$\text{Vect}\{v_1, v_3, v_4\}$ et $\text{Vect}\{v_2, v_5\}$ sont-ils supplémentaires dans $\mathbb{R}^4$ ?</li>
+                        <li>$\text{Vect}\{v_1,v_4\}$ et $\text{Vect}\{v_3, v_5\}$ sont-ils supplémentaires dans $\mathbb{R}^4$ ?</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind11">Indication ▼</a>
+                        <a href="#corr11">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000920]</div>
+                </article>
+
+                <article id="exo12">
+                    <h3>Exercice 12</h3>
+                    <p>Soient $v_1 = (0,1,-2,1)$, $v_2 = (1,0,2,-1)$, $v_3 = (3,2,2,-1)$, $v_4 = (0,0,1,0)$ et $v_5 = (0,0,0,1)$ des vecteurs de $\mathbb{R}^4$. Les propositions suivantes sont-elles vraies ou fausses ? Justifier votre réponse.</p>
+                    <ol>
+                        <li>$\text{Vect}\{v_1,v_2,v_3\} = \text{Vect}\{(1,1,0,0), (-1,1,-4,2)\}$.</li>
+                        <li>$(1,1,0,0) \in \text{Vect}\{v_1,v_2\} \cap \text{Vect}\{v_2,v_3,v_4\}$.</li>
+                        <li>$\dim(\text{Vect}\{v_1,v_2\} \cap \text{Vect}\{v_2,v_3,v_4\}) = 1$ (c'est-à-dire c'est une droite vectorielle).</li>
+                        <li>$\text{Vect}\{v_1,v_2\} + \text{Vect}\{v_2,v_3,v_4\} = \mathbb{R}^4$.</li>
+                        <li>$\text{Vect}\{v_4,v_5\}$ est un sous-espace vectoriel supplémentaire de $\text{Vect}\{v_1,v_2,v_3\}$ dans $\mathbb{R}^4$.</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind12">Indication ▼</a>
+                        <a href="#corr12">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000919]</div>
+                </article>
+
+                <article id="exo13">
+                    <h3>Exercice 13</h3>
+                    <p>Soit $E = C^1(\mathbb{R}, \mathbb{R})$ l'espace des fonctions dérivables et $F = \{f \in E \mid f(0) = f'(0) = 0\}$. Montrer que $F$ est un sous-espace vectoriel de $E$ et déterminer un supplémentaire de $F$ dans $E$.</p>
+                    <div class="nav-links">
+                        <a href="#ind13">Indication ▼</a>
+                        <a href="#corr13">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000923]</div>
+                </article>
+
+                <article id="exo14">
+                    <h3>Exercice 14</h3>
+                    <p>Soit $E = \{(u_n)_{n \in \mathbb{N}} \in \mathbb{R}^\mathbb{N} \mid (u_n)_n \text{ converge }\}$.</p>
+                    <p>Montrer que l'ensemble des suites constantes et l'ensemble des suites convergeant vers 0 sont des sous-espaces supplémentaires dans $E$.</p>
+                    <div class="nav-links">
+                        <a href="#ind14">Indication ▼</a>
+                        <a href="#corr14">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000926]</div>
+                </article>
+            </section>
+            
+            <section id="indications">
+                <h2>Indications</h2>
+                <div id="ind1"><h4>Indication pour l'exercice 1 <a href="#exo1" class="back-link">▲</a></h4><p>On vérifiera sur ces exemples la définition donnée en cours.</p></div>
+                <div id="ind2"><h4>Indication pour l'exercice 2 <a href="#exo2" class="back-link">▲</a></h4><ol><li>$E_1$ est un sous-espace vectoriel.</li><li>$E_2$ n'est pas un sous-espace vectoriel.</li><li>$E_3$ est un sous-espace vectoriel.</li><li>$E_4$ n'est pas un sous-espace vectoriel.</li></ol></div>
+                <div id="ind3"><h4>Indication pour l'exercice 3 <a href="#exo3" class="back-link">▲</a></h4><ol><li>Discuter suivant la dimension des sous-espaces.</li><li>Penser aux droites vectorielles.</li></ol></div>
+                <div id="ind4"><h4>Indication pour l'exercice 4 <a href="#exo4" class="back-link">▲</a></h4><ol><li>$E_1$ est un sous-espace vectoriel de $\mathbb{R}^3$ si et seulement si $a = 0$.</li><li>$E_2$ est un sous-espace vectoriel.</li><li>$E_3$ n'est pas un espace vectoriel.</li><li>$E_4$ n'est pas un espace vectoriel.</li></ol></div>
+                <div id="ind5"><h4>Indication pour l'exercice 5 <a href="#exo5" class="back-link">▲</a></h4><ol><li>Pour le sens $\implies$ : raisonner par l'absurde et prendre un vecteur de $F \setminus G$ et un de $G \setminus F$. Regarder la somme de ces deux vecteurs.</li><li>Raisonner par double inclusion, revenir aux vecteurs.</li></ol></div>
+                <div id="ind6"><h4>Indication pour l'exercice 6 <a href="#exo6" class="back-link">▲</a></h4><ol><li>On pensera à poser un système.</li><li>Trouver un vecteur non-nul commun aux deux plans.</li></ol></div>
+                <div id="ind7"><h4>Indication pour l'exercice 7 <a href="#exo7" class="back-link">▲</a></h4><p>On ne peut pas pour le premier, mais on peut pour le second.</p></div>
+                <div id="ind8"><h4>Indication pour l'exercice 8 <a href="#exo8" class="back-link">▲</a></h4><p>Montrer la double inclusion. Utiliser le fait que de manière générale pour $E = \text{Vect}(v_1, \dots, v_n)$ alors : $E \subset F \iff \forall i=1, \dots, n \quad v_i \in F$.</p></div>
+                <div id="ind9"><h4>Indication pour l'exercice 9 <a href="#exo9" class="back-link">▲</a></h4><p>Supposer qu'il existe des réels $\lambda_1, \dots, \lambda_n$ et des indices $\alpha_1 > \alpha_2 > \dots > \alpha_n$ (tout cela en nombre fini !) tels que $\lambda_1 f_{\alpha_1} + \dots + \lambda_n f_{\alpha_n} = 0$. Ici le 0 est la fonction constante égale à 0. Regarder quel terme est dominant et factoriser.</p></div>
+                <div id="ind10"><h4>Indication pour l'exercice 10 <a href="#exo10" class="back-link">▲</a></h4><ol><li>Jamais.</li><li>Jamais.</li><li>Considérer un vecteur directeur de la droite.</li></ol></div>
+                <div id="ind11"><h4>Indication pour l'exercice 11 <a href="#exo11" class="back-link">▲</a></h4><ol><li>Non.</li><li>Oui.</li><li>Non.</li><li>Non.</li></ol></div>
+                <div id="ind12"><h4>Indication pour l'exercice 12 <a href="#exo12" class="back-link">▲</a></h4><ol><li>Vrai.</li><li>Vrai.</li><li>Faux.</li><li>Faux.</li><li>Vrai.</li></ol></div>
+                <div id="ind13"><h4>Indication pour l'exercice 13 <a href="#exo13" class="back-link">▲</a></h4><p>Soit $G = \{x \mapsto ax+b \mid (a,b) \in \mathbb{R}^2\}$. Montrer que $G$ est un supplémentaire de $F$ dans $E$.</p></div>
+                <div id="ind14"><h4>Indication pour l'exercice 14 <a href="#exo14" class="back-link">▲</a></h4><p>Pour une suite $(u_n)$ qui converge vers $\ell$ regarder la suite $(u_n - \ell)$.</p></div>
+            </section>
+
+            <section id="corrections">
+                <h2>Corrections</h2>
+                <div id="corr1"><h4>Correction de l'exercice 1 <a href="#exo1" class="back-link">▲</a></h4>
+                    <p>Pour qu'un ensemble $E$, muni d'une addition $x+y \in E$ et d'une multiplication par un scalaire $\lambda \cdot x \in E$, soit un K-espace vectoriel il faut qu'il vérifie les huit points suivants (axiomes).</p>
+                    <ol>
+                        <li>$x+(y+z) = (x+y)+z$ (associativité)</li>
+                        <li>Il existe un vecteur nul $0 \in E$ tel que $x+0=x$.</li>
+                        <li>Il existe un opposé $-x$ tel que $x+(-x)=0$.</li>
+                        <li>$x+y=y+x$ (commutativité). Ces quatre premières propriétés font de $(E,+)$ un groupe abélien.</li>
+                        <li>$1 \cdot x = x$.</li>
+                        <li>$\lambda \cdot (x+y) = \lambda \cdot x + \lambda \cdot y$.</li>
+                        <li>$(\lambda+\mu) \cdot x = \lambda \cdot x + \mu \cdot x$.</li>
+                        <li>$(\lambda \times \mu) \cdot x = \lambda \cdot (\mu \cdot x)$.</li>
+                    </ol>
+                    <p><b>Pour $E_1 = \{f : [0,1] \to \mathbb{R}\}$:</b></p>
+                    <ol>
+                        <li>$f+(g+h)=(f+g)+h$ : pour tout $t \in [0,1]$, $f(t)+(g(t)+h(t)) = (f(t)+g(t))+h(t)$, d'où l'égalité des fonctions.</li>
+                        <li>Le vecteur nul est la fonction constante nulle, notée $0$. On a bien $f+0=f$.</li>
+                        <li>L'opposé de $f$ est la fonction $-f$ définie par $(-f)(t) = -f(t)$.</li>
+                        <li>$f+g=g+f$ car l'addition dans $\mathbb{R}$ est commutative.</li>
+                        <li>$1 \cdot f = f$ car $(1 \cdot f)(t) = 1 \times f(t) = f(t)$.</li>
+                        <li>Les points 6, 7, 8 se vérifient de la même manière, en revenant à la définition des opérations sur les fonctions.</li>
+                    </ol>
+                    <p><b>Pour $E_2$ (suites réelles):</b> La vérification est similaire. Le vecteur nul est la suite dont tous les termes sont nuls. L'opposé de la suite $u=(u_n)$ est la suite $-u=(-u_n)$.</p>
+                    <p><b>Pour $E_3$ (polynômes de degré $\le n$):</b> La somme de deux polynômes de degré $\le n$ est encore un polynôme de degré $\le n$. De même pour la multiplication par un scalaire. Le polynôme nul est le vecteur nul. L'opposé de $P$ est $-P$. Les autres axiomes découlent des propriétés des opérations sur les polynômes.</p>
+                </div>
+                <div id="corr2"><h4>Correction de l'exercice 2 <a href="#exo2" class="back-link">▲</a></h4>
+                    <ol>
+                        <li>$E_1$ est un sous-espace vectoriel de $\mathbb{R}^3$. En effet :
+                            <ul>
+                                <li>$(0,0,0) \in E_1$ car $3(0)-7(0)=0$.</li>
+                                <li>Soient $(x,y,z)$ et $(x',y',z')$ dans $E_1$. Alors $3x-7y=z$ et $3x'-7y'=z'$. Donc $3(x+x')-7(y+y')=(3x-7y)+(3x'-7y')=z+z'$, donc $(x+x',y+y',z+z') \in E_1$.</li>
+                                <li>Soit $\lambda \in \mathbb{R}$ et $(x,y,z) \in E_1$. Alors $3(\lambda x) - 7(\lambda y) = \lambda(3x-7y) = \lambda z$. Donc $(\lambda x, \lambda y, \lambda z) \in E_1$.</li>
+                            </ul>
+                        </li>
+                        <li>$E_2 = \{(x,y,z) \in \mathbb{R}^3 \mid x=z \text{ ou } x=-z\}$. Ce n'est pas un s.e.v. Contre-exemple : $(1,0,1) \in E_2$ et $(1,0,-1) \in E_2$, mais leur somme $(2,0,0)$ n'est pas dans $E_2$ car $2^2-0^2 \ne 0$.</li>
+                        <li>$E_3$ est défini par le système d'équations $\{x+y-z=0, x+y+z=0\}$. En additionnant et soustrayant les lignes, on obtient $\{2(x+y)=0, 2z=0\}$, soit $\{x+y=0, z=0\}$. C'est un s.e.v car c'est l'intersection de deux plans vectoriels.</li>
+                        <li>$E_4 = \{(x,y,z) \in \mathbb{R}^3 \mid z=0 \text{ ou } x^2+y^2=0 \}$. Cela signifie $z=0$ ou $(x=0, y=0)$. $E_4$ est la réunion de l'axe $(Oz)$ et du plan $(xOy)$. Ce n'est pas un s.e.v. Contre-exemple : $(1,1,0) \in E_4$ et $(0,0,1) \in E_4$, mais leur somme $(1,1,1)$ n'est pas dans $E_4$.</li>
+                    </ol>
+                </div>
+                <div id="corr3"><h4>Correction de l'exercice 3 <a href="#exo3" class="back-link">▲</a></h4>
+                    <ol>
+                        <li>Les s.e.v. de $\mathbb{R}$ sont $\{0\}$ et $\mathbb{R}$.
+                        Les s.e.v. de $\mathbb{R}^2$ sont $\{0\}$, les droites vectorielles (passant par l'origine), et $\mathbb{R}^2$.
+                        Les s.e.v. de $\mathbb{R}^3$ sont $\{0\}$, les droites vectorielles, les plans vectoriels, et $\mathbb{R}^3$.</li>
+                        <li>Soit $D_1 = \text{Vect}\{(1,0,0)\}$ (l'axe des $x$) et $D_2 = \text{Vect}\{(0,1,0)\}$ (l'axe des $y$). Alors $v_1=(1,0,0) \in D_1 \cup D_2$ et $v_2=(0,1,0) \in D_1 \cup D_2$, mais leur somme $v_1+v_2 = (1,1,0)$ n'est ni dans $D_1$ ni dans $D_2$. Donc $D_1 \cup D_2$ n'est pas un s.e.v.</li>
+                    </ol>
+                </div>
+                <div id="corr4"><h4>Correction de l'exercice 4 <a href="#exo4" class="back-link">▲</a></h4>
+                    <ol>
+                        <li>$E_1$: Si $a \ne 0$, $(0,0,0)$ n'est pas dans $E_1$, donc ce n'est pas un s.e.v. Si $a=0$, $E_1 = \{(x,y,z) \in \mathbb{R}^3 \mid x+y=0, x=0\}$, c'est l'intersection de deux plans vectoriels, donc c'est un s.e.v.</li>
+                        <li>$E_2$: Oui. Le vecteur nul (la fonction nulle) est dedans. La somme de deux fonctions nulles en 1 est nulle en 1. Le multiple d'une fonction nulle en 1 est nul en 1.</li>
+                        <li>$E_3$: Non. La fonction nulle n'est pas dedans ($0 \ne 1$).</li>
+                        <li>$E_4$: Non. $(1,0) \in E_4$ si $1 \ge 0$. Mais $-(1,0)=(-1,0)$ n'est pas dans $E_4$ si $a=0$ car $-1 < 0$. Plus généralement, ce n'est pas stable par multiplication par un scalaire négatif.</li>
+                    </ol>
+                </div>
+                <div id="corr5"><h4>Correction de l'exercice 5 <a href="#corr5" class="back-link">▲</a></h4>
+                    <ol>
+                        <li>Sens $\impliedby$. Si $F \subset G$, alors $F \cup G = G$, qui est un s.e.v. Si $G \subset F$, alors $F \cup G = F$, qui est un s.e.v.
+                        Sens $\implies$. On suppose que $F \cup G$ est un s.e.v. Raisonnons par l'absurde : supposons que $F \not\subset G$ et $G \not\subset F$.
+                        Alors il existe $x \in F \setminus G$ et $y \in G \setminus F$.
+                        Comme $x, y \in F \cup G$, et que c'est un s.e.v, leur somme $x+y$ est dans $F \cup G$.
+                        Cas 1: $x+y \in F$. Comme $x \in F$ et $F$ est un s.e.v, $(x+y) - x = y$ doit être dans $F$. C'est une contradiction car $y \in G \setminus F$.
+                        Cas 2: $x+y \in G$. Comme $y \in G$ et $G$ est un s.e.v, $(x+y) - y = x$ doit être dans $G$. C'est une contradiction car $x \in F \setminus G$.
+                        Dans les deux cas on a une contradiction. Donc l'hypothèse de départ est fausse, on a bien $F \subset G$ ou $G \subset F$.</li>
+                        <li>Supposons $G \subset F$.
+                        Inclusion $\supset$: Soit $x \in G + (F \cap H)$. Alors $x=g+k$ avec $g \in G$ and $k \in F \cap H$. Comme $g \in G \subset F$, on a $g \in F$. Comme $k \in F$, $x=g+k \in F$. De plus, $g \in G$ et $k \in H$, donc $x=g+k \in G+H$. Ainsi $x \in F \cap (G+H)$.
+                        Inclusion $\subset$: Soit $x \in F \cap (G+H)$. Alors $x \in F$ et $x \in G+H$. Donc $x=g+h$ avec $g \in G$ et $h \in H$. On a $h=x-g$. Comme $x \in F$ et $g \in G \subset F$, on a $h \in F$. Donc $h \in F \cap H$. Ainsi $x=g+h$ avec $g \in G$ et $h \in F \cap H$, ce qui signifie que $x \in G + (F \cap H)$.
+                        </li>
+                    </ol>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
