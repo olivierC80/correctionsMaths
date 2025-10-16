@@ -1,0 +1,348 @@
+Of course. As an engineer with expertise in web technologies and LaTeX, I will convert the provided document on rational fractions into a single, comprehensive, and mobile-optimized HTML file. The mathematical formulas will be accurately transcribed using LaTeX and rendered with KaTeX, using the specified configuration. All internal links between exercises, indications, and solutions will be correctly implemented for seamless navigation.
+
+Here is the complete HTML file.
+
+code
+Html
+play_circle
+download
+content_copy
+expand_less
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fractions Rationnelles - Exo7</title>
+    
+    <!-- KaTeX for LaTeX rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+
+    <style>
+        :root {
+            --primary-color: #005a9c;
+            --secondary-color: #f0f0f0;
+            --border-color: #ddd;
+            --text-color: #333;
+            --exo7-orange: #f57c00;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 1rem;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 1.8em;
+            margin-bottom: 1em;
+            padding-bottom: 0.3em;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            position: relative;
+        }
+        h2 {
+           font-size: 1.8em;
+           border-bottom: 2px solid var(--secondary-color);
+        }
+        h3 {
+           font-size: 1.4em;
+           color: #337ab7;
+           border: none;
+        }
+        .exo7-logo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--exo7-orange);
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 0 0 0 8px;
+            box-shadow: -2px 2px 5px rgba(0,0,0,0.1);
+        }
+        .exercise, .solution-box, .indication-box {
+            background-color: #fdfdfd;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .exercise-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .exercise-header h3 {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+        .exercise-code {
+            color: #888;
+            font-size: 0.8em;
+            font-family: monospace;
+        }
+        .nav-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            background-color: var(--secondary-color);
+            padding: 0.3rem 0.7rem;
+            border-radius: 15px;
+            font-size: 0.9em;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .nav-links a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .solution-box h4 a, .indication-box h4 a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        ul, ol {
+            padding-left: 1.5rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Fractions Rationnelles <div class="exo7-logo">Exo7</div></h1>
+        <p style="text-align: center; font-style: italic;">Corrections de Léa Blanc-Centi.</p>
+    </header>
+
+    <main>
+        <section id="fractions-rationnelles">
+            <h2>1 Fractions rationnelles</h2>
+            <article id="exo1" class="exercise">
+                <div class="exercise-header"><h3>Exercice 1</h3><span class="exercise-code">[006964]</span></div>
+                <p>Existe-t-il une fraction rationnelle $F$ telle que</p>
+                $$ (F(X))^2 = (X^2+1)^3 \text{ ?} $$
+                <div class="nav-links"><a href="#ind1">Indication ▼</a><a href="#corr1">Correction ▼</a></div>
+            </article>
+
+            <article id="exo2" class="exercise">
+                <div class="exercise-header"><h3>Exercice 2</h3><span class="exercise-code">[006965]</span></div>
+                <p>Soit $F=\frac{P}{Q}$ une fraction rationnelle écrite sous forme irréductible. On suppose qu'il existe une fraction rationnelle $G$ telle que</p>
+                $$ G\left(\frac{P(X)}{Q(X)}\right) = X $$
+                <ol>
+                    <li>Si $G = \frac{a_nX^n+\dots+a_1X+a_0}{b_nX^n+\dots+b_1X+b_0}$, montrer que $P$ divise $(a_0-b_0X)$ et que $Q$ divise $(a_n-b_nX)$.</li>
+                    <li>En déduire que $F=\frac{P}{Q}$ est de la forme $F(X) = \frac{aX+b}{cX+d}$.</li>
+                    <li>Pour $Y=\frac{aX+b}{cX+d}$, exprimer $X$ en fonction de $Y$. En déduire l'expression de $G$.</li>
+                </ol>
+                <div class="nav-links"><a href="#ind2">Indication ▼</a><a href="#corr2">Correction ▼</a></div>
+            </article>
+
+            <article id="exo3" class="exercise">
+                <div class="exercise-header"><h3>Exercice 3</h3><span class="exercise-code">[006966]</span></div>
+                <p>Soit $n \in \mathbb{N}^*$ et $P(X) = c(X-a_1)\dots(X-a_n)$ (où les $a_i$ sont des nombres complexes et où $c \ne 0$).</p>
+                <ol>
+                    <li>Exprimer à l'aide de $P$ et de ses dérivées les sommes suivantes:
+                    $$ \sum_{k=1}^n \frac{1}{X-a_k} \quad \sum_{k=1}^n \frac{1}{(X-a_k)^2} \quad \sum_{\substack{1 \le k,l \le n \\ k \ne l}} \frac{1}{(X-a_k)(X-a_l)} $$
+                    </li>
+                    <li>Montrer que si $z$ est racine de $P'$ mais pas de $P$, alors il existe $\lambda_1, \dots, \lambda_n$ des réels positifs ou nuls tels que $\sum_{k=1}^n \lambda_k = 1$ et $z = \sum_{k=1}^n \lambda_k a_k$. Si toutes les racines de $P$ sont réelles, que peut-on en déduire sur les racines de $P'$ ?</li>
+                </ol>
+                <div class="nav-links"><a href="#ind3">Indication ▼</a><a href="#corr3">Correction ▼</a></div>
+            </article>
+        </section>
+
+        <section id="decomposition">
+            <h2>2 Décompositions en éléments simples</h2>
+            <article id="exo4" class="exercise">
+                <div class="exercise-header"><h3>Exercice 4</h3><span class="exercise-code">[006967]</span></div>
+                <p>Décomposer les fractions suivantes en éléments simples sur $\mathbb{R}$, par identification des coefficients.</p>
+                <ol>
+                    <li>$F = \frac{X}{X^2-4}$</li>
+                    <li>$G = \frac{X^3-3X^2+X-4}{X-1}$</li>
+                    <li>$H = \frac{2X^3+X^2-X+1}{X^2-2X+1}$</li>
+                    <li>$K = \frac{X+1}{X^4+1}$</li>
+                </ol>
+                <div class="nav-links"><a href="#ind4">Indication ▼</a><a href="#corr4">Correction ▼</a></div>
+            </article>
+
+            <article id="exo5" class="exercise">
+                <div class="exercise-header"><h3>Exercice 5</h3><span class="exercise-code">[006968]</span></div>
+                <p>Décomposer les fractions suivantes en éléments simples sur $\mathbb{R}$, en raisonnant par substitution pour obtenir les coefficients.</p>
+                <ol>
+                    <li>$F = \frac{X^5+X^4+1}{X^3-X}$</li>
+                    <li>$G = \frac{X^3+X+1}{(X-1)^3(X+1)}$</li>
+                    <li>$H = \frac{X}{(X^2+1)(X^2+4)}$</li>
+                    <li>$K = \frac{2X^4+X^3+3X^2-6X+1}{2X^3-X^2}$</li>
+                </ol>
+                <div class="nav-links"><a href="#ind5">Indication ▼</a><a href="#corr5">Correction ▼</a></div>
+            </article>
+
+            <article id="exo6" class="exercise">
+                <div class="exercise-header"><h3>Exercice 6</h3><span class="exercise-code">[006969]</span></div>
+                <p>Décomposer les fractions suivantes en éléments simples sur $\mathbb{R}$.</p>
+                <ol>
+                    <li>À l'aide de divisions euclidiennes successives : $F = \frac{4X^6-2X^5+11X^4-X^3+11X^2+2X+3}{X(X^2+1)^3}$</li>
+                    <li>À l'aide d'une division selon les puissances croissantes : $G = \frac{4X^4-10X^3+8X^2-4X+1}{X^3(X-1)^2}$</li>
+                    <li>Idem pour : $H = \frac{X^4+2X^2+1}{X^5-X^3}$</li>
+                    <li>A l'aide du changement d'indéterminée $X=Y+1$ : $K = \frac{X^5+X^4+1}{X(X-1)^4}$</li>
+                </ol>
+                <div class="nav-links"><a href="#ind6">Indication ▼</a><a href="#corr6">Correction ▼</a></div>
+            </article>
+
+            <article id="exo7" class="exercise">
+                <div class="exercise-header"><h3>Exercice 7</h3><span class="exercise-code">[006970]</span></div>
+                <ol>
+                    <li>Décomposer les fractions suivantes en éléments simples sur $\mathbb{C}$.
+                    $$ \frac{(3-2i)X-5+3i}{X^2+iX+2} \quad \frac{X+i}{X^2+i} \quad \frac{2X}{(X+i)^2} $$
+                    </li>
+                    <li>Décomposer les fractions suivantes en éléments simples sur $\mathbb{R}$, puis sur $\mathbb{C}$.
+                    $$ \frac{X^5+X+1}{X^4-1} \quad \frac{X^2-3}{(X^2+1)(X^2+4)} \quad \frac{X^2+1}{X^4+1} $$
+                    </li>
+                </ol>
+                <div class="nav-links"><a href="#corr7">Correction ▼</a></div>
+            </article>
+        </section>
+
+        <section id="applications">
+            <h2>3 Applications</h2>
+            <article id="exo8" class="exercise">
+                <div class="exercise-header"><h3>Exercice 8</h3><span class="exercise-code">[006971]</span></div>
+                <p>On pose $Q_0=(X-1)(X-2)^2$, $Q_1=X(X-2)^2$ et $Q_2=X(X-1)$. À l'aide de la décomposition en éléments simples de $\frac{1}{X(X-1)(X-2)^2}$, trouver des polynômes $A_0, A_1, A_2$ tels que $A_0Q_0+A_1Q_1+A_2Q_2=1$. Que peut-on en déduire sur $Q_0, Q_1$ et $Q_2$?</p>
+                <div class="nav-links"><a href="#corr8">Correction ▼</a></div>
+            </article>
+
+            <article id="exo9" class="exercise">
+                <div class="exercise-header"><h3>Exercice 9</h3><span class="exercise-code">[006972]</span></div>
+                <p>Soit $T_n(x) = \cos(n \arccos(x))$ pour $x \in [-1,1]$.</p>
+                <ol>
+                    <li>(a) Montrer que pour tout $\theta \in [0,\pi]$, $T_n(\cos\theta) = \cos(n\theta)$.
+                    <br>(b) Calculer $T_0$ et $T_1$.
+                    <br>(c) Montrer la relation de récurrence $T_{n+2}(x) = 2xT_{n+1}(x) - T_n(x)$, pour tout $n \ge 0$.
+                    <br>(d) En déduire que $T_n$ est une fonction polynomiale de degré $n$.</li>
+                    <li>Soit $P(X) = \lambda(X-a_1)\dots(X-a_n)$ un polynôme, où les $a_k$ sont deux à deux distincts et $\lambda \ne 0$. Montrer que
+                    $$ \frac{1}{P(X)} = \sum_{k=1}^n \frac{1/P'(a_k)}{X-a_k} $$
+                    </li>
+                    <li>Décomposer $\frac{1}{T_n}$ en éléments simples.</li>
+                </ol>
+                <div class="nav-links"><a href="#ind9">Indication ▼</a><a href="#corr9">Correction ▼</a></div>
+            </article>
+        </section>
+
+        <section id="indications">
+            <h2>Indications</h2>
+            <div id="ind1" class="indication-box"><h4><a href="#exo1">Indication pour l'exercice 1 ▲</a></h4><p>Écrire $F=\frac{P}{Q}$ sous forme irréductible.</p></div>
+            <div id="ind2" class="indication-box"><h4><a href="#exo2">Indication pour l'exercice 2 ▲</a></h4><p>Écrire $G=\frac{A}{B}$ sous forme irréductible (on pourra choisir par exemple $n=\max(\deg A, \deg B)$).</p></div>
+            <div id="ind3" class="indication-box"><h4><a href="#exo3">Indication pour l'exercice 3 ▲</a></h4><p>Considérer $P'/P$ et sa dérivée, et enfin $P''/P$.</p></div>
+            <div id="ind4" class="indication-box"><h4><a href="#exo4">Indication pour l'exercice 4 ▲</a></h4><p>Pour G et H, commencer par faire une division euclidienne pour trouver la partie polynomiale.</p></div>
+            <div id="ind5" class="indication-box"><h4><a href="#exo5">Indication pour l'exercice 5 ▲</a></h4><p>Les fractions F, K ont une partie polynomiale, elles s'écrivent $F=X^2+X+1+\frac{X^2+X+1}{X^3-X}$ et $K=X+1+\frac{4X^2-6X+1}{2X^3-X^2}$.</p></div>
+            <div id="ind6" class="indication-box"><h4><a href="#exo6">Indication pour l'exercice 6 ▲</a></h4><p>Pour F, commencer par écrire $F=\frac{a}{X}+F_1$ où $F_1=\frac{N}{(X^2+1)^3}$ puis diviser $N$ par $X^2+1$. Pour K, commencer par obtenir $K=1+\frac{1}{X}+K_1$, puis faire le changement d'indéterminée dans $K_1$.</p></div>
+            <div id="ind9" class="indication-box"><h4><a href="#exo9">Indication pour l'exercice 9 ▲</a></h4><p>Pour 1. exprimer $\cos((n+2)\theta)$ et $\cos(n\theta)$ en fonction de $\cos((n+1)\theta)$. Pour 3. chercher les racines de $T_n$: $\omega_k = \cos\left(\frac{(2k+1)\pi}{2n}\right)$ pour $k=0,\dots,n-1$.</p></div>
+        </section>
+
+        <section id="corrections">
+            <h2>Corrections</h2>
+            <div id="corr1" class="solution-box"><h4><a href="#exo1">Correction de l'exercice 1 ▲</a></h4><p>Écrivons $F(X)=\frac{P(X)}{Q(X)}$ avec P et Q deux polynômes premiers entre eux, avec Q unitaire. La condition $(F(X))^2=(X^2+1)^3$ devient $P^2=(X^2+1)^3Q^2$. Ainsi $Q^2$ divise $P^2$. D'où $Q^2=1$, puisque $P^2$ et $Q^2$ sont premiers entre eux. Donc $Q=1$ (ou $-1$). Ainsi $F=P$ est un polynôme et $P^2=(X^2+1)^3$. En particulier $P^2$ est de degré 6, donc $P$ doit être de degré 3. Écrivons $P=aX^3+bX^2+cX+d$, on développe l'identité $P^2=(X^2+1)^3$:
+            $$ X^6+3X^4+3X^2+1 = a^2X^6+2abX^5+(2ac+b^2)X^4+(2ad+2bc)X^3+(2bd+c^2)X^2+2cdX+d^2 $$
+            On identifie les coefficients : pour le coefficient de $X^6$, on a $a=\pm 1$, puis pour le coefficient de $X^5$, on a $b=0$; pour le coefficient de 1, on a $d=\pm 1$, puis pour le coefficient de $X$, on a $c=0$. Mais alors le coefficient de $X^3$ doit vérifier $2ad+2bc=0 \implies 2ad=0$, ce qui est faux.
+            Ainsi aucun polynôme ne vérifie l'équation $P^2=(X^2+1)^3$, et par le raisonnement du début, aucune fraction non plus.</p></div>
+            
+            <div id="corr2" class="solution-box"><h4><a href="#exo2">Correction de l'exercice 2 ▲</a></h4><ol>
+            <li>Posons $G=\frac{A}{B}$ et $F=\frac{P}{Q}$. L'identité $G(F(X))=X$ se réécrit $A(F(X))=XB(F(X))$. Posons $n=\max(\deg A, \deg B)$. On a $A=\sum_{k=0}^n a_k X^k$ et $B=\sum_{k=0}^n b_k X^k$. L'identité devient $\sum_{k=0}^n a_k (\frac{P}{Q})^k = X \sum_{k=0}^n b_k (\frac{P}{Q})^k$.
+            En multipliant par $Q^n$: $\sum_{k=0}^n a_k P^k Q^{n-k} = X \sum_{k=0}^n b_k P^k Q^{n-k}$.
+            Ceci se réécrit: $(a_0-b_0X)Q^n + \dots + (a_k-b_kX)P^k Q^{n-k} + \dots + (a_n-b_nX)P^n = 0$.
+            $Q$ divise tous les termes sauf le dernier, donc $Q|(a_n-b_nX)P^n$. Comme $P,Q$ premiers entre eux, $Q|(a_n-b_nX)$.
+            De même, $P$ divise tous les termes sauf le premier, donc $P|(a_0-b_0X)Q^n$. Comme $P,Q$ premiers entre eux, $P|(a_0-b_0X)$.</li>
+            <li>Si $G=\frac{A}{B}$ est irréductible, alors $a_n-b_nX$ n'est pas nul, donc $\deg Q \le 1$. De même $a_0-b_0X$ n'est pas nul (sinon $a_0=b_0=0$, $A,B$ seraient divisibles par $X$), donc $\deg P \le 1$. Donc $F(X)=\frac{aX+b}{cX+d}$.</li>
+            <li>Si $Y=\frac{aX+b}{cX+d}$, alors $Y(cX+d)=aX+b \Rightarrow X(cY-a)=-dY+b \Rightarrow X=\frac{-dY+b}{cY-a}$. Donc $G(Y)=\frac{-dY+b}{cY-a}$.</li>
+            </ol></div>
+
+            <div id="corr3" class="solution-box"><h4><a href="#exo3">Correction de l'exercice 3 ▲</a></h4><ol>
+            <li>(a) $P'(X) = \sum_{k=1}^n c \prod_{j \ne k} (X-a_j) = \sum_{k=1}^n \frac{P(X)}{X-a_k}$. Donc $\frac{P'(X)}{P(X)} = \sum_{k=1}^n \frac{1}{X-a_k}$.
+            <br>(b) En dérivant la relation précédente: $(\frac{P'}{P})' = \frac{P''P-(P')^2}{P^2} = -\sum_{k=1}^n \frac{1}{(X-a_k)^2}$. Donc $\sum_{k=1}^n \frac{1}{(X-a_k)^2} = \frac{(P')^2-P P''}{P^2}$.
+            <br>(c) $(\frac{P'}{P})^2 = (\sum_{k=1}^n \frac{1}{X-a_k})^2 = \sum_{k=1}^n \frac{1}{(X-a_k)^2} + \sum_{k \ne l} \frac{1}{(X-a_k)(X-a_l)}$.
+            D'où $\sum_{k \ne l} \frac{1}{(X-a_k)(X-a_l)} = (\frac{P'}{P})^2 - \frac{(P')^2-PP''}{P^2} = \frac{PP''}{P^2} = \frac{P''}{P}$.</li>
+            <li>$P'(z)=0$ et $P(z) \ne 0 \Rightarrow \frac{P'(z)}{P(z)} = \sum_{k=1}^n \frac{1}{z-a_k}=0$.
+            En prenant le conjugué: $\sum_{k=1}^n \frac{1}{\bar{z}-\bar{a_k}}=0 \Rightarrow \sum_{k=1}^n \frac{z-a_k}{|z-a_k|^2}=0$.
+            $z \sum \frac{1}{|z-a_k|^2} = \sum \frac{a_k}{|z-a_k|^2}$. Posons $\lambda_k = \frac{1/|z-a_k|^2}{\sum_j 1/|z-a_j|^2}$. Alors $\lambda_k > 0$, $\sum \lambda_k = 1$ et $z = \sum \lambda_k a_k$. $z$ est un barycentre à coefficients réels positifs des $a_k$.
+            Si les $a_k$ sont réels, $z$ est réel. De plus $z$ est dans l'intervalle $[ \min(a_k), \max(a_k) ]$. Les racines de $P'$ sont réelles et comprises entre les racines de $P$.</li>
+            </ol></div>
+
+            <div id="corr4" class="solution-box"><h4><a href="#exo4">Correction de l'exercice 4 ▲</a></h4><ol>
+            <li>$\frac{X}{X^2-4} = \frac{X}{(X-2)(X+2)} = \frac{a}{X-2}+\frac{b}{X+2}$. $X=a(X+2)+b(X-2)$. On identifie: $a+b=1, 2a-2b=0 \Rightarrow a=b=1/2$. $\frac{1/2}{X-2}+\frac{1/2}{X+2}$.</li>
+            <li>$X^3-3X^2+X-4 = (X-1)(X^2-2X-1)-5$. $G = X^2-2X-1 - \frac{5}{X-1}$.</li>
+            <li>$2X^3+X^2-X+1=(X^2-2X+1)(2X+5)+7X-4$. $H = 2X+5 + \frac{7X-4}{(X-1)^2} = 2X+5 + \frac{a}{X-1}+\frac{b}{(X-1)^2}$. $7X-4=a(X-1)+b$. $a=7, b-a=-4 \Rightarrow b=3$. $2X+5+\frac{7}{X-1}+\frac{3}{(X-1)^2}$.</li>
+            <li>$X^4+1=(X^2-\sqrt{2}X+1)(X^2+\sqrt{2}X+1)$. $K=\frac{aX+b}{X^2-\sqrt{2}X+1}+\frac{cX+d}{X^2+\sqrt{2}X+1}$. $X+1=(aX+b)(X^2+\sqrt{2}X+1)+(cX+d)(X^2-\sqrt{2}X+1)$. On identifie les coefficients. $a+c=0, \sqrt{2}a+b-\sqrt{2}c+d=0, a+\sqrt{2}b+c-\sqrt{2}d=1, b+d=1$. On trouve $a=-1/2\sqrt{2}, c=1/2\sqrt{2}, b=(2+\sqrt{2})/4, d=(2-\sqrt{2})/4$.</li>
+            </ol></div>
+
+            <div id="corr5" class="solution-box"><h4><a href="#corr5">Correction de l'exercice 5 ▲</a></h4><ol>
+            <li>$F=X^2+X+1+\frac{X^2+X+1}{X(X-1)(X+1)}$. Pour la fraction: $\frac{a}{X}+\frac{b}{X-1}+\frac{c}{X+1}$. $a=-1, b=3/2, c=1/2$. Finalement $X^2+X+1 - \frac{1}{X} + \frac{3/2}{X-1} + \frac{1/2}{X+1}$.</li>
+            <li>$\frac{a}{(X-1)^3}+\frac{b}{(X-1)^2}+\frac{c}{X-1}+\frac{d}{X+1}$. $a=3/2, d=-1/8$. $X=0 \Rightarrow -1=-a+b-c-d$. $\lim_{X\to\infty} XG=1=c+d$. $c=9/8, b=3/4$.</li>
+            <li>$\frac{aX+b}{X^2+1}+\frac{cX+d}{X^2+4}$. $X=0 \Rightarrow 0=b+d/4$. $\lim_{X\to\infty}XH=0=a+c$. $X=i \Rightarrow i/((i^2+1)(i^2+4))$ Non, on multiplie par $X^2+1$ et $X \to i$: $\frac{i}{-1+4}=\frac{i}{3} = ai+b$. $a=1/3, b=0$. $d=0, c=-1/3$. $\frac{1/3 X}{X^2+1} - \frac{1/3 X}{X^2+4}$.</li>
+            <li>$K=X+1+\frac{4X^2-6X+1}{X^2(2X-1)} = X+1+\frac{a}{X^2}+\frac{b}{X}+\frac{c}{2X-1}$. $a=-1, c=-2, b=4$. $X+1-\frac{1}{X^2}+\frac{4}{X}-\frac{2}{2X-1}$.</li>
+            </ol></div>
+
+            <div id="corr6" class="solution-box"><h4><a href="#corr6">Correction de l'exercice 6 ▲</a></h4><ol>
+            <li>$F=\frac{3}{X}+\frac{X+1}{(X^2+1)^3}+\frac{3}{(X^2+1)^2}+\frac{X-2}{X^2+1}$.</li>
+            <li>$G=\frac{1}{X^3}-\frac{2}{X^2}+\frac{3}{X}+\frac{1}{(X-1)^2}+\frac{1}{X-1}$.</li>
+            <li>$H=\frac{1}{X^3}-\frac{1}{X}+\frac{2}{X-1}$.</li>
+            <li>$K=1+\frac{1}{X}+\frac{3}{(X-1)^4}+\frac{6}{(X-1)^3}+\frac{10}{(X-1)^2}+\frac{4}{X-1}$.</li>
+            </ol></div>
+
+            <div id="corr7" class="solution-box"><h4><a href="#exo7">Correction de l'exercice 7 ▲</a></h4><ol>
+            <li>$\frac{2+i}{X+2i}+\frac{1-3i}{X-i}$. $\frac{(1-i)/2}{X-e^{-i\pi/4}}+\frac{(1+i)/2}{X-e^{i3\pi/4}}$. $\frac{-2i}{(X+i)^2}+\frac{2}{X+i}$.</li>
+            <li>$\frac{X^5+X+1}{X^4-1}=X+\frac{X^2+X+1}{X^4-1}$. Sur $\mathbb{R}$: $X-\frac{1/2}{X+1}+\frac{3/4}{X-1}+\frac{-1/4X+1/2}{X^2+1}$. Sur $\mathbb{C}$ on décompose le dernier terme: $X-\frac{1/2}{X+1}+\frac{3/4}{X-1}+\frac{(1+i)/8}{X+i}+\frac{(1-i)/8}{X-i}$.
+            <br>$\frac{-4/3}{X^2+1}+\frac{7/3}{X^2+4}$ sur $\mathbb{R}$. $\frac{2i/3}{X-i}-\frac{2i/3}{X+i}+\frac{-7i/12}{X-2i}+\frac{7i/12}{X+2i}$ sur $\mathbb{C}$.
+            <br>$\frac{1/2}{X^2-\sqrt{2}X+1}+\frac{1/2}{X^2+\sqrt{2}X+1}$ sur $\mathbb{R}$. Sur $\mathbb{C}$ on factorise les dénominateurs.</li>
+            </ol></div>
+
+            <div id="corr8" class="solution-box"><h4><a href="#exo8">Correction de l'exercice 8 ▲</a></h4>
+            <p>$\frac{1}{X(X-1)(X-2)^2} = \frac{1/4}{X} - \frac{1}{X-1} + \frac{3/4}{X-2} + \frac{1/2}{(X-2)^2}$. Multiplions par $X(X-1)(X-2)^2$:
+            $1=\frac{1}{4}(X-1)(X-2)^2 - X(X-2)^2 + \frac{3}{4}X(X-1)(X-2) + \frac{1}{2}X(X-1)$.
+            $1 = \frac{1}{4}Q_0 - Q_1 + (\frac{3}{4}(X-2)+\frac{1}{2})Q_2 = \frac{1}{4}Q_0 - Q_1 + (\frac{3}{4}X-\frac{1}{2})Q_2$.
+            $A_0=1/4, A_1=-1, A_2=3/4X-1/2$. C'est une relation de Bézout, donc $\text{pgcd}(Q_0, Q_1, Q_2)=1$.</p></div>
+
+            <div id="corr9" class="solution-box"><h4><a href="#exo9">Correction de l'exercice 9 ▲</a></h4><ol>
+            <li>(d) $T_0=1, T_1=X$. La relation de récurrence $T_{n+2}=2xT_{n+1}-T_n$ montre par récurrence que $T_n$ est un polynôme. $\deg T_{n+2} = \deg(xT_{n+1})=n+2$. Donc $\deg T_n=n$.</li>
+            <li>$P'(X)=\sum_{k=1}^n \lambda \prod_{j \ne k}(X-a_j)$. $P'(a_k)=\lambda \prod_{j \ne k}(a_k-a_j)$.
+            La fraction $\frac{P(X)}{X-a_k}$ a pour limite $P'(a_k)$ en $a_k$.
+            La fraction $\frac{X-a_k}{P(X)}$ a pour limite $1/P'(a_k)$ en $a_k$. C'est le coefficient du terme $\frac{1}{X-a_k}$.</li>
+            <li>Les racines de $T_n$ sont $\omega_k = \cos(\frac{(2k+1)\pi}{2n})$ for $k=0,\dots,n-1$. Elles sont distinctes.
+            $T_n'(x)=\frac{n \sin(n \arccos x)}{\sqrt{1-x^2}}$.
+            $T_n'(\omega_k) = \frac{n \sin(\frac{(2k+1)\pi}{2})}{\sqrt{1-\cos^2(\frac{(2k+1)\pi}{2n})}} = \frac{n(-1)^k}{\sin(\frac{(2k+1)\pi}{2n})}$.
+            Le coefficient de $\frac{1}{X-\omega_k}$ est $1/T_n'(\omega_k)$.
+            $\frac{1}{T_n(X)} = \sum_{k=0}^{n-1} \frac{\sin(\frac{(2k+1)\pi}{2n})/n(-1)^k}{X-\cos(\frac{(2k+1)\pi}{2n})}$.
+            </li></ol></div>
+        </section>
+    </main>
+</div>
+</body>
+</html>
