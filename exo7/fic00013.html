@@ -1,0 +1,335 @@
+Of course. As an engineer with expertise in web technologies and LaTeX, I will convert the provided document on differentiable functions into a single, comprehensive, and mobile-optimized HTML file. The mathematical formulas will be accurately transcribed using LaTeX and rendered with KaTeX, using the specified configuration. All internal links between exercises, indications, and solutions will be correctly implemented for seamless navigation.
+
+Here is the complete HTML file.
+
+code
+Html
+play_circle
+download
+content_copy
+expand_less
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonctions dérivables - Exo7</title>
+    
+    <!-- KaTeX for LaTeX rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+
+    <style>
+        :root {
+            --primary-color: #005a9c;
+            --secondary-color: #f0f0f0;
+            --border-color: #ddd;
+            --text-color: #333;
+            --exo7-orange: #f57c00;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 1rem;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 1.8em;
+            margin-bottom: 1em;
+            padding-bottom: 0.3em;
+        }
+        h1 {
+            font-size: 2.2em;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            position: relative;
+        }
+        h2 {
+           font-size: 1.8em;
+           border-bottom: 2px solid var(--secondary-color);
+        }
+        h3 {
+           font-size: 1.4em;
+           color: #337ab7;
+           border: none;
+        }
+        .exo7-logo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--exo7-orange);
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 0 0 0 8px;
+            box-shadow: -2px 2px 5px rgba(0,0,0,0.1);
+        }
+        .exercise, .solution-box, .indication-box {
+            background-color: #fdfdfd;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .exercise-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .exercise-header h3 {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+        .exercise-code {
+            color: #888;
+            font-size: 0.8em;
+            font-family: monospace;
+        }
+        .nav-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            background-color: var(--secondary-color);
+            padding: 0.3rem 0.7rem;
+            border-radius: 15px;
+            font-size: 0.9em;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .nav-links a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .solution-box h4 a, .indication-box h4 a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        ul, ol {
+            padding-left: 1.5rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Fonctions dérivables <div class="exo7-logo">Exo7</div></h1>
+    </header>
+
+    <main>
+        <section id="calculs">
+            <h2>1 Calculs</h2>
+            <article id="exo1" class="exercise">
+                <div class="exercise-header"><h3>Exercice 1</h3><span class="exercise-code">[000699]</span></div>
+                <p>Déterminer $a, b \in \mathbb{R}$ de manière à ce que la fonction $f$ définie sur $\mathbb{R}_+$ par :</p>
+                $$ f(x) = \sqrt{x} \text{ si } 0 \le x \le 1 \quad \text{et} \quad f(x) = ax^2+bx+1 \text{ si } x > 1 $$
+                <p>soit dérivable sur $\mathbb{R}_+^*$.</p>
+                <div class="nav-links"><a href="#ind1">Indication ▼</a><a href="#corr1">Correction ▼</a></div>
+            </article>
+
+            <article id="exo2" class="exercise">
+                <div class="exercise-header"><h3>Exercice 2</h3><span class="exercise-code">[000700]</span></div>
+                <p>Soit $f:\mathbb{R}^* \to \mathbb{R}$ définie par $f(x)=x^2\sin\frac{1}{x}$. Montrer que $f$ est prolongeable par continuité en 0; on note encore $f$ la fonction prolongée. Montrer que $f$ est dérivable sur $\mathbb{R}$ mais que $f'$ n'est pas continue en 0.</p>
+                <div class="nav-links"><a href="#ind2">Indication ▼</a><a href="#corr2">Correction ▼</a></div>
+            </article>
+
+            <article id="exo3" class="exercise">
+                <div class="exercise-header"><h3>Exercice 3</h3><span class="exercise-code">[000698]</span></div>
+                <p>Étudier la dérivabilité des fonctions suivantes :</p>
+                $$ f_1(x) = x^2\cos\frac{1}{x}, \text{ si } x \ne 0 \quad ; \quad f_1(0)=0; $$
+                $$ f_2(x) = \sin x \sin\frac{1}{x}, \text{ si } x \ne 0 \quad ; \quad f_2(0)=0; $$
+                $$ f_3(x) = \frac{x|x|\sqrt{x^2-2x+1}}{x-1}, \text{ si } x \ne 1 \quad ; \quad f_3(1)=1. $$
+                <div class="nav-links"><a href="#ind3">Indication ▼</a><a href="#corr3">Correction ▼</a></div>
+            </article>
+
+            <article id="exo4" class="exercise">
+                <div class="exercise-header"><h3>Exercice 4</h3><span class="exercise-code">[000739]</span></div>
+                <p>Soit $n \ge 2$ un entier fixé et $f:\mathbb{R}_+ = [0, +\infty[ \to \mathbb{R}$ la fonction définie par la formule suivante:</p>
+                $$ f(x) = \frac{1+x^n}{(1+x)^n}, \quad x \ge 0. $$
+                <ol>
+                    <li>(a) Montrer que $f$ est dérivable sur $\mathbb{R}_+^*$ et calculer $f'(x)$ pour $x \ge 0$.
+                    <br>(b) En étudiant le signe de $f'(x)$ sur $\mathbb{R}_+$, montrer que $f$ atteint un minimum sur $\mathbb{R}_+$ que l'on déterminera.</li>
+                    <li>(a) En déduire l'inégalité suivante: $(1+x)^n \le 2^{n-1}(1+x^n), \forall x \in \mathbb{R}_+$.
+                    <br>(b) Montrer que si $x \in \mathbb{R}_+$ et $y \in \mathbb{R}_+$ alors on a $(x+y)^n \le 2^{n-1}(x^n+y^n)$.</li>
+                </ol>
+                <div class="nav-links"><a href="#corr4">Correction ▼</a></div>
+            </article>
+        </section>
+
+        <section id="rolle-accroissements-finis">
+            <h2>2 Théorème de Rolle et accroissements finis</h2>
+            <article id="exo5" class="exercise">
+                <div class="exercise-header"><h3>Exercice 5</h3><span class="exercise-code">[000717]</span></div>
+                <p>Montrer que le polynôme $X^n+aX+b$, ($a$ et $b$ réels) admet au plus trois racines réelles.</p>
+                <div class="nav-links"><a href="#ind5">Indication ▼</a><a href="#corr5">Correction ▼</a></div>
+            </article>
+            
+            <article id="exo6" class="exercise">
+                <div class="exercise-header"><h3>Exercice 6</h3><span class="exercise-code">[000715]</span></div>
+                <p>Montrer que le polynôme $P_n$ défini par $P_n(t) = [(1-t^2)^n]^{(n)}$ est un polynôme de degré $n$ dont les racines sont réelles, simples, et appartiennent à $[-1,1]$.</p>
+                <div class="nav-links"><a href="#ind6">Indication ▼</a><a href="#corr6">Correction ▼</a></div>
+            </article>
+            
+            <article id="exo7" class="exercise">
+                <div class="exercise-header"><h3>Exercice 7</h3><span class="exercise-code">[000721]</span></div>
+                <p>Dans l'application du théorème des accroissements finis à la fonction $f(x)=\alpha x^2+\beta x+\gamma$ sur l'intervalle $[a,b]$ préciser le nombre "$c$" de $]a,b[$. Donner une interprétation géométrique.</p>
+                <div class="nav-links"><a href="#corr7">Correction ▼</a></div>
+            </article>
+            
+            <article id="exo8" class="exercise">
+                <div class="exercise-header"><h3>Exercice 8</h3><span class="exercise-code">[000724]</span></div>
+                <p>Soient $x$ et $y$ réels avec $0<x<y$.</p>
+                <ol>
+                    <li>Montrer que $x < \frac{y-x}{\ln y - \ln x} < y$.</li>
+                    <li>On considère la fonction $f$ définie sur $[0,1]$ par $\alpha \mapsto f(\alpha) = \ln(\alpha x + (1-\alpha)y) - \alpha \ln x - (1-\alpha)\ln y$. De l'étude de $f$ déduire que pour tout $\alpha$ de $]0,1[$, $\alpha \ln x + (1-\alpha)\ln y < \ln(\alpha x + (1-\alpha)y)$. Interprétation géométrique ?</li>
+                </ol>
+                <div class="nav-links"><a href="#ind8">Indication ▼</a><a href="#corr8">Correction ▼</a></div>
+            </article>
+        </section>
+
+        <section id="divers">
+            <h2>3 Divers</h2>
+            <article id="exo9" class="exercise">
+                <div class="exercise-header"><h3>Exercice 9</h3><span class="exercise-code">[000733]</span></div>
+                <p>Déterminer les extremums de $f(x)=x^4-x^3+1$ sur $\mathbb{R}$.</p>
+                <div class="nav-links"><a href="#corr9">Correction ▼</a></div>
+            </article>
+            
+            <article id="exo10" class="exercise">
+                <div class="exercise-header"><h3>Exercice 10</h3><span class="exercise-code">[000738]</span></div>
+                <p>Soient $f,g:[a,b] \to \mathbb{R}$ deux fonctions continues sur $[a,b]$ ($a<b$) et dérivables sur $]a,b[$. On suppose que $g'(x) \ne 0$ pour tout $x \in ]a,b[$.</p>
+                <ol>
+                    <li>Montrer que $g(x) \ne g(a)$ pour tout $x \in ]a,b]$.</li>
+                    <li>Posons $p = \frac{f(b)-f(a)}{g(b)-g(a)}$ et considérons la fonction $h(x)=f(x)-pg(x)$ pour $x \in [a,b]$. Montrer que $h$ vérifie les hypothèses du théorème de Rolle et en déduire qu'il existe un nombre réel $c \in ]a,b[$ tel que $\frac{f(a)-f(b)}{g(a)-g(b)} = \frac{f'(c)}{g'(c)}$.</li>
+                    <li>On suppose que $\lim_{x \to b^-} \frac{f'(x)}{g'(x)} = l$, où $l$ est un nombre réel. Montrer que $\lim_{x \to b^-} \frac{f(x)-f(b)}{g(x)-g(b)} = l$.</li>
+                    <li>Application. Calculer la limite suivante: $\lim_{x \to 1^-} \frac{\arccos x}{\sqrt{1-x^2}}$.</li>
+                </ol>
+                <div class="nav-links"><a href="#ind10">Indication ▼</a><a href="#corr10">Correction ▼</a></div>
+            </article>
+
+            <article id="exo11" class="exercise">
+                <div class="exercise-header"><h3>Exercice 11</h3><span class="exercise-code">[000740]</span></div>
+                <p>On considère la fonction $f: \mathbb{R} \to \mathbb{R}$ définie par $f(t) = e^{1/t}$ si $t<0$ et $f(t)=0$ si $t \ge 0$.</p>
+                <ol>
+                    <li>Démontrer que $f$ est dérivable sur $\mathbb{R}$, en particulier en $t=0$.</li>
+                    <li>Etudier l'existence de $f''(0)$.</li>
+                    <li>On veut montrer que pour $t<0$, la dérivée n-ième de $f$ s'écrit $f^{(n)}(t)=\frac{P_n(t)}{t^{2n}}e^{1/t}$ où $P_n$ est un polynôme. (a) Trouver $P_1$ et $P_2$. (b) Trouver une relation de récurrence entre $P_{n+1}, P_n$ et $P_n'$ pour $n \in \mathbb{N}^*$.</li>
+                    <li>Montrer que $f$ est de classe $C^\infty$.</li>
+                </ol>
+                <div class="nav-links"><a href="#corr11">Correction ▼</a></div>
+            </article>
+        </section>
+
+        <section id="indications">
+            <h2>Indications</h2>
+            <div id="ind1" class="indication-box"><h4><a href="#exo1">Indication pour l'exercice 1 ▲</a></h4><p>Vous avez deux conditions : il faut que la fonction soit continue (car on veut qu'elle soit dérivable donc elle doit être continue) et ensuite la condition de dérivabilité proprement dite.</p></div>
+            <div id="ind2" class="indication-box"><h4><a href="#exo2">Indication pour l'exercice 2 ▲</a></h4><p>$f$ est continue en 0 en la prolongeant par $f(0)=0$. $f$ est alors dérivable en 0 et $f'(0)=0$.</p></div>
+            <div id="ind3" class="indication-box"><h4><a href="#exo3">Indication pour l'exercice 3 ▲</a></h4><p>Les problèmes sont seulement en 0 ou 1. $f_1$ est dérivable en 0 mais pas $f_2$. $f_3$ n'est dérivable ni en 0, ni en 1.</p></div>
+            <div id="ind5" class="indication-box"><h4><a href="#exo5">Indication pour l'exercice 5 ▲</a></h4><p>On peut appliquer le théorème de Rolle plusieurs fois.</p></div>
+            <div id="ind6" class="indication-box"><h4><a href="#exo6">Indication pour l'exercice 6 ▲</a></h4><p>Il faut appliquer le théorème de Rolle une fois au polynôme $(1-t^2)^n$, puis deux fois à sa dérivée première, puis trois fois à sa dérivée seconde,...</p></div>
+            <div id="ind8" class="indication-box"><h4><a href="#exo8">Indication pour l'exercice 8 ▲</a></h4><ol><li>Utiliser le théorème des accroissements finis avec la fonction $t \mapsto \ln t$.</li><li>Montrer d'abord que $f''$ est négative. Se servir du théorème des valeurs intermédiaires pour $f'$.</li></ol></div>
+            <div id="ind10" class="indication-box"><h4><a href="#exo10">Indication pour l'exercice 10 ▲</a></h4><ol><li>Raisonner par l'absurde et appliquer le théorème de Rolle.</li><li>Calculer $h(a)$ et $h(b)$.</li><li>Appliquer la question 2. sur l'intervalle $[x,b]$.</li><li>Calculer $f'$ et $g'$.</li></ol></div>
+        </section>
+
+        <section id="corrections">
+            <h2>Corrections</h2>
+            <div id="corr1" class="solution-box"><h4><a href="#exo1">Correction de l'exercice 1 ▲</a></h4><p>La fonction $f$ est continue et dérivable sur $]0,1[$ et sur $]1, +\infty[$. Le seul problème est en $x=1$.
+            <br>Continuité: Il faut que la limite à gauche soit égale à la limite à droite. $\lim_{x\to 1^-} \sqrt{x} = 1$. $\lim_{x\to 1^+} ax^2+bx+1 = a+b+1$. Donc $a+b+1=1 \Rightarrow b=-a$.
+            <br>Dérivabilité: Il faut que les dérivées à gauche et à droite soient égales. La dérivée de $\sqrt{x}$ est $\frac{1}{2\sqrt{x}}$, donc la dérivée à gauche en 1 est $f'_g(1)=1/2$.
+            Le taux d'accroissement à droite est $\frac{f(x)-f(1)}{x-1} = \frac{ax^2+bx+1-1}{x-1} = \frac{ax^2-ax}{x-1} = \frac{ax(x-1)}{x-1}=ax$. La limite quand $x \to 1^+$ est $a$. C'est la dérivée à droite $f'_d(1)$.
+            Pour que $f$ soit dérivable, il faut $f'_g(1)=f'_d(1)$, soit $a=1/2$.
+            Le seul couple est $(a,b)=(1/2, -1/2)$.</p></div>
+            
+            <div id="corr2" class="solution-box"><h4><a href="#exo2">Correction de l'exercice 2 ▲</a></h4><p>1. Comme $|\sin(1/x)| \le 1$, $|f(x)| \le x^2$. Donc $\lim_{x \to 0} f(x)=0$. On prolonge $f$ par $f(0)=0$.
+            <br>2. Le taux d'accroissement en 0 est $\frac{f(x)-f(0)}{x-0} = \frac{x^2\sin(1/x)}{x} = x\sin(1/x)$. Comme $|\sin(1/x)| \le 1$, $|x\sin(1/x)| \le |x|$, donc la limite est 0. $f$ est dérivable en 0 et $f'(0)=0$.
+            <br>3. Sur $\mathbb{R}^*$, $f'(x) = 2x\sin(1/x) - \cos(1/x)$. $\lim_{x\to 0} 2x\sin(1/x)=0$, mais $\cos(1/x)$ n'a pas de limite en 0. Donc $f'(x)$ n'a pas de limite en 0. $f'$ n'est pas continue en 0.</p></div>
+            
+            <div id="corr3" class="solution-box"><h4><a href="#exo3">Correction de l'exercice 3 ▲</a></h4><ol>
+            <li>Taux d'accroissement en 0: $\frac{f_1(x)-f_1(0)}{x-0} = x\cos(1/x)$. $|x\cos(1/x)| \le |x| \to 0$. $f_1$ est dérivable en 0 et $f_1'(0)=0$.</li>
+            <li>Taux d'accroissement en 0: $\frac{f_2(x)-f_2(0)}{x-0} = \frac{\sin x}{x}\sin(1/x)$. $\frac{\sin x}{x} \to 1$, mais $\sin(1/x)$ n'a pas de limite. Le taux d'accroissement n'a pas de limite. $f_2$ n'est pas dérivable en 0.</li>
+            <li>$f_3(x)=\frac{x|x||x-1|}{x-1}$. Pour $x>1$, $f_3(x)=x^2$. Pour $x<1, x \ne 0$, $f_3(x)=-x|x|$. Donc pour $x \in ]0,1[$, $f_3(x)=-x^2$.
+            En 1: $\lim_{x \to 1^+} f_3(x)=1$, $\lim_{x \to 1^-} f_3(x)=-1$. Non continue, donc non dérivable.
+            En 0: $f_3$ est continue en 0. Taux d'accroissement pour $x>0$: $\frac{-x^2-0}{x}=-x \to 0$. Pour $x<0$, $f_3(x)=-x(-x)=x^2$. Taux d'accroissement $\frac{x^2-0}{x}=x \to 0$. Dérivable en 0.</li>
+            </ol></div>
+            
+            <div id="corr4" class="solution-box"><h4><a href="#exo4">Correction de l'exercice 4 ▲</a></h4><ol>
+            <li>(a) $f'(x) = \frac{nx^{n-1}(1+x)^n - (1+x^n)n(1+x)^{n-1}}{((1+x)^n)^2} = \frac{n(1+x)^{n-1}[x^{n-1}(1+x)-(1+x^n)]}{(1+x)^{2n}} = \frac{n(x^{n-1}-1)}{(1+x)^{n+1}}$.
+            <br>(b) $f'(x)$ est du signe de $x^{n-1}-1$. $f'(x)<0$ sur $[0,1[$ et $f'(x)>0$ sur $]1, +\infty[$. $f$ est décroissante sur $[0,1]$ et croissante sur $[1, +\infty[$. Le minimum est atteint en $x=1$ et vaut $f(1)=\frac{1+1^n}{(1+1)^n}=\frac{2}{2^n}=2^{1-n}$.</li>
+            <li>(a) Pour tout $x \ge 0$, $f(x) \ge f(1) \Rightarrow \frac{1+x^n}{(1+x)^n} \ge 2^{1-n} \Rightarrow (1+x)^n \le 2^{n-1}(1+x^n)$.
+            <br>(b) En appliquant l'inégalité avec $x=y/a$, on a $(1+y/a)^n \le 2^{n-1}(1+(y/a)^n)$. $\frac{(a+y)^n}{a^n} \le 2^{n-1}\frac{a^n+y^n}{a^n}$. $(a+y)^n \le 2^{n-1}(a^n+y^n)$.</li>
+            </ol></div>
+
+            <div id="corr5" class="solution-box"><h4><a href="#exo5">Correction de l'exercice 5 ▲</a></h4><p>Soit $P(X)=X^n+aX+b$. $P'(X)=nX^{n-1}+a$, $P''(X)=n(n-1)X^{n-2}$.
+            $P''$ a au plus une racine (si $n>2$) ou zéro racine (si $n=2$). Par applications successives du théorème de Rolle, $P'$ a au plus deux racines réelles, et donc $P$ a au plus trois racines réelles.</p></div>
+            
+            <div id="corr6" class="solution-box"><h4><a href="#exo6">Correction de l'exercice 6 ▲</a></h4><p>Soit $Q_n(t)=(1-t^2)^n$. C'est un polynôme de degré $2n$ avec deux racines d'ordre $n$, en $-1$ et $1$.
+            $Q_n' (t)$ a pour racines $-1, 1$ (ordre $n-1$) et une racine dans $]-1,1[$ par Rolle.
+            En appliquant Rolle $k$ fois, $Q_n^{(k)}(t)$ a pour racines $-1,1$ (ordre $n-k$) et $k$ racines distinctes dans $]-1,1[$.
+            Pour $k=n$, $Q_n^{(n)}(t)=P_n(t)$ a $n$ racines réelles distinctes dans $]-1,1[$. $P_n$ est de degré $n$. Ce sont donc toutes ses racines, et elles sont simples.</p></div>
+            
+            <div id="corr7" class="solution-box"><h4><a href="#corr7">Correction de l'exercice 7 ▲</a></h4><p>$\frac{f(b)-f(a)}{b-a}=f'(c)$. $\frac{(\alpha b^2+\beta b+\gamma)-(\alpha a^2+\beta a+\gamma)}{b-a} = \alpha(b+a)+\beta$.
+            $f'(c)=2\alpha c + \beta$. Donc $2\alpha c + \beta = \alpha(a+b)+\beta \Rightarrow c=\frac{a+b}{2}$.
+            Géométriquement, la pente de la corde $(a,f(a))-(b,f(b))$ est égale à la pente de la tangente au point d'abscisse milieu $c=(a+b)/2$.</p></div>
+            
+            <div id="corr8" class="solution-box"><h4><a href="#corr8">Correction de l'exercice 8 ▲</a></h4><ol>
+            <li>Théorème des accroissements finis pour $g(t)=\ln t$ sur $[x,y]$. Il existe $c \in ]x,y[$ tel que $\frac{\ln y - \ln x}{y-x} = g'(c)=\frac{1}{c}$. Comme $x<c<y$, $\frac{1}{y} < \frac{1}{c} < \frac{1}{x}$, ce qui donne l'inégalité.</li>
+            <li>$f(0)=0, f(1)=0$. $f'(\alpha) = \frac{x-y}{\alpha x+(1-\alpha)y} - \ln x + \ln y$.
+            $f''(\alpha) = -\frac{(x-y)^2}{(\alpha x+(1-\alpha)y)^2} < 0$. $f$ est concave.
+            Comme $f(0)=f(1)=0$, $f(\alpha) \ge 0$ pour $\alpha \in [0,1]$.
+            Cela prouve la concavité du logarithme : la courbe de $\ln$ est au-dessus de ses cordes.</li>
+            </ol></div>
+            
+            <div id="corr9" class="solution-box"><h4><a href="#corr9">Correction de l'exercice 9 ▲</a></h4><p>$f'(x)=4x^3-3x^2=x^2(4x-3)$. $f'(x)=0$ pour $x=0$ et $x=3/4$.
+            $f'(x)<0$ pour $x<3/4$ et $f'(x)>0$ pour $x>3/4$.
+            $f$ atteint un minimum global en $x=3/4$, qui vaut $f(3/4)=(3/4)^4-(3/4)^3+1 = 229/256$.
+            En $x=0$, $f'(0)=0$ mais $f'$ ne change pas de signe, c'est un point d'inflexion. Pas d'extremum local.
+            </p></div>
+
+            <div id="corr10" class="solution-box"><h4><a href="#corr10">Correction de l'exercice 10 ▲</a></h4><ol>
+            <li>Par l'absurde. Si $g(x)=g(a)$ pour un $x \in ]a,b]$, alors par Rolle sur $[a,x]$, il existe $c \in ]a,x[$ avec $g'(c)=0$, ce qui est exclu.</li>
+            <li>$h(a)=f(a)-pg(a)$, $h(b)=f(b)-pg(b)=f(b)-\frac{f(b)-f(a)}{g(b)-g(a)}g(b)$. $h(b)-h(a) = (f(b)-f(a)) - p(g(b)-g(a))=0$. $h(a)=h(b)$. Par Rolle, il existe $c \in ]a,b[$ avec $h'(c)=0$, soit $f'(c)-pg'(c)=0$, d'où le résultat (théorème de Cauchy).</li>
+            <li>On applique la question 2 à l'intervalle $[x,b]$ pour $x \in ]a,b[$. Il existe $c_x \in ]x,b[$ tel que $\frac{f(x)-f(b)}{g(x)-g(b)}=\frac{f'(c_x)}{g'(c_x)}$. Quand $x \to b^-$, $c_x \to b^-$, donc $\frac{f'(c_x)}{g'(c_x)} \to l$. (Règle de l'Hôpital).</li>
+            <li>$f(x)=\arccos x, g(x)=\sqrt{1-x^2}$. $f(1)=0, g(1)=0$. $f'(x)=-1/\sqrt{1-x^2}, g'(x)=-x/\sqrt{1-x^2}$. $\frac{f'(x)}{g'(x)}=1/x \to 1$ en $1^-$. La limite est 1.</li>
+            </ol></div>
+
+            <div id="corr11" class="solution-box"><h4><a href="#corr11">Correction de l'exercice 11 ▲</a></h4><ol>
+            <li>Sur $\mathbb{R}_+^*$, $f$ est nulle donc dérivable. Sur $\mathbb{R}_-^*$, $f$ est dérivable. En $0$: $\lim_{t \to 0^+} \frac{f(t)-f(0)}{t}=0$. $\lim_{t \to 0^-} \frac{e^{1/t}}{t} = 0$ (poser $u=-1/t \to +\infty$). $f$ est dérivable en 0 et $f'(0)=0$.</li>
+            <li>$f'(t)= -t^{-2}e^{1/t}$ pour $t<0$ et $f'(t)=0$ pour $t \ge 0$. Taux d'accroissement de $f'$ en 0: $\frac{f'(t)-f'(0)}{t} = \frac{-t^{-2}e^{1/t}}{t} = -t^{-3}e^{1/t} \to 0$ quand $t \to 0^-$. La limite à droite est 0. $f''(0)=0$.</li>
+            <li>(a) $P_1(t)=-1$. $f''(t)=t^{-4}e^{1/t}+2t^{-3}e^{1/t} = \frac{1+2t}{t^4}e^{1/t}$. $P_2(t)=1+2t$.
+            (b) $f^{(n+1)}(t) = \frac{P_n'(t)t^{2n}-P_n(t)2nt^{2n-1}}{t^{4n}}e^{1/t} + \frac{P_n(t)}{t^{2n}}(-\frac{1}{t^2})e^{1/t} = \frac{P_n'(t)t^2-2ntP_n(t)-P_n(t)}{t^{2n+2}}e^{1/t}$.
+            $P_{n+1}(t) = t^2 P_n'(t) - (2nt+1)P_n(t)$.</li>
+            <li>Par récurrence. On a $f^{(n)}(0)=0$ pour $n=0,1,2$. Supposons $f^{(n)}(0)=0$. Taux d'accroissement de $f^{(n)}$ en 0: $\frac{f^{(n)}(t)-f^{(n)}(0)}{t} = \frac{P_n(t)}{t^{2n+1}}e^{1/t} \to 0$ pour $t \to 0^-$. La limite est 0. Donc $f^{(n+1)}(0)=0$. Toutes les dérivées en 0 sont nulles. $f$ est $C^\infty$.</li>
+            </ol></div>
+
+        </section>
+    </main>
+</div>
+</body>
+</html>
