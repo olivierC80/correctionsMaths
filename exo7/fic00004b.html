@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relation d'équivalence, relation d'ordre - Exo7</title>
+    
+    <!-- KaTeX for LaTeX rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+
+    <style>
+        :root {
+            --primary-color: #005a9c; /* A professional blue */
+            --secondary-color: #f0f0f0;
+            --border-color: #ddd;
+            --text-color: #333;
+            --exo7-orange: #f57c00;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: #fff;
+            margin: 0;
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 1rem;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 1.5em;
+            margin-bottom: 0.8em;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.3em;
+        }
+
+        h1 {
+            font-size: 2em;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            position: relative;
+        }
+        
+        .exo7-logo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--exo7-orange);
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 0 0 0 8px;
+            box-shadow: -2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .exercise, .solution-box, .indication-box {
+            background-color: #fdfdfd;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .exercise-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .exercise-header h3 {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .exercise-code {
+            color: #888;
+            font-size: 0.8em;
+            font-family: monospace;
+        }
+
+        .nav-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            background-color: var(--secondary-color);
+            padding: 0.3rem 0.7rem;
+            border-radius: 15px;
+            font-size: 0.9em;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .solution-box h4 a, .indication-box h4 a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .katex-display {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Relation d'équivalence, relation d'ordre <div class="exo7-logo">Exo7</div></h1>
+    </header>
+
+    <main>
+        <section id="equivalence">
+            <h2>1 Relation d'équivalence</h2>
+
+            <article id="exo1" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 1</h3>
+                    <span class="exercise-code">[000209]</span>
+                </div>
+                <p>Dans $\mathbb{C}$ on définit la relation $\mathcal{R}$ par :</p>
+                $$ z\mathcal{R}z' \Leftrightarrow |z| = |z'|. $$
+                <ol>
+                    <li>Montrer que $\mathcal{R}$ est une relation d'équivalence.</li>
+                    <li>Déterminer la classe d'équivalence de chaque $z \in \mathbb{C}$.</li>
+                </ol>
+                <div class="nav-links">
+                    <a href="#ind1">Indication ▼</a>
+                    <a href="#corr1">Correction ▼</a>
+                </div>
+            </article>
+
+            <article id="exo2" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 2</h3>
+                    <span class="exercise-code">[000212]</span>
+                </div>
+                <p>Montrer que la relation $\mathcal{R}$ définie sur $\mathbb{R}$ par :</p>
+                $$ x\mathcal{R}y \Leftrightarrow xe^y = ye^x $$
+                <p>est une relation d'équivalence. Préciser, pour $x$ fixé dans $\mathbb{R}$, le nombre d'éléments de la classe de $x$ modulo $\mathcal{R}$.</p>
+                <div class="nav-links">
+                    <a href="#ind2">Indication ▼</a>
+                    <a href="#corr2">Correction ▼</a>
+                </div>
+            </article>
+        </section>
+
+        <section id="ordre">
+            <h2>2 Relation d'ordre</h2>
+            
+            <article id="exo3" class="exercise">
+                <div class="exercise-header">
+                    <h3>Exercice 3</h3>
+                    <span class="exercise-code">[000217]</span>
+                </div>
+                <p>Soit $(E, \le)$ un ensemble ordonné. On définit sur $\mathcal{P}(E) \setminus \{\emptyset\}$ la relation $\prec$ par</p>
+                $$ X \prec Y \quad \text{ssi} \quad (X = Y \text{ ou } \forall x \in X \forall y \in Y x \le y). $$
+                <p>Vérifier que c'est une relation d'ordre.</p>
+                <div class="nav-links">
+                    <a href="#corr3">Correction ▼</a>
+                </div>
+            </article>
+        </section>
+
+        <section id="indications">
+            <h2>Indications</h2>
+
+            <div id="ind1" class="indication-box">
+                <h4><a href="#exo1">Indication pour l'exercice 1 ▲</a></h4>
+                <p>Un dessin permettra d'avoir une bonne idée de ce qui se passe...</p>
+            </div>
+
+            <div id="ind2" class="indication-box">
+                <h4><a href="#exo2">Indication pour l'exercice 2 ▲</a></h4>
+                <ol>
+                    <li>Pour la transitivité on pourra calculer $xye^z$.</li>
+                    <li>Poser la fonction $t \mapsto \frac{t}{e^t}$, après une étude de fonction on calculera le nombre d'antécédents possibles.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="corrections">
+            <h2>Corrections</h2>
+
+            <div id="corr1" class="solution-box">
+                <h4><a href="#exo1">Correction de l'exercice 1 ▲</a></h4>
+                <ol>
+                    <li>Soient $z, z', z''$ des complexes quelconques.
+                        <ul>
+                            <li><strong>Reflexivité :</strong> $z\mathcal{R}z$ car $|z| = |z|$.</li>
+                            <li><strong>Symétrie :</strong> $z\mathcal{R}z' \Rightarrow |z| = |z'| \Rightarrow |z'|=|z| \Rightarrow z'\mathcal{R}z$.</li>
+                            <li><strong>Transitivité :</strong> $z\mathcal{R}z'$ et $z'\mathcal{R}z''$ alors $|z| = |z'|$ et $|z'|=|z''|$ donc $|z| = |z''|$, d'où $z\mathcal{R}z''$.</li>
+                        </ul>
+                        En fait, nous avons juste retranscrit que l'égalité “=” est une relation d'équivalence.
+                    </li>
+                    <li>
+                        La classe d'équivalence d'un point $z \in \mathbb{C}$ est l'ensemble des complexes qui sont en relation avec $z$, i.e. l'ensemble des complexes dont le module est égal à $|z|$. Géométriquement la classe d'équivalence de $z$ est le cercle $\mathcal{C}$ de centre 0 et de rayon $|z|$ :
+                        $$ \mathcal{C} = \{ |z|e^{i\theta} \mid \theta \in \mathbb{R} \}. $$
+                    </li>
+                </ol>
+            </div>
+            
+            <div id="corr2" class="solution-box">
+                <h4><a href="#exo2">Correction de l'exercice 2 ▲</a></h4>
+                <ol>
+                    <li>
+                        <ul>
+                            <li><strong>Reflexivité :</strong> Pour tout $x \in \mathbb{R}$, $xe^x = xe^x$ donc $x\mathcal{R}x$.</li>
+                            <li><strong>Symétrie :</strong> Pour $x, y \in \mathbb{R}$, si $x\mathcal{R}y$ alors $xe^y = ye^x$ donc $ye^x = xe^y$ d'où $y\mathcal{R}x$.</li>
+                            <li><strong>Transitivité :</strong> Soient $x, y, z \in \mathbb{R}$ tels que $x\mathcal{R}y$ et $y\mathcal{R}z$, alors $xe^y = ye^x$ et $ye^z = ze^y$. Calculons $xye^z$ :
+                            $$ xye^z = x(ye^z) = x(ze^y) = z(xe^y) = z(ye^x) = yze^x. $$
+                            Donc $xye^z = yze^x$. Si $y \ne 0$ alors en divisant par $y$ on vient de montrer que $xe^z = ze^x$ donc $x\mathcal{R}z$ et c'est fini. Pour le cas $y=0$ alors $x=0$ et $z=0$ donc $x\mathcal{R}z$ également.</li>
+                        </ul>
+                    </li>
+                    <li>Soit $x \in \mathbb{R}$ fixé. On note $\mathcal{C}(x)$ la classe d'équivalence de $x$ modulo $\mathcal{R}$ :
+                    $$ \mathcal{C}(x) := \{y \in \mathbb{R} \mid y\mathcal{R}x\}. $$
+                    Donc
+                    $$ \mathcal{C}(x) = \{y \in \mathbb{R} \mid xe^y = ye^x\}. $$
+                    Soit la fonction $f: \mathbb{R} \to \mathbb{R}$ définie par
+                    $$ f(t) = \frac{t}{e^t} $$
+                    Alors
+                    $$ \mathcal{C}(x) = \{y \in \mathbb{R} \mid f(x) = f(y)\}. $$
+                    Autrement dit $\mathcal{C}(x)$ est l'ensemble des $y \in \mathbb{R}$ qui par $f$ prennent la même valeur que $f(x)$ ; en raccourci :
+                    $$ \mathcal{C}(x) = f^{-1}(f(x)). $$
+                    Étudions maintenant la fonction $f$ afin de déterminer le nombre d'antécédents: par un calcul de $f'$ on montre que $f$ est strictement croissante sur $]-\infty, 1]$ puis strictement décroissante sur $[1, +\infty[$. De plus en $-\infty$ la limite de $f$ est $-\infty$, $f(1) = 1/e$, et la limite en $+\infty$ est 0.
+                    <br>C'est le moment de dessiner le graphe de $f$ !!
+                    <ul>
+                        <li>Pour $x \le 0$ alors $f(x) \in ]-\infty, 0]$ et alors $f(x)$ a un seul antécédent.</li>
+                        <li>Pour $x > 0$ avec $x \ne 1$ alors $f(x) \in ]0, 1/e[$ et alors $f(x)$ a deux antécédents.</li>
+                        <li>Pour $x=1$, alors $f(x) = 1/e$ n'a qu'un seul antécédent.</li>
+                    </ul>
+                    Bilan : si $x \in ]0, 1[ \cup ]1, +\infty[$ alors $\text{Card}(\mathcal{C}(x)) = \text{Card } f^{-1}(f(x)) = 2$, si $x \le 0$ ou $x=1$ alors $\text{Card}(\mathcal{C}(x)) = \text{Card } f^{-1}(f(x)) = 1$.
+                    </li>
+                </ol>
+            </div>
+            
+            <div id="corr3" class="solution-box">
+                <h4><a href="#exo3">Correction de l'exercice 3 ▲</a></h4>
+                <ul>
+                    <li><strong>Reflexivité :</strong> pour tout $X \in \mathcal{P}(E)$ on a $X \prec X$ car $X=X$.</li>
+                    <li><strong>Anti-symétrie :</strong> pour $X, Y \in \mathcal{P}(E)$ tels que $X \prec Y$ et $Y \prec X$, alors par définition de $\prec$ on a
+                    $$ (\forall x \in X \forall y \in Y \ x \le y) \text{ et } (\forall y \in Y \forall x \in X \ y \le x). $$
+                    (On exclut les cas $X=Y$ qui rendent la conclusion triviale).
+                    Comme la relation $\le$ est une relation d'ordre, $x \le y$ et $y \le x$ implique $x=y$. Donc
+                    $$ \forall x \in X \forall y \in Y \quad x=y, $$
+                    ce qui implique que $X=Y$ (dans ce cas en fait $X$ et $Y$ sont des singletons, et comme $X, Y \ne \emptyset$, ils sont des singletons identiques).
+                    </li>
+                    <li><strong>Transitivité :</strong> soit $X, Y, Z \in \mathcal{P}(E)$ tels que $X \prec Y$ et $Y \prec Z$. Si $X=Y$ ou $Y=Z$ alors il est clair que $X \prec Z$. Supposons que $X \ne Y$ et $Y \ne Z$ alors
+                    $$ \forall x \in X \forall y \in Y \ x \le y \quad \text{et} \quad \forall y \in Y \forall z \in Z \ y \le z. $$
+                    Donc on a
+                    $$ \forall x \in X \forall y \in Y \forall z \in Z \quad x \le y \text{ et } y \le z, $$
+                    alors par transitivité de la relation $\le$ on obtient :
+                    $$ \forall x \in X \forall z \in Z \quad x \le z. $$
+                    Donc $X \prec Z$.
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+</div>
+
+</body>
+</html>
