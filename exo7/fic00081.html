@@ -1,0 +1,216 @@
+code
+Html
+play_circle
+download
+content_copy
+expand_less
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigonométrie</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .exo7-box {
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            background-color: #ffc107;
+            color: #333;
+            padding: 10px 15px;
+            font-weight: bold;
+            transform: rotate(15deg);
+            border: 2px solid #e0a800;
+            border-radius: 4px;
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            margin-top: 1.5em;
+        }
+        h1 {
+            font-size: 1.8em;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #007bff;
+        }
+        h3 {
+            font-size: 1.3em;
+            color: #17a2b8;
+            border-bottom: none;
+        }
+        article {
+            margin-bottom: 2em;
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            background-color: #fdfdff;
+        }
+        .ref {
+            text-align: right;
+            font-size: 0.8em;
+            color: #6c757d;
+        }
+        .nav-links {
+            margin-top: 10px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 500;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        ol, ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        .legend {
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="exo7-box">Exo7</div>
+        <header>
+            <h1>Trigonométrie</h1>
+            <p style="text-align:center;">Exercices de Jean-Louis Rouget. Retrouver aussi cette fiche sur <a href="http://www.maths-france.fr">www.maths-france.fr</a></p>
+            <p class="legend" style="text-align:center;">
+                * très facile ** facile *** difficulté moyenne **** difficile ***** très difficile<br>
+                I: Incontournable T: pour travailler et mémoriser le cours
+            </p>
+        </header>
+
+        <main>
+            <article id="exo1">
+                <h3>Exercice 1 (*IT)</h3>
+                <p>Résoudre dans $\mathbb{R}$ puis dans $[0,2\pi]$ les équations suivantes :</p>
+                <ol>
+                    <li>$\sin x = 0$</li>
+                    <li>$\sin x = 1$</li>
+                    <li>$\sin x = -1$</li>
+                    <li>$\cos x = 1$</li>
+                    <li>$\cos x = -1$</li>
+                    <li>$\cos x = 0$</li>
+                    <li>$\tan x = 0$</li>
+                    <li>$\tan x = 1$</li>
+                </ol>
+                <div class="nav-links"><a href="#corr1">Correction ▼</a></div>
+                <div class="ref">[005063]</div>
+            </article>
+
+            <article id="exo2">
+                <h3>Exercice 2 (*IT)</h3>
+                <p>Résoudre dans $\mathbb{R}$ puis dans $[0,2\pi]$ les équations suivantes :</p>
+                <ol>
+                    <li>$\sin x = \frac{1}{2}$</li>
+                    <li>$\sin x = -\frac{1}{\sqrt{2}}$</li>
+                    <li>$\tan x = -1$</li>
+                    <li>$\tan x = \frac{1}{\sqrt{3}}$</li>
+                    <li>$\cos x = \frac{\sqrt{3}}{2}$</li>
+                    <li>$\cos x = -\frac{1}{\sqrt{2}}$</li>
+                </ol>
+                <div class="nav-links"><a href="#corr2">Correction ▼</a></div>
+                <div class="ref">[005064]</div>
+            </article>
+            
+            <article id="exo3">
+                <h3>Exercice 3 (**IT)</h3>
+                <p>Résoudre dans $\mathbb{R}$ puis dans $I$ les équations suivantes :</p>
+                <ol>
+                    <li>$\sin(2x) = \frac{1}{2}$, $I = [0,2\pi]$</li>
+                    <li>$\sin(\frac{x}{2}) = -\frac{1}{\sqrt{2}}$, $I = [0,4\pi]$</li>
+                    <li>$\tan(5x) = 1$, $I = [0, \pi]$</li>
+                    <li>$\cos(2x) = \cos^2 x$, $I = [0,2\pi]$</li>
+                    <li>$2\cos^2 x - 3\cos x + 1 = 0$, $I = [0,2\pi]$</li>
+                    <li>$\cos(nx) = 0$ ($n \in \mathbb{N}^*$)</li>
+                    <li>$|\cos(nx)| = 1$</li>
+                    <li>$\sin(nx) = 0$</li>
+                    <li>$|\sin(nx)| = 1$</li>
+                    <li>$\sin x = \tan x$, $I = [0,2\pi]$</li>
+                    <li>$\sin(2x) + \sin x = 0$, $I = [0,2\pi]$</li>
+                    <li>$12\cos^2 x - 8\sin^2 x = 2$, $I = [-\pi, \pi]$</li>
+                </ol>
+                <div class="nav-links"><a href="#corr3">Correction ▼</a></div>
+                <div class="ref">[005065]</div>
+            </article>
+
+            <!-- Les autres exercices peuvent être ajoutés ici sur le même modèle -->
+
+        </main>
+        
+        <section id="corrections">
+            <h2>Corrections</h2>
+            <div id="corr1">
+                <h3>Correction de l'exercice 1</h3>
+                <ol>
+                    <li>$\sin x = 0 \iff x \in \pi\mathbb{Z}$. Dans $[0,2\pi]$, solutions : $\{0, \pi, 2\pi\}$.</li>
+                    <li>$\sin x = 1 \iff x \in \frac{\pi}{2} + 2\pi\mathbb{Z}$. Dans $[0,2\pi]$, solution : $\{\frac{\pi}{2}\}$.</li>
+                    <li>$\sin x = -1 \iff x \in -\frac{\pi}{2} + 2\pi\mathbb{Z}$. Dans $[0,2\pi]$, solution : $\{\frac{3\pi}{2}\}$.</li>
+                    <li>$\cos x = 1 \iff x \in 2\pi\mathbb{Z}$. Dans $[0,2\pi]$, solutions : $\{0, 2\pi\}$.</li>
+                    <li>$\cos x = -1 \iff x \in \pi + 2\pi\mathbb{Z}$. Dans $[0,2\pi]$, solution : $\{\pi\}$.</li>
+                    <li>$\cos x = 0 \iff x \in \frac{\pi}{2} + \pi\mathbb{Z}$. Dans $[0,2\pi]$, solutions : $\{\frac{\pi}{2}, \frac{3\pi}{2}\}$.</li>
+                    <li>$\tan x = 0 \iff x \in \pi\mathbb{Z}$. Dans $[0,2\pi]$, solutions : $\{0, \pi, 2\pi\}$.</li>
+                    <li>$\tan x = 1 \iff x \in \frac{\pi}{4} + \pi\mathbb{Z}$. Dans $[0,2\pi]$, solutions : $\{\frac{\pi}{4}, \frac{5\pi}{4}\}$.</li>
+                </ol>
+            </div>
+            <div id="corr2">
+                <h3>Correction de l'exercice 2</h3>
+                <ol>
+                    <li>$\sin x = \frac{1}{2} \iff x \in (\frac{\pi}{6} + 2\pi\mathbb{Z}) \cup (\frac{5\pi}{6} + 2\pi\mathbb{Z})$. Dans $[0,2\pi]$, solutions : $\{\frac{\pi}{6}, \frac{5\pi}{6}\}$.</li>
+                    <li>$\sin x = -\frac{1}{\sqrt{2}} \iff x \in (-\frac{\pi}{4} + 2\pi\mathbb{Z}) \cup (-\frac{3\pi}{4} + 2\pi\mathbb{Z})$. Dans $[0,2\pi]$, solutions : $\{\frac{5\pi}{4}, \frac{7\pi}{4}\}$.</li>
+                    <li>$\tan x = -1 \iff x \in -\frac{\pi}{4} + \pi\mathbb{Z}$. Dans $[0, \pi]$, solution : $\{\frac{3\pi}{4}\}$.</li>
+                    <li>$\tan x = \frac{1}{\sqrt{3}} \iff x \in \frac{\pi}{6} + \pi\mathbb{Z}$. Dans $[0, \pi]$, solution : $\{\frac{\pi}{6}\}$.</li>
+                    <li>$\cos x = \frac{\sqrt{3}}{2} \iff x \in (-\frac{\pi}{6} + 2\pi\mathbb{Z}) \cup (\frac{\pi}{6} + 2\pi\mathbb{Z})$. Dans $[0,2\pi]$, solutions : $\{\frac{\pi}{6}, \frac{11\pi}{6}\}$.</li>
+                    <li>$\cos x = -\frac{1}{\sqrt{2}} \iff x \in (-\frac{3\pi}{4} + 2\pi\mathbb{Z}) \cup (\frac{3\pi}{4} + 2\pi\mathbb{Z})$. Dans $[0,2\pi]$, solutions : $\{\frac{3\pi}{4}, \frac{5\pi}{4}\}$.</li>
+                </ol>
+            </div>
+            <div id="corr3">
+                <h3>Correction de l'exercice 3</h3>
+                <ol>
+                    <li>$\sin(2x) = \frac{1}{2} \iff 2x \in (\frac{\pi}{6} + 2\pi\mathbb{Z}) \cup (\frac{5\pi}{6} + 2\pi\mathbb{Z}) \iff x \in (\frac{\pi}{12} + \pi\mathbb{Z}) \cup (\frac{5\pi}{12} + \pi\mathbb{Z})$. Dans $[0,2\pi]$, solutions : $\{\frac{\pi}{12}, \frac{5\pi}{12}, \frac{13\pi}{12}, \frac{17\pi}{12}\}$.</li>
+                    <li>$\sin(\frac{x}{2}) = -\frac{1}{\sqrt{2}} \iff \frac{x}{2} \in (-\frac{\pi}{4} + 2\pi\mathbb{Z}) \cup (-\frac{3\pi}{4} + 2\pi\mathbb{Z}) \iff x \in (-\frac{\pi}{2} + 4\pi\mathbb{Z}) \cup (-\frac{3\pi}{2} + 4\pi\mathbb{Z})$. Dans $[0,4\pi]$, solutions : $\{\frac{5\pi}{2}, \frac{7\pi}{2}\}$.</li>
+                    <li>$\tan(5x) = 1 \iff 5x \in \frac{\pi}{4} + \pi\mathbb{Z} \iff x \in \frac{\pi}{20} + \frac{\pi}{5}\mathbb{Z}$. Dans $[0,\pi]$, solutions : $\{\frac{\pi}{20}, \frac{5\pi}{20}, \frac{9\pi}{20}, \frac{13\pi}{20}, \frac{17\pi}{20}\}$.</li>
+                    <li>$\cos(2x) = \cos^2 x \iff \cos(2x) = \frac{1+\cos(2x)}{2} \iff \cos(2x) = 1 \iff 2x \in 2\pi\mathbb{Z} \iff x \in \pi\mathbb{Z}$. Dans $[0,2\pi]$, solutions : $\{0, \pi, 2\pi\}$.</li>
+                    <li>$2\cos^2 x - 3\cos x + 1 = 0 \iff (2\cos x - 1)(\cos x - 1) = 0 \iff \cos x = \frac{1}{2}$ ou $\cos x=1$. Dans $[0,2\pi]$, solutions : $\{0, \frac{\pi}{3}, \frac{5\pi}{3}, 2\pi\}$.</li>
+                    <li>$\cos(nx) = 0 \iff nx \in \frac{\pi}{2} + \pi\mathbb{Z} \iff x \in \frac{\pi}{2n} + \frac{\pi}{n}\mathbb{Z}$.</li>
+                    <li>$|\cos(nx)|=1 \iff nx \in \pi\mathbb{Z} \iff x \in \frac{\pi}{n}\mathbb{Z}$.</li>
+                    <li>$\sin(nx)=0 \iff nx \in \pi\mathbb{Z} \iff x \in \frac{\pi}{n}\mathbb{Z}$.</li>
+                    <li>$|\sin(nx)|=1 \iff nx \in \frac{\pi}{2} + \pi\mathbb{Z} \iff x \in \frac{\pi}{2n} + \frac{\pi}{n}\mathbb{Z}$.</li>
+                    <li>$\sin x = \tan x \iff \sin x - \frac{\sin x}{\cos x}=0 \iff \sin x (1-\frac{1}{\cos x}) = 0 \iff \sin x = 0$ ou $\cos x=1$. C'est équivalent à $x \in \pi\mathbb{Z}$. Dans $[0,2\pi]$, solutions : $\{0, \pi, 2\pi\}$.</li>
+                    <li>$\sin(2x)+\sin x=0 \iff 2\sin x \cos x + \sin x = 0 \iff \sin x (2\cos x+1)=0 \iff \sin x=0$ ou $\cos x = -\frac{1}{2}$. Solutions dans $[0,2\pi]$ : $\{0, \pi, 2\pi, \frac{2\pi}{3}, \frac{4\pi}{3}\}$.</li>
+                    <li>$12\cos^2 x - 8\sin^2 x = 2 \iff 12\cos^2 x - 8(1-\cos^2 x)=2 \iff 20\cos^2 x = 10 \iff \cos^2 x = \frac{1}{2} \iff \cos x = \pm\frac{1}{\sqrt{2}}$. Dans $[-\pi,\pi]$, solutions : $\{-\frac{3\pi}{4}, -\frac{\pi}{4}, \frac{\pi}{4}, \frac{3\pi}{4}\}$.</li>
+                </ol>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
