@@ -278,6 +278,144 @@
                         Ceci donne $\dim(E_1 \cap E_2) + \dim(E_1+E_2) = \dim(E_1) + \dim(E_2)$, qui est la formule de Grassmann.</li>
                     </ol>
                 </div>
+                Voici le fragment HTML contenant les corrections des exercices 4 à 12, en conservant le style et la structure définis.
+
+code
+Html
+play_circle
+download
+content_copy
+expand_less
+<div id="corr4" class="correction-block">
+    <h4>Correction de l'exercice 4 <a href="#exo4" class="back-link">▲</a></h4>
+    <p><b>(i) $\implies$ (ii)</b></p>
+    <p>Supposons $\text{Ker } f = \text{Im } f$.
+    Soit $x \in E$, alors $f(x) \in \text{Im } f$, donc par hypothèse $f(x) \in \text{Ker } f$. Cela entraîne que $f(f(x)) = 0$. Comme ceci est vrai pour tout $x \in E$, on a $f^2 = 0$.
+    De plus, d'après la formule du rang, $\dim(\text{Ker } f) + \text{rg}(f) = n$. Mais comme $\dim(\text{Ker } f) = \dim(\text{Im } f) = \text{rg}(f)$, on a $2 \cdot \text{rg}(f) = n$.</p>
+    
+    <p><b>(ii) $\implies$ (i)</b></p>
+    <p>Si $f^2 = 0$, alors $\text{Im } f \subset \text{Ker } f$. En effet, pour tout $y \in \text{Im } f$, il existe $x \in E$ tel que $y=f(x)$. Alors $f(y) = f(f(x)) = f^2(x) = 0$, donc $y \in \text{Ker } f$.
+    De plus, si $n = 2 \cdot \text{rg}(f)$, la formule du rang donne $\dim(\text{Ker } f) = n - \text{rg}(f) = 2 \cdot \text{rg}(f) - \text{rg}(f) = \text{rg}(f)$.
+    On a donc $\text{Im } f \subset \text{Ker } f$ et ces deux sous-espaces ont la même dimension. Ils sont donc égaux : $\text{Ker } f = \text{Im } f$.</p>
+</div>
+
+<div id="corr5" class="correction-block">
+    <h4>Correction de l'exercice 5 <a href="#exo5" class="back-link">▲</a></h4>
+    <p><b>Stabilité de $\text{Ker } f$ par $g$</b></p>
+    <p>On veut montrer $g(\text{Ker } f) \subset \text{Ker } f$. Soit $y \in g(\text{Ker } f)$. Alors il existe $x \in \text{Ker } f$ tel que $y = g(x)$.
+    Pour montrer que $y \in \text{Ker } f$, on calcule $f(y)$:
+    $$ f(y) = f(g(x)) = (f \circ g)(x) $$
+    Puisque $f$ and $g$ commutent, $(f \circ g)(x) = (g \circ f)(x) = g(f(x))$.
+    Comme $x \in \text{Ker } f$, on a $f(x)=0$. Donc $g(f(x)) = g(0) = 0$ (car $g$ est linéaire).
+    Ainsi $f(y)=0$, ce qui prouve que $y \in \text{Ker } f$.</p>
+    
+    <p><b>Stabilité de $\text{Im } f$ par $g$</b></p>
+    <p>On veut montrer $g(\text{Im } f) \subset \text{Im } f$. Soit $z \in g(\text{Im } f)$. Il existe $y \in \text{Im } f$ tel que $z=g(y)$.
+    Puisque $y \in \text{Im } f$, il existe $x \in E$ tel que $y=f(x)$.
+    Alors $z = g(y) = g(f(x)) = (g \circ f)(x)$.
+    Par commutation, $(g \circ f)(x) = (f \circ g)(x) = f(g(x))$.
+    Ceci montre que $z$ est l'image de $g(x)$ par $f$, donc $z \in \text{Im } f$.</p>
+</div>
+
+<div id="corr6" class="correction-block">
+    <h4>Correction de l'exercice 6 <a href="#exo6" class="back-link">▲</a></h4>
+    <ol>
+        <li>On sait que $\text{Im}(u+v) \subset \text{Im } u + \text{Im } v$. En effet, si $y \in \text{Im}(u+v)$, alors $y=(u+v)(x) = u(x)+v(x)$ pour un $x \in E$. Donc $y \in \text{Im } u + \text{Im } v$.
+        En passant aux dimensions, on a $\dim(\text{Im}(u+v)) \le \dim(\text{Im } u + \text{Im } v)$.
+        D'après la formule de Grassmann, $\dim(\text{Im } u + \text{Im } v) \le \dim(\text{Im } u) + \dim(\text{Im } v)$.
+        Donc, $\text{rg}(u+v) \le \text{rg}(u) + \text{rg}(v)$.</li>
+        
+        <li>On applique la formule précédente à $u$ et $v-u$: $\text{rg}(v) = \text{rg}(u + (v-u)) \le \text{rg}(u) + \text{rg}(v-u)$.
+        On peut aussi l'appliquer à $u+v$ et $-v$: $\text{rg}(u) = \text{rg}((u+v)+(-v)) \le \text{rg}(u+v) + \text{rg}(-v)$.
+        Comme $\text{rg}(-v) = \text{rg}(v)$, on a $\text{rg}(u) \le \text{rg}(u+v) + \text{rg}(v)$, ce qui donne $\text{rg}(u) - \text{rg}(v) \le \text{rg}(u+v)$.
+        En échangeant les rôles de $u$ et $v$, on a $\text{rg}(v) - \text{rg}(u) \le \text{rg}(u+v)$.
+        Ces deux inégalités se combinent pour donner $|\text{rg}(u) - \text{rg}(v)| \le \text{rg}(u+v)$.</li>
+    </ol>
+</div>
+<div id="corr7" class="correction-block">
+    <h4>Correction de l'exercice 7 <a href="#exo7" class="back-link">▲</a></h4>
+    <ol>
+        <li>Pour $f_1$: Le noyau $\text{Ker } f_1$ est l'ensemble des $(x,y)$ tels que $(2x+y, x-y)=(0,0)$, soit $2x+y=0$ et $x-y=0$. La seule solution est $(x,y)=(0,0)$. Donc $\text{Ker } f_1 = \{0\}$. $f_1$ est injective. Par le théorème du rang, $\dim(\text{Im } f_1) = \dim(\mathbb{R}^2) - \dim(\text{Ker } f_1) = 2-0=2$. Donc $\text{Im } f_1 = \mathbb{R}^2$. $f_1$ est surjective. Elle est bijective.</li>
+        
+        <li>Pour $f_2$: $\text{Ker } f_2$ est l'ensemble des $(x,y,z)$ tels que $2x+y+z=0, y-z=0, x+y=0$. Ce système a pour solution la droite vectorielle engendrée par $(-1,1,1)$. $\text{Ker } f_2 = \text{Vect}(-1,1,1)$. $f_2$ n'est pas injective. $\dim(\text{Im } f_2) = 3-1=2$. L'image est un plan. $f_2$ n'est pas surjective.</li>
+        
+        <li>Pour $f_3$: $\text{Ker } f_3$ est l'ensemble des $(x,y)$ tels que $(y,0,x-7y,x+y)=(0,0,0,0)$. Le système $y=0, x-7y=0, x+y=0$ donne $(x,y)=(0,0)$. $\text{Ker } f_3 = \{0\}$, donc $f_3$ est injective. $\dim(\text{Im } f_3) = 2-0=2$. L'image est un sous-espace de dimension 2 dans $\mathbb{R}^4$. $f_3$ n'est pas surjective.</li>
+        
+        <li>Pour $f_4$: $\text{Ker } f_4$ est l'ensemble des polynômes $P \in \mathbb{R}_3[X]$ tels que $P(-1)=P(0)=P(1)=0$. Un tel polynôme de degré au plus 3 admet $-1, 0, 1$ comme racines, il est donc de la forme $P(X) = c \cdot X(X-1)(X+1) = c(X^3-X)$. Donc $\text{Ker } f_4 = \text{Vect}(X^3-X)$. $\dim(\text{Ker } f_4) = 1$. $f_4$ n'est pas injective. Par le théorème du rang, $\dim(\text{Im } f_4) = \dim(\mathbb{R}_3[X]) - 1 = 4-1=3$. L'espace d'arrivée $\mathbb{R}^3$ est de dimension 3, donc $\text{Im } f_4 = \mathbb{R}^3$. $f_4$ est surjective.</li>
+    </ol>
+</div>
+<div id="corr8" class="correction-block">
+    <h4>Correction de l'exercice 8 <a href="#exo8" class="back-link">▲</a></h4>
+    <p>Une application linéaire est entièrement déterminée par l'image des vecteurs d'une base. Ici, on donne l'image de $e_1, e_2, e_3$, ce qui définit une unique application linéaire $\phi: E \to E$.
+    Pour $x = \alpha_1 e_1 + \alpha_2 e_2 + \alpha_3 e_3$, on a par linéarité :
+    $$ \phi(x) = \alpha_1 \phi(e_1) + \alpha_2 \phi(e_2) + \alpha_3 \phi(e_3) = \alpha_1(e_1+e_2) + \alpha_2(e_1-e_2) + \alpha_3(e_1+te_3) $$
+    $$ \phi(x) = (\alpha_1+\alpha_2+\alpha_3)e_1 + (\alpha_1-\alpha_2)e_2 + t\alpha_3 e_3 $$
+    $\phi$ est injective si et seulement si $\text{Ker } \phi = \{0\}$. Cherchons le noyau : $\phi(x)=0$ est équivalent au système :
+    $$ \begin{cases} \alpha_1+\alpha_2+\alpha_3 = 0 \\ \alpha_1-\alpha_2 = 0 \\ t\alpha_3 = 0 \end{cases} $$
+    Si $t \neq 0$, la troisième équation donne $\alpha_3=0$. Le système devient $\alpha_1+\alpha_2=0$ et $\alpha_1-\alpha_2=0$, ce qui implique $\alpha_1=\alpha_2=0$. La seule solution est $(\alpha_1, \alpha_2, \alpha_3)=(0,0,0)$, donc $x=0$. $\phi$ est injective.
+    Si $t=0$, la troisième équation est toujours vérifiée. On peut choisir $\alpha_3=2$, $\alpha_1=-1$, $\alpha_2=-1$, ce qui donne une solution non nulle. Par exemple, $\phi(-e_1-e_2+2e_3)=0$. $\phi$ n'est pas injective.
+    Comme $\phi$ est un endomorphisme en dimension finie, elle est injective si et seulement si elle est surjective. Donc, $\phi$ est surjective si et seulement si $t \neq 0$.</p>
+</div>
+<div id="corr9" class="correction-block">
+    <h4>Correction de l'exercice 9 <a href="#exo9" class="back-link">▲</a></h4>
+    <p><b>($\implies$)</b> Supposons que $\phi$ est un isomorphisme. Soit $\mathcal{B} = \{e_1, \dots, e_n\}$ une base de E. Montrons que $\phi(\mathcal{B}) = \{\phi(e_1), \dots, \phi(e_n)\}$ est une base de F.
+    <ul>
+        <li><b>Libre :</b> Soit $\sum \lambda_i \phi(e_i) = 0$. Par linéarité, $\phi(\sum \lambda_i e_i)=0$. Comme $\phi$ est injective, $\sum \lambda_i e_i = 0$. Comme $\mathcal{B}$ est libre, tous les $\lambda_i$ sont nuls. La famille $\phi(\mathcal{B})$ est libre.</li>
+        <li><b>Génératrice :</b> Soit $y \in F$. Comme $\phi$ est surjective, il existe $x \in E$ tel que $y=\phi(x)$. Comme $\mathcal{B}$ est une base de E, $x=\sum \lambda_i e_i$. Par linéarité, $y=\phi(x) = \sum \lambda_i \phi(e_i)$. Donc tout vecteur de F est combinaison linéaire des vecteurs de $\phi(\mathcal{B})$. La famille est génératrice.</li>
+    </ul>
+    $\phi(\mathcal{B})$ est une base de F.</p>
+    <p><b>($\impliedby$)</b> Supposons que l'image de toute base de E est une base de F. Soit $\mathcal{B}=\{e_1, \dots, e_n\}$ une base de E. Alors $\phi(\mathcal{B})=\{\phi(e_1), \dots, \phi(e_n)\}$ est une base de F.
+    <ul>
+        <li><b>Surjective :</b> L'image de $\phi$, $\text{Im } \phi$, contient la famille génératrice $\phi(\mathcal{B})$. Donc $\text{Im } \phi = F$. $\phi$ est surjective.</li>
+        <li><b>Injective :</b> Soit $x \in \text{Ker } \phi$. Écrivons $x=\sum \lambda_i e_i$. Alors $\phi(x)=\sum \lambda_i \phi(e_i) = 0$. Comme $\phi(\mathcal{B})$ est une base (donc libre), tous les $\lambda_i$ sont nuls. Donc $x=0$. Le noyau est réduit à $\{0\}$. $\phi$ est injective.</li>
+    </ul>
+    $\phi$ est un isomorphisme.</p>
+</div>
+<div id="corr10" class="correction-block">
+    <h4>Correction de l'exercice 10 <a href="#exo10" class="back-link">▲</a></h4>
+    <p>1. <b>Somme directe :</b> On doit montrer $E = P+I$ et $P \cap I = \{0\}$.
+    <ul>
+        <li><b>Intersection :</b> Soit $f \in P \cap I$. Comme $f \in P$, $f(x)=f(-x)$ pour tout $x$. Comme $f \in I$, $f(x)=-f(-x)$ pour tout $x$. En combinant les deux, $f(x)=-f(x)$, ce qui implique $2f(x)=0$, donc $f(x)=0$. $f$ est la fonction nulle. Donc $P \cap I = \{0\}$.</li>
+        <li><b>Somme :</b> Pour toute fonction $f: \mathbb{R} \to \mathbb{R}$, on peut écrire $f(x) = p(x) + i(x)$ avec $p(x) = \frac{f(x)+f(-x)}{2}$ et $i(x) = \frac{f(x)-f(-x)}{2}$. On vérifie que $p$ est paire et $i$ est impaire. Donc $f \in P+I$. Ainsi $E=P+I$.</li>
+    </ul>
+    Conclusion : $E = P \oplus I$.</p>
+    <p>2. <b>Projecteur :</b> Le projecteur $\pi$ sur P parallèlement à I est l'application qui, à une fonction $f$, associe sa partie paire. D'après la décomposition ci-dessus, si $f=p+i$, alors $\pi(f)=p$.
+    L'expression est donc :
+    $$ \pi(f)(x) = \frac{f(x)+f(-x)}{2} $$</p>
+</div>
+<div id="corr11" class="correction-block">
+    <h4>Correction de l'exercice 11 <a href="#exo11" class="back-link">▲</a></h4>
+    <ol>
+        <li><b>$f$ est un endomorphisme :</b>
+        $f$ va de $E=\mathbb{R}_n[X]$ dans lui-même car le reste de la division d'un polynôme par $B$ (de degré $n+1$) est de degré au plus $n$.
+        Pour la linéarité, si $AP_1 = Q_1 B + R_1$ et $AP_2 = Q_2 B + R_2$, alors $A(\lambda P_1 + P_2) = (\lambda Q_1 + Q_2)B + (\lambda R_1 + R_2)$. Comme $\deg(\lambda R_1+R_2) \le n < \deg B$, le reste de la division de $A(\lambda P_1+P_2)$ par $B$ est $\lambda R_1+R_2$. Donc $f(\lambda P_1+P_2) = \lambda f(P_1) + f(P_2)$.</li>
+        
+        <li><b>Équivalence de bijectivité :</b>
+        ($f$ bijective $\implies$ A, B premiers entre eux) : Si $f$ est surjective, il existe $P \in E$ tel que $f(P)=1$. Cela signifie que le reste de la division de $AP$ par $B$ est 1. Donc $AP = BQ + 1$ pour un certain polynôme $Q$. L'équation $AP - BQ = 1$ est une identité de Bézout, ce qui prouve que $A$ et $B$ sont premiers entre eux.
+        
+        (A, B premiers entre eux $\implies f$ bijective) : On montre que $f$ est injective. Soit $P \in \text{Ker } f$. Alors $f(P)=0$. Le reste de la division de $AP$ par $B$ est nul, ce qui signifie que $B$ divise $AP$. Comme $A$ et $B$ sont premiers entre eux, d'après le lemme de Gauss, $B$ doit diviser $P$. Or, $\deg B = n+1$ et $\deg P \le n$. La seule possibilité est que $P=0$. Donc $\text{Ker } f = \{0\}$, et $f$ est injective. Comme $f$ est un endomorphisme en dimension finie, l'injectivité implique la bijectivité.</li>
+    </ol>
+</div>
+<div id="corr12" class="correction-block">
+    <h4>Correction de l'exercice 12 <a href="#exo12" class="back-link">▲</a></h4>
+    <p>1. <b>Linéarité :</b> $f(\lambda P + Q) = (\lambda P + Q) + (1-X)(\lambda P' + Q') = \lambda(P+(1-X)P') + (Q+(1-X)Q') = \lambda f(P) + f(Q)$. $f$ est linéaire.</p>
+    <p>2. <b>Noyau :</b> On résout $f(P)=0$, soit $P + (1-X)P'=0$. C'est une équation différentielle $P' = \frac{P}{X-1}$. La solution est $P(X) = C(X-1)$ pour une constante $C$. Comme $P \in \mathbb{R}_n[X]$, cette solution est valide. Donc $\text{Ker } f = \text{Vect}(X-1)$. La dimension du noyau est 1.</p>
+    <p>3. <b>Image :</b> Par le théorème du rang, $\dim(\text{Im } f) = \dim(E) - \dim(\text{Ker } f) = (n+1) - 1 = n$.
+    Cherchons une base de l'image. Calculons l'image de la base canonique $\{X^k\}_{k=0..n}$ de $E$.
+    $f(X^k) = X^k + (1-X)kX^{k-1} = X^k + kX^{k-1} - kX^k = (1-k)X^k + kX^{k-1}$.
+    <ul>
+        <li>$f(1) = 1$</li>
+        <li>$f(X) = 1$</li>
+        <li>$f(X^2) = -X^2 + 2X$</li>
+        <li>$f(X^k)$ est un polynôme de degré $k$ pour $k \ge 1$.</li>
+    </ul>
+    La famille $\{f(1), f(X^2), \dots, f(X^n)\}$ est une famille de $n$ vecteurs de $\text{Im } f$.
+    $f(1)=1$ (degré 0).
+    Pour $k \ge 2$, $f(X^k) = (1-k)X^k + kX^{k-1}$ est de degré $k$.
+    La famille $\{1, f(X^2), \dots, f(X^n)\}$ est donc une famille de polynômes de degrés échelonnés $(0, 2, 3, \dots, n)$. Elle est libre. Elle contient $n$ vecteurs et est incluse dans $\text{Im } f$ qui est de dimension $n$. C'est donc une base de $\text{Im } f$.
+    On peut aussi remarquer que $\text{Im } f$ est l'ensemble des polynômes de degré au plus $n$ sans terme en $X$. (Pas tout à fait, la description est plus complexe).
+    Une base plus simple à décrire est celle des polynômes de degrés échelonnés. Par exemple, la famille $\{f(X^k) \mid k=0, \dots, n\}$ engendre $\text{Im }f$. Puisque $f(1)=f(X)$, on peut retirer $f(X)$. La famille $\{f(1), f(X^2), \dots, f(X^n)\}$ contient $n$ vecteurs. Comme les degrés sont $0, 2, 3, \dots, n$, cette famille est libre et forme donc une base de $\text{Im } f$.</p>
+</div>
             </section>
         </main>
     </div>
