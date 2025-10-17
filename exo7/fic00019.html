@@ -1,0 +1,294 @@
+Voici le code HTML complet pour le fichier "Espaces vectoriels de dimension finie".
+
+code
+Html
+play_circle
+download
+content_copy
+expand_less
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espaces vectoriels de dimension finie</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .exo7-box {
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            background-color: #ffc107;
+            color: #333;
+            padding: 10px 15px;
+            font-weight: bold;
+            transform: rotate(15deg);
+            border: 2px solid #e0a800;
+            border-radius: 4px;
+        }
+        h1, h2, h3, h4 {
+            color: #0056b3;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            margin-top: 1.5em;
+        }
+        h1 { font-size: 1.8em; text-align: center; }
+        h2 { font-size: 1.5em; color: #007bff; }
+        h3 { font-size: 1.3em; color: #17a2b8; border-bottom: none; }
+        h4 { font-size: 1.1em; color: #6c757d; border-bottom: 1px dotted #ccc; }
+        article {
+            margin-bottom: 2em;
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            background-color: #fdfdff;
+        }
+        .ref { text-align: right; font-size: 0.8em; color: #6c757d; }
+        .nav-links { margin-top: 10px; }
+        .nav-links a { text-decoration: none; color: #007bff; margin-right: 15px; font-weight: 500; }
+        .nav-links a:hover { text-decoration: underline; }
+        ol, ul { padding-left: 20px; }
+        li { margin-bottom: 0.5em; }
+        .katex-display { overflow-x: auto; overflow-y: hidden; padding: 5px 0; }
+        .back-link { text-decoration: none; color: #17a2b8; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="exo7-box">Exo7</div>
+        <header>
+            <h1>Espaces vectoriels de dimension finie</h1>
+        </header>
+
+        <main>
+            <section id="exercices">
+                <h2>1 Base</h2>
+
+                <article id="exo1">
+                    <h3>Exercice 1</h3>
+                    <ol>
+                        <li>Montrer que les vecteurs $v_1 = (0,1,1)$, $v_2 = (1,0,1)$ et $v_3 = (1,1,0)$ forment une base de $\mathbb{R}^3$. Trouver les composantes du vecteur $w = (1,1,1)$ dans cette base $(v_1, v_2, v_3)$.</li>
+                        <li>Montrer que les vecteurs $v_1 = (1, 1, 1)$, $v_2 = (-1,1,0)$ et $v_3 = (1,0,-1)$ forment une base de $\mathbb{R}^3$. Trouver les composantes du vecteur $e_1 = (1,0,0)$, $e_2 = (0,1,0)$, $e_3 = (0,0,1)$ et $w = (1,2, -3)$ dans cette base $(v_1, v_2, v_3)$.</li>
+                        <li>Dans $\mathbb{R}^3$, donner un exemple de famille libre qui n'est pas génératrice.</li>
+                        <li>Dans $\mathbb{R}^3$, donner un exemple de famille génératrice qui n'est pas libre.</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind1">Indication ▼</a>
+                        <a href="#corr1">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000981]</div>
+                </article>
+
+                <article id="exo2">
+                    <h3>Exercice 2</h3>
+                    <p>Dans $\mathbb{R}^4$ on considère l'ensemble $E$ des vecteurs $(x_1,x_2,x_3,x_4)$ vérifiant $x_1 + x_2 + x_3 + x_4 = 0$. L'ensemble $E$ est-il un sous-espace vectoriel de $\mathbb{R}^4$ ? Si oui, en donner une base.</p>
+                    <div class="nav-links">
+                        <a href="#ind2">Indication ▼</a>
+                        <a href="#corr2">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000901]</div>
+                </article>
+                
+                <article id="exo3">
+                    <h3>Exercice 3</h3>
+                    <p>Déterminer pour quelles valeurs de $t \in \mathbb{R}$ les vecteurs $\{(1,0,t), (1,1,t), (t, 0, 1)\}$ forment une base de $\mathbb{R}^3$.</p>
+                    <div class="nav-links">
+                        <a href="#ind3">Indication ▼</a>
+                        <a href="#corr3">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000996]</div>
+                </article>
+                
+                <article id="exo4">
+                    <h3>Exercice 4</h3>
+                    <ol>
+                        <li>Montrer que les vecteurs $v_1 = (1, -1, i)$, $v_2 = (-1, i, 1)$, $v_3 = (i, 1, -1)$ forment une base de $\mathbb{C}^3$.</li>
+                        <li>Calculer les coordonnées de $v = (1 + i, 1 - i, i)$ dans cette base.</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind4">Indication ▼</a>
+                        <a href="#corr4">Correction ▼</a>
+                    </div>
+                    <div class="ref">[001006]</div>
+                </article>
+                
+                <article id="exo5">
+                    <h3>Exercice 5</h3>
+                    <ol>
+                        <li>Soit $E = \mathbb{R}_n[X]$ l'espace vectoriel des polynômes de degré inférieur ou égal à $n$. Montrer que toute famille de polynômes $\{P_0, P_1, \dots, P_n\}$ avec $\deg P_i = i$ (pour $i = 0,1, \dots, n$) forme une base de $E$.</li>
+                        <li>Écrire le polynôme $F = 3X - X^2 + 8X^3$ sous la forme $F = a+b(1 - X) + c(X - X^2) + d(X^2 - X^3)$ ($a, b, c, d \in \mathbb{R}$) puis sous la forme $F = \alpha+\beta(1+X)+\gamma(1+X+X^2)+\delta(1+X+X^2+X^3)$ ($\alpha, \beta, \gamma, \delta \in \mathbb{R}$).</li>
+                    </ol>
+                    <div class="nav-links">
+                        <a href="#ind5">Indication ▼</a>
+                        <a href="#corr5">Correction ▼</a>
+                    </div>
+                    <div class="ref">[000992]</div>
+                </article>
+
+                <h2>2 Dimension</h2>
+
+                <article id="exo6">
+                    <h3>Exercice 6</h3>
+                    <p>Soit $E$ est un espace vectoriel de dimension finie et $F$ et $G$ deux sous-espaces vectoriels de $E$. Montrer que :</p>
+                    $$ \dim(F+G) = \dim F + \dim G - \dim(F \cap G). $$
+                    <div class="nav-links">
+                        <a href="#ind6">Indication ▼</a>
+                        <a href="#corr6">Correction ▼</a>
+                    </div>
+                    <div class="ref">[001015]</div>
+                </article>
+
+                <article id="exo7">
+                    <h3>Exercice 7</h3>
+                    <p>On considère, dans $\mathbb{R}^4$, les vecteurs :</p>
+                    $v_1 = (1,2,3,4)$, $v_2 = (1,1,1,3)$, $v_3 = (2,1,1,1)$, $v_4 = (-1,0,-1,2)$, $v_5 = (2,3,0,1)$.
+                    <p>Soit $F$ l'espace vectoriel engendré par $\{v_1, v_2, v_3\}$ et soit $G$ celui engendré par $\{v_4, v_5\}$. Calculer les dimensions respectives de $F, G, F \cap G, F + G$.</p>
+                    <div class="nav-links">
+                        <a href="#ind7">Indication ▼</a>
+                        <a href="#corr7">Correction ▼</a>
+                    </div>
+                    <div class="ref">[001019]</div>
+                </article>
+
+                <article id="exo8">
+                    <h3>Exercice 8</h3>
+                    <p>Montrer que tout sous-espace vectoriel d'un espace vectoriel de dimension finie est de dimension finie.</p>
+                    <div class="nav-links">
+                        <a href="#ind8">Indication ▼</a>
+                        <a href="#corr8">Correction ▼</a>
+                    </div>
+                    <div class="ref">[001016]</div>
+                </article>
+            </section>
+
+            <section id="indications">
+                <h2>Indications</h2>
+                <div id="ind1"><h4>Indication pour l'exercice 1 <a href="#exo1" class="back-link">▲</a></h4><p>Être une base, c'est être libre et génératrice. Chacune de ces conditions se vérifie par un système linéaire.</p></div>
+                <div id="ind2"><h4>Indication pour l'exercice 2 <a href="#exo2" class="back-link">▲</a></h4><p>$E$ est un sous-espace vectoriel de $\mathbb{R}^4$. Une base comporte trois vecteurs.</p></div>
+                <div id="ind3"><h4>Indication pour l'exercice 3 <a href="#exo3" class="back-link">▲</a></h4><p>C'est une base pour $t \neq \pm 1$.</p></div>
+                <div id="ind4"><h4>Indication pour l'exercice 4 <a href="#exo4" class="back-link">▲</a></h4><p>Il n'y a aucune difficulté. C'est comme dans $\mathbb{R}^3$ sauf qu'ici les coefficients sont des nombres complexes.</p></div>
+                <div id="ind5"><h4>Indication pour l'exercice 5 <a href="#exo5" class="back-link">▲</a></h4><p>Il suffit de montrer que la famille est libre (pourquoi ?). Prendre ensuite une combinaison linéaire nulle et regarder le terme de plus haut degré.</p></div>
+                <div id="ind6"><h4>Indication pour l'exercice 6 <a href="#exo6" class="back-link">▲</a></h4><p>Partir d'une base $(e_1, \dots, e_k)$ de $F \cap G$ et la compléter par des vecteurs $(f_1, \dots, f_l)$ en une base de $F$. Repartir de $(e_1, \dots, e_k)$ pour la compléter par des vecteurs $(g_1, \dots, g_m)$ en une base de $G$. Montrer que $(e_1, \dots, e_k, f_1, \dots, f_l, g_1, \dots, g_m)$ est une base de $F + G$.</p></div>
+                <div id="ind7"><h4>Indication pour l'exercice 7 <a href="#exo7" class="back-link">▲</a></h4><p>Calculer d'abord les dimensions de $F$ et $G$. Pour celles de $F \cap G$ et $F + G$ servez-vous de la formule $\dim(F+G) = \dim F + \dim G - \dim(F \cap G)$.</p></div>
+                <div id="ind8"><h4>Indication pour l'exercice 8 <a href="#exo8" class="back-link">▲</a></h4><p>On peut utiliser des familles libres.</p></div>
+            </section>
+            
+            <section id="corrections">
+                <h2>Corrections</h2>
+                <div id="corr1"><h4>Correction de l'exercice 1 <a href="#exo1" class="back-link">▲</a></h4>
+                    <ol>
+                        <li>Pour montrer que la famille $(v_1, v_2, v_3)$ est une base, on montre qu'elle est libre et génératrice.
+                        <ul>
+                            <li><b>Libre :</b> Soit $av_1 + bv_2 + cv_3 = 0$. Cela équivaut au système :
+                            $$ \begin{cases} b+c=0 \\ a+c=0 \\ a+b=0 \end{cases} \implies a=b=c=0 $$
+                            La famille est libre. Comme c'est une famille de 3 vecteurs dans un espace de dimension 3, c'est une base.</li>
+                            <li><b>Génératrice :</b> Pour $w=(1,1,1)$, on cherche $a,b,c$ tels que $av_1 + bv_2 + cv_3 = w$.
+                            $$ \begin{cases} b+c=1 \\ a+c=1 \\ a+b=1 \end{cases} \implies a=b=c=\frac{1}{2} $$
+                            Les composantes de $w$ sont $(\frac{1}{2}, \frac{1}{2}, \frac{1}{2})$.</li>
+                        </ul>
+                        </li>
+                        <li>La famille est une base (calculs similaires). Les coordonnées de $e_1, e_2, e_3$ dans la base $(v_1, v_2, v_3)$ sont :
+                        $e_1 = \frac{1}{3}v_1 - \frac{1}{3}v_2 + \frac{2}{3}v_3$,
+                        $e_2 = \frac{1}{3}v_1 + \frac{2}{3}v_2 - \frac{1}{3}v_3$,
+                        $e_3 = \frac{1}{3}v_1 - \frac{1}{3}v_2 - \frac{1}{3}v_3$.
+                        Pour $w = e_1+2e_2-3e_3$, par linéarité des coordonnées :
+                        $w = (\frac{1}{3} + 2\frac{1}{3} - 3\frac{1}{3})v_1 + (-\frac{1}{3} + 2\frac{2}{3} - 3(-\frac{1}{3}))v_2 + (\frac{2}{3} + 2(-\frac{1}{3}) - 3(-\frac{1}{3}))v_3 = 0v_1+2v_2+v_3$.
+                        Les composantes de $w$ sont $(0,2,1)$.</li>
+                        <li>Famille libre non génératrice : $\{(1,0,0), (0,1,0)\}$.</li>
+                        <li>Famille génératrice non libre : $\{(1,0,0), (0,1,0), (0,0,1), (1,1,1)\}$.</li>
+                    </ol>
+                </div>
+                <div id="corr2"><h4>Correction de l'exercice 2 <a href="#exo2" class="back-link">▲</a></h4>
+                    <p>$E$ est un sous-espace vectoriel de $\mathbb{R}^4$ car c'est le noyau de la forme linéaire non nulle $\phi(x_1,x_2,x_3,x_4) = x_1+x_2+x_3+x_4$. C'est donc un hyperplan de $\mathbb{R}^4$, de dimension $4-1=3$. Pour trouver une base, il suffit de trouver 3 vecteurs libres dans $E$.
+                    Prenons $v_1=(1,-1,0,0)$, $v_2=(1,0,-1,0)$, $v_3=(1,0,0,-1)$. Ils sont bien dans $E$.
+                    Montrons que la famille est libre :
+                    $$ \alpha v_1 + \beta v_2 + \gamma v_3 = 0 \implies (\alpha+\beta+\gamma, -\alpha, -\beta, -\gamma)=(0,0,0,0) $$
+                    ce qui donne immédiatement $\alpha=\beta=\gamma=0$.
+                    La famille $(v_1, v_2, v_3)$ est une famille libre de 3 vecteurs dans un espace de dimension 3, c'est donc une base de $E$.
+                </div>
+                <div id="corr3"><h4>Correction de l'exercice 3 <a href="#exo3" class="back-link">▲</a></h4>
+                    <p>Trois vecteurs dans $\mathbb{R}^3$ forment une base si et seulement si ils forment une famille libre. On résout $a(1,0,t)+b(1,1,t)+c(t,0,1)=0$.
+                    $$ \begin{cases} a+b+tc = 0 \\ b=0 \\ at+bt+c=0 \end{cases} \implies \begin{cases} a+tc=0 \\ b=0 \\ at+c=0 \end{cases} \implies \begin{cases} a=-tc \\ b=0 \\ (-tc)t+c=0 \end{cases} $$
+                    La dernière équation est $c(1-t^2)=0$.
+                    Si $t^2 \neq 1$ (i.e. $t \neq \pm 1$), alors $c=0$, ce qui entraîne $a=0$ (et $b=0$). La seule solution est $(0,0,0)$, la famille est libre, c'est une base.
+                    Si $t=1$ ou $t=-1$, on peut trouver des solutions non nulles. La famille n'est pas libre, ce n'est pas une base.
+                </div>
+                <div id="corr4"><h4>Correction de l'exercice 4 <a href="#corr4" class="back-link">▲</a></h4>
+                    <ol>
+                        <li>On montre que la famille est libre. Soit $av_1+bv_2+cv_3=0$ avec $a,b,c \in \mathbb{C}$.
+                        $$ \begin{cases} a - b + ic = 0 \\ -a + ib + c = 0 \\ ia + b - c = 0 \end{cases} $$
+                        En additionnant les deux dernières lignes, on obtient $i(a+b)=0$, donc $a+b=0$. En additionnant les deux premières, $c(i+1)-b(1-i)=0$. La résolution du système donne $a=b=c=0$. C'est une base.</li>
+                        <li>On cherche $a,b,c \in \mathbb{C}$ tels que $v=av_1+bv_2+cv_3$.
+                        $$ \begin{cases} a - b + ic = 1+i \\ -a + ib + c = 1-i \\ ia + b - c = i \end{cases} $$
+                        La résolution donne $a=\frac{i}{2}, b=1-\frac{i}{2}, c=1$. Les coordonnées sont $(\frac{i}{2}, 1-\frac{i}{2}, 1)$.</li>
+                    </ol>
+                </div>
+                <div id="corr5"><h4>Correction de l'exercice 5 <a href="#corr5" class="back-link">▲</a></h4>
+                    <ol>
+                        <li>La famille $\{P_0, \dots, P_n\}$ contient $n+1$ vecteurs dans $E$ qui est de dimension $n+1$. Il suffit de montrer que la famille est libre. Soit $\lambda_0 P_0 + \dots + \lambda_n P_n = 0$ (le polynôme nul). Le degré de cette combinaison linéaire est le degré du terme de plus haut degré, soit $n$, car $\deg P_n=n$. Le coefficient dominant est $\lambda_n$ fois le coefficient dominant de $P_n$. Pour que le polynôme soit nul, il faut que $\lambda_n=0$.
+                        On recommence avec $\lambda_0 P_0 + \dots + \lambda_{n-1} P_{n-1} = 0$, on trouve $\lambda_{n-1}=0$, et ainsi de suite. Tous les $\lambda_i$ sont nuls. La famille est libre, c'est une base.</li>
+                        <li>Pour $F=a+b(1-X)+c(X-X^2)+d(X^2-X^3)$, on identifie les coefficients:
+                        $$ 8X^3-X^2+3X = d(-X^3) + (c-d)X^2 + (b-c)X + (a+b) $$
+                        On trouve $d=-8, c=-9, b=-6, a=6$.
+                        Pour $F=\alpha+\beta(1+X)+\gamma(1+X+X^2)+\delta(1+X+X^2+X^3)$:
+                        $$ 8X^3-X^2+3X = \delta X^3 + (\gamma+\delta)X^2 + (\beta+\gamma+\delta)X + (\alpha+\beta+\gamma+\delta) $$
+                        On trouve $\delta=8, \gamma=-9, \beta=4, \alpha=-3$.</li>
+                    </ol>
+                </div>
+                <div id="corr6"><h4>Correction de l'exercice 6 <a href="#corr6" class="back-link">▲</a></h4>
+                    <p>Soit $(e_1, \dots, e_k)$ une base de $F \cap G$. On complète cette famille libre en une base de $F$ par $(f_1, \dots, f_l)$, donc $\mathcal{B}_F = (e_1, \dots, e_k, f_1, \dots, f_l)$ est une base de $F$ et $\dim F = k+l$. De même, on complète la base de $F \cap G$ en une base de $G$ par $(g_1, \dots, g_m)$, donc $\mathcal{B}_G = (e_1, \dots, e_k, g_1, \dots, g_m)$ est une base de $G$ et $\dim G = k+m$.
+                    Montrons que la famille $\mathcal{B} = (e_1, \dots, e_k, f_1, \dots, f_l, g_1, \dots, g_m)$ est une base de $F+G$.
+                    <ul>
+                        <li><b>Génératrice:</b> Tout vecteur de $F+G$ est somme d'un vecteur de $F$ et d'un vecteur de $G$. Chacun de ces vecteurs se décompose dans $\mathcal{B}_F$ et $\mathcal{B}_G$, donc leur somme se décompose dans $\mathcal{B}$.</li>
+                        <li><b>Libre:</b> Soit $\sum a_i e_i + \sum b_j f_j + \sum c_p g_p = 0$.
+                        Alors $\sum c_p g_p = -\sum a_i e_i - \sum b_j f_j$. Le membre de droite est dans $F$, donc le membre de gauche est dans $F$. Or, il est aussi dans $G$. Il appartient donc à $F \cap G$. On peut donc le décomposer sur la base $(e_i)$.
+                        $\sum c_p g_p = \sum d_i e_i$. Donc $\sum c_p g_p - \sum d_i e_i = 0$. Comme la famille $(e_i, g_p)$ est libre (base de G), tous les coefficients $c_p$ et $d_i$ sont nuls.
+                        L'équation de départ devient $\sum a_i e_i + \sum b_j f_j = 0$. Comme $(e_i, f_j)$ est une base de $F$, tous les $a_i$ et $b_j$ sont nuls.
+                        La famille $\mathcal{B}$ est libre.</li>
+                    </ul>
+                    $\dim(F+G) = k+l+m = (k+l) + (k+m) - k = \dim F + \dim G - \dim(F \cap G)$.</p>
+                </div>
+                <div id="corr7"><h4>Correction de l'exercice 7 <a href="#corr7" class="back-link">▲</a></h4>
+                    <p>On trouve $\dim F = 3$ (la famille $(v_1,v_2,v_3)$ est libre) et $\dim G = 2$ (la famille $(v_4,v_5)$ est libre).
+                    Par la formule de Grassmann, $\dim(F+G) + \dim(F \cap G) = \dim F + \dim G = 5$.
+                    Comme $F+G \subset \mathbb{R}^4$, $\dim(F+G) \le 4$.
+                    Comme $F \subset F+G$, $\dim(F+G) \ge 3$.
+                    Un calcul montre que $\dim(F \cap G)=1$. Par exemple, on trouve que $v_1-v_2-v_3 = (-2,0,-1,0)$ et $v_5-v_4 = (3,3,1,-1)$. Chercher une relation de dépendance entre les 5 vecteurs permet de trouver un vecteur dans l'intersection. On trouve $v_1+v_2-v_3 = 2(v_5-v_4)$, donc $v_1+v_2-v_3-2v_5+2v_4=0$.
+                    Ainsi $\dim(F \cap G) = 1$.
+                    Donc $\dim(F+G) = 5-1=4$. Comme $F+G \subset \mathbb{R}^4$ et a la même dimension, $F+G=\mathbb{R}^4$.</p>
+                </div>
+                <div id="corr8"><h4>Correction de l'exercice 8 <a href="#corr8" class="back-link">▲</a></h4>
+                    <p>Soit $E$ un espace vectoriel de dimension finie $n$, et $F$ un sous-espace vectoriel de $E$.
+                    Soit $\mathcal{L}$ une famille libre de vecteurs de $F$. Cette famille est aussi une famille libre de $E$.
+                    Le théorème de la base incomplète (ou un de ses corollaires) affirme que le cardinal d'une famille libre est inférieur ou égal à la dimension de l'espace. Donc $|\mathcal{L}| \le n$.
+                    Soit $k$ le cardinal maximal d'une famille libre dans $F$. On a $k \le n$.
+                    Soit $\mathcal{B} = \{v_1, \dots, v_k\}$ une telle famille libre de cardinal maximal dans $F$.
+                    Montrons que $\mathcal{B}$ est génératrice de $F$. Soit $v \in F$. Si $v$ n'est pas dans $\text{Vect}(\mathcal{B})$, alors la famille $\{v_1, \dots, v_k, v\}$ est libre, ce qui contredit le caractère maximal de $k$. Donc $v \in \text{Vect}(\mathcal{B})$.
+                    Ainsi $\mathcal{B}$ est une base de $F$, et $\dim F = k \le n$.
+                    Tout sous-espace vectoriel d'un espace de dimension finie est de dimension finie.
+                    </p>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
