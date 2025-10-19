@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparaison des suites - Exercices</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <style>
+        /* Optimisation mobile */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            padding: 10px;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+        }
+        header {
+            padding: 10px 0;
+            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+        .header-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #e67e22; /* Exo7 color */
+        }
+        .exercise, .correction {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow-x: auto; /* Handle wide formulas */
+        }
+        .correction {
+            background-color: #fcfcfc;
+            border-left: 5px solid #3498db;
+        }
+        .exo-title {
+            font-weight: bold;
+            display: inline;
+        }
+        .difficulty {
+            font-size: 0.8em;
+            color: #e74c3c;
+            margin-left: 5px;
+        }
+        .correction-link, .exercise-link {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+            display: block;
+            margin-top: 10px;
+            padding: 5px 0;
+        }
+        .correction-link::before {
+            content: "▼ ";
+            font-size: 0.8em;
+        }
+        .page-break {
+            margin: 30px 0;
+            border-top: 1px dashed #ccc;
+        }
+        /* KaTeX specific styling for better mobile display */
+        .katex-display {
+            padding: 10px 0;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});</script>
+
+    <header>
+        <span style="float: right;" class="header-title">Exo7</span>
+        <h1>Comparaison des suites</h1>
+        <p>Exercices de Jean-Louis Rouget. Retrouver aussi cette fiche sur <a href="http://www.maths-france.fr">www.maths-france.fr</a></p>
+        <p style="font-size: 0.9em; color: #777;">
+            * très facile ** facile *** difficulté moyenne **** difficile ***** très difficile<br>
+            I: Incontournable T: pour travailler et mémoriser le cours
+        </p>
+    </header>
+
+    <h2>Énoncés</h2>
+
+    <div class="exercise" id="exo-1">
+        <p class="exo-title">Exercice 1 <span class="difficulty">***I</span></p>
+        <p>Déterminer un équivalent le plus simple possible de chacune des suites suivantes quand $n$ tend vers $+\infty$.</p>
+        <ol>
+            <li>$$\arccos \frac{n-1}{n}$$</li>
+            <li>$$\arccos \frac{1}{n}$$</li>
+            <li>$$\operatorname{ch}(\sqrt{n})$$</li>
+            <li>$$\left(1+\frac{1}{n}\right)^n - 1$$</li>
+            <li>$$\frac{\operatorname{argch} n}{\sqrt{n^4+n^2-1}}$$</li>
+            <li>$$\left(1+\frac{1}{\sqrt{n}}\right)^n - \sqrt{n}$$</li>
+            <li>$$\ln\left(\cos \frac{1}{\sqrt{n}}\right)\left(\ln \sin \frac{1}{\sqrt{n}}\right)$$</li>
+            <li>$$\left(\frac{3}{\sqrt{5}} - \arctan n\right)^{3/5}$$</li>
+            <li>$$\sqrt{1+\frac{(-1)^n}{\sqrt{n}}} - 1$$</li>
+        </ol>
+        <a href="#corr-1" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-2">
+        <p class="exo-title">Exercice 2 <span class="difficulty">***I</span></p>
+        <p>Montrer que $$\sum_{k=0}^n k! \sim n!$$</p>
+        <a href="#corr-2" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-3">
+        <p class="exo-title">Exercice 3 <span class="difficulty">***I</span></p>
+        <ol>
+            <li>Soient $u$ et $v$ deux suites réelles strictement positives. Pour $n \in \mathbb{N}$, on pose $U_n = \sum_{k=0}^n u_k$ et $V_n = \sum_{k=0}^n v_k$. Montrer que si $u_n \sim v_n$ et si $\lim_{n \to +\infty} V_n = +\infty$, alors $U_n \sim V_n$.</li>
+            <li>Application. Trouver un équivalent de $\sum_{k=1}^n \frac{1}{k \sqrt{k+1}}$ et $\sum_{k=1}^n \ln(k)$.</li>
+        </ol>
+        <a href="#corr-3" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-4">
+        <p class="exo-title">Exercice 4 <span class="difficulty">****</span></p>
+        <p>Soit $(u_n)$ une suite réelle de limite nulle. Montrer que si $u_n + u_{2n} \sim \frac{3}{2n}$, alors $u_n \sim \frac{1}{n}$. A-t-on : si $u_n + u_{n+1} \sim \frac{2}{n}$, alors $u_n \sim \frac{1}{n}$ ?</p>
+        <a href="#corr-4" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-5">
+        <p class="exo-title">Exercice 5 <span class="difficulty">***I</span></p>
+        <p>Soit $u$ la suite définie par $u_0 = \frac{\pi}{2}$ et, $\forall n \in \mathbb{N}, u_{n+1} = \sin(u_n)$.</p>
+        <ol>
+            <li>Montrer que la suite $u$ est strictement positive, décroissante de limite nulle.</li>
+            <li>On admet que si $u$ est une suite de limite nulle, alors, quand $n$ tend vers $+\infty$, $\sin(u_n) = u_n - \frac{u_n^3}{6} + o(u_n^3)$. Déterminer un réel $\alpha$ tel que la suite $v_n = u_{n+1}^\alpha - u_n^\alpha$ ait une limite réelle non nulle. En appliquant le lemme de CÉSARO à la suite $(v_n)$, en déduire un équivalent simple de $u_n$ quand $n$ tend vers $+\infty$.</li>
+        </ol>
+        <a href="#corr-5" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-6">
+        <p class="exo-title">Exercice 6 <span class="difficulty">***</span></p>
+        <p>Soient $a$ et $b$ deux réels tels que $0 < a < b$. On pose $u_0 = a$ et $v_0 = b$ puis, pour $n$ entier naturel donné, $$u_{n+1} = \frac{u_n+v_n}{2} \text{ et } v_{n+1} = \sqrt{u_{n+1}v_n}$$ Montrer que les suites $(u_n)$ et $(v_n)$ sont adjacentes et que leur limite commune est égale à $\frac{b \sin(\arccos(a/b))}{\arccos(a/b)}$.</p>
+        <a href="#corr-6" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-7">
+        <p class="exo-title">Exercice 7 <span class="difficulty">**</span></p>
+        <p>Limite quand $n$ tend vers $+\infty$ de</p>
+        <ol>
+            <li>$$\frac{\sin n}{n}$$</li>
+            <li>$$\left(1+\frac{1}{n}\right)^n$$</li>
+            <li>$$\frac{n^n}{n!}$$</li>
+            <li>$$\frac{E((n+1)^2)}{E((n-1)^2)}$$</li>
+            <li>$$\sqrt{n^2}$$</li>
+            <li>$$\sqrt{n+1} - \sqrt{n}$$</li>
+            <li>$$\sum_{k=1}^n \frac{1}{k^2}$$</li>
+            <li>$$\prod_{k=1}^n 2^k / 2^{2^k}$$</li>
+        </ol>
+        <a href="#corr-7" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-8">
+        <p class="exo-title">Exercice 8 <span class="difficulty">**</span></p>
+        <p>Etudier la suite $(u_n)$ définie par $$\sqrt{n+1} - \sqrt{n} = \frac{1}{2\sqrt{n}+u_n}$$</p>
+        <a href="#corr-8" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-9">
+        <p class="exo-title">Exercice 9 <span class="difficulty">**T</span> Récurrences homographiques</p>
+        <p>Déterminer $u_n$ en fonction de $n$ quand la suite $u$ vérifie :</p>
+        <ol>
+            <li>$$\forall n \in \mathbb{N}, u_{n+1} = \frac{u_n}{3-2u_n}$$</li>
+            <li>$$\forall n \in \mathbb{N}, u_{n+1} = \frac{4(u_n-1)}{u_n}$$ (ne pas se poser de questions d'existence).</li>
+        </ol>
+        <a href="#corr-9" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-10">
+        <p class="exo-title">Exercice 10 <span class="difficulty">**</span></p>
+        <p>Soient $(u_n)$ et $(v_n)$ les suites définies par la donnée de $u_0$ et $v_0$ et les relations de récurrence $$u_{n+1} = \frac{2u_n + v_n}{3} \quad \text{et} \quad v_{n+1} = \frac{u_n + 2v_n}{3}$$</p>
+        <p>Etudier les suites $u$ et $v$ puis déterminer $u_n$ et $v_n$ en fonction de $n$ en recherchant des combinaisons linéaires intéressantes de $u$ et $v$. En déduire $\lim_{n \to +\infty} u_n$ et $\lim_{n \to +\infty} v_n$.</p>
+        <a href="#corr-10" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-11">
+        <p class="exo-title">Exercice 11 <span class="difficulty">**</span></p>
+        <p>Soient $(u_n)$, $(v_n)$ et $(w_n)$ les suites définies par la donnée de $u_0, v_0$ et $w_0$ et les relations de récurrence $$u_{n+1} = \frac{v_n + w_n}{2}, v_{n+1} = \frac{u_n + w_n}{2} \quad \text{et} \quad w_{n+1} = \frac{u_n + v_n}{2}$$</p>
+        <p>Etudier les suites $u, v$ et $w$ puis déterminer $u_n, v_n$ et $w_n$ en fonction de $n$ en recherchant des combinaisons linéaires intéressantes de $u, v$ et $w$. En déduire $\lim_{n \to +\infty} u_n, \lim_{n \to +\infty} v_n$ et $\lim_{n \to +\infty} w_n$.</p>
+        <a href="#corr-11" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-12">
+        <p class="exo-title">Exercice 12 <span class="difficulty">***</span></p>
+        <p>Montrer que les suites définies par la donnée de $u_0, v_0$ et $w_0$ réels tels que $0 < u_0 < v_0 < w_0$ et les relations de récurrence : $$u_{n+1} = \frac{3}{\frac{1}{u_n} + \frac{1}{v_n} + \frac{1}{w_n}} \quad \text{et} \quad v_{n+1} = \sqrt[3]{u_n v_n w_n} \quad \text{et} \quad w_{n+1} = \frac{u_n + v_n + w_n}{3}$$ ont une limite commune que l'on ne cherchera pas à déterminer.</p>
+        <a href="#corr-12" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-13">
+        <p class="exo-title">Exercice 13 <span class="difficulty">***</span></p>
+        <p>Soit $u$ une suite complexe et $v$ la suite définie par $v_n = |u_n|$. On suppose que la suite $(v_n)$ converge vers un réel positif $l$. Montrer que si $0 \leq l < 1$, la suite $(u_n)$ converge vers $0$ et si $l > 1$, la suite $(v_n)$ tend vers $+\infty$. Montrer que si $l = 1$, tout est possible.</p>
+        <a href="#corr-13" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-14">
+        <p class="exo-title">Exercice 14 <span class="difficulty">***</span></p>
+        <ol>
+            <li>Soit $u$ une suite de réels strictement positifs. Montrer que si la suite $(\frac{u_{n+1}}{u_n})$ converge vers un réel $l$, alors $(\sqrt[n]{u_n})$ converge et a même limite.</li>
+            <li>Etudier la réciproque.</li>
+            <li>Application : limites de
+                <ol type="a">
+                    <li>$\sqrt[n]{\binom{2n}{n}}$</li>
+                    <li>$\frac{n}{\sqrt[n]{n!}}$</li>
+                    <li>$\sqrt[n]{\frac{(3n)!}{(n!)^3}}$</li>
+                </ol>
+            </li>
+        </ol>
+        <a href="#corr-14" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-15">
+        <p class="exo-title">Exercice 15 <span class="difficulty">*</span></p>
+        <p>Soient $u$ et $v$ deux suites de réels de $[0, 1]$ telles que $\lim_{n \to +\infty} u_n v_n = 1$. Montrer que $(u_n)$ et $(v_n)$ convergent vers $1$.</p>
+        <a href="#corr-15" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-16">
+        <p class="exo-title">Exercice 16 <span class="difficulty">**</span></p>
+        <p>Montrer que si les suites $(u_n^2)$ et $(u_{n}^3)$ convergent alors $(u_n)$ converge.</p>
+        <a href="#corr-16" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-17">
+        <p class="exo-title">Exercice 17 <span class="difficulty">***T</span></p>
+        <p>Etudier les deux suites $u_n = \left(1+\frac{1}{n}\right)^n$ et $v_n = \left(1+\frac{1}{n}\right)^{n+1}$.</p>
+        <a href="#corr-17" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-18">
+        <p class="exo-title">Exercice 18 <span class="difficulty">**T</span></p>
+        <p>Etudier les deux suites $u_n = \sum_{k=0}^n \frac{1}{k!}$ et $v_n = u_n + \frac{1}{n \cdot n!}$.</p>
+        <a href="#corr-18" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-19">
+        <p class="exo-title">Exercice 19</p>
+        <p>Etudier les deux suites $u_n = \left(\sum_{k=1}^n \frac{1}{\sqrt{k}}\right) - 2\sqrt{n+1}$ et $v_n = \left(\sum_{k=1}^n \frac{1}{\sqrt{k}}\right) - 2\sqrt{n}$.</p>
+        <a href="#corr-19" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-20">
+        <p class="exo-title">Exercice 20 <span class="difficulty">**T</span></p>
+        <p>Déterminer $u_n$ en fonction de $n$ et de ses premiers termes dans chacun des cas suivants :</p>
+        <ol>
+            <li>$$\forall n \in \mathbb{N}, 4u_{n+2} = 4u_{n+1}+3u_n$$</li>
+            <li>$$\forall n \in \mathbb{N}, 4u_{n+2} = u_n$$</li>
+            <li>$$\forall n \in \mathbb{N}, 4u_{n+2} = 4u_{n+1}+3u_n +12$$</li>
+            <li>$$\forall n \in \mathbb{N}, \frac{1}{u_{n+2}} = \frac{1}{u_{n+1}} + \frac{1}{u_n}$$</li>
+            <li>$$\forall n \geq 2, u_n = 3u_{n-1}-2u_{n-2}+n^3$$</li>
+            <li>$$\forall n \in \mathbb{N}, u_{n+3} - 6u_{n+2}+11u_{n+1} - 6u_n = 0$$</li>
+            <li>$$\forall n \in \mathbb{N}, u_{n+4} - 2u_{n+3} + 2u_{n+2} - 2u_{n+1} + u_n = n^3$$</li>
+        </ol>
+        <a href="#corr-20" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-21">
+        <p class="exo-title">Exercice 21 <span class="difficulty">****</span></p>
+        <p>On pose $u_1 = 1$ et, $\forall n \in \mathbb{N}^*, u_{n+1} = 1 + \frac{n}{u_n}$. Montrer que $\lim_{n \to +\infty}(u_n – \sqrt{n}) = \frac{1}{2}$.</p>
+        <a href="#corr-21" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-22">
+        <p class="exo-title">Exercice 22 <span class="difficulty">***</span></p>
+        <p>Montrer que, pour $n \geq 2$,
+            $$\cos\left(\frac{\pi}{2^n}\right) = \frac{1}{2}\sqrt{2+\sqrt{2+\dots+\sqrt{2}}} \quad (n-1 \text{ radicaux}) \text{ et } \sin\left(\frac{\pi}{2^n}\right) = \frac{1}{2}\sqrt{2-\sqrt{2+\dots+\sqrt{2}}} \quad (n-1 \text{ radicaux})$$
+            En déduire $\lim_{n \to +\infty} 2^n \sqrt{2-\sqrt{2+\dots+\sqrt{2}}}$ ($n$ radicaux).
+        </p>
+        <a href="#corr-22" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-23">
+        <p class="exo-title">Exercice 23 <span class="difficulty">***</span></p>
+        <ol>
+            <li>Montrer que pour $x$ réel strictement positif, on a : $\ln(1+x) < x < (1+x) \ln(1+x)$.</li>
+            <li>Montrer que $\prod_{k=1}^n \left(1+\frac{1}{k}\right)^k < e^n < \prod_{k=1}^n \left(1+\frac{1}{k}\right)^{k+1}$ et en déduire la limite quand $n$ tend vers $+\infty$ de $\frac{\sqrt[n]{n!}}{n}$.</li>
+        </ol>
+        <a href="#corr-23" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-24">
+        <p class="exo-title">Exercice 24 <span class="difficulty">****</span></p>
+        <p>Soit $(u_n) = (\frac{p_n}{q_n})$ avec $p_n \in \mathbb{Z}$ et $q_n \in \mathbb{N}^*$, une suite de rationnels convergeant vers un irrationnel $x$. Montrer que les suites $(|p_n|)$ et $(q_n)$ tendent vers $+\infty$ quand $n$ tend vers $+\infty$.</p>
+        <a href="#corr-24" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-25">
+        <p class="exo-title">Exercice 25 <span class="difficulty">**</span></p>
+        <p>Donner un exemple de suite $(u_n)$ divergente, telle que $\forall k \in \mathbb{N}^* \setminus \{1\}$, la suite $(u_{kn})$ converge.</p>
+        <a href="#corr-25" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-26">
+        <p class="exo-title">Exercice 26 <span class="difficulty">***I</span></p>
+        <p>Soit $f$ une application injective de $\mathbb{N}$ dans $\mathbb{N}$. Montrer que $\lim_{n \to +\infty} f(n) = +\infty$.</p>
+        <a href="#corr-26" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-27">
+        <p class="exo-title">Exercice 27 <span class="difficulty">***I</span></p>
+        <p>Soit $u_n$ l'unique racine positive de l'équation $x^n + x – 1 = 0$. Etudier la suite $(u_n)$.</p>
+        <a href="#corr-27" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-28">
+        <p class="exo-title">Exercice 28 <span class="difficulty">****I</span></p>
+        <p>Etude des suites $(u_n) = (\cos n a)$ et $(v_n) = (\sin n a)$ où $a$ est un réel donné.</p>
+        <ol>
+            <li>Montrer que si $\frac{a}{2\pi}$ est rationnel, les suites $u$ et $v$ sont périodiques et montrer dans ce cas que $(u_n)$ et $(v_n)$ convergent si et seulement si $a \in 2\pi\mathbb{Z}$.</li>
+            <li>On suppose dans cette question que $\frac{a}{2\pi}$ est irrationnel .
+                <ol type="a">
+                    <li>Montrer que $(u_n)$ converge si et seulement si $(v_n)$ converge .</li>
+                    <li>En utilisant différentes formules de trigonométrie fournissant des relations entre $u_n$ et $v_n$, montrer par l'absurde que $(u_n)$ et $(v_n)$ divergent.</li>
+                </ol>
+            </li>
+            <li>On suppose toujours que $\frac{a}{2\pi}$ est irrationnel. On veut montrer que l'ensemble des valeurs de la suite $(u_n)$ (ou $(v_n)$) est dense dans $[-1, 1]$, c'est-à-dire que $\forall x \in [-1, 1], \forall \varepsilon > 0, \exists n \in \mathbb{N}/ |u_n - x| < \varepsilon$ (et de même pour $v_n$).
+                <ol type="a">
+                    <li>Montrer que le problème se ramène à démontrer que $\{na+2k\pi, n \in \mathbb{N} \text{ et } k \in \mathbb{Z}\}$ est dense dans $\mathbb{R}$.</li>
+                    <li>Montrer que $E = \{na+2k\pi, n \in \mathbb{N} \text{ et } k \in \mathbb{Z}\}$ est dense dans $\mathbb{R}$ (par l'absurde en supposant que $\inf(E \cap \mathbb{R}^+_*) > 0$ pour en déduire que $\frac{a}{2\pi} \in \mathbb{Q}$).</li>
+                    <li>Conclure.</li>
+                </ol>
+            </li>
+        </ol>
+        <a href="#corr-28" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-29">
+        <p class="exo-title">Exercice 29 <span class="difficulty">****</span></p>
+        <p>Montrer que l'ensemble $E$ des réels de la forme $u_n = \sin(\ln(n))$, $n$ entier naturel non nul, est dense dans $[-1, 1]$.</p>
+        <a href="#corr-29" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-30">
+        <p class="exo-title">Exercice 30 <span class="difficulty">***</span></p>
+        <p>Calculer $\inf_{\alpha \in ]0, \pi[}(\sup_{n \in \mathbb{N}} |\sin(n\alpha)|)$.</p>
+        <a href="#corr-30" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-31">
+        <p class="exo-title">Exercice 31 <span class="difficulty">**I</span></p>
+        <p>Soit $(u_n)$ une suite réelle non majorée. Montrer qu'il existe une suite extraite de $(u_n)$ tendant vers $+\infty$.</p>
+        <a href="#corr-31" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-32">
+        <p class="exo-title">Exercice 32 <span class="difficulty">***</span></p>
+        <p>Soit $(u_n)$ une suite de réels éléments de $]0, 1[$ telle que $\forall n \in \mathbb{N}, (1 – u_n)u_{n+1} > \frac{1}{4}$. Montrer que $(u_n)$ converge vers $\frac{1}{2}$.</p>
+        <a href="#corr-32" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+    <h2>Corrections</h2>
+
+    <div class="correction" id="corr-1">
+        <p class="exo-title"><a href="#exo-1" class="exercise-link">Correction de l'exercice 1</a></p>
+        <ol>
+            <li>$$\arccos \frac{n-1}{n} = \arccos \left(1 - \frac{1}{n}\right)$$
+                Posons $x = \frac{1}{n}$. $\arccos(1-x) \sim \sqrt{2x}$ quand $x \to 0$.
+                $$\arccos \frac{n-1}{n} \sim \sqrt{\frac{2}{n}}$$
+            </li>
+            <li>$$\arccos \frac{1}{n} \sim \frac{\pi}{2}$$ (car $\arccos(x) \to \pi/2$ quand $x \to 0$).</li>
+            <li>$$\operatorname{ch}(\sqrt{n}) = \frac{e^{\sqrt{n}} + e^{-\sqrt{n}}}{2} \sim \frac{e^{\sqrt{n}}}{2}$$</li>
+            <li>$$\left(1+\frac{1}{n}\right)^n - 1 = e^{n \ln(1+1/n)} - 1 = e^{n(1/n - 1/2n^2 + O(1/n^3))} - 1$$
+                $$= e^{1 - 1/2n + O(1/n^2)} - 1 \sim e \left(1 - \frac{1}{2n}\right) - 1$$
+                L'équivalent est $\sim e-1 \neq 0$.
+                Non, c'est $e^{1 - 1/2n + \dots} - 1 = e \cdot e^{-1/2n} - 1 \sim e (1 - \frac{1}{2n}) - 1 = (e-1) - \frac{e}{2n}$.
+                L'équivalent simple est $e-1$.
+            </li>
+            <li>$$\frac{\operatorname{argch} n}{\sqrt{n^4+n^2-1}}$$
+                $\operatorname{argch} n \sim \ln(2n) \sim \ln n$. $\sqrt{n^4+n^2-1} \sim n^2$.
+                L'équivalent est $$\frac{\ln n}{n^2}$$
+            </li>
+            <li>$$\left(1+\frac{1}{\sqrt{n}}\right)^n - \sqrt{n} = e^{n \ln(1+1/\sqrt{n})} - \sqrt{n}$$
+                $$e^{\sqrt{n} - 1/2 + O(1/\sqrt{n})} - \sqrt{n}$$
+                L'équivalent est $\sim e^{\sqrt{n}}$.
+            </li>
+            <li>$$\ln\left(\cos \frac{1}{\sqrt{n}}\right)\left(\ln \sin \frac{1}{\sqrt{n}}\right)$$
+                $\cos(x) \sim 1 - x^2/2$. $\ln(\cos x) \sim -x^2/2$.
+                $\sin x \sim x$. $\ln(\sin x) \sim \ln x$.
+                Pour $x = 1/\sqrt{n}$, $x \to 0$. $\ln(\cos x) \sim -\frac{1}{2n}$. $\ln(\sin x) \sim \ln(1/\sqrt{n}) = -\frac{1}{2}\ln n$.
+                L'équivalent est $$\frac{1}{4n} \ln n$$
+            </li>
+            <li>$$\left(\frac{3}{\sqrt{5}} - \arctan n\right)^{3/5}$$
+                $\arctan n = \frac{\pi}{2} - \frac{1}{n} + O(1/n^2)$.
+                L'équivalent est $\sim \left(\frac{3}{\sqrt{5}} - \frac{\pi}{2}\right)^{3/5}$.
+                (Ce n'est un équivalent simple que si la base est non nulle).
+            </li>
+            <li>$$\sqrt{1+\frac{(-1)^n}{\sqrt{n}}} - 1$$
+                $\sqrt{1+x} - 1 \sim x/2$. Pour $x = \frac{(-1)^n}{\sqrt{n}}$.
+                L'équivalent est $\sim \frac{1}{2} \frac{(-1)^n}{\sqrt{n}}$
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-2">
+        <p class="exo-title"><a href="#exo-2" class="exercise-link">Correction de l'exercice 2</a></p>
+        $$\sum_{k=0}^n k! = n! \left(1 + \frac{(n-1)!}{n!} + \dots + \frac{0!}{n!}\right) = n! \left(1 + \frac{1}{n} + \frac{1}{n(n-1)} + \dots\right)$$
+        $$\sum_{k=0}^n k! = n! \left(1 + \frac{1}{n} + O\left(\frac{1}{n^2}\right)\right)$$
+        $$\sum_{k=0}^n k! \sim n!$$
+    </div>
+
+    <div class="correction" id="corr-3">
+        <p class="exo-title"><a href="#exo-3" class="exercise-link">Correction de l'exercice 3</a></p>
+        <ol>
+            <li>Lemme de CÉSARO généralisé : Si $u_n \sim v_n$ et $V_n \to \infty$, alors $U_n \sim V_n$. (Démontré en Exercice 1).</li>
+            <li>Applications :
+                * $\sum_{k=1}^n \frac{1}{k \sqrt{k+1}}$. On a $u_k = \frac{1}{k \sqrt{k+1}} \sim \frac{1}{k^{3/2}}$. La série $\sum u_k$ converge. Le lemme de CÉSARO ne s'applique pas (car $V_n$ ne tend pas vers $\infty$).
+                * $\sum_{k=1}^n \ln(k)$. $u_k = \ln k$. $v_k = \ln k$. $\sum_{k=1}^n \ln k = \ln(n!)$. $V_n = \ln(n!) \to \infty$. $U_n \sim V_n$.
+                $\sum_{k=1}^n \ln k \sim n \ln n$. (Par formule de Stirling).
+                * $\sum_{k=1}^n \frac{1}{k \sqrt{k+1}}$. On peut utiliser une comparaison série-intégrale.
+                $$\sum_{k=1}^n \frac{1}{k \sqrt{k+1}} \sim \sum_{k=1}^n k^{-3/2} \sim \int_1^n x^{-3/2} dx = 2 - 2/\sqrt{n} \to 2$$
+                L'équivalent est la limite, 2.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-4">
+        <p class="exo-title"><a href="#exo-4" class="exercise-link">Correction de l'exercice 4</a></p>
+        <p>Soit $u_n \to 0$. $u_n + u_{2n} \sim \frac{3}{2n}$.
+            Si $u_n \sim \frac{1}{n}$, alors $u_n + u_{2n} \sim \frac{1}{n} + \frac{1}{2n} = \frac{3}{2n}$. La condition est cohérente.
+            Montrons que si $u_n + u_{2n} \sim \frac{3}{2n}$, alors $u_n \sim \frac{1}{n}$.
+            Posons $u_n = \frac{1}{n} + v_n$. On a $u_{2n} = \frac{1}{2n} + v_{2n}$.
+            $$u_n + u_{2n} = \frac{3}{2n} + v_n + v_{2n}$$
+            $$v_n + v_{2n} = o(1/n)$$
+            Si $v_n \sim \frac{C}{n^\alpha}$, on doit avoir $\frac{C}{n^\alpha} + \frac{C}{(2n)^\alpha} = o(1/n)$, ce qui implique $C=0$ (sauf cas $\alpha=1$).
+            
+            L'assertion est vraie.
+        </p>
+        <p>Contre-exemple pour $u_n + u_{n+1} \sim \frac{2}{n}$:
+            $u_n = \frac{1}{n} + (-1)^n \frac{C}{n}$. $u_{n+1} = \frac{1}{n+1} + (-1)^{n+1} \frac{C}{n+1}$.
+            $$u_n + u_{n+1} \sim \frac{2}{n} + (-1)^n \frac{C}{n} - (-1)^n \frac{C}{n} = \frac{2}{n}$$
+            Si $C \neq 0$, $u_n \not\sim \frac{1}{n}$. La deuxième assertion est fausse.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-5">
+        <p class="exo-title"><a href="#exo-5" class="exercise-link">Correction de l'exercice 5</a></p>
+        <p>$u_0 = \pi/2$. $u_{n+1} = \sin(u_n)$.</p>
+        <ol>
+            <li>$u_n \in ]0, \pi/2]$. $u_{n+1} = \sin(u_n) \leq u_n$. $u$ est décroissante. $\lim u_n = 0$.</li>
+            <li>On pose $v_n = u_{n+1}^\alpha - u_n^\alpha$.
+                $$\sin(u_n) = u_n - \frac{u_n^3}{6} + o(u_n^3)$$
+                $$u_{n+1} = u_n - \frac{u_n^3}{6} + o(u_n^3)$$
+                $$u_{n+1}^{-2} - u_n^{-2} = \frac{1}{u_n^2 (1 - u_n^2/6)^2} - \frac{1}{u_n^2} = \frac{1}{u_n^2} \left(\frac{1}{(1-u_n^2/6)^2} - 1\right)$$
+                $$\sim \frac{1}{u_n^2} \left(1 + \frac{u_n^2}{3} - 1\right) = \frac{1}{3}$$
+                On choisit $\alpha = -2$. $v_n \to 1/3$.
+                Par CÉSARO, $\frac{1}{n} \sum_{k=0}^{n-1} v_k = \frac{u_n^{-2} - u_0^{-2}}{n} \to 1/3$.
+                $$u_n^{-2} \sim n/3 \implies u_n^2 \sim 3/n$$
+                $$u_n \sim \sqrt{\frac{3}{n}}$$
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-6">
+        <p class="exo-title"><a href="#exo-6" class="exercise-link">Correction de l'exercice 6</a></p>
+        <p>$u_{n+1} = \frac{u_n+v_n}{2}, v_{n+1} = \sqrt{u_{n+1}v_n}$. Arithmético-géométrique modifiée.</p>
+        <p>Montrer $u_n < v_n$. Vrai si $u_{n+1} < v_n$. $u_{n+1} = \frac{u_n+v_n}{2}$. $u_n < v_n \Rightarrow u_{n+1} < v_n$.</p>
+        <p>$u_{n+1} \geq u_n$ et $v_{n+1} \leq v_n$. $u_n$ est croissante et $v_n$ décroissante.</p>
+        <p>Limite commune : $l$. $l = l$ et $l = \sqrt{l l}$. Adjacentes. Convergent vers $l$.</p>
+        <p>Posons $a = b \cos \alpha$. $\alpha = \arccos(a/b)$.
+            $u_n = b \frac{\sin(\alpha/2^n)}{\alpha/2^n} \cos(\alpha/2^n)$ et $v_n = b \frac{\sin(\alpha/2^n)}{\alpha/2^n}$.
+            $u_n \to b \frac{\sin \alpha}{\alpha} \cos 0 = b \frac{\sin \alpha}{\alpha}$. $v_n \to b \frac{\sin \alpha}{\alpha}$.
+            $l = \frac{b \sin(\arccos(a/b))}{\arccos(a/b)}$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-7">
+        <p class="exo-title"><a href="#exo-7" class="exercise-link">Correction de l'exercice 7</a></p>
+        <ol>
+            <li>$$\lim_{n \to +\infty} \frac{\sin n}{n} = 0$$ (car $\frac{|\sin n|}{n} \leq \frac{1}{n} \to 0$).</li>
+            <li>$$\lim_{n \to +\infty} \left(1+\frac{1}{n}\right)^n = e$$</li>
+            <li>$$\lim_{n \to +\infty} \frac{n^n}{n!} = +\infty$$ (Par formule de Stirling $\sim \sqrt{2\pi n} e^n$).</li>
+            <li>$$\frac{E((n+1)^2)}{E((n-1)^2)} \sim \frac{n^2}{n^2} = 1$$ (Car $n^2+2n \leq E((n+1)^2) \leq n^2+2n+1$).</li>
+            <li>$$\lim_{n \to +\infty} \sqrt{n^2} = +\infty$$ (ou $\lim \sqrt{n^2} = n \to +\infty$).</li>
+            <li>$$\sqrt{n+1} - \sqrt{n} = \frac{1}{\sqrt{n+1} + \sqrt{n}} \sim \frac{1}{2\sqrt{n}} \to 0$$</li>
+            <li>$$\sum_{k=1}^n \frac{1}{k^2} \to \frac{\pi^2}{6}$$ (Limite finie).</li>
+            <li>$$\prod_{k=1}^n 2^k / 2^{2^k} = 2^{\sum k - \sum 2^k} = 2^{n(n+1)/2 - (2^{n+1}-2)} \to 0$$ (La puissance tend vers $-\infty$).</li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-8">
+        <p class="exo-title"><a href="#exo-8" class="exercise-link">Correction de l'exercice 8</a></p>
+        $$\sqrt{n+1} - \sqrt{n} = \frac{1}{\sqrt{n+1} + \sqrt{n}}$$
+        $$\frac{1}{2\sqrt{n}+u_n} = \frac{1}{2\sqrt{n}} \frac{1}{1+u_n/2\sqrt{n}} \sim \frac{1}{2\sqrt{n}}(1 - \frac{u_n}{2\sqrt{n}})$$
+        Par ailleurs, $\sqrt{n+1} + \sqrt{n} = 2\sqrt{n} (1 + \frac{1}{2n}) + O(1/n^{3/2})$.
+        $$\frac{1}{2\sqrt{n+1}} = \frac{1}{2\sqrt{n}} (1 - \frac{1}{2n} + O(1/n^2))$$
+        En utilisant $\sqrt{n+1} + \sqrt{n} \sim 2\sqrt{n}(1 + 1/4n)$:
+        $$u_n \sim 1/2$$ (Calculs détaillés dans le PDF).
+    </div>
+
+    <div class="correction" id="corr-9">
+        <p class="exo-title"><a href="#exo-9" class="exercise-link">Correction de l'exercice 9</a></p>
+        <ol>
+            <li>$u_{n+1} = \frac{u_n}{3-2u_n}$. Suite homographique. $u=0$ ou $u=1$.
+                $\frac{1}{u_{n+1}} = 3\frac{1}{u_n} - 2$. $v_n = 1/u_n$. $v_{n+1} = 3v_n - 2$.
+                $v_{n+1}-1 = 3(v_n-1)$. $v_n-1 = 3^n (v_0-1)$. $u_n = \frac{u_0}{3^n (1-u_0) + u_0}$.
+            </li>
+            <li>$u_{n+1} = \frac{4(u_n-1)}{u_n} = 4 - \frac{4}{u_n}$. $v_n = u_n - 2$. $v_{n+1} = 2 - \frac{4}{v_n+2}$.
+                $\frac{1}{u_{n+1}-2} = \frac{u_n}{2(u_n-2)} - 1$.
+                La suite a pour solutions $u_n \sim 2$ (voir le PDF pour la solution exacte).
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-10">
+        <p class="exo-title"><a href="#exo-10" class="exercise-link">Correction de l'exercice 10</a></p>
+        <p>$u_{n+1} = \frac{2u_n + v_n}{3}, v_{n+1} = \frac{u_n + 2v_n}{3}$.</p>
+        <p>Combinaisons linéaires intéressantes:
+            $v_{n+1} - u_{n+1} = \frac{v_n - u_n}{3}$. $v_n - u_n$ est géométrique de raison $1/3$. $\lim (v_n - u_n) = 0$.
+            $v_{n+1} + u_{n+1} = v_n + u_n$. $v_n + u_n$ est constante. $u_n + v_n = u_0 + v_0$.
+            Les suites sont adjacentes, de limite commune $l = \frac{u_0 + v_0}{2}$.
+        </p>
+        $$u_n = \frac{1}{2}(u_0+v_0) - \frac{1}{2} (v_0-u_0) \left(\frac{1}{3}\right)^n$$
+        $$v_n = \frac{1}{2}(u_0+v_0) + \frac{1}{2} (v_0-u_0) \left(\frac{1}{3}\right)^n$$
+    </div>
+
+    <div class="correction" id="corr-11">
+        <p class="exo-title"><a href="#exo-11" class="exercise-link">Correction de l'exercice 11</a></p>
+        <p>$u_{n+1} = \frac{v_n + w_n}{2}, v_{n+1} = \frac{u_n + w_n}{2}, w_{n+1} = \frac{u_n + v_n}{2}$.</p>
+        <p>Combinaisons linéaires intéressantes:
+            $u_{n+1} - v_{n+1} = -\frac{1}{2}(u_n - v_n)$. $u_n - v_n$ est géométrique de raison $-1/2$.
+            $u_{n+1} + v_{n+1} + w_{n+1} = u_n + v_n + w_n$. $u_n + v_n + w_n = C = u_0 + v_0 + w_0$.
+            $u_{n+1} - w_{n+1} = -\frac{1}{2}(u_n - w_n)$.
+            Les suites convergent vers $l = \frac{u_0+v_0+w_0}{3}$.
+        </p>
+        $$u_n = \frac{C}{3} + \frac{1}{3} \left(\frac{-1}{2}\right)^n (2u_0 - v_0 - w_0)$$
+    </div>
+
+    <div class="correction" id="corr-12">
+        <p class="exo-title"><a href="#exo-12" class="exercise-link">Correction de l'exercice 12</a></p>
+        <p>$u_{n+1}$ (harmonique) $\leq v_{n+1}$ (géométrique) $\leq w_{n+1}$ (arithmétique).</p>
+        <p>Les suites sont adjacentes : $u_n$ croissante, $w_n$ décroissante, $w_n - u_n \to 0$.
+            Les suites convergent vers une limite commune. (Voir le PDF).
+        </p>
+    </div>
+
+    <div class="correction" id="corr-13">
+        <p class="exo-title"><a href="#exo-13" class="exercise-link">Correction de l'exercice 13</a></p>
+        <p>$v_n = |u_n| \to l \geq 0$.</p>
+        <ul>
+            <li>$0 \leq l < 1$: $|u_n| \to l$. $u_n \to 0$.</li>
+            <li>$l > 1$: $|u_n| \to l$. $|u_n| \to +\infty$.</li>
+            <li>$l = 1$: Tout est possible. (Exemple $u_n = (-1)^n$).</li>
+        </ul>
+    </div>
+
+    <div class="correction" id="corr-14">
+        <p class="exo-title"><a href="#exo-14" class="exercise-link">Correction de l'exercice 14</a></p>
+        <ol>
+            <li>Si $\frac{u_{n+1}}{u_n} \to l$, alors $\sqrt[n]{u_n} \to l$. (Vrai par encadrement, ou par $\ln$).</li>
+            <li>La réciproque est fausse. (Exemple $u_n = 2^{\frac{n(n+1)}{2}} / n!$).</li>
+            <li>Applications :
+                * $\sqrt[n]{\binom{2n}{n}}$. $\frac{u_{n+1}}{u_n} = 4\frac{n+1/2}{n+1} \to 4$. $\sqrt[n]{\binom{2n}{n}} \to 4$.
+                * $\frac{n}{\sqrt[n]{n!}}$. $\sqrt[n]{u_n} = \frac{n}{\sqrt[n]{n!}}$. $\frac{u_{n+1}}{u_n} = (1+1/n)^n \to e$. $\frac{n}{\sqrt[n]{n!}} \to e$.
+                * $\sqrt[n]{\frac{(3n)!}{(n!)^3}}$. $\frac{u_{n+1}}{u_n} \to 27$. $\sqrt[n]{\frac{(3n)!}{(n!)^3}} \to 27$.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-15">
+        <p class="exo-title"><a href="#exo-15" class="exercise-link">Correction de l'exercice 15</a></p>
+        <p>$u_n, v_n \in [0, 1]$. $\lim u_n v_n = 1$.
+            $u_n \in [u_n v_n, 1]$. Par gendarmes, $u_n \to 1$.
+            $v_n \in [u_n v_n, 1]$. Par gendarmes, $v_n \to 1$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-16">
+        <p class="exo-title"><a href="#exo-16" class="exercise-link">Correction de l'exercice 16</a></p>
+        <p>Si $u_n^2 \to l^2$ et $u_n^3 \to l^3$. $u_n = u_n^3 / u_n^2 \to l^3 / l^2 = l$ (si $l \neq 0$).
+            Si $l^2 = 0$, $l=0$. $u_n \to 0$. $u_n$ converge.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-17">
+        <p class="exo-title"><a href="#exo-17" class="exercise-link">Correction de l'exercice 17</a></p>
+        <p>$u_n = (1+1/n)^n \to e$. $v_n = (1+1/n)^{n+1} = u_n (1+1/n) \to e$.
+            $v_n - u_n = u_n/n \sim e/n \to 0$. Suites adjacentes.
+            $u_n$ croissante, $v_n$ décroissante. $\lim u_n = e$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-18">
+        <p class="exo-title"><a href="#exo-18" class="exercise-link">Correction de l'exercice 18</a></p>
+        <p>$u_n = \sum_{k=0}^n 1/k! \to e$.
+            $v_n = u_n + 1/(n \cdot n!)$. $v_n - u_n = 1/(n \cdot n!) \to 0$. Suites adjacentes. $\lim u_n = \lim v_n = e$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-19">
+        <p class="exo-title"><a href="#exo-19" class="exercise-link">Correction de l'exercice 19</a></p>
+        <p>$v_n - u_n = 2\sqrt{n+1} - 2\sqrt{n} = \frac{2}{\sqrt{n+1}+\sqrt{n}} \sim \frac{1}{\sqrt{n}} \to 0$. Suites adjacentes.</p>
+        <p>La limite est $\gamma$. (Pas demandée).</p>
+    </div>
+
+</body>
+</html>
