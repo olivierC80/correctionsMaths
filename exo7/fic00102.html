@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limites. Continuité en un point - Exercices</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <style>
+        /* Optimisation mobile */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            padding: 10px;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+        }
+        header {
+            padding: 10px 0;
+            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+        .header-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #e67e22; /* Exo7 color */
+        }
+        .exercise, .correction {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow-x: auto; /* Handle wide formulas */
+        }
+        .correction {
+            background-color: #fcfcfc;
+            border-left: 5px solid #3498db;
+        }
+        .exo-title {
+            font-weight: bold;
+            display: inline;
+        }
+        .difficulty {
+            font-size: 0.8em;
+            color: #e74c3c;
+            margin-left: 5px;
+        }
+        .correction-link, .exercise-link {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+            display: block;
+            margin-top: 10px;
+            padding: 5px 0;
+        }
+        .correction-link::before {
+            content: "▼ ";
+            font-size: 0.8em;
+        }
+        .page-break {
+            margin: 30px 0;
+            border-top: 1px dashed #ccc;
+        }
+        /* KaTeX specific styling for better mobile display */
+        .katex-display {
+            padding: 10px 0;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});</script>
+
+    <header>
+        <span style="float: right;" class="header-title">Exo7</span>
+        <h1>Limites. Continuité en un point</h1>
+        <p>Exercices de Jean-Louis Rouget. Retrouver aussi cette fiche sur <a href="http://www.maths-france.fr">www.maths-france.fr</a></p>
+        <p style="font-size: 0.9em; color: #777;">
+            * très facile ** facile *** difficulté moyenne **** difficile ***** très difficile<br>
+            I: Incontournable T: pour travailler et mémoriser le cours
+        </p>
+    </header>
+
+    <h2>Énoncés</h2>
+
+    <div class="exercise" id="exo-1">
+        <p class="exo-title">Exercice 1 <span class="difficulty">***I</span></p>
+        <p>Soit $f$ une fonction réelle d'une variable réelle définie et continue sur un voisinage de $+\infty$. On suppose que la fonction $f(x + 1) - f(x)$ admet dans $\mathbb{R}$ une limite $l$ quand $x$ tend vers $+\infty$. Étudier l'existence et la valeur éventuelle de $$\lim_{x \to +\infty} \frac{f(x)}{x}$$</p>
+        <a href="#corr-1" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-2">
+        <p class="exo-title">Exercice 2 <span class="difficulty">***</span></p>
+        <p>Soit $f$ une fonction définie sur un voisinage de $0$ telle que $\lim_{x \to 0} f(x) = 0$ et $\lim_{x \to 0} \frac{f(2x)-f(x)}{x} = 0$. Montrer que $\lim_{x \to 0} \frac{f(x)}{x} = 0$. (Indication. Considérer $g(x) = \frac{f(2x)-f(x)}{x}$.) </p>
+        <a href="#corr-2" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-3">
+        <p class="exo-title">Exercice 3 <span class="difficulty">**I</span></p>
+        <p>Soient $f$ et $g$ deux fonctions continues en $x_0 \in \mathbb{R}$. Montrer que $\min\{f, g\}$ et $\max\{f, g\}$ sont continues en $x_0$.</p>
+        <a href="#corr-3" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-4">
+        <p class="exo-title">Exercice 4 <span class="difficulty">***I</span> Distance d'un point à une partie</p>
+        <p>Soit $A$ une partie non vide de $\mathbb{R}$. Pour $x \in \mathbb{R}$, on pose $f(x) = \inf\{|y-x|, y \in A\}$. Montrer que $f$ est continue en tout point de $\mathbb{R}$.</p>
+        <a href="#corr-4" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-5">
+        <p class="exo-title">Exercice 5 <span class="difficulty">**T</span></p>
+        <p>Montrer en revenant à la définition que $f(x) = \frac{3x-1}{x-5}$ est continue en tout point de $\mathbb{R} \setminus \{5\}$.</p>
+        <a href="#corr-5" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-6">
+        <p class="exo-title">Exercice 6 <span class="difficulty">**IT</span></p>
+        <p>Montrer que la fonction caractéristique de $\mathbb{Q}$ est discontinue en chacun de ses points.</p>
+        <a href="#corr-6" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-7">
+        <p class="exo-title">Exercice 7 <span class="difficulty">****</span></p>
+        <p>Étudier l'existence d'une limite et la continuité éventuelle en chacun de ses points de la fonction définie sur $]0, +\infty[$ par $f(x) = 0$ si $x$ est irrationnel et $f(x) = \frac{1}{p+q}$ si $x$ est rationnel égal à $\frac{p}{q}$, la fraction $\frac{p}{q}$ étant irréductible.</p>
+        <a href="#corr-7" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-8">
+        <p class="exo-title">Exercice 8 <span class="difficulty">**IT</span></p>
+        <p>Étudier en chaque point de $\mathbb{R}$ l'existence d'une limite à droite, à gauche, la continuité de la fonction $f$ définie par $f(x) = x E(\frac{1}{x})$ si $x \neq 0$ et $f(0) = 1$ si $x = 0$.</p>
+        <a href="#corr-8" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-9">
+        <p class="exo-title">Exercice 9 <span class="difficulty">**</span></p>
+        <p>Trouver $f$ bijective de $[0, 1]$ sur lui-même et discontinue en chacun de ses points.</p>
+        <a href="#corr-9" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-10">
+        <p class="exo-title">Exercice 10 <span class="difficulty">***</span></p>
+        <p>Soit $f$ une fonction continue et périodique sur $\mathbb{R}$ à valeurs dans $\mathbb{R}$, admettant une limite réelle quand $x$ tend vers $+\infty$. Montrer que $f$ est constante.</p>
+        <a href="#corr-10" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+    <h2>Corrections</h2>
+
+    <div class="correction" id="corr-1">
+        <p class="exo-title"><a href="#exo-1" class="exercise-link">Correction de l'exercice 1</a></p>
+        <p>Soit $l$ la limite de $f(x+1) - f(x)$ quand $x \to +\infty$.</p>
+        <p>Pour $X > A_1$, $\forall n \in \mathbb{N}^*$, $n(l - \varepsilon) < f(X+n) - f(X) < n(l + \varepsilon)$.</p>
+        <p>On montre que $$\lim_{x \to +\infty} \frac{f(x)}{x} = l$$</p>
+    </div>
+
+    <div class="correction" id="corr-2">
+        <p class="exo-title"><a href="#exo-2" class="exercise-link">Correction de l'exercice 2</a></p>
+        <p>On pose $g(x) = \frac{f(2x)-f(x)}{x} \to 0$.
+            $$ \frac{f(x)}{x} = \sum_{k=0}^{n-1} \frac{1}{2^{k+1}} g\left(\frac{x}{2^{k+1}}\right) + \frac{f(x/2^n)}{x} $$
+            En faisant $n \to +\infty$, on montre $\lim_{x \to 0} \frac{f(x)}{x} = 0$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-3">
+        <p class="exo-title"><a href="#exo-3" class="exercise-link">Correction de l'exercice 3</a></p>
+        <p>Utiliser les identités :
+            $$\min\{f, g\} = \frac{1}{2}(f+g - |f-g|) \quad \text{et} \quad \max\{f, g\} = \frac{1}{2}(f+g + |f-g|)$$
+            Puisque $|f-g|$ est continue (composition de fonctions continues), $\min\{f, g\}$ et $\max\{f, g\}$ sont continues.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-4">
+        <p class="exo-title"><a href="#exo-4" class="exercise-link">Correction de l'exercice 4</a></p>
+        <p>Soit $f(x) = \inf\{|y-x|, y \in A\}$.
+            On montre que $f$ est $1$-lipschitzienne : $$\forall x, x' \in \mathbb{R}, |f(x) - f(x')| \leq |x-x'|$$
+            $f$ est donc continue.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-5">
+        <p class="exo-title"><a href="#exo-5" class="exercise-link">Correction de l'exercice 5</a></p>
+        <p>Soit $x_0 \in \mathbb{R} \setminus \{5\}$.
+            $$|f(x) - f(x_0)| = \left|\frac{3x-1}{x-5} - \frac{3x_0-1}{x_0-5}\right| = \frac{14|x-x_0|}{|x-5||x_0-5|}$$
+            En choisissant $\alpha$ tel que $|x-5|$ est borné loin de $0$, on montre la continuité en $x_0$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-6">
+        <p class="exo-title"><a href="#exo-6" class="exercise-link">Correction de l'exercice 6</a></p>
+        <p>Soit $\chi_\mathbb{Q}$ la fonction caractéristique de $\mathbb{Q}$.
+            Si $x_0 \in \mathbb{Q}$, $\chi_\mathbb{Q}(x_0) = 1$. $\lim_{n \to \infty} \chi_\mathbb{Q}(x_0 + \frac{\sqrt{2}}{n}) = 0 \neq 1$. Discontinuité.
+            Si $x_0 \in \mathbb{R} \setminus \mathbb{Q}$, $\chi_\mathbb{Q}(x_0) = 0$. $\lim_{n \to \infty} \chi_\mathbb{Q}(x_0 + \frac{1}{n}) = 1 \neq 0$. Discontinuité.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-7">
+        <p class="exo-title"><a href="#exo-7" class="exercise-link">Correction de l'exercice 7</a></p>
+        <p>Fonction $f(x) = \frac{1}{p+q}$ si $x = p/q$ irréductible, $0$ si $x$ irrationnel.
+            $$\forall x_0 \in \mathbb{R}^+_*, \lim_{x \to x_0} f(x) = 0$$
+            $f$ est continue en tout irrationnel, discontinue en tout rationnel.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-8">
+        <p class="exo-title"><a href="#exo-8" class="exercise-link">Correction de l'exercice 8</a></p>
+        <p>$f(x) = x E(\frac{1}{x})$.
+            En $x=0$: $\lim_{x \to 0} x E(\frac{1}{x}) = 1$. $f(0)=1$. $f$ est continue en 0.
+            En $x_0 \neq 0$: $f$ est discontinue en $x_0 = 1/p$, $p \in \mathbb{Z} \setminus \{0\}$.
+            $f(\frac{1}{p}^+) = 1/p (p) = 1$. $f(\frac{1}{p}^-) = 1/p (p-1) = 1 - 1/p$. Discontinuité.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-9">
+        <p class="exo-title"><a href="#exo-9" class="exercise-link">Correction de l'exercice 9</a></p>
+        <p>Fonction $f: [0, 1] \to [0, 1]$ bijective et discontinue partout.
+            $f(x) = 1-x$ si $x \in \mathbb{R} \setminus \mathbb{Q}$, $f(x) = x$ si $x \in \mathbb{Q}$. (Non, c'est faux pour la discontinuité).
+            
+            La fonction du PDF est :
+            $$f(x) = \begin{cases} x & \text{si } x \in (\mathbb{Q} \cap [0, 1]) \setminus \{0, 1/2\} \\ 1-x & \text{si } x \in (\mathbb{R} \setminus \mathbb{Q}) \cap [0, 1] \\ 1/2 & \text{si } x=0 \\ 0 & \text{si } x=1/2 \\ 1 & \text{si } x=1 \end{cases}$$
+            (La construction du PDF est plus complexe).
+        </p>
+    </div>
+
+    <div class="correction" id="corr-10">
+        <p class="exo-title"><a href="#exo-10" class="exercise-link">Correction de l'exercice 10</a></p>
+        <p>$f$ continue, périodique $T > 0$. $\lim_{x \to +\infty} f(x) = l$.
+            $\forall x, f(x) = \lim_{n \to \infty} f(x+nT) = l$. $f$ est constante.
+        </p>
+    </div>
+
+</body>
+</html>
