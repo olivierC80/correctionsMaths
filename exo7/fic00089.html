@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espaces vectoriels de dimension finie (ou non) - Exercices</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <style>
+        /* Optimisation mobile */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            padding: 10px;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+        }
+        header {
+            padding: 10px 0;
+            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+        .header-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #e67e22; /* Exo7 color */
+        }
+        .exercise, .correction {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow-x: auto; /* Handle wide formulas */
+        }
+        .correction {
+            background-color: #fcfcfc;
+            border-left: 5px solid #3498db;
+        }
+        .exo-title {
+            font-weight: bold;
+            display: inline;
+        }
+        .difficulty {
+            font-size: 0.8em;
+            color: #e74c3c;
+            margin-left: 5px;
+        }
+        .correction-link, .exercise-link {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+            display: block;
+            margin-top: 10px;
+            padding: 5px 0;
+        }
+        .correction-link::before {
+            content: "▼ ";
+            font-size: 0.8em;
+        }
+        .page-break {
+            margin: 30px 0;
+            border-top: 1px dashed #ccc;
+        }
+        /* KaTeX specific styling for better mobile display */
+        .katex-display {
+            padding: 10px 0;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+
+    <header>
+        <span style="float: right;" class="header-title">Exo7</span>
+        <h1>Espaces vectoriels de dimension finie (ou non)</h1>
+        <p>Exercices de Jean-Louis Rouget. Retrouver aussi cette fiche sur <a href="http://www.maths-france.fr">www.maths-france.fr</a></p>
+        <p style="font-size: 0.9em; color: #777;">
+            * très facile ** facile *** difficulté moyenne **** difficile ***** très difficile<br>
+            I: Incontournable T: pour travailler et mémoriser le cours
+        </p>
+    </header>
+
+    <h2>Énoncés</h2>
+
+    <div class="exercise" id="exo-1">
+        <p class="exo-title">Exercice 1 <span class="difficulty">**IT</span></p>
+        <p>$E$ désigne l'espace vectoriel $\mathbb{R}^4$ (muni des opérations usuelles). On considère les vecteurs $e_1 = (1, 2, 3, 4)$, $e_2 = (1, 1, 1, 3)$, $e_3 = (2, 1, 1, 1)$, $e_4 = (-1, 0, -1, 2)$ et $e_5 = (2, 3, 0, 1)$. Soient alors $F = \operatorname{Vect}(e_1, e_2, e_3)$ et $G = \operatorname{Vect}(e_4, e_5)$. Quelles sont les dimensions de $F$, $G$, $F \cap G$ et $F + G$ ?</p>
+        <a href="#corr-1" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-2">
+        <p class="exo-title">Exercice 2 <span class="difficulty">**IT</span></p>
+        <p>Soit $\mathbb{K}$ un sous-corps de $\mathbb{C}$, $E$ un $\mathbb{K}$-espace vectoriel de dimension finie $n \geq 2$. Soient $H_1$ et $H_2$ deux hyperplans de $E$. Déterminer $\dim_{\mathbb{K}}(H_1 \cap H_2)$. Interprétez le résultat quand $n = 2$ ou $n = 3$.</p>
+        <a href="#corr-2" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-3">
+        <p class="exo-title">Exercice 3 <span class="difficulty">**</span></p>
+        <p>Soit $\mathbb{K}$ un sous-corps de $\mathbb{C}$ et $E$ un $\mathbb{K}$-espace vectoriel de dimension finie. Soient $f$ et $g$ deux endomorphismes de $E$ vérifiant $E = \operatorname{Ker} f + \operatorname{Ker} g = \operatorname{Im} f + \operatorname{Im} g$. Montrer que ces sommes sont directes.</p>
+        <a href="#corr-3" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-4">
+        <p class="exo-title">Exercice 4 <span class="difficulty">***I</span></p>
+        <p>Soit $E = \mathbb{R}_n[X]$, le $\mathbb{R}$-espace vectoriel des polynômes à coefficients réels de degré inférieur ou égal à $n$ ($n$ entier naturel donné). Soit $\varphi$ l'application définie par : $\forall P \in E, \varphi(P) = P(X + 1) – P(X)$.</p>
+        <ol>
+            <li>Vérifier que $\varphi$ est un endomorphisme de $E$.</li>
+            <li>Déterminer $\operatorname{Ker} \varphi$ et $\operatorname{Im} \varphi$.</li>
+        </ol>
+        <a href="#corr-4" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-5">
+        <p class="exo-title">Exercice 5 <span class="difficulty">**T</span></p>
+        <p>Soient $(e_i)_{1 \leq i \leq 4}$ la base canonique de $\mathbb{R}^4$ et $f$ l'endomorphisme de $\mathbb{R}^4$ défini par : $f(e_1) = 2e_1 + e_3$, $f(e_2) = -e_2+e_4$, $f(e_3) = e_1 + 2e_3$ et $f(e_4) = e_2 - e_4$. Déterminer $\operatorname{Ker} f$ et $\operatorname{Im} f$.</p>
+        <a href="#corr-5" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-6">
+        <p class="exo-title">Exercice 6 <span class="difficulty">**</span></p>
+        <p>Soit $f: \mathbb{C} \to \mathbb{C}$ où $a$ est un nombre complexe donné non nul. Montrer que $f$ est un endomorphisme du $\mathbb{R}$-espace vectoriel $\mathbb{C}$. $f$ est-il un endomorphisme du $\mathbb{C}$-espace vectoriel $\mathbb{C}$ ? Déterminer le noyau et l'image de $f$.</p>
+        <a href="#corr-6" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-7">
+        <p class="exo-title">Exercice 7 <span class="difficulty">**</span></p>
+        <p>Soit $f \in \mathcal{L}(\mathbb{R}^2)$. Pour $(x, y) \in \mathbb{R}^2$, on pose $f((x, y)) = (x', y')$.</p>
+        <ol>
+            <li>Rappeler l'écriture générale de $(x', y')$ en fonction de $(x, y)$.</li>
+            <li>Si on pose $z = x + iy$ et $z' = x' + iy'$ (où $i^2 = -1$), montrer que : $\exists (a, b) \in \mathbb{C}^2 / \forall z \in \mathbb{C}, z' = az + b\bar{z}$.</li>
+            <li>Réciproquement, montrer que l'expression ci-dessus définit un unique endomorphisme de $\mathbb{R}^2$ (en clair, l'expression complexe d'un endomorphisme de $\mathbb{R}^2$ est $z' = az + b\bar{z}$).</li>
+        </ol>
+        <a href="#corr-7" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-8">
+        <p class="exo-title">Exercice 8 <span class="difficulty">**I</span></p>
+        <p>Soient $\mathbb{K}$ un sous-corps de $\mathbb{C}$ et $E$ et $F$ deux $\mathbb{K}$-espaces vectoriels de dimensions finies sur $\mathbb{K}$ et $u$ et $v$ deux applications linéaires de $E$ dans $F$. Montrer que : $$|\operatorname{rg} u - \operatorname{rg} v| \leq \operatorname{rg}(u+v) \leq \operatorname{rg} u + \operatorname{rg} v$$</p>
+        <a href="#corr-8" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-9">
+        <p class="exo-title">Exercice 9 <span class="difficulty">****</span></p>
+        <p>Soient $\mathbb{K}$ un sous-corps de $\mathbb{C}$ et $E$ un $\mathbb{K}$-espace vectoriel de dimension finie $n$.</p>
+        <ol>
+            <li>Montrer que, pour tout endomorphisme $f$ de $\mathbb{R}^2$, on a : $$\left(\operatorname{Ker} f = \operatorname{Im} f\right) \Leftrightarrow \left(f^2 = 0 \text{ et } n = 2\operatorname{rg} f\right) \Leftrightarrow \left(f^2 = 0 \text{ et } \exists g \in \mathcal{L}(E)/ f \circ g + g \circ f = \operatorname{Id}_E\right)$$</li>
+            <li>On suppose $\operatorname{Ker} f = \operatorname{Im} f$. Montrer qu'il existe une base $(u_1, \dots, u_p, v_1, \dots, v_p)$ de $E$ telle que : $$\forall i \in \{1, \dots, p\}, f(u_i) = 0 \text{ et } f(v_i) = u_i$$</li>
+        </ol>
+        <a href="#corr-9" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-10">
+        <p class="exo-title">Exercice 10 <span class="difficulty">***I</span> Le théorème des noyaux itérés</p>
+        <p>Soient $\mathbb{K}$ un sous-corps de $\mathbb{C}$, $E$ un $\mathbb{K}$-espace vectoriel de dimension finie $n$ et $f$ un endomorphisme de $E$ non injectif. Pour $k$ entier naturel donné, on pose $N_k = \operatorname{Ker} f^k$ et $I_k = \operatorname{Im} f^k$ (avec la convention $f^0 = \operatorname{Id}_E$).</p>
+        <ol>
+            <li>Montrer que : $\forall k \in \mathbb{N}, (N_k \subset N_{k+1} \text{ et } I_{k+1} \subset I_k)$.</li>
+            <li>
+                <ol type="a">
+                    <li>Montrer que : $(\forall k \in \mathbb{N}, (N_k = N_{k+1} \Rightarrow N_{k+1} = N_{k+2})$.</li>
+                    <li>Montrer que : $\exists p \in \mathbb{N}/ \forall k \in \mathbb{N}, (k < p \Rightarrow N_k \neq N_{k+1} \text{ et } k \geq p \Rightarrow N_k = N_{k+1})$.</li>
+                    <li>Montrer que $p \leq n$.</li>
+                </ol>
+            </li>
+            <li>Montrer que si $k < p, I_k \neq I_{k+1}$ et si $k \geq p, I_k = I_{k+1}$.</li>
+            <li>Montrer que $E = I_p \oplus N_p$ et que $f$ induit un automorphisme de $I_p$.</li>
+            <li>Soit $d_k = \dim I_k$. Montrer que la suite $(d_k – d_{k+1})_{k \in \mathbb{N}}$ est décroissante (en d'autres termes la suite des images itérées $I_k$ décroît de moins en moins vite).</li>
+        </ol>
+        <a href="#corr-10" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-11">
+        <p class="exo-title">Exercice 11 <span class="difficulty">***I</span></p>
+        <p>Soient $\mathbb{K}$ un sous-corps de $\mathbb{C}$ et $E$ un $\mathbb{K}$-espace vectoriel de dimension finie notée $n$. Soit $u$ un endomorphisme de $E$. On dit que $u$ est nilpotent si et seulement si $\exists k \in \mathbb{N}^* / u^k = 0$ et on appelle alors indice de nilpotence de $u$ le plus petit de ces entiers $k$ (par exemple, le seul endomorphisme $u$, nilpotent d'indice $1$ est $0$).</p>
+        <ol>
+            <li>Soit $u$ un endomorphisme nilpotent d'indice $p$. Montrer qu'il existe un vecteur $x$ de $E$ tel que la famille $(x, u(x), \dots, u^{p-1}(x))$ soit libre.</li>
+            <li>Soit $u$ un endomorphisme nilpotent. Montrer que $u^n = 0$.</li>
+            <li>On suppose dans cette question que $u$ est nilpotent d'indice $n$. Déterminer $\operatorname{rg} u$.</li>
+        </ol>
+        <a href="#corr-11" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-12">
+        <p class="exo-title">Exercice 12 <span class="difficulty">***I</span></p>
+        <p>Soient $\mathbb{K}$ un sous-corps de $\mathbb{C}$, $E$ un $\mathbb{K}$-espace vectoriel de dimension quelconque sur $\mathbb{K}$ et $f$ un endomorphisme de $E$ vérifiant $f^2 – 5f + 6\operatorname{Id}_E = 0$. Montrer que $E = \operatorname{Ker}(f – 2\operatorname{Id}) \oplus \operatorname{Ker}(f – 3\operatorname{Id})$.</p>
+        <a href="#corr-12" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+    <h2>Corrections</h2>
+
+    <div class="correction" id="corr-1">
+        <p class="exo-title"><a href="#exo-1" class="exercise-link">Correction de l'exercice 1</a></p>
+        <p>Dimension de $G$: $e_4$ et $e_5$ ne sont pas colinéaires. Donc $\dim G = 2$.</p>
+        <p>Dimension de $F$: Vérifions la liberté de $(e_1, e_2, e_3)$.
+            $$\lambda e_1 + \mu e_2 + \nu e_3 = 0 \Leftrightarrow \begin{cases} \lambda + \mu + 2\nu = 0 \\ 2\lambda + \mu + \nu = 0 \\ 3\lambda + \mu + \nu = 0 \\ 4\lambda + 3\mu + \nu = 0 \end{cases} \Leftrightarrow \lambda = \mu = \nu = 0$$
+            $(e_1, e_2, e_3)$ est libre. $\dim F = 3$.
+        </p>
+        <p>Dimension de $F+G$: $\dim(F+G) = \dim F + \dim G - \dim(F \cap G) = 5 - \dim(F \cap G)$. Comme $\dim(F+G) \leq 4$, $\dim(F \cap G) \geq 1$.
+            Vérifions si $F+G = \mathbb{R}^4$. Cherchons si $e_4 \in F$.
+            $e_4 = \lambda e_1 + \mu e_2 + \nu e_3$ mène au système (avec les coefficients de $e_4 = (-1, 0, -1, 2)$):
+            $$\begin{cases} \lambda + \mu + 2\nu = -1 \\ 2\lambda + \mu + \nu = 0 \\ 3\lambda + \mu + \nu = -1 \\ 4\lambda + 3\mu + \nu = 2 \end{cases}$$
+            (L3 - L2) $\Rightarrow \lambda = -1$. (L1 - L2) $\Rightarrow \nu - \lambda = -1 \Rightarrow \nu = -2$. L2 $\Rightarrow \mu = -2\lambda - \nu = 2 + 2 = 4$.
+            Vérifions L4: $4(-1) + 3(4) + (-2) = -4 + 12 - 2 = 6 \neq 2$.
+            Le système n'a pas de solution. $e_4 \notin F$. Donc $F \subsetneq F+G$. $\dim(F+G) = 4$.
+        </p>
+        <p>Dimension de $F \cap G$: $\dim(F \cap G) = 3 + 2 - 4 = 1$.</p>
+        $$\dim(F) = 3, \dim(G) = 2, \dim(F + G) = 4 \text{ et } \dim(F \cap G) = 1$$
+    </div>
+
+    <div class="correction" id="corr-2">
+        <p class="exo-title"><a href="#exo-2" class="exercise-link">Correction de l'exercice 2</a></p>
+        <p>$H_1$ et $H_2$ sont des hyperplans, donc $\dim H_1 = \dim H_2 = n-1$.</p>
+        <p>On utilise la formule de Grassmann pour $\dim(H_1 \cap H_2)$:
+            $$\dim(H_1 \cap H_2) = \dim H_1 + \dim H_2 - \dim(H_1 + H_2)$$
+            Puisque $H_1 \subset H_1 + H_2$, $\dim(H_1 + H_2) \in \{n-1, n\}$.
+            $$\dim(H_1 \cap H_2) = (n-1) + (n-1) - \dim(H_1 + H_2)$$
+            Si $H_1 + H_2 = E$ (i.e., $\dim=n$), $\dim(H_1 \cap H_2) = 2n-2 - n = n-2$. (Cas $H_1 \neq H_2$).
+            Si $H_1 = H_2$ (i.e., $\dim=n-1$), $\dim(H_1 \cap H_2) = n-1$.
+        </p>
+        <p>En résumé:
+            $$\dim(H_1 \cap H_2) = \begin{cases} n-1 & \text{si } H_1 = H_2 \\ n-2 & \text{si } H_1 \neq H_2 \end{cases}$$
+        </p>
+        <p>Interprétation:
+            Si $n=2$ (le plan), les hyperplans sont des droites (dimension 1). L'intersection de deux droites distinctes est $\{0\}$ (dimension 0). $n-2 = 0$.
+            Si $n=3$ (l'espace), les hyperplans sont des plans (dimension 2). L'intersection de deux plans distincts est une droite (dimension 1). $n-2 = 1$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-3">
+        <p class="exo-title"><a href="#exo-3" class="exercise-link">Correction de l'exercice 3</a></p>
+        <p>On a $E = \operatorname{Ker} f + \operatorname{Ker} g$ et $\dim E = n$.
+            Par la formule de Grassmann :
+            $$n = \dim(\operatorname{Ker} f) + \dim(\operatorname{Ker} g) - \dim(\operatorname{Ker} f \cap \operatorname{Ker} g)$$
+        </p>
+        <p>Par le théorème du rang : $\dim E = \dim(\operatorname{Ker} f) + \operatorname{rg} f$, d'où $\dim(\operatorname{Ker} f) = n - \operatorname{rg} f$.
+            En substituant :
+            $$n = (n - \operatorname{rg} f) + (n - \operatorname{rg} g) - \dim(\operatorname{Ker} f \cap \operatorname{Ker} g)$$
+            $$\dim(\operatorname{Ker} f \cap \operatorname{Ker} g) = n - \operatorname{rg} f - \operatorname{rg} g$$
+        </p>
+        <p>De même, pour $\operatorname{Im} f + \operatorname{Im} g$:
+            $$n = \operatorname{rg} f + \operatorname{rg} g - \dim(\operatorname{Im} f \cap \operatorname{Im} g)$$
+            $$\dim(\operatorname{Im} f \cap \operatorname{Im} g) = \operatorname{rg} f + \operatorname{rg} g - n$$
+        </p>
+        <p>En additionnant les deux expressions trouvées pour les dimensions des intersections :
+            $$\dim(\operatorname{Ker} f \cap \operatorname{Ker} g) + \dim(\operatorname{Im} f \cap \operatorname{Im} g) = (n - \operatorname{rg} f - \operatorname{rg} g) + (\operatorname{rg} f + \operatorname{rg} g - n) = 0$$
+        </p>
+        <p>Puisque les dimensions sont nulles, les intersections sont réduites au vecteur nul :
+            $$\operatorname{Ker} f \cap \operatorname{Ker} g = \{0\} \quad \text{et} \quad \operatorname{Im} f \cap \operatorname{Im} g = \{0\}$$
+            Ceci prouve que les sommes sont directes:
+            $$E = \operatorname{Ker} f \oplus \operatorname{Ker} g \quad \text{et} \quad E = \operatorname{Im} f \oplus \operatorname{Im} g$$
+        </p>
+    </div>
+
+    <div class="correction" id="corr-4">
+        <p class="exo-title"><a href="#exo-4" class="exercise-link">Correction de l'exercice 4</a></p>
+        <ol>
+            <li>$\varphi$ est bien une application de $E = \mathbb{R}_n[X]$ dans lui-même, car $\deg(P(X+1)-P(X)) \leq n-1$.</li>
+            <li>Détermination de $\operatorname{Ker} \varphi$:
+                $$P \in \operatorname{Ker} \varphi \Leftrightarrow P(X+1) = P(X)$$
+                Ceci implique que $P$ est constant. $\operatorname{Ker} \varphi = \mathbb{R}_0[X]$. $\dim(\operatorname{Ker} \varphi) = 1$.
+            </li>
+            <li>Détermination de $\operatorname{Im} \varphi$:
+                Par le théorème du rang, $\dim(\operatorname{Im} \varphi) = \dim E - \dim(\operatorname{Ker} \varphi) = (n+1) - 1 = n$.
+                Puisque $\varphi(P)$ est toujours de degré inférieur ou égal à $n-1$, $\operatorname{Im} \varphi \subset \mathbb{R}_{n-1}[X]$.
+                Comme $\dim(\mathbb{R}_{n-1}[X]) = n$, on a $\operatorname{Im} \varphi = \mathbb{R}_{n-1}[X]$.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-5">
+        <p class="exo-title"><a href="#exo-5" class="exercise-link">Correction de l'exercice 5</a></p>
+        <p>Soit $u = (x, y, z, t) \in \mathbb{R}^4$. $u = xe_1 + ye_2 + ze_3 + te_4$.
+            $$f(u) = x f(e_1) + y f(e_2) + z f(e_3) + t f(e_4)$$
+            $$f(u) = x(2e_1 + e_3) + y(-e_2 + e_4) + z(e_1 + 2e_3) + t(e_2 - e_4)$$
+            $$f(u) = (2x+z)e_1 + (-y+t)e_2 + (x+2z)e_3 + (y-t)e_4$$
+        </p>
+        <p>Détermination de $\operatorname{Ker} f$:
+            $$u \in \operatorname{Ker} f \Leftrightarrow f(u) = 0 \Leftrightarrow \begin{cases} 2x+z = 0 \\ -y+t = 0 \\ x+2z = 0 \\ y-t = 0 \end{cases} \Leftrightarrow \begin{cases} z = -2x \\ x+2(-2x) = 0 \\ y=t \\ 0 = 0 \end{cases} \Leftrightarrow \begin{cases} x=0 \\ z=0 \\ y=t \end{cases}$$
+            $$\operatorname{Ker} f = \{(0, y, 0, y), y \in \mathbb{R}\} = \operatorname{Vect}((0, 1, 0, 1))$$
+            $\dim(\operatorname{Ker} f) = 1$.
+        </p>
+        <p>Détermination de $\operatorname{Im} f$: $\dim(\operatorname{Im} f) = 4 - 1 = 3$.
+            $\operatorname{Im} f$ est engendré par les colonnes de la matrice de $f$.
+            $$f(u) = (x', y', z', t')$$
+            $$\begin{cases} x' = 2x+z \\ y' = -y+t \\ z' = x+2z \\ t' = y-t \end{cases}$$
+            On remarque $y' + t' = 0$. $\operatorname{Im} f \subset \{(x', y', z', t') \in \mathbb{R}^4 / y' + t' = 0\}$.
+            Puisque ce sous-espace a dimension $4-1=3$, et $\dim(\operatorname{Im} f)=3$, on a :
+            $$\operatorname{Im} f = \{(x', y', z', t') \in \mathbb{R}^4 / y' + t' = 0\}$$
+            Une base de $\operatorname{Im} f$ est $(e_1, e_3, e_2 - e_4)$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-6">
+        <p class="exo-title"><a href="#exo-6" class="exercise-link">Correction de l'exercice 6</a></p>
+        <p>Soit $f: \mathbb{C} \to \mathbb{C}, z \mapsto z + a\bar{z}$. $\mathbb{C}$ est un $\mathbb{R}$-espace vectoriel de dimension 2.</p>
+        <p>1. $f$ est $\mathbb{R}$-linéaire :
+            $$f(\lambda z + \mu z') = (\lambda z + \mu z') + a \overline{(\lambda z + \mu z')} = \lambda z + \mu z' + a \lambda \bar{z} + a \mu \bar{z}'$$
+            $$= \lambda (z + a\bar{z}) + \mu (z' + a\bar{z}') = \lambda f(z) + \mu f(z')$$
+            $f$ est un endomorphisme du $\mathbb{R}$-espace vectoriel $\mathbb{C}$.
+        </p>
+        <p>2. $f$ est-il $\mathbb{C}$-linéaire ?
+            Si $f$ était $\mathbb{C}$-linéaire, $f(iz) = i f(z)$.
+            $f(iz) = iz + a \overline{iz} = iz - ia \bar{z}$.
+            $i f(z) = i(z + a\bar{z}) = iz + ia \bar{z}$.
+            $f(iz) = i f(z) \Leftrightarrow -ia \bar{z} = ia \bar{z} \Leftrightarrow 2ia \bar{z} = 0$.
+            Puisque $a \neq 0$, cela implique $z=0$. $f$ n'est pas $\mathbb{C}$-linéaire.
+        </p>
+        <p>3. Noyau et Image (dans $\mathbb{C}$ vu comme $\mathbb{R}$-espace):
+            $$z \in \operatorname{Ker} f \Leftrightarrow z + a\bar{z} = 0 \Leftrightarrow z = -a\bar{z}$$
+            En utilisant l'écriture polaire $z = re^{i\theta}$, $a = \rho e^{i\alpha}$:
+            $$re^{i\theta} = -\rho e^{i\alpha} r e^{-i\theta} \Leftrightarrow e^{i2\theta} = -a/\rho e^{i\alpha} = e^{i(\pi - \alpha)} e^{-i\alpha}$$
+            $$e^{i2\theta} = e^{i(\pi - 2\alpha)}$$
+            $$2\theta = \pi - 2\alpha + 2k\pi \Leftrightarrow \theta = \frac{\pi}{2} - \alpha + k\pi, k \in \mathbb{Z}$$
+            $\operatorname{Ker} f$ est une droite vectorielle si $|a| = 1$. $\dim(\operatorname{Ker} f) = 1$.
+            Si $|a| \neq 1$, $\operatorname{Ker} f = \{0\}$ car $z = -a\bar{z} \Rightarrow |z| = |a| |\bar{z}| = |a| |z|$. Si $|a| \neq 1$, alors $|z|=0$. $\dim(\operatorname{Ker} f) = 0$.
+        </p>
+        <p>Image: $\dim(\operatorname{Im} f) = 2 - \dim(\operatorname{Ker} f)$.
+            Si $|a| \neq 1$, $\dim(\operatorname{Im} f) = 2$. $\operatorname{Im} f = \mathbb{C}$.
+            Si $|a| = 1$, $\dim(\operatorname{Im} f) = 1$. $\operatorname{Im} f = \operatorname{Vect}(f(1)) = \operatorname{Vect}(1+a)$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-7">
+        <p class="exo-title"><a href="#exo-7" class="exercise-link">Correction de l'exercice 7</a></p>
+        <ol>
+            <li>L'écriture générale d'un endomorphisme $f: \mathbb{R}^2 \to \mathbb{R}^2$ est donnée par une matrice $M$:
+                $$M = \begin{pmatrix} \alpha & \gamma \\ \beta & \delta \end{pmatrix}$$
+                $$\begin{cases} x' = \alpha x + \gamma y \\ y' = \beta x + \delta y \end{cases}$$
+            </li>
+            <li>En notations complexes, $z' = x' + iy'$ et $z = x + iy$.
+                $$z' = (\alpha x + \gamma y) + i(\beta x + \delta y)$$
+                On cherche $a, b \in \mathbb{C}$ tels que $z' = az + b\bar{z}$.
+                $$az + b\bar{z} = a(x+iy) + b(x-iy) = (a+b)x + i(a-b)y$$
+                Par identification avec l'expression de $z'$:
+                $$\begin{cases} a+b = \alpha + i\beta \\ a-b = \delta - i\gamma \end{cases}$$
+                Le système a une solution unique pour $a$ et $b$ :
+                $$a = \frac{1}{2}(\alpha + \delta + i(\beta - \gamma)) \quad \text{et} \quad b = \frac{1}{2}(\alpha - \delta + i(\beta + \gamma))$$
+            </li>
+            <li>L'expression $z' = az + b\bar{z}$ définit un endomorphisme de $\mathbb{R}^2$.
+                La $\mathbb{R}$-linéarité a été démontrée à l'Exercice 6, car l'application est de la forme $f(z) = z' = az + b\bar{z}$.
+                De plus, l'existence et l'unicité de la matrice $M$ montre que cette expression correspond à un unique endomorphisme de $\mathbb{R}^2$.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-8">
+        <p class="exo-title"><a href="#exo-8" class="exercise-link">Correction de l'exercice 8</a></p>
+        <p>Inégalité de gauche : $| \operatorname{rg} u - \operatorname{rg} v | \leq \operatorname{rg}(u+v)$.
+            $\operatorname{Im}(u+v) = \{u(x) + v(x), x \in E\} \subset \operatorname{Im} u + \operatorname{Im} v$.
+            $\operatorname{rg}(u+v) = \dim(\operatorname{Im}(u+v))$.
+            $\operatorname{Im} u = \operatorname{Im}(u+v - v) \subset \operatorname{Im}(u+v) + \operatorname{Im}(-v) = \operatorname{Im}(u+v) + \operatorname{Im} v$.
+            $$\operatorname{rg} u \leq \operatorname{rg}(u+v) + \operatorname{rg} v \implies \operatorname{rg} u - \operatorname{rg} v \leq \operatorname{rg}(u+v)$$
+            Par symétrie en échangeant $u$ et $v$: $\operatorname{rg} v - \operatorname{rg} u \leq \operatorname{rg}(u+v)$.
+            Donc $|\operatorname{rg} u - \operatorname{rg} v| \leq \operatorname{rg}(u+v)$.
+        </p>
+        <p>Inégalité de droite : $\operatorname{rg}(u+v) \leq \operatorname{rg} u + \operatorname{rg} v$.
+            $\operatorname{Im}(u+v) \subset \operatorname{Im} u + \operatorname{Im} v$.
+            $$\dim(\operatorname{Im}(u+v)) \leq \dim(\operatorname{Im} u + \operatorname{Im} v) \leq \dim(\operatorname{Im} u) + \dim(\operatorname{Im} v)$$
+            $$\operatorname{rg}(u+v) \leq \operatorname{rg} u + \operatorname{rg} v$$
+        </p>
+    </div>
+
+    <div class="correction" id="corr-9">
+        <p class="exo-title"><a href="#exo-9" class="exercise-link">Correction de l'exercice 9</a></p>
+        <ol>
+            <li>
+                $(\operatorname{Ker} f = \operatorname{Im} f) \Leftrightarrow (f^2 = 0 \text{ et } n = 2\operatorname{rg} f)$. Vrai (par Théorème du rang, $n = \dim(\operatorname{Ker} f) + \operatorname{rg} f = 2 \operatorname{rg} f$).
+                
+                $(\operatorname{Ker} f = \operatorname{Im} f) \Leftrightarrow (f^2 = 0 \text{ et } \exists g \in \mathcal{L}(E)/ f \circ g + g \circ f = \operatorname{Id}_E)$. Vrai (voir le PDF pour la construction de $g$).
+            </li>
+            <li>Supposons $\operatorname{Ker} f = \operatorname{Im} f$. Soit $p = \operatorname{rg} f = n/2$.
+                Soit $(u_1, \dots, u_p)$ une base de $\operatorname{Im} f = \operatorname{Ker} f$.
+                Puisque $u_i \in \operatorname{Im} f$, il existe $v_i$ tel que $u_i = f(v_i)$. $v_i \notin \operatorname{Ker} f$.
+                $f(u_i) = f^2(v_i) = 0$ (car $u_i \in \operatorname{Ker} f$).
+                La famille $(u_1, \dots, u_p, v_1, \dots, v_p)$ est une base de $E$.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-10">
+        <p class="exo-title"><a href="#exo-10" class="exercise-link">Correction de l'exercice 10</a></p>
+        <ol>
+            <li>
+                $N_k = \operatorname{Ker} f^k$. $x \in N_k \Rightarrow f^k(x) = 0 \Rightarrow f(f^k(x)) = 0 \Rightarrow x \in N_{k+1}$. $N_k \subset N_{k+1}$.
+                $I_k = \operatorname{Im} f^k$. $x \in I_{k+1} \Rightarrow x = f^{k+1}(y) = f^k(f(y)) \in I_k$. $I_{k+1} \subset I_k$.
+            </li>
+            <li>
+                (a) Si $N_k = N_{k+1}$, alors $N_{k+1} = N_{k+2}$. (Voir le PDF).
+                (b) Il existe $p \in \mathbb{N}$ tel que $N_p = N_{p+1}$. (Par dimension finie).
+                (c) $p \leq n$. (Par l'augmentation stricte des dimensions).
+            </li>
+            <li>Si $k < p, I_k \neq I_{k+1}$. Si $k \geq p, I_k = I_{k+1}$. (Vrai par le théorème du rang $\dim I_k = n - \dim N_k$).</li>
+            <li>$E = I_p \oplus N_p$. (Démontré par $I_p \cap N_p = \{0\}$ et théorème du rang). $f$ induit un automorphisme de $I_p$. (Voir le PDF).</li>
+            <li>La suite $(d_k – d_{k+1})_{k \in \mathbb{N}}$ est décroissante. (Voir le PDF).</li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-11">
+        <p class="exo-title"><a href="#exo-11" class="exercise-link">Correction de l'exercice 11</a></p>
+        <ol>
+            <li>Soit $p$ l'indice de nilpotence de $u$. $u^{p-1} \neq 0$. Il existe $x \in E$ tel que $u^{p-1}(x) \neq 0$.
+                Montrons que $(x, u(x), \dots, u^{p-1}(x))$ est libre.
+                $$\sum_{k=0}^{p-1} \lambda_k u^k(x) = 0$$
+                En appliquant $u^{p-1}$, on trouve $\lambda_0 u^{p-1}(x) = 0 \Rightarrow \lambda_0 = 0$.
+                En appliquant $u^{p-2}$, on trouve $\lambda_1 u^{p-1}(x) = 0 \Rightarrow \lambda_1 = 0$.
+                Continuer jusqu'à $\lambda_{p-1}=0$. La famille est libre.
+            </li>
+            <li>La famille $(x, u(x), \dots, u^{p-1}(x))$ est libre et a $p$ éléments. Donc $p \leq n$.
+                Puisque $u^p = 0$, $u^n = u^{n-p} \circ u^p = 0$.
+            </li>
+            <li>Si $u$ est nilpotent d'indice $n$, alors $\dim(\operatorname{Vect}(x, \dots, u^{n-1}(x))) = n$. Donc $\operatorname{rg} u \leq n-1$.
+                En utilisant $N_k = \operatorname{Ker} u^k$ : $\dim N_k = k$.
+                $\operatorname{rg} u = n - \dim(\operatorname{Ker} u) = n - \dim N_1 = n - 1$.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-12">
+        <p class="exo-title"><a href="#exo-12" class="exercise-link">Correction de l'exercice 12</a></p>
+        <p>Soit $P(X) = X^2 - 5X + 6 = (X-2)(X-3)$. $P(f) = 0$.
+            On vérifie $\operatorname{Ker}(f-2\operatorname{Id}) \cap \operatorname{Ker}(f-3\operatorname{Id}) = \{0\}$.
+            Soit $x \in \operatorname{Ker}(f-2\operatorname{Id}) \cap \operatorname{Ker}(f-3\operatorname{Id})$. $f(x)=2x$ et $f(x)=3x$. $2x=3x \Rightarrow x=0$.
+        </p>
+        <p>Montrons $E = \operatorname{Ker}(f-2\operatorname{Id}) + \operatorname{Ker}(f-3\operatorname{Id})$.
+            Soit $x \in E$. On cherche $y \in \operatorname{Ker}(f-2\operatorname{Id})$ et $z \in \operatorname{Ker}(f-3\operatorname{Id})$ tels que $x=y+z$.
+            $f(y)=2y$ et $f(z)=3z$.
+            $f(x) = 2y+3z$.
+            En résolvant le système $\begin{cases} y+z=x \\ 2y+3z=f(x) \end{cases}$: $y = 3x-f(x)$ et $z = f(x)-2x$.
+            On vérifie que $y \in \operatorname{Ker}(f-2\operatorname{Id})$ et $z \in \operatorname{Ker}(f-3\operatorname{Id})$.
+            $f(y) = 3f(x) - f^2(x)$. Puisque $f^2(x) = 5f(x) - 6x$:
+            $$f(y) = 3f(x) - (5f(x)-6x) = 6x - 2f(x) = 2(3x-f(x)) = 2y$$
+            Donc $y \in \operatorname{Ker}(f-2\operatorname{Id})$. De même pour $z$.
+        </p>
+        <p>$$E = \operatorname{Ker}(f – 2\operatorname{Id}) \oplus \operatorname{Ker}(f – 3\operatorname{Id})$$</p>
+    </div>
+
+</body>
+</html>
