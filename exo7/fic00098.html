@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fractions rationnelles, polynômes, équations algébriques - Exercices</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <style>
+        /* Optimisation mobile */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            padding: 10px;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+        }
+        header {
+            padding: 10px 0;
+            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+        .header-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #e67e22; /* Exo7 color */
+        }
+        .exercise, .correction {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow-x: auto; /* Handle wide formulas */
+        }
+        .correction {
+            background-color: #fcfcfc;
+            border-left: 5px solid #3498db;
+        }
+        .exo-title {
+            font-weight: bold;
+            display: inline;
+        }
+        .difficulty {
+            font-size: 0.8em;
+            color: #e74c3c;
+            margin-left: 5px;
+        }
+        .correction-link, .exercise-link {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+            display: block;
+            margin-top: 10px;
+            padding: 5px 0;
+        }
+        .correction-link::before {
+            content: "▼ ";
+            font-size: 0.8em;
+        }
+        .page-break {
+            margin: 30px 0;
+            border-top: 1px dashed #ccc;
+        }
+        /* KaTeX specific styling for better mobile display */
+        .katex-display {
+            padding: 10px 0;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});</script>
+
+    <header>
+        <span style="float: right;" class="header-title">Exo7</span>
+        <h1>Fractions rationnelles, polynômes, équations algébriques</h1>
+        <p>Exercices de Jean-Louis Rouget. Retrouver aussi cette fiche sur <a href="http://www.maths-france.fr">www.maths-france.fr</a></p>
+        <p style="font-size: 0.9em; color: #777;">
+            * très facile ** facile *** difficulté moyenne **** difficile ***** très difficile<br>
+            I: Incontournable T: pour travailler et mémoriser le cours
+        </p>
+    </header>
+
+    <h2>Énoncés</h2>
+
+    <div class="exercise" id="exo-1">
+        <p class="exo-title">Exercice 1</p>
+        <p>Décomposer en éléments simples dans $\mathbb{C}(X)$ les fractions rationnelles suivantes</p>
+        <ol>
+            <li>$$\frac{X^2+3X+5}{X^2-3X+2}$$</li>
+            <li>$$\frac{X^2+1}{(X-1)(X-2)(X-3)}$$</li>
+            <li>$$\frac{1}{X(X-1)^2}$$</li>
+            <li>$$\frac{X^2+1}{(X-1)^2(X+1)^2}$$</li>
+            <li>$$\frac{X^2+1}{(X-2)^2(X+2)^3}$$</li>
+            <li>$$\frac{1}{(X^3-1)^2}$$</li>
+            <li>$$\frac{X+1}{X^6+1}$$</li>
+            <li>$$\frac{X^5-3X^4+5X^3-7X^2+6X-2}{X(X-1)(X-2)^2}$$</li>
+            <li>$$\frac{X^5-3X^4+5X^3-7X^2+6X-2}{X(X-1)(X-2)^2}$$ (erreur d'énoncé, reprend le 8)</li>
+            <li>$$\frac{X^2+1}{X^5-X^4+X^3-X^2+X-1}$$</li>
+            <li>$$\frac{X^2+1}{(X^2+X+1)^3}$$</li>
+            <li>$$\frac{X^2+1}{X(X-1)(X-2)^2}$$</li>
+            <li>$$\frac{X^2+1}{(X+1)^7-X^7-1}$$</li>
+        </ol>
+        <a href="#corr-1" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-2">
+        <p class="exo-title">Exercice 2</p>
+        <p>Décomposer en éléments simples dans $\mathbb{C}(X)$ les fractions rationnelles suivantes</p>
+        <ol>
+            <li>$$\frac{1}{X^n-1}$$</li>
+            <li>$$\frac{1}{(X-1)^2(X-i)}$$</li>
+            <li>$$\frac{n!}{X(X-1)(X-2)\dots(X-n)}$$</li>
+            <li>$$\frac{1}{X^4-2X^2\cos(2\alpha)+1}$$</li>
+            <li>$$\frac{X^2+1}{X^{2n}+1}$$</li>
+        </ol>
+        <a href="#corr-2" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-3">
+        <p class="exo-title">Exercice 3</p>
+        <p>Soit $U_n$ l'ensemble des racines $n$-ièmes de l'unité dans $\mathbb{C}$. Écrire sous forme d'une fraction rationnelle (ou encore réduire au même dénominateur) $$F = \sum_{\omega \in U_n} \frac{\omega X + 1}{\omega X^2 + X + 1}$$</p>
+        <a href="#corr-3" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-4">
+        <p class="exo-title">Exercice 4</p>
+        <p>Soit $F = \frac{P}{Q}$ où $P$ et $Q$ sont des polynômes tous deux non nuls et premiers entre eux. Montrer que $F$ est paire si et seulement si $P$ et $Q$ sont pairs. Établir un résultat analogue pour $F$ impaire.</p>
+        <a href="#corr-4" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-5">
+        <p class="exo-title">Exercice 5</p>
+        <p>Montrer que $(\frac{X+\alpha}{X-\alpha})_{\alpha \in \mathbb{C}}$ est libre dans $\mathbb{K}(X)$.</p>
+        <a href="#corr-5" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-6">
+        <p class="exo-title">Exercice 6</p>
+        <p>Calculer la dérivée $n$-ième de $\frac{1}{X^2+1}$.</p>
+        <a href="#corr-6" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-7">
+        <p class="exo-title">Exercice 7</p>
+        <p>On pose $P = a(X - x_1)\dots(X - x_n)$ où les $x_i$ sont des complexes non nécessairement deux à deux distincts et $a$ est un complexe non nul.</p>
+        <p>Calculer $\frac{P'}{P}$. De manière générale, déterminer la décomposition en éléments simples de $\frac{P'}{P}$ quand $P$ est un polynôme scindé. Une application : déterminer tous les polynômes divisibles par leur dérivée.</p>
+        <a href="#corr-7" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-8">
+        <p class="exo-title">Exercice 8</p>
+        <p>Décomposer en produit de facteurs irréductibles dans $\mathbb{R}[X]$ le polynôme $X^6 – 2X^3 \cos a + 1$ où $a$ est un réel donné dans $[0, \pi]$.</p>
+        <a href="#corr-8" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-9">
+        <p class="exo-title">Exercice 9</p>
+        <p>Soit $F = \frac{P}{Q}$ où $n$ est un entier naturel non nul, les $a_i$ sont des entiers relatifs et $a_0$ et $a_n$ sont non nuls. Soient $p$ un entier relatif non nul et $q$ un entier naturel non nul tels que $p \wedge q = 1$.</p>
+        <p>Montrer que, si $r = \frac{p}{q}$ est une racine (rationnelle) de $P$ alors $p$ divise $a_0$ et $q$ divise $a_n$.</p>
+        <p>Application. Résoudre dans $\mathbb{C}$ l'équation $9z^4 – 3z^3 + 16z^2 – 6z – 4 = 0$.</p>
+        <a href="#corr-9" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-10">
+        <p class="exo-title">Exercice 10 Equations réciproques</p>
+        <p>Résoudre dans $\mathbb{C}$ les équations suivantes :</p>
+        <ol>
+            <li>$z^4 + 2z^3 + 3z^2 + 2z + 1 = 0$ en posant $Z = z + \frac{1}{z}$ (ou autrement).</li>
+            <li>$z^6 – 5z^5 + 5z^4 – 5z^2 + 5z – 1 = 0$.</li>
+            <li>$z^7 – z^6 – 7z^5 + 7z^4 + 7z^3 – 7z^2 – z + 1 = 0$.</li>
+        </ol>
+        <a href="#corr-10" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-11">
+        <p class="exo-title">Exercice 11</p>
+        <p>Former une équation du sixième degré dont les racines sont les $\sin \frac{k\pi}{7}$ où $k \in \{-3, -2, -1, 1, 2, 3\}$ puis montrer que ces six nombres sont irrationnels.</p>
+        <a href="#corr-11" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-12">
+        <p class="exo-title">Exercice 12</p>
+        <p>Soit $P$ un polynôme à coefficients complexes de degré $4$.</p>
+        <p>Montrer que les images dans le plan complexe des racines de $P$ forment un parallélogramme si et seulement si $P'$ et $P^{(3)}$ ont une racine commune</p>
+        <a href="#corr-12" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-13">
+        <p class="exo-title">Exercice 13</p>
+        <p>Résoudre dans $\mathbb{C}^3$ le système
+            $$\begin{cases} y^2+yz+z^2 = 7 \\ z^2+zx+x^2 = 13 \\ x^2+xy+y^2 = 3 \end{cases}$$
+        </p>
+        <a href="#corr-13" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-14">
+        <p class="exo-title">Exercice 14</p>
+        <p>Soit $n$ un entier naturel supérieur ou égal à $2$. Pour $k \in \mathbb{Z}$, on pose $\omega_k = e^{2ik\pi/n}$.</p>
+        <ol>
+            <li>Calculer $\prod_{k=0}^{n-1} (1 + \omega_k)$.</li>
+            <li>Montrer que, pour tout réel $a$, $\prod_{k=0}^{n-1} (X^2 - 2\omega_k \cos a + 1) = 2(1 - \cos(na))$ (questions indépendantes.)</li>
+        </ol>
+        <a href="#corr-14" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-15">
+        <p class="exo-title">Exercice 15</p>
+        <p>Déterminer $\lambda$ et $\mu$ complexes tels que les zéros de $z^4 - 4z^3 – 36z^2 + \lambda z + \mu$ soient en progression arithmétique. Résoudre alors l'équation.</p>
+        <a href="#corr-15" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-16">
+        <p class="exo-title">Exercice 16</p>
+        <p>Soient $x_1, x_2, x_3$ les zéros de $X^3 + 2X – 1$. Calculer $x_1^4 + x_2^4 + x_3^4$.</p>
+        <a href="#corr-16" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-17">
+        <p class="exo-title">Exercice 17</p>
+        <p>Soient $x_1, \dots, x_8$ les zéros de $X^8 + X^7 – X + 3$. Calculer $\sum_{1 \leq i < j < k \leq 8} \frac{x_i x_j}{x_k}$ (168 termes).</p>
+        <a href="#corr-17" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-18">
+        <p class="exo-title">Exercice 18</p>
+        <p>Résoudre dans $\mathbb{C}$ l'équation $z^4 – 21z + 8 = 0$ sachant qu'il existe deux des solutions sont inverses l'une de l'autre.</p>
+        <a href="#corr-18" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+    <h2>Corrections</h2>
+
+    <div class="correction" id="corr-1">
+        <p class="exo-title"><a href="#exo-1" class="exercise-link">Correction de l'exercice 1</a></p>
+        <p>1. $\frac{X^2+3X+5}{X^2-3X+2} = 1 - \frac{9}{X-1} + \frac{15}{X-2}$</p>
+        <p>2. $\frac{X^2+1}{(X-1)(X-2)(X-3)} = \frac{1}{X-1} - \frac{5}{X-2} + \frac{5}{X-3}$</p>
+        <p>3. $\frac{1}{X(X-1)^2} = \frac{1}{X} - \frac{1}{X-1} + \frac{1}{(X-1)^2}$</p>
+        <p>4. $\frac{X^2+1}{(X-1)^2(X+1)^2} = \frac{1}{2}\left(\frac{1}{(X-1)^2} + \frac{1}{(X+1)^2}\right)$</p>
+        <p>5. $\frac{X^2+1}{(X-2)^2(X+2)^3}$: $P.E=0$. Décomposition de la forme $\frac{a}{X-2} + \frac{b}{(X-2)^2} + \frac{c}{(X-2)^3} + \frac{\bar{a}}{X+2} + \frac{\bar{b}}{(X+2)^2} + \frac{\bar{c}}{(X+2)^3}$</p>
+        <p>6. $\frac{1}{(X^3-1)^2} = \frac{4X^3-4}{3(X^3-1)^2} \dots$ (voir le PDF)</p>
+        <p>7. $\frac{X+1}{X^6+1}$. Racines simples $\omega_k = e^{i(\pi+2k\pi)/6}$. $P.E=0$. $\sum \frac{\lambda_k}{X-\omega_k}$</p>
+        <p>8. $\frac{X^5-3X^4+5X^3-7X^2+6X-2}{X(X-1)(X-2)^2}$. $P.E = X+1$. Décomposition simple autour des pôles.</p>
+        <p>10. $\frac{X^2+1}{X^5-X^4+X^3-X^2+X-1}$. $\frac{X^2+1}{(X-1)(X^2+X+1)(X^2-X+1)}$. Pôles simples complexes conjugués.</p>
+        <p>13. $\frac{X^2+1}{(X+1)^7-X^7-1}$. Pôles complexes $X^2+X+1$.</p>
+    </div>
+
+    <div class="correction" id="corr-2">
+        <p class="exo-title"><a href="#exo-2" class="exercise-link">Correction de l'exercice 2</a></p>
+        <p>1. $\frac{1}{X^n-1} = \sum_{k=0}^{n-1} \frac{1/n}{X-\omega_k}$ où $\omega_k = e^{2ik\pi/n}$.</p>
+        <p>3. $\frac{n!}{X(X-1)\dots(X-n)} = \sum_{k=0}^n \frac{(-1)^{n-k} \binom{n}{k}}{X-k}$</p>
+        <p>4. $\frac{1}{X^4-2X^2\cos(2\alpha)+1} = \frac{1}{4}\left(\frac{1}{X^2-2X\cos\alpha+1} - \frac{1}{X^2+2X\cos\alpha+1}\right)$ (si $\alpha \notin \pi \mathbb{Z}/2$).</p>
+    </div>
+
+    <div class="correction" id="corr-3">
+        <p class="exo-title"><a href="#exo-3" class="exercise-link">Correction de l'exercice 3</a></p>
+        $$F = \sum_{\omega \in U_n} \frac{\omega X + 1}{\omega X^2 + X + 1}$$
+        $F = \frac{n X^{n-1}}{X^n-1}$ (en réduisant au même dénominateur).
+    </div>
+
+    <div class="correction" id="corr-4">
+        <p class="exo-title"><a href="#exo-4" class="exercise-link">Correction de l'exercice 4</a></p>
+        <p>$F$ est paire $\Leftrightarrow F(X) = F(-X) \Leftrightarrow P(X)Q(-X) = P(-X)Q(X)$.
+            $F$ est paire $\Leftrightarrow P$ et $Q$ sont pairs, ou $P$ et $Q$ sont impairs.
+        </p>
+        <p>$F$ est impaire $\Leftrightarrow F(X) = -F(-X) \Leftrightarrow P(X)Q(-X) = -P(-X)Q(X)$.
+            $F$ est impaire $\Leftrightarrow P$ est pair et $Q$ est impair, ou $P$ est impair et $Q$ est pair.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-5">
+        <p class="exo-title"><a href="#exo-5" class="exercise-link">Correction de l'exercice 5</a></p>
+        <p>Famille libre par unicité de la décomposition en éléments simples. (Voir le PDF pour la preuve).
+        </p>
+    </div>
+
+    <div class="correction" id="corr-6">
+        <p class="exo-title"><a href="#exo-6" class="exercise-link">Correction de l'exercice 6</a></p>
+        $$\frac{1}{X^2+1} = \frac{1}{2i} \left(\frac{1}{X-i} - \frac{1}{X+i}\right)$$
+        $D^n\left(\frac{1}{X-a}\right) = \frac{(-1)^n n!}{(X-a)^{n+1}}$.
+        $$D^n\left(\frac{1}{X^2+1}\right) = \frac{(-1)^n n!}{2i} \left(\frac{1}{(X-i)^{n+1}} - \frac{1}{(X+i)^{n+1}}\right)$$
+    </div>
+
+    <div class="correction" id="corr-7">
+        <p class="exo-title"><a href="#exo-7" class="exercise-link">Correction de l'exercice 7</a></p>
+        $$\frac{P'(X)}{P(X)} = \sum_{i=1}^n \frac{1}{X-x_i}$$
+        Polynômes divisibles par leur dérivée: $\lambda(X-a)^n$.
+    </div>
+
+    <div class="correction" id="corr-8">
+        <p class="exo-title"><a href="#exo-8" class="exercise-link">Correction de l'exercice 8</a></p>
+        $$X^6 – 2X^3 \cos a + 1 = (X^3 - e^{ia})(X^3 - e^{-ia})$$
+        $$= (X - e^{ia/3})(X - j e^{ia/3})(X - j^2 e^{ia/3}) \cdot (X - e^{-ia/3})(X - j e^{-ia/3})(X - j^2 e^{-ia/3})$$
+        Décomposition en $\mathbb{R}[X]$: $$(X^2 - 2X \cos(a/3) + 1)(X^2 - 2X \cos(a/3 + 2\pi/3) + 1)(X^2 - 2X \cos(a/3 - 2\pi/3) + 1)$$
+    </div>
+
+    <div class="correction" id="corr-9">
+        <p class="exo-title"><a href="#exo-9" class="exercise-link">Correction de l'exercice 9</a></p>
+        <p>Théorème de la racine rationnelle: Si $r=p/q$ est racine de $P(X) = a_n X^n + \dots + a_0$, alors $p|a_0$ et $q|a_n$.</p>
+        <p>Application: $9z^4 – 3z^3 + 16z^2 – 6z – 4 = 0$.
+            Racines rationnelles possibles $p/q$: $p \in \{\pm 1, \pm 2, \pm 4\}$, $q \in \{1, 3, 9\}$.
+            Racines rationnelles sont $2/3$ et $-1/3$.
+            $9X^4 - 3X^3 + 16X^2 - 6X - 4 = 9(X-2/3)(X+1/3)(X^2+2)$.
+            Racines: $2/3, -1/3, \pm i\sqrt{2}$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-10">
+        <p class="exo-title"><a href="#exo-10" class="exercise-link">Correction de l'exercice 10</a></p>
+        <p>1. $z^4 + 2z^3 + 3z^2 + 2z + 1 = 0$. $(z^2+z+1)^2/z^2 = 0$. $z^2+z+1=0$. Racines $j, j^2$.</p>
+        <p>2. $z^6 – 5z^5 + 5z^4 – 5z^2 + 5z – 1 = 0$. $z=1$ est racine. $(z-1)(z^5-4z^4+z^3+6z^2+z+1)=0$.
+            Équation réciproque d'ordre 5. Racines $-1, 2+\sqrt{3}, 2-\sqrt{3}$.
+        </p>
+        <p>3. $z^7 – z^6 – 7z^5 + 7z^4 + 7z^3 – 7z^2 – z + 1 = 0$. $z=\pm 1$ sont racines. Racines $1, -1, \pm \sqrt{3 \pm 2\sqrt{2}}$.</p>
+    </div>
+
+    <div class="correction" id="corr-11">
+        <p class="exo-title"><a href="#exo-11" class="exercise-link">Correction de l'exercice 11</a></p>
+        $$P(X) = 64X^6 - 112X^4 + 54X^2 - 7 = 0$$
+        Les six racines sont $\pm \sin \frac{\pi}{7}, \pm \sin \frac{2\pi}{7}, \pm \sin \frac{3\pi}{7}$. Montrer qu'elles sont irrationnelles.
+    </div>
+
+    <div class="correction" id="corr-12">
+        <p class="exo-title"><a href="#exo-12" class="exercise-link">Correction de l'exercice 12</a></p>
+        Racines de $P$ forment un parallélogramme $\Leftrightarrow P'$ et $P^{(3)}$ ont une racine commune.
+    </div>
+
+    <div class="correction" id="corr-13">
+        <p class="exo-title"><a href="#exo-13" class="exercise-link">Correction de l'exercice 13</a></p>
+        Solutions $(1, 2, 3), (1, -2, 3), \dots$ (permutations). $\pm (1, 2, 3)$.
+    </div>
+
+    <div class="correction" id="corr-14">
+        <p class="exo-title"><a href="#exo-14" class="exercise-link">Correction de l'exercice 14</a></p>
+        1. $\prod_{k=0}^{n-1} (1 + \omega_k) = \begin{cases} 0 & \text{si } n \text{ est pair} \\ 2 & \text{si } n \text{ est impair} \end{cases}$
+        2. $\prod_{k=0}^{n-1} (X^2 - 2X \cos(a + 2k\pi/n) + 1) = 2(1-\cos(na))$.
+    </div>
+
+    <div class="correction" id="corr-15">
+        <p class="exo-title"><a href="#exo-15" class="exercise-link">Correction de l'exercice 15</a></p>
+        Zéros en progression arithmétique: $z, z+r, z+2r, z+3r$. $\lambda=21, \mu=-80$.
+    </div>
+
+    <div class="correction" id="corr-16">
+        <p class="exo-title"><a href="#exo-16" class="exercise-link">Correction de l'exercice 16</a></p>
+        $x_1^4 + x_2^4 + x_3^4 = 8$.
+    </div>
+
+    <div class="correction" id="corr-17">
+        <p class="exo-title"><a href="#exo-17" class="exercise-link">Correction de l'exercice 17</a></p>
+        $\sum_{1 \leq i < j < k \leq 8} \frac{x_i x_j}{x_k} = 168$.
+    </div>
+
+    <div class="correction" id="corr-18">
+        <p class="exo-title"><a href="#exo-18" class="exercise-link">Correction de l'exercice 18</a></p>
+        $z^4 – 21z + 8 = 0$. Solutions inverses: $z^4-21z+8 = (z^2+az+1)(z^2+bz+8)$. $a=3, b=-3$. Solutions $2, 1/2, \frac{3 \pm i\sqrt{15}}{2}$.
+    </div>
+
+</body>
+</html>
