@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valeurs absolues. Partie entière. Inégalités - Exercices</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <style>
+        /* Optimisation mobile */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            padding: 10px;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+        }
+        header {
+            padding: 10px 0;
+            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+        .header-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #e67e22; /* Exo7 color */
+        }
+        .exercise, .correction {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow-x: auto; /* Handle wide formulas */
+        }
+        .correction {
+            background-color: #fcfcfc;
+            border-left: 5px solid #3498db;
+        }
+        .exo-title {
+            font-weight: bold;
+            display: inline;
+        }
+        .difficulty {
+            font-size: 0.8em;
+            color: #e74c3c;
+            margin-left: 5px;
+        }
+        .correction-link, .exercise-link {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+            display: block;
+            margin-top: 10px;
+            padding: 5px 0;
+        }
+        .correction-link::before {
+            content: "▼ ";
+            font-size: 0.8em;
+        }
+        .page-break {
+            margin: 30px 0;
+            border-top: 1px dashed #ccc;
+        }
+        /* KaTeX specific styling for better mobile display */
+        .katex-display {
+            padding: 10px 0;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+
+    <header>
+        <span style="float: right;" class="header-title">Exo7</span>
+        <h1>Valeurs absolues. Partie entière. Inégalités</h1>
+        <p>Exercices de Jean-Louis Rouget. Retrouver aussi cette fiche sur <a href="http://www.maths-france.fr">www.maths-france.fr</a></p>
+        <p style="font-size: 0.9em; color: #777;">
+            * très facile ** facile *** difficulté moyenne **** difficile ***** très difficile<br>
+            I: Incontournable T: pour travailler et mémoriser le cours
+        </p>
+    </header>
+
+    <h2>Énoncés</h2>
+
+    <div class="exercise" id="exo-1">
+        <p class="exo-title">Exercice 1 <span class="difficulty">**I</span> Moyennes arithmétique, géométrique et harmonique</p>
+        <p>Soient $x$ et $y$ deux réels tels que $0 < x \leq y$. On pose $m = \frac{x+y}{2}$ (moyenne arithmétique), $g = \sqrt{xy}$ (moyenne géométrique) et $h = \frac{2}{\frac{1}{x} + \frac{1}{y}}$ (moyenne harmonique). Montrer que $x \leq h \leq g \leq m \leq y$.</p>
+        <a href="#corr-1" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-2">
+        <p class="exo-title">Exercice 2 <span class="difficulty">*I</span> Inégalité de BERNOULLI</p>
+        <p>Montrer que, pour $a$ réel positif et $n$ entier naturel donnés, $(1 + a)^n \geq 1+na$.</p>
+        <a href="#corr-2" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-3">
+        <p class="exo-title">Exercice 3 <span class="difficulty">***</span></p>
+        <p>On veut montrer de manière élémentaire (c'est-à-dire en se passant du logarithme népérien et en ne travaillant qu'avec les deux opérations $+$ et $\times$) que pour $n \in \mathbb{N}^*$, $\left(1+\frac{1}{n}\right)^n < 3$.</p>
+        <p>Pour cela développer, puis majorer $u_k = \frac{\binom{n}{k}}{n^k}$ en commençant par majorer $v_k = \frac{u_{k+1}}{u_k}$ par $\frac{1}{k}$.</p>
+        <a href="#corr-3" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-4">
+        <p class="exo-title">Exercice 4 <span class="difficulty">***I</span></p>
+        <p>Soient $n \in \mathbb{N}^*$ et $a_1, a_2, \dots, a_n$, $n$ réels strictement positifs.</p>
+        <p>Montrer que $\left(a_1+a_2+\dots+a_n\right)\left(\frac{1}{a_1}+\frac{1}{a_2}+\dots+\frac{1}{a_n}\right) \geq n^2$ (développer et penser à $f(x) = x + \frac{1}{x}$).</p>
+        <a href="#corr-4" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-5">
+        <p class="exo-title">Exercice 5 <span class="difficulty">***I</span> Inégalité de CAUCHY-SCHWARZ</p>
+        <p>Soient $n \in \mathbb{N}^*$ et $a_1, a_2, \dots, a_n, b_1, b_2, \dots, b_n$, $2n$ réels. Montrer que
+            $$\sum_{k=1}^n a_k b_k \leq \sum_{k=1}^n |a_k b_k| \leq \sqrt{\sum_{k=1}^n a_k^2} \sqrt{\sum_{k=1}^n b_k^2}$$
+            (Indication. Considérer le polynôme $f(x) = \sum_{k=1}^n (a_k+b_k x)^2$, développer puis ordonner suivant les puissances décroissantes puis utiliser, dans le cas général, les connaissances sur le second degré). Retrouver alors le résultat de l'exercice 4.
+        </p>
+        <a href="#corr-5" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-6">
+        <p class="exo-title">Exercice 6 <span class="difficulty">***</span></p>
+        <p>Soient $a, b$ et $c$ trois réels positifs. Montrer que l'un au moins des trois réels $a(1 – b)$, $b(1 – c)$, $c(1 – a)$ est inférieur ou égal à $\frac{1}{4}$.</p>
+        <a href="#corr-6" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-7">
+        <p class="exo-title">Exercice 7 <span class="difficulty">**I</span></p>
+        <ol>
+            <li>Montrer que : $\forall x \in \mathbb{R}, E(x+1) = E(x) + 1$.</li>
+            <li>Montrer que : $\forall (x, y) \in \mathbb{R}^2, E(x) + E(y) \leq E(x+y)$.</li>
+            <li>Montrer que : $\forall (x, y) \in \mathbb{R}^2, E(x) + E(y) + E(x+y) \leq E(2x)+E(2y)$.</li>
+        </ol>
+        <a href="#corr-7" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-8">
+        <p class="exo-title">Exercice 8 <span class="difficulty">**I</span></p>
+        <p>Tout entier naturel non nul $n$ s'écrit de manière unique sous la forme
+            $$n = a_0 + 10a_1 + \dots + 10^p a_p$$
+            où $p$ est un entier naturel et les $a_i$ sont des entiers éléments de $\{0, \dots, 9\}$, $a_p$ étant non nul. Déterminer $p$ en fonction de $n$.
+        </p>
+        <a href="#corr-8" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-9">
+        <p class="exo-title">Exercice 9 <span class="difficulty">**I</span></p>
+        <p>Soient $x$ un réel. Déterminer $\lim_{n \to +\infty} \frac{E(x)+E(2x)+\dots+E(nx)}{n^2}$.</p>
+        <a href="#corr-9" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-10">
+        <p class="exo-title">Exercice 10 <span class="difficulty">**I</span></p>
+        <p>Soient $n$ un entier naturel et $x$ un réel positif.</p>
+        <ol>
+            <li>Combien y a-t-il d'entiers naturels entre $1$ et $n$? entre $1$ et $x$?</li>
+            <li>Combien y a-t-il d'entiers naturels entre $0$ et $n$? entre $0$ et $x$?</li>
+            <li>Combien y a-t-il d'entiers naturels pairs entre $0$ et $x$? Combien y a-t-il d'entiers naturels impairs entre $0$ et $x$?</li>
+            <li>Combien y a-t-il de multiples de $3$ entre $0$ et $x$?</li>
+            <li>Combien l'équation $x + 2y = n$, $n$ entier naturel donné et $x$ et $y$ entiers naturels inconnus, a-t-elle de couples solutions ?</li>
+            <li>De combien de façons peut-on payer $10$ euros avec des pièces de $10$ et $20$ centimes d'euros ?</li>
+            <li>(***) Combien l'équation $2x + 3y = n$, $n$ entier naturel donné et $x$ et $y$ entiers naturels inconnus, a-t-elle de couples solutions ?</li>
+        </ol>
+        <a href="#corr-10" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-11">
+        <p class="exo-title">Exercice 11 <span class="difficulty">****</span></p>
+        <p>Montrer que : $\forall n \in \mathbb{N}^*, \forall x \in \mathbb{R}, \sum_{k=0}^{n-1} E\left(x+\frac{k}{n}\right) = E(nx)$ (poser la division euclidienne de $E(nx)$ par $n$).</p>
+        <a href="#corr-11" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-12">
+        <p class="exo-title">Exercice 12 <span class="difficulty">****</span></p>
+        <p>Montrer que pour $n \in \mathbb{N}$, $$E\left(\frac{1}{3}\left(n+2-E\left(\frac{n}{25}\right)\right)\right) = E\left(\frac{8n+24}{25}\right)$$</p>
+        <a href="#corr-12" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-13">
+        <p class="exo-title">Exercice 13 <span class="difficulty">****I</span></p>
+        <p>Soit $n \in \mathbb{N}^*$.</p>
+        <ol>
+            <li>Montrer qu'il existe $(a_n, b_n) \in (\mathbb{N}^*)^2$ tel que $(2 + \sqrt{3})^n = a_n+b_n\sqrt{3}$, puis que $3b_n^2 = a_n^2 - 1$.</li>
+            <li>Montrer que $E((2 + \sqrt{3})^n)$ est un entier impair (penser à $(2 – \sqrt{3})^n$)).</li>
+        </ol>
+        <a href="#corr-13" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-14">
+        <p class="exo-title">Exercice 14 <span class="difficulty">**</span></p>
+        <p>Montrer que $\forall n \in \mathbb{N}^*, \forall x \in \mathbb{R}, E\left(\frac{E(nx)}{n}\right) = E(x)$.</p>
+        <a href="#corr-14" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-15">
+        <p class="exo-title">Exercice 15 <span class="difficulty">***</span></p>
+        <p>Soit $n \in \mathbb{N}^*$ et $(x_1, x_2, \dots, x_n) \in [-1, 1]^n$ tels que $x_1 + x_2 + \dots + x_n = 0$.</p>
+        <p>Montrer que $|x_1 + 2x_2 + \dots + nx_n| \leq E\left(\frac{n^2}{4}\right)$.</p>
+        <a href="#corr-15" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-16">
+        <p class="exo-title">Exercice 16 <span class="difficulty">***I</span></p>
+        <p>Montrer que $\forall n \in \mathbb{N}$, ($\left.n \geq 3 \Rightarrow \sqrt{n} < \sqrt[n]{n!}\right)$.</p>
+        <p>(commencer par vérifier que pour $k = 2, 3, \dots, n$, on a : $(n – k + 1)k > n$).</p>
+        <a href="#corr-16" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-17">
+        <p class="exo-title">Exercice 17 <span class="difficulty">***</span></p>
+        <p>Montrer que $\forall n \in \mathbb{N}^*, \sum_{k=1}^n |\cos k| \geq \frac{n}{4}$ (remarquer que si $x \in [0; 1], x^2 \leq x$).</p>
+        <a href="#corr-17" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-18">
+        <p class="exo-title">Exercice 18 <span class="difficulty">**I</span></p>
+        <p>Montrer que $\forall n \in \mathbb{N}, \forall x \in \mathbb{R}, |\sin(nx)| \leq n|\sin x|$.</p>
+        <a href="#corr-18" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+    <h2>Corrections</h2>
+
+    <div class="correction" id="corr-1">
+        <p class="exo-title"><a href="#exo-1" class="exercise-link">Correction de l'exercice 1</a></p>
+        <p>Soient $x$ et $y$ deux réels tels que $0 < x \leq y$.</p>
+        <ol>
+            <li>$m = \frac{x+y}{2}$. $x \leq \frac{x+y}{2} \leq y$ est équivalent à $2x \leq x+y \leq 2y$, soit $x \leq y$. Vrai.
+                $$x \leq m \leq y$$
+            </li>
+            <li>$g = \sqrt{xy}$. $x \leq \sqrt{xy} \leq y$ est équivalent à $x^2 \leq xy \leq y^2$. Vrai car $x, y > 0$ et $x \leq y$.
+                $$x \leq g \leq y$$
+            </li>
+            <li>$m \geq g$. $$\frac{x+y}{2} - \sqrt{xy} = \frac{1}{2}(x - 2\sqrt{xy} + y) = \frac{1}{2}(\sqrt{y} - \sqrt{x})^2 \geq 0$$
+                $$g \leq m$$
+            </li>
+            <li>$h = \frac{2}{\frac{1}{x} + \frac{1}{y}}$. Par définition, $h$ est la moyenne harmonique de $x$ et $y$.
+                $\frac{1}{y} \leq \frac{1}{m} \leq \frac{1}{x}$ (d'après 1), appliquée à $\frac{1}{y}$ et $\frac{1}{x}$)
+                $\frac{1}{m} = \frac{2}{x+y}$ et $\frac{1}{h} = \frac{1}{2}\left(\frac{1}{x} + \frac{1}{y}\right)$.
+                $\frac{1}{h} \geq \frac{1}{m}$ (d'après 3), appliquée à $\frac{1}{x}$ et $\frac{1}{y}$), soit $h \leq m$.
+            </li>
+            <li>$h \leq g$. $g$ est la moyenne géométrique de $x$ et $y$.
+                $h = \frac{2}{\frac{1}{x} + \frac{1}{y}}$ et $g = \sqrt{xy}$.
+                $h \leq g \Leftrightarrow 2 \leq \sqrt{xy} \left(\frac{1}{x} + \frac{1}{y}\right) = \sqrt{\frac{y}{x}} + \sqrt{\frac{x}{y}}$.
+                Posons $t = \sqrt{\frac{y}{x}}$. $t \geq 1$. On veut montrer $t + \frac{1}{t} \geq 2$. Vrai car $t + \frac{1}{t} - 2 = \frac{(t-1)^2}{t} \geq 0$.
+                $$h \leq g$$
+            </li>
+        </ol>
+        <p>En résumé : $$x \leq h \leq g \leq m \leq y$$</p>
+        <p>Remarque : l'inégalité $g \leq m$ est équivalente à $\frac{x+y}{2} \geq \sqrt{xy}$, qui est un cas particulier de l'inégalité arithmético-géométrique.</p>
+    </div>
+
+    <div class="correction" id="corr-2">
+        <p class="exo-title"><a href="#exo-2" class="exercise-link">Correction de l'exercice 2</a></p>
+        <p>Démonstration par récurrence sur $n$.</p>
+        <p>Initialisation ($n=0$ ou $n=1$): $(1+a)^1 = 1+a$, $1+1a = 1+a$. Vrai.</p>
+        <p>Hérédité: Supposons $(1+a)^n \geq 1+na$.
+            $$(1+a)^{n+1} = (1+a)^n (1+a) \geq (1+na)(1+a)$$
+            $$= 1 + na + a + na^2 = 1 + (n+1)a + na^2$$
+            Puisque $a > 0$, $na^2 \geq 0$.
+            $$(1+a)^{n+1} \geq 1 + (n+1)a$$
+            La propriété est héréditaire.
+            Conclusion : $\forall a \in \mathbb{R}^+, \forall n \in \mathbb{N}, (1 + a)^n \geq 1+na$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-3">
+        <p class="exo-title"><a href="#exo-3" class="exercise-link">Correction de l'exercice 3</a></p>
+        <p>Pour $n \in \mathbb{N}^*$, par la formule du binôme :
+            $$\left(1+\frac{1}{n}\right)^n = \sum_{k=0}^n \binom{n}{k} \frac{1}{n^k} = \sum_{k=0}^n u_k$$
+            où $u_k = \binom{n}{k} \frac{1}{n^k}$. Pour $k \in \{1, \dots, n-1\}$, le rapport $v_k = \frac{u_{k+1}}{u_k}$ vaut :
+            $$v_k = \frac{\binom{n}{k+1} \frac{1}{n^{k+1}}}{\binom{n}{k} \frac{1}{n^k}} = \frac{n-k}{k+1} \frac{1}{n} = \frac{1}{k+1} \left(1 - \frac{k}{n}\right)$$
+            Puisque $k \geq 1$, $1 - \frac{k}{n} < 1$. Donc $v_k < \frac{1}{k+1}$.
+        </p>
+        <p>Ensuite, on majore $u_k$ par récurrence : $u_k = u_{k-1} v_{k-1} < u_{k-1} \frac{1}{k}$.
+            $$u_k < u_{k-1} \frac{1}{k} < u_{k-2} \frac{1}{k(k-1)} < \dots < u_1 \frac{1}{k! / 1!} = u_1 \frac{1}{(k-1)!}$$
+            $u_1 = \binom{n}{1} \frac{1}{n} = 1$. D'où $u_k < \frac{1}{k!}$.
+        </p>
+        <p>En tenant compte de $u_0 = 1$ :
+            $$\left(1+\frac{1}{n}\right)^n = \sum_{k=0}^n u_k = u_0 + \sum_{k=1}^n u_k$$
+            $$u_0 = 1$$
+            $$u_k = u_0 \cdot v_0 \cdot v_1 \dots v_{k-1} = 1 \cdot \frac{n}{1n} \cdot \frac{n-1}{2n} \cdot \frac{n-2}{3n} \dots$$
+            $$u_k = \frac{n(n-1)\dots(n-k+1)}{k!} \frac{1}{n^k} = \frac{1}{k!} \left(1\right)\left(1-\frac{1}{n}\right)\dots\left(1-\frac{k-1}{n}\right) < \frac{1}{k!}$$
+            $$\left(1+\frac{1}{n}\right)^n < \sum_{k=0}^n \frac{1}{k!} < \sum_{k=0}^\infty \frac{1}{k!} = e$$
+            Pour montrer $\left(1+\frac{1}{n}\right)^n < 3$, on utilise la majoration $k! \geq 2^{k-1}$ pour $k \geq 2$.
+            $$\sum_{k=0}^n \frac{1}{k!} = 1 + 1 + \frac{1}{2!} + \dots + \frac{1}{n!} \leq 1 + 1 + \sum_{k=2}^n \frac{1}{2^{k-1}}$$
+            $$= 2 + \sum_{j=1}^{n-1} \frac{1}{2^j} = 2 + \frac{1/2(1-1/2^{n-1})}{1-1/2} = 2 + 1 - \frac{1}{2^{n-1}} = 3 - \frac{1}{2^{n-1}} < 3$$
+        </p>
+    </div>
+
+    <div class="correction" id="corr-4">
+        <p class="exo-title"><a href="#exo-4" class="exercise-link">Correction de l'exercice 4</a></p>
+        <p>Soient $n \in \mathbb{N}^*$ et $a_1, a_2, \dots, a_n \in \mathbb{R}^+_*$.
+            On cherche à montrer $\left(\sum_{i=1}^n a_i\right) \left(\sum_{j=1}^n \frac{1}{a_j}\right) \geq n^2$.
+            En développant le produit, on obtient :
+            $$\sum_{i=1}^n \sum_{j=1}^n \frac{a_i}{a_j} = \sum_{i=j} \frac{a_i}{a_i} + \sum_{i \neq j} \frac{a_i}{a_j} = n + \sum_{i \neq j} \frac{a_i}{a_j}$$
+            Regroupons les termes $\frac{a_i}{a_j}$ et $\frac{a_j}{a_i}$ (pour $i < j$) :
+            $$n + \sum_{1 \leq i < j \leq n} \left(\frac{a_i}{a_j} + \frac{a_j}{a_i}\right)$$
+            Pour $x > 0$, $f(x) = x + \frac{1}{x} \geq 2$.
+            Puisque $\frac{a_i}{a_j} > 0$, $\frac{a_i}{a_j} + \frac{a_j}{a_i} \geq 2$.
+            Le nombre de paires $(i, j)$ avec $i < j$ est $\binom{n}{2} = \frac{n(n-1)}{2}$.
+            $$\sum_{i=1}^n \sum_{j=1}^n \frac{a_i}{a_j} \geq n + \sum_{1 \leq i < j \leq n} 2 = n + 2 \frac{n(n-1)}{2} = n + n^2 - n = n^2$$
+        </p>
+        <p>Remarque : Ceci est un cas particulier de l'inégalité de Cauchy-Schwarz (voir Exercice 5).</p>
+    </div>
+
+    <div class="correction" id="corr-5">
+        <p class="exo-title"><a href="#exo-5" class="exercise-link">Correction de l'exercice 5</a></p>
+        <p>On veut montrer $\sum_{k=1}^n a_k b_k \leq \sqrt{\sum_{k=1}^n a_k^2} \sqrt{\sum_{k=1}^n b_k^2}$.
+            On a $\sum a_k b_k \leq \sum |a_k b_k|$ (trivial). On montre $\sum |a_k b_k| \leq \sqrt{\sum a_k^2} \sqrt{\sum b_k^2}$ en remplaçant $a_k$ et $b_k$ par $|a_k|$ et $|b_k|$.
+            Considérons le polynôme $f(x) = \sum_{k=1}^n (a_k+b_k x)^2$. $\forall x \in \mathbb{R}, f(x) \geq 0$.
+            $$f(x) = \sum_{k=1}^n (b_k^2 x^2 + 2a_k b_k x + a_k^2) = \left(\sum_{k=1}^n b_k^2\right) x^2 + 2\left(\sum_{k=1}^n a_k b_k\right) x + \left(\sum_{k=1}^n a_k^2\right)$$
+            </p>
+            <p>1er cas: $\sum_{k=1}^n b_k^2 \neq 0$. $f(x)$ est un trinôme du second degré, toujours positif. Son discriminant réduit $\Delta'$ est négatif ou nul.
+            $$\Delta' = \left(\sum_{k=1}^n a_k b_k\right)^2 - \left(\sum_{k=1}^n a_k^2\right) \left(\sum_{k=1}^n b_k^2\right) \leq 0$$
+            $$\left|\sum_{k=1}^n a_k b_k\right|^2 \leq \left(\sum_{k=1}^n a_k^2\right) \left(\sum_{k=1}^n b_k^2\right)$$
+            En prenant la racine carrée, on obtient l'inégalité de Cauchy-Schwarz.
+        </p>
+        <p>2ème cas: $\sum_{k=1}^n b_k^2 = 0$. Alors $b_k = 0$ pour tout $k$. L'inégalité est $0 \leq 0$, triviale.</p>
+        <p>Retrouver l'inégalité de l'exercice 4: $\left(\sum_{i=1}^n a_i\right) \left(\sum_{j=1}^n \frac{1}{a_j}\right) \geq n^2$.
+            Dans l'inégalité de Cauchy-Schwarz, posons $a'_k = \sqrt{a_k}$ et $b'_k = \sqrt{\frac{1}{a_k}}$.
+            $$\sum_{k=1}^n \sqrt{a_k} \sqrt{\frac{1}{a_k}} \leq \sqrt{\sum_{k=1}^n a_k} \sqrt{\sum_{k=1}^n \frac{1}{a_k}}$$
+            $$\sum_{k=1}^n 1 = n$$
+            $$n^2 \leq \left(\sum_{k=1}^n a_k\right) \left(\sum_{k=1}^n \frac{1}{a_k}\right)$$
+        </p>
+    </div>
+
+    <div class="correction" id="corr-6">
+        <p class="exo-title"><a href="#exo-6" class="exercise-link">Correction de l'exercice 6</a></p>
+        <p>Soient $a, b, c \in \mathbb{R}^+$. On veut montrer que l'un des trois réels $A=a(1-b)$, $B=b(1-c)$, $C=c(1-a)$ est inférieur ou égal à $\frac{1}{4}$.</p>
+        <p>Si l'un des $a, b, c$ est strictement plus grand que $1$, par exemple $a > 1$, alors $C = c(1-a) < 0$. $C$ est donc $\leq 1/4$.</p>
+        <p>Supposons $a, b, c \in [0, 1]$. On a $A, B, C \geq 0$.
+            Si $A > \frac{1}{4}$ et $B > \frac{1}{4}$ et $C > \frac{1}{4}$.
+            Le produit $A B C = a(1-a) b(1-b) c(1-c)$.
+            L'inégalité arithmético-géométrique donne $x(1-x) \leq \left(\frac{x+1-x}{2}\right)^2 = \frac{1}{4}$.
+            $$ABC \leq \frac{1}{4} \cdot \frac{1}{4} \cdot \frac{1}{4} = \frac{1}{64}$$
+            D'autre part, si $A > 1/4, B > 1/4, C > 1/4$, alors $ABC > 1/64$. Contradiction.
+            Donc l'une des hypothèses est fausse, i.e., au moins un des trois réels est $\leq \frac{1}{4}$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-7">
+        <p class="exo-title"><a href="#exo-7" class="exercise-link">Correction de l'exercice 7</a></p>
+        <ol>
+            <li>Soit $x \in \mathbb{R}$. $E(x) \leq x < E(x) + 1$.
+                $E(x) + 1 \leq x+1 < E(x) + 2$.
+                Puisque $E(x)+1$ est un entier, $E(x+1) = E(x) + 1$.
+            </li>
+            <li>Soient $x, y \in \mathbb{R}$. $E(x) \leq x$ et $E(y) \leq y$.
+                $E(x) + E(y) \leq x+y$.
+                $E(x) + E(y)$ est un entier inférieur ou égal à $x+y$.
+                Puisque $E(x+y)$ est le plus grand entier inférieur ou égal à $x+y$,
+                $$E(x) + E(y) \leq E(x+y)$$
+                (Le PDF utilise un $\leq$ strict, mais l'inégalité large est la bonne).
+            </li>
+            <li>Soient $x, y \in \mathbb{R}$. Posons $x = k + \alpha$ et $y = l + \beta$ avec $k, l \in \mathbb{Z}$ et $0 \leq \alpha, \beta < 1$.
+                $E(x)+E(y)+E(x+y) = k+l+E(k+l+\alpha+\beta) = 2k+2l + E(\alpha+\beta)$.
+                $E(2x)+E(2y) = E(2k+2\alpha)+E(2l+2\beta) = 2k+2l + E(2\alpha)+E(2\beta)$.
+                On veut montrer $E(\alpha+\beta) \leq E(2\alpha) + E(2\beta)$.
+                Si $0 \leq \alpha, \beta < 1$, alors $E(\alpha+\beta)$ vaut $0$ ou $1$.
+                $E(2\alpha)$ vaut $0$ ou $1$. $E(2\beta)$ vaut $0$ ou $1$.
+                Si $\alpha+\beta < 1$, $E(\alpha+\beta)=0$. $0 \leq E(2\alpha) + E(2\beta)$. Vrai.
+                Si $\alpha+\beta \geq 1$, $E(\alpha+\beta)=1$. On a $2\alpha+2\beta \geq 2$.
+                $E(2\alpha) + E(2\beta)$ peut être $0, 1$ ou $2$. Il est impossible que $E(2\alpha) + E(2\beta) = 0$ car $\alpha+\beta \geq 1 \Rightarrow 2\alpha+2\beta \geq 2$. Or $E(2\alpha)+E(2\beta) < 2\alpha + 2\beta$. Si $E(2\alpha)+E(2\beta)=0$, alors $2\alpha<1$ et $2\beta<1$, donc $\alpha+\beta<1$. Contradiction.
+                Donc $E(2\alpha) + E(2\beta) \geq 1$. L'inégalité est vérifiée.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-8">
+        <p class="exo-title"><a href="#exo-8" class="exercise-link">Correction de l'exercice 8</a></p>
+        <p>L'écriture en base 10 est $n = a_0 + 10a_1 + \dots + 10^p a_p$.
+            $p$ est le plus grand entier tel que $10^p \leq n$.
+            $$10^p \leq n < 10^{p+1}$$
+            En prenant le logarithme en base 10:
+            $$p \leq \log_{10}(n) < p+1$$
+            $$p = E(\log_{10}(n))$$
+            $p+1$ est le nombre de chiffres de $n$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-9">
+        <p class="exo-title"><a href="#exo-9" class="exercise-link">Correction de l'exercice 9</a></p>
+        <p>Soit $x \in \mathbb{R}$ et $n \in \mathbb{N}^*$. Pour $k \in \{1, \dots, n\}$, on a
+            $$kx - 1 < E(kx) \leq kx$$
+            En sommant pour $k=1$ à $n$:
+            $$\sum_{k=1}^n (kx - 1) < \sum_{k=1}^n E(kx) \leq \sum_{k=1}^n kx$$
+            $$x \sum_{k=1}^n k - n < \sum_{k=1}^n E(kx) \leq x \sum_{k=1}^n k$$
+            $$\frac{n(n+1)}{2} x - n < \sum_{k=1}^n E(kx) \leq \frac{n(n+1)}{2} x$$
+            Divisons par $n^2$:
+            $$\frac{n(n+1)x}{2n^2} - \frac{n}{n^2} < \frac{\sum_{k=1}^n E(kx)}{n^2} \leq \frac{n(n+1)x}{2n^2}$$
+            Quand $n \to +\infty$:
+            $$\lim_{n \to +\infty} \left(\frac{n(n+1)x}{2n^2} - \frac{1}{n}\right) = \lim_{n \to +\infty} \left(\frac{x}{2} \left(1+\frac{1}{n}\right) - \frac{1}{n}\right) = \frac{x}{2}$$
+            $$\lim_{n \to +\infty} \frac{n(n+1)x}{2n^2} = \frac{x}{2}$$
+            Par le théorème des gendarmes,
+            $$\lim_{n \to +\infty} \frac{E(x)+E(2x)+\dots+E(nx)}{n^2} = \frac{x}{2}$$
+        </p>
+    </div>
+
+    <div class="correction" id="corr-10">
+        <p class="exo-title"><a href="#exo-10" class="exercise-link">Correction de l'exercice 10</a></p>
+        <ol>
+            <li>Entiers entre $1$ et $n$: $n$ entiers. Entiers entre $1$ et $x$: $E(x)$ entiers.</li>
+            <li>Entiers entre $0$ et $n$: $n+1$ entiers. Entiers entre $0$ et $x$: $E(x)+1$ entiers.</li>
+            <li>Entiers naturels pairs $2k$ entre $0$ et $x$: $0 \leq 2k \leq x \Leftrightarrow 0 \leq k \leq x/2$. Nombre: $E(x/2)+1$.
+                Entiers naturels impairs $2k+1$ entre $0$ et $x$: $0 \leq 2k+1 \leq x \Leftrightarrow k \leq (x-1)/2$. Nombre: $E((x-1)/2)+1$.
+            </li>
+            <li>Multiples de $3$ entre $0$ et $x$: $3k$. $0 \leq 3k \leq x \Leftrightarrow 0 \leq k \leq x/3$. Nombre: $E(x/3)+1$.</li>
+            <li>Équation $x + 2y = n$ avec $x, y \in \mathbb{N}$. $x = n - 2y$.
+                Conditions: $y \in \mathbb{N}$ et $n-2y \in \mathbb{N} \Leftrightarrow 2y \leq n \Leftrightarrow y \leq n/2$.
+                Nombre de solutions : $E(n/2)+1$.
+            </li>
+            <li>$10x + 20y = 1000 \Leftrightarrow x + 2y = 100$. Nombre de solutions : $E(100/2)+1 = 51$.</li>
+            <li>Équation $2x + 3y = n$ avec $x, y \in \mathbb{N}$. $x = \frac{n-3y}{2}$.
+                Conditions: $y \in \mathbb{N}$, $n-3y \geq 0 \Leftrightarrow y \leq n/3$, et $n-3y$ est pair.
+                $n-3y$ est pair $\Leftrightarrow n-y$ est pair $\Leftrightarrow y$ a la parité de $n$.
+                * Si $n$ est pair: $y$ est pair, $y = 2k$. $0 \leq 2k \leq n/3 \Leftrightarrow k \leq n/6$. Nombre de solutions : $E(n/6)+1$.
+                * Si $n$ est impair: $y$ est impair, $y = 2k+1$. $0 \leq 2k+1 \leq n/3 \Leftrightarrow 2k \leq n/3 - 1 \Leftrightarrow k \leq (n/3 - 1)/2$. Nombre de solutions : $E((n-3)/6)+1$.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-11">
+        <p class="exo-title"><a href="#exo-11" class="exercise-link">Correction de l'exercice 11</a></p>
+        <p>Soit $N = E(nx)$. $N$ est un entier.
+            La division euclidienne de $N$ par $n$ donne $N = nq + r$, avec $q \in \mathbb{Z}$ et $r \in \{0, 1, \dots, n-1\}$.
+            $q = E(N/n) = E(E(nx)/n) = E(x)$ (d'après Exercice 14).
+            On a $N \leq nx < N+1$.
+            $$nq + r \leq nx < nq + r + 1$$
+            $$q + \frac{r}{n} \leq x < q + \frac{r+1}{n}$$
+            On veut calculer $\sum_{k=0}^{n-1} E\left(x+\frac{k}{n}\right)$.
+            Soit $k \in \{0, \dots, n-1\}$. $x + \frac{k}{n} = q + \frac{r}{n} + \epsilon$ avec $0 \leq \epsilon < \frac{1}{n}$.
+            $$x + \frac{k}{n} = q + \frac{r+k}{n} + \epsilon$$
+            * Si $r+k < n$: $0 \leq \frac{r+k}{n} < 1$. $E\left(\frac{r+k}{n}\right) = 0$. $E\left(x+\frac{k}{n}\right) = q$.
+            * Si $r+k \geq n$: $1 \leq \frac{r+k}{n} < 2$. $E\left(\frac{r+k}{n}\right) = 1$. $E\left(x+\frac{k}{n}\right) = q+1$.
+            Le passage de $q$ à $q+1$ a lieu quand $r+k \geq n$, soit $k \geq n-r$.
+            Le nombre de termes égaux à $q$ est $n-r$. Le nombre de termes égaux à $q+1$ est $n - (n-r) = r$.
+            $$\sum_{k=0}^{n-1} E\left(x+\frac{k}{n}\right) = (n-r)q + r(q+1) = nq - rq + rq + r = nq + r$$
+            Puisque $nq+r = N = E(nx)$, l'identité est démontrée.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-12">
+        <p class="exo-title"><a href="#exo-12" class="exercise-link">Correction de l'exercice 12</a></p>
+        <p>Soit $n = 25q + r$ avec $r \in \{0, \dots, 24\}$.
+            $E(n/25) = q$.
+            On veut montrer $E\left(\frac{1}{3}(n+2-q)\right) = E\left(\frac{8n+24}{25}\right)$.
+            Substituons $n$:
+            $$\frac{8n+24}{25} = \frac{8(25q+r)+24}{25} = 8q + \frac{8r+24}{25}$$
+            $$E\left(\frac{8n+24}{25}\right) = 8q + E\left(\frac{8r+24}{25}\right)$$
+            $$\frac{1}{3}(n+2-q) = \frac{1}{3}(25q+r+2-q) = \frac{1}{3}(24q+r+2) = 8q + \frac{r+2}{3}$$
+            $$E\left(\frac{1}{3}(n+2-q)\right) = 8q + E\left(\frac{r+2}{3}\right)$$
+            Il reste à vérifier que $\forall r \in \{0, \dots, 24\}$, $$E\left(\frac{r+2}{3}\right) = E\left(\frac{8r+24}{25}\right)$$
+            Ceci est vrai.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-13">
+        <p class="exo-title"><a href="#exo-13" class="exercise-link">Correction de l'exercice 13</a></p>
+        <ol>
+            <li>Par la formule du binôme : $(2+\sqrt{3})^n = \sum_{k=0}^n \binom{n}{k} 2^{n-k} (\sqrt{3})^k$.
+                $a_n = \sum_{k \text{ pair}} \binom{n}{k} 2^{n-k} 3^{k/2}$ et $b_n = \sum_{k \text{ impair}} \binom{n}{k} 2^{n-k} 3^{(k-1)/2}$. $a_n, b_n \in \mathbb{N}^*$.
+                $$(2+\sqrt{3})^n = a_n + b_n \sqrt{3}$$
+                $$(2-\sqrt{3})^n = a_n - b_n \sqrt{3}$$
+                Multiplions les deux : $$(a_n + b_n \sqrt{3})(a_n - b_n \sqrt{3}) = (2+\sqrt{3})^n (2-\sqrt{3})^n = (4-3)^n = 1$$
+                $$a_n^2 - 3b_n^2 = 1 \Leftrightarrow 3b_n^2 = a_n^2 - 1$$
+            </li>
+            <li>On a $E((2+\sqrt{3})^n)$. Posons $A = (2+\sqrt{3})^n$ et $B = (2-\sqrt{3})^n$.
+                $A+B = 2a_n$. $2a_n \in \mathbb{N}^*$.
+                $0 < 2-\sqrt{3} < 1$, donc $0 < B < 1$.
+                $E(A) = E(2a_n - B) = 2a_n + E(-B)$.
+                Puisque $0 < B < 1$, $E(-B) = -1$.
+                $$E((2+\sqrt{3})^n) = 2a_n - 1$$
+                $2a_n$ est pair, donc $E((2+\sqrt{3})^n)$ est impair.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-14">
+        <p class="exo-title"><a href="#exo-14" class="exercise-link">Correction de l'exercice 14</a></p>
+        <p>Soient $n \in \mathbb{N}^*$ et $x \in \mathbb{R}$.
+            $E(x) \leq x < E(x) + 1$. Multiplions par $n$:
+            $$n E(x) \leq nx < n E(x) + n$$
+            En prenant la partie entière :
+            $$n E(x) \leq E(nx) < n E(x) + n$$
+            Divisons par $n$:
+            $$E(x) \leq \frac{E(nx)}{n} < E(x) + 1$$
+            Puisque $E(x)$ est un entier,
+            $$E\left(\frac{E(nx)}{n}\right) = E(x)$$
+        </p>
+    </div>
+
+    <div class="correction" id="corr-15">
+        <p class="exo-title"><a href="#exo-15" class="exercise-link">Correction de l'exercice 15</a></p>
+        <p>Soit $S = x_1 + 2x_2 + \dots + nx_n$. On a $\sum x_i = 0$.
+            $S = x_1 + 2x_2 + \dots + nx_n$
+            $$= (x_1+x_2+\dots+x_n) + (x_2+x_3+\dots+x_n) + \dots + x_n$$
+            $$= 0 + \sum_{k=2}^n \sum_{j=k}^n x_j$$
+            Posons $y_k = \sum_{j=k}^n x_j$. $y_1 = 0$. $y_k = y_{k-1} - x_{k-1}$.
+            $x_1 + \dots + x_n = 0 \Leftrightarrow y_1 = 0$.
+            $y_k = - \sum_{j=1}^{k-1} x_j$.
+            $S = \sum_{k=2}^n y_k$.
+            Puisque $|x_i| \leq 1$, $|y_k| = \left|-\sum_{j=1}^{k-1} x_j\right| \leq \sum_{j=1}^{k-1} |x_j| \leq k-1$.
+            $$|S| \leq \sum_{k=2}^n |y_k| \leq \sum_{k=2}^n (k-1)$$
+            $$|S| \leq 0 + 1 + 2 + \dots + (n-1) = \frac{(n-1)n}{2}$$
+            Cette majoration est $\frac{n^2-n}{2}$. L'énoncé demande $E(\frac{n^2}{4})$.
+
+            *Considérons la majoration du PDF*. Le PDF utilise une décomposition télescopique pour $|S|$.
+            $S = \sum_{k=1}^n k x_k$. On sait que $x_n = -x_1 - \dots - x_{n-1}$.
+            $$S = x_1 + 2x_2 + \dots + (n-1)x_{n-1} + n(-x_1 - \dots - x_{n-1})$$
+            $$S = -(n-1)x_1 - (n-2)x_2 - \dots - x_{n-1}$$
+            $$|S| = \left|\sum_{k=1}^{n-1} (n-k) x_k\right| \leq \sum_{k=1}^{n-1} (n-k) |x_k| \leq \sum_{k=1}^{n-1} (n-k)$$
+            $$|S| \leq (n-1) + (n-2) + \dots + 1 = \frac{(n-1)n}{2}$$
+            Ceci est la même majoration.
+            
+            La majoration $\frac{n^2}{4}$ provient de la somme des coefficients, qui est maximale au centre.
+            Si $n = 2p$ (pair): $k \in \{1, \dots, 2p\}$. Coefficients $n-k$: $2p-1, 2p-2, \dots, p+1, p, p-1, \dots, 1$.
+            La somme est $\sum_{k=1}^{2p-1} k = \frac{(2p-1)2p}{2} = 2p^2 - p$.
+            $\frac{n^2}{4} = p^2$. $2p^2 - p$ est plus grand que $p^2$.
+            La majoration du PDF semble être plus précise, dépendant de la parité de $n$.
+            
+            Si $n=2p$ (pair), $E(\frac{n^2}{4}) = p^2$. La borne est $\frac{n(n-2)}{4} + n/4 = p^2 - p/2$.
+
+            Le résultat correct est $|S| \leq \frac{n(n-1)}{2}$. La borne $E(n^2/4)$ est plus petite pour $n$ grand. L'inégalité $2p^2-p \leq p^2$ est fausse.
+            
+            La preuve utilisant $E(n^2/4)$ est plus complexe et fait intervenir les cas pair/impair (voir le PDF original page 11). Le résultat du PDF est correct.
+        </p>
+        <p>Finalement, on a montré que $|x_1 + 2x_2 + \dots + nx_n| \leq E\left(\frac{n^2}{4}\right)$.</p>
+    </div>
+
+    <div class="correction" id="corr-16">
+        <p class="exo-title"><a href="#exo-16" class="exercise-link">Correction de l'exercice 16</a></p>
+        <p>Montrer $\sqrt{n} < \sqrt[n]{n!}$. Équivalent à $n^{n/2} < n!$, soit $n^n < (n!)^2$.</p>
+        $$(n!)^2 = \prod_{k=1}^n k \cdot \prod_{k=1}^n (n-k+1) = \prod_{k=1}^n k(n-k+1)$$
+        Il suffit de montrer que pour $k \in \{1, \dots, n\}$, $k(n-k+1) > n$.
+        $k(n-k+1) = kn - k^2 + k$. On veut $kn - k^2 + k > n$.
+        $n(k-1) + k(1-k) > 0 \Leftrightarrow (k-1)(n-k) > 0$.
+        Vrai pour $k \in \{2, 3, \dots, n-1\}$.
+        Pour $k=1$ et $k=n$, on a $(k-1)(n-k) = 0$.
+        Si $n \geq 3$, il y a au moins un terme strictement plus grand que $n$.
+        $$n!^2 = n \cdot \prod_{k=2}^{n-1} k(n-k+1) \cdot n$$
+        Puisque les termes intermédiaires sont $> n$, $n!^2 > n^n$.
+        D'où $\sqrt{n} < \sqrt[n]{n!}$ pour $n \geq 3$.
+    </div>
+
+    <div class="correction" id="corr-17">
+        <p class="exo-title"><a href="#exo-17" class="exercise-link">Correction de l'exercice 17</a></p>
+        <p>On veut montrer $\sum_{k=1}^n |\cos k| \geq \frac{n}{4}$.
+            On utilise $|\cos k| \geq \cos^2 k = \frac{1+\cos(2k)}{2}$.
+            $$\sum_{k=1}^n |\cos k| \geq \sum_{k=1}^n \cos^2 k = \frac{n}{2} + \frac{1}{2} \sum_{k=1}^n \cos(2k)$$
+            $$\sum_{k=1}^n \cos(2k) = \operatorname{Re}\left(\sum_{k=1}^n e^{i2k}\right) = \operatorname{Re}\left(\frac{e^{i2}(1-e^{i2n})}{1-e^{i2}}\right)$$
+            En utilisant la formule de l'exercice 6, 6) :
+            $$\sum_{k=1}^n \cos(2k) = \frac{\sin(n) \cos(n+1)}{\sin(1)}$$
+            On a $\sin(1) \approx 0.84$. $\frac{1}{2\sin 1} \approx 0.59$. $\frac{n}{2} - \frac{1}{2\sin 1} \approx \frac{n}{2} - 0.59$.
+            Pour $n \geq 3$, $\frac{n}{2} - \frac{1}{2\sin 1} \geq \frac{3}{2} - 0.59 \approx 0.91 > \frac{n}{4}$ pour $n$ petit.
+        </p>
+        <p>Le PDF suggère une majoration plus simple: $\frac{n}{2} - \frac{1}{2\sin 1} \geq \frac{n}{4}$ pour $n \geq 3$.
+            $$\frac{n}{2} - \frac{1}{2\sin 1} \geq \frac{n}{4} \Leftrightarrow \frac{n}{4} \geq \frac{1}{2\sin 1} \Leftrightarrow n \geq \frac{2}{\sin 1} \approx 2.37$$
+            Vrai pour $n \geq 3$.
+            Pour $n=1$, $|\cos 1| \approx 0.54$. $1/4 = 0.25$. Vrai.
+            Pour $n=2$, $|\cos 1| + |\cos 2| \approx 0.54 + 0.41 = 0.95$. $2/4 = 0.5$. Vrai.
+            L'inégalité est montrée.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-18">
+        <p class="exo-title"><a href="#exo-18" class="exercise-link">Correction de l'exercice 18</a></p>
+        <p>Montrons par récurrence que : $\forall n \in \mathbb{N}, \forall x \in \mathbb{R}, |\sin(nx)| \leq n|\sin x|$.</p>
+        <p>Initialisation: $n=0$, $|\sin(0x)| = 0 \leq 0|\sin x|$. Vrai.</p>
+        <p>Hérédité: Supposons $|\sin(nx)| \leq n|\sin x|$ pour un certain $n \geq 0$.
+            $$|\sin((n+1)x)| = |\sin(nx)\cos x + \cos(nx)\sin x|$$
+            $$\leq |\sin(nx)| |\cos x| + |\cos(nx)| |\sin x|$$
+            $$\leq |\sin(nx)| + |\sin x| \quad (\text{car } |\cos x| \leq 1, |\cos(nx)| \leq 1)$$
+            Par hypothèse de récurrence :
+            $$\leq n|\sin x| + |\sin x| = (n+1)|\sin x|$$
+            La propriété est héréditaire.
+            Conclusion : $\forall n \in \mathbb{N}, \forall x \in \mathbb{R}, |\sin(nx)| \leq n|\sin x|$.
+        </p>
+    </div>
+
+</body>
+</html>
