@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigonométrie hyperbolique</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            margin: 0 auto;
+            padding: 1em;
+            max-width: 900px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.3em;
+        }
+        .container {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1em 1.5em;
+            margin-bottom: 2em;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .header {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .difficulty, .ref-code {
+            font-size: 0.85em;
+            font-weight: normal;
+            font-family: monospace;
+            color: #7f8c8d;
+        }
+        .correction-link, .exercise-link {
+            font-size: 0.9em;
+            display: block;
+            margin-top: 1em;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ol, ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 0.7em;
+        }
+        .formula-box {
+            border: 1px solid #3498db;
+            background-color: #ecf0f1;
+            padding: 1em;
+            margin: 1.5em 0;
+            border-radius: 5px;
+            text-align: center;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Trigonométrie hyperbolique</h1>
+    <p>Exercices de Jean-Louis Rouget. Retrouver aussi cette fiche sur <a href="http://www.maths-france.fr" target="_blank" rel="noopener">www.maths-france.fr</a></p>
+    
+    <div>
+        <p>
+            * très facile &nbsp;&nbsp; ** facile &nbsp;&nbsp; *** difficulté moyenne &nbsp;&nbsp; **** difficile &nbsp;&nbsp; ***** très difficile <br>
+            <b>I</b>: Incontournable &nbsp;&nbsp; <b>T</b>: pour travailler et mémoriser le cours
+        </p>
+    </div>
+
+    <h2>Énoncés</h2>
+
+    <div class="container" id="exo1">
+        <div class="header">
+            <span>Exercice 1</span>
+            <span class="difficulty">***IT</span>
+        </div>
+        <p>Domaine de définition et calcul des fonctions suivantes :</p>
+        <ol>
+            <li>$x \mapsto \sin(\arcsin x)$,</li>
+            <li>$x \mapsto \arcsin(\sin x)$,</li>
+            <li>$x \mapsto \cos(\arccos x)$,</li>
+            <li>$x \mapsto \arccos(\cos x)$,</li>
+            <li>$x \mapsto \tan(\arctan x)$,</li>
+            <li>$x \mapsto \arctan(\tan x)$.</li>
+        </ol>
+        <div class="correction-link">[ <a href="#corr1">Correction</a> ] <span class="ref-code">[005084]</span></div>
+    </div>
+
+    <div class="container" id="exo2">
+        <div class="header">
+            <span>Exercice 2</span>
+            <span class="difficulty">***IT</span>
+        </div>
+        <ol>
+            <li>Calculer $\arccos x + \arcsin x$ pour $x$ élément de $[-1, 1]$.</li>
+            <li>Calculer $\arctan x + \arctan \frac{1}{x}$ pour $x$ réel non nul.</li>
+            <li>Calculer $\cos(\arctan a)$ et $\sin(\arctan a)$ pour $a$ réel donné.</li>
+            <li>Calculer, pour $a$ et $b$ réels tels que $ab \neq 1$, $\arctan a + \arctan b$ en fonction de $\arctan \frac{a+b}{1-ab}$ (on étudiera d'abord $\cos(\arctan a + \arctan b)$ et on distinguera les cas $ab < 1$, $ab > 1$ et $a > 0$, $ab > 1$ et $a < 0$).</li>
+        </ol>
+        <div class="correction-link">[ <a href="#corr2">Correction</a> ] <span class="ref-code">[005085]</span></div>
+    </div>
+
+    <div class="container" id="exo3">
+        <div class="header">
+            <span>Exercice 3</span>
+            <span class="difficulty">*IT</span>
+        </div>
+        <p>Etablir pour $\cosh$, $\sinh$ et $\tanh$ les formules d'addition, de duplication et de linéarisation.</p>
+        <div class="correction-link">[ <a href="#corr3">Correction</a> ] <span class="ref-code">[005086]</span></div>
+    </div>
+
+    <div class="container" id="exo4">
+        <div class="header">
+            <span>Exercice 4</span>
+            <span class="difficulty">***I</span>
+        </div>
+        <p>Existence et calcul de $\int_{0}^{\sin^2 x} \arcsin \sqrt{t} \,dt + \int_{0}^{\cos^2 x} \arccos \sqrt{t} \,dt$.</p>
+        <div class="correction-link">[ <a href="#corr4">Correction</a> ] <span class="ref-code">[005087]</span></div>
+    </div>
+
+    <div class="container" id="exo5">
+        <div class="header">
+            <span>Exercice 5</span>
+            <span class="difficulty">**</span>
+        </div>
+        <p>Simplifier les expressions suivantes :</p>
+        <ol>
+            <li>$f_1(x) = \arcsin\left(\frac{x}{\sqrt{1+x^2}}\right)$.</li>
+            <li>$f_2(x) = \arccos\left(\frac{1-x^2}{1+x^2}\right)$.</li>
+            <li>$f_3(x) = \arcsin\sqrt{1-x^2} - \arctan\sqrt{\frac{1-x}{1+x}}$.</li>
+            <li>$f_4(x) = \arctan\frac{1}{2x^2} - \arctan\frac{x}{x-1} + \arctan\frac{x+1}{x}$.</li>
+        </ol>
+        <div class="correction-link">[ <a href="#corr5">Correction</a> ] <span class="ref-code">[005088]</span></div>
+    </div>
+
+    <div class="container" id="exo6">
+        <div class="header">
+            <span>Exercice 6</span>
+            <span class="difficulty">**I</span>
+        </div>
+        <p>Calculer $\arctan \frac{1}{2} + \arctan \frac{1}{5} + \arctan \frac{1}{8}$.</p>
+        <div class="correction-link">[ <a href="#corr6">Correction</a> ] <span class="ref-code">[005089]</span></div>
+    </div>
+
+    <div class="container" id="exo7">
+        <div class="header">
+            <span>Exercice 7</span>
+            <span class="difficulty">***I</span>
+        </div>
+        <p>Calculer $u_n = \arctan \frac{2}{1^2} + \arctan \frac{2}{2^2} + \dots + \arctan \frac{2}{n^2}$ pour $n$ entier naturel non nul donné puis déterminer $\lim_{n \to +\infty} u_n$. (Utiliser l'exercice 2 4))</p>
+        <div class="correction-link">[ <a href="#corr7">Correction</a> ] <span class="ref-code">[005090]</span></div>
+    </div>
+
+    <div class="container" id="exo8">
+        <div class="header">
+            <span>Exercice 8</span>
+            <span class="difficulty">*</span>
+        </div>
+        <p>Etudier $f: x \mapsto \ln(\cosh x) - x$.</p>
+        <div class="correction-link">[ <a href="#corr8">Correction</a> ] <span class="ref-code">[005091]</span></div>
+    </div>
+
+    <div class="container" id="exo9">
+        <div class="header">
+            <span>Exercice 9</span>
+            <span class="difficulty">** Mines de DOUAI 1984</span>
+        </div>
+        <p>On considère la fonction numérique $f$ telle que :</p>
+        $$f(x) = (x^2 - 1) \arctan \frac{1}{2x-1}$$
+        <p>et on appelle $(\mathcal{C})$ sa courbe représentative dans un repère orthonormé.</p>
+        <ol>
+            <li>Quel est l'ensemble de définition $\mathscr{D}$ de $f$?</li>
+            <li>Exprimer, sur $\mathscr{D} \setminus \{0\}$, la dérivée de $f$ sous la forme : $f'(x) = 2xg(x)$.</li>
+            <li>Montrer que : $\forall x \in \mathbb{R}, 2x^4 - 4x^3 + 9x^2 - 4x + 1 > 0$ et en déduire le tableau de variation de $g$.</li>
+            <li>Dresser le tableau de variation de $f$.</li>
+        </ol>
+        <div class="correction-link">[ <a href="#corr9">Correction</a> ] <span class="ref-code">[005092]</span></div>
+    </div>
+
+    <div class="container" id="exo10">
+        <div class="header">
+            <span>Exercice 10</span>
+            <span class="difficulty">**</span>
+        </div>
+        <p>Résoudre dans $\mathbb{R}$ l'équation $\sinh(2+x) + \sinh(2+2x) + \dots + \sinh(2+100x) = 0$.</p>
+        <div class="correction-link">[ <a href="#corr10">Correction</a> ] <span class="ref-code">[005093]</span></div>
+    </div>
+
+    <div class="container" id="exo11">
+        <div class="header">
+            <span>Exercice 11</span>
+            <span class="difficulty">**I</span>
+        </div>
+        <ol>
+            <li>Montrer que pour tout réel $x$ non nul, on a : $\tanh x = \frac{2}{\tanh(2x)} - \frac{1}{\tanh x}$.</li>
+            <li>En déduire la valeur de $u_n = 2^0 \tanh(2^0 x) + 2^1 \tanh(2^1 x) + \dots + 2^n \tanh(2^n x)$ pour $n$ entier naturel non nul et $x$ réel non nul donnés puis calculer la limite de $(u_n)$.</li>
+        </ol>
+        <div class="correction-link">[ <a href="#corr11">Correction</a> ] <span class="ref-code">[005094]</span></div>
+    </div>
+
+    <div class="container" id="exo12">
+        <div class="header">
+            <span>Exercice 12</span>
+            <span class="difficulty">**</span>
+        </div>
+        <p>Simplifier les expressions suivantes</p>
+        <ol>
+            <li>$\sin(2\arcsin x)$,</li>
+            <li>$\cos(2\arccos x)$,</li>
+            <li>$\sin^2\left(\frac{\arccos x}{2}\right)$,</li>
+            <li>$\ln(\sqrt{x^2+1}+x) + \ln(\sqrt{x^2+1}-x)$,</li>
+            <li>$\text{argsh}\left(\frac{x^2-1}{2x}\right)$,</li>
+            <li>$\text{argch}(2x^2-1)$,</li>
+            <li>$\text{argth}\left(\sqrt{\frac{\cosh x-1}{\cosh x+1}}\right)$,</li>
+            <li>$\frac{\cosh(\ln x) + \sinh(\ln x)}{x}$</li>
+        </ol>
+        <div class="correction-link">[ <a href="#corr12">Correction</a> ] <span class="ref-code">[005095]</span></div>
+    </div>
+
+    <div class="container" id="exo13">
+        <div class="header">
+            <span>Exercice 13</span>
+            <span class="difficulty">**</span>
+        </div>
+        <p>Résoudre dans $\mathbb{R}$ les équations suivantes :</p>
+        <ol>
+            <li>$\cosh x = 2$,</li>
+            <li>$\arcsin(2x) = \arcsin x + \arcsin(x\sqrt{2})$,</li>
+            <li>$2\arcsin x = \arcsin(2x\sqrt{1-x^2})$.</li>
+        </ol>
+        <div class="correction-link">[ <a href="#corr13">Correction</a> ] <span class="ref-code">[005096]</span></div>
+    </div>
+
+    <h2>Corrections</h2>
+
+    <div class="container" id="corr1">
+        <div class="header"><span>Correction de l'exercice 1</span></div>
+        <p>$\arcsin x$ existe si et seulement si $x$ est dans $[-1, 1]$. Donc, $\sin(\arcsin x)$ existe si et seulement si $x$ est dans $[-1, 1]$ et pour $x$ dans $[-1, 1]$, $\sin(\arcsin x) = x$.</p>
+        <p>$\arcsin(\sin x)$ existe pour tout réel $x$ mais ne vaut $x$ que si $x$ est dans $[-\frac{\pi}{2}, \frac{\pi}{2}]$.</p>
+        <ul>
+            <li>S'il existe un entier relatif $k$ tel que $-\frac{\pi}{2} + 2k\pi \le x < \frac{\pi}{2} + 2k\pi$, alors $-\frac{\pi}{2} \le x-2k\pi < \frac{\pi}{2}$ et donc
+            $$\arcsin(\sin x) = \arcsin(\sin(x-2k\pi)) = x-2k\pi.$$
+            De plus, on a $k \le \frac{x}{2\pi} + \frac{1}{4} < k+\frac{1}{2}$ et donc $k=E\left(\frac{x}{2\pi}+\frac{1}{4}\right)$.</li>
+            <li>S'il existe un entier relatif $k$ tel que $\frac{\pi}{2} + 2k\pi \le x < \frac{3\pi}{2} + 2k\pi$, alors $-\frac{\pi}{2} < \pi-x+2k\pi \le \frac{\pi}{2}$ et donc
+            $$\arcsin(\sin x) = \arcsin(\sin(\pi-x+2k\pi)) = \pi-x+2k\pi.$$
+            De plus, $k \le \frac{x}{2\pi} - \frac{1}{4} < k+\frac{1}{2}$ et donc $k=E\left(\frac{x}{2\pi}-\frac{1}{4}\right)$.</li>
+        </ul>
+        <p>$\arccos x$ existe si et seulement si $x$ est dans $[-1, 1]$. Donc, $\cos(\arccos x)$ existe si et seulement si $x$ est dans $[-1, 1]$ et pour $x$ dans $[-1, 1]$, $\cos(\arccos x) = x$.</p>
+        <p>$\arccos(\cos x)$ existe pour tout réel $x$ mais ne vaut $x$ que si $x$ est dans $[0, \pi]$.</p>
+        <ul>
+            <li>S'il existe un entier relatif $k$ tel que $2k\pi \le x < \pi+2k\pi$, alors $\arccos(\cos x) = x-2k\pi$ avec $k=E\left(\frac{x}{2\pi}\right)$.</li>
+            <li>S'il existe un entier relatif $k$ tel que $-\pi+2k\pi \le x < 2k\pi$ alors $\arccos(\cos x) = \arccos(\cos(2k\pi-x)) = 2k\pi-x$ avec $k=E\left(\frac{x+\pi}{2\pi}\right)$.</li>
+        </ul>
+        <p>Pour tout réel $x$, $\tan(\arctan x) = x$.</p>
+        <p>$\arctan(\tan x)$ existe si et seulement si $x$ n'est pas dans $\frac{\pi}{2}+\pi\mathbb{Z}$ et pour ces $x$, il existe un entier relatif $k$ tel que $-\frac{\pi}{2}+k\pi < x < \frac{\pi}{2}+k\pi$. Dans ce cas, $\arctan(\tan x) = \arctan(\tan(x-k\pi)) = x-k\pi$ avec $k = E\left(\frac{x}{\pi}+\frac{1}{2}\right)$.</p>
+        <div class="exercise-link">[ <a href="#exo1">Retour à l'énoncé</a> ]</div>
+    </div>
+
+    <div class="container" id="corr2">
+        <div class="header"><span>Correction de l'exercice 2</span></div>
+        <p><b>1. 1ère solution.</b> Posons $f(x) = \arccos x + \arcsin x$ pour $x$ dans $[-1, 1]$. $f$ est définie et continue sur $[-1, 1]$, dérivable sur $]-1, 1[$. De plus, pour $x$ dans $]-1, 1[$,</p>
+        $$f'(x) = \frac{-1}{\sqrt{1-x^2}} + \frac{1}{\sqrt{1-x^2}} = 0.$$
+        <p>Donc $f$ est constante sur $[-1, 1]$ et pour $x$ dans $[-1, 1]$, $f(x) = f(0) = \frac{\pi}{2}$.</p>
+        <div class="formula-box">$\forall x \in [-1, 1], \arccos x + \arcsin x = \frac{\pi}{2}$.</div>
+        <p><b>2ème solution.</b> Il existe un unique réel $\theta$ dans $[0, \pi]$ tel que $x = \cos \theta$, à savoir $\theta = \arccos x$. Mais alors,</p>
+        $$\arccos x + \arcsin x = \theta + \arcsin\left(\sin\left(\frac{\pi}{2}-\theta\right)\right) = \theta + \frac{\pi}{2} - \theta = \frac{\pi}{2}$$
+        <p>(car $\frac{\pi}{2}-\theta$ est dans $[-\frac{\pi}{2}, \frac{\pi}{2}]$).</p>
+        
+        <p><b>2. 1ère solution.</b> Pour $x$ réel non nul, posons $f(x) = \arctan x + \arctan \frac{1}{x}$. $f$ est impaire. $f$ est dérivable sur $\mathbb{R}^*$ et pour tout réel $x$ non nul, $f'(x) = \frac{1}{1+x^2} - \frac{1}{x^2}\frac{1}{1+\frac{1}{x^2}} = 0$. $f$ est donc constante sur $]-\infty, 0[$ et sur $]0, +\infty[$ (mais pas nécessairement sur $\mathbb{R}^*$). Donc, pour $x > 0$, $f(x)=f(1)=2\arctan 1 = \frac{\pi}{2}$, et puisque $f$ est impaire, pour $x < 0$, $f(x)=-f(-x)=-\frac{\pi}{2}$. Donc,</p>
+        <div class="formula-box">
+        $\forall x \in \mathbb{R}^*, \arctan x + \arctan \frac{1}{x} = \begin{cases} \frac{\pi}{2} & \text{si } x > 0 \\ -\frac{\pi}{2} & \text{si } x < 0 \end{cases} = \frac{\pi}{2}\text{sgn}(x).$
+        </div>
+
+        <p><b>2ème solution.</b> Pour $x$ réel strictement positif donné, il existe un unique réel $\theta$ dans $]0, \frac{\pi}{2}[$ tel que $x=\tan\theta$ à savoir $\theta = \arctan x$. Mais alors,</p>
+        $$\arctan x + \arctan\frac{1}{x} = \theta + \arctan\left(\frac{1}{\tan\theta}\right) = \theta + \arctan\left(\tan\left(\frac{\pi}{2}-\theta\right)\right) = \theta + \frac{\pi}{2} - \theta = \frac{\pi}{2}$$
+        <p>(car $\theta$ et $\frac{\pi}{2}-\theta$ sont éléments de $]0, \frac{\pi}{2}[$).</p>
+        
+        <p><b>3.</b> $\cos^2(\arctan a) = \frac{1}{1+\tan^2(\arctan a)} = \frac{1}{1+a^2}$. De plus, $\arctan a$ est dans $]-\frac{\pi}{2}, \frac{\pi}{2}[$ et donc $\cos(\arctan a) > 0$. On en déduit que pour tout réel $a$, $\cos(\arctan a) = \frac{1}{\sqrt{1+a^2}}$ puis
+        $$\sin(\arctan a) = \cos(\arctan a) \tan(\arctan a) = \frac{a}{\sqrt{1+a^2}}.$$</p>
+        <div class="formula-box">
+            $\forall a \in \mathbb{R}, \cos(\arctan a) = \frac{1}{\sqrt{1+a^2}}$ et $\sin(\arctan a) = \frac{a}{\sqrt{1+a^2}}$.
+        </div>
+
+        <p><b>4.</b> D'après 3),</p>
+        $$\cos(\arctan a + \arctan b) = \cos(\arctan a)\cos(\arctan b) - \sin(\arctan a)\sin(\arctan b) = \frac{1-ab}{\sqrt{1+a^2}\sqrt{1+b^2}},$$
+        <p>ce qui montre déjà, puisque $ab \neq 1$, que $\cos(\arctan a + \arctan b) \neq 0$ et donc que $\tan(\arctan a + \arctan b)$ existe. On a immédiatement,</p>
+        $$\tan(\arctan a + \arctan b) = \frac{a+b}{1-ab}.$$
+        <p>Maintenant, $\arctan a + \arctan b$ est dans $]-\pi, -\frac{\pi}{2}[ \cup ]-\frac{\pi}{2}, \frac{\pi}{2}[ \cup ]\frac{\pi}{2}, \pi[$.</p>
+        <p><b>1er cas.</b> Si $ab < 1$ alors $\cos(\arctan a + \arctan b) > 0$ et donc $\arctan a + \arctan b$ est dans $]-\frac{\pi}{2}, \frac{\pi}{2}[$. Dans ce cas, $\arctan a + \arctan b = \arctan\left(\frac{a+b}{1-ab}\right)$.</p>
+        <p><b>2ème cas.</b> Si $ab > 1$ alors $\cos(\arctan a + \arctan b) < 0$ et donc $\arctan a + \arctan b$ est dans $]-\pi, -\frac{\pi}{2}[ \cup ]\frac{\pi}{2}, \pi[$. Si de plus $a > 0$, $\arctan a + \arctan b > -\frac{\pi}{2}$ et donc $\arctan a + \arctan b$ est dans $]\frac{\pi}{2}, \pi[$. Dans ce cas, $\arctan a + \arctan b - \pi$ est dans $]-\frac{\pi}{2}, \frac{\pi}{2}[$ et a même tangente que $\arctan \frac{a+b}{1-ab}$. Donc, $\arctan a + \arctan b = \arctan\frac{a+b}{1-ab} + \pi$. Si $a < 0$, on trouve de même $\arctan a + \arctan b = \arctan\frac{a+b}{1-ab} - \pi$.</p>
+        <p>En résumé,</p>
+        <div class="formula-box">
+        $\arctan a + \arctan b = \begin{cases} \arctan \frac{a+b}{1-ab} & \text{si } ab < 1 \\ \arctan \frac{a+b}{1-ab} + \pi & \text{si } ab > 1 \text{ et } a > 0 \\ \arctan \frac{a+b}{1-ab} - \pi & \text{si } ab > 1 \text{ et } a < 0 \end{cases}$
+        </div>
+        <div class="exercise-link">[ <a href="#exo2">Retour à l'énoncé</a> ]</div>
+    </div>
+    
+    <div class="container" id="corr3">
+        <div class="header"><span>Correction de l'exercice 3</span></div>
+        <div class="formula-box">
+            $\begin{array}{ll} \cosh(a+b) = \cosh a \cosh b + \sinh a \sinh b & \text{et } \cosh(a-b) = \cosh a \cosh b - \sinh a \sinh b, \\ \sinh(a+b) = \sinh a \cosh b + \cosh a \sinh b & \text{et } \sinh(a-b) = \sinh a \cosh b - \sinh b \cosh a, \\ \tanh(a+b) = \frac{\tanh a + \tanh b}{1+\tanh a \tanh b} & \text{et } \tanh(a-b) = \frac{\tanh a - \tanh b}{1-\tanh a \tanh b}. \end{array}$
+        </div>
+        <p><b>Deux démonstrations :</b></p>
+        <p>$\cosh a \cosh b + \sinh a \sinh b = \frac{1}{4}((e^a+e^{-a})(e^b+e^{-b}) + (e^a-e^{-a})(e^b-e^{-b})) = \frac{1}{2}(e^{a+b}+e^{-a-b}) = \cosh(a+b)$.</p>
+        <p>$\tanh(a+b) = \frac{\sinh(a+b)}{\cosh(a+b)} = \frac{\sinh a \cosh b + \sinh b \cosh a}{\cosh a \cosh b + \sinh a \sinh b} = \frac{\tanh a + \tanh b}{1+\tanh a \tanh b}$ après division du numérateur et du dénominateur par le nombre non nul $\cosh a \cosh b$. En appliquant à $a=b=x$, on obtient :</p>
+        <div class="formula-box">
+            $\forall x \in \mathbb{R}, \cosh(2x) = \cosh^2 x + \sinh^2 x = 2\cosh^2 x - 1 = 2\sinh^2 x + 1, \sinh(2x) = 2\sinh x \cosh x \text{ et } \tanh(2x) = \frac{2\tanh x}{1+\tanh^2 x}.$
+        </div>
+        <p>En additionnant entre elles les formules d'addition, on obtient les formules de linéarisation :</p>
+        <p>$\cosh a \cosh b = \frac{1}{2}(\cosh(a+b)+\cosh(a-b))$, $\sinh a \sinh b = \frac{1}{2}(\cosh(a+b)-\cosh(a-b))$ et $\sinh a \cosh b = \frac{1}{2}(\sinh(a+b)+\sinh(a-b))$, et en particulier</p>
+        <div class="formula-box">
+            $\cosh^2 x = \frac{\cosh(2x)+1}{2}$ et $\sinh^2 x = \frac{\cosh(2x)-1}{2}$.
+        </div>
+        <div class="exercise-link">[ <a href="#exo3">Retour à l'énoncé</a> ]</div>
+    </div>
+    
+    <div class="container" id="corr4">
+        <div class="header"><span>Correction de l'exercice 4</span></div>
+        <p>Pour $x$ réel, on pose $f(x) = \int_0^{\sin^2 x} \arcsin\sqrt{t}\,dt + \int_0^{\cos^2 x} \arccos\sqrt{t}\,dt$.</p>
+        <p>La fonction $t \mapsto \arcsin\sqrt{t}$ est continue sur $[0,1]$. Donc, la fonction $y \mapsto \int_0^y \arcsin\sqrt{t}\,dt$ est définie et dérivable sur $[0,1]$. De plus, $x \mapsto \sin^2 x$ est définie et dérivable sur $\mathbb{R}$ à valeurs dans $[0,1]$. Finalement, la fonction $x \mapsto \int_0^{\sin^2 x} \arcsin\sqrt{t}\,dt$ est définie et dérivable sur $\mathbb{R}$. De même, la fonction $t \mapsto \arccos\sqrt{t}$ est continue sur $[0,1]$. Donc, la fonction $y \mapsto \int_0^y \arccos\sqrt{t}\,dt$ est définie et dérivable sur $[0,1]$. De plus, la fonction $x \mapsto \cos^2 x$ est définie et dérivable sur $\mathbb{R}$, à valeurs dans $[0,1]$. Finalement, la fonction $x \mapsto \int_0^{\cos^2 x} \arccos\sqrt{t}\,dt$ est définie et dérivable sur $\mathbb{R}$. Donc, $f$ est définie et dérivable sur $\mathbb{R}$ et, pour tout réel $x$,</p>
+        $$ f'(x) = 2\sin x \cos x \arcsin(\sqrt{\sin^2 x}) - 2\sin x \cos x \arccos(\sqrt{\cos^2 x}) $$
+        $$ = 2\sin x \cos x (\arcsin(|\sin x|) - \arccos(|\cos x|)). $$
+        <p>On note alors que $f$ est $\pi$-périodique et paire. Pour $x$ élément de $[0, \frac{\pi}{2}]$, $f'(x) = 2\sin x \cos x (x-x)=0$. $f$ est donc constante sur $[0, \frac{\pi}{2}]$ et pour $x$ élément de $[0, \frac{\pi}{2}]$, $f(x)=f(\frac{\pi}{4}) = \int_0^{1/2} \arcsin\sqrt{t}\,dt + \int_0^{1/2} \arccos\sqrt{t}\,dt = \int_0^{1/2} \frac{\pi}{2}\,dt = \frac{\pi}{4}$. Mais alors, par parité et $\pi$-périodicité,</p>
+        <div class="formula-box">
+        $\forall x \in \mathbb{R}, \int_0^{\sin^2 x} \arcsin\sqrt{t}\,dt + \int_0^{\cos^2 x} \arccos\sqrt{t}\,dt = \frac{\pi}{4}.$
+        </div>
+        <div class="exercise-link">[ <a href="#exo4">Retour à l'énoncé</a> ]</div>
+    </div>
+
+    <div class="container" id="corr5">
+        <div class="header"><span>Correction de l'exercice 5</span></div>
+        <p><b>1. 1ère solution.</b> Pour tout réel $x$, $\sqrt{x^2+1} > \sqrt{x^2}=|x|$ et donc $-1 < \frac{x}{\sqrt{x^2+1}} < 1$. Ainsi $f_1$ est définie et dérivable sur $\mathbb{R}$, impaire, et pour tout réel $x$,</p>
+        $$ f_1'(x) = \left(\frac{1}{\sqrt{1-\frac{x^2}{x^2+1}}}\right) \left(\frac{1\sqrt{x^2+1}-x\frac{2x}{2\sqrt{x^2+1}}}{x^2+1}\right) = \frac{1}{\frac{1}{\sqrt{x^2+1}}} \frac{1}{(x^2+1)^{3/2}} = \frac{1}{1+x^2} = (\arctan)'(x). $$
+        <p>Donc il existe une constante réelle $C$ telle que pour tout réel $x$, $f_1(x) = \arctan x + C$. $x=0$ fournit $C=0$ et donc,</p>
+        <div class="formula-box">
+            $\forall x \in \mathbb{R}, \arcsin\left(\frac{x}{\sqrt{x^2+1}}\right) = \arctan x.$
+        </div>
+        <p><b>2ème solution.</b> Pour $x$ réel donné, posons $\theta = \arctan x$. $\theta$ est dans $]-\frac{\pi}{2}, \frac{\pi}{2}[$ et $x=\tan\theta$.</p>
+        $$ \frac{x}{\sqrt{x^2+1}} = \frac{\tan\theta}{\sqrt{1+\tan^2\theta}} = \sqrt{\cos^2\theta}\tan\theta = \cos\theta\tan\theta \text{ (car } \cos\theta > 0) = \sin\theta. $$
+        <p>et donc</p>
+        $$ f_1(x) = \arcsin(\sin\theta) = \theta \text{ (car } \theta \text{ est dans } ]-\frac{\pi}{2}, \frac{\pi}{2}[) = \arctan x. $$
+
+        <p><b>2. 1ère solution.</b> Pour tout réel $x$, $-1 \le -1+\frac{2}{1+x^2} = \frac{1-x^2}{1+x^2} \le 1$ (avec égalité si et seulement si $x=0$). $f_2$ est donc définie et continue sur $\mathbb{R}$, dérivable sur $\mathbb{R}^*$. Pour tout réel $x$ non nul,</p>
+        $$ f_2'(x) = -\frac{1}{\sqrt{1-(\frac{1-x^2}{1+x^2})^2}} \frac{-2x(1+x^2)-2x(1-x^2)}{(1+x^2)^2} = -\frac{1+x^2}{\sqrt{4x^2}} \frac{-4x}{(1+x^2)^2} = \frac{2\varepsilon}{1+x^2} $$
+        <p>où $\varepsilon$ est le signe de $x$. Donc il existe une constante réelle $C$ telle que pour tout réel positif $x$, $f_2(x) = 2\arctan x + C$ (y compris $x=0$ puisque $f$ est continue en $0$). $x=0$ fournit $C=0$ et donc, pour tout réel positif $x$, $f_2(x)=2\arctan x$. Par parité,</p>
+        <div class="formula-box">
+            $\forall x \in \mathbb{R}, \arccos\left(\frac{1-x^2}{1+x^2}\right) = 2\arctan|x|.$
+        </div>
+        <p><b>2ème solution.</b> Soit $x \in \mathbb{R}$ puis $\theta = \arctan x$. $\theta$ est dans $]-\frac{\pi}{2}, \frac{\pi}{2}[$ et $x=\tan\theta$.</p>
+        $$ \frac{1-x^2}{1+x^2} = \frac{1-\tan^2\theta}{1+\tan^2\theta} = \cos^2\theta(1-\tan^2\theta) = \cos^2\theta-\sin^2\theta = \cos(2\theta). $$
+        <p>Donc</p>
+        $$ f_2(x) = \arccos(\cos(2\theta)) = \begin{cases} 2\theta & \text{si } \theta \in [0, \frac{\pi}{2}[ \\ -2\theta & \text{si } \theta \in ]-\frac{\pi}{2}, 0] \end{cases} = \begin{cases} 2\arctan x & \text{si } x \ge 0 \\ -2\arctan x & \text{si } x \le 0 \end{cases} = 2\arctan|x|. $$
+        
+        <p><b>3.</b> La fonction $x \mapsto \arcsin\sqrt{1-x^2}$ est définie et continue sur $[-1,1]$, dérivable sur $[-1,1]\setminus\{0\}$ car pour $x$ élément de $[-1,1]$, $1-x^2$ est élément de $[0,1]$ et vaut $1$ si et seulement si $x$ vaut $0$. $\sqrt{\frac{1-x}{1+x}}$ est défini et positif si et seulement si $x$ est dans $]-1,1]$, et nul si et seulement si $x=1$. $f_3$ est donc définie et continue sur $]-1,1]$, dérivable sur $]-1,0[ \cup ]0,1[$. Pour $x$ dans $]-1,0[ \cup ]0,1[$, on note $\varepsilon$ le signe de $x$ et on a :</p>
+        $$ f_3'(x) = \frac{-x}{\sqrt{1-x^2}\sqrt{1-(1-x^2)}} - \frac{1}{1+\frac{1-x}{1+x}} \left(-\frac{1}{2}\sqrt{\frac{1+x}{1-x}} \frac{2}{(1+x)^2}\right) = -\frac{\varepsilon}{\sqrt{1-x^2}} + \frac{1}{2\sqrt{1-x^2}} $$
+        <p>Si $x$ est dans $]0,1[$, $f_3'(x) = -\frac{1}{\sqrt{1-x^2}} + \frac{1}{2\sqrt{1-x^2}} = -\frac{1}{2\sqrt{1-x^2}} = (-\frac{1}{2}\arcsin)'(x)$. Donc, il existe un réel $C$ tel que, pour tout $x$ de $[0,1]$ (par continuité) $f_3(x) = -\frac{1}{2}\arcsin x+C$. $x=1$ fournit $C=\frac{\pi}{4}$. Donc,</p>
+        <div class="formula-box">
+            $\forall x \in [0, 1], f_3(x) = \frac{\pi}{4} - \frac{1}{2}\arcsin x = \frac{1}{2}\arccos x.$
+        </div>
+        <p>Si $x$ est dans $]-1,0[$, $f_3'(x) = \frac{1}{\sqrt{1-x^2}} + \frac{1}{2\sqrt{1-x^2}} = \frac{3}{2\sqrt{1-x^2}} = (\frac{3}{2}\arcsin)'(x)$. Donc il existe un réel $C'$ tel que, pour tout $x$ de $]-1,0]$ (par continuité) $f_3(x) = \frac{3}{2}\arcsin x+C'$. $x=0$ fournit $\frac{\pi}{2}-\frac{\pi}{4} = \frac{\pi}{4} = C'$. Donc,</p>
+        <div class="formula-box">
+            $\forall x \in ]-1,0], f_3(x) = \frac{3}{2}\arcsin x + \frac{\pi}{4}.$
+        </div>
+
+        <p><b>4.</b> $f_4$ est dérivable sur $\mathscr{D}=\mathbb{R}\setminus\{-1,0\}$ et pour $x$ élément de $\mathscr{D}$, on a :</p>
+        $$ f_4'(x) = \frac{-4x}{4x^4+1} - \frac{-1}{(x-1)^2} \frac{1}{1+(\frac{x}{x-1})^2} + \frac{1\cdot x - (x+1)\cdot 1}{x^2} \frac{1}{1+(\frac{x+1}{x})^2} $$
+        $$ = -\frac{4x}{4x^4+1} + \frac{1}{2x^2-2x+1} - \frac{1}{2x^2+2x+1} = -\frac{4x}{4x^4+1} + \frac{4x}{(2x^2+1)^2-4x^2} = 0.$$
+        <p>$f_4$ est donc constante sur chacun des trois intervalles $]-\infty, -1[$, $]-1,0[$ et $]0, +\infty[$. Pour $x>0$, $f_4(x)=f_4(1)=0$. Pour $-1<x<0$, $f_4(x) = \lim_{t\to-1, t>-1} f(t) = \arctan\frac{1}{2} - (-\frac{\pi}{2}) + \arctan 2 = \frac{\pi}{2}+\frac{\pi}{2} = \pi$. Pour $x<-1$, $f_4(x) = \lim_{t\to-\infty} f(t)=0$ et donc</p>
+        <div class="formula-box">
+        $\forall x \in \mathbb{R}\setminus\{-1;0\}, f_4(x) = \begin{cases} 0 & \text{si } x \in ]-\infty, -1[ \cup ]0, +\infty[ \\ \pi & \text{si } x \in ]-1,0[ \end{cases}$
+        </div>
+        <div class="exercise-link">[ <a href="#exo5">Retour à l'énoncé</a> ]</div>
+    </div>
+    
+    <div class="container" id="corr6">
+        <div class="header"><span>Correction de l'exercice 6</span></div>
+        <p>$0 \le \arctan\frac{1}{2} + \arctan\frac{1}{5} < \arctan 1 + \arctan 1 = \frac{\pi}{2}$ et</p>
+        $$ \tan\left(\arctan\frac{1}{2}+\arctan\frac{1}{5}\right) = \frac{\frac{1}{2}+\frac{1}{5}}{1-\frac{1}{2}\times\frac{1}{5}} = \frac{7/10}{9/10} = \frac{7}{9}. $$
+        <p>Comme $\arctan\frac{1}{2} + \arctan\frac{1}{5} \in [0, \frac{\pi}{2}[$, on a donc $\arctan\frac{1}{2} + \arctan\frac{1}{5} = \arctan\frac{7}{9}$. De même, $\arctan\frac{7}{9} + \arctan\frac{1}{8} \in [0, \frac{\pi}{2}[$ et</p>
+        $$ \tan\left(\arctan\frac{7}{9}+\arctan\frac{1}{8}\right) = \frac{\frac{7}{9}+\frac{1}{8}}{1-\frac{7}{9}\times\frac{1}{8}} = \frac{65/72}{65/72} = 1. $$
+        <p>et donc $\arctan\frac{7}{9}+\arctan\frac{1}{8} = \arctan 1 = \frac{\pi}{4}$. Finalement,</p>
+        <div class="formula-box">
+            $\arctan\frac{1}{2} + \arctan\frac{1}{5} + \arctan\frac{1}{8} = \frac{\pi}{4}.$
+        </div>
+        <div class="exercise-link">[ <a href="#exo6">Retour à l'énoncé</a> ]</div>
+    </div>
+
+    <div class="container" id="corr7">
+        <div class="header"><span>Correction de l'exercice 7</span></div>
+        <p>(On va retrouver le résultat de l'exercice 2 dans un cas particulier)
+        Soient $a$ et $b$ deux réels positifs. Alors, $\arctan a \in [0, \frac{\pi}{2}[$, $\arctan b \in [0, \frac{\pi}{2}[$ et donc, $\arctan a - \arctan b \in ]-\frac{\pi}{2}, \frac{\pi}{2}[$. De plus,</p>
+        $$ \tan(\arctan a - \arctan b) = \frac{\tan(\arctan a) - \tan(\arctan b)}{1+\tan(\arctan a)\tan(\arctan b)} = \frac{a-b}{1+ab}, $$
+        <p>et donc, puisque $\arctan a - \arctan b \in ]-\frac{\pi}{2}, \frac{\pi}{2}[$,</p>
+        <div class="formula-box">
+            $\forall a \ge 0, \forall b \ge 0, \arctan a - \arctan b = \arctan\left(\frac{a-b}{1+ab}\right).$
+        </div>
+        <p>Soit alors $k$ un entier naturel non nul. $\arctan\frac{2}{k^2} = \arctan\frac{(k+1)-(k-1)}{1+(k-1)(k+1)} = \arctan(k+1) - \arctan(k-1)$ (puisque $k-1$ et $k+1$ sont positifs). Par suite, si $n$ est un entier naturel non nul donné,</p>
+        $$ u_n = \sum_{k=1}^n \arctan\frac{2}{k^2} = \sum_{k=1}^n (\arctan(k+1) - \arctan(k-1)) = \sum_{k=2}^{n+1} \arctan k - \sum_{k=0}^{n-1} \arctan k $$
+        $$ = \arctan(n+1) + \arctan n - \arctan 1 - \arctan 0 = \arctan(n+1) + \arctan n - \frac{\pi}{4}. $$
+        <p>La limite de $u_n$ vaut donc $\frac{\pi}{2}+\frac{\pi}{2}-\frac{\pi}{4} = \frac{3\pi}{4}$.</p>
+        <div class="formula-box">
+            $\lim_{n\to+\infty} u_n = \frac{3\pi}{4}.$
+        </div>
+        <div class="exercise-link">[ <a href="#exo7">Retour à l'énoncé</a> ]</div>
+    </div>
+    
+    <div class="container" id="corr8">
+        <div class="header"><span>Correction de l'exercice 8</span></div>
+        <ul>
+            <li>Pour tout réel $x$, $\cosh x > 0$. Donc $f$ est définie, continue et dérivable sur $\mathbb{R}$. Pour tout réel $x$,</li>
+            $$ f'(x) = \frac{\sinh x}{\cosh x} - 1 = \tanh x - 1 < 0. $$
+            <li>$f$ est donc strictement décroissante sur $\mathbb{R}$.</li>
+            <li><b>Etude en $-\infty$.</b> $\lim_{x\to-\infty} \cosh x = +\infty$ et donc $\lim_{x\to-\infty} f(x) = +\infty$. Cherchons une éventuelle droite asymptote.</li>
+            $$ f(x) = \ln\frac{e^x+e^{-x}}{2} - x = \ln(e^x+e^{-x}) - \ln 2 - x = \ln(e^{-x}(1+e^{2x})) - x - \ln 2 = -x+\ln(1+e^{2x}) - x - \ln 2 = -2x - \ln 2 + \ln(1+e^{2x}). $$
+            <p>Donc, $f(x) - (-2x-\ln 2) = \ln(1+e^{2x})$. Or, d'une part $\lim_{x\to-\infty} \ln(1+e^{2x}) = 0$ et donc la droite (D) d'équation $y=-2x-\ln 2$ est asymptote à la courbe représentative de $f$ en $-\infty$ et d'autre part, pour tout réel $x$, $\ln(1+e^{2x}) > 0$ et la courbe représentative de $f$ est strictement au dessus de (D) sur $\mathbb{R}$.</p>
+            <li><b>Etude en $+\infty$.</b></li>
+            $$ f(x) = \ln\frac{e^x+e^{-x}}{2} - x = \ln(e^x(1+e^{-2x})) - \ln 2 - x = x+\ln(1+e^{-2x}) - \ln 2 - x = -\ln 2 + \ln(1+e^{-2x}). $$
+            <p>et $f$ tend vers $-\ln 2$ quand $x$ tend vers $+\infty$.</p>
+        </ul>
+        <div class="exercise-link">[ <a href="#exo8">Retour à l'énoncé</a> ]</div>
+    </div>
+
+    <!-- The other corrections would follow in the same structured format -->
+<div class="container" id="corr9">
+    <div class="header"><span>Correction de l'exercice 9</span></div>
+    <p><b>1.</b> $f$ est définie et dérivable sur $\mathscr{D} = \mathbb{R} \setminus \{\frac{1}{2}\}$.</p>
+    <p><b>2.</b> Pour $x$ élément de $\mathscr{D}$,</p>
+    $$ f'(x) = 2x \arctan\left(\frac{1}{2x-1}\right) + (x^2-1) \frac{-\frac{2}{(2x-1)^2}}{1+\frac{1}{(2x-1)^2}} = 2x \arctan\left(\frac{1}{2x-1}\right) - \frac{2(x^2-1)}{(2x-1)^2+1} = 2x \arctan\left(\frac{1}{2x-1}\right) - \frac{x^2-1}{2x^2-2x+1}. $$
+    <p>De plus, pour $x$ non nul : $f'(x) = 2xg(x)$ où $g(x) = \arctan\left(\frac{1}{2x-1}\right) - \frac{x^2-1}{2x(2x^2-2x+1)}$.</p>
+    <p><b>3.</b> Pour $x$ élément de $\mathscr{D} \setminus \{0\}$,</p>
+    $$ g'(x) = -\frac{2}{(2x-1)^2+1} - \frac{1}{2} \frac{2x(2x^2-2x+1)-(x^2-1)(6x-2)}{x^2(2x^2-2x+1)^2} $$
+    $$ = -\frac{1}{2x^2-2x+1} - \frac{4x^3-4x^2+2x - (6x^3-2x^2-6x+2)}{2x^2(2x^2-2x+1)^2} = -\frac{2x^2(2x^2-2x+1)+(-2x^3-2x^2+8x-2)}{2x^2(2x^2-2x+1)^2} $$
+    $$ = -\frac{4x^4-4x^3+2x^2-2x^3-2x^2+8x-2}{2x^2(2x^2-2x+1)^2} = -\frac{2x^4-4x^3+9x^2-4x+1}{2x^2(2x^2-2x+1)^2}. $$
+    <p>Maintenant,</p>
+    $$ 2x^4 - 4x^3 + 9x^2 - 4x + 1 = 2x^2(x-1)^2 + 7x^2 - 4x + 1 = 2x^2(x-1)^2 + 7\left(x-\frac{2}{7}\right)^2 + \frac{3}{7} > 0. $$
+    <p>Donc, $g$ est strictement décroissante sur $]-\infty, 0[$, sur $]0, \frac{1}{2}[$ et sur $]\frac{1}{2}, +\infty[$. En $+\infty$, $g(x)$ tend vers $0$. Donc $g$ est strictement positive sur $]\frac{1}{2}, +\infty[$. Quand $x$ tend vers $\frac{1}{2}$ par valeurs inférieures, $g$ tend vers $-\frac{\pi}{2} + \frac{3}{2} < 0$ et quand $x$ tend vers $0$ par valeurs supérieures, $g(x)$ tend vers $+\infty$. Donc $g$ s'annule une et une seule fois sur l'intervalle $]0, \frac{1}{2}[$ en un certain réel $x_0$ de $]0, \frac{1}{2}[$. $g$ est de plus strictement négative sur $]x_0, \frac{1}{2}[$ et strictement positive sur $]0, x_0[$. Quand $x$ tend vers $-\infty$, $g(x)$ tend vers $0$. Donc $g$ est strictement négative sur $]-\infty, 0[$.</p>
+    <p><b>4.</b> Enfin, puisque $f'(x)=2xg(x)$ pour $x \ne 0$, on a les résultats suivants : sur $]-\infty, 0[$, $f'>0$, sur $]0, x_0[$, $f'>0$, sur $]x_0, \frac{1}{2}[$, $f'<0$, sur $]\frac{1}{2}, +\infty[$, $f'>0$. Comme $f(0)=\frac{\pi}{4}>0$ (par prolongement), on a donc : sur $]-\infty, x_0]$, $f' \ge 0$, sur $[x_0, \frac{1}{2}[$, $f'<0$ et sur $]\frac{1}{2}, +\infty[$, $f'>0$. $f$ est strictement croissante sur $]-\infty, x_0]$ et sur $]\frac{1}{2}, +\infty[$ et est strictement décroissante sur $[x_0, \frac{1}{2}[$.</p>
+    <div class="exercise-link">[ <a href="#exo9">Retour à l'énoncé</a> ]</div>
+</div>
+
+<div class="container" id="corr10">
+    <div class="header"><span>Correction de l'exercice 10</span></div>
+    <p>Soit $x$ un réel.</p>
+    $$ S = \sum_{k=1}^{100} \sinh(2+kx) = \frac{1}{2} \sum_{k=1}^{100} (e^{2+kx} - e^{-2-kx}) = \frac{1}{2} \left( e^2\sum_{k=1}^{100} (e^x)^k - e^{-2}\sum_{k=1}^{100} (e^{-x})^k \right). $$
+    <p>Si $x=0$ alors directement $S=100\sinh 2 \ne 0$. Si $x \ne 0$ alors $e^x \ne 1$ et $e^{-x} \ne 1$. Dans ce cas,</p>
+    $$ S = \frac{1}{2} \left( e^2 e^x \frac{1-e^{100x}}{1-e^x} - e^{-2}e^{-x} \frac{1-e^{-100x}}{1-e^{-x}} \right) = \frac{1}{2} \left( e^{x+2} \frac{1-e^{100x}}{1-e^x} + e^{-x-2} \frac{1-e^{-100x}}{e^{-x}(e^x-1)} \right). $$
+    <p>après multiplication du numérateur et du dénominateur de la deuxième fraction par $e^x$. Pour $x \ne 0$, on a donc :</p>
+    $$ S = 0 \Leftrightarrow e^{x+2}(1-e^{100x}) + e^{-x-2}(1-e^{-100x}) e^x = 0 \Leftrightarrow e^{x+2}(1-e^{100x}) + e^{-101x-2}(e^{100x}-1) = 0 $$
+    $$ \Leftrightarrow (1-e^{100x})(e^{x+2} - e^{-101x-2}) = 0 \Leftrightarrow e^{x+2} = e^{-101x-2} \text{ (car } x \ne 0) $$
+    $$ \Leftrightarrow x+2 = -101x-2 \Leftrightarrow x = -\frac{4}{102} = -\frac{2}{51}. $$
+    <div class="formula-box">
+        $\mathscr{S} = \left\{-\frac{2}{51}\right\}.$
+    </div>
+    <div class="exercise-link">[ <a href="#exo10">Retour à l'énoncé</a> ]</div>
+</div>
+
+<div class="container" id="corr11">
+    <div class="header"><span>Correction de l'exercice 11</span></div>
+    <p><b>1.</b> On a vu au 3 que pour tout réel $x$, $\tanh(2x) = \frac{2\tanh x}{1+\tanh^2 x}$ ce qui s'écrit pour $x$ non nul : $\frac{1}{\tanh(2x)} = \frac{1+\tanh^2 x}{2\tanh x} = \frac{1}{2\tanh x} + \frac{\tanh x}{2}$ ou encore $\frac{2}{\tanh(2x)} - \frac{1}{\tanh x} = \tanh x$.</p>
+    <div class="formula-box">
+        $\forall x \in \mathbb{R}^*, \tanh x = \frac{2}{\tanh(2x)} - \frac{1}{\tanh x}.$
+    </div>
+    <p><b>2.</b> Soient $n$ un entier naturel non nul et $x$ un réel non nul. D'après ce qui précède,</p>
+    $$ u_n = \sum_{k=0}^n 2^k \tanh(2^k x) = \sum_{k=0}^n 2^k \left( \frac{2}{\tanh(2^{k+1}x)} - \frac{1}{\tanh(2^k x)} \right) = \sum_{k=0}^n \left( \frac{2^{k+1}}{\tanh(2^{k+1}x)} - \frac{2^k}{\tanh(2^k x)} \right) $$
+    $$ = \frac{2^{n+1}}{\tanh(2^{n+1}x)} - \frac{2^0}{\tanh(2^0 x)} = \frac{2^{n+1}}{\tanh(2^{n+1}x)} - \frac{1}{\tanh x}. $$
+    <p>Ensuite, pour $x>0$, $\tanh(2^{n+1}x)$ tend vers $1$ quand $n$ tend vers l'infini. Donc $u_n$ tend vers $+\infty$. Pour $x<0$, $\tanh(2^{n+1}x)$ tend vers $-1$ quand $n$ tend vers l'infini. Donc $u_n$ tend vers $-\infty$.</p>
+    <div class="exercise-link">[ <a href="#exo11">Retour à l'énoncé</a> ]</div>
+</div>
+
+<div class="container" id="corr12">
+    <div class="header"><span>Correction de l'exercice 12</span></div>
+    <ol>
+        <li>Pour tout réel $x$ de $[-1,1]$, $\sin(2\arcsin x) = 2\sin(\arcsin x)\cos(\arcsin x) = 2x\sqrt{1-x^2}$.</li>
+        <li>Pour tout réel $x$ de $[-1,1]$, $\cos(2\arccos x) = 2\cos^2(\arccos x) - 1 = 2x^2 - 1$.</li>
+        <li>Pour tout réel $x$ de $[-1,1]$, $\sin^2\left(\frac{1}{2}\arccos x\right) = \frac{1}{2}(1-\cos(\arccos x)) = \frac{1-x}{2}$.</li>
+        <li>Soit $x \in \mathbb{R}$. $\sqrt{x^2+1} > \sqrt{x^2} = |x| = \max\{x, -x\}$. Donc, $\sqrt{x^2+1}+x > 0$ et $\sqrt{x^2+1}-x > 0$. L'expression proposée existe pour tout réel $x$. De plus,
+        $$ \ln(\sqrt{x^2+1}+x) + \ln(\sqrt{x^2+1}-x) = \ln((\sqrt{x^2+1}+x)(\sqrt{x^2+1}-x)) = \ln(x^2+1-x^2) = \ln 1 = 0. $$</li>
+        <li>L'expression proposée est définie sur $\mathbb{R}^*$ et impaire. Soit alors $x > 0$.
+        $$ \text{argsh}\left(\frac{x^2-1}{2x}\right) = \ln\left(\frac{x^2-1}{2x} + \sqrt{\left(\frac{x^2-1}{2x}\right)^2+1}\right) = \ln\left(\frac{x^2-1+\sqrt{x^4-2x^2+1+4x^2}}{2x}\right) $$
+        $$ = \ln\left(\frac{x^2-1+\sqrt{(x^2+1)^2}}{2x}\right) = \ln\left(\frac{x^2-1+x^2+1}{2x}\right) = \ln x. $$
+        Par imparité, si $x < 0$, $\text{argsh}(\frac{x^2-1}{2x}) = -\ln(-x)$. En résumé, en notant $\varepsilon$ le signe de $x$,
+        <div class="formula-box">$\forall x \in \mathbb{R}^*, \text{argsh}\left(\frac{x^2-1}{2x}\right) = \varepsilon \ln|x|$.</div></li>
+        <li>L'expression proposée existe si et seulement si $2x^2-1 \in [1, +\infty[$ ou encore $x^2 \in [1, +\infty[$ ou enfin $x \in ]-\infty, -1] \cup [1, +\infty[$. Cette expression est paire. Soit donc $x \in [1, +\infty[$.
+        $$ \text{argch}(2x^2-1) = \ln(2x^2-1 + \sqrt{(2x^2-1)^2-1}) = \ln(2x^2-1 + \sqrt{4x^4-4x^2}) = \ln(2x^2-1+2x\sqrt{x^2-1}) = \ln((x+\sqrt{x^2-1})^2) $$
+        $$ = 2\ln(x+\sqrt{x^2-1}) = 2\text{argch}x. $$
+        Par parité, on en déduit que
+        <div class="formula-box">$\forall x \in ]-\infty,-1]\cup[1,+\infty[, \text{argch}(2x^2-1) = 2\text{argch}|x|$.</div></li>
+        <li>Soit $x \in \mathbb{R}$. $\text{argth}\sqrt{\frac{\cosh x-1}{\cosh x+1}}$ existe $\Leftrightarrow \frac{\cosh x-1}{\cosh x+1} \in [0,1[$. C'est le cas pour tout $x$ car $\cosh x \ge 1$. L'expression est paire. Pour $x\ge 0$, $\sinh x \ge 0$.
+        $$ \frac{1+\sqrt{\frac{\cosh x-1}{\cosh x+1}}}{1-\sqrt{\frac{\cosh x-1}{\cosh x+1}}} = \frac{\sqrt{\cosh x+1}+\sqrt{\cosh x-1}}{\sqrt{\cosh x+1}-\sqrt{\cosh x-1}} = \frac{(\sqrt{\cosh x+1}+\sqrt{\cosh x-1})^2}{(\cosh x+1)-(\cosh x-1)} = \frac{2\cosh x+2\sqrt{\cosh^2 x-1}}{2} = \cosh x + \sinh x = e^x. $$
+        Par suite, pour $x \ge 0$, $\text{argth}\sqrt{\frac{\cosh x-1}{\cosh x+1}} = \frac{1}{2}\ln(e^x) = \frac{x}{2}$. Par parité,
+        <div class="formula-box">$\forall x \in \mathbb{R}, \text{argth}\left(\sqrt{\frac{\cosh x-1}{\cosh x+1}}\right) = \frac{|x|}{2}$.</div>
+        (Remarque. Pour 5), 6) et 7), on peut aussi dériver chaque expression)</li>
+        <li>Pour $x > 0$,
+        $$ \frac{\cosh(\ln x) + \sinh(\ln x)}{x} = \frac{e^{\ln x}}{x} = \frac{x}{x} = 1. $$</li>
+    </ol>
+    <div class="exercise-link">[ <a href="#exo12">Retour à l'énoncé</a> ]</div>
+</div>
+
+<div class="container" id="corr13">
+    <div class="header"><span>Correction de l'exercice 13</span></div>
+    <ol>
+        <li>$\cosh x = 2 \Leftrightarrow x = \pm \text{argch} 2 = \pm\ln(2+\sqrt{2^2-1}) = \pm\ln(2+\sqrt{3})$. Les solutions sont $\ln(2+\sqrt{3})$ et $-\ln(2+\sqrt{3})$ (ou encore $\ln(2-\sqrt{3})$ car $(2+\sqrt{3})(2-\sqrt{3})=1$).</li>
+        <li>Une solution est nécessairement dans $[-\frac{1}{2}, \frac{1}{2}]$. Soit donc $x \in [-\frac{1}{2}, \frac{1}{2}]$.
+        $$ \arcsin(2x) = \arcsin x + \arcsin(x\sqrt{2}) \Rightarrow \sin(\arcsin(2x)) = \sin(\arcsin x + \arcsin(x\sqrt{2})) $$
+        $$ \Rightarrow 2x = x\sqrt{1-(x\sqrt{2})^2} + x\sqrt{2}\sqrt{1-x^2} \Leftrightarrow x=0 \text{ ou } 2 = \sqrt{1-2x^2} + \sqrt{2-2x^2} $$
+        $$ \Leftrightarrow x=0 \text{ ou } 4 = 1-2x^2+2-2x^2+2\sqrt{(1-2x^2)(2-2x^2)} $$
+        $$ \Leftrightarrow x=0 \text{ ou } 2\sqrt{4x^4-6x^2+2} = 1+4x^2 \Leftrightarrow x=0 \text{ ou } 4(4x^4-6x^2+2)=(1+4x^2)^2 $$
+        $$ \Leftrightarrow x=0 \text{ ou } 16x^4-24x^2+8 = 1+8x^2+16x^4 \Leftrightarrow x=0 \text{ ou } 32x^2=7 \Leftrightarrow x=0 \text{ ou } x=\pm\sqrt{\frac{7}{32}}. $$
+        Réciproquement, pour chacun de ces trois nombres $x$, la seule implication écrite est une équivalence si $x$ est dans $[-\frac{1}{2}, \frac{1}{2}]$ (ce qui est le cas puisque $(\pm\sqrt{\frac{7}{32}})^2 = \frac{7}{32} < \frac{8}{32} = (\frac{1}{2})^2$) et $\arcsin x + \arcsin(x\sqrt{2})$ est dans $[-\frac{\pi}{2}, \frac{\pi}{2}]$. Mais,
+        $$ 0 \le \arcsin\sqrt{\frac{7}{32}} + \arcsin\left(\sqrt{\frac{7}{32}}\sqrt{2}\right) = \arcsin\sqrt{\frac{7}{32}} + \arcsin\sqrt{\frac{7}{16}} < 2\arcsin\sqrt{\frac{8}{16}} = 2\arcsin\frac{1}{\sqrt{2}} = \frac{\pi}{2}. $$
+        et donc $\arcsin\sqrt{\frac{7}{32}} + \arcsin(\sqrt{\frac{7}{32}}\sqrt{2}) \in [0, \frac{\pi}{2}]$. De même, par parité, $\arcsin(-\sqrt{\frac{7}{32}}) + \arcsin(-\sqrt{\frac{7}{32}}\sqrt{2}) \in [-\frac{\pi}{2}, 0]$ ce qui achève la résolution.
+        <div class="formula-box">$\mathscr{S} = \left\{0, \sqrt{\frac{7}{32}}, -\sqrt{\frac{7}{32}}\right\}.$</div></li>
+        <li>Soit $x \in \mathbb{R}$. $\arcsin x$ existe si et seulement si $x \in [-1,1]$. Ensuite,
+        $$ \arcsin(2x\sqrt{1-x^2}) \text{ existe } \Leftrightarrow x \in [-1,1] \text{ et } 2x\sqrt{1-x^2} \in [-1,1] $$
+        $$ \Leftrightarrow x \in [-1,1] \text{ et } 4x^2(1-x^2) \in [0,1] \Leftrightarrow x \in [-1,1] \text{ et } 4x^2(1-x^2) \le 1 $$
+        $$ \Leftrightarrow x \in [-1,1] \text{ et } 4x^4-4x^2+1 \ge 0 \Leftrightarrow x \in [-1,1] \text{ et } (2x^2-1)^2 \ge 0 \Leftrightarrow x \in [-1,1]. $$
+        Pour $x \in [-1,1]$, $\sin(2\arcsin x) = 2\sin(\arcsin x)\cos(\arcsin x) = 2x\sqrt{1-x^2} = \sin(\arcsin(2x\sqrt{1-x^2}))$, et de plus, $\arcsin(2x\sqrt{1-x^2}) \in [-\frac{\pi}{2}, \frac{\pi}{2}]$. Par suite,
+        $$ x \text{ solution } \Leftrightarrow x \in [-1,1] \text{ et } 2\arcsin(x) \in [-\frac{\pi}{2}, \frac{\pi}{2}] $$
+        $$ \Leftrightarrow x \in [-1,1] \text{ et } \arcsin(x) \in [-\frac{\pi}{4}, \frac{\pi}{4}] \Leftrightarrow x \in \left[-\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\right]. $$
+        <div class="formula-box">$\mathscr{S} = \left[-\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\right].$</div></li>
+    </ol>
+    <div class="exercise-link">[ <a href="#exo13">Retour à l'énoncé</a> ]</div>
+</div>
+</body>
+</html>
