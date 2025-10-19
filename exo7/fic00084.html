@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logique, ensembles et applications - Exercices</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <style>
+        /* Optimisation mobile */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            padding: 10px;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+        }
+        header {
+            padding: 10px 0;
+            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+        .header-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #e67e22; /* Exo7 color */
+        }
+        .exercise, .correction {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow-x: auto; /* Handle wide formulas */
+        }
+        .correction {
+            background-color: #fcfcfc;
+            border-left: 5px solid #3498db;
+        }
+        .exo-title {
+            font-weight: bold;
+            display: inline;
+        }
+        .difficulty {
+            font-size: 0.8em;
+            color: #e74c3c;
+            margin-left: 5px;
+        }
+        .correction-link, .exercise-link {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+            display: block;
+            margin-top: 10px;
+            padding: 5px 0;
+        }
+        .correction-link::before {
+            content: "▼ ";
+            font-size: 0.8em;
+        }
+        .page-break {
+            margin: 30px 0;
+            border-top: 1px dashed #ccc;
+        }
+        /* KaTeX specific styling for better mobile display */
+        .katex-display {
+            padding: 10px 0;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+
+    <header>
+        <span style="float: right;" class="header-title">Exo7</span>
+        <h1>Logique, ensembles et applications</h1>
+        <p>Exercices de Jean-Louis Rouget. Retrouver aussi cette fiche sur <a href="http://www.maths-france.fr">www.maths-france.fr</a></p>
+        <p style="font-size: 0.9em; color: #777;">
+            * très facile ** facile *** difficulté moyenne **** difficile ***** très difficile<br>
+            I: Incontournable T: pour travailler et mémoriser le cours
+        </p>
+    </header>
+
+    <h2>Énoncés</h2>
+
+    <div class="exercise" id="exo-1">
+        <p class="exo-title">Exercice 1 <span class="difficulty">**IT</span></p>
+        <p>Exprimer à l'aide de quantificateurs les phrases suivantes puis donner leur négation.</p>
+        <ol>
+            <li>
+                ($f$ étant une application du plan dans lui-même)
+                <ol type="a">
+                    <li>$f$ est l'identité du plan.</li>
+                    <li>$f$ a au moins un point invariant (on dit aussi point fixe).</li>
+                </ol>
+            </li>
+            <li>
+                ($f$ étant une application de $\mathbb{R}$ dans $\mathbb{R}$)
+                <ol type="a">
+                    <li>$f$ est l'application nulle.</li>
+                    <li>L'équation $f(x) = 0$ a une solution.</li>
+                    <li>L'équation $f(x) = 0$ a exactement une solution.</li>
+                </ol>
+            </li>
+            <li>
+                ($(u_n)_{n \in \mathbb{N}}$ étant une suite réelle)
+                <ol type="a">
+                    <li>La suite $(u_n)_{n \in \mathbb{N}}$ est bornée.</li>
+                    <li>La suite $(u_n)_{n \in \mathbb{N}}$ est croissante.</li>
+                    <li>La suite $(u_n)_{n \in \mathbb{N}}$ est monotone.</li>
+                </ol>
+            </li>
+        </ol>
+        <a href="#corr-1" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-2">
+        <p class="exo-title">Exercice 2 <span class="difficulty">*IT</span></p>
+        <p>Donner la négation des phrases suivantes</p>
+        <ol>
+            <li>$x \geq 3$</li>
+            <li>$0 < x \leq 2$.</li>
+        </ol>
+        <a href="#corr-2" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-3">
+        <p class="exo-title">Exercice 3 <span class="difficulty">**IT</span></p>
+        <p>Les phrases suivantes sont-elles équivalentes ?</p>
+        <ol>
+            <li>$$\forall x \in \mathbb{R}, (f(x) = 0 \text{ et } g(x) = 0) \Leftrightarrow (\forall x \in \mathbb{R}, f(x) = 0) \text{ et } (\forall x \in \mathbb{R}, g(x) = 0)$$</li>
+            <li>$$\forall x \in \mathbb{R}, (f(x) = 0 \text{ ou } g(x) = 0) \Leftrightarrow (\forall x \in \mathbb{R}, f(x) = 0) \text{ ou } (\forall x \in \mathbb{R}, g(x) = 0)$$</li>
+        </ol>
+        <p>Donner un exemple de fonctions $f$ et $g$ de $\mathbb{R}$ dans $\mathbb{R}$, toutes deux non nulles et dont le produit est nul.</p>
+        <a href="#corr-3" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-4">
+        <p class="exo-title">Exercice 4 <span class="difficulty">**IT</span></p>
+        <p>Dans chacun des cas suivants, déterminer $f(I)$ puis vérifier que $f$ réalise une bijection de $I$ sur $J = f(I)$ puis préciser $f^{-1}$ :</p>
+        <ol>
+            <li>$f(x) = x^2 - 4x + 3, I = ]-\infty, 2]$.</li>
+            <li>$f(x) = \frac{2x-1}{x+2}, I = ]-2, +\infty[$.</li>
+            <li>$f(x) = \sqrt{2x+3} - 1, I = [-\frac{3}{2}, +\infty[$.</li>
+            <li>$f(x) = \frac{x}{1+|x|}, I = \mathbb{R}$.</li>
+        </ol>
+        <a href="#corr-4" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-5">
+        <p class="exo-title">Exercice 5 <span class="difficulty">**IT</span></p>
+        <p>Pour $z \neq i$, on pose $f(z) = \frac{z+i}{z-i}$. Montrer que $f$ réalise une bijection de $D = \{z \in \mathbb{C}/ |z| < 1\}$ sur $P = \{z \in \mathbb{C}/ \operatorname{Re}(z) < 0\}$. Préciser $f^{-1}$.</p>
+        <a href="#corr-5" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-6">
+        <p class="exo-title">Exercice 6 <span class="difficulty">**T</span></p>
+        <p>Montrer par récurrence que, pour tout $n \in \mathbb{N}^*$, $$\sum_{k=1}^n \frac{1}{k(k+1)(k+2)} = \frac{n(n+3)}{4(n+1)(n+2)}$$ Trouver une démonstration directe.</p>
+        <a href="#corr-6" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-7">
+        <p class="exo-title">Exercice 7 <span class="difficulty">***I</span></p>
+        <ol>
+            <li>Montrer par récurrence que, pour tout naturel non nul $n$, $\sum_{k=1}^n k = \frac{n(n+1)}{2}$. En calculant la différence $(k + 1)^2 - k^2$, trouver une démonstration directe de ce résultat.</li>
+            <li>Calculer de même les sommes $\sum_{k=1}^n k^2$, $\sum_{k=1}^n k^3$ et $\sum_{k=1}^n k^4$ (et mémoriser les résultats).</li>
+            <li>On pose $S_p = \sum_{k=1}^n k^p$. Déterminer une relation de récurrence permettant de calculer les $S_p$ de proche en proche.</li>
+        </ol>
+        <a href="#corr-7" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-8">
+        <p class="exo-title">Exercice 8 <span class="difficulty">*IT</span></p>
+        <p>Montrer que : ($g \circ f$ injective $\Rightarrow f$ injective) et ($g \circ f$ surjective $\Rightarrow g$ surjective).</p>
+        <a href="#corr-8" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-9">
+        <p class="exo-title">Exercice 9 <span class="difficulty">**T</span></p>
+        <p>Parmi $f \circ g \circ h, g \circ h \circ f$ et $h \circ f \circ g$ deux sont injectives et une est surjective. Montrer que $f, g$ et $h$ sont bijectives.</p>
+        <a href="#corr-9" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-10">
+        <p class="exo-title">Exercice 10 <span class="difficulty">**T</span></p>
+        <p>$A$ et $B$ sont des parties d'un ensemble $E$. Montrer que :</p>
+        <ol>
+            <li>$$(A \Delta B = A \cap B) \Leftrightarrow (A = B = \emptyset)$$</li>
+            <li>$$(A \cup B) \cap (B \cup C) \cap (C \cup A) = (A \cap B) \cup (B \cap C) \cup (C \cap A)$$</li>
+            <li>$$A \Delta B = B \Delta A$$</li>
+            <li>$$(A \Delta B) \Delta C = A \Delta (B \Delta C)$$</li>
+            <li>$$A \Delta B = \emptyset \Leftrightarrow A = B$$</li>
+            <li>$$A \Delta C = B \Delta C \Leftrightarrow A = B$$</li>
+        </ol>
+        <a href="#corr-10" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-11">
+        <p class="exo-title">Exercice 11 <span class="difficulty">***IT</span></p>
+        <p>Soient $(A_i)_{i \in I}$ une famille de parties d'un ensemble $E$ indexée par un ensemble $I$ et $(B_i)_{i \in I}$ une famille de parties d'un ensemble $F$ indexée par un ensemble $I$. Soit $f$ une application de $E$ vers $F$. Comparer du point de vue de l'inclusion les parties suivantes :</p>
+        <ol>
+            <li>$$f(\bigcup_{i \in I} A_i) \text{ et } \bigcup_{i \in I} f(A_i) \text{ (recommencer par } f(A \cup B) \text{ si on n'a pas les idées claires).}$$</li>
+            <li>$$f(\bigcap_{i \in I} A_i) \text{ et } \bigcap_{i \in I} f(A_i)$$</li>
+            <li>$$f(E \setminus A_i) \text{ et } F \setminus f(A_i)$$</li>
+            <li>$$f^{-1}(\bigcap_{i \in I} B_i) \text{ et } \bigcap_{i \in I} f^{-1}(B_i)$$</li>
+            <li>$$f^{-1}(\bigcup_{i \in I} B_i) \text{ et } \bigcup_{i \in I} f^{-1}(B_i)$$</li>
+            <li>$$f^{-1}(F \setminus B_i) \text{ et } E \setminus f^{-1}(B_i)$$</li>
+        </ol>
+        <a href="#corr-11" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-12">
+        <p class="exo-title">Exercice 12 <span class="difficulty">***IT</span></p>
+        <p>Montrer que les assertions suivantes sont équivalentes ($f$ est une application d'un ensemble $E$ dans lui-même) :</p>
+        <ol>
+            <li>$f$ est injective.</li>
+            <li>$$\forall X \in \mathcal{P}(E), f^{-1}(f(X)) = X$$</li>
+            <li>$$\forall (X,Y) \in \mathcal{P}(E)^2, f(X \cap Y) = f(X) \cap f(Y)$$</li>
+            <li>$$\forall (X,Y) \in \mathcal{P}(E)^2, X \cap Y = \emptyset \Rightarrow f(X) \cap f(Y) = \emptyset$$</li>
+            <li>$$\forall (X,Y) \in \mathcal{P}(E)^2, Y \subset X \Rightarrow f(X \setminus Y) = f(X) \setminus f(Y)$$</li>
+        </ol>
+        <a href="#corr-12" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-13">
+        <p class="exo-title">Exercice 13 <span class="difficulty">*****</span></p>
+        <p>$k$ est un entier impair. Montrer par récurrence que, pour $n \geq 1$, la somme $1^k + 2^k + \dots + n^k$ est un entier divisible par $\frac{n(n+1)}{2}$.</p>
+        <a href="#corr-13" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-14">
+        <p class="exo-title">Exercice 14 <span class="difficulty">****</span></p>
+        <p>Pour $n \geq 1$, on pose $H_n = \sum_{k=1}^n \frac{1}{k}$. Montrer que, pour $n \geq 2$, $H_n$ n'est jamais un entier (indication : montrer par récurrence que $H_n$ est le quotient d'un entier impair par un entier pair en distinguant les cas où $n$ est pair et $n$ est impair).</p>
+        <a href="#corr-14" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-15">
+        <p class="exo-title">Exercice 15 <span class="difficulty">***I</span> Théorème de CANTOR</p>
+        <ol>
+            <li>Montrer qu'il existe une injection de $E$ dans $\mathcal{P}(E)$.</li>
+            <li>En considérant la partie $A = \{x \in E / x \notin f(x)\}$, montrer qu'il n'existe pas de bijection $f$ de $E$ sur $\mathcal{P}(E)$.</li>
+        </ol>
+        <a href="#corr-15" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-16">
+        <p class="exo-title">Exercice 16 <span class="difficulty">****</span> Une bijection entre $\mathbb{N}^2$ et $\mathbb{N}$</p>
+        <p>Soit $$f: \begin{array}{ccc} \mathbb{N}^2 & \to & \mathbb{N} \\ (x,y) & \mapsto & y + \frac{(x+y)(x+y+1)}{2} \end{array}$$ Montrer que $f$ est une bijection. Préciser, pour $n \in \mathbb{N}$ donné, le couple $(x, y)$ dont il est l'image.</p>
+        <a href="#corr-16" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+    <h2>Corrections</h2>
+
+    <div class="correction" id="corr-1">
+        <p class="exo-title"><a href="#exo-1" class="exercise-link">Correction de l'exercice 1</a></p>
+        <ol>
+            <li>
+                <ol type="a">
+                    <li>$f$ est l'identité du plan : $$\forall M \in \mathcal{P}, f(M) = M$$ Négation : $$\exists M \in \mathcal{P}/ f(M) \neq M$$</li>
+                    <li>$f$ a au moins un point fixe : $$\exists M \in \mathcal{P} / f(M) = M$$ Négation : $$\forall M \in \mathcal{P}, f(M) \neq M$$</li>
+                </ol>
+                <p>Constatez que les phrases $f(M) = M$ ou $f(M) \neq M$ n'ont aucun sens si elles ne sont pas accompagnées de quantificateurs.</p>
+            </li>
+            <li>
+                <ol type="a">
+                    <li>$f$ est l'application nulle : $$\forall x \in \mathbb{R}, f(x) = 0$$ Négation : $$\exists x \in \mathbb{R}/ f(x) \neq 0$$</li>
+                    <li>L'équation $f(x) = 0$ a (au moins) une solution : $$\exists x \in \mathbb{R}/ f(x) = 0$$ Négation : $$\forall x \in \mathbb{R}/ f(x) \neq 0$$</li>
+                    <li>L'équation $f(x) = 0$ a exactement une solution : $$\exists! x \in \mathbb{R}/ f(x) = 0$$ Négation : L'équation $f(x) = 0$ n'a pas exactement une solution.
+                        $$\forall x \in \mathbb{R}, f(x) \neq 0 \text{ ou } \exists (x, x') \in \mathbb{R}^2/ (x \neq x' \text{ et } f(x) = f(x') = 0)$$</li>
+                </ol>
+            </li>
+            <li>
+                <ol type="a">
+                    <li>La suite $(u_n)_{n \in \mathbb{N}}$ est bornée : $$\exists M \in \mathbb{R}/ \forall n \in \mathbb{N}, |u_n| \leq M$$ Négation : $$\forall M \in \mathbb{R}/ \exists n \in \mathbb{N}, |u_n| > M$$</li>
+                    <li>La suite $(u_n)_{n \in \mathbb{N}}$ est croissante : $$\forall n \in \mathbb{N}, u_{n+1} \geq u_n$$ Négation : $$\exists n \in \mathbb{N}/ u_{n+1} < u_n$$</li>
+                    <li>La suite $(u_n)_{n \in \mathbb{N}}$ est monotone : $$(\forall n \in \mathbb{N}/ u_{n+1} \geq u_n) \text{ ou } (\forall n \in \mathbb{N}/ u_{n+1} \leq u_n)$$ Négation : La suite n'est pas monotone.
+                        $$(\exists n \in \mathbb{N}/ u_{n+1} < u_n) \text{ et } (\exists n \in \mathbb{N}/ u_{n+1} > u_n)$$</li>
+                </ol>
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-2">
+        <p class="exo-title"><a href="#exo-2" class="exercise-link">Correction de l'exercice 2</a></p>
+        <ol>
+            <li>Le contraire de $x \geq 3$ est $x < 3$.</li>
+            <li>Le contraire de $0 < x \leq 2$ est $(x \leq 0) \text{ ou } (x > 2)$.</li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-3">
+        <p class="exo-title"><a href="#exo-3" class="exercise-link">Correction de l'exercice 3</a></p>
+        <ol>
+            <li>Oui. Dans les deux cas, chaque fois que l'on se donne un réel $x_0$, $f(x_0)$ et $g(x_0)$ sont tous deux nuls.</li>
+            <li>Non. La deuxième affirmation implique la première mais la première n'implique pas la deuxième. La première phrase est la traduction avec des quantificateurs de l'égalité $fg = 0$. La deuxième phrase est la traduction avec quantificateurs de ($f = 0$ ou $g = 0$).</li>
+        </ol>
+        <p>Voici un exemple de fonctions $f$ et $g$ toutes deux non nulles dont le produit est nul. Soient
+        $$f: \mathbb{R} \to \mathbb{R}, x \mapsto \begin{cases} 0 \text{ si } x < 0 \\ x \text{ si } x \geq 0 \end{cases} \quad \text{et} \quad g: \mathbb{R} \to \mathbb{R}, x \mapsto \begin{cases} 0 \text{ si } x > 0 \\ x \text{ si } x \leq 0 \end{cases}$$
+        Pour chaque valeur de $x$, on a soit $f(x) = 0$ (quand $x < 0$), soit $g(x) = 0$ (quand $x \geq 0$). On a donc : $\forall x \in \mathbb{R}, (f(x) = 0 \text{ ou } g(x) = 0)$ ou encore $\forall x \in \mathbb{R}, f(x)g(x) = 0$ ou enfin, $fg = 0$.
+        Cependant, $f(1) = 1 \neq 0$ et donc $f \neq 0$, et $g(-1) = -1 \neq 0$ et donc $g \neq 0$.
+        Ainsi, on n'a pas ($f = 0 \text{ ou } g = 0$) ou encore, on n'a pas $((\forall x \in \mathbb{R}, f(x) = 0) \text{ ou } (\forall x \in \mathbb{R}, g(x) = 0))$.</p>
+    </div>
+
+    <div class="correction" id="corr-4">
+        <p class="exo-title"><a href="#exo-4" class="exercise-link">Correction de l'exercice 4</a></p>
+        <ol>
+            <li>$f$ est dérivable sur $I = ]-\infty, 2]$, et pour $x \in ]-\infty, 2[, f'(x) = 2x-4 < 0$. $f$ est donc continue et strictement décroissante sur $]-\infty, 2]$. Par suite, $f$ réalise une bijection de $]-\infty, 2]$ sur $f(]-\infty, 2]) = [f(2), \lim_{x \to -\infty} f[ = [-1, +\infty[= J$.
+                On note $g$ l'application de $I$ dans $J$. Déterminons $g^{-1}$. Soit $y \in [-1, +\infty[$ et $x \in ]-\infty, 2]$.
+                $$y = g(x) \Leftrightarrow y = x^2 - 4x + 3 \Leftrightarrow x^2 - 4x + 3 - y = 0$$
+                Le discriminant réduit est $\Delta' = 4 - (3 - y) = y + 1 \geq 0$. Donc, $x = 2 + \sqrt{y + 1}$ ou $x = 2 - \sqrt{y + 1}$.
+                Enfin, $x \in ]-\infty, 2]$ et donc, $x = 2 - \sqrt{y + 1}$.
+                En résumé, $g^{-1}: [-1, +\infty[ \to ]-\infty, 2], x \mapsto 2 - \sqrt{x+1}$.
+            </li>
+            <li>On vérifie facilement que $f$ réalise une bijection de $]-2, +\infty[$ sur $]-\infty, 2[$, notée $g$. Soient alors $x \in ]-2, +\infty[$ et $y \in ]-\infty, 2[$.
+                $$y = g(x) \Leftrightarrow y = \frac{2x-1}{x+2} \Leftrightarrow x(y-2) = -2y-1 \Leftrightarrow x = \frac{2y+1}{2-y}$$
+                En résumé, $g^{-1}: ]-\infty, 2[ \to ]-2, +\infty[, x \mapsto \frac{2x+1}{2-x}$.
+            </li>
+            <li>$f$ est continue et strictement croissante sur $[-\frac{3}{2}, +\infty[$. $f$ est donc bijective de $[-\frac{3}{2}, +\infty[$ sur $f([-\frac{3}{2}, +\infty[) = [f(-\frac{3}{2}), \lim_{x \to +\infty} f[ = [-1, +\infty[$. Notons encore $f$ l'application de $[-\frac{3}{2}, +\infty[$ dans $[-1, +\infty[$ qui à $x$ associe $\sqrt{2x+3} - 1$.
+                Soient alors $x \in [-\frac{3}{2}, +\infty[$ et $y \in [-1, +\infty[$.
+                $$f(x) = y \Leftrightarrow \sqrt{2x+3} - 1 = y \Leftrightarrow x = \frac{1}{2}((y+1)^2 - 3) \Leftrightarrow x = \frac{y^2}{2} + y - 1$$
+                En résumé, $g^{-1}: [-1, +\infty[ \to [-\frac{3}{2}, +\infty[, x \mapsto \frac{x^2}{2} + x - 1$.
+            </li>
+            <li>$f$ est définie sur $\mathbb{R}$, impaire. Pour $x \in [0, +\infty[$, $0 \leq f(x) = \frac{x}{1+x} < \frac{x+1}{1+x} = 1$.
+                Par parité, $f(]-\infty, 0]) \subset ]-1, 0]$. Finalement, $f(\mathbb{R}) \subset ]-1, 1[$.
+                Vérifions alors que $f$ réalise une bijection de $\mathbb{R}$ sur $]-1, 1[$.
+                <br>
+                Cas $y \in [0, 1[$. L'égalité $f(x)=y$ impose à $x$ d'être dans $[0, +\infty[$.
+                $$f(x) = y \Leftrightarrow \frac{x}{1+x} = y \Leftrightarrow x = \frac{y}{1-y}$$
+                Cas $y \in ]-1, 0[$. L'égalité $f(x)=y$ impose à $x$ d'être dans $]-\infty, 0[$.
+                $$f(x) = y \Leftrightarrow \frac{x}{1-x} = y \Leftrightarrow x = \frac{y}{1+y}$$
+                Finalement, $f$ réalise une bijection de $\mathbb{R}$ sur $]-1, 1[$.
+                La réciproque est donnée par :
+                $$f^{-1}: ]-1, 1[ \to \mathbb{R}, x \mapsto \frac{x}{1-|x|}$$
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-5">
+        <p class="exo-title"><a href="#exo-5" class="exercise-link">Correction de l'exercice 5</a></p>
+        <ol>
+            <li>Montrons que la restriction de $f$ à $D$, notée $g$, est bien une application de $D$ dans $P$. Soit $z \in D$. On a $|z| < 1$ et en particulier $z \neq i$. Donc, $f(z)$ existe. De plus,
+                $$\operatorname{Re}(f(z)) = \frac{1}{2}(f(z) + \overline{f(z)}) = \frac{1}{2}\left(\frac{z+i}{z-i} + \frac{\overline{z}-i}{\overline{z}+i}\right) = \frac{1}{2}\frac{2z\overline{z}-2}{(z-i)(\overline{z}+i)} = \frac{|z|^2-1}{|z-i|^2} < 0$$
+                Donc, $f(z)$ est élément de $P$. $g$ est une application de $D$ dans $P$.
+            </li>
+            <li>Montrons que $g$ est injective. Soit $(z, z') \in D^2$.
+                $$g(z) = g(z') \Rightarrow \frac{z+i}{z-i} = \frac{z'+i}{z'-i} \Rightarrow iz' - iz = iz' - iz' \Rightarrow 2i(z' - z) = 0 \Rightarrow z = z'$$
+            </li>
+            <li>Montrons que $g$ est surjective. Soient $z \in D$ et $Z \in P$.
+                $$g(z) = Z \Leftrightarrow \frac{z+i}{z-i} = Z \Leftrightarrow z = \frac{i(Z+1)}{Z-1}$$
+                Il reste à vérifier que $|z| < 1$. Réciproquement, puisque $\operatorname{Re}(Z) < 0$,
+                $$\left|\frac{i(Z+1)}{Z-1}\right| = \frac{|Z+1|}{|Z-1|} < 1$$
+                (Car $Z$ est strictement plus proche de $-1$ que de $1$).
+                Finalement $g$ est une bijection de $D$ sur $P$, et $g^{-1}(Z) = \frac{i(Z+1)}{Z-1}$.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-6">
+        <p class="exo-title"><a href="#exo-6" class="exercise-link">Correction de l'exercice 6</a></p>
+        <p>Montrons par récurrence que $\forall n \geq 1$, $\sum_{k=1}^n \frac{1}{k(k+1)(k+2)} = \frac{n(n+3)}{4(n+1)(n+2)}$.</p>
+        <p>Pour $n=1$: $\sum_{k=1}^1 \frac{1}{k(k+1)(k+2)} = \frac{1}{1 \times 2 \times 3} = \frac{1}{6}$. La formule donne $\frac{1(1+3)}{4(1+1)(1+2)} = \frac{4}{24} = \frac{1}{6}$. Vraie pour $n=1$.</p>
+        <p>Supposons que la formule soit vraie au rang $n$.
+        $$\sum_{k=1}^{n+1} \frac{1}{k(k+1)(k+2)} = \sum_{k=1}^n \frac{1}{k(k+1)(k+2)} + \frac{1}{(n+1)(n+2)(n+3)}$$
+        Par HR:
+        $$= \frac{n(n+3)}{4(n+1)(n+2)} + \frac{1}{(n+1)(n+2)(n+3)}$$
+        $$= \frac{n(n+3)^2 + 4}{4(n+1)(n+2)(n+3)} = \frac{n(n^2+6n+9) + 4}{4(n+1)(n+2)(n+3)} = \frac{n^3 + 6n^2 + 9n + 4}{4(n+1)(n+2)(n+3)}$$
+        On remarque que $-1$ est racine du numérateur : $n^3 + 6n^2 + 9n + 4 = (n+1)(n^2 + 5n + 4) = (n+1)(n+1)(n+4)$.
+        $$= \frac{(n+1)^2(n+4)}{4(n+1)(n+2)(n+3)} = \frac{(n+1)(n+4)}{4(n+2)(n+3)}$$
+        Ceci est bien la formule au rang $n+1$. La propriété est héréditaire et initialisée.
+        </p>
+        <p>Démonstration directe (télescopique). Pour $k \geq 1$:
+        $$\frac{1}{k(k+1)(k+2)} = \frac{1}{2} \frac{(k+2) - k}{k(k+1)(k+2)} = \frac{1}{2} \left( \frac{1}{k(k+1)} - \frac{1}{(k+1)(k+2)} \right)$$
+        En sommant:
+        $$\sum_{k=1}^n \frac{1}{k(k+1)(k+2)} = \frac{1}{2} \sum_{k=1}^n \left( \frac{1}{k(k+1)} - \frac{1}{(k+1)(k+2)} \right)$$
+        C'est une somme télescopique :
+        $$= \frac{1}{2} \left( \frac{1}{1(2)} - \frac{1}{(n+1)(n+2)} \right) = \frac{1}{2} \left( \frac{1}{2} - \frac{1}{n^2+3n+2} \right)$$
+        $$= \frac{1}{4} - \frac{1}{2(n+1)(n+2)} = \frac{(n+1)(n+2) - 2}{4(n+1)(n+2)} = \frac{n^2+3n+2-2}{4(n+1)(n+2)} = \frac{n(n+3)}{4(n+1)(n+2)}$$
+    </div>
+
+    <div class="correction" id="corr-7">
+        <p class="exo-title"><a href="#exo-7" class="exercise-link">Correction de l'exercice 7</a></p>
+        <ol>
+            <li>
+                <p>1ère démonstration (récurrence) : Trivial (voir page 8 du PDF original). $$\forall n \geq 1, \sum_{k=1}^n k = \frac{n(n+1)}{2}$$</p>
+                <p>2ème démonstration (différence) : On utilise l'identité $(k+1)^2 - k^2 = 2k + 1$.
+                $$\sum_{k=1}^n ((k+1)^2 - k^2) = (n+1)^2 - 1^2$$
+                Par ailleurs,
+                $$\sum_{k=1}^n ((k+1)^2 - k^2) = \sum_{k=1}^n (2k + 1) = 2 \sum_{k=1}^n k + \sum_{k=1}^n 1 = 2S_1 + n$$
+                D'où $(n+1)^2 - 1 = 2S_1 + n$, soit $n^2 + 2n = 2S_1 + n$.
+                $$2S_1 = n^2 + n = n(n+1)$$
+                $$S_1 = \sum_{k=1}^n k = \frac{n(n+1)}{2}$$</p>
+            </li>
+            <li>
+                <p>Calcul de $\sum_{k=1}^n k^2$: On utilise $(k+1)^3 - k^3 = 3k^2 + 3k + 1$.
+                $$\sum_{k=1}^n ((k+1)^3 - k^3) = (n+1)^3 - 1$$
+                Et
+                $$\sum_{k=1}^n (3k^2 + 3k + 1) = 3S_2 + 3S_1 + n$$
+                D'où $(n+1)^3 - 1 = 3S_2 + 3 \frac{n(n+1)}{2} + n$.
+                En isolant $S_2$, on obtient:
+                $$S_2 = \sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}$$</p>
+                <p>Calcul de $\sum_{k=1}^n k^3$: On utilise $(k+1)^4 - k^4 = 4k^3 + 6k^2 + 4k + 1$.
+                $$4S_3 = (n+1)^4 - 1 - 6S_2 - 4S_1 - n$$
+                En substituant les valeurs de $S_1$ et $S_2$, on obtient:
+                $$S_3 = \sum_{k=1}^n k^3 = \frac{n^2(n+1)^2}{4} = \left(\frac{n(n+1)}{2}\right)^2$$</p>
+                <p>Calcul de $\sum_{k=1}^n k^4$: On utilise $(k+1)^5 - k^5 = 5k^4 + 10k^3 + 10k^2 + 5k + 1$.
+                $$5S_4 = (n+1)^5 - 1 - 10S_3 - 10S_2 - 5S_1 - n$$
+                En substituant les valeurs connues:
+                $$S_4 = \sum_{k=1}^n k^4 = \frac{n(n+1)(6n^3 + 9n^2 + n - 1)}{30}$$</p>
+                <p>Résumé des résultats à mémoriser:
+                $$ \forall n \in \mathbb{N}^*, \sum_{k=1}^n k = \frac{n(n+1)}{2} $$
+                $$ \forall n \in \mathbb{N}^*, \sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6} $$
+                $$ \forall n \in \mathbb{N}^*, \sum_{k=1}^n k^3 = \left(\sum_{k=1}^n k\right)^2 $$
+                $$ \forall n \in \mathbb{N}^*, \sum_{k=1}^n k^4 = \frac{n(n+1)(6n^3 + 9n^2 + n - 1)}{30} $$
+            </li>
+            <li>
+                <p>Soit $p$ un entier naturel. On utilise la formule du binôme : $$(k+1)^{p+1} - k^{p+1} = \sum_{j=0}^p C_{p+1}^j k^j$$
+                En sommant de $k=1$ à $n$ :
+                $$\sum_{k=1}^n ((k+1)^{p+1} - k^{p+1}) = (n+1)^{p+1} - 1$$
+                D'autre part :
+                $$\sum_{k=1}^n \left( \sum_{j=0}^p C_{p+1}^j k^j \right) = \sum_{j=0}^p C_{p+1}^j \left( \sum_{k=1}^n k^j \right) = \sum_{j=0}^p C_{p+1}^j S_j$$
+                D'où la formule de récurrence :
+                $$\forall p \in \mathbb{N}, \forall n \in \mathbb{N}^*, \sum_{j=0}^p C_{p+1}^j S_j = (n+1)^{p+1} - 1$$
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-8">
+        <p class="exo-title"><a href="#exo-8" class="exercise-link">Correction de l'exercice 8</a></p>
+        <ol>
+            <li>($g \circ f$ injective $\Rightarrow f$ injective).
+                Soit $(x_1, x_2) \in E^2$.
+                $$f(x_1) = f(x_2) \Rightarrow g(f(x_1)) = g(f(x_2))$$ (car $g$ est une application)
+                $$\Rightarrow x_1 = x_2$$ (car $g \circ f$ est injective).
+                Donc $f$ est injective.
+            </li>
+            <li>($g \circ f$ surjective $\Rightarrow g$ surjective).
+                Soit $y \in H$. Puisque $g \circ f$ est surjective, il existe un élément $x$ dans $E$ tel que $g(f(x)) = y$.
+                En posant $z = f(x) \in G$, on a trouvé $z$ dans $G$ tel que $g(z) = y$.
+                Donc $g$ est surjective.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-9">
+        <p class="exo-title"><a href="#exo-9" class="exercise-link">Correction de l'exercice 9</a></p>
+        <p>Supposons $f \circ g \circ h$ et $g \circ h \circ f$ injectives, et $h \circ f \circ g$ surjective.</p>
+        <p>D'après l'exercice 8 :</p>
+        <ol>
+            <li>$f \circ g \circ h = (f \circ g) \circ h$ est injective $\Rightarrow h$ est injective.</li>
+            <li>$g \circ h \circ f = g \circ (h \circ f)$ est injective $\Rightarrow h \circ f$ est injective $\Rightarrow f$ est injective (par l'exercice 8 encore).</li>
+            <li>$h \circ f \circ g = h \circ (f \circ g)$ est surjective $\Rightarrow h$ est surjective (par l'exercice 8).</li>
+        </ol>
+        <p>Puisque $h$ est injective et surjective, $h$ est bijective.</p>
+        <p>Puisque $h$ est bijective, $h^{-1}$ existe.
+        Comme $g \circ h \circ f$ est injective, $h \circ f$ est injective (vu plus haut), et puisque $h$ est injective, $h^{-1} \circ (h \circ f) = f$ est injective. (Déjà montré en 2.).</p>
+        <p>Puisque $h \circ f \circ g$ est surjective et $h$ est surjective, $h^{-1} \circ (h \circ f \circ g) = f \circ g$ est surjective (composition de surjections).
+        Puisque $f \circ g$ est surjective, $f$ est surjective (par Exercice 8). Puisque $f$ est déjà injective, $f$ est bijective.</p>
+        <p>Finalement, $g = f^{-1} \circ (f \circ g)$. $f^{-1}$ est bijective. $f \circ g$ est surjective (vu plus haut). La composée d'une bijection et d'une surjection est une surjection, donc $g$ est surjective.</p>
+        <p>Puisque $f$ et $h$ sont bijectives, $f \circ g \circ h$ est bijective si et seulement si $g$ est bijective. Comme $f \circ g \circ h$ est injective (par hypothèse), $g$ doit être injective.
+        $g$ est injective et surjective, donc $g$ est bijective.
+        </p>
+        <p>Conclusion: $f, g, h$ sont bijectives.</p>
+    </div>
+
+    <div class="correction" id="corr-10">
+        <p class="exo-title"><a href="#exo-10" class="exercise-link">Correction de l'exercice 10</a></p>
+        <p>Rappel : $A \Delta B = (A \setminus B) \cup (B \setminus A)$.</p>
+        <ol>
+            <li>
+                $(\Leftarrow)$ Si $A=B=\emptyset$, alors $A \Delta B = \emptyset$ et $A \cap B = \emptyset$. Donc $A \Delta B = A \cap B$.<br>
+                $(\Rightarrow)$ Si $A \Delta B = A \cap B$. Supposons $A \neq \emptyset$. Soit $x \in A$.
+                Si $x \in B$, alors $x \in A \cap B$. Mais $x \in A \Delta B$ est impossible par définition de la différence symétrique. Absurde.
+                Si $x \notin B$, alors $x \in A \Delta B$. Mais $x \notin A \cap B$. Absurde.
+                Donc $A$ ne peut être non vide. $A = \emptyset$. De même $B = \emptyset$.
+            </li>
+            <li>Par distributivité de $\cap$ sur $\cup$:
+                $$(A \cup B) \cap (B \cup C) \cap (C \cup A)$$
+                $$= [(A \cap B) \cup (A \cap C) \cup (B \cap B) \cup (B \cap C)] \cap (C \cup A)$$
+                $$= [(A \cap C) \cup B] \cap (C \cup A) \quad (\text{car } A \cap B \subset B, B \cap C \subset B, B \cap B = B)$$
+                $$= [(A \cap C) \cap C] \cup [(A \cap C) \cap A] \cup [B \cap C] \cup [B \cap A]$$
+                $$= (A \cap C) \cup (A \cap C) \cup (B \cap C) \cup (A \cap B)$$
+                $$= (A \cap B) \cup (B \cap C) \cup (C \cap A)$$
+            </li>
+            <li>$$A \Delta B = (A \setminus B) \cup (B \setminus A) = (B \setminus A) \cup (A \setminus B) = B \Delta A$$</li>
+            <li>$x \in (A \Delta B) \Delta C \Leftrightarrow x$ est dans $A \Delta B$ ou dans $C$, mais pas dans les deux.
+                Ceci revient à dire que $x$ appartient à une et une seule des trois parties $A, B, C$, ou aux trois.
+                Par symétrie des rôles de $A, B, C$, $A \Delta (B \Delta C)$ est également l'ensemble des éléments qui sont dans une et une seule des trois parties ou dans les trois.
+                Donc $(A \Delta B) \Delta C = A \Delta (B \Delta C)$.
+            </li>
+            <li>
+                $(\Leftarrow)$ Si $A=B$, alors $A \setminus B = \emptyset$ et $B \setminus A = \emptyset$, donc $A \Delta B = \emptyset$.<br>
+                $(\Rightarrow)$ Si $A \Delta B = \emptyset$, alors $(A \setminus B) \cup (B \setminus A) = \emptyset$. Ceci implique $A \setminus B = \emptyset$ (soit $A \subset B$) et $B \setminus A = \emptyset$ (soit $B \subset A$). Donc $A = B$.
+            </li>
+            <li>
+                $$A \Delta C = B \Delta C \Leftrightarrow A = B$$
+                $(\Leftarrow)$ Immédiat.
+                $(\Rightarrow)$ Supposons $A \Delta C = B \Delta C$. Effectuons la différence symétrique avec $C$:
+                $$(A \Delta C) \Delta C = (B \Delta C) \Delta C$$
+                Par associativité (point 4), on a:
+                $$A \Delta (C \Delta C) = B \Delta (C \Delta C)$$
+                Puisque $C \Delta C = \emptyset$ (point 5), on obtient:
+                $$A \Delta \emptyset = B \Delta \emptyset$$
+                $X \Delta \emptyset = X$, donc $A = B$.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-11">
+        <p class="exo-title"><a href="#exo-11" class="exercise-link">Correction de l'exercice 11</a></p>
+        <ol>
+            <li>
+                $$x \in f(\bigcup_{i \in I} A_i) \Leftrightarrow \exists y \in \bigcup_{i \in I} A_i / x = f(y)$$
+                $$\Leftrightarrow \exists i \in I, \exists y \in A_i / x = f(y)$$
+                $$\Leftrightarrow \exists i \in I / x \in f(A_i) \Leftrightarrow x \in \bigcup_{i \in I} f(A_i)$$
+                Conclusion : $$f(\bigcup_{i \in I} A_i) = \bigcup_{i \in I} f(A_i)$$
+            </li>
+            <li>
+                $$x \in f(\bigcap_{i \in I} A_i) \Leftrightarrow \exists y \in \bigcap_{i \in I} A_i / x = f(y)$$
+                $$\Leftrightarrow \exists y \in E / \forall i \in I, y \in A_i \text{ et } x = f(y)$$
+                $$\Rightarrow \forall i \in I / \exists y \in A_i \text{ et } x = f(y)$$
+                $$\Leftrightarrow \forall i \in I / x \in f(A_i) \Leftrightarrow x \in \bigcap_{i \in I} f(A_i)$$
+                Conclusion : $$f(\bigcap_{i \in I} A_i) \subseteq \bigcap_{i \in I} f(A_i)$$
+                L'inclusion contraire n'est pas toujours vraie (si $f$ n'est pas injective).
+            </li>
+            <li>Il n'y a aucune inclusion vraie entre $f(E \setminus A)$ et $F \setminus f(A)$.
+                Exemple: $f: \mathbb{R} \to \mathbb{R}, x \mapsto x^2$ et $A = [-1, 2]$. $E=\mathbb{R}, F=\mathbb{R}$.
+                $f(A) = [0, 4]$. $F \setminus f(A) = ]-\infty, 0[ \cup ]4, +\infty[$.
+                $E \setminus A = ]-\infty, -1[ \cup ]2, +\infty[$.
+                $f(E \setminus A) = ]1, +\infty[$.
+                $f(E \setminus A)$ n'est pas inclus dans $F \setminus f(A)$ (e.g. $2 \in ]1, +\infty[$ et $2 \notin F \setminus f(A)$).
+                $F \setminus f(A)$ n'est pas inclus dans $f(E \setminus A)$ (e.g. $-5 \in F \setminus f(A)$ et $-5 \notin f(E \setminus A)$ car $f(E \setminus A) \subset [0, +\infty[$).
+            </li>
+            <li>
+                $$x \in f^{-1}(\bigcap_{i \in I} B_i) \Leftrightarrow f(x) \in \bigcap_{i \in I} B_i$$
+                $$\Leftrightarrow \forall i \in I, f(x) \in B_i \Leftrightarrow \forall i \in I, x \in f^{-1}(B_i)$$
+                $$\Leftrightarrow x \in \bigcap_{i \in I} f^{-1}(B_i)$$
+                Conclusion : $$f^{-1}(\bigcap_{i \in I} B_i) = \bigcap_{i \in I} f^{-1}(B_i)$$
+            </li>
+            <li>
+                $$x \in f^{-1}(\bigcup_{i \in I} B_i) \Leftrightarrow f(x) \in \bigcup_{i \in I} B_i$$
+                $$\Leftrightarrow \exists i \in I, f(x) \in B_i \Leftrightarrow \exists i \in I, x \in f^{-1}(B_i)$$
+                $$\Leftrightarrow x \in \bigcup_{i \in I} f^{-1}(B_i)$$
+                Conclusion : $$f^{-1}(\bigcup_{i \in I} B_i) = \bigcup_{i \in I} f^{-1}(B_i)$$
+            </li>
+            <li>
+                $$x \in f^{-1}(F \setminus B_i) \Leftrightarrow f(x) \in F \setminus B_i \Leftrightarrow f(x) \notin B_i$$
+                $$\Leftrightarrow x \notin f^{-1}(B_i) \Leftrightarrow x \in E \setminus f^{-1}(B_i)$$
+                Conclusion : $$f^{-1}(F \setminus B_i) = E \setminus f^{-1}(B_i)$$
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-12">
+        <p class="exo-title"><a href="#exo-12" class="exercise-link">Correction de l'exercice 12</a></p>
+        <p>1) $\Rightarrow$ 2) Soit $X \in \mathcal{P}(E)$. On a toujours $X \subseteq f^{-1}(f(X))$.
+            Réciproquement, soit $x \in E$.
+            $$x \in f^{-1}(f(X)) \Rightarrow f(x) \in f(X) \Rightarrow \exists x' \in X / f(x) = f(x')$$
+            Puisque $f$ est injective, $x = x'$. Donc $x \in X$.
+            Finalement, $f^{-1}(f(X)) \subseteq X$ et donc $f^{-1}(f(X)) = X$.
+        </p>
+        <p>2) $\Rightarrow$ 1) Soit $x \in E$. Par hypothèse, $f^{-1}(f(\{x\})) = \{x\}$.
+            Ceci signifie que $f(x)$ a un et un seul antécédent, à savoir $x$. Par suite, tout élément de l'ensemble d'arrivée a au plus un antécédent par $f$, et $f$ est injective.
+        </p>
+        <p>1) $\Rightarrow$ 3) On a toujours $f(X \cap Y) \subseteq f(X) \cap f(Y)$.
+            Réciproquement, soit $y \in f(X) \cap f(Y)$. Alors $\exists x \in X / y = f(x)$ et $\exists x' \in Y / y = f(x')$.
+            Puisque $f(x) = f(x')$ et que $f$ est injective, $x = x'$. Donc $x \in X \cap Y$, et $y = f(x) \in f(X \cap Y)$.
+            Finalement, $f(X \cap Y) = f(X) \cap f(Y)$.
+        </p>
+        <p>3) $\Rightarrow$ 4) Soit $(X, Y) \in \mathcal{P}(E)^2$. Si $X \cap Y = \emptyset$, alors $f(X) \cap f(Y) = f(X \cap Y) = f(\emptyset) = \emptyset$.</p>
+        <p>4) $\Rightarrow$ 5) Soit $(X, Y) \in \mathcal{P}(E)^2$ tel que $Y \subset X$.
+            Puisque $Y \cap (X \setminus Y) = \emptyset$, par hypothèse $f(Y) \cap f(X \setminus Y) = \emptyset$.
+            De plus, $X \setminus Y \subset X$, donc $f(X \setminus Y) \subseteq f(X)$.
+            Ainsi $f(X \setminus Y) \subseteq f(X) \setminus f(Y)$.
+            L'inclusion inverse n'est pas toujours vraie. Par exemple, si $f$ n'est pas surjective: $f(x) = 0$ pour tout $x$. Si $f$ est injective, alors on a l'égalité (voir correction complète du PDF).
+        </p>
+        <p>5) $\Rightarrow$ 1) Soit $(x_1, x_2) \in E^2$ tel que $x_1 \neq x_2$.
+            Posons $X = \{x_1, x_2\}$ et $Y = \{x_2\}$. On a $Y \subset X$.
+            Par hypothèse $f(X \setminus Y) = f(X) \setminus f(Y)$.
+            $X \setminus Y = \{x_1\}$. Donc $\{f(x_1)\} = \{f(x_1), f(x_2)\} \setminus \{f(x_2)\}$.
+            Si $f(x_1) = f(x_2)$, alors $\{f(x_1), f(x_2)\} = \{f(x_2)\}$. L'ensemble de droite devient $\emptyset$, ce qui est absurde car $\{f(x_1)\}$ est non vide.
+            Donc $f(x_1) \neq f(x_2)$. $f$ est injective.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-14">
+        <p class="exo-title"><a href="#exo-14" class="exercise-link">Correction de l'exercice 14</a></p>
+        <p>Montrons par récurrence que, pour $n \geq 2$, $H_n$ peut s'écrire sous la forme $\frac{P_n}{Q_n}$ où $Q_n$ est un entier pair et $P_n$ est un entier impair (la fraction n'étant pas nécessairement irréductible mais à coup sûr pas un entier).
+            Pour $n=2$, $H_2 = 1 + \frac{1}{2} = \frac{3}{2}$. $P_2=3$ (impair), $Q_2=2$ (pair). Vrai pour $n=2$.
+            Soit $n \geq 2$. Supposons que $H_n = \frac{P_n}{Q_n}$ où $P_n$ est impair et $Q_n$ est pair.
+            $$H_{n+1} = H_n + \frac{1}{n+1} = \frac{P_n}{Q_n} + \frac{1}{n+1} = \frac{(n+1)P_n + Q_n}{(n+1)Q_n}$$
+            Posons $P_{n+1} = (n+1)P_n + Q_n$ et $Q_{n+1} = (n+1)Q_n$. $Q_{n+1}$ est pair car $Q_n$ est pair. Il reste à vérifier la parité de $P_{n+1}$.
+        </p>
+
+        <p>1er cas. $n$ est pair. Posons $n = 2k$, $k \in \mathbb{N}^*$.
+            $n+1 = 2k+1$ (impair). $P_n$ est impair. Donc $(n+1)P_n$ est impair $\times$ impair = impair.
+            $Q_n$ est pair.
+            $P_{n+1} = (\text{impair}) + (\text{pair}) = \text{impair}$. Le numérateur est impair.
+        </p>
+
+        <p>2ème cas. $n$ est impair. Posons $n = 2k-1$, $k \geq 2$.
+            $n+1 = 2k$ (pair).
+            $P_n$ est impair. Donc $(n+1)P_n = (\text{pair}) \times (\text{impair}) = \text{pair}$.
+            $Q_n$ est pair.
+            $P_{n+1} = (\text{pair}) + (\text{pair}) = \text{pair}$. Le numérateur est pair.
+
+            *Ceci contredit l'idée initiale!* L'indication du PDF suggère une méthode plus subtile utilisant la décomposition de $H_{n+1}$ en fractions de dénominateurs pairs et impairs.
+        </p>
+
+        <p>Reprenons la stratégie de l'indication. Soit $n \geq 2$. Soit $2^a$ la plus grande puissance de 2 inférieure ou égale à $n$.
+            $$H_n = \sum_{k=1}^n \frac{1}{k}$$
+            Séparons la fraction dont le dénominateur est $2^a$.
+            $$H_n = \frac{1}{2^a} + \sum_{k \in \{1, \dots, n\}, k \neq 2^a} \frac{1}{k}$$
+            Tous les $k \in \{1, \dots, n\}$ et $k \neq 2^a$ ont une puissance maximale de 2 dans leur factorisation, disons $2^b$, telle que $b < a$.
+            Soit $M$ le PPCM des dénominateurs $k$ tels que $k \neq 2^a$. $M$ est divisible par $2^{a-1}$ mais pas par $2^a$.
+            Multiplions $H_n$ par $2^a M$:
+            $$2^a M H_n = M + 2^a M \sum_{k \neq 2^a} \frac{1}{k}$$
+            Dans la somme, si $k = 2^b m$ avec $m$ impair et $b < a$, alors $\frac{2^a M}{k} = \frac{2^{a-b} M}{m}$. Puisque $2^{a-b}$ est pair et $M$ et $m$ sont impairs (après simplification), ce terme est pair.
+            Donc $2^a M H_n = M + (\text{Somme de termes pairs})$ = Impair + Pair = Impair.
+            Si $H_n$ était un entier, $2^a M H_n$ serait pair (car $2^a M$ est pair). Mais nous avons montré qu'il est impair. Contradiction.
+            Donc $H_n$ ne peut pas être un entier pour $n \geq 2$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-15">
+        <p class="exo-title"><a href="#exo-15" class="exercise-link">Correction de l'exercice 15</a></p>
+        <ol>
+            <li>Il y a l'injection triviale :
+                $$f: E \to \mathcal{P}(E), x \mapsto \{x\}$$
+            </li>
+            <li>Soit $f$ une application quelconque de $E$ dans $\mathcal{P}(E)$. Montrons que $f$ ne peut être surjective.
+                Considérons la partie $A = \{x \in E / x \notin f(x)\}$.
+                Supposons par l'absurde que $A$ a un antécédent $a$, c'est-à-dire $f(a) = A$.
+                Où est $a$ ?
+                <ul>
+                    <li>Si $a \in A$. Par définition de $A$, $a \notin f(a)$. Puisque $f(a)=A$, cela signifie $a \notin A$. Absurde.</li>
+                    <li>Si $a \notin A$. Puisque $f(a)=A$, cela signifie $a \notin f(a)$. Par définition de $A$, si $a \notin f(a)$, alors $a \in A$. Absurde.</li>
+                </ul>
+                Finalement, $A$ n'a pas d'antécédent et $f$ n'est pas surjective.
+                On a montré le théorème de Cantor : il n'existe pas de bijection de $E$ sur $\mathcal{P}(E)$.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-16">
+        <p class="exo-title"><a href="#exo-16" class="exercise-link">Correction de l'exercice 16</a></p>
+        <p>$f$ est bien une application de $\mathbb{N}^2$ dans $\mathbb{N}$ car, pour tout couple $(x, y)$ d'entiers naturels, l'un des deux entiers $x+y$ ou $x+y+1$ est pair et donc $\frac{(x+y)(x+y+1)}{2}$ est bien un entier naturel.</p>
+
+        <p>Le terme $p(p+1)/2$ correspond au $p$-ième nombre triangulaire, noté $T_p$.
+        La fonction $f$ numérote les couples $(x, y)$ en parcourant d'abord les diagonales où la somme $S = x+y$ est constante, puis en variant $y$ (ou $x$) le long de cette diagonale. Si $S = x+y$, alors $f(x, y)$ est le nombre triangulaire $T_{S-1}$ plus l'indexation le long de la diagonale, qui est $y$.</p>
+
+        <p>Montrons que $f$ est surjective. Soit $n \in \mathbb{N}$ donné.
+            Nous cherchons un couple $(x, y)$ tel que $n = y + \frac{S(S+1)}{2}$, avec $S = x+y$.
+            Il faut d'abord déterminer $S$. $S$ est l'entier tel que le nombre triangulaire correspondant soit juste inférieur à $n$.
+            Lemme : $\forall n \in \mathbb{N}, \exists! p \in \mathbb{N} / \frac{p(p+1)}{2} \leq n < \frac{(p+1)(p+2)}{2}$.
+            La valeur de $p$ est donnée par la partie entière :
+            $$p = E\left(\frac{-1+\sqrt{8n+1}}{2}\right)$$
+            Posons $S=p$. On cherche alors $y$ tel que :
+            $$y = n - \frac{p(p+1)}{2}$$
+            Puisque $n \geq \frac{p(p+1)}{2}$, $y$ est un entier naturel.
+            Ensuite, on pose $x = S - y = p - y$.
+            Vérifions que $x \geq 0$:
+            $$x = p - \left(n - \frac{p(p+1)}{2}\right) = \frac{p(p+3)}{2} - n$$
+            Puisque $n < \frac{(p+1)(p+2)}{2} = \frac{p(p+3)}{2} + 1$, alors $n \leq \frac{p(p+3)}{2}$ (car $n$ est entier).
+            Donc $x = \frac{p(p+3)}{2} - n \geq 0$. $x$ est un entier naturel.
+            L'existence est démontrée, $f$ est surjective.
+        </p>
+
+        <p>Montrons que $f$ est injective. Soient $(x, y)$ et $(x', y')$ tels que $f(x, y) = f(x', y') = n$.
+            Posons $S = x+y$ et $S' = x'+y'$.
+            $$n = y + \frac{S(S+1)}{2} = y' + \frac{S'(S'+1)}{2}$$
+            Si $S < S'$, alors $\frac{S(S+1)}{2} \leq n$ et $\frac{S'(S'+1)}{2} > n$ (puisque $n = y' + T_{S'}$ et $y' \geq 0$).
+            Par unicité de $p$ dans le lemme ci-dessus, il est nécessaire que $S = S' = p$.
+            Si $S=S'$, alors :
+            $$y + \frac{S(S+1)}{2} = y' + \frac{S(S+1)}{2} \implies y = y'$$
+            Et comme $x = S - y$, on a $x = x'$. L'unicité du couple est démontrée. $f$ est injective.
+        </p>
+        <p>Conclusion: $f$ est une bijection.</p>
+        <p>Réciproque: Pour $n \in \mathbb{N}$, on calcule $p = E\left(\frac{-1+\sqrt{8n+1}}{2}\right)$. Le couple $(x, y)$ est:
+            $$f^{-1}(n) = \left(\frac{p(p+3)}{2} - n, n - \frac{p(p+1)}{2}\right)$$
+        </p>
+    </div>
+
+</body>
+</html>
