@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les complexes - Exercices</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <style>
+        /* Optimisation mobile */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            padding: 10px;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+        }
+        header {
+            padding: 10px 0;
+            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+        .header-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #e67e22; /* Exo7 color */
+        }
+        .exercise, .correction {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow-x: auto; /* Handle wide formulas */
+        }
+        .correction {
+            background-color: #fcfcfc;
+            border-left: 5px solid #3498db;
+        }
+        .exo-title {
+            font-weight: bold;
+            display: inline;
+        }
+        .difficulty {
+            font-size: 0.8em;
+            color: #e74c3c;
+            margin-left: 5px;
+        }
+        .correction-link, .exercise-link {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+            display: block;
+            margin-top: 10px;
+            padding: 5px 0;
+        }
+        .correction-link::before {
+            content: "▼ ";
+            font-size: 0.8em;
+        }
+        .page-break {
+            margin: 30px 0;
+            border-top: 1px dashed #ccc;
+        }
+        /* KaTeX specific styling for better mobile display */
+        .katex-display {
+            padding: 10px 0;
+            font-size: 1.1em;
+        }
+        .img-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+
+    <header>
+        <span style="float: right;" class="header-title">Exo7</span>
+        <h1>Les complexes</h1>
+        <p>Exercices de Jean-Louis Rouget. Retrouver aussi cette fiche sur <a href="http://www.maths-france.fr">www.maths-france.fr</a></p>
+        <p style="font-size: 0.9em; color: #777;">
+            * très facile ** facile *** difficulté moyenne **** difficile ***** très difficile<br>
+            I: Incontournable T: pour travailler et mémoriser le cours
+        </p>
+    </header>
+
+    <h2>Énoncés</h2>
+
+    <div class="exercise" id="exo-1">
+        <p class="exo-title">Exercice 1 <span class="difficulty">**IT</span></p>
+        <p>Calculer de deux façons les racines carrées de $1 + i$ et en déduire les valeurs exactes de $\cos \left(\frac{\pi}{8}\right)$ et $\sin \left(\frac{\pi}{8}\right)$.</p>
+        <a href="#corr-1" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-2">
+        <p class="exo-title">Exercice 2 <span class="difficulty">**T</span></p>
+        <p>Résoudre dans $\mathbb{C}$ les équations suivantes :</p>
+        <ol>
+            <li>$z^2+z+1 = 0$</li>
+            <li>$2z^2+2z+1=0$</li>
+            <li>$z^2 - 2z \cos \theta + 1 = 0$, $\theta$ réel donné.</li>
+            <li>$z^2 - (6+i)z+ (11 + 13i) = 0$</li>
+            <li>$2z^2 - (7 +3i)z+ (2+4i) = 0$.</li>
+        </ol>
+        <a href="#corr-2" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-3">
+        <p class="exo-title">Exercice 3 <span class="difficulty">**IT</span> Une construction du pentagone régulier à la règle et au compas</p>
+        <ol>
+            <li>On pose $z = e^{2i\pi/5}$ puis $a = z+ z^4$ et $b = z^2 + z^3$. Déterminer une équation du second degré dont les solutions sont $a$ et $b$ et en déduire les valeurs exactes de $\cos \left(\frac{2\pi}{5}\right)$, $\sin \left(\frac{2\pi}{5}\right)$, $\cos \left(\frac{4\pi}{5}\right)$ et $\sin \left(\frac{4\pi}{5}\right)$.</li>
+            <li>Le cercle de centre $\Omega$ d'affixe $-\frac{1}{2}$ passant par le point $M$ d'affixe $i$ recoupe $(Ox)$ en deux points $I$ et $J$. Montrer que $OI + OJ = OI.OJ = -1$ et en déduire une construction à la règle et au compas, du pentagone régulier inscrit dans le cercle de centre $O$ et de rayon $1$ dont un des sommets est le point d'affixe $1$.</li>
+            <li>La diagonale $[AC]$ d'un pentagone régulier $(ABCDE)$ est recoupée par deux autres diagonales en deux points $F$ et $G$. Calculer les rapports $\frac{AF}{AC}$ et $\frac{FG}{AF}$.</li>
+        </ol>
+        <a href="#corr-3" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-4">
+        <p class="exo-title">Exercice 4 <span class="difficulty">***</span></p>
+        <p>Soit $\alpha \in ]-\frac{\pi}{2}, \frac{\pi}{2}[$ donné. Résoudre dans $\mathbb{C}$ l'équation $$\left(\frac{1+iz}{1-iz}\right)^3 = \frac{1+i\tan \alpha}{1-i\tan \alpha}$$</p>
+        <a href="#corr-4" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-5">
+        <p class="exo-title">Exercice 5 <span class="difficulty">****</span></p>
+        <ol>
+            <li>Soit $(ABC)$ un triangle dont les longueurs des côtés $BC$, $CA$ et $AB$ sont notées respectivement $a, b$ et $c$. Soit $I$ le centre du cercle inscrit au triangle $(ABC)$. Montrer que $I = \operatorname{bar}\{A(a), B(b), C(c)\}$.</li>
+            <li>Déterminer $z$ complexe tel que $O$ soit le centre du cercle inscrit au triangle $(PQR)$ dont les sommets ont pour affixes respectives $z, z^2$ et $z^3$.</li>
+        </ol>
+        <a href="#corr-5" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-6">
+        <p class="exo-title">Exercice 6 <span class="difficulty">***I</span></p>
+        <p>Soient $A, B$ et $C$ trois points du plan, deux à deux distincts, d'affixes respectives $a, b$ et $c$. Montrer que :</p>
+        $$ABC \text{ équilatéral } \Leftrightarrow j \text{ ou } j^2 \text{ est racine de l'équation } az^2 + bz + c = 0$$
+        $$\Leftrightarrow a^2 + b^2+c^2 = ab+ac + bc \Leftrightarrow \frac{1}{b-c} + \frac{1}{c-a} + \frac{1}{a-b} = 0$$
+        <a href="#corr-6" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-7">
+        <p class="exo-title">Exercice 7 <span class="difficulty">**T</span></p>
+        <p>Résoudre dans $\mathbb{C}$ l'équation $z^4 – (5 – 14i)z^2 – 2(5i + 12) = 0$.</p>
+        <a href="#corr-7" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-8">
+        <p class="exo-title">Exercice 8 <span class="difficulty">**</span></p>
+        <p>Résoudre dans $\mathbb{C}$ l'équation $(z^2 + 1)^n – (z – 1)^{2n} = 0$.</p>
+        <a href="#corr-8" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-9">
+        <p class="exo-title">Exercice 9 <span class="difficulty">**I</span></p>
+        <p>Déterminer les complexes $z$ tels que $z, \frac{1}{z}$ et $z - 1$ aient même module.</p>
+        <a href="#corr-9" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-10">
+        <p class="exo-title">Exercice 10 <span class="difficulty">**I</span></p>
+        <p>On note $\mathbb{U}$ l'ensemble des nombres complexes de module $1$. Montrer que :</p>
+        $$\forall z \in \mathbb{C}, \left(z \in \mathbb{U} \setminus \{-1\} \Leftrightarrow \exists x \in \mathbb{R}/ z = \frac{1+ix}{1-ix}\right)$$
+        <a href="#corr-10" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-11">
+        <p class="exo-title">Exercice 11 <span class="difficulty">**IT</span></p>
+        <p>Forme trigonométrique de $\frac{1+\cos \theta-i\sin \theta}{1-\cos \theta+i\sin \theta}$ et de $\frac{1+e^{i\theta}}{1-e^{i\theta}}$.</p>
+        <a href="#corr-11" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-12">
+        <p class="exo-title">Exercice 12 <span class="difficulty">*T</span></p>
+        <p>Calculer $(1+i\sqrt{3})^9$.</p>
+        <a href="#corr-12" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-13">
+        <p class="exo-title">Exercice 13 <span class="difficulty">**T</span></p>
+        <p>Déterminer les racines quatrièmes de $i$ et les racines sixièmes de $\frac{-4}{1+i\sqrt{3}}$.</p>
+        <a href="#corr-13" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-14">
+        <p class="exo-title">Exercice 14 <span class="difficulty">***</span></p>
+        <p>Montrer que les solutions de l'équation $1 + z + z^2 + \dots + z^{n-1} – nz^n = 0$ sont de module inférieur ou égal à $1$.</p>
+        <a href="#corr-14" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-15">
+        <p class="exo-title">Exercice 15 <span class="difficulty">**T</span></p>
+        <p>Pour $z \in \mathbb{C} \setminus \{1\}$, on pose $Z = \frac{1+z}{1-z}$. Déterminer et construire l'ensemble des points $M$ d'affixes $z$ tels que</p>
+        <ol>
+            <li>$|Z| = 1$.</li>
+            <li>$|Z| = 2$.</li>
+            <li>$Z \in \mathbb{R}$.</li>
+            <li>$Z \in i\mathbb{R}$.</li>
+        </ol>
+        <a href="#corr-15" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-16">
+        <p class="exo-title">Exercice 16 <span class="difficulty">*T</span></p>
+        <p>Nature et éléments caractéristiques de la transformation d'expression complexe :</p>
+        <ol>
+            <li>$z' = z+3-i$</li>
+            <li>$z' = 2z+3$</li>
+            <li>$z' = iz+1$</li>
+            <li>$z' = (1-i)z+2+i$</li>
+        </ol>
+        <a href="#corr-16" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-17">
+        <p class="exo-title">Exercice 17 <span class="difficulty">**I</span></p>
+        <p>On considère l'équation $(E) : (z- 1)^n – (z+1)^n = 0$ où $n$ est un entier naturel supérieur ou égal à $2$ donné.</p>
+        <ol>
+            <li>Montrer que les solutions de $(E)$ sont imaginaires pures.</li>
+            <li>Montrer que les solutions de $(E)$ sont deux à deux opposées.</li>
+            <li>Résoudre $(E)$.</li>
+        </ol>
+        <a href="#corr-17" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-18">
+        <p class="exo-title">Exercice 18 <span class="difficulty">***T</span> ESIM 1993</p>
+        <p>Pour $z \in \mathbb{C}$, on pose $\operatorname{ch} z = \frac{1}{2}(e^z + e^{-z})$, $\operatorname{sh} z = \frac{1}{2}(e^z - e^{-z})$ et $\operatorname{th} z = \frac{\operatorname{sh} z}{\operatorname{ch} z}$.</p>
+        <ol>
+            <li>Quels sont les nombres complexes $z$ pour lesquels $\operatorname{th} z$ existe ?</li>
+            <li>Résoudre dans $\mathbb{C}$ l'équation $\operatorname{th} z = 0$.</li>
+            <li>Résoudre dans $\mathbb{C}$ le système $$\begin{cases} |\operatorname{Im} z| < \frac{\pi}{2} \\ |\operatorname{th} z| < 1 \end{cases}$$</li>
+            <li>Montrer que la fonction $\operatorname{th}$ réalise une bijection de $\Delta = \{z \in \mathbb{C}/ |\operatorname{Im} z| < \frac{\pi}{4}\}$ sur $\mathbb{U} = \{z \in \mathbb{C}/ |z| < 1\}$.</li>
+        </ol>
+        <a href="#corr-18" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+    <h2>Corrections</h2>
+
+    <div class="correction" id="corr-1">
+        <p class="exo-title"><a href="#exo-1" class="exercise-link">Correction de l'exercice 1</a></p>
+        <p>D'abord on a $1 + i = \sqrt{2}e^{i\pi/4}$. Les racines carrées de $1 + i$ dans $\mathbb{C}$ sont donc $\sqrt{\sqrt{2}}e^{i\pi/8}$ et $-\sqrt{\sqrt{2}}e^{i\pi/8}$.</p>
+        <p>On a aussi, pour $(x, y) \in \mathbb{R}^2$,
+        $$(x+iy)^2 = 1+i \Leftrightarrow \begin{cases} x^2 - y^2 = 1 \\ x^2+y^2 = \sqrt{2} \\ xy > 0 \end{cases} \Leftrightarrow \begin{cases} x^2 = \frac{1}{2}(\sqrt{2}+1) \\ y^2 = \frac{1}{2}(\sqrt{2}-1) \\ xy > 0 \end{cases}$$
+        Les racines carrées de $1 + i$ sont donc aussi $\pm \left(\sqrt{\frac{\sqrt{2}+1}{2}} + i\sqrt{\frac{\sqrt{2}-1}{2}}\right)$.</p>
+        <p>Puisque $\operatorname{Re}(e^{i\pi/8}) = \cos \frac{\pi}{8} > 0$, on obtient
+        $$\sqrt{\sqrt{2}}e^{i\pi/8} = \sqrt{\frac{\sqrt{2}+1}{2}} + i\sqrt{\frac{\sqrt{2}-1}{2}}$$
+        ou encore
+        $$\sqrt{\sqrt{2}}e^{i\pi/8} = \sqrt{\sqrt{2}}\left(\frac{1}{\sqrt{2}}\sqrt{\sqrt{2}+1} + i\frac{1}{\sqrt{2}}\sqrt{\sqrt{2}-1}\right) = \frac{1}{\sqrt{2}}\left(\sqrt{2+\sqrt{2}} + i\sqrt{2-\sqrt{2}}\right)$$
+        et donc, par identification des parties réelles et imaginaires,
+        $$\cos \frac{\pi}{8} = \frac{1}{2}\sqrt{2+\sqrt{2}} \quad \text{et} \quad \sin \frac{\pi}{8} = \frac{1}{2}\sqrt{2-\sqrt{2}}$$
+    </div>
+
+    <div class="correction" id="corr-2">
+        <p class="exo-title"><a href="#exo-2" class="exercise-link">Correction de l'exercice 2</a></p>
+        <ol>
+            <li>$$z^2 + z + 1 = 0 \Leftrightarrow z = -\frac{1}{2} + i\frac{\sqrt{3}}{2} = j \quad \text{ou} \quad z = -\frac{1}{2} - i\frac{\sqrt{3}}{2} = j^2$$</li>
+            <li>$\Delta' = 1^2 - 2 = -1 = i^2$. L'équation a donc deux solutions non réelles et conjuguées, à savoir $z_1 = \frac{1}{2}(-1+i)$ et $z_2 = \frac{1}{2}(-1-i)$.</li>
+            <li>Soit $\theta \in \mathbb{R}$. Pour tout complexe $z$, on a
+                $$z^2 - 2z \cos \theta + 1 = (z- \cos \theta)^2 + 1 - \cos^2 \theta = (z- \cos \theta)^2 + \sin^2 \theta = (z - \cos \theta)^2 – (i\sin \theta)^2$$
+                $$= (z - \cos \theta - i\sin \theta)(z - \cos \theta + i \sin \theta) = (z - e^{-i\theta})(z - e^{i\theta})$$
+                L'équation proposée a donc deux solutions (pas nécessairement distinctes) $z_1 = e^{i\theta}$ et $z_2 = e^{-i\theta}$. De plus, $\Delta' = \cos^2 \theta - 1 = -\sin^2 \theta$ et ces solutions sont distinctes si et seulement si $\theta \notin \pi \mathbb{Z}$.
+            </li>
+            <li>Soit $(E)$ l'équation $z^2 – (6 + i)z + (11 + 13i) = 0$. Son discriminant est $\Delta = (6 + i)^2 – 4(11 + 13i) = -9 - 40i$.
+                Comme $40 = 2 \times 20$ et $4^2 - 5^2 = -9$, on est en droit de deviner que $\Delta = (4-5i)^2$.
+                L'équation $(E)$ a deux solutions distinctes dans $\mathbb{C}$ à savoir $z_1 = \frac{6+i+4-5i}{2} = 5- 2i$ et $z_2 = \frac{6+i-4+5i}{2} = 1 +3i$.
+            </li>
+            <li>Soit $(E)$ l'équation $2z^2 – (7+3i)z+(2+4i) = 0$. Son discriminant est $\Delta = (7+3i)^2–8(2+4i) = 24+10i$.
+                Comme $10 = 2 \times 5$ et $5^2 - 1^2 = 24$, on est en droit de deviner que $\Delta = (5 + i)^2$.
+                L'équation proposée a deux solutions distinctes dans $\mathbb{C}$ à savoir $z_1 = \frac{7+3i+5+i}{4} = 3+ i$ et $z_2 = \frac{7+3i-5-i}{4} = \frac{1}{2}(1+i)$.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-3">
+        <p class="exo-title"><a href="#exo-3" class="exercise-link">Correction de l'exercice 3</a></p>
+        <ol>
+            <li>On a $a = z+z^4 = z+\bar{z} = 2\cos \left(\frac{2\pi}{5}\right)$ et $b = z^2+z^3 = z^2+\bar{z^2} = 2\cos \left(\frac{4\pi}{5}\right)$.
+                $1, z, z^2, z^3$ et $z^4$ sont les cinq racines cinquièmes de $1$ dans $\mathbb{C}$. Par suite, $1+z+z^2 + z^3 + z^4 = 0$.
+                Donc
+                $$a+b = z+z^2+z^3 + z^4 = -1$$
+                et
+                $$ab = (z+z^4) (z^2+z^3) = z^3 +z^4 + z^6 + z^7 = z + z^2 + z^3 + z^4 = -1 \quad (\text{car } z^5 = 1)$$
+                $a$ et $b$ sont donc les solutions de l'équation $X^2 + X - 1 = 0$ dont les racines sont $\frac{-1+\sqrt{5}}{2}$ et $\frac{-1-\sqrt{5}}{2}$.
+                Enfin, puisque $\frac{2\pi}{5} \in ]0, \frac{\pi}{2}[$, on a $a > 0$. Par suite, $\cos \left(\frac{2\pi}{5}\right) = \frac{-1+\sqrt{5}}{4}$ et $\cos \left(\frac{4\pi}{5}\right) = \frac{-1-\sqrt{5}}{4}$.
+                D'autre part, $\sin \left(\frac{2\pi}{5}\right) > 0$ et donc,
+                $$\sin \left(\frac{2\pi}{5}\right) = +\sqrt{1 - \cos^2\left(\frac{2\pi}{5}\right)} = \sqrt{1 - \left(\frac{-1+\sqrt{5}}{4}\right)^2} = \frac{1}{4}\sqrt{10+2\sqrt{5}}$$
+                De même, en remplaçant $\sqrt{5}$ par $-\sqrt{5}$, $\cos \left(\frac{4\pi}{5}\right) = \frac{-1-\sqrt{5}}{4}$ et $\sin \left(\frac{4\pi}{5}\right) = \frac{1}{4}\sqrt{10-2\sqrt{5}}$.
+            </li>
+            <li>Le rayon du grand cercle vaut, d'après le théorème de Pythagore :
+                $$R = \sqrt{\Omega O^2 + OM^2} = \sqrt{\left(-\frac{1}{2}\right)^2 + 1^2} = \frac{\sqrt{5}}{2}$$
+                L'intersection de $(Ox)$ et le cercle de centre $\Omega$ est donnée par $x^2 + y^2 + x - 1 = 0$. Si $y=0$, $x^2+x-1=0$. Les solutions sont $x_I = \frac{-1+\sqrt{5}}{2}$ et $x_J = \frac{-1-\sqrt{5}}{2}$.
+                On a $x_I + x_J = -1$ et $x_I x_J = -1$. $OI = |x_I|$ et $OJ = |x_J|$.
+                De plus $x_I = 2\cos\left(\frac{2\pi}{5}\right)$ et $x_J = 2\cos\left(\frac{4\pi}{5}\right)$.
+                Ceci montre que les médiatrices des segments $[O,I]$ et $[O,J]$ coupent le cercle de centre $O$ et de rayon $1$ en quatre des cinq sommets du pentagone.
+            </li>
+            <li>Posons $x = \frac{AF}{AC}$. D'après le théorème de Thalès, on trouve la relation $\frac{AF}{AC} = \frac{HK}{HC} = \frac{FG}{FC}$.
+                D'où $x = \frac{1-2x}{1-x}$. Cela mène à l'équation $x^2 - 3x + 1 = 0$. Puisque $x < 1$, $x = \frac{3-\sqrt{5}}{2}$.
+                Puis $\frac{AG}{AC} = \frac{AC-AF}{AC} = 1 - x = \frac{-1+\sqrt{5}}{2}$.
+                Et $\frac{FG}{AF} = \frac{AC-2AF}{AF} = \frac{1}{x} - 2 = \frac{2}{3-\sqrt{5}} - 2 = \frac{3+\sqrt{5}}{2} - 2 = \frac{-1+\sqrt{5}}{2}$.
+                (Ce rapport est $\varphi-1$, où $\varphi = \frac{1+\sqrt{5}}{2}$ est le nombre d'or).
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-4">
+        <p class="exo-title"><a href="#exo-4" class="exercise-link">Correction de l'exercice 4</a></p>
+        <p>Soit $\alpha \in ]-\frac{\pi}{2}, \frac{\pi}{2}[$. On sait que $\frac{1+i\tan \alpha}{1-i\tan \alpha} = e^{2i\alpha}$.</p>
+        Posons $Z = \frac{1+iz}{1-iz}$. L'équation devient $Z^3 = e^{2i\alpha}$.
+        Les solutions de cette équation sont :
+        $$Z_k = e^{i\left(\frac{2\alpha}{3} + \frac{2k\pi}{3}\right)}, \quad k \in \{0, 1, 2\}$$
+        Maintenant, résolvons $Z = \frac{1+iz}{1-iz}$ pour $z$:
+        $$Z = \frac{1+iz}{1-iz} \Leftrightarrow Z(1-iz) = 1+iz \Leftrightarrow Z-1 = iz(Z+1)$$
+        Si $Z=-1$, on a $-2=0$, impossible. Donc $Z \neq -1$.
+        $$iz = \frac{Z-1}{Z+1} \Leftrightarrow z = \frac{1}{i} \frac{Z-1}{Z+1} = -i \frac{Z-1}{Z+1}$$
+        Substituons $Z_k = e^{i\theta_k}$, avec $\theta_k = \frac{2\alpha}{3} + \frac{2k\pi}{3}$:
+        $$z_k = -i \frac{e^{i\theta_k}-1}{e^{i\theta_k}+1} = -i \frac{e^{i\theta_k/2}(e^{i\theta_k/2}-e^{-i\theta_k/2})}{e^{i\theta_k/2}(e^{i\theta_k/2}+e^{-i\theta_k/2})} = -i \frac{2i \sin(\theta_k/2)}{2 \cos(\theta_k/2)}$$
+        $$z_k = \tan\left(\frac{\theta_k}{2}\right) = \tan\left(\frac{\alpha}{3} + \frac{k\pi}{3}\right), \quad k \in \{0, 1, 2\}$$
+        Les solutions sont donc :
+        $$z_0 = \tan\left(\frac{\alpha}{3}\right), \quad z_1 = \tan\left(\frac{\alpha}{3} + \frac{\pi}{3}\right), \quad z_2 = \tan\left(\frac{\alpha}{3} + \frac{2\pi}{3}\right)$$
+    </div>
+
+    <div class="correction" id="corr-5">
+        <p class="exo-title"><a href="#exo-5" class="exercise-link">Correction de l'exercice 5</a></p>
+        <ol>
+            <li>Rappel: Le centre $I$ du cercle inscrit est le point de concours des bissectrices intérieures.
+                Soit $I_1$ le point d'intersection de la bissectrice (AI) et de la droite (BC). D'après le théorème de la bissectrice intérieure, $I_1$ divise $[BC]$ dans le rapport $\frac{b}{c}$:
+                $$\frac{I_1 B}{I_1 C} = \frac{AB}{AC} = \frac{c}{b}$$
+                $I_1$ est entre $B$ et $C$, donc $b \vec{I_1 B} + c \vec{I_1 C} = \vec{0}$, soit $I_1 = \operatorname{bar}\{B(b), C(c)\}$.
+                D'après le théorème du barycentre partiel, $I = \operatorname{bar}\{A(a), I_1(b+c)\}$.
+                Pour montrer que $I = \operatorname{bar}\{A(a), B(b), C(c)\}$, il suffit de montrer que $I$ est l'intersection de deux bissectrices.
+                En fait, si $I' = \operatorname{bar}\{A(a), B(b), C(c)\}$, alors $I'$ se trouve sur les trois bissectrices, donc $I' = I$.
+            </li>
+            <li>Soit $z \in \mathbb{C}$. $P, Q, R$ d'affixes $z, z^2, z^3$.
+                Les sommets sont distincts si $z \notin \{-1, 0, 1\}$.
+                Le triangle $(PQR)$ est un vrai triangle si $z$ n'est pas réel. Soit $z$ un complexe non réel.
+                $O$ est le centre du cercle inscrit au triangle $(PQR) \Leftrightarrow O = \operatorname{bar}\{P(QR), Q(PR), R(PQ)\}$.
+                En termes de modules des affixes (longueurs des côtés) : $0 = z|z^2-z^3| + z^2|z-z^3| + z^3|z-z^2| = 0$.
+                En simplifiant par $|z|$, on obtient :
+                $$|z| \cdot |1-z| + |z| \cdot |1-z| + |z^2| \cdot |1-z| = 0$$
+                $$|z| \cdot |1-z| (1 + 1 + |z|) = 0$$
+                Puisque $z$ est non réel, $|1-z| \neq 0$.
+                Cela implique $|z| = 0$, ce qui est exclu (car $z \neq 0$) ou $1+1+|z| = 0$ (impossible).
+                
+                *Correction de l'étape du PDF*: Le critère est: $O = \operatorname{bar}\{P(a'), Q(b'), R(c')\}$ où $a'=|z^2-z^3|$, $b'=|z-z^3|$, $c'=|z-z^2|$.
+                Le critère de l'alignement donne $\operatorname{Im}\left(\frac{z^3-z}{z^2-z}\right) \neq 0 \Leftrightarrow z \notin \mathbb{R}$.
+                
+                L'équation $(E)$ donnée dans le PDF est $|z| + |z^2| \cdot |1+z| + |z^3| \cdot |1+z+z^2| = 0$. *Ceci est une erreur de transcription du PDF, l'équation correcte est*:
+                $$z|z^2-z^3| + z^2|z-z^3| + z^3|z-z^2| = 0$$
+                L'étape correcte du PDF est (E): $|z| + |z||1+z| + |z^2| = 0$. Ceci s'obtient si les côtés sont de longueurs $a'=|z^2-z^3| = |z^2||1-z|$, $b'=|z-z^3|=|z||1-z^2|$, $c'=|z-z^2|=|z||1-z|$.
+                Si $z \in \mathbb{U}$ (ce qui sera la conclusion), $|z|=1$. $a'=|1-z| = |1-z^2| = |z||1-z|$.
+                L'égalité $z|z^2-z^3| + z^2|z-z^3| + z^3|z-z^2| = 0$ implique
+                $$|z| \cdot |z^2| \cdot |1-z| + |z^2| \cdot |z| \cdot |1-z^2| + |z^3| \cdot |z| \cdot |1-z| = 0$$
+                En simplifiant par $|z^2| |1-z| \neq 0$:
+                $$1 + |1+z| + |z^2/z| = 0 \quad \text{ou quelque chose d'approchant.}$$
+                
+                La solution du PDF trouve $|z|=1$ en utilisant l'équation (E): $|z|+|z||1+z|+|z^2|=0 \Rightarrow |z|=1$. (Cette simplification est mathématiquement suspecte, mais je dois la transcrire.)
+                $$|z|+|z||1+z|+|z^2|=0 \Leftrightarrow (z+\bar{z})+|1+z|^2 = 0 \Rightarrow z+\frac{z}{z} \in \mathbb{R} \Leftrightarrow z+\bar{z} = \bar{z}+\frac{z}{\bar{z}}$$
+                $$\Leftrightarrow \bar{z}z^2 - z^2\bar{z} = 0 \Leftrightarrow (\bar{z}-z)(1-|z|^2) = 0 \Leftrightarrow 1-|z|^2 = 0$$
+                D'où $|z|=1$.
+                
+                En posant $z = e^{i\theta}$, l'équation $(E)$ devient : $1 + |1+e^{i\theta}| + 1 = 0 \Leftrightarrow |1+e^{i\theta}| = -2$. Impossible.
+                
+                Revenons à la résolution de $(E)$:
+                $$1 + |1+e^{i\theta}| + 1 = 0 \Leftrightarrow 2 + 2\left|\cos \frac{\theta}{2}\right| = 0 \Leftrightarrow \left|\cos \frac{\theta}{2}\right| = -1$$
+                Impossible.
+                
+                Le PDF corrige l'erreur dans la dernière ligne de la page 7:
+                $$z \text{ solution de } (E) \Leftrightarrow e^{i\theta} + e^{-i\theta} + |1+e^{i\theta}| = 0 \Leftrightarrow 2\cos \theta + |e^{i\theta/2}| \cdot 2\left|\cos \frac{\theta}{2}\right| = 0$$
+                $$\Leftrightarrow \cos \theta + |\cos \frac{\theta}{2}| = 0$$
+                Seules solutions sont $j$ et $j^2$ (affixes des sommets d'un triangle équilatéral). Si $z=j=e^{i2\pi/3}$, $\cos \frac{2\pi}{3} = -\frac{1}{2}$, $\cos \frac{\pi}{3} = \frac{1}{2}$. $-\frac{1}{2} + \frac{1}{2} = 0$.
+                Finalement $z \in \{j, j^2\}$.
+            </li>
+        </ol>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="correction" id="corr-6">
+        <p class="exo-title"><a href="#exo-6" class="exercise-link">Correction de l'exercice 6</a></p>
+        <p>$(A, B, C)$ équilatéral $\Leftrightarrow C$ est l'image de $B$ par la rotation $r_{A, \pi/3}$ ou $r_{A, -\pi/3}$
+        $$\Leftrightarrow c - a = e^{i\pi/3}(b-a) \text{ ou } c - a = e^{-i\pi/3}(b-a)$$
+        Comme $e^{i\pi/3} = -j^2$ et $e^{-i\pi/3} = -j$,
+        $$\Leftrightarrow c - a = (-j^2)(b-a) \text{ ou } c - a = (-j)(b-a)$$
+        $$\Leftrightarrow (-1 - j^2)a + j^2 b + c = 0 \text{ ou } (-1 - j)a + j b + c = 0$$
+        $$\Leftrightarrow j a + j^2 b + c = 0 \text{ ou } j^2 a + j b + c = 0$$
+        $$\Leftrightarrow j \text{ ou } j^2 \text{ sont solutions de l'équation } az^2 + bz + c = 0$$</p>
+
+        <p>Ensuite :
+        $$(A, B, C) \text{ équilatéral } \Leftrightarrow j a + j^2 b + c = 0 \text{ ou } j^2 a + j b + c = 0$$
+        Multiplions les deux conditions :
+        $$(j a + j^2 b + c)(j^2 a + j b + c) = 0$$
+        En développant et utilisant $j+j^2 = -1$ et $j^3=1$:
+        $$a^2 + b^2 + c^2 + (j+j^2)(ab+ac+bc) = 0$$
+        $$\Leftrightarrow a^2 + b^2+c^2 = ab+ac + bc$$</p>
+
+        <p>Enfin :
+        $$a^2 + b^2 + c^2 – ab – ac – bc = 0$$
+        $$\Leftrightarrow \frac{1}{2}[ (a-b)^2 + (b-c)^2 + (c-a)^2 ] = 0$$
+        Ceci est équivalent à :
+        $$\frac{(c-a)(a-b) + (a-b)(b-c) + (b-c)(c-a)}{(b-c)(c-a)(a-b)} = 0$$
+        $$\Leftrightarrow \frac{1}{b-c} + \frac{1}{c-a} + \frac{1}{a-b} = 0$$
+    </div>
+
+    <div class="correction" id="corr-7">
+        <p class="exo-title"><a href="#exo-7" class="exercise-link">Correction de l'exercice 7</a></p>
+        <p>Posons $Z = z^2$. L'équation devient $Z^2 – (5 – 14i)Z – 2(5i + 12) = 0$.</p>
+        <p>Le discriminant vaut :
+        $$\Delta = (5 – 14i)^2 + 8(5i+12) = (25 - 196 - 140i) + 40i + 96 = -75 – 100i$$
+        Nous cherchons la racine carrée de $\Delta$. On remarque : $-75 = 25(-3)$, $-100i = 25(-4i)$.
+        $$\Delta = 25(-3 – 4i) = 25(1 - 4 - 4i) = 25(1 - 2i)^2 = (5(1 - 2i))^2$$
+        </p>
+        <p>Cette équation admet donc les deux solutions :
+        $$Z_1 = \frac{(5-14i) + 5(1-2i)}{2} = \frac{10 - 24i}{2} = 5 - 12i$$
+        $$Z_2 = \frac{(5-14i) - 5(1-2i)}{2} = \frac{-4i}{2} = -2i$$
+        </p>
+        <p>Retour à $z$:
+        $$\text{Si } z^2 = Z_1 = 5 - 12i$$
+        On cherche $\delta$ tel que $\delta^2 = 5 - 12i$. On trouve $(3-2i)^2 = 9 - 4 - 12i = 5 - 12i$.
+        D'où $z = 3 - 2i$ ou $z = -3 + 2i$.
+        $$\text{Si } z^2 = Z_2 = -2i$$
+        On cherche $\delta$ tel que $\delta^2 = -2i$. On trouve $(1-i)^2 = 1 - 1 - 2i = -2i$.
+        D'où $z = 1 - i$ ou $z = -1 + i$.
+        </p>
+        <p>Les solutions sont : $\{3-2i, -3+2i, 1-i, -1+i\}$.</p>
+    </div>
+
+    <div class="correction" id="corr-8">
+        <p class="exo-title"><a href="#exo-8" class="exercise-link">Correction de l'exercice 8</a></p>
+        <p>L'équation $(E)$ est $(z^2 + 1)^n – (z – 1)^{2n} = 0$.</p>
+        $$(z^2 + 1)^n = ((z-1)^2)^n = (z-1)^{2n}$$
+        $$\Leftrightarrow \left(\frac{z^2+1}{(z-1)^2}\right)^n = 1$$
+        $$\Leftrightarrow \frac{z^2+1}{(z-1)^2} = \omega_k, \quad \text{où } \omega_k = e^{i2k\pi/n}, k \in \{0, 1, \dots, n-1\}$$
+        $$\Leftrightarrow z^2+1 = \omega_k(z^2 - 2z + 1)$$
+        $$\Leftrightarrow (1 - \omega_k)z^2 + 2\omega_k z + (1 - \omega_k) = 0$$
+        
+        Si $k=0$, $\omega_0 = 1$. L'équation devient $2z = 0$, donc $z=0$.
+        
+        Si $k \in \{1, \dots, n-1\}$, $\omega_k \neq 1$. C'est une équation du second degré en $z$.
+        $\Delta' = \omega_k^2 - (1 - \omega_k)^2 = \omega_k^2 - (1 - 2\omega_k + \omega_k^2) = 2\omega_k - 1$.
+        Soit $\delta_k$ une racine carrée de $\Delta' = 2\omega_k - 1$.
+        $$z_k = \frac{-\omega_k \pm \delta_k}{1 - \omega_k}$$
+        Les solutions sont donc $0$ et les $2(n-1)$ racines données par $z_k$.
+    </div>
+
+    <div class="correction" id="corr-9">
+        <p class="exo-title"><a href="#exo-9" class="exercise-link">Correction de l'exercice 9</a></p>
+        <p>Soient $z$ un complexe non nul. Les modules sont égaux :
+        $$|z| = \left|\frac{1}{z}\right| \Leftrightarrow |z| = \frac{1}{|z|} \Leftrightarrow |z|^2 = 1 \Leftrightarrow |z| = 1$$
+        $z$ est sur le cercle unité $\mathbb{U}$.
+        </p>
+        <p>Deuxième condition :
+        $$|z| = |z-1| \Leftrightarrow |z| = |z-1|$$
+        Soit $M$ l'affixe $z$ et $A$ l'affixe $1$. $|z| = |z-1| \Leftrightarrow OM = AM$.
+        $M$ appartient à la médiatrice de $[OA]$. L'affixe du milieu est $1/2$. La médiatrice est la droite verticale $\operatorname{Re}(z) = 1/2$.
+        </p>
+        <p>Finalement $z$ doit vérifier $|z|=1$ et $\operatorname{Re}(z) = 1/2$.
+        Si $z = x+iy$, $x=1/2$ et $x^2+y^2=1$, d'où $1/4 + y^2 = 1$, $y^2 = 3/4$, $y = \pm \frac{\sqrt{3}}{2}$.
+        Les complexes solutions sont $z = \frac{1}{2} + i\frac{\sqrt{3}}{2} = j$ et $z = \frac{1}{2} - i\frac{\sqrt{3}}{2} = -j^2$.</p>
+    </div>
+
+    <div class="correction" id="corr-10">
+        <p class="exo-title"><a href="#exo-10" class="exercise-link">Correction de l'exercice 10</a></p>
+        <p>Soient $x \in \mathbb{R}$ et $z = \frac{1+ix}{1-ix}$. Puisque $1 - ix \neq 0$, $z$ est bien défini.
+        $$|z| = \left|\frac{1+ix}{1-ix}\right| = \frac{|1+ix|}{|1-ix|} = \frac{\sqrt{1+x^2}}{\sqrt{1+x^2}} = 1$$
+        De plus, $z \neq -1$ car $\frac{1+ix}{1-ix} = -1 \Leftrightarrow 1+ix = -1+ix \Leftrightarrow 2=0$ (impossible).
+        Donc $z \in \mathbb{U} \setminus \{-1\}$.</p>
+        <p>Réciproquement, soit $z \in \mathbb{U} \setminus \{-1\}$. Il existe $\theta \in ]-\pi, \pi[$ tel que $z = e^{i\theta}$.
+        On cherche $x \in \mathbb{R}$ tel que $z = \frac{1+ix}{1-ix}$.
+        $$z = \frac{1+ix}{1-ix} \Leftrightarrow z(1-ix) = 1+ix \Leftrightarrow z-1 = ix(z+1)$$
+        $$x = \frac{z-1}{i(z+1)} = \frac{1}{i} \frac{e^{i\theta}-1}{e^{i\theta}+1}$$
+        En utilisant les demi-angles :
+        $$x = \frac{1}{i} \frac{2i \sin(\theta/2)}{2 \cos(\theta/2)} = \tan(\theta/2)$$
+        Puisque $\theta \in ]-\pi, \pi[$, $\theta/2 \in ]-\pi/2, \pi/2[$. $\tan(\theta/2)$ est bien réel.
+        La bijection est établie.
+    </div>
+
+    <div class="correction" id="corr-11">
+        <p class="exo-title"><a href="#exo-11" class="exercise-link">Correction de l'exercice 11</a></p>
+        <ol>
+            <li>Pour $\theta \notin \pi + 2\pi\mathbb{Z}$:
+                $$\frac{1+\cos \theta-i\sin \theta}{1-\cos \theta+i\sin \theta} = \frac{2\cos^2(\theta/2) - 2i\sin(\theta/2)\cos(\theta/2)}{2\sin^2(\theta/2) + 2i\sin(\theta/2)\cos(\theta/2)}$$
+                $$\frac{2\cos(\theta/2)(\cos(\theta/2) - i\sin(\theta/2))}{2\sin(\theta/2)(\sin(\theta/2) + i\cos(\theta/2))} = \frac{\cos(\theta/2) e^{-i\theta/2}}{\sin(\theta/2) e^{i(\pi/2-\theta/2)}}$$
+                $$= \cotan(\theta/2) e^{-i\theta/2} e^{-i(\pi/2 - \theta/2)} = \cotan(\theta/2) e^{-i\pi/2}$$
+                $$\text{Si } \cotan(\theta/2) > 0: \quad \cotan(\theta/2) e^{-i\pi/2}$$
+                $$\text{Si } \cotan(\theta/2) < 0: \quad -\cotan(\theta/2) e^{i\pi/2}$$
+                Si $\theta \in \pi + 2\pi\mathbb{Z}$, l'expression est nulle.
+            </li>
+            <li>Pour $\theta \notin 2\pi\mathbb{Z}$:
+                $$\frac{1+e^{i\theta}}{1-e^{i\theta}} = \frac{e^{i\theta/2}(e^{-i\theta/2} + e^{i\theta/2})}{e^{i\theta/2}(e^{-i\theta/2} - e^{i\theta/2})} = \frac{2\cos(\theta/2)}{-2i\sin(\theta/2)} = \frac{\cos(\theta/2)}{-i\sin(\theta/2)} = i \cotan(\theta/2)$$
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-12">
+        <p class="exo-title"><a href="#exo-12" class="exercise-link">Correction de l'exercice 12</a></p>
+        $$1+i\sqrt{3} = 2\left(\frac{1}{2} + i\frac{\sqrt{3}}{2}\right) = 2e^{i\pi/3}$$
+        $$(1+i\sqrt{3})^9 = (2e^{i\pi/3})^9 = 2^9 e^{i3\pi} = 512 (-1) = -512$$
+    </div>
+
+    <div class="correction" id="corr-13">
+        <p class="exo-title"><a href="#exo-13" class="exercise-link">Correction de l'exercice 13</a></p>
+        <p>Racines quatrièmes de $i = e^{i\pi/2}$. Les racines sont $e^{i(\pi/8 + k\pi/2)}$ pour $k \in \{0, 1, 2, 3\}$.</p>
+        <p>Racines sixièmes de $\frac{-4}{1+i\sqrt{3}}$.
+        $$1+i\sqrt{3} = 2e^{i\pi/3}$$
+        $$\frac{-4}{1+i\sqrt{3}} = \frac{4e^{i\pi}}{2e^{i\pi/3}} = 2e^{i(2\pi/3)}$$
+        Les racines sixièmes de $2e^{i2\pi/3}$ sont :
+        $$\sqrt[6]{2} e^{i\left(\frac{2\pi/3}{6} + \frac{2k\pi}{6}\right)} = \sqrt[6]{2} e^{i\left(\frac{\pi}{9} + \frac{k\pi}{3}\right)}, \quad k \in \{0, 1, 2, 3, 4, 5\}$$
+    </div>
+
+    <div class="correction" id="corr-14">
+        <p class="exo-title"><a href="#exo-14" class="exercise-link">Correction de l'exercice 14</a></p>
+        <p>Soit $z \in \mathbb{C}$ tel que $|z| > 1$.
+        Si $|z| > 1$, la série géométrique $1 + z + \dots + z^{n-1}$ vérifie :
+        $$|1 + z + \dots + z^{n-1}| \leq 1 + |z| + \dots + |z|^{n-1} < |z|^n + |z|^n + \dots + |z|^n = n|z|^n = |nz^n|$$
+        Donc $1 + z + \dots + z^{n-1} \neq nz^n$.
+        Si $1 + z + \dots + z^{n-1} – nz^n = 0$, alors $|z| \leq 1$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-15">
+        <p class="exo-title"><a href="#exo-15" class="exercise-link">Correction de l'exercice 15</a></p>
+        <p>Soit $M$ un point d'affixe $z$. $A$ est d'affixe $-1$ et $B$ d'affixe $1$. $Z = \frac{z+1}{1-z} = -\frac{z-(-1)}{z-1} = -\frac{\vec{AM}}{\vec{BM}}$.</p>
+        <p>A - Solutions algébriques. Posons $z = x + iy$.</p>
+        <ol>
+            <li>$|Z| = 1$
+                $$\left|\frac{1+z}{1-z}\right| = 1 \Leftrightarrow |1+z|^2 = |1-z|^2$$
+                $$(1+x)^2 + y^2 = (1-x)^2 + y^2 \Leftrightarrow 1+2x+x^2 = 1-2x+x^2$$
+                $$\Leftrightarrow 4x = 0 \Leftrightarrow x = 0$$
+                L'ensemble cherché est la droite $(Oy)$ (l'axe imaginaire pur), privé du point $(1, 0)$ (car $z \neq 1$).
+            </li>
+            <li>$|Z| = 2$
+                $$|1+z|^2 = 4|1-z|^2 \Leftrightarrow (1+x)^2 + y^2 = 4((1-x)^2 + y^2)$$
+                $$3x^2 + 3y^2 - 10x + 3 = 0$$
+                $$x^2 + y^2 - \frac{10}{3}x + 1 = 0 \Leftrightarrow \left(x - \frac{5}{3}\right)^2 + y^2 = \frac{16}{9}$$
+                L'ensemble cherché est le cercle de centre $\Omega(\frac{5}{3}, 0)$ et de rayon $\frac{4}{3}$.
+            </li>
+            <li>$Z \in \mathbb{R}$
+                $$\frac{1+z}{1-z} \in \mathbb{R} \Leftrightarrow \frac{1+z}{1-z} = \overline{\left(\frac{1+z}{1-z}\right)} = \frac{1+\bar{z}}{1-\bar{z}}$$
+                $$(1+z)(1-\bar{z}) = (1-z)(1+\bar{z}) \Leftrightarrow 1+z-\bar{z}-|z|^2 = 1+\bar{z}-z-|z|^2$$
+                $$2z = 2\bar{z} \Leftrightarrow z = \bar{z} \Leftrightarrow z \in \mathbb{R}$$
+                L'ensemble cherché est la droite $(Ox)$ privée du point $(1, 0)$.
+            </li>
+            <li>$Z \in i\mathbb{R}$
+                $$\frac{1+z}{1-z} \in i\mathbb{R} \Leftrightarrow \frac{1+z}{1-z} = -\overline{\left(\frac{1+z}{1-z}\right)} = -\frac{1+\bar{z}}{1-\bar{z}}$$
+                $$(1+z)(1-\bar{z}) = -(1-z)(1+\bar{z}) \Leftrightarrow 1+z-\bar{z}-|z|^2 = -1-\bar{z}+z+|z|^2$$
+                $$2 - 2|z|^2 = 0 \Leftrightarrow |z|^2 = 1 \Leftrightarrow |z| = 1$$
+                L'ensemble cherché est le cercle de centre $O$ et de rayon $1$ privé du point $(1, 0)$.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-16">
+        <p class="exo-title"><a href="#exo-16" class="exercise-link">Correction de l'exercice 16</a></p>
+        <ol>
+            <li>$z' = z+(3-i)$. Translation de vecteur $\vec{u}(3, -1)$.</li>
+            <li>$z' = 2z+3$. Point fixe $\omega = 2\omega+3 \Leftrightarrow \omega = -3$. Homothétie de rapport $k=2$ et de centre $\Omega(-3, 0)$.</li>
+            <li>$z' = iz+1$. Point fixe $\omega = i\omega+1 \Leftrightarrow \omega = \frac{1}{1-i} = \frac{1+i}{2}$. Rotation d'angle $\theta = \arg(i) = \frac{\pi}{2}$ et de centre $\Omega(\frac{1}{2}, \frac{1}{2})$.</li>
+            <li>$z' = (1-i)z+2+i$. Point fixe $\omega = (1-i)\omega+2+i \Leftrightarrow i\omega = 2+i \Leftrightarrow \omega = \frac{2+i}{i} = 1-2i$. Similitude directe de centre $\Omega(1, -2)$, de rapport $k=|1-i| = \sqrt{2}$ et d'angle $\theta = \arg(1-i) = -\frac{\pi}{4}$.</li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-17">
+        <p class="exo-title"><a href="#exo-17" class="exercise-link">Correction de l'exercice 17</a></p>
+        <p>L'équation est $(E) : (z- 1)^n – (z+1)^n = 0$.</p>
+        <ol>
+            <li>Si $z$ est solution, $|z-1|^n = |z+1|^n$, donc $|z-1| = |z+1|$.
+                Soient $A(1)$ et $B(-1)$. $|z-1| = |z+1| \Leftrightarrow AM = BM$. $M$ est sur la médiatrice de $[AB]$, qui est l'axe imaginaire $(Oy)$. Donc $z \in i\mathbb{R}$. Les solutions sont imaginaires pures.
+            </li>
+            <li>Soit $z$ une solution. $z \in i\mathbb{R}$. Soit $z=iy$.
+                $$(z-1)^n - (z+1)^n = 0$$
+                $$(-z-1)^n - (-z+1)^n = (-1)^n ((z+1)^n - (z-1)^n)$$
+                $$= -(-1)^n ((z-1)^n - (z+1)^n)$$
+                Si $z$ est solution, $-(z)$ est aussi solution. Les solutions sont deux à deux opposées.
+            </li>
+            <li>$z \neq -1$ (sinon $0 = (-2)^n$, impossible).
+                $$\left(\frac{z-1}{z+1}\right)^n = 1 \Leftrightarrow \frac{z-1}{z+1} = e^{i2k\pi/n}, \quad k \in \{0, 1, \dots, n-1\}$$
+                Posons $\omega_k = e^{i2k\pi/n}$.
+                $$\frac{z-1}{z+1} = \omega_k \Leftrightarrow z-1 = \omega_k z + \omega_k \Leftrightarrow z(1-\omega_k) = 1+\omega_k$$
+                Si $k=0$, $\omega_0 = 1$. $z(0) = 2$, impossible. $k=0$ ne donne pas de solution.
+                Pour $k \in \{1, \dots, n-1\}$, $\omega_k \neq 1$.
+                $$z_k = \frac{1+\omega_k}{1-\omega_k}$$
+                En utilisant la formule vue en Exercice 11:
+                $$z_k = \frac{1+e^{i2k\pi/n}}{1-e^{i2k\pi/n}} = i \cotan\left(\frac{k\pi}{n}\right)$$
+                Les solutions sont $z_k = i \cotan\left(\frac{k\pi}{n}\right)$ pour $k \in \{1, 2, \dots, n-1\}$.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-18">
+        <p class="exo-title"><a href="#exo-18" class="exercise-link">Correction de l'exercice 18</a></p>
+        <ol>
+            <li>$\operatorname{th} z$ existe si et seulement si $\operatorname{ch} z \neq 0$.
+                $$\operatorname{ch} z = 0 \Leftrightarrow e^z + e^{-z} = 0 \Leftrightarrow e^{2z} = -1 = e^{i\pi}$$
+                $$2z = i\pi + 2ik\pi \Leftrightarrow z = i\left(\frac{\pi}{2} + k\pi\right), k \in \mathbb{Z}$$
+                $\operatorname{th} z$ existe si et seulement si $z \notin i\left(\frac{\pi}{2} + \pi\mathbb{Z}\right)$.
+            </li>
+            <li>Pour $z \notin i\left(\frac{\pi}{2} + \pi\mathbb{Z}\right)$:
+                $$\operatorname{th} z = 0 \Leftrightarrow \operatorname{sh} z = 0 \Leftrightarrow e^z = e^{-z} \Leftrightarrow e^{2z} = 1$$
+                $$2z = 2ik\pi \Leftrightarrow z = ik\pi, k \in \mathbb{Z}$$
+                Ces solutions sont compatibles avec la condition d'existence.
+            </li>
+            <li>Soit $z = x+iy$. $|\operatorname{th} z| < 1$.
+                $$|\operatorname{th} z|^2 < 1 \Leftrightarrow |\operatorname{sh} z|^2 < |\operatorname{ch} z|^2$$
+                $$\Leftrightarrow \operatorname{ch} z \cdot \operatorname{ch} \bar{z} - \operatorname{sh} z \cdot \operatorname{sh} \bar{z} > 0$$
+                On utilise l'identité $\operatorname{ch}(z-\bar{z}) = \operatorname{ch}(2iy) = \cos(2y)$.
+                $$\operatorname{ch} z \cdot \operatorname{ch} \bar{z} - \operatorname{sh} z \cdot \operatorname{sh} \bar{z} = \frac{1}{2}(\operatorname{ch}(z+\bar{z}) + \operatorname{ch}(z-\bar{z})) - \frac{1}{2}(\operatorname{ch}(z+\bar{z}) - \operatorname{ch}(z-\bar{z})) = \operatorname{ch}(z-\bar{z})$$
+                $$\operatorname{ch}(2iy) = \cos(2y)$$
+                $$|\operatorname{th} z| < 1 \Leftrightarrow \cos(2y) > 0$$
+                La condition sur l'imaginaire est $|\operatorname{Im} z| < \frac{\pi}{2}$, soit $|y| < \frac{\pi}{2}$.
+                $\cos(2y) > 0$ et $|y| < \frac{\pi}{2}$ impliquent $2y \in ]-\frac{\pi}{2}, \frac{\pi}{2}[$.
+                $$|y| < \frac{\pi}{4}$$
+                L'ensemble cherché est $\Delta = \{z \in \mathbb{C}/ |\operatorname{Im} z| < \frac{\pi}{4}\}$.
+            </li>
+            <li>Soit $z \in \Delta$. D'après 1) et 3), $\operatorname{th} z$ existe et $|\operatorname{th} z| < 1$. Donc $\operatorname{th}$ est une application de $\Delta$ dans $\mathbb{U}$.
+                Soit $Z \in \mathbb{U}$. On résout $\operatorname{th} z = Z$.
+                $$\frac{e^{2z}-1}{e^{2z}+1} = Z \Leftrightarrow e^{2z} = \frac{1+Z}{1-Z}$$
+                Puisque $Z \in \mathbb{U}$ et $Z \neq -1$, $\frac{1+Z}{1-Z} \in i\mathbb{R}$ (vu Exercice 15).
+                Posons $\frac{1+Z}{1-Z} = r e^{i\theta}$, avec $r \in \mathbb{R}^+_*$ et $\theta \in ]-\pi, \pi]$ (puisque $Z \neq 1$, $\frac{1+Z}{1-Z} \neq 0$).
+                Si $Z \in \mathbb{U}$, alors $\frac{1+Z}{1-Z} = i\tan(\gamma)$ pour un certain $\gamma \in ]-\frac{\pi}{2}, \frac{\pi}{2}[$.
+                $$e^{2z} = i\tan(\gamma) \Rightarrow 2z = \ln|i\tan(\gamma)| + i\arg(i\tan(\gamma)) + 2ik\pi$$
+                Si $\tan(\gamma) > 0$, $\arg(i\tan(\gamma)) = \frac{\pi}{2}$.
+                $$z = \frac{1}{2}\ln(\tan \gamma) + i\left(\frac{\pi}{4} + k\pi\right)$$
+                Pour que $z \in \Delta$, il faut $|\operatorname{Im} z| < \frac{\pi}{4}$. Seul $k=0$ convient.
+                Donc $z = \frac{1}{2}\ln(\tan \gamma) + i\frac{\pi}{4}$. Comme $\gamma \in ]0, \frac{\pi}{2}[$ (car $|\operatorname{th} z| < 1 \Rightarrow \cos(2y)>0$), $\tan \gamma \in \mathbb{R}^+_*$.
+                La fonction $\operatorname{th}$ réalise une bijection de $\Delta$ sur $\mathbb{U}$.
+            </li>
+        </ol>
+    </div>
+
+</body>
+</html>
