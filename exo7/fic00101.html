@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Déterminants - Exercices</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <style>
+        /* Optimisation mobile */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            padding: 10px;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+        }
+        header {
+            padding: 10px 0;
+            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+        .header-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #e67e22; /* Exo7 color */
+        }
+        .exercise, .correction {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow-x: auto; /* Handle wide formulas */
+        }
+        .correction {
+            background-color: #fcfcfc;
+            border-left: 5px solid #3498db;
+        }
+        .exo-title {
+            font-weight: bold;
+            display: inline;
+        }
+        .difficulty {
+            font-size: 0.8em;
+            color: #e74c3c;
+            margin-left: 5px;
+        }
+        .correction-link, .exercise-link {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+            display: block;
+            margin-top: 10px;
+            padding: 5px 0;
+        }
+        .correction-link::before {
+            content: "▼ ";
+            font-size: 0.8em;
+        }
+        .page-break {
+            margin: 30px 0;
+            border-top: 1px dashed #ccc;
+        }
+        /* KaTeX specific styling for better mobile display */
+        .katex-display {
+            padding: 10px 0;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});</script>
+
+    <header>
+        <span style="float: right;" class="header-title">Exo7</span>
+        <h1>Déterminants</h1>
+        <p>Exercices de Jean-Louis Rouget. Retrouver aussi cette fiche sur <a href="http://www.maths-france.fr">www.maths-france.fr</a></p>
+        <p style="font-size: 0.9em; color: #777;">
+            * très facile ** facile *** difficulté moyenne **** difficile ***** très difficile<br>
+            I: Incontournable T: pour travailler et mémoriser le cours
+        </p>
+    </header>
+
+    <h2>Énoncés</h2>
+
+    <div class="exercise" id="exo-1">
+        <p class="exo-title">Exercice 1 <span class="difficulty">**</span></p>
+        <p>Montrer que $$\begin{vmatrix} -2a & a+b & a+c \\ b+a & -2b & b+c \\ c+a & c+b & -2c \end{vmatrix} = 4(b+c)(c+a)(a+b)$$</p>
+        <a href="#corr-1" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-2">
+        <p class="exo-title">Exercice 2 <span class="difficulty">**</span></p>
+        <p>Pour $a, b$ et $c$ deux à deux distincts donnés, factoriser $$\begin{vmatrix} X & a & b & c \\ a & X & c & b \\ b & c & X & a \\ c & b & a & X \end{vmatrix}$$</p>
+        <a href="#corr-2" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-3">
+        <p class="exo-title">Exercice 3 <span class="difficulty">***</span></p>
+        <p>Calculer:</p>
+        <ol>
+            <li>$$\det(|i-j|)_{1 \leq i, j \leq n}$$</li>
+            <li>$$\det(\sin(a_i+a_j))_{1 \leq i, j \leq n}$$ ($a_1, \dots, a_n$ étant $n$ réels donnés)</li>
+            <li>$$\begin{vmatrix} a & 0 & \dots & 0 & b \\ 0 & a & \dots & b & 0 \\ \vdots & \vdots & \dots & \vdots & \vdots \\ 0 & b & \dots & a & 0 \\ b & 0 & \dots & 0 & a \end{vmatrix}$$</li>
+            <li>$$\begin{vmatrix} 1 & 1 & \dots & 1 \\ 1 & 1 & 0 & \dots \\ \vdots & 0 & \dots & \vdots \\ 1 & 0 & \dots & 1 & 0 \\ 1 & 0 & \dots & 0 & 1 \end{vmatrix}$$</li>
+            <li>$$\det(C_{n+i-1}^{j-1})_{1 \leq i, j \leq p+1}$$</li>
+            <li>$$\begin{vmatrix} -X & 1 & 0 & \dots & 0 \\ 0 & -X & 1 & \dots & 0 \\ \vdots & \vdots & \dots & \dots & \vdots \\ 0 & \dots & 0 & -X & 1 \\ a_0 & a_1 & a_2 & \dots & a_{n-1}-X \end{vmatrix}$$</li>
+        </ol>
+        <a href="#corr-3" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-4">
+        <p class="exo-title">Exercice 4 <span class="difficulty">****</span> Déterminant de CAUCHY et déterminant de HILBERT</p>
+        <p>Soit $A = \left(\frac{1}{a_i+b_j}\right)_{1 \leq i, j \leq n}$ où $a_1, \dots, a_n, b_1, \dots, b_n$ sont $2n$ réels tels que toutes les sommes $a_i + b_j$ soient non nulles.</p>
+        <p>Calculer $\det A$ (en généralisant l'idée du calcul d'un déterminant de VANDERMONDE par l'utilisation d'une fraction rationnelle) et en donner une écriture condensée dans le cas $a_i = b_i = i$.</p>
+        <a href="#corr-4" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-5">
+        <p class="exo-title">Exercice 5 <span class="difficulty">****</span></p>
+        <p>Soit $A = (a_{i, j})_{1 \leq i, j \leq n}$ où, pour tout $i$ et tout $j$, $a_{i, j} \in \{-1, 1\}$. Montrer que $\det A$ est un entier divisible par $2^{n-1}$.</p>
+        <a href="#corr-5" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-6">
+        <p class="exo-title">Exercice 6 <span class="difficulty">***</span></p>
+        <p>Résoudre le système $M X = U$ où $M = \begin{pmatrix} 1 & 1 & \dots & 1 \\ 1 & 2 & \dots & n \\ 1 & 2^2 & \dots & n^2 \\ \vdots & \vdots & \dots & \vdots \\ 1 & 2^{n-1} & \dots & n^{n-1} \end{pmatrix}$.</p>
+        <a href="#corr-6" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-7">
+        <p class="exo-title">Exercice 7 <span class="difficulty">***I</span></p>
+        <p>Soit $(A, B) \in (\mathcal{M}_n(\mathbb{R}))^2$ et $C = \begin{pmatrix} A & B \\ -B & A \end{pmatrix} \in \mathcal{M}_{2n}(\mathbb{R})$. Montrer que $\det C \geq 0$.</p>
+        <a href="#corr-7" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-8">
+        <p class="exo-title">Exercice 8 <span class="difficulty">**I</span></p>
+        <p>Soit $A = (a_{i, j})_{1 \leq i, j \leq n}$ et $B = (b_{i, j})_{1 \leq i, j \leq n}$ avec $b_{i, j} = (-1)^{i+j} a_{i, j}$. Montrer que $\det B = \det A$.</p>
+        <a href="#corr-8" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-9">
+        <p class="exo-title">Exercice 9 <span class="difficulty">***I</span></p>
+        <p>Déterminer les matrices $A$, carrées d'ordre $n$, telles que pour toute matrice carrée $B$ d'ordre $n$ on a $\det(A+B) = \det A + \det B$.</p>
+        <a href="#corr-9" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-10">
+        <p class="exo-title">Exercice 10 <span class="difficulty">****</span> Déterminant circulant</p>
+        <p>Soit $A = \begin{pmatrix} a_1 & a_2 & \dots & a_n \\ a_n & a_1 & \dots & a_{n-1} \\ \vdots & \vdots & \dots & \vdots \\ a_2 & a_3 & \dots & a_1 \end{pmatrix}$ et $P = (\omega^{(k-1)(l-1)})_{1 \leq k, l \leq n}$ où $\omega = e^{2i\pi/n}$. Calculer $P^2$ et $PA$.</p>
+        <p>En déduire $\det A$.</p>
+        <a href="#corr-10" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-11">
+        <p class="exo-title">Exercice 11 <span class="difficulty">***I</span></p>
+        <p>Calculer $\det(\operatorname{com} A)$ en fonction de $\det A$ puis étudier le rang de $\operatorname{com} A$ en fonction du rang de $A$.</p>
+        <a href="#corr-11" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-12">
+        <p class="exo-title">Exercice 12 <span class="difficulty">***I</span> Dérivée d'un déterminant</p>
+        <p>Soient $a_{i, j}$ ($(i, j)$ élément de $\{1, \dots, n\}^2$) $n^2$ fonctions de $\mathbb{R}$ dans $\mathbb{R}$, dérivables sur $\mathbb{R}$ et $A = (a_{i, j})_{1 \leq i, j \leq n}$. Calculer la dérivée de la fonction $x \mapsto \det(A(x))$.</p>
+        <p>Applications. Calculer</p>
+        <ol>
+            <li>$$\begin{vmatrix} x+1 & 1 & \dots & 1 \\ 1 & x+1 & \dots & 1 \\ \vdots & \dots & \dots & \vdots \\ 1 & 1 & \dots & x+1 \end{vmatrix}$$</li>
+            <li>$$\begin{vmatrix} x+a_1 & x & \dots & x \\ x & x+a_2 & \dots & x \\ \vdots & \dots & \dots & \vdots \\ x & x & \dots & x+a_n \end{vmatrix}$$</li>
+        </ol>
+        <a href="#corr-12" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-13">
+        <p class="exo-title">Exercice 13 <span class="difficulty">***I</span></p>
+        <p>Calculer</p>
+        <ol>
+            <li>$$\begin{vmatrix} 0 & 1 & 1 & \dots & 1 \\ 1 & 0 & 1 & \dots & 1 \\ 1 & 1 & 0 & \dots & 1 \\ \vdots & \vdots & \dots & \dots & \vdots \\ 1 & 1 & 1 & \dots & 0 \end{vmatrix} \quad \text{et} \quad \begin{vmatrix} 1 & 1 & \dots & 1 & 1 \\ 1 & 0 & \dots & 0 & 1 \\ \vdots & \vdots & \dots & \vdots & \vdots \\ 1 & 0 & \dots & 0 & 1 \\ 1 & 1 & \dots & 1 & 0 \end{vmatrix}$$</li>
+            <li>$$\det((i+j-1)^2)$$</li>
+            <li>$$\begin{vmatrix} a & b & \dots & b \\ b & a & \dots & b \\ \vdots & \dots & \dots & \vdots \\ b & b & \dots & a \end{vmatrix}$$</li>
+            <li>$$\begin{vmatrix} a_1+x & c+x & \dots & c+x \\ b+x & a_2+x & \dots & c+x \\ \vdots & \dots & \dots & \vdots \\ b+x & b+x & \dots & a_n+x \end{vmatrix}$$ ($b, c$ complexes distincts)</li>
+            <li>$$\begin{vmatrix} 2 & 1 & 0 & \dots & 0 \\ 1 & 2 & 1 & \dots & 0 \\ 0 & 1 & 2 & \dots & 0 \\ \vdots & \dots & \dots & \dots & \vdots \\ 0 & 0 & \dots & 1 & 2 \end{vmatrix}$$</li>
+        </ol>
+        <a href="#corr-13" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+    <h2>Corrections</h2>
+
+    <div class="correction" id="corr-1">
+        <p class="exo-title"><a href="#exo-1" class="exercise-link">Correction de l'exercice 1</a></p>
+        $$\begin{vmatrix} -2a & a+b & a+c \\ b+a & -2b & b+c \\ c+a & c+b & -2c \end{vmatrix} = 4(b+c)(c+a)(a+b)$$
+        (Démonstration en utilisant $L_1 \leftarrow L_1 - L_2 - L_3$ ou en posant $x=a$ et trouvant les racines).
+    </div>
+
+    <div class="correction" id="corr-2">
+        <p class="exo-title"><a href="#exo-2" class="exercise-link">Correction de l'exercice 2</a></p>
+        $$\det = (X+a+b+c)(X-a-b+c)(X+a+b-c)(X-a+b+c)$$
+    </div>
+
+    <div class="correction" id="corr-3">
+        <p class="exo-title"><a href="#exo-3" class="exercise-link">Correction de l'exercice 3</a></p>
+        <ol>
+            <li>$\det(|i-j|)_{1 \leq i, j \leq n}$. $\det = (-1)^{n-1} (n-1) 2^{n-2}$ (pour $n \geq 2$).</li>
+            <li>$\det(\sin(a_i+a_j))$. $\det = 0$ pour $n \geq 3$ (car les colonnes sont combinaisons linéaires de $\sin a_i$ et $\cos a_i$).</li>
+            <li>$\det = (a+b)^p (a-b)^p = (a^2-b^2)^p$ ($n=2p$).</li>
+            <li>$\det = (-1)^{n-1} (n-2)$.</li>
+            <li>$\det = \det(C_{n+i-1}^{j-1})$. $\det = 1$.</li>
+            <li>$\det = (-1)^n (X^n - a_{n-1} X^{n-1} - \dots - a_0)$. (Développement par la dernière ligne).</li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-4">
+        <p class="exo-title"><a href="#exo-4" class="exercise-link">Correction de l'exercice 4</a></p>
+        $$\det A = \frac{\prod_{i<j} (a_j - a_i) (b_i - b_j)}{\prod_{i, j} (a_i + b_j)}$$
+        Cas $a_i = b_i = i$: $H_n = \det \left(\frac{1}{i+j}\right)_{1 \leq i, j \leq n}$ (Déterminant de HILBERT).
+    </div>
+
+    <div class="correction" id="corr-5">
+        <p class="exo-title"><a href="#exo-5" class="exercise-link">Correction de l'exercice 5</a></p>
+        $\det A$ est divisible par $2^{n-1}$ (démonstration par récurrence, en changeant les $-1$ en $1$ un par un).
+    </div>
+
+    <div class="correction" id="corr-6">
+        <p class="exo-title"><a href="#exo-6" class="exercise-link">Correction de l'exercice 6</a></p>
+        $M$ est la matrice de VANDERMONDE $V(1, 2, \dots, n)$. $M$ est inversible.
+        Solution $X$ unique. $X_k = \frac{\det A_k}{\det M}$.
+    </div>
+
+    <div class="correction" id="corr-7">
+        <p class="exo-title"><a href="#exo-7" class="exercise-link">Correction de l'exercice 7</a></p>
+        $\det C = |\det(A+iB)|^2 \geq 0$.
+    </div>
+
+    <div class="correction" id="corr-8">
+        <p class="exo-title"><a href="#exo-8" class="exercise-link">Correction de l'exercice 8</a></p>
+        $\det B = \det A$.
+    </div>
+
+    <div class="correction" id="corr-9">
+        <p class="exo-title"><a href="#exo-9" class="exercise-link">Correction de l'exercice 9</a></p>
+        $A = 0$ (matrice nulle).
+    </div>
+
+    <div class="correction" id="corr-10">
+        <p class="exo-title"><a href="#exo-10" class="exercise-link">Correction de l'exercice 10</a></p>
+        $P^2 = n I_n$. $\det A = \prod_{k=0}^{n-1} \sum_{j=1}^n a_j \omega^{j k}$.
+    </div>
+
+    <div class="correction" id="corr-11">
+        <p class="exo-title"><a href="#exo-11" class="exercise-link">Correction de l'exercice 11</a></p>
+        $\det(\operatorname{com} A) = (\det A)^{n-1}$.
+        Rang de $\operatorname{com} A$: $n$ si $\operatorname{rg} A = n$. $1$ si $\operatorname{rg} A = n-1$. $0$ si $\operatorname{rg} A \leq n-2$.
+    </div>
+
+    <div class="correction" id="corr-12">
+        <p class="exo-title"><a href="#exo-12" class="exercise-link">Correction de l'exercice 12</a></p>
+        $\det(A(x))' = \sum_{k=1}^n \det(A_k)$, où $A_k$ est la matrice $A$ dont la colonne $k$ est remplacée par $C'_k$.
+        1. $\det = x^n + n x^{n-1}$.
+        2. $\det = \prod a_k + x \sum \prod_{i \neq k} a_i$.
+    </div>
+
+    <div class="correction" id="corr-13">
+        <p class="exo-title"><a href="#exo-13" class="exercise-link">Correction de l'exercice 13</a></p>
+        1. $\det = (-1)^{n-1} (n-1)$.
+        2. $\det((i+j-1)^2) = 0$ pour $n \geq 3$.
+        3. $\det = (a+(n-1)b)(a-b)^{n-1}$.
+        4. $\det = \prod (a_k-b) + (b-c) x \sum \prod_{i \neq k} (a_i-b)$.
+        5. $\det = n+1$ pour $n \geq 2$.
+        6. $\det = (-1)^n (X^n - a_{n-1} X^{n-1} - \dots - a_0)$.
+    </div>
+
+</body>
+</html>
