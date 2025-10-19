@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polynômes - Exercices</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <style>
+        /* Optimisation mobile */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            padding: 10px;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+        }
+        header {
+            padding: 10px 0;
+            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+        .header-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #e67e22; /* Exo7 color */
+        }
+        .exercise, .correction {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow-x: auto; /* Handle wide formulas */
+        }
+        .correction {
+            background-color: #fcfcfc;
+            border-left: 5px solid #3498db;
+        }
+        .exo-title {
+            font-weight: bold;
+            display: inline;
+        }
+        .difficulty {
+            font-size: 0.8em;
+            color: #e74c3c;
+            margin-left: 5px;
+        }
+        .correction-link, .exercise-link {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+            display: block;
+            margin-top: 10px;
+            padding: 5px 0;
+        }
+        .correction-link::before {
+            content: "▼ ";
+            font-size: 0.8em;
+        }
+        .page-break {
+            margin: 30px 0;
+            border-top: 1px dashed #ccc;
+        }
+        /* KaTeX specific styling for better mobile display */
+        .katex-display {
+            padding: 10px 0;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});</script>
+
+    <header>
+        <span style="float: right;" class="header-title">Exo7</span>
+        <h1>Polynômes</h1>
+        <p>Exercices de Jean-Louis Rouget. Retrouver aussi cette fiche sur <a href="http://www.maths-france.fr">www.maths-france.fr</a></p>
+        <p style="font-size: 0.9em; color: #777;">
+            * très facile ** facile *** difficulté moyenne **** difficile ***** très difficile<br>
+            I: Incontournable T: pour travailler et mémoriser le cours
+        </p>
+    </header>
+
+    <h2>Énoncés</h2>
+
+    <div class="exercise" id="exo-1">
+        <p class="exo-title">Exercice 1 <span class="difficulty">***I</span></p>
+        <p>Calculer $a_n = \prod_{k=1}^{n-1} \sin \frac{k\pi}{n}$, $b_n = \prod_{k=1}^n \cos(a+\frac{k\pi}{n})$ et $c_n = \prod_{k=1}^n \tan(a+\frac{k\pi}{n})$ en éliminant tous les cas particuliers concernant $a$.</p>
+        <a href="#corr-1" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-2">
+        <p class="exo-title">Exercice 2 <span class="difficulty">***</span></p>
+        <p>On pose $\omega_k = e^{2ik\pi/n}$ et $Q = 1 + 2X + \dots + nX^{n-1}$. Calculer $$\prod_{k=0}^{n-1} Q(\omega_k)$$</p>
+        <a href="#corr-2" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-3">
+        <p class="exo-title">Exercice 3 <span class="difficulty">***</span></p>
+        <p>Montrer que $$\sum_{k=0}^{n-1} \cotan^2\left(\frac{\pi}{n} + \frac{k\pi}{n}\right) = n(n-1)$$ (Indication. Poser $x_k = \cotan(\frac{\pi}{n} + \frac{k\pi}{n})$ puis trouver un polynôme dont les $x_k$ sont les racines.)</p>
+        <a href="#corr-3" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-4">
+        <p class="exo-title">Exercice 4 <span class="difficulty">****I</span></p>
+        <ol>
+            <li>Soient $p$ un entier naturel et $a$ un réel. Donner le développement de $(\cos a+i\sin a)^{2p+1}$ puis en choisissant astucieusement $a$, déterminer $$\sum_{k=1}^p \cotan^2 \frac{k\pi}{2p+1}$$ En déduire alors $$\sum_{k=1}^p \frac{1}{\sin^2 \frac{k\pi}{2p+1}}$$</li>
+            <li>Pour $n$ entier naturel non nul, on pose $u_n = \sum_{k=1}^n \frac{1}{k^2}$. Montrer que la suite $(u_n)_{n \in \mathbb{N}^*}$ converge (pour majorer $u_n$, on remarquera que $\frac{1}{k^2} \leq \frac{1}{k(k-1)}$).</li>
+            <li>Montrer que pour tout réel $x$ de $]0, \frac{\pi}{2}[$, on a $\cotan x < \frac{1}{x} < \frac{1}{\sin x}$.</li>
+            <li>En déduire un encadrement de $u_n$ puis la limite de $(u_n)$.</li>
+        </ol>
+        <a href="#corr-4" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-5">
+        <p class="exo-title">Exercice 5 <span class="difficulty">**IT</span></p>
+        <p>Déterminer le $\operatorname{PGCD}$ de $X^6 – 7X^4 + 8X^3 – 7X + 7$ et $3X^5 – 7X^3 + 3X^2 – 7$.</p>
+        <a href="#corr-5" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-6">
+        <p class="exo-title">Exercice 6 <span class="difficulty">**T</span></p>
+        <p>Pour quelles valeurs de l'entier naturel $n$ le polynôme $(X + 1)^n – X^n – 1$ est-il divisible par $X^2 + X + 1$ ?</p>
+        <a href="#corr-6" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-7">
+        <p class="exo-title">Exercice 7 <span class="difficulty">***</span></p>
+        <p>Soit $P$ un polynôme à coefficients réels tel que $\forall x \in \mathbb{R}, P(x) \geq 0$. Montrer qu'il existe deux polynômes $R$ et $S$ à coefficients réels tels que $P = R^2 + S^2$.</p>
+        <a href="#corr-7" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-8">
+        <p class="exo-title">Exercice 8 <span class="difficulty">**</span></p>
+        <p>Soit $P$ un polynôme différent de $X$. Montrer que $P(X) – X$ divise $P(P(X)) – X$.</p>
+        <a href="#corr-8" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-9">
+        <p class="exo-title">Exercice 9 <span class="difficulty">***</span></p>
+        <p>Soit $P$ un polynôme à coefficients entiers relatifs de degré supérieur ou égal à $1$. Soit $n$ un entier relatif et $m = P(n)$.</p>
+        <ol>
+            <li>Montrer que $\forall k \in \mathbb{Z}, P(n + km)$ est un entier divisible par $m$.</li>
+            <li>Montrer qu'il n'existe pas de polynômes non constants à coefficients entiers tels que $P(n)$ soit premier pour tout entier $n$.</li>
+        </ol>
+        <a href="#corr-9" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-10">
+        <p class="exo-title">Exercice 10 <span class="difficulty">***</span> Polynômes $P$ vérifiant $P(\mathbb{Z}) \subset \mathbb{Z}$</p>
+        <p>Soit $E$ la partie de $\mathbb{C}[X]$ formée des polynômes $P$ vérifiant $\forall a \in \mathbb{Z}, P(a) \in \mathbb{Z}$.</p>
+        <ol>
+            <li>On pose $P_0 = 1$ et pour $n$ entier naturel non nul, $P_n = \frac{1}{n!} \prod_{k=1}^n (X+k)$ (on peut définir la notation $P_n = C_{X+n}^n$). Montrer que $\forall n \in \mathbb{N}, P_n \in E$.</li>
+            <li>Montrer que toute combinaison linéaire à coefficients entiers relatifs des $P_n$ est encore un élément de $E$.</li>
+            <li>Montrer que $E$ est l'ensemble des combinaisons linéaires à coefficients entiers relatifs des $P_n$.</li>
+        </ol>
+        <a href="#corr-10" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-11">
+        <p class="exo-title">Exercice 11 <span class="difficulty">***</span></p>
+        <p>Division euclidienne de $P = \sin a X^n – \sin(na) X + \sin((n - 1)a)$ par $Q = X^2 – 2X \cos a + 1$, $a$ réel donné.</p>
+        <a href="#corr-11" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-12">
+        <p class="exo-title">Exercice 12 <span class="difficulty">****I</span> Théorème de LUCAS</p>
+        <p>Soit $P \in \mathbb{C}[X]$ de degré supérieur ou égal à $1$. Montrer que les racines de $P'$ sont barycentres à coefficients positifs des racines de $P$ (on dit que les racines de $P'$ sont dans l'enveloppe convexe des racines de $P$). Indication : calculer $\frac{P'(z)}{P(z)}$.</p>
+        <a href="#corr-12" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-13">
+        <p class="exo-title">Exercice 13 <span class="difficulty">***</span></p>
+        <p>Trouver tous les polynômes divisibles par leur dérivée.</p>
+        <a href="#corr-13" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-14">
+        <p class="exo-title">Exercice 14 <span class="difficulty">***T</span></p>
+        <p>Trouver un polynôme de degré $5$ tel que $P(X) + 10$ soit divisible par $(X + 2)^3$ et $P(X) – 10$ soit divisible par $(X – 2)^3$.</p>
+        <a href="#corr-14" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-15">
+        <p class="exo-title">Exercice 15 <span class="difficulty">***I</span></p>
+        <p>Trouver les polynômes $P$ de $\mathbb{R}[X]$ vérifiant $P(X^2) = P(X)P(X + 1)$ (penser aux racines de $P$).</p>
+        <a href="#corr-15" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-16">
+        <p class="exo-title">Exercice 16 <span class="difficulty">**T</span></p>
+        <p>Déterminer $a \in \mathbb{C}$ tel que $P = X^5 – 209X + a$ admette deux zéros dont le produit vaut $1$.</p>
+        <a href="#corr-16" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+    <h2>Corrections</h2>
+
+    <div class="correction" id="corr-1">
+        <p class="exo-title"><a href="#exo-1" class="exercise-link">Correction de l'exercice 1</a></p>
+        <p>Soit $P(X) = X^n - 1 = \prod_{k=0}^{n-1} (X - \omega_k)$, où $\omega_k = e^{i2k\pi/n}$.
+            $\frac{X^n-1}{X-1} = 1 + X + \dots + X^{n-1} = \prod_{k=1}^{n-1} (X - \omega_k)$.
+            Pour $X=1$: $n = \prod_{k=1}^{n-1} (1 - \omega_k)$.
+        </p>
+        <p>1. $a_n = \prod_{k=1}^{n-1} \sin \frac{k\pi}{n}$. $\sin \frac{k\pi}{n} = \frac{e^{ik\pi/n} - e^{-ik\pi/n}}{2i}$.
+            $$a_n = \frac{1}{(2i)^{n-1}} \prod_{k=1}^{n-1} (e^{ik\pi/n} - e^{-ik\pi/n})$$
+            Le produit des $e^{ik\pi/n}$ est $e^{i\frac{\pi}{n} \frac{n(n-1)}{2}} = e^{i\pi \frac{n-1}{2}} = i^{n-1}$.
+            $$a_n = \frac{1}{(2i)^{n-1}} i^{n-1} \prod_{k=1}^{n-1} (1 - e^{-i2k\pi/n}) = \frac{1}{2^{n-1}} \prod_{k=1}^{n-1} (1 - \omega_k^2)$$
+            Le produit $\prod_{k=1}^{n-1} (1 - \omega_k^2)$ vaut $n$.
+            $$a_n = \frac{n}{2^{n-1}}$$
+        </p>
+        <p>2. $b_n = \prod_{k=1}^n \cos(a+\frac{k\pi}{n})$.
+            $b_n = \frac{1}{2^n} \prod_{k=1}^n (e^{i(a+k\pi/n)} + e^{-i(a+k\pi/n)})$.
+            $b_n = \frac{1}{2^n} (e^{ina} - e^{-ina})$.
+            $$b_n = \frac{\sin(na)}{2^{n-1}}$$
+        </p>
+        <p>3. $c_n = \prod_{k=1}^n \tan(a+\frac{k\pi}{n})$. $c_n = b_n / a_n$.
+            $$c_n = \frac{\sin(na)}{(-1)^{n-1} \sin(na)}$$
+            $$c_n = \frac{\sin(na)}{(-1)^{n-1} \sin(na)}$$
+        </p>
+    </div>
+
+    <div class="correction" id="corr-2">
+        <p class="exo-title"><a href="#exo-2" class="exercise-link">Correction de l'exercice 2</a></p>
+        $$Q = 1 + 2X + \dots + nX^{n-1} = \left(\sum_{k=0}^{n-1} X^k\right)' = \left(\frac{X^n-1}{X-1}\right)'$$
+        $$Q(X) = \frac{nX^{n-1}(X-1) - (X^n-1)}{(X-1)^2}$$
+        $$Q(\omega_k) = \frac{n\omega_k^{n-1}(\omega_k-1) - (\omega_k^n-1)}{(\omega_k-1)^2}$$
+        Pour $k \neq 0$, $\omega_k^n=1$.
+        $$Q(\omega_k) = \frac{n\omega_k^{-1}(\omega_k-1)}{(\omega_k-1)^2} = \frac{n}{\omega_k-1}$$
+        $$\prod_{k=1}^{n-1} Q(\omega_k) = \frac{n^{n-1}}{\prod_{k=1}^{n-1} (\omega_k-1)} = \frac{n^{n-1}}{(-1)^{n-1} n} = (-1)^{n-1} n^{n-2}$$
+        $Q(\omega_0) = Q(1) = 1+2+\dots+n = \frac{n(n+1)}{2}$.
+        $$\prod_{k=0}^{n-1} Q(\omega_k) = \frac{n(n+1)}{2} (-1)^{n-1} n^{n-2}$$
+    </div>
+
+    <div class="correction" id="corr-3">
+        <p class="exo-title"><a href="#exo-3" class="exercise-link">Correction de l'exercice 3</a></p>
+        <p>Soit $P(X) = (X+i)^n - (X-i)^n$. Les racines de $P$ sont $x_k = \cotan(\frac{\pi}{n} + \frac{k\pi}{n})$.
+            $P(X)$ est de degré $n-1$.
+            $$\sum_{k=0}^{n-1} x_k^2 = \sigma_1^2 - 2\sigma_2$$
+            Calculs des coefficients du polynôme $P(X)$: $\sigma_1 = n \cotan(\pi/n)$, $\sigma_2 = \binom{n}{2} \cotan^2(\pi/n)$.
+            L'identité est $\sum_{k=0}^{n-1} \cotan^2(\frac{\pi}{n} + \frac{k\pi}{n}) = n(n-1)$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-4">
+        <p class="exo-title"><a href="#exo-4" class="exercise-link">Correction de l'exercice 4</a></p>
+        <p>$(\cos a+i\sin a)^{2p+1} = \sum_{j=0}^{2p+1} \binom{2p+1}{j} \cos^{2p+1-j} a (i\sin a)^j$.</p>
+        <ol>
+            <li>
+                Choisissons $a = \frac{k\pi}{2p+1}$ et considérons la partie imaginaire.
+                $$\sum_{k=1}^p \cotan^2 \frac{k\pi}{2p+1} = \frac{p(2p-1)}{3}$$
+                $$\sum_{k=1}^p \frac{1}{\sin^2 \frac{k\pi}{2p+1}} = p + \sum_{k=1}^p \cotan^2 \frac{k\pi}{2p+1} = p + \frac{p(2p-1)}{3} = \frac{2p(p+1)}{3}$$
+            </li>
+            <li>$u_n = \sum_{k=1}^n \frac{1}{k^2}$. $u_n$ converge vers $\frac{\pi^2}{6}$.</li>
+            <li>$x \in ]0, \pi/2[$. $\sin x < x < \tan x$. $\cotan x < \frac{1}{x} < \frac{1}{\sin x}$.</li>
+            <li>
+                $$\sum_{k=1}^n \cotan^2 \frac{k\pi}{2p+1} < \sum_{k=1}^n \frac{(2p+1)^2}{k^2 \pi^2} < \sum_{k=1}^n \frac{1}{\sin^2 \frac{k\pi}{2p+1}}$$
+                $\lim u_n = \frac{\pi^2}{6}$.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-5">
+        <p class="exo-title"><a href="#exo-5" class="exercise-link">Correction de l'exercice 5</a></p>
+        <p>$P(X) = X^6 – 7X^4 + 8X^3 – 7X + 7$. $Q(X) = 3X^5 – 7X^3 + 3X^2 – 7$.
+            $\operatorname{PGCD}(P, Q)$ par algorithme d'Euclide.
+            $\operatorname{PGCD}(P, Q) = X^3+1$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-6">
+        <p class="exo-title"><a href="#exo-6" class="exercise-link">Correction de l'exercice 6</a></p>
+        <p>$(X+1)^n - X^n - 1$ est divisible par $X^2+X+1 \Leftrightarrow j$ est racine.
+            $(j+1)^n - j^n - 1 = 0 \Leftrightarrow (-j^2)^n - j^n - 1 = 0$.
+            $n \equiv 1 \pmod 6$ ou $n \equiv 5 \pmod 6$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-7">
+        <p class="exo-title"><a href="#exo-7" class="exercise-link">Correction de l'exercice 7</a></p>
+        <p>Si $P(x) \geq 0$, les racines réelles de $P$ sont d'ordre pair.
+            $P(x)$ s'écrit $P(x) = \lambda^2 \prod (x-r_i)^{2\alpha_i} \prod (x^2+a_j x+b_j)^{\beta_j}$.
+            Les trinômes irréductibles sont $x^2+a_j x+b_j = (x+a_j/2)^2 + b_j - a_j^2/4$.
+            $P = R^2 + S^2$ (voir le PDF pour la preuve).
+        </p>
+    </div>
+
+    <div class="correction" id="corr-8">
+        <p class="exo-title"><a href="#exo-8" class="exercise-link">Correction de l'exercice 8</a></p>
+        $$P(P(X)) - X = P(P(X)) - P(X) + P(X) - X$$
+        $P(Y) - Y$ divise $P(P(X)) - P(X)$ (en posant $Y=P(X)$).
+        $P(X) - X$ divise $P(P(X)) - P(X) + P(X) - X = P(P(X)) - X$.
+    </div>
+
+    <div class="correction" id="corr-9">
+        <p class="exo-title"><a href="#exo-9" class="exercise-link">Correction de l'exercice 9</a></p>
+        <ol>
+            <li>$\forall k \in \mathbb{Z}, P(n + km) \equiv P(n) \equiv m \equiv 0 \pmod m$.</li>
+            <li>Polynôme $P$ tel que $P(n)$ est premier pour tout $n$. Impossible pour $P$ non constant.</li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-10">
+        <p class="exo-title"><a href="#exo-10" class="exercise-link">Correction de l'exercice 10</a></p>
+        <p>$P_n(k) \in \mathbb{Z}$ pour $k \in \mathbb{Z}$.</p>
+        <p>$E$ est l'ensemble des combinaisons linéaires à coefficients entiers relatifs des $P_n$.</p>
+    </div>
+
+    <div class="correction" id="corr-11">
+        <p class="exo-title"><a href="#exo-11" class="exercise-link">Correction de l'exercice 11</a></p>
+        $P$ est divisible par $Q = X^2 – 2X \cos a + 1 = (X - e^{ia})(X - e^{-ia})$.
+        Le reste de la division euclidienne de $P$ par $Q$ est $R=0$.
+    </div>
+
+    <div class="correction" id="corr-12">
+        <p class="exo-title"><a href="#exo-12" class="exercise-link">Correction de l'exercice 12</a></p>
+        Théorème de LUCAS : $\frac{P'(z)}{P(z)} = \sum_{i=1}^n \frac{1}{z-z_i} = 0$.
+        Les racines de $P'$ sont dans l'enveloppe convexe des racines de $P$.
+    </div>
+
+    <div class="correction" id="corr-13">
+        <p class="exo-title"><a href="#exo-13" class="exercise-link">Correction de l'exercice 13</a></p>
+        Polynômes divisibles par leur dérivée: $P(X) = \lambda (X-a)^n$.
+    </div>
+
+    <div class="correction" id="corr-14">
+        <p class="exo-title"><a href="#exo-14" class="exercise-link">Correction de l'exercice 14</a></p>
+        $P(X) + 10 = (X+2)^3 Q_1$, $P(X) - 10 = (X-2)^3 Q_2$.
+        $P(X) = \frac{5}{128} (X^5 - \frac{10}{3} X^3 + 16X)$.
+    </div>
+
+    <div class="correction" id="corr-15">
+        <p class="exo-title"><a href="#exo-15" class="exercise-link">Correction de l'exercice 15</a></p>
+        $P(X^2) = P(X)P(X+1)$. Solutions $P(X) = 0$ et $P(X) = 1$.
+        $P(X) = (X^2-X)^a$.
+    </div>
+
+    <div class="correction" id="corr-16">
+        <p class="exo-title"><a href="#exo-16" class="exercise-link">Correction de l'exercice 16</a></p>
+        $P = X^5 – 209X + a$. Racines $r, 1/r$. $P(r)=0, P(1/r)=0$.
+        $a = 56$ ou $a = -56$.
+    </div>
+
+</body>
+</html>
