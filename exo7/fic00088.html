@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espaces vectoriels - Exercices</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <style>
+        /* Optimisation mobile */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            padding: 10px;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+        }
+        header {
+            padding: 10px 0;
+            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+        .header-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #e67e22; /* Exo7 color */
+        }
+        .exercise, .correction {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow-x: auto; /* Handle wide formulas */
+        }
+        .correction {
+            background-color: #fcfcfc;
+            border-left: 5px solid #3498db;
+        }
+        .exo-title {
+            font-weight: bold;
+            display: inline;
+        }
+        .difficulty {
+            font-size: 0.8em;
+            color: #e74c3c;
+            margin-left: 5px;
+        }
+        .correction-link, .exercise-link {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+            display: block;
+            margin-top: 10px;
+            padding: 5px 0;
+        }
+        .correction-link::before {
+            content: "▼ ";
+            font-size: 0.8em;
+        }
+        .page-break {
+            margin: 30px 0;
+            border-top: 1px dashed #ccc;
+        }
+        /* KaTeX specific styling for better mobile display */
+        .katex-display {
+            padding: 10px 0;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+
+    <header>
+        <span style="float: right;" class="header-title">Exo7</span>
+        <h1>Espaces vectoriels</h1>
+        <p>Exercices de Jean-Louis Rouget. Retrouver aussi cette fiche sur <a href="http://www.maths-france.fr">www.maths-france.fr</a></p>
+        <p style="font-size: 0.9em; color: #777;">
+            * très facile ** facile *** difficulté moyenne **** difficile ***** très difficile<br>
+            I: Incontournable T: pour travailler et mémoriser le cours
+        </p>
+    </header>
+
+    <h2>Énoncés</h2>
+
+    <div class="exercise" id="exo-1">
+        <p class="exo-title">Exercice 1 <span class="difficulty">*T</span></p>
+        <p>Soit $E$ le $\mathbb{R}$-espace vectoriel des applications de $[0, 1]$ dans $\mathbb{R}$ (muni de $f + g$ et $\lambda \cdot f$ usuels) (ne pas hésiter à redémontrer que $E$ est un $\mathbb{R}$ espace vectoriel). Soit $F$ l'ensemble des applications de $[0, 1]$ dans $\mathbb{R}$ vérifiant l'une des conditions suivantes :</p>
+        <ol>
+            <li>$f(0) + f(1) = 0$</li>
+            <li>$f(0) = 0$</li>
+            <li>$f(\frac{1}{2}) = 1$</li>
+            <li>$\forall x \in [0, 1], f(x) + f(1 - x) = 0$</li>
+            <li>$\forall x \in [0, 1], f(x) \geq 0$</li>
+            <li>$2f(0) = f(1) + 3$</li>
+        </ol>
+        <p>Dans quel cas $F$ est-il un sous-espace vectoriel de $E$ ?</p>
+        <a href="#corr-1" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-2">
+        <p class="exo-title">Exercice 2 <span class="difficulty">**T</span></p>
+        <p>On munit $\mathbb{R}^n$ des lois produit usuelles. Parmi les sous-ensembles suivants $F$ de $\mathbb{R}^n$, lesquels sont des sous-espaces vectoriels ?</p>
+        <ol>
+            <li>$F = \{(x_1, \dots, x_n) \in \mathbb{R}^n / x_1 = 0\}$</li>
+            <li>$F = \{(x_1, \dots, x_n) \in \mathbb{R}^n / x_1 = 1\}$</li>
+            <li>$F = \{(x_1, \dots, x_n) \in \mathbb{R}^n / x_1 = x_2\}$</li>
+            <li>$F = \{(x_1, \dots, x_n) \in \mathbb{R}^n / x_1 + \dots + x_n = 0\}$</li>
+            <li>$F = \{(x_1, \dots, x_n) \in \mathbb{R}^n / x_1 x_2 = 0\}$</li>
+        </ol>
+        <a href="#corr-2" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-3">
+        <p class="exo-title">Exercice 3 <span class="difficulty">**</span></p>
+        <p>Soit $E$ un $\mathbb{K}$-espace vectoriel. Soient $A, B$ et $C$ trois sous-espaces vectoriels de $E$ vérifiant $A \cap B = A \cap C$, $A+B=A+C$ et $B \subset C$. Montrer que $B = C$.</p>
+        <a href="#corr-3" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-4">
+        <p class="exo-title">Exercice 4 <span class="difficulty">**T</span></p>
+        <p>Soit $\mathbb{R}^{\mathbb{N}}$ le $\mathbb{R}$-espace vectoriel des suites réelles (muni des opérations usuelles). On considère les trois éléments de $E$ suivants : $u = (\cos(n\theta))_{n \in \mathbb{N}}$, $v = (\cos(n\theta + a))_{n \in \mathbb{N}}$ et $w = (\cos(n\theta +b))_{n \in \mathbb{N}}$ où $\theta, a$ et $b$ sont des réels donnés. Montrer que $(u, v, w)$ est une famille liée.</p>
+        <a href="#corr-4" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-5">
+        <p class="exo-title">Exercice 5 <span class="difficulty">**T</span></p>
+        <p>Soit $F$ le sous-espace vectoriel de $\mathbb{R}^4$ engendré par $u = (1, 2, -5, 3)$ et $v = (2, -1, 4, 7)$. Déterminer $\lambda$ et $\mu$ réels tels que $(\lambda, \mu, -37, -3)$ appartienne à $F$.</p>
+        <a href="#corr-5" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-6">
+        <p class="exo-title">Exercice 6 <span class="difficulty">**T</span></p>
+        <p>Montrer que $a = (1, 2, 3)$ et $b = (2, -1, 1)$ engendrent le même sous espace de $\mathbb{R}^3$ que $c = (1, 0, 1)$ et $d = (0, 1, 1)$.</p>
+        <a href="#corr-6" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-7">
+        <p class="exo-title">Exercice 7 <span class="difficulty">**T</span></p>
+        <ol>
+            <li>Vérifier qu'il existe une unique application linéaire de $\mathbb{R}^3$ dans $\mathbb{R}^2$ vérifiant $f((1, 0, 0)) = (1, 1)$ puis $f((0, 1, 0)) = (0, 1)$ et $f((0, 0, 1)) = (-1, 1)$. Calculer $f((3, -1, 4))$ et $f((x, y, z))$ en général.</li>
+            <li>Déterminer $\operatorname{Ker} f$. En fournir une base. Donner un supplémentaire de $\operatorname{Ker} f$ dans $\mathbb{R}^3$ et vérifier qu'il est isomorphe à $\operatorname{Im} f$.</li>
+        </ol>
+        <a href="#corr-7" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-8">
+        <p class="exo-title">Exercice 8 <span class="difficulty">**I</span></p>
+        <p>Soit $E$ un $\mathbb{K}$-espace vectoriel et $f$ un élément de $\mathcal{L}(E)$.</p>
+        <ol>
+            <li>Montrer que $[\operatorname{Ker} f = \operatorname{Ker} f^2 \Leftrightarrow \operatorname{Ker} f \cap \operatorname{Im} f = \{0\}]$ et $[\operatorname{Im} f = \operatorname{Im} f^2 \Leftrightarrow E = \operatorname{Ker} f + \operatorname{Im} f]$ (où $f^2 = f \circ f$).</li>
+            <li>Par définition, un endomorphisme $p$ de $E$ est un projecteur si et seulement si $p^2 = p$. Montrer que $$[p \text{ projecteur } \Leftrightarrow \operatorname{Id} - p \text{ projecteur}]$$ puis que $$[p \text{ projecteur } \Rightarrow \operatorname{Im} p = \operatorname{Ker}(\operatorname{Id} - p) \text{ et } \operatorname{Ker} p = \operatorname{Im}(\operatorname{Id} - p) \text{ et } E = \operatorname{Ker} p \oplus \operatorname{Im} p]$$</li>
+            <li>Soient $p$ et $q$ deux projecteurs, montrer que : $[\operatorname{Ker} p = \operatorname{Ker} q \Leftrightarrow p = p \circ q \text{ et } q = q \circ p]$.</li>
+            <li>$p$ et $q$ étant deux projecteurs vérifiant $p \circ q + q \circ p = 0$, montrer que $p \circ q = q \circ p = 0$. Donner une condition nécessaire et suffisante pour que $p + q$ soit un projecteur lorsque $p$ et $q$ le sont. Dans ce cas, déterminer $\operatorname{Im}(p+q)$ et $\operatorname{Ker}(p+q)$ en fonction de $\operatorname{Ker} p, \operatorname{Ker} q, \operatorname{Im} p$ et $\operatorname{Im} q$.</li>
+        </ol>
+        <a href="#corr-8" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-9">
+        <p class="exo-title">Exercice 9 <span class="difficulty">**</span></p>
+        <p>Soient $E$ un $\mathbb{K}$-espace vectoriel et $A, B$ et $C$ trois sous-espaces de $E$.</p>
+        <ol>
+            <li>Montrer que : $(A \cap B) + (A \cap C) \subset A \cap (B+C)$.</li>
+            <li>A-t-on toujours l'égalité ?</li>
+            <li>Montrer que : $(A \cap B) + (A \cap C) = A \cap (B + (A \cap C))$.</li>
+        </ol>
+        <a href="#corr-9" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-10">
+        <p class="exo-title">Exercice 10 <span class="difficulty">**T</span></p>
+        <p>Dans $E = \mathbb{R}^4$, on considère $V = \{(x, y, z, t) \in E / x - 2y = 0 \text{ et } y – 2z = 0\}$ et $W = \{(x, y, z, t) \in E / x+z=y+t\}$.</p>
+        <ol>
+            <li>Montrer que $V$ et $W$ sont des sous espaces vectoriels de $E$.</li>
+            <li>Donner une base de $V$, $W$ et $V \cap W$.</li>
+            <li>Montrer que $E = V + W$.</li>
+        </ol>
+        <a href="#corr-10" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-11">
+        <p class="exo-title">Exercice 11 <span class="difficulty">***</span></p>
+        <p>Soit $$f: \begin{array}{ccc} [0, +\infty[ \times [0, 2\pi[ & \to & \mathbb{R}^2 \\ (x, y) & \mapsto & (x \cos y, x \sin y) \end{array}$$</p>
+        <ol>
+            <li>$f$ est-elle injective ? surjective ?</li>
+            <li>Soient $a, b, \alpha$ et $\beta$ quatre réels. Montrer qu'il existe $(c, \gamma) \in \mathbb{R}^2$ tel que : $\forall x \in \mathbb{R}, a\cos(x- \alpha)+b\cos(x- \beta) = c\cos(x – \gamma)$.</li>
+            <li>Soit $E$ le $\mathbb{R}$-espace vectoriel des applications de $\mathbb{R}$ dans $\mathbb{R}$. Soit $F = \{u \in E / \exists (a, b, \alpha, \beta) \in \mathbb{R}^4 \text{ tel que } \forall x \in \mathbb{R}, u(x) = a\cos(x - \alpha) + b\cos(2x - \beta)\}$. Montrer que $F$ est un sous-espace vectoriel de $E$.</li>
+            <li>Déterminer $\{\cos x, \sin x, \cos(2x), \sin(2x), 1, \cos^2 x, \sin^2 x\} \cap F$.</li>
+            <li>Montrer que $(\cos x, \sin x, \cos(2x), \sin(2x))$ est une famille libre de $F$.</li>
+        </ol>
+        <a href="#corr-11" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-12">
+        <p class="exo-title">Exercice 12 <span class="difficulty">**</span></p>
+        <p>Soit $\mathcal{C}$ l'ensemble des applications de $\mathbb{R}$ dans $\mathbb{R}$, croissantes sur $\mathbb{R}$.</p>
+        <ol>
+            <li>$\mathcal{C}$ est-il un espace vectoriel (pour les opérations usuelles) ?</li>
+            <li>Montrer que $V = \{f \in \mathbb{R}^{\mathbb{R}} / \exists (g, h) \in \mathcal{C}^2 \text{ tel que } f = g - h\}$ est un $\mathbb{R}$-espace vectoriel.</li>
+        </ol>
+        <a href="#corr-12" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-13">
+        <p class="exo-title">Exercice 13 <span class="difficulty">**</span></p>
+        <p>Montrer que la commutativité de la loi $+$ est une conséquence des autres axiomes de la structure d'espace vectoriel.</p>
+        <a href="#corr-13" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-14">
+        <p class="exo-title">Exercice 14 <span class="difficulty">***</span></p>
+        <p>Soient $E$ un $\mathbb{K}$-espace vectoriel et $A, B$ et $C$ trois sous-espaces vectoriels de $E$. Montrer que
+            $$(A \cap B) + (B \cap C) + (C \cap A) \subset (A + B) \cap (B+C) \cap (C+A)$$
+        </p>
+        <a href="#corr-14" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-15">
+        <p class="exo-title">Exercice 15 <span class="difficulty">**IT</span></p>
+        <p>Soient $u = (1, 1, \dots, 1)$ et $F = \operatorname{Vect}(u)$ puis $G = \{(x_1, \dots, x_n) \in \mathbb{R}^n / x_1 + \dots + x_n = 0\}$. Montrer que $G$ est un sous-espace vectoriel de $\mathbb{R}^n$ et que $\mathbb{R}^n = F \oplus G$.</p>
+        <a href="#corr-15" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-16">
+        <p class="exo-title">Exercice 16 <span class="difficulty">****</span></p>
+        <ol>
+            <li>Soit $n$ un entier naturel. Montrer que si $n$ n'est pas un carré parfait alors $\sqrt{n} \notin \mathbb{Q}$.</li>
+            <li>Soit $E = \{a + b\sqrt{2}+c\sqrt{3}+d\sqrt{6}, (a,b,c,d) \in \mathbb{Q}^4\}$. Vérifier que $E$ est un $\mathbb{Q}$-espace vectoriel puis déterminer une base de $E$.</li>
+        </ol>
+        <a href="#corr-16" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-17">
+        <p class="exo-title">Exercice 17 <span class="difficulty">***T</span></p>
+        <p>Dans $E = \mathbb{R}^{\mathbb{R}}$, étudier la liberté des familles suivantes $\mathcal{A}$ de vecteurs de $E$ :</p>
+        <ol>
+            <li>$a, b$ et $c$ étant trois réels donnés, $\mathcal{A} = (f_a, f_b, f_c)$ où, pour tout réel $x$, $f_u(x) = \sin(x+u)$.</li>
+            <li>$\mathcal{A} = (f_n)_{n \in \mathbb{Z}}$ où, pour tout réel $x$, $f_n(x) = nx+n^2 + 1$.</li>
+            <li>$\mathcal{A} = (x \mapsto x^\alpha)_{\alpha \in \mathbb{R}}$ (ici $E = (\mathbb{R}^+_*)^{\mathbb{R}}$).</li>
+            <li>$\mathcal{A} = (x \mapsto |x - a|)_{a \in \mathbb{R}}$.</li>
+        </ol>
+        <a href="#corr-17" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-18">
+        <p class="exo-title">Exercice 18 <span class="difficulty">****</span></p>
+        <p>Soit $E$ un $\mathbb{K}$-espace vectoriel et soit $(u, v) \in (\mathcal{L}(E))^2$.</p>
+        <ol>
+            <li>Montrer que $[\operatorname{Ker} v \subset \operatorname{Ker} u \Leftrightarrow \exists w \in \mathcal{L}(E)/ u = w \circ v]$.</li>
+            <li>En déduire que $[v \text{ injectif } \Leftrightarrow \exists w \in \mathcal{L}(E)/ w \circ v = \operatorname{Id}_E]$.</li>
+        </ol>
+        <a href="#corr-18" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-19">
+        <p class="exo-title">Exercice 19 <span class="difficulty">***</span></p>
+        <p>Soit $E = \mathbb{R}[X]$ le $\mathbb{R}$-espace vectoriel des polynômes à coefficients réels.</p>
+        <ul>
+            <li>Soit $f: E \to E, P \mapsto P'$. $f$ est-elle linéaire, injective, surjective ? Fournir un supplémentaire de $\operatorname{Ker} f$.</li>
+            <li>Mêmes questions avec $g: E \to E, P \mapsto \int_0^X P(t) dt$.</li>
+        </ul>
+        <a href="#corr-19" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+    <h2>Corrections</h2>
+
+    <div class="correction" id="corr-1">
+        <p class="exo-title"><a href="#exo-1" class="exercise-link">Correction de l'exercice 1</a></p>
+        <ol>
+            <li>$F$ est un sous-espace vectoriel de $E$. (Vérifié par la caractérisation standard).</li>
+            <li>$F$ est un sous-espace vectoriel de $E$. (Noyau de la forme linéaire $f \mapsto f(0)$).</li>
+            <li>$F$ ne contient pas la fonction nulle, donc $F$ n'est pas un sous-espace vectoriel de $E$.</li>
+            <li>$F$ est un sous-espace vectoriel de $E$. (Vérifié par la caractérisation standard).</li>
+            <li>$F$ ne contient pas l'opposé de la fonction constante $f(x)=1$, donc $F$ n'est pas un sous-espace vectoriel de $E$.</li>
+            <li>$F$ ne contient pas la fonction nulle (car $2(0) \neq 0+3$), donc $F$ n'est pas un sous-espace vectoriel de $E$.</li>
+        </ol>
+        <p>Seuls les cas 1, 2 et 4 donnent un sous-espace vectoriel de $E$.</p>
+    </div>
+
+    <div class="correction" id="corr-2">
+        <p class="exo-title"><a href="#exo-2" class="exercise-link">Correction de l'exercice 2</a></p>
+        <ol>
+            <li>$F = \{(x_1, \dots, x_n) \in \mathbb{R}^n / x_1 = 0\}$. $F$ est le noyau de la forme linéaire $\phi: (x_1, \dots, x_n) \mapsto x_1$. $F$ est un sous-espace vectoriel de $\mathbb{R}^n$.</li>
+            <li>$F = \{(x_1, \dots, x_n) \in \mathbb{R}^n / x_1 = 1\}$. $F$ ne contient pas le vecteur nul. $F$ n'est pas un sous-espace vectoriel.</li>
+            <li>$F = \{(x_1, \dots, x_n) \in \mathbb{R}^n / x_1 = x_2\}$. $F$ est le noyau de la forme linéaire $\phi: (x_1, \dots, x_n) \mapsto x_1 - x_2$. $F$ est un sous-espace vectoriel.</li>
+            <li>$F = \{(x_1, \dots, x_n) \in \mathbb{R}^n / x_1 + \dots + x_n = 0\}$. $F$ est le noyau de la forme linéaire $\phi: (x_1, \dots, x_n) \mapsto x_1 + \dots + x_n$. $F$ est un sous-espace vectoriel.</li>
+            <li>$F = \{(x_1, \dots, x_n) \in \mathbb{R}^n / x_1 x_2 = 0\}$. $F$ n'est pas stable par addition. Par exemple, pour $n=2$, $e_1=(1, 0) \in F$ et $e_2=(0, 1) \in F$, mais $e_1+e_2=(1, 1) \notin F$. $F$ n'est pas un sous-espace vectoriel.</li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-3">
+        <p class="exo-title"><a href="#exo-3" class="exercise-link">Correction de l'exercice 3</a></p>
+        <p>On a $B \subset C$. Il suffit de montrer $C \subset B$.</p>
+        <p>Soit $x \in C$. Puisque $B \subset C$, $A+B \subset A+C$. L'égalité $A+B=A+C$ est donnée.</p>
+        <p>Comme $x \in C$, $x \in A+C = A+B$. Il existe $(y, z) \in A \times B$ tel que $x = y + z$.</p>
+        <p>Puisque $z \in B$ et $B \subset C$, $z \in C$. $C$ est un s.e.v., donc $y = x - z \in C$.</p>
+        <p>$y \in A \cap C$. Puisque $A \cap C = A \cap B$, $y \in A \cap B$. En particulier $y \in B$.</p>
+        <p>$x = y + z$. $y \in B$ et $z \in B$, donc $x \in B$.</p>
+        <p>Finalement $C \subset B$. Comme $B \subset C$, on a $B=C$.</p>
+    </div>
+
+    <div class="correction" id="corr-4">
+        <p class="exo-title"><a href="#exo-4" class="exercise-link">Correction de l'exercice 4</a></p>
+        <p>Les suites sont définies par $u_n = \cos(n\theta)$, $v_n = \cos(n\theta + a)$, $w_n = \cos(n\theta + b)$.</p>
+        <p>Développons $v_n$ et $w_n$:
+            $$v_n = \cos(n\theta)\cos a - \sin(n\theta)\sin a$$
+            $$w_n = \cos(n\theta)\cos b - \sin(n\theta)\sin b$$
+            Les suites $v$ et $w$ sont combinaisons linéaires des deux suites $u = (\cos(n\theta))_{n \in \mathbb{N}}$ et $u' = (\sin(n\theta))_{n \in \mathbb{N}}$.
+            Si $\theta \in \pi\mathbb{Z}$, les suites sont constantes et la famille est liée (sauf cas dégénérés).
+            Si $\theta \notin \pi\mathbb{Z}$, l'espace vectoriel engendré par $u$ et $u'$ est de dimension au plus 2.
+            La famille $(u, v, w)$ est composée de 3 vecteurs dans un espace de dimension au plus 2, elle est donc liée.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-5">
+        <p class="exo-title"><a href="#exo-5" class="exercise-link">Correction de l'exercice 5</a></p>
+        <p>$F = \operatorname{Vect}(u, v)$. Le vecteur $(\lambda, \mu, -37, -3)$ appartient à $F$ si et seulement s'il est une combinaison linéaire de $u$ et $v$.
+            $$(\lambda, \mu, -37, -3) = a u + b v \Leftrightarrow \exists (a, b) \in \mathbb{R}^2 / \begin{cases} a + 2b = \lambda \\ 2a - b = \mu \\ -5a + 4b = -37 \\ 3a + 7b = -3 \end{cases}$$
+            On résout le système sur $a$ et $b$ donné par les deux dernières lignes:
+            $$\begin{cases} -5a + 4b = -37 \\ 3a + 7b = -3 \end{cases}$$
+            $5 \times L_2 + 3 \times L_1 \Rightarrow (35+12)b = -15 - 111 = -126 \Rightarrow 47b = -126 \Rightarrow b = -\frac{126}{47}$.
+            $3a = -3 - 7b = -3 + 7 \cdot \frac{126}{47} = \frac{-141 + 882}{47} = \frac{741}{47}$. $a = \frac{247}{47}$.
+            Maintenant on trouve $\lambda$ et $\mu$:
+            $$\lambda = a + 2b = \frac{247}{47} - \frac{252}{47} = -\frac{5}{47}$$
+            $$\mu = 2a - b = \frac{494}{47} + \frac{126}{47} = \frac{620}{47}$$
+            Le vecteur appartient à $F$ pour $\lambda = -\frac{5}{47}$ et $\mu = \frac{620}{47}$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-6">
+        <p class="exo-title"><a href="#exo-6" class="exercise-link">Correction de l'exercice 6</a></p>
+        <p>Soient $F = \operatorname{Vect}(a, b)$ et $G = \operatorname{Vect}(c, d)$. On veut montrer $F = G$.
+            On vérifie que $c$ et $d$ sont dans $F$, puis que $a$ et $b$ sont dans $G$.
+        </p>
+        <p>1. Montrons $c \in F$. On cherche $(\lambda, \mu) \in \mathbb{R}^2$ tel que $c = \lambda a + \mu b$:
+            $$\begin{cases} \lambda + 2\mu = 1 \\ 2\lambda - \mu = 0 \\ 3\lambda + \mu = 1 \end{cases} \Leftrightarrow \begin{cases} \mu = 2\lambda \\ \lambda + 4\lambda = 1 \\ 3\lambda + 2\lambda = 1 \end{cases} \Leftrightarrow \lambda = 1/5, \mu = 2/5$$
+            $c = \frac{1}{5} a + \frac{2}{5} b$. $c \in F$.
+        </p>
+        <p>2. Montrons $d \in F$. On cherche $(\lambda, \mu) \in \mathbb{R}^2$ tel que $d = \lambda a + \mu b$:
+            $$\begin{cases} \lambda + 2\mu = 0 \\ 2\lambda - \mu = 1 \\ 3\lambda + \mu = 1 \end{cases} \Leftrightarrow \begin{cases} \lambda = -2\mu \\ -4\mu - \mu = 1 \\ -6\mu + \mu = 1 \end{cases} \Leftrightarrow \mu = -1/5, \lambda = 2/5$$
+            $d = \frac{2}{5} a - \frac{1}{5} b$. $d \in F$. D'où $G \subset F$.
+        </p>
+        <p>3. Montrons $a \in G$ et $b \in G$.
+            $a = c + 2d$ et $b = 2c - d$ (inverser les systèmes de 1. et 2.).
+            $a \in G$ et $b \in G$. D'où $F \subset G$.
+        </p>
+        <p>Conclusion: $F=G$.</p>
+    </div>
+
+    <div class="correction" id="corr-7">
+        <p class="exo-title"><a href="#exo-7" class="exercise-link">Correction de l'exercice 7</a></p>
+        <ol>
+            <li>L'existence et unicité d'une application linéaire $f: \mathbb{R}^3 \to \mathbb{R}^2$ est garantie par la base canonique $(e_1, e_2, e_3)$ de $\mathbb{R}^3$.
+                $$f((x, y, z)) = x f(e_1) + y f(e_2) + z f(e_3) = x(1, 1) + y(0, 1) + z(-1, 1)$$
+                $$f((x, y, z)) = (x-z, x+y+z)$$
+                $f((3, -1, 4)) = (3-4, 3-1+4) = (-1, 6)$.
+            </li>
+            <li>Détermination de $\operatorname{Ker} f$:
+                $$(x, y, z) \in \operatorname{Ker} f \Leftrightarrow \begin{cases} x-z = 0 \\ x+y+z = 0 \end{cases} \Leftrightarrow \begin{cases} z=x \\ y = -2x \end{cases}$$
+                $\operatorname{Ker} f = \operatorname{Vect}((1, -2, 1))$. Base : $((1, -2, 1))$. $\dim(\operatorname{Ker} f) = 1$.
+            </li>
+            <li>Détermination de $\operatorname{Im} f$: $\dim(\operatorname{Im} f) = \dim(\mathbb{R}^3) - \dim(\operatorname{Ker} f) = 3 - 1 = 2$.
+                $\operatorname{Im} f \subset \mathbb{R}^2$ et $\dim(\operatorname{Im} f) = \dim(\mathbb{R}^2)$. Donc $\operatorname{Im} f = \mathbb{R}^2$.
+            </li>
+            <li>Supplémentaire de $\operatorname{Ker} f$: Posons $e_1 = (1, -2, 1)$ (base de $\operatorname{Ker} f$), $e_2 = (1, 0, 0)$ et $e_3 = (0, 1, 0)$.
+                $F = \operatorname{Vect}(e_2, e_3)$. $\mathbb{R}^3 = \operatorname{Ker} f \oplus F$.
+                $F$ est isomorphe à $\operatorname{Im} f = \mathbb{R}^2$. L'isomorphisme est $\phi: (x, y, 0) \mapsto (x, y)$.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-8">
+        <p class="exo-title"><a href="#exo-8" class="exercise-link">Correction de l'exercice 8</a></p>
+        <ol>
+            <li>
+                $[\operatorname{Ker} f = \operatorname{Ker} f^2 \Leftrightarrow \operatorname{Ker} f \cap \operatorname{Im} f = \{0\}]$.
+                $\operatorname{Ker} f \subset \operatorname{Ker} f^2$ est toujours vrai.
+                $(\Rightarrow)$ Soit $x \in \operatorname{Ker} f \cap \operatorname{Im} f$. $f(x)=0$ et $x=f(y)$. $f^2(y) = f(x) = 0$, donc $y \in \operatorname{Ker} f^2 = \operatorname{Ker} f$. $x=f(y)=0$. Vrai.
+                $(\Leftarrow)$ Soit $x \in \operatorname{Ker} f^2$. $f(f(x))=0$, donc $f(x) \in \operatorname{Ker} f$. $f(x) \in \operatorname{Im} f$. $f(x) \in \operatorname{Ker} f \cap \operatorname{Im} f = \{0\}$. Donc $f(x)=0$, $x \in \operatorname{Ker} f$. Vrai.
+                
+                $[\operatorname{Im} f = \operatorname{Im} f^2 \Leftrightarrow E = \operatorname{Ker} f + \operatorname{Im} f]$.
+                $\operatorname{Im} f^2 \subset \operatorname{Im} f$ est toujours vrai.
+                $(\Rightarrow)$ Soit $x \in E$. $f(x) \in \operatorname{Im} f = \operatorname{Im} f^2$. $f(x) = f^2(t)$. Posons $y = x - f(t)$ et $z = f(t)$. $z \in \operatorname{Im} f$. $f(y) = f(x) - f^2(t) = 0$. $y \in \operatorname{Ker} f$. $x = y+z \in \operatorname{Ker} f + \operatorname{Im} f$. Vrai.
+                $(\Leftarrow)$ Soit $x \in E$. $f(x) \in \operatorname{Im} f$. $x=y+z$ avec $y \in \operatorname{Ker} f, z \in \operatorname{Im} f$. $f(x) = f(z)$. $z = f(t)$. $f(x) = f^2(t) \in \operatorname{Im} f^2$. Donc $\operatorname{Im} f \subset \operatorname{Im} f^2$. Vrai.
+            </li>
+            <li>
+                $[p \text{ projecteur } \Leftrightarrow \operatorname{Id} - p \text{ projecteur}]$.
+                $(\operatorname{Id}-p)^2 = \operatorname{Id}^2 - 2p + p^2 = \operatorname{Id} - 2p + p = \operatorname{Id} - p$. Vrai.
+                
+                $[p \text{ projecteur } \Rightarrow \operatorname{Im} p = \operatorname{Ker}(\operatorname{Id} - p) \text{ et } \operatorname{Ker} p = \operatorname{Im}(\operatorname{Id} - p)]$.
+                $x \in \operatorname{Im} p \Leftrightarrow x = p(y) \Rightarrow p(x) = p^2(y) = p(y) = x$. $x \in \operatorname{Ker}(\operatorname{Id}-p)$. Vrai.
+                $x \in \operatorname{Ker}(\operatorname{Id}-p) \Leftrightarrow p(x) = x \Rightarrow x \in \operatorname{Im} p$. Vrai.
+                $\operatorname{Im} p = \operatorname{Ker}(\operatorname{Id} - p)$.
+                Comme $\operatorname{Id}-p$ est projecteur, $\operatorname{Im}(\operatorname{Id}-p) = \operatorname{Ker}(\operatorname{Id} - (\operatorname{Id}-p)) = \operatorname{Ker} p$.
+                $E = \operatorname{Ker} p + \operatorname{Im} p$ (d'après 1, car $p^2=p$). $\operatorname{Ker} p \cap \operatorname{Im} p = \{0\}$. $E = \operatorname{Ker} p \oplus \operatorname{Im} p$.
+            </li>
+            <li>
+                $[\operatorname{Ker} p = \operatorname{Ker} q \Leftrightarrow p = p \circ q \text{ et } q = q \circ p]$. Vrai (voir le PDF pour la preuve).
+            </li>
+            <li>
+                $p \circ q + q \circ p = 0 \Rightarrow p \circ q = q \circ p = 0$. Vrai (voir le PDF).
+                $p+q$ est projecteur $\Leftrightarrow (p+q)^2 = p+q$.
+                $(p+q)^2 = p^2 + p \circ q + q \circ p + q^2 = p + q + p \circ q + q \circ p$.
+                $p+q$ est projecteur $\Leftrightarrow p \circ q + q \circ p = 0$.
+                
+                Si $p \circ q = q \circ p = 0$:
+                $\operatorname{Im}(p+q) = \operatorname{Im} p + \operatorname{Im} q$.
+                $\operatorname{Ker}(p+q) = \operatorname{Ker} p \cap \operatorname{Ker} q$.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-9">
+        <p class="exo-title"><a href="#exo-9" class="exercise-link">Correction de l'exercice 9</a></p>
+        <ol>
+            <li>Montrer $(A \cap B) + (A \cap C) \subset A \cap (B+C)$.
+                Soit $x \in (A \cap B) + (A \cap C)$. $x = y + z$, avec $y \in A \cap B$ et $z \in A \cap C$.
+                $y \in A, z \in A \Rightarrow x = y+z \in A$ (car $A$ est un s.e.v.).
+                $y \in B, z \in C \Rightarrow x = y+z \in B+C$ (par définition de la somme).
+                $x \in A \cap (B+C)$. Vrai.
+            </li>
+            <li>Non. Contre-exemple dans $\mathbb{R}^2$ : $A = \operatorname{Vect}(e_1)$, $B = \operatorname{Vect}(e_2)$, $C = \operatorname{Vect}(e_1+e_2)$.
+                $A \cap B = \{0\}, A \cap C = \{0\}$. $(A \cap B) + (A \cap C) = \{0\}$.
+                $B+C = \mathbb{R}^2$. $A \cap (B+C) = A \cap \mathbb{R}^2 = A \neq \{0\}$.
+            </li>
+            <li>Montrer $(A \cap B) + (A \cap C) = A \cap (B + (A \cap C))$.
+                $$(A \cap B) + (A \cap C) \subset A \cap (B + (A \cap C)) \text{ (Triviale)}$$
+                Soit $x \in A \cap (B + (A \cap C))$. $x = y+z$ avec $y \in B$ et $z \in A \cap C$.
+                $x \in A, z \in A \Rightarrow y = x-z \in A$.
+                $y \in A \cap B$. Donc $x = y+z \in (A \cap B) + (A \cap C)$. Vrai.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-10">
+        <p class="exo-title"><a href="#exo-10" class="exercise-link">Correction de l'exercice 10</a></p>
+        <ol>
+            <li>$V$ est le noyau de l'application linéaire $\phi: (x, y, z, t) \mapsto (x-2y, y-2z)$. $W$ est le noyau de $\psi: (x, y, z, t) \mapsto x+z-y-t$. $V$ et $W$ sont des s.e.v.</li>
+            <li>Base de $V$: $x=4z, y=2z$. $V = \operatorname{Vect}(e_1, e_2)$ avec $e_1=(4, 2, 1, 0), e_2=(0, 0, 0, 1)$. $\dim(V)=2$.
+                Base de $W$: $t = x-y+z$. $W = \operatorname{Vect}(e'_1, e'_2, e'_3)$ avec $e'_1=(1, 0, 0, 1), e'_2=(0, 1, 0, -1), e'_3=(0, 0, 1, 1)$. $\dim(W)=3$.
+                Base de $V \cap W$: $x=4z, y=2z, t=3z$. $V \cap W = \operatorname{Vect}(e)$ avec $e=(4, 2, 1, 3)$. $\dim(V \cap W)=1$.
+            </li>
+            <li>Montrer $E = V+W$. $\dim(V+W) = \dim V + \dim W - \dim(V \cap W) = 2 + 3 - 1 = 4$.
+                $V+W \subset \mathbb{R}^4$ et $\dim(V+W) = \dim(\mathbb{R}^4)$. Donc $\mathbb{R}^4 = V+W$.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-11">
+        <p class="exo-title"><a href="#exo-11" class="exercise-link">Correction de l'exercice 11</a></p>
+        <ol>
+            <li>$f$ est l'expression en coordonnées polaires.
+                $f$ n'est pas injective: $f((0, y)) = (0, 0)$ pour tout $y$.
+                $f$ est surjective: tout $(X, Y) \in \mathbb{R}^2$ a un antécédent. $x = \sqrt{X^2+Y^2} \geq 0$. $y$ est l'angle dans $[0, 2\pi[$.
+            </li>
+            <li>$a\cos(x- \alpha)+b\cos(x- \beta) = (a\cos \alpha+b\cos \beta) \cos x + (a\sin \alpha+b\sin \beta) \sin x$.
+                Posons $C = a\cos \alpha+b\cos \beta$ et $S = a\sin \alpha+b\sin \beta$.
+                Il existe $c, \gamma$ tels que $C = c\cos \gamma$ et $S = c\sin \gamma$. Vrai (par 1.).
+                L'expression est $c\cos(x-\gamma)$.
+            </li>
+            <li>$F$ est un s.e.v. (vérification par caractérisation, basée sur 2.).</li>
+            <li>
+                $$\{\cos x, \sin x, \cos(2x), \sin(2x), 1, \cos^2 x, \sin^2 x\} \cap F = \{\cos x, \sin x, \cos(2x), \sin(2x), 1, \cos^2 x, \sin^2 x\}$$
+                (Car $1 = \cos(0x)$, $\cos^2 x = \frac{1+\cos(2x)}{2}$, $\sin^2 x = \frac{1-\cos(2x)}{2}$).
+            </li>
+            <li>La famille $(\cos x, \sin x, \cos(2x), \sin(2x))$ est libre. (Démontré par dérivations successives et identification à $0$ en des points spécifiques, ou par la méthode du PDF).</li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-12">
+        <p class="exo-title"><a href="#exo-12" class="exercise-link">Correction de l'exercice 12</a></p>
+        <ol>
+            <li>$\mathcal{C}$ n'est pas un espace vectoriel. $f(x)=x$ est croissante, mais $-f(x)=-x$ n'est pas croissante.</li>
+            <li>$V$ est un $\mathbb{R}$-espace vectoriel. (Contient la fonction nulle $0=f-f$).
+                Stabilité par somme: $f_1 = g_1-h_1, f_2 = g_2-h_2$. $f_1+f_2 = (g_1+g_2) - (h_1+h_2)$. Somme de fonctions croissantes est croissante. $f_1+f_2 \in V$.
+                Stabilité par produit scalaire $\lambda f$: Si $\lambda \geq 0$, $\lambda f = (\lambda g) - (\lambda h) \in V$. Si $\lambda < 0$, $\lambda f = (-\lambda h) - (-\lambda g) \in V$.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-13">
+        <p class="exo-title"><a href="#exo-13" class="exercise-link">Correction de l'exercice 13</a></p>
+        <p>Axiomes utilisés: existence de l'élément neutre $0$, existence de l'opposé $-x$, associativité, distributivité par rapport à l'addition des scalaires et des vecteurs, $(1)x = x$.</p>
+        $$(1+1)(x+y) = (1+1)x + (1+1)y = x+x+y+y$$
+        $$(1+1)(x+y) = 1(x+y) + 1(x+y) = x+y+x+y$$
+        En utilisant la régularité: $x+y+x+y = x+x+y+y \Rightarrow y+x = x+y$.
+        La loi $+$ est commutative.
+    </div>
+
+    <div class="correction" id="corr-14">
+        <p class="exo-title"><a href="#exo-14" class="exercise-link">Correction de l'exercice 14</a></p>
+        <p>Montrer $(A \cap B) + (B \cap C) + (C \cap A) \subset (A + B) \cap (B+C) \cap (C+A)$.</p>
+        <p>Soit $x \in (A \cap B) + (B \cap C) + (C \cap A)$. $x = x_{AB} + x_{BC} + x_{CA}$.</p>
+        <p>1. Montrer $x \in A+B$: $x_{AB} \in A \subset A+B$. $x_{BC} \in B \subset A+B$. $x_{CA} \in A \subset A+B$. $x \in A+B$.</p>
+        <p>2. Montrer $x \in B+C$: $x_{AB} \in B \subset B+C$. $x_{BC} \in B \subset B+C$. $x_{CA} \in C \subset B+C$. $x \in B+C$.</p>
+        <p>3. Montrer $x \in C+A$: $x_{AB} \in A \subset C+A$. $x_{BC} \in C \subset C+A$. $x_{CA} \in A \subset C+A$. $x \in C+A$.</p>
+        <p>L'inclusion est démontrée.</p>
+    </div>
+
+    <div class="correction" id="corr-15">
+        <p class="exo-title"><a href="#exo-15" class="exercise-link">Correction de l'exercice 15</a></p>
+        <p>$G$ est le noyau de la forme linéaire $\phi: (x_1, \dots, x_n) \mapsto x_1 + \dots + x_n$. $G$ est un s.e.v.</p>
+        <p>$\mathbb{R}^n = F \oplus G$.</p>
+        <p>1. Montrer $F \cap G = \{0\}$. Soit $x \in F \cap G$. $x = \lambda u = (\lambda, \dots, \lambda)$ et $\phi(x) = n\lambda = 0$. $\lambda = 0$. $x=0$. $F \cap G = \{0\}$.</p>
+        <p>2. Montrer $F + G = \mathbb{R}^n$. Soit $x = (x_1, \dots, x_n) \in \mathbb{R}^n$. Cherchons $x = y + z$ avec $y \in F$ et $z \in G$.
+            $y = \lambda u$. $z = x - \lambda u$. On veut $\phi(z) = 0$.
+            $\phi(x - \lambda u) = \sum x_k - \lambda \sum u_k = \sum x_k - n\lambda = 0$.
+            $$\lambda = \frac{1}{n} \sum_{k=1}^n x_k$$
+            L'existence de $\lambda$ montre que tout vecteur se décompose en somme d'un vecteur de $F$ et de $G$. $\mathbb{R}^n = F + G$.
+            Puisque $F \cap G = \{0\}$, $\mathbb{R}^n = F \oplus G$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-16">
+        <p class="exo-title"><a href="#exo-16" class="exercise-link">Correction de l'exercice 16</a></p>
+        <ol>
+            <li>Si $n$ n'est pas un carré parfait, alors $\sqrt{n} \notin \mathbb{Q}$. (Démonstration par l'absurde via la décomposition en facteurs premiers).</li>
+            <li>$E$ est un $\mathbb{Q}$-espace vectoriel. Famille génératrice $\mathcal{B} = (1, \sqrt{2}, \sqrt{3}, \sqrt{6})$.
+                Montrons que $\mathcal{B}$ est $\mathbb{Q}$-libre.
+                $$a + b\sqrt{2} + c\sqrt{3} + d\sqrt{6} = 0, \quad a, b, c, d \in \mathbb{Q}$$
+                $a+d\sqrt{6} = -b\sqrt{2}-c\sqrt{3}$. En élevant au carré, on montre $a+d\sqrt{6} = 0$.
+                Si $d \neq 0$, $\sqrt{6} = -a/d \in \mathbb{Q}$, contradiction. Donc $d=0$ et $a=0$.
+                $$b\sqrt{2} + c\sqrt{3} = 0$$
+                Si $c \neq 0$, $\sqrt{3/2} = -b/c$, contradiction. Donc $c=0$ et $b=0$.
+                $\mathcal{B}$ est une base de $E$.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-17">
+        <p class="exo-title"><a href="#exo-17" class="exercise-link">Correction de l'exercice 17</a></p>
+        <ol>
+            <li>Famille $\mathcal{A} = (f_a, f_b, f_c)$ où $f_u(x) = \sin(x+u)$. $f_u(x) = \cos u \sin x + \sin u \cos x$.
+                Les fonctions $f_a, f_b, f_c$ sont combinaisons linéaires des deux fonctions $\sin x$ et $\cos x$.
+                La famille $\mathcal{A}$ de 3 vecteurs dans un espace de dimension au plus 2 est liée.
+            </li>
+            <li>Famille $\mathcal{A} = (f_n)_{n \in \mathbb{Z}}$, $f_n(x) = nx+n^2 + 1$.
+                $f_n$ est combinaison linéaire de $f_0(x)=1$ et $f_1(x)=x+2$.
+                La famille est liée (si on prend une sous-famille finie de 3 éléments, elle sera liée).
+            </li>
+            <li>Famille $\mathcal{A} = (x \mapsto x^\alpha)_{\alpha \in \mathbb{R}}$ sur $E = (\mathbb{R}^+_*)^{\mathbb{R}}$.
+                La famille est libre. (Démonstration par récurrence sur une sous-famille finie $(x^{\alpha_1}, \dots, x^{\alpha_n})$).
+            </li>
+            <li>Famille $\mathcal{A} = (x \mapsto |x - a|)_{a \in \mathbb{R}}$.
+                La famille est libre. (Démonstration par l'absurde, car les fonctions $|x-a|$ ne sont pas dérivables en $x=a$).
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-18">
+        <p class="exo-title"><a href="#exo-18" class="exercise-link">Correction de l'exercice 18</a></p>
+        <ol>
+            <li>
+                $(\Leftarrow)$ Si $\exists w / u = w \circ v$. Soit $x \in \operatorname{Ker} v$. $v(x) = 0$. $u(x) = w(v(x)) = w(0) = 0$. $x \in \operatorname{Ker} u$. $\operatorname{Ker} v \subset \operatorname{Ker} u$. Vrai.
+                $(\Rightarrow)$ Supposons $\operatorname{Ker} v \subset \operatorname{Ker} u$. On définit $w$ sur $\operatorname{Im} v$: pour $y \in \operatorname{Im} v$, $y=v(x)$. On pose $w(y) = u(x)$. $w$ est bien définie (si $v(x)=v(x')$, $x-x' \in \operatorname{Ker} v \subset \operatorname{Ker} u$, $u(x-x')=0$, $u(x)=u(x')$). On étend $w$ à $E$ par linéarité (en choisissant un supplémentaire de $\operatorname{Im} v$ où $w$ est $0$). $u=w \circ v$. Vrai.
+            </li>
+            <li>
+                $v$ injectif $\Leftrightarrow \operatorname{Ker} v = \{0\}$.
+                $\operatorname{Ker} v = \{0\} \Leftrightarrow \operatorname{Ker} v \subset \operatorname{Ker} \operatorname{Id}_E = \{0\}$.
+                $\operatorname{Ker} v \subset \operatorname{Ker} \operatorname{Id}_E \Leftrightarrow \exists w \in \mathcal{L}(E)/ \operatorname{Id}_E = w \circ v$. Vrai.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-19">
+        <p class="exo-title"><a href="#exo-19" class="exercise-link">Correction de l'exercice 19</a></p>
+        <p>Soit $E = \mathbb{R}[X]$.</p>
+        <ul>
+            <li>$f: P \mapsto P'$. $f$ est linéaire. $\operatorname{Ker} f = \mathbb{R}$ (polynômes constants). $f$ n'est pas injective. $f$ est surjective ($\forall Q, Q = (\int Q(t) dt)'$). $F = \{P \in E / P(0) = 0\}$ est un supplémentaire de $\operatorname{Ker} f$. $E = \mathbb{R} \oplus F$.</li>
+            <li>$g: P \mapsto \int_0^X P(t) dt$. $g$ est linéaire. $\operatorname{Ker} g = \{0\}$ (car $\int_0^X P(t) dt = 0 \Rightarrow P(X) = 0$). $g$ est injective. $g$ n'est pas surjective (si $Q = g(P)$, $Q(0)=0$). $\operatorname{Im} g = \{P \in E / P(0) = 0\}$. $g$ réalise une bijection de $E$ sur $\operatorname{Im} g$.</li>
+        </ul>
+    </div>
+
+</body>
+</html>
