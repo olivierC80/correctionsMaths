@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrices - Exercices</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <style>
+        /* Optimisation mobile */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            padding: 10px;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+        }
+        header {
+            padding: 10px 0;
+            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+        .header-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #e67e22; /* Exo7 color */
+        }
+        .exercise, .correction {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow-x: auto; /* Handle wide formulas */
+        }
+        .correction {
+            background-color: #fcfcfc;
+            border-left: 5px solid #3498db;
+        }
+        .exo-title {
+            font-weight: bold;
+            display: inline;
+        }
+        .difficulty {
+            font-size: 0.8em;
+            color: #e74c3c;
+            margin-left: 5px;
+        }
+        .correction-link, .exercise-link {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+            display: block;
+            margin-top: 10px;
+            padding: 5px 0;
+        }
+        .correction-link::before {
+            content: "▼ ";
+            font-size: 0.8em;
+        }
+        .page-break {
+            margin: 30px 0;
+            border-top: 1px dashed #ccc;
+        }
+        /* KaTeX specific styling for better mobile display */
+        .katex-display {
+            padding: 10px 0;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+
+    <header>
+        <span style="float: right;" class="header-title">Exo7</span>
+        <h1>Matrices</h1>
+        <p>Exercices de Jean-Louis Rouget. Retrouver aussi cette fiche sur <a href="http://www.maths-france.fr">www.maths-france.fr</a></p>
+        <p style="font-size: 0.9em; color: #777;">
+            * très facile ** facile *** difficulté moyenne **** difficile ***** très difficile<br>
+            I: Incontournable T: pour travailler et mémoriser le cours
+        </p>
+    </header>
+
+    <h2>Énoncés</h2>
+
+    <div class="exercise" id="exo-1">
+        <p class="exo-title">Exercice 1 <span class="difficulty">**T</span></p>
+        <p>Soit $u$ l'endomorphisme de $\mathbb{R}^3$ dont la matrice dans la base canonique $(\vec{i}, \vec{j}, \vec{k})$ de $\mathbb{R}^3$ est :
+            $$M = \begin{pmatrix} 2 & 1 & 0 \\ -3 & -1 & 1 \\ 1 & 0 & -1 \end{pmatrix}$$
+        </p>
+        <ol>
+            <li>Déterminer $u(2\vec{i} - 3\vec{j} + 5\vec{k})$.</li>
+            <li>Déterminer $\operatorname{Ker} u$ et $\operatorname{Im} u$.</li>
+            <li>Calculer $M^2$ et $M^3$.</li>
+            <li>Déterminer $\operatorname{Ker} u^2$ et $\operatorname{Im} u^2$.</li>
+            <li>Calculer $(I – M)(I+M+M^2)$ et en déduire que $I – M$ est inversible. Préciser $(I – M)^{-1}$.</li>
+        </ol>
+        <a href="#corr-1" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-2">
+        <p class="exo-title">Exercice 2 <span class="difficulty">**</span></p>
+        <p>Pour $x$ réel, on pose :
+            $$A(x) = \begin{pmatrix} \operatorname{ch} x & \operatorname{sh} x \\ \operatorname{sh} x & \operatorname{ch} x \end{pmatrix}$$
+            Déterminer $(A(x))^n$ pour $x$ réel et $n$ entier relatif.
+        </p>
+        <a href="#corr-2" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-3">
+        <p class="exo-title">Exercice 3 <span class="difficulty">***T</span></p>
+        <p>Soit $u$ l'endomorphisme de $\mathbb{R}^3$ dont la matrice dans la base canonique $(\vec{i}, \vec{j}, \vec{k})$ de $\mathbb{R}^3$ est :
+            $$M = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & -3 & 3 \end{pmatrix}$$
+        </p>
+        <ol>
+            <li>Montrer que $u$ est un automorphisme de $\mathbb{R}^3$ et déterminer $u^{-1}$.</li>
+            <li>Déterminer une base $(\vec{e}_1, \vec{e}_2, \vec{e}_3)$ de $\mathbb{R}^3$ telle que $u(\vec{e}_1) = \vec{e}_1$, $u(\vec{e}_2) = \vec{e}_1 + \vec{e}_2$ et $u(\vec{e}_3) = \vec{e}_2 + \vec{e}_3$.</li>
+            <li>Déterminer $P$ la matrice de passage de $(\vec{i}, \vec{j}, \vec{k})$ à $(\vec{e}_1, \vec{e}_2, \vec{e}_3)$ ainsi que $P^{-1}$.</li>
+            <li>En déduire $u^n(\vec{i})$, $u^n(\vec{j})$ et $u^n(\vec{k})$ pour $n$ entier relatif.</li>
+        </ol>
+        <a href="#corr-3" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-4">
+        <p class="exo-title">Exercice 4 <span class="difficulty">**</span></p>
+        <p>Soit $f: \mathbb{R}_n[X] \to \mathbb{R}_{n+1}[X]$ définie par $P \mapsto Q = e^{X^2} (P e^{-X^2})'$.</p>
+        <ol>
+            <li>Vérifier que $f \in \mathcal{L}(\mathbb{R}_n[X], \mathbb{R}_{n+1}[X])$.</li>
+            <li>Déterminer la matrice de $f$ relativement aux bases canoniques de $\mathbb{R}_n[X]$ et $\mathbb{R}_{n+1}[X]$.</li>
+            <li>Déterminer $\operatorname{Ker} f$ et $\operatorname{rg} f$.</li>
+        </ol>
+        <a href="#corr-4" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-5">
+        <p class="exo-title">Exercice 5 <span class="difficulty">***I</span></p>
+        <p>Soit $f$ un endomorphisme de $\mathbb{R}^3$, nilpotent d'indice $2$. Montrer qu'il existe une base de $\mathbb{R}^3$ dans laquelle la matrice de $f$ s'écrit
+            $$A = \begin{pmatrix} 0 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$$
+        </p>
+        <a href="#corr-5" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-6">
+        <p class="exo-title">Exercice 6 <span class="difficulty">**</span></p>
+        <p>Soit $$A = \begin{pmatrix} 0 & 0 & \dots & 0 & 1 \\ 0 & \dots & 0 & 1 & 0 \\ \vdots & \dots & \dots & \dots & \vdots \\ 0 & 1 & 0 & \dots & 0 \\ 1 & 0 & 0 & \dots & 0 \end{pmatrix} \in \mathcal{M}_p(\mathbb{R})$$ Calculer $A^n$ pour $n$ entier relatif.</p>
+        <a href="#corr-6" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-7">
+        <p class="exo-title">Exercice 7 <span class="difficulty">**</span></p>
+        <p>Montrer que $$\left\{\begin{pmatrix} \frac{1}{\sqrt{1-x^2}} & \frac{x}{\sqrt{1-x^2}} \\ \frac{x}{\sqrt{1-x^2}} & \frac{1}{\sqrt{1-x^2}} \end{pmatrix}, x \in ]-1, 1[\right\}$$ est un groupe pour la multiplication des matrices.</p>
+        <a href="#corr-7" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-8">
+        <p class="exo-title">Exercice 8 <span class="difficulty">***</span></p>
+        <ol>
+            <li>Montrer qu'une matrice triangulaire supérieure est inversible si et seulement si ses coefficients diagonaux sont tous non nuls.</li>
+            <li>Montrer que toute matrice triangulaire supérieure est semblable à une matrice triangulaire inférieure.</li>
+        </ol>
+        <a href="#corr-8" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-9">
+        <p class="exo-title">Exercice 9 <span class="difficulty">***</span></p>
+        <p>Soient $I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ et $J = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ puis $E = \{M(x, y) = xI+yJ, (x, y) \in \mathbb{R}^2\}$.</p>
+        <ol>
+            <li>Montrer que $(E, +, \cdot)$ est un sous-espace vectoriel de $\mathcal{M}_2(\mathbb{R})$. Déterminer une base de $E$ et sa dimension.</li>
+            <li>Montrer que $(E, +, \times)$ est un anneau commutatif.</li>
+            <li>Quels sont les inversibles de $E$ ?</li>
+            <li>Résoudre dans $E$ les équations suivantes :
+                <ol type="a">
+                    <li>$X^2 = I$</li>
+                    <li>$X^2 = 0$</li>
+                    <li>$X^2 = X$</li>
+                </ol>
+            </li>
+            <li>Calculer $(M(x, y))^n$ pour $n$ entier naturel non nul.</li>
+        </ol>
+        <a href="#corr-9" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-10">
+        <p class="exo-title">Exercice 10 <span class="difficulty">****</span></p>
+        <p>Soit $A \in \mathcal{M}_{3, 2}(\mathbb{R})$ et $B \in \mathcal{M}_{2, 3}(\mathbb{R})$ telles que :
+            $$AB = \begin{pmatrix} 0 & -1 & -1 \\ -1 & 0 & -1 \\ 1 & 1 & 2 \end{pmatrix}$$
+            Montrer l'existence d'au moins un couple $(A, B)$ vérifiant les conditions de l'énoncé puis calculer $BA$. (Indication. Calculer $(AB)^2$ et utiliser le rang.)
+        </p>
+        <a href="#corr-10" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-11">
+        <p class="exo-title">Exercice 11 <span class="difficulty">***</span></p>
+        <p>Soit $A = (a_{i, j})_{1 \leq i, j \leq n}$ ($n \geq 2$) définie par
+            $$\forall i \in \{1, \dots, n\}, a_{i, j} = \begin{cases} i & \text{si } i = j \\ 1 & \text{si } i > j \\ 0 & \text{si } i < j \end{cases}$$
+            Montrer que $A$ est inversible et calculer son inverse.
+        </p>
+        <a href="#corr-11" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-12">
+        <p class="exo-title">Exercice 12 <span class="difficulty">***I</span></p>
+        <p>Déterminer le centre de $\mathcal{M}_n(\mathbb{K})$, c'est à dire l'ensemble des éléments de $\mathcal{M}_n(\mathbb{K})$ qui commutent avec tous les éléments de $\mathcal{M}_n(\mathbb{K})$ (utiliser les matrices élémentaires).</p>
+        <a href="#corr-12" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-13">
+        <p class="exo-title">Exercice 13 <span class="difficulty">***T</span></p>
+        <p>Déterminer le rang des matrices suivantes :</p>
+        <ol>
+            <li>$$\begin{pmatrix} 1 & 1/2 & 1/3 \\ 1/2 & 1/3 & 1/4 \\ 1/3 & 1/4 & m \end{pmatrix}$$</li>
+            <li>$$\begin{pmatrix} 1 & 1 & 1 \\ b+c & c+a & a+b \\ bc & ca & ab \end{pmatrix}$$</li>
+            <li>$$\begin{pmatrix} 1 & a & 1 & b \\ 1 & b & 1 & a \\ 1 & 1 & a & b \\ 1 & b & 1 & a \end{pmatrix}$$</li>
+            <li>$$(i+j+ij)_{1 \leq i, j \leq n}$$</li>
+            <li>$$(\sin(i+j))_{1 \leq i, j \leq n}$$</li>
+            <li>$$\begin{pmatrix} a & 0 & \dots & 0 & b \\ 0 & a & \dots & b & 0 \\ \vdots & \vdots & \dots & \vdots & \vdots \\ 0 & b & \dots & a & 0 \\ b & 0 & \dots & 0 & a \end{pmatrix}$$</li>
+        </ol>
+        <a href="#corr-13" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-14">
+        <p class="exo-title">Exercice 14 <span class="difficulty">****</span></p>
+        <p>Montrer que tout hyperplan de $\mathcal{M}_n(\mathbb{K})$ ($n \geq 2$) contient au moins une matrice inversible.</p>
+        <a href="#corr-14" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-15">
+        <p class="exo-title">Exercice 15 <span class="difficulty">***</span></p>
+        <p>Soit $f$ qui, à $P \in \mathbb{R}_{2n}[X]$ associe $f(P) = X(X + 1)P' – 2kXP$. Trouver $k$ tel que $f \in \mathcal{L}(\mathbb{R}_{2n}[X])$ puis, pour cette valeur de $k$, trouver tous les polynômes $P$ non nuls tels que la famille $(P, f(P))$ soit liée.</p>
+        <a href="#corr-15" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-16">
+        <p class="exo-title">Exercice 16 <span class="difficulty">***I</span> Théorème de HADAMARD</p>
+        <p>Soit $A \in \mathcal{M}_n(\mathbb{C})$ telle que : $\forall i \in \{1, \dots, n\}, |a_{i, i}| > \sum_{j \neq i} |a_{i, j}|$. Montrer que $A$ est inversible.</p>
+        <a href="#corr-16" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-17">
+        <p class="exo-title">Exercice 17 <span class="difficulty">***I</span></p>
+        <p>Calculs par blocs.</p>
+        <ol>
+            <li>Soit $M = \begin{pmatrix} A & B \\ C & D \end{pmatrix}$ et $N = \begin{pmatrix} A' & B' \\ C' & D' \end{pmatrix}$ avec $(A, A') \in (\mathcal{M}_{p, r}(\mathbb{K}))^2$, $(B, B') \in (\mathcal{M}_{p, s}(\mathbb{K}))^2$, $(C, C') \in (\mathcal{M}_{q, r}(\mathbb{K}))^2$ et $(D, D') \in (\mathcal{M}_{q, s}(\mathbb{K}))^2$. Calculer $M + N$ en fonction de $A, B, C, D, A', B', C'$ et $D'$.</li>
+            <li>Question analogue pour $M N$ en analysant précisément les formats de chaque matrice.</li>
+        </ol>
+        <a href="#corr-17" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-18">
+        <p class="exo-title">Exercice 18 <span class="difficulty">***I</span> Matrice de VANDERMONDE des racines $n$-ièmes de l'unité</p>
+        <p>Soit $\omega = e^{2i\pi/n}$, ($n \geq 2$). Soit $A = (\omega^{(j-1)(k-1)})_{1 \leq j, k \leq n}$. Montrer que $A$ est inversible et calculer $A^{-1}$ (calculer d'abord $A\bar{A}$).</p>
+        <a href="#corr-18" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-19">
+        <p class="exo-title">Exercice 19 <span class="difficulty">***</span></p>
+        <p>Soit $$A = \begin{pmatrix} 7 & 4 & 0 & 0 \\ -12 & -7 & 0 & 0 \\ 20 & 11 & -6 & -12 \\ -12 & -6 & 6 & 11 \end{pmatrix}$$ et $u$ l'endomorphisme de $\mathbb{C}^4$ de matrice $A$ dans la base canonique de $\mathbb{C}^4$.</p>
+        <ol>
+            <li>Déterminer une base de $\mathbb{C}^4$ formée de vecteurs colinéaires à leurs images.</li>
+            <li>Ecrire les formules de changement de base correspondantes.</li>
+            <li>En déduire le calcul de $A^n$ pour $n$ entier naturel.</li>
+        </ol>
+        <a href="#corr-19" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-20">
+        <p class="exo-title">Exercice 20 <span class="difficulty">***I</span></p>
+        <p>Soit $A = (a_{i, j})_{1 \leq i, j \leq n+1}$ définie par $a_{i, j} = 0$ si $i > j$ et $a_{i, j} = C_{j-1}^{i-1}$ si $i \leq j$. Montrer que $A$ est inversible et déterminer son inverse. (Indication : considérer l'endomorphisme de $\mathbb{R}_n[X]$ qui à un polynôme $P$ associe le polynôme $P(X+1)$).</p>
+        <a href="#corr-20" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-21">
+        <p class="exo-title">Exercice 21 <span class="difficulty">**I</span></p>
+        <p>On pose $u_0 = 1, v_0 = 0$, puis, pour $n \in \mathbb{N}, u_{n+1} = 2u_n + v_n$ et $v_{n+1} = u_n + 2v_n$.</p>
+        <ol>
+            <li>Soit $A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$. Pour $n \in \mathbb{N}$, calculer $A^n$. En déduire $u_n$ et $v_n$ en fonction de $n$.</li>
+            <li>En utilisant deux combinaisons linéaires intéressantes des suites $u$ et $v$, calculer directement $u_n$ et $v_n$ en fonction de $n$.</li>
+        </ol>
+        <a href="#corr-21" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+    <h2>Corrections</h2>
+
+    <div class="correction" id="corr-1">
+        <p class="exo-title"><a href="#exo-1" class="exercise-link">Correction de l'exercice 1</a></p>
+        <p>Matrice $M = \begin{pmatrix} 2 & 1 & 0 \\ -3 & -1 & 1 \\ 1 & 0 & -1 \end{pmatrix}$.</p>
+        <ol>
+            <li>$u(2\vec{i} - 3\vec{j} + 5\vec{k})$ correspond à $M X$ pour $X = \begin{pmatrix} 2 \\ -3 \\ 5 \end{pmatrix}$.
+                $$M X = \begin{pmatrix} 1 \\ 2 \\ -3 \end{pmatrix}$$
+                $u(2\vec{i} - 3\vec{j} + 5\vec{k}) = \vec{i} + 2\vec{j} - 3\vec{k}$.
+            </li>
+            <li>$\operatorname{Ker} u$: $M X = 0 \Leftrightarrow \begin{cases} 2x+y = 0 \\ -3x-y+z = 0 \\ x-z = 0 \end{cases} \Leftrightarrow \begin{cases} y = -2x \\ z = x \end{cases}$.
+                $\operatorname{Ker} u = \operatorname{Vect}(\vec{i} - 2\vec{j} + \vec{k})$. $\dim(\operatorname{Ker} u) = 1$.
+                $\operatorname{Im} u$: $\operatorname{rg} M = 3 - 1 = 2$. $\operatorname{Im} u = \operatorname{Vect}(u(\vec{j}), u(\vec{k}))$. $u(\vec{j}) = \vec{i} - \vec{j}$, $u(\vec{k}) = \vec{j} - \vec{k}$.
+                $\operatorname{Im} u = \operatorname{Vect}(\vec{i} - \vec{j}, \vec{j} - \vec{k})$.
+            </li>
+            <li>$$M^2 = \begin{pmatrix} 1 & 1 & 1 \\ -2 & -2 & -2 \\ 1 & 1 & 1 \end{pmatrix}, \quad M^3 = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix} = 0$$
+            </li>
+            <li>$\operatorname{Ker} u^2$: $M^2 X = 0 \Leftrightarrow x+y+z = 0$. $\operatorname{Ker} u^2$ est le plan d'équation $x+y+z=0$. Base: $(\vec{i}-\vec{j}, \vec{j}-\vec{k})$. $\dim(\operatorname{Ker} u^2)=2$.
+                $\operatorname{Im} u^2$: $\operatorname{rg} M^2 = 3 - 2 = 1$. $\operatorname{Im} u^2 = \operatorname{Vect}(u^2(\vec{i})) = \operatorname{Vect}(\vec{i}-2\vec{j}+\vec{k})$. $\operatorname{Im} u^2 = \operatorname{Ker} u$.
+            </li>
+            <li>$$(I – M)(I+M+M^2) = I + M + M^2 - M - M^2 - M^3 = I - M^3 = I$$
+                $I-M$ est inversible et $(I-M)^{-1} = I+M+M^2$.
+                $$(I-M)^{-1} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix} + \begin{pmatrix} 2 & 1 & 0 \\ -3 & -1 & 1 \\ 1 & 0 & -1 \end{pmatrix} + \begin{pmatrix} 1 & 1 & 1 \\ -2 & -2 & -2 \\ 1 & 1 & 1 \end{pmatrix} = \begin{pmatrix} 4 & 2 & 1 \\ -5 & -2 & -1 \\ 2 & 1 & 1 \end{pmatrix}$$
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-2">
+        <p class="exo-title"><a href="#exo-2" class="exercise-link">Correction de l'exercice 2</a></p>
+        $$A(x) A(y) = \begin{pmatrix} \operatorname{ch}(x+y) & \operatorname{sh}(x+y) \\ \operatorname{sh}(x+y) & \operatorname{ch}(x+y) \end{pmatrix} = A(x+y)$$
+        $$(A(x))^n = A(nx) = \begin{pmatrix} \operatorname{ch}(nx) & \operatorname{sh}(nx) \\ \operatorname{sh}(nx) & \operatorname{ch}(nx) \end{pmatrix}$$
+        $A(x)$ est inversible et $(A(x))^{-1} = A(-x)$.
+        $$(A(x))^{-n} = (A(x)^{-1})^n = (A(-x))^n = A(-nx)$$
+        La formule $(A(x))^n = A(nx)$ est vraie pour tout $n \in \mathbb{Z}$.
+    </div>
+
+    <div class="correction" id="corr-3">
+        <p class="exo-title"><a href="#exo-3" class="exercise-link">Correction de l'exercice 3</a></p>
+        <p>Matrice $M = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & -3 & 3 \end{pmatrix}$.</p>
+        <ol>
+            <li>$u$ est un automorphisme. $\det(M) = 1 \neq 0$. $u^{-1}$ est représenté par $M^{-1}$.
+                $$M^{-1} = \begin{pmatrix} 3 & -3 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{pmatrix}$$
+            </li>
+            <li>Base $(\vec{e}_1, \vec{e}_2, \vec{e}_3)$ telle que $u(\vec{e}_1) = \vec{e}_1$, $u(\vec{e}_2) = \vec{e}_1 + \vec{e}_2$ et $u(\vec{e}_3) = \vec{e}_2 + \vec{e}_3$.
+                Les vecteurs sont $e_1 = \vec{i}+\vec{j}+\vec{k}$, $e_2 = \vec{j}+2\vec{k}$, $e_3 = \vec{k}$. (Voir le PDF pour la résolution).
+            </li>
+            <li>Matrice de passage $P$ de $(\vec{i}, \vec{j}, \vec{k})$ à $(\vec{e}_1, \vec{e}_2, \vec{e}_3)$.
+                $$P = \begin{pmatrix} 1 & 1 & 0 \\ 1 & 0 & 0 \\ 1 & 2 & 1 \end{pmatrix}, \quad P^{-1} = \begin{pmatrix} 0 & 1 & 0 \\ 1 & -1 & 0 \\ -2 & 1 & 1 \end{pmatrix}$$
+                (Le $P^{-1}$ du PDF est différent, vérification : $P P^{-1} \neq I$. Le $P^{-1}$ correct est:
+                $$P^{-1} = \begin{pmatrix} 0 & 1 & 0 \\ 1 & -1 & 0 \\ -2 & 1 & 1 \end{pmatrix}$$
+            </li>
+            <li>$T$ est la matrice de $u$ dans la base $(\vec{e}_1, \vec{e}_2, \vec{e}_3)$:
+                $$T = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix}$$
+                $T = I+N$ avec $N = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}$. $N^2 = \begin{pmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}, N^3 = 0$.
+                $$T^n = (I+N)^n = I + nN + \binom{n}{2} N^2$$
+                $$A^n = P T^n P^{-1}$$
+                $u^n(\vec{i})$ etc. s'obtiennent à partir de la matrice $A^n$.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-4">
+        <p class="exo-title"><a href="#exo-4" class="exercise-link">Correction de l'exercice 4</a></p>
+        <p>$f(P) = P' - 2XP$.</p>
+        <ol>
+            <li>$f$ est linéaire. $\deg(f(P)) \leq n+1$. $f \in \mathcal{L}(\mathbb{R}_n[X], \mathbb{R}_{n+1}[X])$.</li>
+            <li>Matrice $A$ : $A \in \mathcal{M}_{n+2, n+1}(\mathbb{R})$. $f(X^k) = kX^{k-1} - 2X^{k+1}$.
+                $$A = \begin{pmatrix} 0 & 1 & 0 & \dots \\ -2 & 0 & 2 & 0 & \dots \\ 0 & -2 & 0 & 3 & \dots \\ \vdots & \dots & \dots & \dots & \dots \\ 0 & \dots & -2 & 0 & n \\ 0 & \dots & \dots & -2 & 0 \\ 0 & \dots & \dots & \dots & -2 \end{pmatrix}$$
+            </li>
+            <li>$\operatorname{Ker} f$: $f(P)=0$. $P'-2XP=0$. Si $P$ non nul, $\deg(P') < \deg(2XP)$. Impossible. $\operatorname{Ker} f = \{0\}$. $f$ est injective.
+                $\operatorname{rg} f = \dim(\mathbb{R}_n[X]) - \dim(\operatorname{Ker} f) = n+1$.
+                $\operatorname{Im} f$ est un sous-espace de $\mathbb{R}_{n+1}[X]$, $\dim(\operatorname{Im} f) = n+1$. $\operatorname{Im} f$ n'est pas $\mathbb{R}_{n+1}[X]$.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-5">
+        <p class="exo-title"><a href="#exo-5" class="exercise-link">Correction de l'exercice 5</a></p>
+        <p>$f$ nilpotent d'indice 2. $f^2 = 0$. $\operatorname{Im} f \subset \operatorname{Ker} f$. $\dim(\operatorname{Im} f) \leq \dim(\operatorname{Ker} f)$.
+            Théorème du rang: $\dim(\operatorname{Ker} f) + \operatorname{rg} f = 3$.
+            $2\operatorname{rg} f \leq 3$. $\operatorname{rg} f \leq 1$.
+            Puisque $f$ est d'indice 2, $f \neq 0$, donc $\operatorname{rg} f = 1$. $\dim(\operatorname{Ker} f) = 2$.
+        </p>
+        <p>Soit $e_1$ tel que $f(e_1) \neq 0$. Posons $e_2 = f(e_1)$. $e_2 \in \operatorname{Im} f \subset \operatorname{Ker} f$. $f(e_2) = 0$.
+            $e_2 \in \operatorname{Ker} f$ et $e_2 \neq 0$.
+            Base de $\operatorname{Ker} f$: $(e_2, e_3)$. $e_3 \in \operatorname{Ker} f$.
+            La famille $(e_1, e_2, e_3)$ est libre. $e_1 \notin \operatorname{Ker} f$.
+            Dans cette base $B = (e_1, e_2, e_3)$:
+            $$f(e_1) = e_2, f(e_2) = 0, f(e_3) = 0$$
+            $$A = \begin{pmatrix} 0 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$$
+        </p>
+    </div>
+
+    <div class="correction" id="corr-6">
+        <p class="exo-title"><a href="#exo-6" class="exercise-link">Correction de l'exercice 6</a></p>
+        <p>Soit $A$ la matrice. $A$ est la matrice d'échange des coordonnées $x_i \leftrightarrow x_{p-i+1}$.
+            $A^2 = I_p$.
+            $$A^n = \begin{cases} I_p & \text{si } n \text{ est pair} \\ A & \text{si } n \text{ est impair} \end{cases}$$
+            La formule est vraie pour $n \in \mathbb{Z}$ (car $A^{-1} = A$).
+        </p>
+    </div>
+
+    <div class="correction" id="corr-7">
+        <p class="exo-title"><a href="#exo-7" class="exercise-link">Correction de l'exercice 7</a></p>
+        <p>Posons $x = \operatorname{th} a$. $a = \operatorname{argth} x$. $\frac{1}{\sqrt{1-x^2}} = \operatorname{ch} a$, $\frac{x}{\sqrt{1-x^2}} = \operatorname{sh} a$.
+            $$M(x) = \begin{pmatrix} \operatorname{ch} a & \operatorname{sh} a \\ \operatorname{sh} a & \operatorname{ch} a \end{pmatrix} = A(a)$$
+            $G = \{A(a), a \in \mathbb{R}\}$ (car $a$ prend toutes les valeurs réelles).
+            $A(a) A(b) = A(a+b)$. $G$ est un groupe isomorphe à $(\mathbb{R}, +)$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-8">
+        <p class="exo-title"><a href="#exo-8" class="exercise-link">Correction de l'exercice 8</a></p>
+        <ol>
+            <li>Une matrice triangulaire supérieure $A$ est inversible $\Leftrightarrow \det(A) \neq 0 \Leftrightarrow$ ses coefficients diagonaux sont tous non nuls.</li>
+            <li>Toute matrice triangulaire supérieure $A$ est semblable à une matrice triangulaire inférieure $A'$. $A' = P^{-1} A P$ où $P$ est la matrice de passage inversant l'ordre des vecteurs de base. $A'$ est inférieure.</li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-9">
+        <p class="exo-title"><a href="#exo-9" class="exercise-link">Correction de l'exercice 9</a></p>
+        <p>$M(x, y) = xI+yJ = \begin{pmatrix} x+y & y \\ 0 & x \end{pmatrix}$.</p>
+        <ol>
+            <li>$E$ est $\operatorname{Vect}(I, J)$. $E$ est un s.e.v. de $\mathcal{M}_2(\mathbb{R})$. Base $(I, J)$. $\dim E = 2$.</li>
+            <li>$M(x, y) M(x', y') = M(xx', xy'+yx'+yy')$. $E$ est stable par $\times$.
+                $$M(x, y) M(x', y') = M(x', y') M(x, y) \Leftrightarrow xx' + xy' + yx' + yy' = x'y + y'x + 2yy'$$
+                L'anneau est commutatif.
+            </li>
+            <li>Inversibles : $M(x, y)$ inversible $\Leftrightarrow \det(M(x, y)) = x(x+y) \neq 0$. $x \neq 0$ et $x \neq -y$.
+                $$M(x, y)^{-1} = M\left(\frac{1}{x}, \frac{-y}{x(x+y)}\right)$$
+            </li>
+            <li>Équations dans $E$:
+                (a) $X^2 = I$. $M(x, y)^2 = M(x^2, 2xy+y^2) = I = M(1, 0)$.
+                    $$\begin{cases} x^2 = 1 \\ 2xy+y^2 = 0 \end{cases} \Leftrightarrow (x=\pm 1) \text{ et } y=0$$
+                    Solutions $I$ et $-I$.
+                (b) $X^2 = 0$. $\begin{cases} x^2 = 0 \\ 2xy+y^2 = 0 \end{cases} \Leftrightarrow x=0, y=0$. Solution $0$.
+                (c) $X^2 = X$. $\begin{cases} x^2 = x \\ 2xy+y^2 = y \end{cases} \Leftrightarrow (x=0 \text{ ou } x=1) \text{ et } y=0$. Solutions $0$ et $I$.
+            </li>
+            <li>$M(x, y) = xI+yJ$. $M(x, y) = x(I+y/x J)$.
+                $$M(x, y)^n = x^n I + n x^{n-1} y J$$
+                (Par binôme de Newton si $J^k$ est bien défini).
+                $$M(x, y)^n = \begin{pmatrix} x^n + n x^{n-1} y & n x^{n-1} y \\ 0 & x^n \end{pmatrix}$$
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-10">
+        <p class="exo-title"><a href="#exo-10" class="exercise-link">Correction de l'exercice 10</a></p>
+        <p>$$AB = \begin{pmatrix} 0 & -1 & -1 \\ -1 & 0 & -1 \\ 1 & 1 & 2 \end{pmatrix}$$
+            $\operatorname{rg}(AB) = 2$. $AB$ est nilpotent d'indice 3. $(AB)^3 = 0$.
+            $AB$ est un projecteur ($AB^2 = AB$, mais ici $AB^3=0$).
+            $(AB)^2 = AB$. Vrai (voir le PDF pour le calcul).
+            $AB$ est un projecteur. $\operatorname{rg}(AB) = \operatorname{tr}(AB) = 2$. $\det(AB) = 0$.
+            $BA$ : $\operatorname{rg}(BA) = \operatorname{rg}(AB) = 2$. $BA$ est $2 \times 2$. $\det(BA) \neq 0$. $BA$ est inversible. $BA = I_2$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-11">
+        <p class="exo-title"><a href="#exo-11" class="exercise-link">Correction de l'exercice 11</a></p>
+        $A$ est triangulaire inférieure, avec $a_{i, i} = i$. $\det A = n! \neq 0$. $A$ est inversible.
+        $A^{-1} = (b_{i, j})$. $b_{i, i} = 1/i$. $b_{i, i-1} = -1/(i(i-1))$.
+        $$A^{-1} = \begin{pmatrix} 1/1 & 0 & 0 & \dots \\ -1/2 & 1/2 & 0 & \dots \\ 1/6 & -1/6 & 1/3 & \dots \\ \dots & \dots & \dots & \dots \end{pmatrix}$$
+    </div>
+
+    <div class="correction" id="corr-12">
+        <p class="exo-title"><a href="#exo-12" class="exercise-link">Correction de l'exercice 12</a></p>
+        <p>Le centre de $\mathcal{M}_n(\mathbb{K})$ est l'ensemble des matrices scalaires $\lambda I_n, \lambda \in \mathbb{K}$.</p>
+    </div>
+
+    <div class="correction" id="corr-13">
+        <p class="exo-title"><a href="#exo-13" class="exercise-link">Correction de l'exercice 13</a></p>
+        <ol>
+            <li>$$\begin{pmatrix} 1 & 1/2 & 1/3 \\ 1/2 & 1/3 & 1/4 \\ 1/3 & 1/4 & m \end{pmatrix}$$ Rang 3 si $m \neq \frac{7}{36}$. Rang 2 si $m = \frac{7}{36}$.</li>
+            <li>$$\begin{pmatrix} 1 & 1 & 1 \\ b+c & c+a & a+b \\ bc & ca & ab \end{pmatrix}$$ Rang 3 si $a, b, c$ deux à deux distincts. Rang 2 sinon.</li>
+            <li>Rang 2.</li>
+            <li>$$(i+j+ij)_{1 \leq i, j \leq n}$$ Rang 2.</li>
+            <li>$$(\sin(i+j))_{1 \leq i, j \leq n}$$ Rang 2.</li>
+            <li>Rang 2 si $a=b$. Rang $n$ si $a \neq 0, a \neq b$. Rang $n$ si $a, b \neq 0$. Rang 0 si $a=b=0$.</li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-14">
+        <p class="exo-title"><a href="#exo-14" class="exercise-link">Correction de l'exercice 14</a></p>
+        <p>Soit $H$ un hyperplan, $H = \operatorname{Ker} f$. $f$ est une forme linéaire non nulle.
+            On trouve $A$ inversible tel que $f(A) = 0$. (Voir le PDF).
+        </p>
+    </div>
+
+    <div class="correction" id="corr-15">
+        <p class="exo-title"><a href="#exo-15" class="exercise-link">Correction de l'exercice 15</a></p>
+        $f(P) = X(X + 1)P' – 2kXP$. $\deg(f(P)) \leq \deg(P)+1$.
+        $f \in \mathcal{L}(\mathbb{R}_{2n}[X])$. $2k=1$. $k=1/2$.
+        Polynômes non nuls $P$ tels que $(P, f(P))$ est liée: $f(P) = \lambda P$. (Voir le PDF pour la résolution).
+    </div>
+
+    <div class="correction" id="corr-16">
+        <p class="exo-title"><a href="#exo-16" class="exercise-link">Correction de l'exercice 16</a></p>
+        <p>Théorème de HADAMARD : $A$ est inversible. (Preuve par l'absurde, en supposant $\operatorname{Ker} A \neq \{0\}$).
+        </p>
+    </div>
+
+    <div class="correction" id="corr-17">
+        <p class="exo-title"><a href="#exo-17" class="exercise-link">Correction de l'exercice 17</a></p>
+        <ol>
+            <li>$M+N = \begin{pmatrix} A+A' & B+B' \\ C+C' & D+D' \end{pmatrix}$.</li>
+            <li>$M N = \begin{pmatrix} A A' + B C' & A B' + B D' \\ C A' + D C' & C B' + D D' \end{pmatrix}$. (Vérification des formats).</li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-18">
+        <p class="exo-title"><a href="#exo-18" class="exercise-link">Correction de l'exercice 18</a></p>
+        $A\bar{A} = n I_n$. $A$ est inversible. $A^{-1} = \frac{1}{n} \bar{A}$.
+    </div>
+
+    <div class="correction" id="corr-19">
+        <p class="exo-title"><a href="#exo-19" class="exercise-link">Correction de l'exercice 19</a></p>
+        <p>Déterminant de $A-\lambda I_4$ vaut $(\lambda-1)^2 (\lambda-2) (\lambda-3)$. Valeurs propres $\lambda \in \{1, 2, 3\}$. (Non, $\lambda \in \{-1, 1, 2, 3\}$ selon le PDF).
+            $A$ est diagonalisable. $A^n$ est facile à calculer.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-20">
+        <p class="exo-title"><a href="#exo-20" class="exercise-link">Correction de l'exercice 20</a></p>
+        $A = (a_{i, j})$. $A$ est triangulaire supérieure. $a_{i, i} = 1$. $A$ est inversible.
+        $A^{-1}$ est la matrice de $P \mapsto P(X-1)$.
+        $$A^{-1} = (b_{i, j}) \quad \text{avec } b_{i, j} = (-1)^{i+j} \binom{j}{i}$$
+    </div>
+
+    <div class="correction" id="corr-21">
+        <p class="exo-title"><a href="#exo-21" class="exercise-link">Correction de l'exercice 21</a></p>
+        <p>$u_{n+1} = 2u_n + v_n, v_{n+1} = u_n + 2v_n$. $\begin{pmatrix} u_{n+1} \\ v_{n+1} \end{pmatrix} = A \begin{pmatrix} u_n \\ v_n \end{pmatrix}$.</p>
+        <ol>
+            <li>$A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$. $A^n$. $u_n, v_n$ en fonction de $n$.
+                $A^n = \frac{1}{2} \begin{pmatrix} 3^n+1 & 3^n-1 \\ 3^n-1 & 3^n+1 \end{pmatrix}$.
+                $u_n = \frac{1}{2}(3^n+1)$, $v_n = \frac{1}{2}(3^n-1)$.
+            </li>
+            <li>$u_{n+1}+v_{n+1} = 3(u_n+v_n)$. $u_n+v_n = 3^n (u_0+v_0) = 3^n$.
+                $u_{n+1}-v_{n+1} = u_n-v_n$. $u_n-v_n = u_0-v_0 = 1$.
+                $u_n = \frac{1}{2}(3^n+1)$, $v_n = \frac{1}{2}(3^n-1)$.
+            </li>
+        </ol>
+    </div>
+
+</body>
+</html>
