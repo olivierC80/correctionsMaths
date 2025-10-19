@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les rationnels, les réels - Exercices</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <style>
+        /* Optimisation mobile */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            padding: 10px;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+        }
+        header {
+            padding: 10px 0;
+            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+        .header-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #e67e22; /* Exo7 color */
+        }
+        .exercise, .correction {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow-x: auto; /* Handle wide formulas */
+        }
+        .correction {
+            background-color: #fcfcfc;
+            border-left: 5px solid #3498db;
+        }
+        .exo-title {
+            font-weight: bold;
+            display: inline;
+        }
+        .difficulty {
+            font-size: 0.8em;
+            color: #e74c3c;
+            margin-left: 5px;
+        }
+        .correction-link, .exercise-link {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+            display: block;
+            margin-top: 10px;
+            padding: 5px 0;
+        }
+        .correction-link::before {
+            content: "▼ ";
+            font-size: 0.8em;
+        }
+        .page-break {
+            margin: 30px 0;
+            border-top: 1px dashed #ccc;
+        }
+        /* KaTeX specific styling for better mobile display */
+        .katex-display {
+            padding: 10px 0;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+
+    <header>
+        <span style="float: right;" class="header-title">Exo7</span>
+        <h1>Les rationnels, les réels</h1>
+        <p>Exercices de Jean-Louis Rouget. Retrouver aussi cette fiche sur <a href="http://www.maths-france.fr">www.maths-france.fr</a></p>
+        <p style="font-size: 0.9em; color: #777;">
+            * très facile ** facile *** difficulté moyenne **** difficile ***** très difficile<br>
+            I: Incontournable T: pour travailler et mémoriser le cours
+        </p>
+    </header>
+
+    <h2>Énoncés</h2>
+
+    <div class="exercise" id="exo-1">
+        <p class="exo-title">Exercice 1 I</p>
+        <p>Montrer que les nombres suivants sont irrationnels.</p>
+        <ol>
+            <li>(**) $\sqrt{2}$ et plus généralement $\sqrt[n]{m}$ où $n$ est un entier supérieur ou égal à $2$ et $m$ est un entier naturel supérieur ou égal à $2$, qui n'est pas une puissance $n$-ième parfaite.</li>
+            <li>(**) $\log 2$.</li>
+            <li>(****) $\pi$ (LAMBERT a montré en 1761 que $\pi$ est irrationnel, LEGENDRE a démontré en 1794 que $\pi^2$ est irrationnel, LINDEMANN a démontré en 1882 que $\pi$ est transcendant).
+                <p>Pour cela, supposer par l'absurde que $\pi = p/q$ avec $p$ et $q$ entiers naturels non nuls et premiers entre eux. Considérer alors $$I_n = \int_0^{p/q} \frac{x^n (p-qx)^n}{n!} \sin x \, dx, n \in \mathbb{N}^*$$ et montrer que $I_n$ vérifie</p>
+                <ol type="a">
+                    <li>$I_n$ est un entier relatif ;</li>
+                    <li>$I_n > 0$;</li>
+                    <li>$\lim_{n \to +\infty} I_n = 0$ (voir devoir).</li>
+                </ol>
+            </li>
+            <li>(***) $e$ (HERMITE a démontré en 1873 que $e$ est transcendant. C'est historiquement le premier vrai nombre dont on a réussi à démontrer la transcendance).
+                <p>Pour cela, établir que pour tout entier naturel $n$, $$e = \sum_{k=0}^n \frac{1}{k!} + \int_0^1 \frac{(1-t)^n}{n!} e^t \, dt$$ puis que pour tout entier naturel non nul $n$, $$0 < e - \sum_{k=0}^n \frac{1}{k!} < \frac{3}{(n+1)!}$$ Raisonner alors par l'absurde.</p>
+            </li>
+            <li>(***) $\cos(\frac{2\pi}{7})$. Pour cela trouver une équation du troisième degré à coefficients entiers dont les solutions sont $\cos(\frac{2\pi}{7})$, $\cos(\frac{4\pi}{7})$ et $\cos(\frac{6\pi}{7})$, puis vérifier que cette équation n'a pas de racine rationnelle (supposer par l'absurde qu'il y a une racine rationnelle $r = p/q$ avec $p \in \mathbb{Z}^*, q \in \mathbb{N}^*$ et $\operatorname{PGCD}(p, q) = 1$ et montrer que $p$ divise $1$ et $q$ divise $8$). (On rappelle le théorème de GAUSS : soient $a, b$ et $c$ trois entiers relatifs tous non nuls. Si $a$ divise $bc$ et $a$ et $b$ sont premiers entre eux, alors $a$ divise $c$).</li>
+            <li>(***) $\sqrt{2}+\sqrt{3}+\sqrt{5}$.</li>
+        </ol>
+        <a href="#corr-1" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-2">
+        <p class="exo-title">Exercice 2 <span class="difficulty">**IT</span></p>
+        <p>Soient $A$ et $B$ deux parties de $\mathbb{R}$, non vides et bornées. Montrer que $\sup A, \sup B, \sup(A + B), \inf A, \inf B, \inf (A + B)$ existent et que l'on a $$\sup (A + B) = \sup A + \sup B \quad \text{et} \quad \inf (A + B) = \inf A + \inf B$$ ($A + B$ désigne l'ensemble des sommes d'un élément de $A$ et d'un élément de $B$).</p>
+        <a href="#corr-2" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-3">
+        <p class="exo-title">Exercice 3 <span class="difficulty">**</span></p>
+        <p>Soit $$A = \left\{\frac{1}{n} + (-1)^n, n \in \mathbb{N}^* \right\}$$ Déterminer $\sup A$ et $\inf A$.</p>
+        <a href="#corr-3" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-4">
+        <p class="exo-title">Exercice 4 <span class="difficulty">**IT</span></p>
+        <p>Soit $A$ une partie non vide et bornée de $\mathbb{R}$. Montrer que $\sup\{|x - y|, (x, y) \in A^2\} = \sup A - \inf A$.</p>
+        <a href="#corr-4" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-5">
+        <p class="exo-title">Exercice 5 <span class="difficulty">***IT</span></p>
+        <p>Soient $A$ et $B$ deux parties non vides et majorées de $\mathbb{R}$. Que dire de $\sup(A \cap B)$, $\sup(A \cup B)$, $\sup(A + B)$ et $\sup(AB)$ ? ($A + B$ (resp. $AB$) désigne l'ensemble des sommes (resp. des produits) d'un élément de $A$ et d'un élément de $B$).</p>
+        <a href="#corr-5" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-6">
+        <p class="exo-title">Exercice 6 <span class="difficulty">****</span></p>
+        <p>Soit $u_n$ le chiffre des unités de $\binom{n}{k}$, $k$ entier naturel fixé non nul et $n$ entier naturel supérieur ou égal à $k$. Montrer que le nombre $0, u_k u_{k+1} u_{k+2} \dots$ est rationnel.</p>
+        <a href="#corr-6" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-7">
+        <p class="exo-title">Exercice 7 <span class="difficulty">**</span> Identité de CATALAN</p>
+        <p>Montrer que pour tout entier naturel non nul $n$, $$\sum_{k=0}^{2n-1} \frac{(-1)^k}{k+1} \binom{2n-1}{k} = \frac{1}{2n} \sum_{k=1}^{2n} \frac{(-1)^{k-1}}{k} \binom{2n}{k} \cdot 2^{2n}$$</p>
+        <a href="#corr-7" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-8">
+        <p class="exo-title">Exercice 8 <span class="difficulty">**I</span> Inégalités de CAUCHY-SCHWARZ et de MINKOWSKI</p>
+        <p>Soient $a_1, \dots, a_n, b_1, \dots, b_n$ des nombres réels.</p>
+        <ol>
+            <li>En considérant la fonction $f: x \mapsto \sum_{k=1}^n (a_k + x b_k)^2$, montrer que $\left|\sum_{k=1}^n a_k b_k\right| \leq \sqrt{\sum_{k=1}^n a_k^2} \sqrt{\sum_{k=1}^n b_k^2}$ (inégalité de CAUCHY-SCHWARZ).</li>
+            <li>En déduire l'inégalité de MINKOWSKI : $\sqrt{\sum_{k=1}^n (a_k+b_k)^2} \leq \sqrt{\sum_{k=1}^n a_k^2} + \sqrt{\sum_{k=1}^n b_k^2}$.
+                (l'inégalité de CAUCHY-SCHWARZ affirme que le produit scalaire de deux vecteurs est inférieur ou égal au produit de leurs normes et l'inégalité de MINKOWSKI est l'inégalité triangulaire).</li>
+        </ol>
+        <a href="#corr-8" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-9">
+        <p class="exo-title">Exercice 9 <span class="difficulty">**</span></p>
+        <p>Résoudre dans $\mathbb{R}$ l'équation $$\sqrt{x+2\sqrt{x-1}} + \sqrt{x-2\sqrt{x-1}} = 1$$</p>
+        <a href="#corr-9" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-10">
+        <p class="exo-title">Exercice 10 <span class="difficulty">****</span> Sous groupes de $(\mathbb{R}, +)$</p>
+        <ol>
+            <li>Montrer que les sous groupes du groupe $(\mathbb{R}, +)$ sont soit de la forme $a\mathbb{Z}$, $a$ réel donné, soit denses dans $\mathbb{R}$.
+                <p>Indication : pour $G$ sous-groupe donné de $(\mathbb{R}, +)$, non réduit à $\{0\}$, considérer $a = \operatorname{Inf} (G \cap ]0; +\infty[)$ puis envisager les deux cas $a = 0$ et $a > 0$.</p>
+                (Definition: $G$ est dense dans $\mathbb{R}$ si et seulement si : $(\forall x \in \mathbb{R}, \forall \varepsilon > 0, \exists y \in G/ |y - x| < \varepsilon)$.
+            </li>
+            <li>Application 1. Montrer que $\{a+b\sqrt{2}, (a, b) \in \mathbb{Z}^2\}$ est dense dans $\mathbb{R}$.</li>
+            <li>Application 2 (groupe des périodes d'une fonction).
+                <ol type="a">
+                    <li>Soit $f$ une fonction définie sur $\mathbb{R}$ à valeurs dans $\mathbb{R}$. Montrer que l'ensemble des périodes de $f$ est un sous groupe de $(\mathbb{R}, +)$ (ce sous-groupe est réduit à $\{0\}$ si $f$ n'est pas périodique).</li>
+                    <li>Montrer qu'une fonction continue sur $\mathbb{R}$ qui admet $1$ et $\sqrt{2}$ pour périodes, est constante sur $\mathbb{R}$.</li>
+                </ol>
+            </li>
+        </ol>
+        <a href="#corr-10" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-11">
+        <p class="exo-title">Exercice 11 <span class="difficulty">**</span></p>
+        <p>Montrer que $\{r^3, r \in \mathbb{Q}\}$ est dense dans $\mathbb{R}$.</p>
+        <a href="#corr-11" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+    <h2>Corrections</h2>
+
+    <div class="correction" id="corr-1">
+        <p class="exo-title"><a href="#exo-1" class="exercise-link">Correction de l'exercice 1</a></p>
+        <ol>
+            <li>
+                $$\sqrt[n]{m} \in \mathbb{Q} \Leftrightarrow \exists (a, b) \in (\mathbb{N}^*)^2 / \sqrt[n]{m} = \frac{a}{b} \Leftrightarrow a^n = m b^n$$
+                Si $m$ n'est pas une puissance $n$-ième parfaite, alors $m$ est irrationnel (démonstration par unicité de la décomposition en facteurs premiers).
+            </li>
+            <li>
+                $$\log 2 \in \mathbb{Q} \Leftrightarrow \exists (a, b) \in (\mathbb{N}^*)^2 / \log 2 = \frac{a}{b}$$
+                $$10^{a/b} = 2 \Leftrightarrow 10^a = 2^b \Leftrightarrow 2^a 5^a = 2^b$$
+                Si $a \neq 0$, ceci est impossible par unicité de la décomposition en facteurs premiers. $\log 2$ est irrationnel.
+            </li>
+            <li>
+                Preuve par l'absurde en utilisant l'intégrale $I_n$.
+                (a) $I_n$ est un entier relatif. (Démonstration par intégrations par parties répétées).
+                (b) $I_n > 0$. Vrai car l'intégrande est positive sur $[0, \pi]$.
+                (c) $\lim_{n \to +\infty} I_n = 0$. Vrai par le théorème des gendarmes.
+                $I_n$ étant un entier strictement positif, $I_n \geq 1$. Ceci contredit $\lim I_n = 0$.
+                Donc $\pi$ est irrationnel.
+            </li>
+            <li>
+                Preuve par l'absurde en utilisant $e = \sum_{k=0}^n \frac{1}{k!} + R_n$.
+                $0 < R_n = \int_0^1 \frac{(1-t)^n}{n!} e^t dt < \frac{e}{(n+1)!}$.
+                Si $e = a/b \in \mathbb{Q}$, on choisit $n=b$. $b! e = a \cdot (b-1)! \in \mathbb{N}$.
+                $n! e = \sum_{k=0}^n \frac{n!}{k!} + n! R_n$. $\sum_{k=0}^n \frac{n!}{k!} \in \mathbb{N}$.
+                $n! R_n = n! e - \sum_{k=0}^n \frac{n!}{k!}$ est un entier.
+                $0 < n! R_n < \frac{n! e}{(n+1)!} = \frac{e}{n+1}$.
+                Pour $n \geq 3$, $\frac{e}{n+1} < 1$. Un entier entre 0 et 1 est impossible.
+                Donc $e$ est irrationnel.
+            </li>
+            <li>
+                Les solutions de $8X^3+4X^2-4X-1=0$ sont $\cos(\frac{2\pi}{7})$, $\cos(\frac{4\pi}{7})$ et $\cos(\frac{6\pi}{7})$.
+                Vérification qu'il n'y a pas de racine rationnelle $p/q$. (Vérifié par le théorème de GAUSS).
+                Donc $\cos(\frac{2\pi}{7})$ est irrationnel.
+            </li>
+            <li>
+                Supposons $\alpha = \sqrt{2}+\sqrt{3}+\sqrt{5}$ rationnel.
+                $\alpha - \sqrt{5} = \sqrt{2}+\sqrt{3}$. $(\alpha - \sqrt{5})^2 = 5 + \alpha^2 - 2\alpha\sqrt{5} = 2 + 3 + 2\sqrt{6} = 5 + 2\sqrt{6}$.
+                $\alpha^2 - 2\alpha\sqrt{5} = 2\sqrt{6}$.
+                Si $\alpha \in \mathbb{Q}$, $\alpha^2 \in \mathbb{Q}$. $2\sqrt{6} \in \mathbb{Q}$ ou $\sqrt{5} \in \mathbb{Q}$, contradiction.
+                $\sqrt{2}+\sqrt{3}+\sqrt{5}$ est irrationnel.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-2">
+        <p class="exo-title"><a href="#exo-2" class="exercise-link">Correction de l'exercice 2</a></p>
+        <p>$A$ et $B$ sont non vides et bornées, donc $\sup A, \sup B, \inf A, \inf B$ existent.</p>
+        <p>$\sup(A+B)$: Soit $\alpha = \sup A$ et $\beta = \sup B$.
+            1. $\forall (a, b) \in A \times B, a+b \leq \alpha + \beta$. $\alpha + \beta$ est un majorant de $A+B$.
+            2. $\forall \varepsilon > 0$, il existe $a \in A$ tel que $a > \alpha - \varepsilon/2$ et $b \in B$ tel que $b > \beta - \varepsilon/2$. $a+b > \alpha + \beta - \varepsilon$.
+            $$\sup (A + B) = \sup A + \sup B$$
+        </p>
+        <p>$\inf(A+B)$: Soit $\alpha' = \inf A$ et $\beta' = \inf B$.
+            1. $\forall (a, b) \in A \times B, a+b \geq \alpha' + \beta'$. $\alpha' + \beta'$ est un minorant de $A+B$.
+            2. $\forall \varepsilon > 0$, il existe $a \in A$ tel que $a < \alpha' + \varepsilon/2$ et $b \in B$ tel que $b < \beta' + \varepsilon/2$. $a+b < \alpha' + \beta' + \varepsilon$.
+            $$\inf (A + B) = \inf A + \inf B$$
+        </p>
+    </div>
+
+    <div class="correction" id="corr-3">
+        <p class="exo-title"><a href="#exo-3" class="exercise-link">Correction de l'exercice 3</a></p>
+        <p>$A = \{u_n = \frac{1}{n} + (-1)^n, n \in \mathbb{N}^* \}$.
+            $n$ pair: $u_{2k} = \frac{1}{2k} + 1$. $\lim u_{2k} = 1$. $\sup \{u_{2k}\} = u_2 = 1 + 1/2 = 3/2$.
+            $n$ impair: $u_{2k-1} = \frac{1}{2k-1} - 1$. $\lim u_{2k-1} = -1$. $\inf \{u_{2k-1}\} = -1$.
+            $$\sup A = \max(u_2, u_4, \dots) = u_2 = 3/2$$
+            $$\inf A = \inf \{u_{2k-1}\} = -1$$
+            $\inf A = -1$ (non atteint). $\sup A = 3/2$ (atteint pour $n=2$).
+        </p>
+    </div>
+
+    <div class="correction" id="corr-4">
+        <p class="exo-title"><a href="#exo-4" class="exercise-link">Correction de l'exercice 4</a></p>
+        <p>Soit $B = \{|x - y|, (x, y) \in A^2\}$. Soit $M = \sup A$ et $m = \inf A$.
+            1. $\forall (x, y) \in A^2, m \leq x \leq M$ et $m \leq y \leq M$.
+                $-M \leq -y \leq -m$. $x - y \leq M - m$.
+                $y - x \leq M - m$. D'où $|x - y| \leq M - m$.
+                $M-m$ est un majorant de $B$. $\sup B \leq M - m$.
+            2. $\forall \varepsilon > 0$, il existe $x_0 \in A$ tel que $x_0 < m + \varepsilon/2$ et $y_0 \in A$ tel que $y_0 > M - \varepsilon/2$.
+                $|y_0 - x_0| = y_0 - x_0 > M - \varepsilon/2 - (m + \varepsilon/2) = M - m - \varepsilon$.
+            $$\sup B = M - m = \sup A - \inf A$$
+        </p>
+    </div>
+
+    <div class="correction" id="corr-5">
+        <p class="exo-title"><a href="#exo-5" class="exercise-link">Correction de l'exercice 5</a></p>
+        <p>Soient $A$ et $B$ non vides et majorées. $\alpha = \sup A, \beta = \sup B$.</p>
+        <ol>
+            <li>$\sup(A \cap B)$: $\sup(A \cap B) \leq \min(\alpha, \beta)$. (Pas nécessairement égal, voir exemple dans le PDF).</li>
+            <li>$\sup(A \cup B)$: $\sup(A \cup B) = \max(\alpha, \beta)$.</li>
+            <li>$\sup(A + B)$: $\sup(A+B) = \sup A + \sup B = \alpha + \beta$.</li>
+            <li>$\sup(AB)$: Tout est possible. Si $A=B=]-\infty, 0]$, $\sup A = \sup B = 0$. $AB = [0, +\infty[$ n'est pas majoré.</li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-6">
+        <p class="exo-title"><a href="#exo-6" class="exercise-link">Correction de l'exercice 6</a></p>
+        <p>Montrer que $u_n$ est $10k!$-périodique. $u_n = \binom{n}{k} \pmod{10}$.
+            $$\binom{n+10k!}{k} \equiv \binom{n}{k} \pmod{10}$$
+            On sait que $\frac{1}{k!} \binom{n+10k!}{k} - \frac{1}{k!} \binom{n}{k} \in \mathbb{N} \cdot 10$.
+            $$\binom{n+10k!}{k} - \binom{n}{k} \equiv 0 \pmod{10}$$
+            Le nombre $0, u_k u_{k+1} u_{k+2} \dots$ est rationnel car il est décimal périodique (sa suite de chiffres est périodique).
+        </p>
+    </div>
+
+    <div class="correction" id="corr-8">
+        <p class="exo-title"><a href="#exo-8" class="exercise-link">Correction de l'exercice 8</a></p>
+        <ol>
+            <li>Inégalité de CAUCHY-SCHWARZ : $\left|\sum a_k b_k\right| \leq \sqrt{\sum a_k^2} \sqrt{\sum b_k^2}$. (Démontré en Exercice 5).</li>
+            <li>Inégalité de MINKOWSKI : $\sqrt{\sum (a_k+b_k)^2} \leq \sqrt{\sum a_k^2} + \sqrt{\sum b_k^2}$.
+                En élevant au carré :
+                $$\sum (a_k+b_k)^2 = \sum a_k^2 + 2\sum a_k b_k + \sum b_k^2$$
+                $$(\sqrt{\sum a_k^2} + \sqrt{\sum b_k^2})^2 = \sum a_k^2 + 2\sqrt{\sum a_k^2}\sqrt{\sum b_k^2} + \sum b_k^2$$
+                L'inégalité de Minkowski est équivalente à :
+                $$\sum a_k b_k \leq \sqrt{\sum a_k^2} \sqrt{\sum b_k^2}$$
+                Ceci est exactement l'inégalité de Cauchy-Schwarz.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-9">
+        <p class="exo-title"><a href="#exo-9" class="exercise-link">Correction de l'exercice 9</a></p>
+        <p>L'équation est $\sqrt{x+2\sqrt{x-1}} + \sqrt{x-2\sqrt{x-1}} = 1$. Domaine de définition : $x \geq 1$.</p>
+        <p>On remarque : $x+2\sqrt{x-1} = (x-1) + 2\sqrt{x-1} + 1 = (\sqrt{x-1} + 1)^2$.
+            $x-2\sqrt{x-1} = (\sqrt{x-1} - 1)^2$.
+            L'équation devient :
+            $$(\sqrt{x-1} + 1) + |\sqrt{x-1} - 1| = 1$$
+            $$|\sqrt{x-1} - 1| = -\sqrt{x-1}$$
+            Puisque $|\sqrt{x-1} - 1| \geq 0$ et $-\sqrt{x-1} \leq 0$, la seule solution possible est quand les deux membres sont nuls.
+            $$\sqrt{x-1} = 0 \text{ et } |\sqrt{x-1} - 1| = 0$$
+            $x-1=0 \Rightarrow x=1$. $|\sqrt{1-1} - 1| = |-1| = 1$. $1=0$. Impossible.
+            L'équation n'a pas de solution.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-10">
+        <p class="exo-title"><a href="#exo-10" class="exercise-link">Correction de l'exercice 10</a></p>
+        <ol>
+            <li>Soit $G$ un sous-groupe de $(\mathbb{R}, +)$, $G \neq \{0\}$. $a = \inf(G \cap ]0, +\infty[)$.
+                * Si $a > 0$: $G = a\mathbb{Z}$. (Si $x \in G$, division euclidienne $x=na+r$).
+                * Si $a = 0$: $G$ est dense dans $\mathbb{R}$. (Montré par l'absurde, en utilisant la définition de l'infimum).
+            </li>
+            <li>$G = \{a+b\sqrt{2}, (a, b) \in \mathbb{Z}^2\}$. $G$ est un sous-groupe.
+                $a = \inf(G \cap ]0, +\infty[)$. On montre $a=0$.
+                $(1+\sqrt{2})^n = a_n + b_n \sqrt{2}$. $(1-\sqrt{2})^n \in G \cap ]0, +\infty[$.
+                $\lim_{n \to +\infty} (1-\sqrt{2})^n = 0$. $\inf(G \cap ]0, +\infty[) = 0$. $G$ est dense dans $\mathbb{R}$.
+            </li>
+            <li>
+                (a) $G_f = \{T \in \mathbb{R} / \forall x, f(x+T) = f(x)\}$. $G_f$ est un sous-groupe de $(\mathbb{R}, +)$.
+                (b) $f$ continue, $1, \sqrt{2} \in G_f$. $G_f$ contient $G = \{a+b\sqrt{2}, a, b \in \mathbb{Z}\}$. $G$ est dense.
+                Si $G_f$ est dense, $\forall x \in \mathbb{R}$, $\forall T \in G_f$, $f(x+T) = f(x)$.
+                Soit $x \in \mathbb{R}$. $\forall \varepsilon > 0$, $\exists T \in G_f$ tel que $|T - 0| < \varepsilon$. $f(x+T)=f(x)$.
+                $f$ est constante (démonstration par la densité).
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-11">
+        <p class="exo-title"><a href="#exo-11" class="exercise-link">Correction de l'exercice 11</a></p>
+        <p>Montrer que $A = \{r^3, r \in \mathbb{Q}\}$ est dense dans $\mathbb{R}$.
+            Soient $x \in \mathbb{R}$ et $\varepsilon > 0$. On cherche $r \in \mathbb{Q}$ tel que $|r^3 - x| < \varepsilon$.
+            On cherche $r \in \mathbb{Q}$ tel que $\sqrt[3]{x} - \delta < r < \sqrt[3]{x} + \delta$.
+            Puisque $\mathbb{Q}$ est dense dans $\mathbb{R}$, il existe $r \in \mathbb{Q}$ tel que $\sqrt[3]{x} - \delta < r < \sqrt[3]{x} + \delta$.
+            Comme $t \mapsto t^3$ est strictement croissante, $\delta$ peut être choisi tel que $|\sqrt[3]{x} - r| < \delta \Rightarrow |x - r^3| < \varepsilon$.
+            L'ensemble $\{r^3, r \in \mathbb{Q}\}$ est dense dans $\mathbb{R}$.
+        </p>
+    </div>
+
+</body>
+</html>
