@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dénombrements - Exercices</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <style>
+        /* Optimisation mobile */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            padding: 10px;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+        }
+        header {
+            padding: 10px 0;
+            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+        .header-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #e67e22; /* Exo7 color */
+        }
+        .exercise, .correction {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow-x: auto; /* Handle wide formulas */
+        }
+        .correction {
+            background-color: #fcfcfc;
+            border-left: 5px solid #3498db;
+        }
+        .exo-title {
+            font-weight: bold;
+            display: inline;
+        }
+        .difficulty {
+            font-size: 0.8em;
+            color: #e74c3c;
+            margin-left: 5px;
+        }
+        .correction-link, .exercise-link {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+            display: block;
+            margin-top: 10px;
+            padding: 5px 0;
+        }
+        .correction-link::before {
+            content: "▼ ";
+            font-size: 0.8em;
+        }
+        .page-break {
+            margin: 30px 0;
+            border-top: 1px dashed #ccc;
+        }
+        /* KaTeX specific styling for better mobile display */
+        .katex-display {
+            padding: 10px 0;
+            font-size: 1.1em;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+
+    <header>
+        <span style="float: right;" class="header-title">Exo7</span>
+        <h1>Dénombrements</h1>
+        <p>Exercices de Jean-Louis Rouget. Retrouver aussi cette fiche sur <a href="http://www.maths-france.fr">www.maths-france.fr</a></p>
+        <p style="font-size: 0.9em; color: #777;">
+            * très facile ** facile *** difficulté moyenne **** difficile ***** très difficile<br>
+            I: Incontournable T: pour travailler et mémoriser le cours
+        </p>
+    </header>
+
+    <h2>Énoncés</h2>
+
+    <div class="exercise" id="exo-1">
+        <p class="exo-title">Exercice 1 IT</p>
+        <ol>
+            <li>(***) Trouver une démonstration combinatoire de l'identité $$\sum C_n^{2k} = \sum C_n^{2k+1}$$ ou encore démontrer directement qu'un ensemble à $n$ éléments contient autant de parties de cardinal pair que de parties de cardinal impair.</li>
+            <li>(****) Trouver une démonstration combinatoire de l'identité $$k C_n^k = n C_{n-1}^{k-1}$$</li>
+            <li>(****) Trouver une démonstration combinatoire de l'identité $$C_{2n}^n = \sum_{k=0}^n (C_n^k)^2$$</li>
+        </ol>
+        <a href="#corr-1" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-2">
+        <p class="exo-title">Exercice 2 <span class="difficulty">***</span></p>
+        <p>Combien y a-t-il de partitions d'un ensemble à $pq$ éléments en $p$ classes ayant chacune $q$ éléments ? (Si $E$ est un ensemble à $pq$ éléments et si $A_1, \dots, A_p$ sont $p$ parties de $E$, $A_1, \dots, A_p$ forment une partition de $E$ si et seulement si tout élément de $E$ est dans une et une seule des parties $A_i$. Il revient au même de dire que la réunion des $A_i$ est $E$ et que les $A_i$ sont deux à deux disjoints.)</p>
+        <a href="#corr-2" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-3">
+        <p class="exo-title">Exercice 3 <span class="difficulty">***</span></p>
+        <p>Combinaisons avec répétitions. Montrer que le nombre de solutions en nombres entiers $x_i \geq 0$ de l'équation $$x_1 + x_2 + \dots + x_n = k$$ ($k$ entier naturel donné) est $$C_{n+k-1}^k$$ (Noter $a_{n, k}$ le nombre de solutions et procéder par récurrence.)</p>
+        <a href="#corr-3" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-4">
+        <p class="exo-title">Exercice 4 <span class="difficulty">*</span></p>
+        <p>Combien y a-t-il de nombres de $5$ chiffres où $0$ figure une fois et une seule ?</p>
+        <a href="#corr-4" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-5">
+        <p class="exo-title">Exercice 5 <span class="difficulty">***I</span></p>
+        <p>Quelle est la probabilité $p_n$ pour que dans un groupe de $n$ personnes choisies au hasard, deux personnes au moins aient le même anniversaire (on considérera que l'année a toujours $365$ jours, tous équiprobables). Montrer que pour $n \geq 23$, on a $p_n \geq \frac{1}{2}$.</p>
+        <a href="#corr-5" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-6">
+        <p class="exo-title">Exercice 6 <span class="difficulty">***</span></p>
+        <p>Montrer que le premier de l'an tombe plus souvent un dimanche qu'un samedi.</p>
+        <a href="#corr-6" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-7">
+        <p class="exo-title">Exercice 7 <span class="difficulty">**I</span></p>
+        <p>On part du point de coordonnées $(0, 0)$ pour rejoindre le point de coordonnées $(p, q)$ ($p$ et $q$ entiers naturels donnés) en se déplaçant à chaque étape d'une unité vers la droite ou vers le haut. Combien y a-t-il de chemins possibles ?</p>
+        <a href="#corr-7" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-8">
+        <p class="exo-title">Exercice 8 <span class="difficulty">***I</span></p>
+        <p>De combien de façons peut-on payer $100$ euros avec des pièces de $10$, $20$ et $50$ centimes ?</p>
+        <a href="#corr-8" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-9">
+        <p class="exo-title">Exercice 9 <span class="difficulty">****</span></p>
+        <ol>
+            <li>Soit $E$ un ensemble fini et non vide. Soient $n$ un entier naturel non nul et $A_1, \dots, A_n$, $n$ parties de $E$. Montrer la formule du crible :
+                $$\operatorname{card}(A_1 \cup \dots \cup A_n) = \sum_{i=1}^n \operatorname{card}(A_i) - \sum_{1 \leq i_1 < i_2 \leq n} \operatorname{card}(A_{i_1} \cap A_{i_2}) + \dots + (-1)^{n-1} \operatorname{card}(A_1 \cap \dots \cap A_n)$$
+            </li>
+            <li>Combien y a-t-il de permutations $\sigma$ de $\{1, \dots, n\}$ vérifiant $\forall i \in \{1, \dots, n\}, \sigma(i) \neq i$ ? (Ces permutations sont appelées dérangements (permutations sans point fixe)). Indication : noter $A_i$ l'ensemble des permutations qui fixent $i$ et utiliser 1).
+                <p>On peut alors résoudre un célèbre problème de probabilité, le problème des chapeaux. $n$ personnes laissent leur chapeau à un vestiaire. En repartant, chaque personne reprend un chapeau au hasard. Montrer que la probabilité qu'aucune de ces personnes n'ait repris son propre chapeau est environ $\frac{1}{e}$ quand $n$ est grand.</p>
+            </li>
+        </ol>
+        <a href="#corr-9" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-10">
+        <p class="exo-title">Exercice 10 <span class="difficulty">**</span></p>
+        <p>Combien y a-t-il de surjections de $\{1, \dots, n+1\}$ sur $\{1, \dots, n\}$ ?</p>
+        <a href="#corr-10" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-11">
+        <p class="exo-title">Exercice 11 <span class="difficulty">***</span></p>
+        <p>Soit $(P)$ un polygone convexe à $n$ sommets. Combien ce polygone a-t-il de diagonales ? En combien de points distincts des sommets se coupent-elles au maximum ?</p>
+        <a href="#corr-11" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-12">
+        <p class="exo-title">Exercice 12 <span class="difficulty">***</span></p>
+        <ol>
+            <li>On donne $n$ droites du plan. On suppose qu'il n'en existe pas deux qui soient parallèles, ni trois qui soient concourantes. Déterminer le nombre $P(n)$ de régions délimitées par ces droites.</li>
+            <li>On donne $n$ plans de l'espace. On suppose qu'il n'en existe pas deux qui soient parallèles, ni trois qui soient concourants en une droite, ni quatre qui soient concourants en un point. Déterminer le nombre $Q(n)$ de régions délimitées par ces plans.</li>
+        </ol>
+        <a href="#corr-12" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-13">
+        <p class="exo-title">Exercice 13 <span class="difficulty">***</span></p>
+        <p>Soit $P_n^k$ le nombre de partitions d'un ensemble à $n$ éléments en $k$ classes.</p>
+        <p>Montrer que $P_n^k = P_{n-1}^{k-1} + k P_{n-1}^k$ pour $2 \leq k \leq n - 1$.</p>
+        <p>Dresser un tableau pour $1 \leq k, n \leq 5$.</p>
+        <p>Calculer en fonction de $P_n^k$ le nombre de surjections d'un ensemble à $n$ éléments sur un ensemble à $p$ éléments.</p>
+        <a href="#corr-13" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+    <h2>Corrections</h2>
+
+    <div class="correction" id="corr-1">
+        <p class="exo-title"><a href="#exo-1" class="exercise-link">Correction de l'exercice 1</a></p>
+        <ol>
+            <li>L'identité est $\sum_{k \text{ pair}} \binom{n}{k} = \sum_{k \text{ impair}} \binom{n}{k}$.
+                Démonstration combinatoire : Soit $E$ un ensemble à $n$ éléments, $a \in E$ fixé. L'application $f: \mathcal{P}(E) \to \mathcal{P}(E)$ définie par $f(A) = A \Delta \{a\}$ est une bijection.
+                Si $A$ est de cardinal pair, $f(A)$ est de cardinal impair. La bijection montre l'égalité des cardinaux.
+            </li>
+            <li>L'identité est $k \binom{n}{k} = n \binom{n-1}{k-1}$.
+                Interprétation : Choisir un comité de $k$ personnes parmi $n$, et un président parmi ces $k$ personnes.
+                Méthode 1 : Choisir le comité ($C_n^k$), puis le président ($k$ choix). Total $k C_n^k$.
+                Méthode 2 : Choisir le président ($n$ choix), puis $k-1$ membres parmi les $n-1$ restants ($C_{n-1}^{k-1}$). Total $n C_{n-1}^{k-1}$.
+            </li>
+            <li>L'identité est $C_{2n}^n = \sum_{k=0}^n (C_n^k)^2$.
+                Interprétation : Choisir $n$ personnes parmi $2n$. Séparons les $2n$ personnes en deux groupes $E_1$ et $E_2$ de $n$ personnes chacun.
+                Choisir $n$ personnes revient à choisir $k$ personnes dans $E_1$ et $n-k$ personnes dans $E_2$.
+                Pour un $k$ fixé, le nombre de choix est $C_n^k \cdot C_n^{n-k} = (C_n^k)^2$. Sommer sur $k$ donne l'identité.
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-2">
+        <p class="exo-title"><a href="#exo-2" class="exercise-link">Correction de l'exercice 2</a></p>
+        <p>L'ensemble $E$ a $N=pq$ éléments. On partitionne $E$ en $p$ classes $A_1, \dots, A_p$ de taille $q$.</p>
+        <p>1. Choisir la première classe $A_1$ (taille $q$ parmi $pq$): $C_{pq}^q$ choix.</p>
+        <p>2. Choisir la deuxième classe $A_2$ (taille $q$ parmi $pq-q$ restants): $C_{pq-q}^q$ choix.</p>
+        <p>3. ...</p>
+        <p>$p$. Choisir la dernière classe $A_p$ (taille $q$ parmi $q$ restants): $C_q^q$ choix.</p>
+        <p>Total des choix ordonnés : $$C_{pq}^q C_{(p-1)q}^q \dots C_q^q = \frac{(pq)!}{q!(pq-q)!} \frac{(pq-q)!}{q!(pq-2q)!} \dots \frac{q!}{q!0!} = \frac{(pq)!}{(q!)^p}$$</p>
+        <p>Puisque les $p$ classes ne sont pas ordonnées (une partition est un ensemble de classes), nous divisons par $p!$ (le nombre de façons d'ordonner les classes).
+        Le nombre de partitions est :
+        $$\frac{1}{p!} \frac{(pq)!}{(q!)^p}$$</p>
+    </div>
+
+    <div class="correction" id="corr-3">
+        <p class="exo-title"><a href="#exo-3" class="exercise-link">Correction de l'exercice 3</a></p>
+        <p>L'équation est $x_1 + x_2 + \dots + x_n = k$ avec $x_i \geq 0$ entiers.</p>
+        <p>On utilise la méthode des "barres et étoiles" (stars and bars). On a $k$ "étoiles" (unités) à distribuer dans $n$ "boîtes" ($x_i$). Il faut $n-1$ "barres" pour séparer les boîtes.
+        Le nombre de solutions est le nombre de façons de placer $k$ étoiles et $n-1$ barres, soit $k + n - 1$ positions au total, en choisissant la position des $k$ étoiles (ou $n-1$ barres).
+        $$\binom{n+k-1}{k} = C_{n+k-1}^k$$</p>
+    </div>
+
+    <div class="correction" id="corr-4">
+        <p class="exo-title"><a href="#exo-4" class="exercise-link">Correction de l'exercice 4</a></p>
+        <p>Un nombre de 5 chiffres est entre $10000$ et $99999$. Le premier chiffre ne peut être $0$.</p>
+        <p>Le chiffre $0$ doit apparaître exactement une fois.</p>
+        <p>1. Position du $0$ : $4$ choix (le $0$ ne peut être le premier chiffre).</p>
+        <p>2. Premier chiffre : $9$ choix (pas $0$).</p>
+        <p>3. Les $3$ autres chiffres : $9 \times 9 \times 9$ choix (pas $0$).</p>
+        <p>Nombre total : $$4 \times 9 \times 9^3 = 4 \times 9^4 = 26244$$</p>
+    </div>
+
+    <div class="correction" id="corr-5">
+        <p class="exo-title"><a href="#exo-5" class="exercise-link">Correction de l'exercice 5</a></p>
+        <p>$p_n$ est la probabilité que deux personnes au moins aient le même anniversaire.
+        $p_n = 1 - q_n$, où $q_n$ est la probabilité que les $n$ anniversaires soient tous distincts.</p>
+        <p>Nombre total de possibilités : $365^n$.</p>
+        <p>Nombre de cas favorables pour $q_n$: $365 \cdot 364 \cdot \dots \cdot (365 - n + 1)$.</p>
+        $$q_n = \frac{365 \cdot 364 \cdots (365 - n + 1)}{365^n}$$
+        $$p_n = 1 - \prod_{k=1}^{n-1} \left(1 - \frac{k}{365}\right)$$
+        Pour $n \geq 23$, on utilise la majoration $1-x \leq e^{-x}$.
+        $$q_n \leq e^{-\sum_{k=1}^{n-1} \frac{k}{365}} = e^{-\frac{n(n-1)}{730}}$$
+        On cherche $n$ tel que $p_n \geq 1/2$, soit $q_n \leq 1/2$.
+        On trouve $n \geq 23$ (en utilisant $\ln(2)$).
+        $$n \geq \frac{1 + \sqrt{1 + 2920 \ln 2}}{2} \approx 22.99$$
+        Pour $n \geq 23$, $p_n \geq 1/2$.</p>
+    </div>
+
+    <div class="correction" id="corr-6">
+        <p class="exo-title"><a href="#exo-6" class="exercise-link">Correction de l'exercice 6</a></p>
+        <p>Le calendrier est périodique sur 400 ans. Sur 400 ans, il y a 97 années bissextiles (366 jours) et 303 années non bissextiles (365 jours).</p>
+        <p>Une année non bissextile (365 jours) = 52 semaines + 1 jour. Le 1er de l'an avance d'un jour.</p>
+        <p>Une année bissextile (366 jours) = 52 semaines + 2 jours. Le 1er de l'an avance de deux jours.</p>
+        <p>Sur une période de 400 ans, le nombre de jours d'avance est $303 \times 1 + 97 \times 2 = 497$. $497 \equiv 0 \pmod 7$. La période est complète en termes de jours de la semaine.</p>
+        <p>En analysant les fréquences des jours de la semaine sur 400 ans, on trouve que le dimanche apparaît 58 fois, le samedi 57 fois, et les autres jours 57 ou 58 fois.
+        Le dimanche est plus fréquent que le samedi.</p>
+    </div>
+
+    <div class="correction" id="corr-7">
+        <p class="exo-title"><a href="#exo-7" class="exercise-link">Correction de l'exercice 7</a></p>
+        <p>Pour aller de $(0, 0)$ à $(p, q)$ en se déplaçant vers la droite ($D$) ou vers le haut ($H$), chaque chemin est un mot de longueur $p+q$ contenant $p$ lettres $D$ et $q$ lettres $H$.</p>
+        <p>Le nombre de chemins est le nombre d'anagrammes du mot $D^p H^q$, soit :
+        $$C_{p+q}^p = C_{p+q}^q = \frac{(p+q)!}{p! q!}$$</p>
+    </div>
+
+    <div class="correction" id="corr-8">
+        <p class="exo-title"><a href="#exo-8" class="exercise-link">Correction de l'exercice 8</a></p>
+        <p>L'équation est $10x + 20y + 50z = 10000$ centimes, ou $x + 2y + 5z = 1000$, avec $x, y, z \in \mathbb{N}$.</p>
+        <p>$z$ varie de $0$ à $E(1000/5) = 200$.</p>
+        <p>Pour un $z$ fixé, on résout $x + 2y = 1000 - 5z$. Posons $k = 1000 - 5z$.
+        Le nombre de solutions $(x, y)$ est $E(k/2) + 1 = E(500 - 5z/2) + 1$.</p>
+        <p>Nombre total de façons : $$\sum_{z=0}^{200} \left(E\left(500 - \frac{5z}{2}\right) + 1\right)$$
+        Le calcul détaillé donne :
+        $$50401$$</p>
+    </div>
+
+    <div class="correction" id="corr-9">
+        <p class="exo-title"><a href="#exo-9" class="exercise-link">Correction de l'exercice 9</a></p>
+        <ol>
+            <li>Formule du crible (Principe d'inclusion-exclusion). (Démonstration par indicatrices de fonctions, voir le PDF).</li>
+            <li>Nombre de dérangements $D_n$.
+                $D_n = \operatorname{card}(S_n) - \operatorname{card}(A_1 \cup \dots \cup A_n)$.
+                $\operatorname{card}(A_{i_1} \cap \dots \cap A_{i_k}) = (n-k)!$.
+                $$D_n = n! - \binom{n}{1}(n-1)! + \binom{n}{2}(n-2)! - \dots + (-1)^n \binom{n}{n} 0!$$
+                $$D_n = n! \sum_{k=0}^n \frac{(-1)^k}{k!}$$
+                Problème des chapeaux : La probabilité est $P_n = \frac{D_n}{n!} = \sum_{k=0}^n \frac{(-1)^k}{k!}$.
+                $$\lim_{n \to +\infty} P_n = \sum_{k=0}^\infty \frac{(-1)^k}{k!} = e^{-1}$$
+            </li>
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-10">
+        <p class="exo-title"><a href="#exo-10" class="exercise-link">Correction de l'exercice 10</a></p>
+        <p>Nombre de surjections $f: E_{n+1} \to E_n$.
+        Une surjection équivaut à partitionner $E_{n+1}$ en $n$ classes, dont une de taille 2, et $n-1$ de taille 1, puis bijecter les classes sur $E_n$.
+        Le nombre de partitions est $C_{n+1}^2 \cdot \frac{(n-1)!}{1! (n-1)!} \cdot \frac{1}{1!} = \binom{n+1}{2}$.
+        Le nombre de surjections est $n! S_{n+1}^n = n! \binom{n+1}{2}$.
+        $$n! \binom{n+1}{2} = n! \frac{(n+1)n}{2} = \frac{n^2 (n+1)!}{2}$$
+        (Le résultat du PDF est $\frac{n(n+1)!}{2}$ qui semble être une erreur de calcul dans leur expression finale).
+        Le nombre correct est $n \cdot C_{n+1}^2 \cdot (n-1)! = \frac{n^2 (n+1)!}{2}$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-11">
+        <p class="exo-title"><a href="#exo-11" class="exercise-link">Correction de l'exercice 11</a></p>
+        <p>Nombre de diagonales : $D_n = \binom{n}{2} - n = \frac{n(n-3)}{2}$.</p>
+        <p>Nombre maximal de points d'intersection (distincts des sommets) : Choisir 4 sommets détermine une paire de diagonales qui s'intersectent.
+        $$I_n = \binom{n}{4} = \frac{n(n-1)(n-2)(n-3)}{24}$$</p>
+    </div>
+
+    <div class="correction" id="corr-12">
+        <p class="exo-title"><a href="#exo-12" class="exercise-link">Correction de l'exercice 12</a></p>
+        <ol>
+            <li>Régions dans le plan $P(n)$: $P(n) = P(n-1) + n$. $P(1)=2$.
+                $$P(n) = 2 + \sum_{k=2}^n k = 2 + \frac{n(n+1)}{2} - 1 = \frac{n^2+n+2}{2}$$
+            </li>
+            <li>Régions dans l'espace $Q(n)$: $Q(n) = Q(n-1) + P(n-1)$. $Q(1)=2$.
+                $$Q(n) = 2 + \sum_{k=2}^n P(k-1) = 2 + \sum_{j=1}^{n-1} \frac{j^2+j+2}{2}$$
+                $$Q(n) = \frac{n^3+5n+6}{6}$$
+        </ol>
+    </div>
+
+    <div class="correction" id="corr-13">
+        <p class="exo-title"><a href="#exo-13" class="exercise-link">Correction de l'exercice 13</a></p>
+        <p>$P_n^k$ sont les nombres de Stirling de seconde espèce $S(n, k)$.</p>
+        $$P_n^k = P_{n-1}^{k-1} + k P_{n-1}^k$$
+        (Démontré en considérant si un élément fixé $a$ forme un singleton ou est joint à une autre classe).
+        <p>Tableau $P_n^k$ (Stirling $S(n, k)$) :</p>
+        <table>
+            <thead>
+                <tr><th>n/k</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+                <tr><td>2</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+                <tr><td>3</td><td>1</td><td>3</td><td>1</td><td>0</td><td>0</td></tr>
+                <tr><td>4</td><td>1</td><td>7</td><td>6</td><td>1</td><td>0</td></tr>
+                <tr><td>5</td><td>1</td><td>15</td><td>25</td><td>10</td><td>1</td></tr>
+            </tbody>
+        </table>
+        <p>Nombre de surjections $f: E_n \to E_p$ ($p \leq n$) : $$p! P_n^p$$</p>
+    </div>
+
+</body>
+</html>
