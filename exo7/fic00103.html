@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continuité (étude globale). Diverses fonctions - Exercices</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <style>
+        /* Optimisation mobile */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            padding: 10px;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+        }
+        header {
+            padding: 10px 0;
+            border-bottom: 2px solid #f0f0f0;
+            margin-bottom: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+        .header-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #e67e22; /* Exo7 color */
+        }
+        .exercise, .correction {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow-x: auto; /* Handle wide formulas */
+        }
+        .correction {
+            background-color: #fcfcfc;
+            border-left: 5px solid #3498db;
+        }
+        .exo-title {
+            font-weight: bold;
+            display: inline;
+        }
+        .difficulty {
+            font-size: 0.8em;
+            color: #e74c3c;
+            margin-left: 5px;
+        }
+        .correction-link, .exercise-link {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: 500;
+            display: block;
+            margin-top: 10px;
+            padding: 5px 0;
+        }
+        .correction-link::before {
+            content: "▼ ";
+            font-size: 0.8em;
+        }
+        .page-break {
+            margin: 30px 0;
+            border-top: 1px dashed #ccc;
+        }
+        /* KaTeX specific styling for better mobile display */
+        .katex-display {
+            padding: 10px 0;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});</script>
+
+    <header>
+        <span style="float: right;" class="header-title">Exo7</span>
+        <h1>Continuité (étude globale). Diverses fonctions</h1>
+        <p>Exercices de Jean-Louis Rouget. Retrouver aussi cette fiche sur <a href="http://www.maths-france.fr">www.maths-france.fr</a></p>
+        <p style="font-size: 0.9em; color: #777;">
+            * très facile ** facile *** difficulté moyenne **** difficile ***** très difficile<br>
+            I: Incontournable T: pour travailler et mémoriser le cours
+        </p>
+    </header>
+
+    <h2>Énoncés</h2>
+
+    <div class="exercise" id="exo-1">
+        <p class="exo-title">Exercice 1 <span class="difficulty">**I</span></p>
+        <p>Soit $A$ une partie non vide de $\mathbb{R}$. Pour $x$ réel, on pose $f(x) = d(x, A) = \inf\{|y - x|, y \in A\}$. Montrer que $f$ est Lipschitzienne.</p>
+        <a href="#corr-1" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-2">
+        <p class="exo-title">Exercice 2 <span class="difficulty">**I</span></p>
+        <p>Soit $f$ continue sur $[a, b]$ à valeurs dans $[a, b]$. Montrer que $f$ a un point fixe.</p>
+        <a href="#corr-2" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-3">
+        <p class="exo-title">Exercice 3 <span class="difficulty">**I</span></p>
+        <p>Soit $f$ définie sur $[0, +\infty[$ à valeurs dans $[0, +\infty[$, continue sur $[0, +\infty[$ telle que $\frac{f(x)}{x}$ a une limite réelle $l \in [0, 1[$ quand $x$ tend vers $+\infty$. Montrer que $f$ a un point fixe.</p>
+        <a href="#corr-3" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-4">
+        <p class="exo-title">Exercice 4 <span class="difficulty">***</span></p>
+        <p>Soit $f$ croissante de $[a, b]$ dans lui-même. Montrer que $f$ a un point fixe.</p>
+        <a href="#corr-4" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-5">
+        <p class="exo-title">Exercice 5 <span class="difficulty">****</span></p>
+        <p>Soit $f$ croissante sur $[a, b]$ telle que $f([a, b]) = [f(a), f(b)]$. Montrer que $f$ est continue sur $[a, b]$.</p>
+        <a href="#corr-5" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-6">
+        <p class="exo-title">Exercice 6 <span class="difficulty">***</span></p>
+        <p>Soit $f$ continue sur $\mathbb{R}^+$ telle que, pour tout réel positif $x$, on ait $f(x^2) = f(x)$. Montrer que $f$ est constante sur $\mathbb{R}^+$. Trouver un exemple où $f$ n'est pas constante.</p>
+        <a href="#corr-6" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-7">
+        <p class="exo-title">Exercice 7 <span class="difficulty">***IT</span></p>
+        <p>Soit $f$ continue sur $\mathbb{R}^+$ à valeurs dans $\mathbb{R}$ admettant une limite réelle quand $x$ tend vers $+\infty$. Montrer que $f$ est uniformément continue sur $\mathbb{R}^+$.</p>
+        <a href="#corr-7" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-8">
+        <p class="exo-title">Exercice 8 <span class="difficulty">***I</span></p>
+        <p>Trouver tous les morphismes continus de $(\mathbb{R}, +)$.</p>
+        <a href="#corr-8" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-9">
+        <p class="exo-title">Exercice 9 <span class="difficulty">***</span></p>
+        <p>Soient $a$ et $b$ deux réels tels que $0 < a < b$. Montrer que $\bigcup_{k \geq 1} ]ka, kb[$ contient un intervalle de la forme $]A, +\infty[$ puis déterminer la plus petite valeur possible de $A$.</p>
+        <a href="#corr-9" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="exercise" id="exo-10">
+        <p class="exo-title">Exercice 10 <span class="difficulty">***</span></p>
+        <p>Soit $f$ périodique et continue sur $\mathbb{R}$. Montrer que $f$ est bornée et uniformément continue sur $\mathbb{R}$.</p>
+        <a href="#corr-10" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-11">
+        <p class="exo-title">Exercice 11 <span class="difficulty">***</span> Théorème d'homéomorphie</p>
+        <p>Soit $f$ une application continue sur un intervalle $I$ de $\mathbb{R}$ à valeurs dans $\mathbb{R}$. Montrer que $f$ est injective si et seulement si $f$ est strictement monotone et que dans ce cas $f(I)$ est un intervalle de même nature que $I$ (ouvert, semi-ouvert, fermé).</p>
+        <a href="#corr-11" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-12">
+        <p class="exo-title">Exercice 12 <span class="difficulty">***</span></p>
+        <p>Trouver un exemple de fonction périodique dont le groupe des périodes est dense dans $\mathbb{R}$ mais pas $\mathbb{R}$.</p>
+        <a href="#corr-12" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-13">
+        <p class="exo-title">Exercice 13 <span class="difficulty">**</span></p>
+        <p>Soit $f$ de $[0, 1]$ dans lui-même telle que $\forall (x, y) \in ([0, 1])^2, |f(y) - f(x)| \geq |x - y|$. Montrer que $f = \operatorname{Id}$ ou $f = 1 - \operatorname{Id}$.</p>
+        <a href="#corr-13" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-14">
+        <p class="exo-title">Exercice 14 <span class="difficulty">***</span></p>
+        <p>Trouver les fonctions bijectives de $[0, 1]$ sur lui-même vérifiant $\forall x \in [0, 1], f(2x - f(x)) = x$.</p>
+        <a href="#corr-14" class="correction-link">Correction</a>
+    </div>
+
+    <div class="exercise" id="exo-15">
+        <p class="exo-title">Exercice 15 <span class="difficulty">***I</span></p>
+        <p>Soit $f$ une application de $[0, 1]$ dans $\mathbb{R}$, continue sur $[0, 1]$ et vérifiant $f(0) = f(1)$.</p>
+        <ol>
+            <li>Soit $n$ un entier naturel non nul et soit $a = \frac{1}{n}$. Montrer que l'équation $f(x+a) = f(x)$ admet au moins une solution.</li>
+            <li>Montrer (en fournissant une fonction précise) que, si $a$ est un réel de $]0, 1[$ qui n'est pas de la forme précédente, il est possible que l'équation $f(x+a) = f(x)$ n'ait pas de solution.</li>
+            <li>Application. Un cycliste parcourt $20$ km en une heure.
+                <ol type="a">
+                    <li>Montrer qu'il existe au moins un intervalle de temps de durée une demi-heure pendant lequel il a parcouru $10$ km.</li>
+                    <li>Montrer qu'il existe au moins un intervalle de temps de durée $3$ min pendant lequel il a parcouru $1$ km.</li>
+                    <li>Montrer qu'il n'existe pas nécessairement un intervalle de temps de durée $45$ min pendant lequel il a parcouru $15$ km.</li>
+                </ol>
+            </li>
+        </ol>
+        <a href="#corr-15" class="correction-link">Correction</a>
+    </div>
+
+    <div class="page-break"></div>
+    <h2>Corrections</h2>
+
+    <div class="correction" id="corr-1">
+        <p class="exo-title"><a href="#exo-1" class="exercise-link">Correction de l'exercice 1</a></p>
+        <p>$$ \lim_{x \to +\infty} \frac{f(x)}{x} = l $$</p>
+    </div>
+
+    <div class="correction" id="corr-2">
+        <p class="exo-title"><a href="#exo-2" class="exercise-link">Correction de l'exercice 2</a></p>
+        <p>Soit $g(x) = f(x) - x$. $g$ continue sur $[a, b]$. $\lim \frac{f(x)}{x} = l \in [0, 1[$.</p>
+        <p>$g(a) = f(a) - a \geq 0$, $g(b) = f(b) - b \leq 0$. Par TVI, $g(c)=0$. $f(c)=c$.</p>
+    </div>
+
+    <div class="correction" id="corr-3">
+        <p class="exo-title"><a href="#exo-3" class="exercise-link">Correction de l'exercice 3</a></p>
+        <p>Soit $g(x) = f(x) - x$. $g(0) \geq 0$. $\lim_{x \to +\infty} \frac{f(x)}{x} = l < 1$. $\lim g(x) = -\infty$. $f$ a un point fixe.</p>
+    </div>
+
+    <div class="correction" id="corr-4">
+        <p class="exo-title"><a href="#exo-4" class="exercise-link">Correction de l'exercice 4</a></p>
+        <p>Soit $E = \{x \in [a, b] / f(x) \geq x\}$. $c = \sup E$. $f(c) = c$. $f$ a un point fixe. (Preuve par borne supérieure).</p>
+    </div>
+
+    <div class="correction" id="corr-5">
+        <p class="exo-title"><a href="#exo-5" class="exercise-link">Correction de l'exercice 5</a></p>
+        <p>$f$ croissante, $f([a, b]) = [f(a), f(b)]$. $f$ est continue. (Preuve par TVI).
+        </p>
+    </div>
+
+    <div class="correction" id="corr-6">
+        <p class="exo-title"><a href="#exo-6" class="exercise-link">Correction de l'exercice 6</a></p>
+        <p>$f(x^2) = f(x)$. $\forall x > 0, f(x) = f(\sqrt{x}) = f(\sqrt[2^n]{x})$. $\lim_{n \to \infty} \sqrt[2^n]{x} = 1$. $f(x)=f(1)$. $f$ est constante sur $\mathbb{R}^+$.
+        Exemple: $f(x) = 0$ si $x \neq 1$, $f(1)=1$. $f$ non continue en 1.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-7">
+        <p class="exo-title"><a href="#exo-7" class="exercise-link">Correction de l'exercice 7</a></p>
+        <p>Limite finie en $+\infty$. $f$ est uniformément continue sur $\mathbb{R}^+$. (Théorème des bornes et uniformité).
+        </p>
+    </div>
+
+    <div class="correction" id="corr-8">
+        <p class="exo-title"><a href="#exo-8" class="exercise-link">Correction de l'exercice 8</a></p>
+        <p>$f$ morphisme continu de $(\mathbb{R}, +)$ $\implies f(x) = ax$ (application linéaire de $\mathbb{R}$ dans $\mathbb{R}$).
+        </p>
+    </div>
+
+    <div class="correction" id="corr-9">
+        <p class="exo-title"><a href="#exo-9" class="exercise-link">Correction de l'exercice 9</a></p>
+        <p>$\bigcup_{k \geq 1} ]ka, kb[$. La plus petite valeur de $A$ est $A = \frac{ab}{b-a}$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-10">
+        <p class="exo-title"><a href="#exo-10" class="exercise-link">Correction de l'exercice 10</a></p>
+        <p>$f$ périodique et continue sur $\mathbb{R}$. $f$ est bornée sur $[0, T]$ donc sur $\mathbb{R}$.
+        $f$ est uniformément continue sur $[0, T]$ donc sur $\mathbb{R}$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-11">
+        <p class="exo-title"><a href="#exo-11" class="exercise-link">Correction de l'exercice 11</a></p>
+        <p>$f$ continue sur $I$. $f$ injective $\Leftrightarrow f$ strictement monotone.
+        $f(I)$ est un intervalle de même nature que $I$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-12">
+        <p class="exo-title"><a href="#exo-12" class="exercise-link">Correction de l'exercice 12</a></p>
+        <p>Fonction caractéristique de $\mathbb{Q}$, $\chi_\mathbb{Q}$. Période $T \in \mathbb{Q}$. Groupe des périodes $\mathbb{Q}$, dense dans $\mathbb{R}$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-13">
+        <p class="exo-title"><a href="#exo-13" class="exercise-link">Correction de l'exercice 13</a></p>
+        <p>$|f(y) - f(x)| \geq |x - y|$. $f$ est bijective. $f(0)=0, f(1)=1$ ou $f(0)=1, f(1)=0$.
+        $f = \operatorname{Id}$ ou $f = 1 - \operatorname{Id}$.
+        </p>
+    </div>
+
+    <div class="correction" id="corr-14">
+        <p class="exo-title"><a href="#exo-14" class="exercise-link">Correction de l'exercice 14</a></p>
+        <p>$f(2x-f(x)) = x$. Solutions $f=\operatorname{Id}$ et $f=1-\operatorname{Id}$. (Preuve par suite arithmétique $u_{n+2} - 2u_{n+1} + u_n = 0$).
+        </p>
+    </div>
+
+    <div class="correction" id="corr-15">
+        <p class="exo-title"><a href="#exo-15" class="exercise-link">Correction de l'exercice 15</a></p>
+        <ol>
+            <li>$a = 1/n$. $f(x+1/n) = f(x)$. Solution $x=k/n$.</li>
+            <li>$a \notin \mathbb{Q}$. Possible que $f(x+a) = f(x)$ n'ait pas de solution.</li>
+            <li>Application cycliste: (a) $a=1/2$. Solution existe. (b) $a=1/20$. Solution existe. (c) $a=3/4$. Peut ne pas avoir de solution.</li>
+        </ol>
+    </div>
+
+</body>
+</html>
